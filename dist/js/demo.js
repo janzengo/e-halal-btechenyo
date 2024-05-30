@@ -241,7 +241,7 @@ $(function () {
   var $skinBlue =
         $('<li />', { style: 'float:left; width: 33.33333%; padding: 5px;' })
           .append('<a href="javascript:void(0)" data-skin="skin-blue" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">'
-            + '<div><span style="display:block; width: 20%; float: left; height: 7px; background: #367fa9"></span><span class="bg-light-blue" style="display:block; width: 80%; float: left; height: 7px;"></span></div>'
+            + '<div><span style="display:block; width: 20%; float: left; height: 7px; background: #1d7c39"></span><span class="bg-light-blue" style="display:block; width: 80%; float: left; height: 7px;"></span></div>'
             + '<div><span style="display:block; width: 20%; float: left; height: 20px; background: #222d32"></span><span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span></div>'
             + '</a>'
             + '<p class="text-center no-margin">Blue</p>')
@@ -291,7 +291,7 @@ $(function () {
   var $skinBlueLight =
         $('<li />', { style: 'float:left; width: 33.33333%; padding: 5px;' })
           .append('<a href="javascript:void(0)" data-skin="skin-blue-light" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover">'
-            + '<div><span style="display:block; width: 20%; float: left; height: 7px; background: #367fa9"></span><span class="bg-light-blue" style="display:block; width: 80%; float: left; height: 7px;"></span></div>'
+            + '<div><span style="display:block; width: 20%; float: left; height: 7px; background: #1d7c39"></span><span class="bg-light-blue" style="display:block; width: 80%; float: left; height: 7px;"></span></div>'
             + '<div><span style="display:block; width: 20%; float: left; height: 20px; background: #f9fafc"></span><span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span></div>'
             + '</a>'
             + '<p class="text-center no-margin" style="font-size: 12px">Blue Light</p>')

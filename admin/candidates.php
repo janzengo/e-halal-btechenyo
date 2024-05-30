@@ -9,7 +9,7 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+    <section class="content-header content-page-title">
       <h1>
         Candidates List
       </h1>
@@ -52,6 +52,7 @@
               <table id="example1" class="table table-bordered">
                 <thead>
                   <th class="hidden"></th>
+                  <th>Partylist</th>
                   <th>Position</th>
                   <th>Photo</th>
                   <th>Firstname</th>
@@ -61,24 +62,29 @@
                 </thead>
                 <tbody>
                   <?php
-                    $sql = "SELECT *, candidates.id AS canid FROM candidates LEFT JOIN positions ON positions.id=candidates.position_id ORDER BY positions.priority ASC";
+                    $sql = "SELECT candidates.*, partylists.name AS partylist_name, positions.description AS position_description 
+                            FROM candidates 
+                            LEFT JOIN positions ON positions.id = candidates.position_id 
+                            LEFT JOIN partylists ON partylists.id = candidates.partylist_id 
+                            ORDER BY positions.priority ASC";
                     $query = $conn->query($sql);
                     while($row = $query->fetch_assoc()){
                       $image = (!empty($row['photo'])) ? '../images/'.$row['photo'] : '../images/profile.jpg';
                       echo "
                         <tr>
                           <td class='hidden'></td>
-                          <td>".$row['description']."</td>
+                          <td>".$row['partylist_name']."</td>
+                          <td>".$row['position_description']."</td>
                           <td>
                             <img src='".$image."' width='30px' height='30px'>
-                            <a href='#edit_photo' data-toggle='modal' class='pull-right photo' data-id='".$row['canid']."'><span class='fa fa-edit'></span></a>
+                            <a href='#edit_photo' data-toggle='modal' class='pull-right photo' data-id='".$row['id']."'><span class='fa fa-edit'></span></a>
                           </td>
                           <td>".$row['firstname']."</td>
                           <td>".$row['lastname']."</td>
-                          <td><a href='#platform' data-toggle='modal' class='btn btn-info btn-sm btn-flat platform' data-id='".$row['canid']."'><i class='fa fa-search'></i> View</a></td>
+                          <td><a href='#platform' data-toggle='modal' class='btn btn-info btn-sm btn-flat platform' data-id='".$row['id']."'><i class='fa fa-search'></i> View</a></td>
                           <td>
-                            <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['canid']."'><i class='fa fa-edit'></i> Edit</button>
-                            <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['canid']."'><i class='fa fa-trash'></i> Delete</button>
+                            <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['id']."'><i class='fa fa-edit'></i> Edit</button>
+                            <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['id']."'><i class='fa fa-trash'></i> Delete</button>
                           </td>
                         </tr>
                       ";
@@ -137,7 +143,8 @@ function getRow(id){
       $('.id').val(response.canid);
       $('#edit_firstname').val(response.firstname);
       $('#edit_lastname').val(response.lastname);
-      $('#posselect').val(response.position_id).html(response.description);      
+      $('#edit_position').val(response.position_id);
+      $('#edit_partylist').val(response.partylist_id);      
       $('#edit_platform').val(response.platform);
       $('.fullname').html(response.firstname+' '+response.lastname);
       $('#desc').html(response.platform);

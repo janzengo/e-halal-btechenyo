@@ -9,7 +9,7 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+    <section class="content-header content-page-title">
       <h1>
         Voters List
       </h1>
@@ -53,34 +53,36 @@
                 <thead>
                   <th>Lastname</th>
                   <th>Firstname</th>
-                  <th>Photo</th>
-                  <th>Voters ID</th>
+                  <th>Course</th>
+                  <th>Student Number</th>
                   <th>Tools</th>
                 </thead>
                 <tbody>
-                  <?php
-                    $sql = "SELECT * FROM voters";
-                    $query = $conn->query($sql);
-                    while($row = $query->fetch_assoc()){
-                      $image = (!empty($row['photo'])) ? '../images/'.$row['photo'] : '../images/profile.jpg';
-                      echo "
-                        <tr>
-                          <td>".$row['lastname']."</td>
-                          <td>".$row['firstname']."</td>
-                          <td>
-                            <img src='".$image."' width='30px' height='30px'>
-                            <a href='#edit_photo' data-toggle='modal' class='pull-right photo' data-id='".$row['id']."'><span class='fa fa-edit'></span></a>
-                          </td>
-                          <td>".$row['voters_id']."</td>
-                          <td>
-                            <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['id']."'><i class='fa fa-edit'></i> Edit</button>
-                            <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['id']."'><i class='fa fa-trash'></i> Delete</button>
-                          </td>
-                        </tr>
-                      ";
-                    }
-                  ?>
-                </tbody>
+              <?php
+                // Update the SQL query to join the voters and courses tables
+                $sql = "SELECT voters.*, courses.description AS course_description 
+                        FROM voters 
+                        JOIN courses ON voters.course_id = courses.id";
+                $query = $conn->query($sql);
+                
+                while($row = $query->fetch_assoc()){
+                  $image = (!empty($row['photo'])) ? '../images/'.$row['photo'] : '../images/profile.jpg';
+                  echo "
+                    <tr>
+                      <td>".$row['lastname']."</td>
+                      <td>".$row['firstname']."</td>
+                      <td>".$row['course_description']."</td>
+                      <td>".$row['voters_id']."</td>
+                      <td>
+                        <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['id']."'><i class='fa fa-edit'></i> Edit</button>
+                        <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['id']."'><i class='fa fa-trash'></i> Delete</button>
+                      </td>
+                    </tr>
+                  ";
+                }
+              ?>
+            </tbody> 
+
               </table>
             </div>
           </div>
@@ -127,6 +129,8 @@ function getRow(id){
       $('.id').val(response.id);
       $('#edit_firstname').val(response.firstname);
       $('#edit_lastname').val(response.lastname);
+      $('#edit_studentNumber').val(response.voters_id);
+      $('#edit_course').val(response.course_id);
       $('#edit_password').val(response.password);
       $('.fullname').html(response.firstname+' '+response.lastname);
     }

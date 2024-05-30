@@ -14,13 +14,16 @@
 	while($row = $query->fetch_assoc()){
 		$input = ($row['max_vote'] > 1) ? '<input type="checkbox" class="flat-red '.slugify($row['description']).'" name="'.slugify($row['description'])."[]".'">' : '<input type="radio" class="flat-red '.slugify($row['description']).'" name="'.slugify($row['description']).'">';
 
-		$sql = "SELECT * FROM candidates WHERE position_id='".$row['id']."'";
+		$sql = "SELECT candidates.*, partylists.name AS partylist_name 
+        FROM candidates 
+        LEFT JOIN partylists ON candidates.partylist_id = partylists.id 
+        WHERE position_id='".$row['id']."'";
 		$cquery = $conn->query($sql);
 		while($crow = $cquery->fetch_assoc()){
 			$image = (!empty($crow['photo'])) ? '../images/'.$crow['photo'] : '../images/profile.jpg';
 			$candidate .= '
 				<li>
-					'.$input.'<button class="btn btn-primary btn-sm btn-flat clist"><i class="fa fa-search"></i> Platform</button><img src="'.$image.'" height="100px" width="100px" class="clist"><span class="cname clist">'.$crow['firstname'].' '.$crow['lastname'].'</span>
+					'.$input.'<button class="btn btn-primary btn-sm btn-flat clist"><i class="fa fa-search"></i> Platform</button><img src="'.$image.'" height="100px" width="100px" class="clist"><span class="cname clist">'.$crow['firstname'].' '.$crow['lastname'].' — '.$crow['partylist_name'].'</span>
 				</li>
 			';
 		}

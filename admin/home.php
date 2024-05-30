@@ -6,11 +6,15 @@
 
   <?php include 'includes/navbar.php'; ?>
   <?php include 'includes/menubar.php'; ?>
-
+  <style>
+    .small-box .fa-user,.small-box .fa-users,.small-box .fa-check-circle,.small-box .fa-layer-group{
+		font-size: 70px !important;
+	}
+  </style>
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+    <section class="content-header content-page-title">
       <h1>
         Dashboard
       </h1>
@@ -57,10 +61,10 @@
                 echo "<h3>".$query->num_rows."</h3>";
               ?>
 
-              <p>No. of Positions</p>
+              <p>No. of <br>Positions</p>
             </div>
             <div class="icon">
-              <i class="fa fa-tasks"></i>
+              <i class="fa fa-layer-group" style="color: #0097bc;"></i>
             </div>
             <a href="positions.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
@@ -77,10 +81,10 @@
                 echo "<h3>".$query->num_rows."</h3>";
               ?>
           
-              <p>No. of Candidates</p>
+              <p>No. of <br>Candidates</p>
             </div>
             <div class="icon">
-              <i class="fa fa-black-tie"></i>
+              <i class="fa fa-user"></i>
             </div>
             <a href="candidates.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
@@ -97,7 +101,7 @@
                 echo "<h3>".$query->num_rows."</h3>";
               ?>
              
-              <p>Total Voters</p>
+              <p>Total <br>Voters</p>
             </div>
             <div class="icon">
               <i class="fa fa-users"></i>
@@ -117,10 +121,10 @@
                 echo "<h3>".$query->num_rows."</h3>";
               ?>
 
-              <p>Voters Voted</p>
+              <p>Voters<br>Voted</p>
             </div>
             <div class="icon">
-              <i class="fa fa-edit"></i>
+              <i class="fa fa-check-circle"></i>
             </div>
             <a href="votes.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
@@ -129,7 +133,7 @@
       </div>
 
       <div class="row">
-        <div class="col-xs-12">
+        <div class="col-xs-12 content-page-title">
           <h3>Votes Tally
             <span class="pull-right">
               <a href="print.php" class="btn btn-success btn-sm btn-flat" target="_blank"><span class="glyphicon glyphicon-print"></span> Print</a>
@@ -201,8 +205,8 @@
         datasets: [
           {
             label               : 'Votes',
-            fillColor           : 'rgba(60,141,188,0.9)',
-            strokeColor         : 'rgba(60,141,188,0.8)',
+            fillColor           : 'rgba(36, 150, 70, 1)',
+            strokeColor         : 'rgba(36, 150, 70, 1)',
             pointColor          : '#3b8bba',
             pointStrokeColor    : 'rgba(60,141,188,1)',
             pointHighlightFill  : '#fff',

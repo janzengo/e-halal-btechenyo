@@ -1,9 +1,8 @@
 <footer class="main-footer">
     <div class="container">
-      <div class="pull-right hidden-xs">
-        <b>All rights reserved</b>
+      <div class="text-center hidden-xs">
+          <strong>Copyright &copy; 2024 <a href="https://btech.edu.ph">Dalubhsaang Politekniko ng Lungsod ng Baliwag</a></strong>
       </div>
-      <strong>Copyright &copy; 2024 <a href="https://btech.edu.ph">Dalubhsaang Politekniko ng Lungsod ng Baliwag</a></strong>
     </div>
     <!-- /.container -->
 </footer>

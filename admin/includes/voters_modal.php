@@ -13,28 +13,53 @@
                     <label for="firstname" class="col-sm-3 control-label">Firstname</label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="firstname" name="firstname" required>
+                      <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Enter your full first name." required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="lastname" class="col-sm-3 control-label">Lastname</label>
 
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="lastname" name="lastname" required>
+                      <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Enter your full last name." required>
                     </div>
                 </div>
                 <div class="form-group">
+                    <label for="studentNumber" class="col-sm-3 control-label">Student Number</label>
+
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="studentNumber" name="studentNumber" placeholder="You will use this to log in." required>
+                    </div>
+                </div>
+
+                <!-- COURSE -->
+                <div class="form-group">
+                    <label for="course" class="col-sm-3 control-label">Course</label>
+
+                    <div class="col-sm-9">
+                      <select class="form-control" id="course" name="course" required>
+                        <option value="" selected>- Select -</option>
+                        <?php
+                          $sql = "SELECT * FROM courses";
+                          $query = $conn->query($sql);
+                          while($row = $query->fetch_assoc()){
+                            echo "
+                              <option value='".$row['id']."'>".$row['description']."</option>
+                            ";
+                          }
+                        ?>
+                      </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                  <?php 
+                    $set = '123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                    $password = substr(str_shuffle($set), 0, 15);
+                  ?>
                     <label for="password" class="col-sm-3 control-label">Password</label>
 
                     <div class="col-sm-9">
-                      <input type="password" class="form-control" id="password" name="password" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="photo" class="col-sm-3 control-label">Photo</label>
-
-                    <div class="col-sm-9">
-                      <input type="file" id="photo" name="photo">
+                      <input type="text" class="form-control" id="password" name="password" value="<?php echo $password; ?>" required readonly>
                     </div>
                 </div>
             </div>
@@ -71,6 +96,31 @@
 
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="edit_lastname" name="lastname">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="edit_studentNumber" class="col-sm-3 control-label">Student Number</label>
+
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="edit_studentNumber" name="studentNumber">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="edit_course" class="col-sm-3 control-label">Course</label>
+
+                    <div class="col-sm-9">
+                      <select class="form-control" id="edit_course" name="course" required>
+                        <option value="" selected>- Select -</option>
+                        <?php
+                          $sql = "SELECT * FROM courses";
+                          $query = $conn->query($sql);
+                          while($row = $query->fetch_assoc()){
+                            echo "
+                              <option value='".$row['id']."'>".$row['description']."</option>
+                            ";
+                          }
+                        ?>
+                      </select>
                     </div>
                 </div>
                 <div class="form-group">

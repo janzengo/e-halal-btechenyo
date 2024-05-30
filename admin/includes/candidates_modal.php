@@ -61,6 +61,24 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label for="edit_partylist" class="col-sm-3 control-label">Partylist</label>
+
+                    <div class="col-sm-9">
+                      <select class="form-control" id="edit_partylist" name="partylist" required>
+                        <option value="" selected id="posselect">- Select -</option>
+                        <?php
+                          $sql = "SELECT * FROM partylists";
+                          $query = $conn->query($sql);
+                          while($row = $query->fetch_assoc()){
+                            echo "
+                              <option value='".$row['id']."'>".$row['name']."</option>
+                            ";
+                          }
+                        ?>
+                      </select>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label for="photo" class="col-sm-3 control-label">Photo</label>
 
                     <div class="col-sm-9">
@@ -110,18 +128,37 @@
                       <input type="text" class="form-control" id="edit_lastname" name="lastname" required>
                     </div>
                 </div>
+                
                 <div class="form-group">
                     <label for="edit_position" class="col-sm-3 control-label">Position</label>
 
                     <div class="col-sm-9">
                       <select class="form-control" id="edit_position" name="position" required>
-                        <option value="" selected id="posselect"></option>
+                        <option value="" selected id="posselect">- Select -</option>
                         <?php
                           $sql = "SELECT * FROM positions";
                           $query = $conn->query($sql);
                           while($row = $query->fetch_assoc()){
                             echo "
                               <option value='".$row['id']."'>".$row['description']."</option>
+                            ";
+                          }
+                        ?>
+                      </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="edit_partylist" class="col-sm-3 control-label">Partylist</label>
+
+                    <div class="col-sm-9">
+                      <select class="form-control" id="edit_partylist" name="partylist" required>
+                        <option value="" selected id="posselect">- Select -</option>
+                        <?php
+                          $sql = "SELECT * FROM partylists";
+                          $query = $conn->query($sql);
+                          while($row = $query->fetch_assoc()){
+                            echo "
+                              <option value='".$row['id']."'>".$row['name']."</option>
                             ";
                           }
                         ?>

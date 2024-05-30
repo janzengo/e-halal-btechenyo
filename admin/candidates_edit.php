@@ -6,9 +6,10 @@
 		$firstname = $_POST['firstname'];
 		$lastname = $_POST['lastname'];
 		$position = $_POST['position'];
+		$party = $_POST['partylist'];
 		$platform = $_POST['platform'];
 
-		$sql = "UPDATE candidates SET firstname = '$firstname', lastname = '$lastname', position_id = '$position', platform = '$platform' WHERE id = '$id'";
+		$sql = "UPDATE candidates SET firstname = '$firstname', lastname = '$lastname', position_id = '$position', partylist_id = '$party', platform = '$platform' WHERE id = '$id'";
 		if($conn->query($sql)){
 			$_SESSION['success'] = 'Candidate updated successfully';
 		}

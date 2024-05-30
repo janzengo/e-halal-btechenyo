@@ -9,7 +9,7 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+    <section class="content-header content-page-title">
       <h1>
         Votes
       </h1>
@@ -58,7 +58,7 @@
                 </thead>
                 <tbody>
                   <?php
-                    $sql = "SELECT *, candidates.firstname AS canfirst, candidates.lastname AS canlast, voters.firstname AS votfirst, voters.lastname AS votlast FROM votes LEFT JOIN positions ON positions.id=votes.position_id LEFT JOIN candidates ON candidates.id=votes.candidate_id LEFT JOIN voters ON voters.id=votes.voters_id ORDER BY positions.priority ASC";
+                    $sql = "SELECT *, candidates.firstname AS canfirst, candidates.lastname AS canlast, voters.voters_id AS votid, voters.lastname AS votlast FROM votes LEFT JOIN positions ON positions.id=votes.position_id LEFT JOIN candidates ON candidates.id=votes.candidate_id LEFT JOIN voters ON voters.id=votes.voters_id ORDER BY positions.priority ASC";
                     $query = $conn->query($sql);
                     while($row = $query->fetch_assoc()){
                       echo "
@@ -66,7 +66,7 @@
                           <td class='hidden'></td>
                           <td>".$row['description']."</td>
                           <td>".$row['canfirst'].' '.$row['canlast']."</td>
-                          <td>".$row['votfirst'].' '.$row['votlast']."</td>
+                          <td>".$row['votid']."</td>
                         </tr>
                       ";
                     }

@@ -9,7 +9,7 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+    <section class="content-header content-page-title">
       <h1>
         Ballot Position
       </h1>
