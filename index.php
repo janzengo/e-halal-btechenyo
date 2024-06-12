@@ -51,7 +51,7 @@
 	.text-smaller {
 		color: #8C8C8C;
 		text-align: center;
-		font-family: "SF Pro Text";
+		font-family: "SF Pro Display";
 		font-size: 12px;
 		font-style: light;
 		font-weight: 300;

@@ -20,9 +20,8 @@
        folder instead of downloading all of them to reduce the load. -->
   	<link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
   	<link rel="stylesheet" href="dist/css/custom.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   	<!-- Google Font -->
-  	<link href="https://db.onlinewebfonts.com/c/1c45e28f8e86cc89876f003b953cc3e9?family=SF+Pro+Text+Regular" rel="stylesheet">
+  	<link rel="stylesheet" href="../dist/customFonts.css">
 
   	<style>
   		.mt20{

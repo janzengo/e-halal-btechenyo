@@ -12,9 +12,8 @@
 
 button, .btn {
     border-radius: 5px !important;
+    transition: all ease .3s !important;
 }
-
-
 
 .box-custom {
     border-radius: 10px !important;

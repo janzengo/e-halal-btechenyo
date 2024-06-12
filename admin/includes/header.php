@@ -11,8 +11,8 @@
     <!-- iCheck for checkboxes and radio inputs -->
     <link rel="stylesheet" href="../plugins/iCheck/all.css">
   	<!-- Font Awesome -->
-  	<link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  	<link rel="stylesheet" href="../bower_components/font-awesome/css/all.min.css">
+    
   	<!-- Theme style -->
   	<link rel="stylesheet" href="../dist/css/AdminLTE.css">
   	<!-- DataTables -->
@@ -33,12 +33,6 @@
   	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   	<![endif]-->
-
-    <!-- Custom Icon -->
-    <link rel="stylesheet" href="https://fontawesome.com/icons/fingerprint?f=classic&s=solid">
-    
-  	<!-- Google Font -->
-  	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
   	<style type="text/css">
       .bold{

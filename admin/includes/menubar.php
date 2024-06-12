@@ -14,6 +14,9 @@
       <li class="header">SETTINGS</li>
       <li class=""><a href="ballot.php"><i class="fa fa-file-text"></i> <span>Ballot Position</span></a></li>
       <li class=""><a href="#config" data-toggle="modal"><i class="fa fa-sliders"></i> <span>Election Title</span></a></li>
+      <li class="header">ADMIN ACTIONS</li>
+      <li class=""><a href="logs.php"><i class="fa fa-history"></i> <span>View Logs</span></a></li>
+      <li class=""><a href="officers.php"><i class="fa fa-wrench"></i> <span>Manage Officers</span></a></li>
     </ul>
   </section>
   <!-- /.sidebar -->
