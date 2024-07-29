@@ -14,7 +14,7 @@
         Candidates List
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Manage</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Candidates</li>
       </ol>
     </section>
@@ -81,7 +81,7 @@
                           </td>
                           <td>".$row['firstname']."</td>
                           <td>".$row['lastname']."</td>
-                          <td><a href='#platform' data-toggle='modal' class='btn btn-info btn-sm btn-flat platform' data-id='".$row['id']."'><i class='fa fa-search'></i> View</a></td>
+                          <td><a href='#view_platform' data-toggle='modal' class='btn btn-info btn-sm btn-flat platform' data-id='".$row['id']."'><i class='fa fa-search'></i> View</a></td>
                           <td>
                             <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['id']."'><i class='fa fa-edit'></i> Edit</button>
                             <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['id']."'><i class='fa fa-trash'></i> Delete</button>

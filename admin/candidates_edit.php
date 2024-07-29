@@ -24,6 +24,7 @@ if (isset($_POST['edit'])) {
     $old_lastname = $old_candidate_info['lastname'];
     $old_position_name = $old_candidate_info['position_name'];
     $old_partylist_name = $old_candidate_info['partylist_name'];
+    $old_platform = $old_candidate_info['platform']; // Fetch the old platform
 
     // Retrieve new position name
     $new_position_name = get_position_name($conn, $position);
@@ -35,13 +36,19 @@ if (isset($_POST['edit'])) {
     
     // Prepare and execute the statement
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssiiis", $firstname, $lastname, $position, $party, $platform, $id);
+    $stmt->bind_param("ssiisi", $firstname, $lastname, $position, $party, $platform, $id);
     if ($stmt->execute()) {
         $_SESSION['success'] = 'Candidate updated successfully';
+        
         // Log the successful action
-        log_action($conn, $username, $_SESSION['role'], "Updated Candidate: $old_firstname $old_lastname (Position: $old_position_name, Partylist: $old_partylist_name) to $firstname $lastname (Position: $new_position_name, Partylist: $new_partylist_name)");
+        $log_details = "Updated Candidate: $old_firstname $old_lastname (Position: $old_position_name, Partylist: $old_partylist_name) to $firstname $lastname (Position: $new_position_name, Partylist: $new_partylist_name)";
+        if ($old_platform !== $platform) {
+            $log_details .= " | Platform changed from: '$old_platform' to: '$platform'";
+        }
+        log_action($conn, $username, $_SESSION['role'], $log_details);
     } else {
         $_SESSION['error'] = 'Failed to update candidate: ' . $stmt->error;
+        
         // Log the error action
         log_action($conn, $username, $_SESSION['role'], "Error updating candidate: " . $stmt->error);
     }
@@ -52,7 +59,7 @@ if (isset($_POST['edit'])) {
 header('location: candidates.php');
 
 function get_candidate_info($conn, $id) {
-    $sql = "SELECT candidates.firstname, candidates.lastname, positions.description AS position_name, partylists.name AS partylist_name
+    $sql = "SELECT candidates.firstname, candidates.lastname, candidates.platform, positions.description AS position_name, partylists.name AS partylist_name
             FROM candidates
             INNER JOIN positions ON candidates.position_id = positions.id
             INNER JOIN partylists ON candidates.partylist_id = partylists.id
@@ -70,10 +77,12 @@ function get_candidate_info($conn, $id) {
 }
 
 function get_position_name($conn, $position_id) {
+    $position_name = ""; // Declare the variable before using it
     $sql = "SELECT description FROM positions WHERE id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $position_id);
     $stmt->execute();
+    $stmt->store_result();
     $stmt->bind_result($position_name);
     $stmt->fetch();
     $stmt->close();
@@ -81,6 +90,7 @@ function get_position_name($conn, $position_id) {
 }
 
 function get_partylist_name($conn, $party_id) {
+    $partylist_name = ""; // Declare the variable before using it
     $sql = "SELECT name FROM partylists WHERE id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $party_id);

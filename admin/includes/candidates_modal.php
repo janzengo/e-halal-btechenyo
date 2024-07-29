@@ -1,5 +1,5 @@
 <!-- Description -->
-<div class="modal fade" id="platform">
+<div class="modal fade" id="view_platform">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -109,21 +109,19 @@
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title"><b>Edit Voter</b></h4>
+              <h4 class="modal-title"><b>Edit Candidate</b></h4>
             </div>
             <div class="modal-body">
               <form class="form-horizontal" method="POST" action="candidates_edit.php">
                 <input type="hidden" class="id" name="id">
                 <div class="form-group">
                     <label for="edit_firstname" class="col-sm-3 control-label">Firstname</label>
-
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="edit_firstname" name="firstname" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="edit_lastname" class="col-sm-3 control-label">Lastname</label>
-
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="edit_lastname" name="lastname" required>
                     </div>
@@ -131,7 +129,6 @@
                 
                 <div class="form-group">
                     <label for="edit_position" class="col-sm-3 control-label">Position</label>
-
                     <div class="col-sm-9">
                       <select class="form-control" id="edit_position" name="position" required>
                         <option value="" selected id="posselect">- Select -</option>
@@ -149,7 +146,6 @@
                 </div>
                 <div class="form-group">
                     <label for="edit_partylist" class="col-sm-3 control-label">Partylist</label>
-
                     <div class="col-sm-9">
                       <select class="form-control" id="edit_partylist" name="partylist" required>
                         <option value="" selected id="posselect">- Select -</option>
@@ -167,7 +163,6 @@
                 </div>
                 <div class="form-group">
                     <label for="edit_platform" class="col-sm-3 control-label">Platform</label>
-
                     <div class="col-sm-9">
                       <textarea class="form-control" id="edit_platform" name="platform" rows="7"></textarea>
                     </div>
@@ -175,7 +170,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
-              <button type="submit" class="btn btn-success btn-flat" name="edit"><i class="fa fa-check-square-o"></i> Update</button>
+              <button type="submit" class="btn btn-success btn-flat" name="edit"><i class="fa fa-edit"></i> Update</button>
               </form>
             </div>
         </div>
@@ -230,7 +225,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
-              <button type="submit" class="btn btn-success btn-flat" name="upload"><i class="fa fa-check-square-o"></i> Update</button>
+              <button type="submit" class="btn btn-success btn-flat" name="upload"><i class="fa fa-edit"></i> Update</button>
               </form>
             </div>
         </div>

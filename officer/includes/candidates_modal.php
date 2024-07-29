@@ -1,5 +1,5 @@
 <!-- Description -->
-<div class="modal fade" id="platform">
+<div class="modal fade" id="view_platform">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -175,7 +175,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
-              <button type="submit" class="btn btn-success btn-flat" name="edit"><i class="fa fa-check-square-o"></i> Update</button>
+              <button type="submit" class="btn btn-success btn-flat" name="edit"><i class="fa fa-edit"></i> Update</button>
               </form>
             </div>
         </div>
@@ -230,7 +230,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
-              <button type="submit" class="btn btn-success btn-flat" name="upload"><i class="fa fa-check-square-o"></i> Update</button>
+              <button type="submit" class="btn btn-success btn-flat" name="upload"><i class="fa fa-edit"></i> Update</button>
               </form>
             </div>
         </div>
