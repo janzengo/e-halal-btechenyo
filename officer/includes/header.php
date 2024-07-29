@@ -37,8 +37,10 @@
     <!-- Custom Icon -->
     <link rel="stylesheet" href="https://fontawesome.com/icons/fingerprint?f=classic&s=solid">
     
-  	<!-- Google Font -->
-  	<link rel="stylesheet" href="../../dist/customFonts.css">
+    <!-- FONT -->
+    <link rel="stylesheet" href="../../dist/customFonts.css">
+    <!-- ICON -->
+    <link rel="icon" type="image/x-icon" href="../images/icon.ico">
 
   	<style type="text/css">
       .bold{

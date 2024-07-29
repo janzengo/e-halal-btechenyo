@@ -61,10 +61,10 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="edit_partylist" class="col-sm-3 control-label">Partylist</label>
+                    <label for="partylist" class="col-sm-3 control-label">Partylist</label>
 
                     <div class="col-sm-9">
-                      <select class="form-control" id="edit_partylist" name="partylist" required>
+                      <select class="form-control" id="partylist" name="partylist" required>
                         <option value="" selected id="posselect">- Select -</option>
                         <?php
                           $sql = "SELECT * FROM partylists";

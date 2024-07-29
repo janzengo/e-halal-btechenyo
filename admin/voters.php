@@ -14,7 +14,7 @@
         Voters List
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Manage</a></li>
         <li class="active">Voters</li>
       </ol>
     </section>
@@ -134,7 +134,7 @@ $(function(){
       $.ajax({
         type: 'POST',
         url: 'voters_delete.php',
-        data: { ids: selected },
+        data: { ids: selected, bulk_delete: true },
         success: function(response) {
           location.reload();
         },

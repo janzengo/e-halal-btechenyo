@@ -23,6 +23,9 @@
   	<!-- Google Font -->
   	<link rel="stylesheet" href="../dist/customFonts.css">
 
+    <!-- ICON -->
+    <link rel="icon" type="image/x-icon" href="images/icon.ico">
+
   	<style>
   		.mt20{
         margin-top: 20px;

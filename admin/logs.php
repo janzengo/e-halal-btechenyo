@@ -11,11 +11,11 @@
     <!-- Content Header (Page header) -->
     <section class="content-header content-page-title">
       <h1>
-        Voters List
+        Action Logs
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Voters</li>
+        <li><a href="#"><i class="fa fa-wrench"></i> Admin Actions</a></li>
+        <li class="active">Logs</li>
       </ol>
     </section>
     <!-- Main content -->
@@ -46,44 +46,36 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header with-border">
-              <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> New</a>
-              <a href="#importcsv" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> Import CSV</a>
+              <a href="#reset" data-toggle="modal" class="btn btn-danger btn-sm btn-flat"><i class="fa fa-refresh"></i> Reset</a>
+            </div>
+            <div class="box-header">
+            <h3 class="box-title">Action Logs — <?php echo $conn->query("SELECT COUNT(*) FROM logs")->fetch_row()[0]; ?> Total Audited Logs</h3>
             </div>
             <div class="box-body">
               <table id="example1" class="table table-bordered">
                 <thead>
-                  <th>Lastname</th>
-                  <th>Firstname</th>
-                  <th>Course</th>
-                  <th>Student Number</th>
-                  <th>Tools</th>
+                  <th>Date</th>
+                  <th>User</th>
+                  <th>Role</th>
+                  <th>Details</th>
                 </thead>
                 <tbody>
               <?php
-                // Update the SQL query to join the voters and courses tables
-                $sql = "SELECT voters.*, courses.description AS course_description 
-                        FROM voters 
-                        JOIN courses ON voters.course_id = courses.id";
+                $sql = "SELECT timestamp, username, role, details FROM logs ORDER BY timestamp DESC";
                 $query = $conn->query($sql);
                 
                 while($row = $query->fetch_assoc()){
-                  $image = (!empty($row['photo'])) ? '../images/'.$row['photo'] : '../images/profile.jpg';
                   echo "
                     <tr>
-                      <td>".$row['lastname']."</td>
-                      <td>".$row['firstname']."</td>
-                      <td>".$row['course_description']."</td>
-                      <td>".$row['voters_id']."</td>
-                      <td>
-                        <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['id']."'><i class='fa fa-edit'></i> Edit</button>
-                        <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['id']."'><i class='fa fa-trash'></i> Delete</button>
-                      </td>
+                      <td>".$row['timestamp']."</td>
+                      <td>".$row['username']."</td>
+                      <td>".$row['role']."</td>
+                      <td>".$row['details']."</td>
                     </tr>
                   ";
                 }
               ?>
-            </tbody> 
-
+              </tbody> 
               </table>
             </div>
           </div>
@@ -91,52 +83,9 @@
       </div>
     </section>   
   </div>
-    
+  <?php include 'includes/logs_modal.php'; ?>
   <?php include 'includes/footer.php'; ?>
-  <?php include 'includes/voters_modal.php'; ?>
 </div>
 <?php include 'includes/scripts.php'; ?>
-<script>
-$(function(){
-  $(document).on('click', '.edit', function(e){
-    e.preventDefault();
-    $('#edit').modal('show');
-    var id = $(this).data('id');
-    getRow(id);
-  });
-
-  $(document).on('click', '.delete', function(e){
-    e.preventDefault();
-    $('#delete').modal('show');
-    var id = $(this).data('id');
-    getRow(id);
-  });
-
-  $(document).on('click', '.photo', function(e){
-    e.preventDefault();
-    var id = $(this).data('id');
-    getRow(id);
-  });
-
-});
-
-function getRow(id){
-  $.ajax({
-    type: 'POST',
-    url: 'voters_row.php',
-    data: {id:id},
-    dataType: 'json',
-    success: function(response){
-      $('.id').val(response.id);
-      $('#edit_firstname').val(response.firstname);
-      $('#edit_lastname').val(response.lastname);
-      $('#edit_studentNumber').val(response.voters_id);
-      $('#edit_course').val(response.course_id);
-      $('#edit_password').val(response.password);
-      $('.fullname').html(response.firstname+' '+response.lastname);
-    }
-  });
-}
-</script>
 </body>
 </html>

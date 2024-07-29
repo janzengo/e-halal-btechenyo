@@ -19,3 +19,14 @@ button, .btn {
     border-radius: 10px !important;
 }
 
+.btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover{
+    background-color: #259646 !important;
+    border-color: #1d6833 !important;
+}
+
+.btn-primary.focus, .btn-primary:focus {
+    background-color: #1d6833 !important;
+    border-color: #1d6833 !important;
+    color: #fff !important;
+}
+

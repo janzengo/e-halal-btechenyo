@@ -19,9 +19,10 @@
 .greetings-banner {
     background: linear-gradient(to right, #EDFFD6 0%, #D8FFBC 48%, #B3FF8F 100%);
     padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 20px;
+    border-radius: 5px;
+    margin-bottom: 5px;
     position: relative; /* Ensures the container can hold the absolutely positioned image */
+    
 }
 .greetings-content {
     display: flex;
