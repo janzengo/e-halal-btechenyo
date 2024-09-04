@@ -59,7 +59,11 @@ if (isset($_POST['add'])) {
     log_action($conn, $username, $_SESSION['role'], "Attempted to add candidate without filling up the form");
 }
 
-header('location: candidates.php');
+if(isset($_POST['origin']) && $_POST['origin'] == 'pre_election'){
+    header('location: pre_election_candidates.php');
+} else {
+    header('location: candidates.php'); // Default redirect
+}
 
 function log_action($conn, $username, $role, $details) {
     $sql = "INSERT INTO logs (timestamp, username, role, details) VALUES (NOW(), ?, ?, ?)";

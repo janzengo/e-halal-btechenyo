@@ -19,7 +19,7 @@
 					if($row['max_vote'] > 1){
 						if(count($_POST[$position]) > $row['max_vote']){
 							$error = true;
-							$_SESSION['error'][] = 'You can only choose '.$row['max_vote'].' candidates for '.$row['description'];
+							$_SESSION['error'][] = 'You may only choose '.$row['max_vote'].' candidates for '.$row['description'];
 						}
 						else{
 							foreach($_POST[$position] as $key => $values){

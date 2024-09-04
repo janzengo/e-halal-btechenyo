@@ -62,3 +62,8 @@
 		$stmt->close();
 	}
 	
+	if(isset($_POST['origin']) && $_POST['origin'] == 'pre_election'){
+		header('location: pre_election_positions.php');
+	} else {
+		header('location: positions.php'); // Default redirect
+	}

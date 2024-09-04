@@ -56,7 +56,11 @@ if (isset($_POST['edit'])) {
     $_SESSION['error'] = 'Fill up edit form first';
 }
 
-header('location: candidates.php');
+if(isset($_POST['origin']) && $_POST['origin'] == 'pre_election'){
+    header('location: pre_election_candidates.php');
+} else {
+    header('location: candidates.php'); // Default redirect
+}
 
 function get_candidate_info($conn, $id) {
     $sql = "SELECT candidates.firstname, candidates.lastname, candidates.platform, positions.description AS position_name, partylists.name AS partylist_name

@@ -11,6 +11,7 @@ if (isset($_POST['add'])) {
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $role = 'officer';
     $filename = $defaultProfilePicture;
+    $origin = $_POST['origin'];  // Capture the origin value
 
     // Check if username already exists
     $check_sql = "SELECT * FROM admin WHERE username = ?";
@@ -36,5 +37,9 @@ if (isset($_POST['add'])) {
     $_SESSION['error'] = 'Fill up add form first';
 }
 
-header('location: officers.php');
-?>
+// Redirect based on the origin value
+if (isset($origin) && $origin === 'pre_election') {
+    header('location: pre_election.php');
+} else {
+    header('location: officers.php');
+}

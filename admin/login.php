@@ -24,9 +24,27 @@ if (isset($_POST['login'])) {
 
             log_action($conn, $username, $row['role'], 'Successful login');
 
+            // Check election status after successful login
+            $sql = "SELECT status FROM election_status WHERE id = 1";
+            $query = $conn->query($sql);
+            $status_row = $query->fetch_assoc();
+            $election_status = $status_row['status'];
+
             if ($row['role'] == 'superadmin') {
-                header('Location: home.php');
-                exit();
+                if ($election_status == 'off') {
+                    header('Location: pre_election.php');
+                    exit();
+                } elseif ($election_status == 'on') {
+                    header('Location: home.php');
+                    exit();
+                } elseif ($query->num_rows == 0) {
+                    header('Location: pre_election.php');
+                    exit();
+                } elseif ($election_status == 'paused') {
+                    $_SESSION['info'] = 'Election is currently paused.';
+                    header('Location: home.php');
+                    exit();
+                }
             } else if ($row['role'] == 'officer') {
                 $_SESSION['error'] = 'Officer does not have permission to access.';
                 header('Location: /e-halal/officer/home.php');

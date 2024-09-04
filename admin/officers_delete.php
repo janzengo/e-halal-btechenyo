@@ -15,6 +15,8 @@
 		$_SESSION['error'] = 'Select item to delete first';
 	}
 
-	header('location: officers.php');
-	
-?>
+	if(isset($_POST['origin']) && $_POST['origin'] == 'pre_election'){
+		header('location: pre_election.php');
+	} else {
+		header('location: officers.php'); // Default redirect
+	}

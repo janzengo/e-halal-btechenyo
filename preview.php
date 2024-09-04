@@ -15,7 +15,7 @@
 			if($row['max_vote'] > 1){
 				if(count($_POST[$position]) > $row['max_vote']){
 					$output['error'] = true;
-					$output['message'][] = '<li>You can only choose '.$row['max_vote'].' candidates for '.$row['description'].'</li>';
+					$output['message'][] = '<i class="fa fa-exclamation-triangle">&nbsp;</i>' . 'You may only choose '.$row['max_vote'].' candidates for '.$row['description'];
 				}
 				else{
 					foreach($_POST[$position] as $key => $values){

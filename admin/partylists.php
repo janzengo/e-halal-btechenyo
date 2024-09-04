@@ -3,10 +3,8 @@
 <?php include 'includes/header.php'; ?>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
-
   <?php include 'includes/navbar.php'; ?>
   <?php include 'includes/menubar.php'; ?>
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -54,51 +52,51 @@
         }
       ?>
       <div class="row">
-        <div class="col-xs-12">
-          <div class="box">
+    <div class="col-xs-12">
+        <div class="box">
             <div class="box-header with-border">
-              <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> New</a>
+                <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat"><i class="fa fa-plus"></i> New</a>
             </div>
             <div class="box-body">
-              <table id="example1" class="table table-bordered">
-                <thead>
-                  <th>Lastname</th>
-                  <th>Firstname</th>
-                  <th>Username</th>
-                  <th>Tools</th>
-                </thead>
-                <tbody>
-              <?php
-                $sql = "SELECT * FROM admin WHERE role = 'officer' ORDER BY lastname";
-                $query = $conn->query($sql);
-                
-                while($row = $query->fetch_assoc()){
-                  $image = (!empty($row['photo'])) ? '../images/'.$row['photo'] : '../images/profile.jpg';
-                  echo "
-                    <tr>
-                      <td>".$row['lastname']."</td>
-                      <td>".$row['firstname']."</td>
-                      <td>".$row['username']."</td>
-                      <td>
-                        <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['id']."'><i class='fa fa-edit'></i> Edit</button>
-                        <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['id']."'><i class='fa fa-trash'></i> Delete</button>
-                      </td>
-                    </tr>
-                  ";
-                }
-              ?>
-            </tbody> 
-
-              </table>
+                <table id="partylistsTable" class="table table-bordered">
+                    <thead>
+                        <th class="hidden"></th>
+                        <th>Partylist</th>
+                        <th>Number of Candidates</th>
+                        <th>Tools</th>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $sql = "SELECT partylists.id, partylists.name AS partylist_name, COUNT(candidates.id) AS num_candidates 
+                                FROM partylists 
+                                LEFT JOIN candidates ON candidates.partylist_id = partylists.id 
+                                GROUP BY partylists.id 
+                                ORDER BY partylists.name ASC";
+                        $query = $conn->query($sql);
+                        while($row = $query->fetch_assoc()){
+                            echo "
+                                <tr>
+                                    <td class='hidden'></td>
+                                    <td>".$row['partylist_name']."</td>
+                                    <td>".$row['num_candidates']."</td>
+                                    <td>
+                            <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['id']."'><i class='fa fa-edit'></i> Edit</button>
+                            <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['id']."'><i class='fa fa-trash'></i> Delete</button>
+                          </td>
+                                </tr>
+                            ";
+                        }
+                        ?>
+                    </tbody>
+                </table>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
+</div>
     </section>   
   </div>
-    
   <?php include 'includes/footer.php'; ?>
-  <?php include 'includes/officers_modal.php'; ?>
+  <?php include 'includes/partylists_modal.php'; ?>
 </div>
 <?php include 'includes/scripts.php'; ?>
 <script>
@@ -109,36 +107,23 @@ $(function(){
     var id = $(this).data('id');
     getRow(id);
   });
-
   $(document).on('click', '.delete', function(e){
     e.preventDefault();
     $('#delete').modal('show');
     var id = $(this).data('id');
     getRow(id);
   });
-
-  $(document).on('click', '.photo', function(e){
-    e.preventDefault();
-    var id = $(this).data('id');
-    getRow(id);
-  });
-
 });
-
 function getRow(id){
   $.ajax({
     type: 'POST',
-    url: 'officers_row.php',
+    url: 'partylists_row.php',
     data: {id:id},
     dataType: 'json',
     success: function(response){
       $('.id').val(response.id);
-      $('#edit_firstname').val(response.firstname);
-      $('#edit_lastname').val(response.lastname);
-      $('#edit_username').val(response.username);
-      $('#edit_password').val(response.password);
-      $('#edit_gender').val(response.gender);
-      $('.fullname').html(response.firstname+' '+response.lastname);
+      $('#edit_name').val(response.name);
+      $('.name').html(response.name);
     }
   });
 }

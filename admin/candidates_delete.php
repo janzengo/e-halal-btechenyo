@@ -39,7 +39,11 @@ if (isset($_POST['delete'])) {
     $_SESSION['error'] = 'Select item to delete first';
 }
 
-header('location: candidates.php');
+if(isset($_POST['origin']) && $_POST['origin'] == 'pre_election'){
+    header('location: pre_election_candidates.php');
+} else {
+    header('location: candidates.php'); // Default redirect
+}
 
 function get_candidate_info($conn, $id) {
     $sql = "SELECT candidates.firstname, candidates.lastname, positions.description AS position, partylists.name AS partylist

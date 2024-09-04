@@ -147,6 +147,7 @@ body {
   padding-right: 15px;
 }
 /* H1 - H6 font */
+p,
 h1,
 h2,
 h3,
@@ -159,7 +160,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: 'SF Pro Display', sans-serif;
+  font-family: 'SF Pro Display', sans-serif !important;
 }
 /* General Links */
 a {
@@ -3114,7 +3115,7 @@ table.text-center th {
   background: rgba(0, 0, 0, 0.3);
 }
 .modal-content {
-  border-radius: 0;
+  border-radius: 7px;
   -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.125);
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.125);
   border: 0;
@@ -3127,9 +3128,13 @@ table.text-center th {
 }
 .modal-header {
   border-bottom-color: #f4f4f4;
+  border-top-left-radius: 10px !important;
+  border-top-right-radius: 10px !important;
 }
 .modal-footer {
   border-top-color: #f4f4f4;
+  border-bottom-left-radius: 10px !important;
+  border-bottom-right-radius: 10px !important;
 }
 .modal-primary .modal-header,
 .modal-primary .modal-footer {

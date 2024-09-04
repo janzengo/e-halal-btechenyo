@@ -1,0 +1,128 @@
+
+.login-page {
+    background-color: #F1F1F1 !important;
+}
+.inner-body {
+    display: flex;
+    background-color: #fff;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    border-radius: 30px;
+    transform: scale(98%);
+}
+.login-logo-container {
+    text-align: center;
+}
+.login-logo-container h1 {
+    font-weight: bold;
+    color: #7D7D7D;
+    letter-spacing: 2px;
+}
+.login-logo-container img {
+    width: 135px;
+    height: 134px;
+    flex-shrink: 0;
+}
+.login-box {
+    width: 400px !important;
+    margin: 0 auto;
+}
+.login-box-body button {
+    text-align: center;
+    width: 100%;
+    border-radius: 50px;
+}
+.text-smaller {
+    color: #8C8C8C;
+    text-align: center;
+    font-family: "SF Pro Display";
+    font-size: 12px;
+    font-style: light;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: 0.5px;
+}
+.lined {
+    overflow: hidden;
+    text-align: center;
+}
+.lined::before,
+.lined::after {
+    background-color: #D4D4D4;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    width: 35%;
+}
+.lined::before {
+    right: 0.5em;
+    margin-left: -50%;
+}
+.lined::after {
+    left: 0.5em;
+    margin-right: -50%;
+}
+.forgot-password {
+    display: block;
+    text-align: right;
+    margin-top: 10px;
+    text-decoration: underline;
+    color: #239746;
+}
+.forgot-password:hover a, .forgot-password:active a, .forgot-password:hover {
+    color: #17632e !important;
+}
+.username, .password {
+    border-radius: 10px !important;
+    height: 45px !important;
+}
+.custom {
+    background-color: #FFF !important;
+    color: #239746 !important;
+    transition: all ease 0.2s !important;
+}
+.custom:hover {
+    background-color: #239746 !important;
+    color: #FFF !important;
+    border-color: #239746 !important;
+}
+.form-control-feedback.fa {
+    line-height: 45px !important;
+    margin-right: 5px !important;
+    font-size: 20px !important;
+    float: left !important;
+}
+.username::placeholder, .password::placeholder {
+    font-size: 13px !important;
+    color: #7C7C7C !important;
+}
+.election-message {
+    text-align: center;
+}
+.election-message-box {
+    text-align: center;
+    padding: 25px 30px 50px 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    margin: 20px 0 20px 0; 
+}
+.election-message-box p {
+    font-size: 16px;
+    color: #7D7D7D;
+}
+.election-message-box h2 {
+    font-size: 20px;
+    color: #7D7D7D;
+}
+.election-message a {
+    color: #239746;
+    text-decoration: underline;
+    transition: all ease 0.2s;
+}
+.election-message a:hover {
+    color: #17632e;
+}

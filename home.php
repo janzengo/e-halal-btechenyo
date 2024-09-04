@@ -1,28 +1,5 @@
 <?php include "includes/session.php"; ?>
 <?php include "includes/header.php"; ?>
-<style>
-    .clist {
-        margin-left: 80px !important;
-    }
-    .cname {
-        margin-left: 50px !important;
-    }
-    button {
-        transition: all ease 0.2s !important;
-    }
-    .custom-button {
-        background-color: #213061 !important;
-        border: 1px solid #213061 !important;
-    }
-    .custom-button:hover {
-        background-color: #0f162d !important;
-        border: 1px solid #0f162d !important;
-    }
-
-    .vertical-center {
-        margin-top: 170px !important;
-    }
-</style>
 <body class="hold-transition skin-blue layout-top-nav">
     <div class="wrapper">
         <?php include "includes/navbar.php"; ?>
@@ -45,7 +22,7 @@
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                                 <ul>
                                     <?php foreach ($_SESSION["error"] as $error) {
-                                        echo "<li>" . $error . "</li>";
+                                        echo "<i class='fa fa-exclamation-triangle'>&nbsp;</i>" . $error;
                                     } ?>
                                 </ul>
                             </div>
@@ -140,7 +117,7 @@
                                                     <div class="box-body">
                                                         <p>' . $instruct . '
                                                             <span class="pull-right">
-                                                                <button type="button" class="btn btn-success btn-sm btn-flat reset" data-desc="' . slugify($row["description"]) . '"><i class="fa fa-refresh"></i> Reset</button>
+                                                                <button type="button" class="btn btn-danger btn-sm btn-flat reset" data-desc="' . slugify($row["description"]) . '"><i class="fa fa-refresh"></i> Reset</button>
                                                             </span>
                                                         </p>
                                                         <div id="candidate_list">
@@ -177,62 +154,69 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
     <script>
         $(function () {
-            $('.content').iCheck({
-                checkboxClass: 'icheckbox_flat-green',
-                radioClass: 'iradio_flat-green'
-            });
-            $(document).on('click', '.reset', function (e) {
-                e.preventDefault();
-                var desc = $(this).data('desc');
-                $('.' + desc).iCheck('uncheck');
-            });
-            $(document).on('click', '.platform', function (e) {
-                e.preventDefault();
-                $('#platform').modal('show');
-                var platform = $(this).data('platform');
-                var fullname = $(this).data('fullname');
-                $('.candidate').html(fullname);
-                $('#plat_view').html(platform);
-            });
-            $('#preview').click(function (e) {
-                e.preventDefault();
-                var form = $('#ballotForm').serialize();
-                if (form == '') {
-                    $('.message').html('You must vote atleast one candidate');
-					$('#alert').show();
-				} else {
-					$.ajax({
-						type: 'POST',
-						url: 'preview.php',
-						data: form,
-						dataType: 'json',
-						success: function (response) {
-							if (response.error) {
-								var errmsg = '';
-								var messages = response.message;
-								for (i in messages) {
-									errmsg += messages[i];
-								}
-								$('.message').html(errmsg);
-								$('#alert').show();
-							} else {
-								$('#preview_modal').modal('show');
-								$('#preview_body').html(response.list);
-							}
-						}
-					});
-				}
+    $('.content').iCheck({
+        checkboxClass: 'icheckbox_flat-green',
+        radioClass: 'iradio_flat-green'
+    });
 
-			});
+    $(document).on('click', '.reset', function (e) {
+        e.preventDefault();
+        var desc = $(this).data('desc');
+        $('.' + desc).iCheck('uncheck');
+    });
 
-			// Initialize Fancybox
-			$('[data-fancybox]').fancybox({
-				loop: false,
-				buttons: [
-					"close"
-				]
-			});
-		});
+    $(document).on('click', '.platform', function (e) {
+        e.preventDefault();
+        $('#platform').modal('show');
+        var platform = $(this).data('platform');
+        var fullname = $(this).data('fullname');
+        $('.candidate').html(fullname);
+        $('#plat_view').html(platform);
+    });
+
+    $('#preview').click(function (e) {
+        e.preventDefault();
+        var form = $('#ballotForm').serialize();
+        if (form == '') {
+            $('.message').html('You must vote at least one candidate');
+            $('#alert').show();
+            // Scroll to the top
+            $('html, body').animate({ scrollTop: 0 }, 'slow');
+        } else {
+            $.ajax({
+                type: 'POST',
+                url: 'preview.php',
+                data: form,
+                dataType: 'json',
+                success: function (response) {
+                    if (response.error) {
+                        var errmsg = '';
+                        var messages = response.message;
+                        for (i in messages) {
+                            errmsg += messages[i];
+                        }
+                        $('.message').html(errmsg);
+                        $('#alert').show();
+                        // Scroll to the top
+                        $('html, body').animate({ scrollTop: 0 }, 'slow');
+                    } else {
+                        $('#preview_modal').modal('show');
+                        $('#preview_body').html(response.list);
+                    }
+                }
+            });
+        }
+    });
+
+    // Initialize Fancybox
+    $('[data-fancybox]').fancybox({
+        loop: false,
+        buttons: [
+            "close"
+        ]
+    });
+});
+
 	</script>
 </body>
 
