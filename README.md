@@ -47,14 +47,14 @@ E-Halal BTECHenyo is a voting system designed to facilitate fair and transparent
 
 4. **Set Up the Database**:
    - Open your web browser and navigate to `http://localhost/phpmyadmin`.
-   - Create a new database (e.g., `e_halal_btechenyo`).
+   - Create a new database (e.g., `e-halal`).
    - Import the SQL database file provided in the project directory:
      - Click on the database name you created.
      - Click on the "Import" tab.
      - Choose the SQL file from the project directory and click "Go."
 
 5. **Configure the Application**:
-   - Update the database connection settings in the project files if necessary (usually found in a `config.php` or similar file).
+   - Update the database connection settings in the project files if necessary (usually found in a `conn.php` or similar file).
 
 6. **Start the XAMPP Server**:
    - Open the XAMPP Control Panel and start the Apache module.
