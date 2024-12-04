@@ -178,8 +178,7 @@ if (!isset($_SESSION['general_config_complete'])) {
         </div>
     </div>
 </div>
-
-      <ol class="breadcrumb">
+<ol class="breadcrumb">
                                         <li class="active"><i class="fa fa-info-circle"></i> The system <a>highly recommend</a>  to input every candidates and partylists for the election before proceeding.</li>
                                     </ol>
     </section>   
@@ -187,9 +186,8 @@ if (!isset($_SESSION['general_config_complete'])) {
                             <input type="hidden" name="status" id="status" value="candidates">
                             <div class="box-footer">
                                 <a type="button" href="pre_election_positions.php" class="btn btn-secondary pull-left" id="save-button"><i class="fa fa-arrow-left"></i> Back</a>
-                                <button type="submit" class="btn btn-primary pull-right" id="save-button">Next <i class="fa fa-arrow-right"></i></button>
+                                <button type="submit" class="btn btn-primary pull-right" id="save-button">Submit <i class="fa fa-arrow-right"></i></button>
                             </div>
-                            
                         </div>
                     </div>
                 </form>

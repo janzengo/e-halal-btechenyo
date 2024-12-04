@@ -176,9 +176,8 @@
                 </div>
                 <div class="form-group">
                     <label for="edit_password" class="col-sm-3 control-label">Password</label>
-
                     <div class="col-sm-9">
-                      <input type="password" class="form-control" id="edit_password" name="password">
+                      <input type="text" class="form-control" id="edit_password" name="password">
                     </div>
                 </div>
             </div>

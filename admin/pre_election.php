@@ -3,32 +3,36 @@ include 'includes/session.php';
 include 'includes/status.php';
 
 // Check the current election status
-$sql = "SELECT * FROM election_status WHERE status = 'pending' ORDER BY id DESC LIMIT 1";
+$sql = "SELECT * FROM election_status WHERE status IN ('pending', 'on', 'off') ORDER BY id DESC LIMIT 1";
 $query = $conn->query($sql);
-$row = $query->fetch_assoc();
-$current_status = $row['status'];
 
-// Redirect based on the election status
-if ($current_status == 'on') {
-    $_SESSION['error'] = 'The election is currently ongoing. You cannot configure the election at this time.';
-    header('location: home.php'); // Redirect to the home page or a relevant page for an ongoing election
-    exit();
-} elseif ($current_status == 'paused') {
-    $_SESSION['error'] = 'The election is paused. Please resume or end the election before making any configuration changes.';
-    header('location: election_management.php'); // Redirect to a management page where they can resume or end the election
-    exit();
-} elseif ($current_status != 'off' && $current_status != 'pending') {
-    $_SESSION['error'] = 'Invalid election status. Please contact the system administrator.';
-    header('location: error_page.php'); // Redirect to an error page or any other appropriate page
-    exit();
-}
+if ($query->num_rows > 0) {
+    $row = $query->fetch_assoc();
+    $current_status = $row['status'];
 
-// Prefill form fields if the election status is pending
-$election_name = '';
-$end_time = '';
-if ($current_status == 'pending') {
-    $election_name = $row['election_name'];
-    $end_time = $row['end_time'];
+    // Redirect based on the election status
+    if ($current_status == 'on') {
+        $_SESSION['error'] = 'The election is currently ongoing. You cannot configure the election at this time.';
+        header('location: home.php'); // Redirect to the home page or a relevant page for an ongoing election
+        exit();
+    } elseif ($current_status == 'paused') {
+        $_SESSION['error'] = 'The election is paused. Please resume or end the election before making any configuration changes.';
+        header('location: configure_election.php'); // Redirect to a management page where they can resume or end the election
+        exit();
+    } elseif ($current_status == 'off') {
+        $_SESSION['info'] = 'Welcome! There is no active election, please create a new election.';
+        $election_name = '';
+        $end_time = '';
+    } elseif ($current_status == 'pending') {
+        // Prefill form fields if the election status is pending
+        $election_name = $row['election_name'];
+        $end_time = $row['end_time'];
+    }
+} else {
+    // Handle the case where no election is found
+    $_SESSION['success'] = 'No election found. Please create a new election.';
+    $election_name = '';
+    $end_time = '';
 }
 ?>
 
@@ -99,7 +103,7 @@ if ($current_status == 'pending') {
                             <div class="tab-pane active" id="general">
                                 <div class="form-group">
                                     <label for="election_name">Election Name</label>
-                                    <input type="text" class="form-control" id="election_name" name="election_name" value="<?php echo $election_name;?>" required>
+                                    <input type="text" class="form-control" id="election_name" name="election_name" value="<?php echo $election_name;?>" placeholder="Example: 2025 Sangguniang Mag-aaral Elections" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="end_time">Election End Time & Date</label>
