@@ -8,11 +8,11 @@
                 <section class="content">
                     <?php
                     $parse = parse_ini_file("admin/config.ini", false, INI_SCANNER_RAW);
-                    $title = $parse["election_title"];
+                    $title = $parse["election_name"];
                     ?>
-                    <?php if(!isset($_SESSION["voted"])) {
+                    <?php
                     echo '<h1 class="page-header text-center title title-custom">'.'<b>'. strtoupper($title).'</b></h1>';
-                    }
+                    
                     ?>
                     <div class="row">
                         <div class="col-sm-10 col-sm-offset-1">
@@ -53,7 +53,7 @@
 
                             if (isset($_SESSION["voted"])) { ?>
                                 <div class="text-center vertical-center">
-                                <h1 class="page-header text-center title title-custom"><b><?php echo strtoupper($title); ?></b></h1>
+                                
                                 
                                     <h3>You already casted your vote for this election. See you next year!</h3>
                                     <a href="#view" data-toggle="modal" class="btn btn-flat btn-primary btn-lg">View Ballot</a>

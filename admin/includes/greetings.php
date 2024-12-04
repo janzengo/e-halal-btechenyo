@@ -14,6 +14,19 @@
         $courtesyTitle = 'Ms.';
     }
 ?>
+
+<?php
+
+// Fetch the current election name
+$sqlElection = "SELECT election_name FROM election_status ORDER BY id DESC LIMIT 1";
+$stmt = $conn->prepare($sqlElection);
+$stmt->execute();
+$result = $stmt->get_result();
+$election = $result->fetch_assoc();
+$election_name = $election['election_name'];
+?>
+
+
 <style>    
 /* Greetings Banner Styles */
 .greetings-banner {
@@ -72,7 +85,7 @@
     <div class="greetings-content">
         <div class="greetings-text">
             <h2>Hi, <?php echo $courtesyTitle; ?> <?php echo $user['firstname']; ?>!</h2>
-            <p>Check out the summary of voting for Sangguniang Mag-aaral <?php echo date('Y'); ?> of <b>Dalubhasaang Politekniko ng Lungsod ng Baliwag!</b></p>
+            <p>Check out the summary of voting for <?php echo $election_name; ?> of <b>Dalubhasaang Politekniko ng Lungsod ng Baliwag!</b></p>
         </div>
     </div>
     <div class="greetings-icon">

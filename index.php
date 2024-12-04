@@ -2,16 +2,23 @@
 session_start();
 include 'includes/conn.php';
 
-// Check election status
-$sql = "SELECT status FROM election_status WHERE id = 1";
+// Check if election_status table is empty
+$sql = "SELECT COUNT(*) as count FROM election_status";
 $query = $conn->query($sql);
 $row = $query->fetch_assoc();
-if ($query->num_rows > 0) {
-    $election_status = $row['status'];
+if ($row['count'] == 0) {
+    $election_status = 'no_election';
 } else {
-    $election_status = 'paused';
+    // Check election status
+    $sql = "SELECT status FROM election_status WHERE id = 1";
+    $query = $conn->query($sql);
+    $row = $query->fetch_assoc();
+    if ($query->num_rows > 0) {
+        $election_status = $row['status'];
+    } else {
+        $election_status = 'paused';
+    }
 }
-
 
 if(isset($_SESSION['admin'])){
     header('location: admin/home.php');
@@ -45,6 +52,14 @@ if(isset($_SESSION['voter'])){
                     <div class="election-message-box">
                         <h2>ELECTION PERIOD ENDED</h2>
                         <p>The voting system for Sangguniang Mag-aaral is currently paused for a moment. Stay tuned, BTECHenyos!</p>
+                    </div>
+                    <a href="#">Have some questions?</a>
+                </section>
+            <?php elseif ($election_status == 'no_election') : ?>
+                <section class="election-message">
+                    <div class="election-message-box">
+                        <h2>NO ELECTIONS</h2>
+                        <p>There are no elections going on at the moment. Stay tuned, BTECHenyos!</p>
                     </div>
                     <a href="#">Have some questions?</a>
                 </section>

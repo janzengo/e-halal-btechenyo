@@ -9,7 +9,20 @@
   <!-- Header Navbar: style can be found in header.less -->
   <nav class="navbar navbar-static-top">
     <!-- Sidebar toggle button-->
-     <?php if($_SERVER['REQUEST_URI'] == '/e-halal/admin/index.php') :?>
+     <?php 
+     $urls = [
+      '/e-halal/admin/home.php',
+      '/e-halal/admin/votes.php',
+      '/e-halal/admin/voters.php',
+      '/e-halal/admin/positions.php',
+      '/e-halal/admin/candidates.php',
+      '/e-halal/admin/ballot.php',
+      '/e-halal/admin/configure_election.php',
+      '/e-halal/admin/election_history.php',
+      '/e-halal/admin/logs.php',
+      '/e-halal/admin/officers.php'
+     ];
+     if(in_array($_SERVER['REQUEST_URI'], $urls)) :?>
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
         <span class="sr-only">Toggle navigation</span>
     </a> <?php endif; ?>
