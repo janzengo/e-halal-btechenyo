@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD
 -- Generation Time: Dec 04, 2024 at 09:51 AM
+=======
+-- Generation Time: Nov 02, 2024 at 07:05 AM
+>>>>>>> 000af97237f6745729339cc88a26e8ad08e5e882
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -46,7 +50,11 @@ CREATE TABLE `admin` (
 INSERT INTO `admin` (`id`, `username`, `password`, `firstname`, `lastname`, `photo`, `created_on`, `role`, `gender`) VALUES
 (1, 'wallysabangan2024', '$2y$10$JJyv3iRlgpbEeHKlyRZIOeRvtuLcskovhJn8vZvExSLNmrOj2uyVO', 'Wally', 'Sabangan', 'profile.jpg', '2024-06-06', 'superadmin', 'Male'),
 (2, 'dejesus', '$2y$10$aUdUxJ/vc8Gm/Sc8NhLDouuHZo0DWXIDQDvueQ3byii815n0Xn85W', 'Reanne', 'De Jesus', 'profile.jpg', '2024-06-06', 'officer', 'Female'),
+<<<<<<< HEAD
 (4, 'janzengo', '$2y$10$fDvGDLZGY3OcMG6qhPha..BkVCF2SBUMafaat8sHprQXiQ98L.6Iy', 'Janzen', 'Go', 'profile.jpg', '2024-06-11', 'officer', 'Male');
+=======
+(4, 'janzengo', '$2y$10$CAB8lAW3uxD.y1dYWGbodOkGRJigRk8WNaY35NjG.NVQpGElndHNC', 'Janzen', 'Go', 'profile.jpg', '2024-06-11', 'officer', 'Male');
+>>>>>>> 000af97237f6745729339cc88a26e8ad08e5e882
 
 -- --------------------------------------------------------
 
@@ -70,6 +78,7 @@ CREATE TABLE `candidates` (
 
 INSERT INTO `candidates` (`id`, `position_id`, `firstname`, `lastname`, `partylist_id`, `photo`, `platform`) VALUES
 (2, 1, 'Janzen', 'Go', 4, '', 'I am Janzen Go.'),
+<<<<<<< HEAD
 (3, 1, 'Steph', 'Curry', 9, '', 'I\'m Stephen Curry.'),
 (4, 1, 'Kevin', 'Durant', 1, '', 'Kevin Durant'),
 (5, 2, 'Jason', 'Tatum', 1, '', 'Jason Tatum'),
@@ -99,6 +108,9 @@ INSERT INTO `candidates` (`id`, `position_id`, `firstname`, `lastname`, `partyli
 (29, 10, 'Klay', 'Thompson', 1, '', 'Klay Thompson'),
 (30, 10, 'Tristan', 'Thompson', 4, '', 'Tristan Thompson'),
 (31, 10, 'Wilt', 'Chamberlain', 9, '', 'Wilt Chamberlain');
+=======
+(3, 1, 'Steph', 'Curry', 9, '', 'I\'m Stephen Curry.');
+>>>>>>> 000af97237f6745729339cc88a26e8ad08e5e882
 
 -- --------------------------------------------------------
 
@@ -174,7 +186,11 @@ CREATE TABLE `election_status` (
 --
 
 INSERT INTO `election_status` (`id`, `status`, `election_name`, `start_time`, `end_time`) VALUES
+<<<<<<< HEAD
 (1, 'on', '2026 Sangguaniang Mag-aaral Elections', '2024-11-08 22:06:45', '2024-11-09 14:00:00');
+=======
+(1, 'pending', '2026 Sangguaniang Mag-aaral Elections', NULL, '2024-09-15 14:00:00');
+>>>>>>> 000af97237f6745729339cc88a26e8ad08e5e882
 
 -- --------------------------------------------------------
 
@@ -301,6 +317,7 @@ INSERT INTO `logs` (`id`, `timestamp`, `username`, `details`, `role`) VALUES
 (104, '2024-11-02 06:04:22', 'wallysabangan2024', 'Added new Vice President position with 1 maximum vote', 'superadmin'),
 (105, '2024-11-02 06:04:31', 'wallysabangan2024', 'Deleted candidate:   (Position: , Partylist: )', 'superadmin'),
 (106, '2024-11-02 06:04:40', 'wallysabangan2024', 'Updated Candidate:   (Position: , Partylist: ) to Janzen Go (Position: President, Partylist: Independent) | Platform changed from: \'\' to: \'I am Janzen Go.\'', 'superadmin'),
+<<<<<<< HEAD
 (107, '2024-11-02 06:04:49', 'wallysabangan2024', 'Updated Candidate:   (Position: , Partylist: ) to Steph Curry (Position: President, Partylist: Democrats) | Platform changed from: \'\' to: \'I\'m Stephen Curry.\'', 'superadmin'),
 (108, '2024-11-08 13:23:49', 'wallysabangan2024', 'Successful login', 'superadmin'),
 (109, '2024-11-08 13:24:24', 'wallysabangan2024', 'Added new candidate: Kevin Durant for President under Sandigan partylist', 'superadmin'),
@@ -362,6 +379,9 @@ INSERT INTO `logs` (`id`, `timestamp`, `username`, `details`, `role`) VALUES
 (165, '2024-11-23 00:03:08', 'wallysabangan2024', 'Successful login', 'superadmin'),
 (166, '2024-11-25 04:44:47', 'wallysabangan2024', 'Successful login', 'superadmin'),
 (167, '2024-12-04 08:46:22', 'wallysabangan2024', 'Successful login', 'superadmin');
+=======
+(107, '2024-11-02 06:04:49', 'wallysabangan2024', 'Updated Candidate:   (Position: , Partylist: ) to Steph Curry (Position: President, Partylist: Democrats) | Platform changed from: \'\' to: \'I\'m Stephen Curry.\'', 'superadmin');
+>>>>>>> 000af97237f6745729339cc88a26e8ad08e5e882
 
 -- --------------------------------------------------------
 
@@ -402,6 +422,7 @@ CREATE TABLE `positions` (
 
 INSERT INTO `positions` (`id`, `description`, `max_vote`, `priority`) VALUES
 (1, 'President', 1, 1),
+<<<<<<< HEAD
 (2, 'Vice President', 1, 2),
 (3, 'Secretary', 1, 3),
 (4, 'Treasurer', 1, 4),
@@ -411,6 +432,9 @@ INSERT INTO `positions` (`id`, `description`, `max_vote`, `priority`) VALUES
 (8, '2nd Year Representative', 1, 8),
 (9, '3rd Year Representative', 1, 9),
 (10, '4th Year Representative', 1, 10);
+=======
+(2, 'Vice President', 1, 2);
+>>>>>>> 000af97237f6745729339cc88a26e8ad08e5e882
 
 -- --------------------------------------------------------
 
@@ -433,7 +457,12 @@ CREATE TABLE `voters` (
 --
 
 INSERT INTO `voters` (`id`, `voters_id`, `course_id`, `password`, `firstname`, `lastname`, `photo`) VALUES
+<<<<<<< HEAD
 (51, '202320023', 2, '$2y$10$MB.gI7eMzDz4LOa9zXCLIeADrQJ7.R619xipZrDgbjbYuEnPW53nG', 'Janzen', 'Go', 'profile.jpg'),
+=======
+(51, '202320023', 2, '$2y$10$iJoUSUZANK1DU2qfl2XWWOc0vssPdwy6D5u8GUn/p0wEXUmuw4Gw.', 'Janzen', 'Go', 'profile.jpg'),
+(52, '202320025', 8, '$2y$10$mqd1nU9oli0nKLt4awOKKOXNjl8vAqFZEyRl/3IuDBT2yequDcOE2', 'Justine Thea', 'Go', 'profile.jpg'),
+>>>>>>> 000af97237f6745729339cc88a26e8ad08e5e882
 (53, '202320254', 3, '$2y$10$qY.b.SUrbKH9x2qDOy0uTexUrqXvI4pJLibCAhsBQ9XYl8bWfpOOC', 'Justin', 'Go', 'profile.jpg'),
 (54, '202520025', 4, '$2y$10$MyTnLQR0BCkmEmhWY89P3OGUlCQz.xAfnAXaxwo3FbnYBVsxga8Ja', 'Mayeth', 'Go', 'profile.jpg'),
 (55, '202320001', 1, '$2y$10$FnebMwW6WEEBDcZS2u3qRe5nng.9Dem.bTE3.DAkn3Ztroqa0Mg9y', 'John', 'Doe', 'profile.jpg'),
@@ -441,8 +470,12 @@ INSERT INTO `voters` (`id`, `voters_id`, `course_id`, `password`, `firstname`, `
 (57, '202320003', 2, '$2y$10$.VPkkjDuiHZlR/ERwgX3d.biJWO04eCxamFuRE3fN.pEGtA8S4Oo6', 'Bob', 'Brown', 'profile.jpg'),
 (58, '202320004', 2, '$2y$10$hdwuMZPkg2Ud3Amgh8T37uSMv4XACwt1DCNOe8nhFXgifwjpE2Zfy', 'Alice', 'Johnson', 'profile.jpg'),
 (59, '202320005', 3, '$2y$10$NrlbVKGcS/irvknm0R7mZeTHaFPRP.sfe9hra3uMhLO6t03pHhm0S', 'Tom', 'White', 'profile.jpg'),
+<<<<<<< HEAD
 (60, '202320006', 4, '$2y$10$mgfaFZ5JdRozk.iCYSSOLubV6zTB0yzX0YlWXOJYEw9JDoEW4qOHS', 'Emma', 'Clark', 'profile.jpg'),
 (61, '202320025', 6, '$2y$10$XkuzyLX/Z0YfaGfI1JMihujmeXXGl6Pi9gQzjQ/nq.ODMtnqYJciy', 'Nylam Ann', 'Go', 'profile.jpg');
+=======
+(60, '202320006', 4, '$2y$10$mgfaFZ5JdRozk.iCYSSOLubV6zTB0yzX0YlWXOJYEw9JDoEW4qOHS', 'Emma', 'Clark', 'profile.jpg');
+>>>>>>> 000af97237f6745729339cc88a26e8ad08e5e882
 
 -- --------------------------------------------------------
 
@@ -462,11 +495,15 @@ CREATE TABLE `votes` (
 --
 
 INSERT INTO `votes` (`id`, `voters_id`, `candidate_id`, `position_id`) VALUES
+<<<<<<< HEAD
 (2, 51, 4, 1),
 (3, 51, 5, 2),
 (4, 51, 9, 3),
 (5, 51, 17, 6),
 (6, 51, 25, 8);
+=======
+(1, 51, 1, 34);
+>>>>>>> 000af97237f6745729339cc88a26e8ad08e5e882
 
 --
 -- Indexes for dumped tables
@@ -547,7 +584,11 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `candidates`
 --
 ALTER TABLE `candidates`
+<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+>>>>>>> 000af97237f6745729339cc88a26e8ad08e5e882
 
 --
 -- AUTO_INCREMENT for table `courses`
@@ -559,7 +600,11 @@ ALTER TABLE `courses`
 -- AUTO_INCREMENT for table `election_history`
 --
 ALTER TABLE `election_history`
+<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+>>>>>>> 000af97237f6745729339cc88a26e8ad08e5e882
 
 --
 -- AUTO_INCREMENT for table `election_status`
@@ -571,7 +616,11 @@ ALTER TABLE `election_status`
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
+<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=168;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
+>>>>>>> 000af97237f6745729339cc88a26e8ad08e5e882
 
 --
 -- AUTO_INCREMENT for table `partylists`
@@ -583,19 +632,31 @@ ALTER TABLE `partylists`
 -- AUTO_INCREMENT for table `positions`
 --
 ALTER TABLE `positions`
+<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+>>>>>>> 000af97237f6745729339cc88a26e8ad08e5e882
 
 --
 -- AUTO_INCREMENT for table `voters`
 --
 ALTER TABLE `voters`
+<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+>>>>>>> 000af97237f6745729339cc88a26e8ad08e5e882
 
 --
 -- AUTO_INCREMENT for table `votes`
 --
 ALTER TABLE `votes`
+<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+>>>>>>> 000af97237f6745729339cc88a26e8ad08e5e882
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

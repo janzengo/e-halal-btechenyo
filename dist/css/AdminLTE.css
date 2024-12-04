@@ -422,7 +422,35 @@ a:focus {
   -moz-transition: -moz-transform 0.3s ease-in-out, width 0.3s ease-in-out;
   -o-transition: -o-transform 0.3s ease-in-out, width 0.3s ease-in-out;
   transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
+  overflow-y: auto !important; /* Enable vertical scrolling */
+  max-height: 100vh !important; /* Set maximum height to the viewport height */
 }
+
+.sidebar {
+  padding-bottom: 20px; /* Add some padding at the bottom */
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2); /* Set a slight initial opacity */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.6); /* Increase opacity on hover */
+}
+
+
 @media (max-width: 767px) {
   .main-sidebar {
     padding-top: 100px;

@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES['file'])) {
                     $duplicates++;
                 } else {
                     // Generate random password
-                    $random_password = bin2hex(random_bytes(8));
+                    $random_password = bin2hex(random_bytes(3));
                     $password = password_hash($random_password, PASSWORD_DEFAULT);
                     $photo = $defaultProfilePicture;
 

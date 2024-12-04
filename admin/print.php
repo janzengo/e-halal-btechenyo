@@ -1,62 +1,88 @@
 <?php
 include 'includes/session.php';
 
-function generateRow($conn){
+function generateRow($conn) {
     $contents = '';
-    
+
     $sql = "SELECT * FROM positions ORDER BY priority ASC";
     $query = $conn->query($sql);
-    while($row = $query->fetch_assoc()){
-        $id = $row['id'];
+
+    while ($position = $query->fetch_assoc()) {
         $contents .= '
-            <tr>
-                <td colspan="2" align="center" style="font-size:15px;"><b>'.$row['description'].'</b></td>
-            </tr>
-            <tr>
-                <td width="80%"><b>Candidates</b></td>
-                <td width="20%"><b>Votes</b></td>
-            </tr>
+            <h4 align="left" style="font-size: 14px; font-weight: bold; padding: 5px;">' . $position['description'] . '</h4>
+            <table border="1" cellspacing="0" cellpadding="3" style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr style="background-color: #e0f7fa; font-weight: bold;">
+                        <th width="80%">Candidate Name</th>
+                        <th width="20%">Votes</th>
+                    </tr>
+                </thead>
+                <tbody>
         ';
 
-        $sql = "SELECT * FROM candidates WHERE position_id = '$id' ORDER BY lastname ASC";
+        // Fetch candidates for the current position and determine the highest vote count
+        $position_id = $position['id'];
+        $sql = "SELECT candidates.*, partylists.name AS partylist_name 
+                FROM candidates 
+                LEFT JOIN partylists ON candidates.partylist_id = partylists.id 
+                WHERE position_id = '$position_id' 
+                ORDER BY lastname ASC";
         $cquery = $conn->query($sql);
-
-        // Find the highest votes for the current position
-        $maxVotes = 0;
+        
         $candidates = [];
-        while($crow = $cquery->fetch_assoc()){
-            $sql = "SELECT * FROM votes WHERE candidate_id = '".$crow['id']."'";
+        $maxVotes = 0;
+
+        while ($candidate = $cquery->fetch_assoc()) {
+            $sql = "SELECT * FROM votes WHERE candidate_id = '" . $candidate['id'] . "'";
             $vquery = $conn->query($sql);
             $votes = $vquery->num_rows;
-            $candidates[] = ['name' => $crow['lastname'].", ".$crow['firstname'], 'votes' => $votes];
+            
+            $candidates[] = [
+                'name' => $candidate['lastname'] . ", " . $candidate['firstname'],
+                'partylist' => $candidate['partylist_name'],
+                'votes' => $votes
+            ];
             if ($votes > $maxVotes) {
                 $maxVotes = $votes;
             }
         }
 
-        // Render candidates and highlight the highest vote
+        // Render each candidate's row, highlighting the highest vote count
         foreach ($candidates as $candidate) {
             $highlight = ($candidate['votes'] == $maxVotes) ? ' style="background-color:yellow;"' : '';
             $contents .= '
-                <tr'.$highlight.'>
-                    <td>'.$candidate['name'].'</td>
-                    <td>'.$candidate['votes'].'</td>
+                <tr' . $highlight . '>
+                    <td width="80%">' . $candidate['partylist'] . ' — ' . $candidate['name'] . '</td>
+                    <td width="20%">' . $candidate['votes'] . '</td>
                 </tr>
             ';
         }
+
+        $contents .= '
+                </tbody>
+            </table>
+            <br/>
+        ';
     }
 
     return $contents;
 }
 
 $parse = parse_ini_file('config.ini', FALSE, INI_SCANNER_RAW);
-$title = $parse['election_title'];
+$title = $parse['election_name'];
 
 require_once('../tcpdf/tcpdf.php');
 
 class MYPDF extends TCPDF {
-    //Page header
+    public $isFirstPage = true;
+
+    // Page header
     public function Header() {
+        if ($this->getPage() > 1) {
+            $this->SetMargins(PDF_MARGIN_LEFT, 30, PDF_MARGIN_RIGHT, true);
+        } else {
+            $this->SetMargins(PDF_MARGIN_LEFT, 10, PDF_MARGIN_RIGHT, true);
+        }
         // Logo
         $this->Image('../images/btech.png', 25, 5, 25);
         $this->Image('../images/ehalal.jpg', 165, 8, 20);
@@ -65,9 +91,12 @@ class MYPDF extends TCPDF {
         // Title
         $this->Cell(0, 26, 'Dalubhasaang Politekniko ng Lungsod ng Baliwag', 0, 1, 'C');
         $this->SetFont('helvetica', '', 10);
-		$this->SetY(18);
+        $this->SetY(18);
         $this->Cell(0, 0, 'The Official Electoral Board', 0, 1, 'C');
-		$this->Cell(0, 0, 'E-Halal BTECHenyo | Vote Wise BTECHenyos!', 0, 1, 'C');
+        $this->Cell(0, 0, 'E-Halal BTECHenyo | Vote Wise BTECHenyos!', 0, 1, 'C');
+
+        // Reset the flag after the first page
+        $this->isFirstPage = false;
     }
 
     // Page footer
@@ -94,13 +123,11 @@ $pdf->SetFont('helvetica', '', 11);
 $pdf->AddPage();  
 $content = '';  
 $content .= '
-	<br><br><br><br>
+    <br><br><br><br>
     <h2 align="center" style="line-height: 19px">'.$title.'</h2>
     <h4 align="center" >Tally Result</h4>
-    <table border="1" cellspacing="0" cellpadding="3">  
   ';  
-$content .= generateRow($conn);  
-$content .= '</table>';  
+$content .= generateRow($conn);
 $pdf->writeHTML($content);  
 $pdf->Output('election_result.pdf', 'I');
 ?>
