@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 02, 2024 at 07:05 AM
+-- Generation Time: Dec 04, 2024 at 09:51 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -46,7 +46,7 @@ CREATE TABLE `admin` (
 INSERT INTO `admin` (`id`, `username`, `password`, `firstname`, `lastname`, `photo`, `created_on`, `role`, `gender`) VALUES
 (1, 'wallysabangan2024', '$2y$10$JJyv3iRlgpbEeHKlyRZIOeRvtuLcskovhJn8vZvExSLNmrOj2uyVO', 'Wally', 'Sabangan', 'profile.jpg', '2024-06-06', 'superadmin', 'Male'),
 (2, 'dejesus', '$2y$10$aUdUxJ/vc8Gm/Sc8NhLDouuHZo0DWXIDQDvueQ3byii815n0Xn85W', 'Reanne', 'De Jesus', 'profile.jpg', '2024-06-06', 'officer', 'Female'),
-(4, 'janzengo', '$2y$10$CAB8lAW3uxD.y1dYWGbodOkGRJigRk8WNaY35NjG.NVQpGElndHNC', 'Janzen', 'Go', 'profile.jpg', '2024-06-11', 'officer', 'Male');
+(4, 'janzengo', '$2y$10$fDvGDLZGY3OcMG6qhPha..BkVCF2SBUMafaat8sHprQXiQ98L.6Iy', 'Janzen', 'Go', 'profile.jpg', '2024-06-11', 'officer', 'Male');
 
 -- --------------------------------------------------------
 
@@ -70,7 +70,35 @@ CREATE TABLE `candidates` (
 
 INSERT INTO `candidates` (`id`, `position_id`, `firstname`, `lastname`, `partylist_id`, `photo`, `platform`) VALUES
 (2, 1, 'Janzen', 'Go', 4, '', 'I am Janzen Go.'),
-(3, 1, 'Steph', 'Curry', 9, '', 'I\'m Stephen Curry.');
+(3, 1, 'Steph', 'Curry', 9, '', 'I\'m Stephen Curry.'),
+(4, 1, 'Kevin', 'Durant', 1, '', 'Kevin Durant'),
+(5, 2, 'Jason', 'Tatum', 1, '', 'Jason Tatum'),
+(6, 2, 'Derick', 'White', 4, '', 'Derick White'),
+(7, 2, 'Anthony', 'Edwards', 9, '', 'Anthony Edwards'),
+(8, 3, 'Rudy', 'Gobert', 1, '', 'Rudy Gobert'),
+(9, 3, 'Lebron', 'James', 4, '', 'Lebron James'),
+(10, 3, 'Nikola', 'Jokic', 9, '', 'Nikola Jokic'),
+(11, 4, 'Jamal', 'Murray', 1, '', 'Jamal Murray'),
+(12, 4, 'Luka', 'Doncic', 4, '', 'Luka Doncic'),
+(13, 4, 'Jalen', 'Brown', 9, '', 'Jalen Brown'),
+(14, 5, 'Jordan', 'Poole', 1, '', 'Jordan Poole'),
+(15, 5, 'Andrew', 'Wiggins', 4, '', 'Andrew Wiggins'),
+(16, 5, 'Moses', 'Moody', 9, '', 'Moses Moody'),
+(17, 6, 'Kobe', 'Bryant', 1, '', 'Kobe Bryant'),
+(18, 6, 'Kawhi', 'Leonard', 4, '', 'Kawhi Leonard'),
+(19, 6, 'Russell', 'Westbrook', 9, '', 'Russell Westbrook'),
+(20, 7, 'Mike', 'Conley', 4, '', 'Mike Conley'),
+(21, 7, 'Larry', 'Bird', 1, '', 'Larry Bird'),
+(22, 7, 'Trae', 'Young', 9, '', 'Trae Young'),
+(23, 8, 'Duncan', 'Tim', 1, '', 'Tim Duncan'),
+(24, 8, 'Davis', 'Anthony', 4, '', 'Anthony David'),
+(25, 8, 'Harden', 'James', 9, '', 'James Harden'),
+(26, 9, 'Bronny', 'James', 1, '', 'Bronny James'),
+(27, 9, 'Ja', 'Morant', 4, '', 'Ja Morant'),
+(28, 9, 'Zion', 'Williamson', 9, '', 'Zion Williamson'),
+(29, 10, 'Klay', 'Thompson', 1, '', 'Klay Thompson'),
+(30, 10, 'Tristan', 'Thompson', 4, '', 'Tristan Thompson'),
+(31, 10, 'Wilt', 'Chamberlain', 9, '', 'Wilt Chamberlain');
 
 -- --------------------------------------------------------
 
@@ -146,7 +174,7 @@ CREATE TABLE `election_status` (
 --
 
 INSERT INTO `election_status` (`id`, `status`, `election_name`, `start_time`, `end_time`) VALUES
-(1, 'pending', '2026 Sangguaniang Mag-aaral Elections', NULL, '2024-09-15 14:00:00');
+(1, 'on', '2026 Sangguaniang Mag-aaral Elections', '2024-11-08 22:06:45', '2024-11-09 14:00:00');
 
 -- --------------------------------------------------------
 
@@ -273,7 +301,67 @@ INSERT INTO `logs` (`id`, `timestamp`, `username`, `details`, `role`) VALUES
 (104, '2024-11-02 06:04:22', 'wallysabangan2024', 'Added new Vice President position with 1 maximum vote', 'superadmin'),
 (105, '2024-11-02 06:04:31', 'wallysabangan2024', 'Deleted candidate:   (Position: , Partylist: )', 'superadmin'),
 (106, '2024-11-02 06:04:40', 'wallysabangan2024', 'Updated Candidate:   (Position: , Partylist: ) to Janzen Go (Position: President, Partylist: Independent) | Platform changed from: \'\' to: \'I am Janzen Go.\'', 'superadmin'),
-(107, '2024-11-02 06:04:49', 'wallysabangan2024', 'Updated Candidate:   (Position: , Partylist: ) to Steph Curry (Position: President, Partylist: Democrats) | Platform changed from: \'\' to: \'I\'m Stephen Curry.\'', 'superadmin');
+(107, '2024-11-02 06:04:49', 'wallysabangan2024', 'Updated Candidate:   (Position: , Partylist: ) to Steph Curry (Position: President, Partylist: Democrats) | Platform changed from: \'\' to: \'I\'m Stephen Curry.\'', 'superadmin'),
+(108, '2024-11-08 13:23:49', 'wallysabangan2024', 'Successful login', 'superadmin'),
+(109, '2024-11-08 13:24:24', 'wallysabangan2024', 'Added new candidate: Kevin Durant for President under Sandigan partylist', 'superadmin'),
+(110, '2024-11-08 13:58:45', 'wallysabangan2024', 'Successful login', 'superadmin'),
+(111, '2024-11-08 14:29:33', 'wallysabangan2024', 'Logged out', 'superadmin'),
+(112, '2024-11-09 05:44:32', 'wallysabangan2024', 'Deleted Justine Thea Go (202320025) as voter', 'superadmin'),
+(113, '2024-11-09 14:39:32', 'wallysabangan2024', 'Successful login', 'superadmin'),
+(114, '2024-11-10 14:57:28', 'wallysabangan2024', 'Successful login', 'superadmin'),
+(115, '2024-11-11 03:30:26', 'wallysabangan2024', 'Successful login', 'superadmin'),
+(116, '2024-11-11 06:03:37', 'wallysabangan2024', 'Successful login', 'superadmin'),
+(117, '2024-11-11 08:39:07', 'wallysabangan2024', 'Successful login', 'superadmin'),
+(118, '2024-11-11 10:38:13', 'wallysabangan2024', 'Added new candidate: Jason Tatum for Vice President under Sandigan partylist', 'superadmin'),
+(119, '2024-11-11 10:38:34', 'wallysabangan2024', 'Added new candidate: Derick White for Vice President under Independent partylist', 'superadmin'),
+(120, '2024-11-11 10:38:49', 'wallysabangan2024', 'Added new candidate: Anthony Edwards for Vice President under Democrats partylist', 'superadmin'),
+(121, '2024-11-11 10:39:14', 'wallysabangan2024', 'Added new Secretary position with 1 maximum vote', 'superadmin'),
+(122, '2024-11-11 10:39:36', 'wallysabangan2024', 'Added new Treasurer position with 1 maximum vote', 'superadmin'),
+(123, '2024-11-11 10:39:45', 'wallysabangan2024', 'Added new Auditor position with 1 maximum vote', 'superadmin'),
+(124, '2024-11-11 10:39:50', 'wallysabangan2024', 'Added new PIO position with 1 maximum vote', 'superadmin'),
+(125, '2024-11-11 10:39:57', 'wallysabangan2024', 'Added new 1st Year Representative position with 1 maximum vote', 'superadmin'),
+(126, '2024-11-11 10:40:06', 'wallysabangan2024', 'Added new 2nd Year Representative position with 1 maximum vote', 'superadmin'),
+(127, '2024-11-11 10:40:13', 'wallysabangan2024', 'Added new 3rd Year Representative position with 1 maximum vote', 'superadmin'),
+(128, '2024-11-11 10:40:21', 'wallysabangan2024', 'Added new 4th Year Representative position with 1 maximum vote', 'superadmin'),
+(129, '2024-11-11 10:41:03', 'wallysabangan2024', 'Added new candidate: Rudy Gobert for Secretary under Sandigan partylist', 'superadmin'),
+(130, '2024-11-11 10:41:21', 'wallysabangan2024', 'Added new candidate: Lebron James for Secretary under Independent partylist', 'superadmin'),
+(131, '2024-11-11 10:41:47', 'wallysabangan2024', 'Added new candidate: Nikola Jokic for Secretary under Democrats partylist', 'superadmin'),
+(132, '2024-11-11 10:42:09', 'wallysabangan2024', 'Added new candidate: Jamal Murray for Treasurer under Sandigan partylist', 'superadmin'),
+(133, '2024-11-11 10:42:30', 'wallysabangan2024', 'Added new candidate: Luka Doncic for Treasurer under Independent partylist', 'superadmin'),
+(134, '2024-11-11 10:43:00', 'wallysabangan2024', 'Added new candidate: Jalen Brown for Treasurer under Democrats partylist', 'superadmin'),
+(135, '2024-11-11 10:43:21', 'wallysabangan2024', 'Added new candidate: Jordan Poole for Auditor under Sandigan partylist', 'superadmin'),
+(136, '2024-11-11 10:43:58', 'wallysabangan2024', 'Added new candidate: Andrew Wiggins for Auditor under Independent partylist', 'superadmin'),
+(137, '2024-11-11 10:44:13', 'wallysabangan2024', 'Added new candidate: Moses Moody for Auditor under Democrats partylist', 'superadmin'),
+(138, '2024-11-11 10:44:28', 'wallysabangan2024', 'Added new candidate: Kobe Bryant for PIO under Sandigan partylist', 'superadmin'),
+(139, '2024-11-11 10:58:14', 'wallysabangan2024', 'Added new candidate: Kawhi Leonard for PIO under Independent partylist', 'superadmin'),
+(140, '2024-11-11 10:58:31', 'wallysabangan2024', 'Added new candidate: Russell Westbrook for PIO under Democrats partylist', 'superadmin'),
+(141, '2024-11-11 11:14:53', 'wallysabangan2024', 'Added new candidate: Mike Conley for 1st Year Representative under Independent partylist', 'superadmin'),
+(142, '2024-11-11 11:15:21', 'wallysabangan2024', 'Added new candidate: Larry Bird for 1st Year Representative under Sandigan partylist', 'superadmin'),
+(143, '2024-11-11 11:17:31', 'wallysabangan2024', 'Added new candidate: Trae Young for 1st Year Representative under Democrats partylist', 'superadmin'),
+(144, '2024-11-11 11:25:29', 'wallysabangan2024', 'Added new candidate: Duncan Tim for 2nd Year Representative under Sandigan partylist', 'superadmin'),
+(145, '2024-11-11 11:25:46', 'wallysabangan2024', 'Added new candidate: Davis Anthony for 2nd Year Representative under Independent partylist', 'superadmin'),
+(146, '2024-11-11 11:27:29', 'wallysabangan2024', 'Added new candidate: Harden James for 2nd Year Representative under Democrats partylist', 'superadmin'),
+(147, '2024-11-11 11:27:48', 'wallysabangan2024', 'Added new candidate: Bronny James for 3rd Year Representative under Sandigan partylist', 'superadmin'),
+(148, '2024-11-11 11:28:00', 'wallysabangan2024', 'Added new candidate: Ja Morant for 3rd Year Representative under Independent partylist', 'superadmin'),
+(149, '2024-11-11 11:28:18', 'wallysabangan2024', 'Added new candidate: Zion Williamson for 3rd Year Representative under Democrats partylist', 'superadmin'),
+(150, '2024-11-11 11:28:46', 'wallysabangan2024', 'Added new candidate: Klay Thompson for 4th Year Representative under Sandigan partylist', 'superadmin'),
+(151, '2024-11-11 11:29:01', 'wallysabangan2024', 'Added new candidate: Tristan Thompson for 4th Year Representative under Independent partylist', 'superadmin'),
+(152, '2024-11-11 11:29:18', 'wallysabangan2024', 'Added new candidate: Wilt Chamberlain for 4th Year Representative under Democrats partylist', 'superadmin'),
+(153, '2024-11-13 06:01:47', 'wallysabangan2024', 'Successful login', 'superadmin'),
+(154, '2024-11-13 07:07:40', 'wallysabangan2024', 'Added several voters: Alona Go (202320025)', 'superadmin'),
+(155, '2024-11-20 11:17:34', 'wallysabangan2024', 'Successful login', 'superadmin'),
+(156, '2024-11-20 11:19:08', 'wallysabangan2024', 'Successful login', 'superadmin'),
+(157, '2024-11-20 11:19:53', 'wallysabangan2024', 'Logged out', 'superadmin'),
+(158, '2024-11-20 11:20:33', 'wallysabangan2024', 'Logged out', 'superadmin'),
+(159, '2024-11-20 11:21:51', 'wallysabangan2024', 'Successful login', 'superadmin'),
+(160, '2024-11-20 11:27:08', 'wallysabangan2024', 'Successful login', 'superadmin'),
+(161, '2024-11-20 11:27:55', 'wallysabangan2024', 'Logged out', 'superadmin'),
+(162, '2024-11-20 11:28:05', 'janzengo', 'Successful login', 'officer'),
+(163, '2024-11-21 11:27:02', 'wallysabangan2024', 'Successful login', 'superadmin'),
+(164, '2024-11-22 12:26:54', 'wallysabangan2024', 'Successful login', 'superadmin'),
+(165, '2024-11-23 00:03:08', 'wallysabangan2024', 'Successful login', 'superadmin'),
+(166, '2024-11-25 04:44:47', 'wallysabangan2024', 'Successful login', 'superadmin'),
+(167, '2024-12-04 08:46:22', 'wallysabangan2024', 'Successful login', 'superadmin');
 
 -- --------------------------------------------------------
 
@@ -314,7 +402,15 @@ CREATE TABLE `positions` (
 
 INSERT INTO `positions` (`id`, `description`, `max_vote`, `priority`) VALUES
 (1, 'President', 1, 1),
-(2, 'Vice President', 1, 2);
+(2, 'Vice President', 1, 2),
+(3, 'Secretary', 1, 3),
+(4, 'Treasurer', 1, 4),
+(5, 'Auditor', 1, 5),
+(6, 'PIO', 1, 6),
+(7, '1st Year Representative', 1, 7),
+(8, '2nd Year Representative', 1, 8),
+(9, '3rd Year Representative', 1, 9),
+(10, '4th Year Representative', 1, 10);
 
 -- --------------------------------------------------------
 
@@ -337,8 +433,7 @@ CREATE TABLE `voters` (
 --
 
 INSERT INTO `voters` (`id`, `voters_id`, `course_id`, `password`, `firstname`, `lastname`, `photo`) VALUES
-(51, '202320023', 2, '$2y$10$iJoUSUZANK1DU2qfl2XWWOc0vssPdwy6D5u8GUn/p0wEXUmuw4Gw.', 'Janzen', 'Go', 'profile.jpg'),
-(52, '202320025', 8, '$2y$10$mqd1nU9oli0nKLt4awOKKOXNjl8vAqFZEyRl/3IuDBT2yequDcOE2', 'Justine Thea', 'Go', 'profile.jpg'),
+(51, '202320023', 2, '$2y$10$MB.gI7eMzDz4LOa9zXCLIeADrQJ7.R619xipZrDgbjbYuEnPW53nG', 'Janzen', 'Go', 'profile.jpg'),
 (53, '202320254', 3, '$2y$10$qY.b.SUrbKH9x2qDOy0uTexUrqXvI4pJLibCAhsBQ9XYl8bWfpOOC', 'Justin', 'Go', 'profile.jpg'),
 (54, '202520025', 4, '$2y$10$MyTnLQR0BCkmEmhWY89P3OGUlCQz.xAfnAXaxwo3FbnYBVsxga8Ja', 'Mayeth', 'Go', 'profile.jpg'),
 (55, '202320001', 1, '$2y$10$FnebMwW6WEEBDcZS2u3qRe5nng.9Dem.bTE3.DAkn3Ztroqa0Mg9y', 'John', 'Doe', 'profile.jpg'),
@@ -346,7 +441,8 @@ INSERT INTO `voters` (`id`, `voters_id`, `course_id`, `password`, `firstname`, `
 (57, '202320003', 2, '$2y$10$.VPkkjDuiHZlR/ERwgX3d.biJWO04eCxamFuRE3fN.pEGtA8S4Oo6', 'Bob', 'Brown', 'profile.jpg'),
 (58, '202320004', 2, '$2y$10$hdwuMZPkg2Ud3Amgh8T37uSMv4XACwt1DCNOe8nhFXgifwjpE2Zfy', 'Alice', 'Johnson', 'profile.jpg'),
 (59, '202320005', 3, '$2y$10$NrlbVKGcS/irvknm0R7mZeTHaFPRP.sfe9hra3uMhLO6t03pHhm0S', 'Tom', 'White', 'profile.jpg'),
-(60, '202320006', 4, '$2y$10$mgfaFZ5JdRozk.iCYSSOLubV6zTB0yzX0YlWXOJYEw9JDoEW4qOHS', 'Emma', 'Clark', 'profile.jpg');
+(60, '202320006', 4, '$2y$10$mgfaFZ5JdRozk.iCYSSOLubV6zTB0yzX0YlWXOJYEw9JDoEW4qOHS', 'Emma', 'Clark', 'profile.jpg'),
+(61, '202320025', 6, '$2y$10$XkuzyLX/Z0YfaGfI1JMihujmeXXGl6Pi9gQzjQ/nq.ODMtnqYJciy', 'Nylam Ann', 'Go', 'profile.jpg');
 
 -- --------------------------------------------------------
 
@@ -366,7 +462,11 @@ CREATE TABLE `votes` (
 --
 
 INSERT INTO `votes` (`id`, `voters_id`, `candidate_id`, `position_id`) VALUES
-(1, 51, 1, 34);
+(2, 51, 4, 1),
+(3, 51, 5, 2),
+(4, 51, 9, 3),
+(5, 51, 17, 6),
+(6, 51, 25, 8);
 
 --
 -- Indexes for dumped tables
@@ -447,7 +547,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `candidates`
 --
 ALTER TABLE `candidates`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `courses`
@@ -459,7 +559,7 @@ ALTER TABLE `courses`
 -- AUTO_INCREMENT for table `election_history`
 --
 ALTER TABLE `election_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `election_status`
@@ -471,7 +571,7 @@ ALTER TABLE `election_status`
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=168;
 
 --
 -- AUTO_INCREMENT for table `partylists`
@@ -483,19 +583,19 @@ ALTER TABLE `partylists`
 -- AUTO_INCREMENT for table `positions`
 --
 ALTER TABLE `positions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `voters`
 --
 ALTER TABLE `voters`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT for table `votes`
 --
 ALTER TABLE `votes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
