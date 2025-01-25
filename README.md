@@ -1,70 +1,176 @@
 # E-Halal BTECHenyo Voting System
 
-## Overview
-E-Halal BTECHenyo is a voting system designed to facilitate fair and transparent voting processes within the local environment of Dalubhasaang Politekniko ng Lungsod ng Baliwag. This system operates exclusively on a local server or intranet, ensuring that it can only be accessed within the institution's network.
+A comprehensive web-based voting system designed specifically for halal certification organizations, featuring secure authentication, real-time vote tracking, and advanced administrative controls.
 
 ## Features
-- User-friendly interface for both voters and administrators.
-- Secure and efficient voting process.
-- Real-time results display.
-- PDF generation for vote receipts using TCPDF.
 
-## Technologies Used
-- **Backend Language**: PHP
-- **Framework**: AdminLTE
-- **Libraries**:
-  - JQuery
-  - Bootstrap
-  - dataTables
-  - Font Awesome
-  - morris.js
-  - Datepicker
-  - Slider
-  - Timepicker
-  - Colorpicker
-  - FullCalendar
+### Voter Features
+- **Modern Card-Based Voting Interface**
+  - Intuitive candidate selection
+  - Real-time vote validation
+  - Maximum vote enforcement
+  - Mobile-responsive design
+
+- **Secure Authentication**
+  - Unique voter ID system
+  - Password protection
+  - Session management
+  - Automatic logout on election end
+
+### Administrative Features
+- **Election Management**
+  - Configure election parameters
+  - Set voting period
+  - Real-time election monitoring
+  - Post-election results processing
+
+- **Candidate Management**
+  - Add/Edit candidates
+  - Upload candidate photos
+  - Manage party lists
+  - Position prioritization
+
+- **Voter Management**
+  - Bulk voter registration via CSV
+  - Individual voter registration
+  - Voter status tracking
+  - Access control
+
+- **Results & Analytics**
+  - Real-time vote counting
+  - Generate PDF reports
+  - Election statistics
+  - Vote audit logs
+
+## Technology Stack
+
+- **Frontend**
+  - HTML5, CSS3, JavaScript
+  - Bootstrap 3
+  - Font Awesome 5
+  - Chart.js
+  - jQuery
+
+- **Backend**
+  - PHP 7.4+
+  - MySQL/MariaDB
+  - Object-Oriented Programming
+  - MVC Architecture
+
+- **Server Requirements**
+  - Apache/Nginx
+  - PHP 7.4 or higher
+  - MySQL 5.7 or higher
+  - mod_rewrite enabled
 
 ## Installation
 
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/yourusername/e-halal.git
+   ```
+
+2. **Database Setup**
+   - Create a MySQL database
+   - Import the provided SQL file from `database/e-halal.sql`
+
+3. **Configuration**
+   - Configure database connection in `classes/Database.php`
+   - Set timezone in `init.php`
+   - Configure election parameters in `admin/config.ini`
+
+4. **Server Configuration**
+   - Ensure mod_rewrite is enabled
+   - Set proper file permissions
+   - Configure virtual host (optional)
+
+## Project Structure
+
+```
+e-halal/
+├── admin/                 # Administrative interface
+│   ├── classes/          # Admin-specific classes
+│   ├── includes/         # Admin components
+│   └── modals/          # Admin modal forms
+├── classes/              # Core system classes
+├── database/             # Database scripts
+├── dist/                 # Distribution files
+├── docs/                # Documentation
+├── images/              # Uploaded images
+└── modals/              # Voter interface modals
+```
+
+## Security Features
+
+- Password hashing using bcrypt
+- SQL injection prevention
+- XSS protection
+- CSRF protection
+- Session security
+- Input validation
+- Access control
+- Audit logging
+
+## User Roles
+
+### Admin
+- Full system access
+- Election configuration
+- User management
+- Results processing
+
+### Voters
+- One-time voting access
+- View candidate information
+- Track voting status
+- View election results
+
+## Recent Updates (January 21-25, 2025)
+
+- Implemented modern card-based voting interface
+- Transformed codebase to OOP architecture
+- Enhanced security measures
+- Improved user experience
+- Added real-time vote validation
+- See [January 21-25 Documentation](docs/January%2021-25%20Documentation.md) for details
+
+## Development
+
 ### Prerequisites
-- XAMPP (or any PHP server)
-- A web browser
+- XAMPP/WAMP/LAMP
+- Git
+- Text editor (VS Code recommended)
+- Basic PHP knowledge
 
-### Steps
-1. **Download and Install XAMPP**:
-   - [XAMPP Download](https://www.apachefriends.org/index.html)
-   - Follow the installation instructions for your operating system.
-
-2. **Clone or Download the Repository**:
-   - You can clone this repository using Git:
-     ```bash
-     git clone <repository-url>
-     ```
-   - Or download the ZIP file and extract it.
-
-3. **Copy the Project Files**:
-   - Copy the project files to the `htdocs` directory of your XAMPP installation. The default location is usually `C:\xampp\htdocs\`.
-
-4. **Set Up the Database**:
-   - Open your web browser and navigate to `http://localhost/phpmyadmin`.
-   - Create a new database (e.g., `e-halal`).
-   - Import the SQL database file provided in the project directory:
-     - Click on the database name you created.
-     - Click on the "Import" tab.
-     - Choose the SQL file from the project directory and click "Go."
-
-5. **Configure the Application**:
-   - Update the database connection settings in the project files if necessary (usually found in a `conn.php` or similar file).
-
-6. **Start the XAMPP Server**:
-   - Open the XAMPP Control Panel and start the Apache module.
-
-7. **Access the Application**:
-   - Open your web browser and go to `http://localhost/<project-folder-name>` to access the voting system.
-
-## Open Contribution
-We welcome contributions to improve the E-Halal BTECHenyo Voting System! If you have suggestions, bug fixes, or new features, feel free to fork the repository and submit a pull request. You can also open issues to discuss potential enhancements or report bugs.
+### Setup Development Environment
+1. Install XAMPP
+2. Clone repository to htdocs
+3. Configure virtual host
+4. Import database
+5. Start development
 
 ## License
-This project is open-source and available under the [MIT License](LICENSE).
 
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contributors
+
+- Lead Developer: [Your Name]
+- UI/UX: [Designer Name]
+- Testing: [Tester Name]
+
+## Contributing
+
+1. Fork the repository
+2. Create feature branch
+3. Commit changes
+4. Push to branch
+5. Create Pull Request
+
+## Support
+
+For support, please email [your-email@domain.com]
+
+---
+
+Made with ❤️ by BTECHenyo Team
