@@ -1,56 +1,94 @@
 <?php
-	
-	include 'includes/session.php';
-	include 'includes/slugify.php';
+require_once 'classes/Database.php';
+require_once 'classes/CustomSessionHandler.php';
+require_once 'classes/User.php';
+require_once 'classes/Ballot.php';
 
-	$output = array('error'=>false,'list'=>'');
+$session = CustomSessionHandler::getInstance();
+$user = new User();
+$db = Database::getInstance();
+$ballot = new Ballot();
 
-	$sql = "SELECT * FROM positions";
-	$query = $conn->query($sql);
+if (!$user->isLoggedIn()) {
+    echo json_encode(['error' => true, 'message' => ['You are not logged in.']]);
+    exit();
+}
 
-	while($row = $query->fetch_assoc()){
-		$position = slugify($row['description']);
-		$pos_id = $row['id'];
-		if(isset($_POST[$position])){
-			if($row['max_vote'] > 1){
-				if(count($_POST[$position]) > $row['max_vote']){
-					$output['error'] = true;
-					$output['message'][] = '<i class="fa fa-exclamation-triangle">&nbsp;</i>' . 'You may only choose '.$row['max_vote'].' candidates for '.$row['description'];
-				}
-				else{
-					foreach($_POST[$position] as $key => $values){
-						$sql = "SELECT * FROM candidates WHERE id = '$values'";
-						$cmquery = $conn->query($sql);
-						$cmrow = $cmquery->fetch_assoc();
-						$output['list'] .= "
-							<div class='row votelist'>
-		                      	<span class='col-sm-4'><span class='pull-right'><b>".$row['description']." :</b></span></span> 
-		                      	<span class='col-sm-8'>".$cmrow['firstname']." ".$cmrow['lastname']."</span>
-		                    </div>
-						";
-					}
+$output = ['error' => false, 'list' => '', 'message' => []];
 
-				}
-				
-			}
-			else{
-				$candidate = $_POST[$position];
-				$sql = "SELECT * FROM candidates WHERE id = '$candidate'";
-				$csquery = $conn->query($sql);
-				$csrow = $csquery->fetch_assoc();
-				$output['list'] .= "
-					<div class='row votelist'>
-                      	<span class='col-sm-4'><span class='pull-right'><b>".$row['description']." :</b></span></span> 
-                      	<span class='col-sm-8'>".$csrow['firstname']." ".$csrow['lastname']."</span>
-                    </div>
-				";
-			}
+if (!isset($_POST['votes']) || !is_array($_POST['votes'])) {
+    echo json_encode(['error' => true, 'message' => ['No vote data submitted.']]);
+    exit();
+}
 
-		}
-		
-	}
+try {
+    // Get all positions
+    $positions = $ballot->getPositions();
+    
+    if (!$positions) {
+        throw new Exception("Error fetching positions");
+    }
 
-	echo json_encode($output);
+    $previewHtml = '';
+    
+    while ($position = $positions->fetch_assoc()) {
+        $pos_id = $position['id'];
+        
+        // Check if this position was voted for
+        if (isset($_POST['votes'][$pos_id])) {
+            $votes = is_array($_POST['votes'][$pos_id]) ? $_POST['votes'][$pos_id] : [$_POST['votes'][$pos_id]];
+            
+            // Validate vote count
+            if (count($votes) > $position['max_vote']) {
+                $output['error'] = true;
+                $output['message'][] = 'You may only choose ' . $position['max_vote'] . ' candidates for ' . htmlspecialchars($position['description']);
+                continue;
+            }
+            
+            // Start position section
+            $previewHtml .= '<div class="well">';
+            $previewHtml .= '<h4>' . htmlspecialchars($position['description']) . '</h4>';
+            
+            // Get candidate details for each vote
+            foreach ($votes as $candidate_id) {
+                $candidate = $ballot->getCandidate($candidate_id);
+                if ($candidate) {
+                    // Get partylist info
+                    $partylist_sql = "SELECT pl.name FROM candidates c 
+                                    LEFT JOIN partylists pl ON c.partylist_id = pl.id 
+                                    WHERE c.id = ?";
+                    $stmt = $db->getConnection()->prepare($partylist_sql);
+                    $stmt->bind_param('i', $candidate_id);
+                    $stmt->execute();
+                    $partylist_result = $stmt->get_result()->fetch_assoc();
+                    $partylist_name = $partylist_result ? $partylist_result['name'] : '';
 
+                    $previewHtml .= '<div class="row">';
+                    $previewHtml .= '<div class="col-sm-2">';
+                    $previewHtml .= '<img src="' . (!empty($candidate['photo']) ? 'images/'.$candidate['photo'] : 'images/profile.jpg') . '" 
+                                         width="100px" height="100px" class="img-circle">';
+                    $previewHtml .= '</div>';
+                    $previewHtml .= '<div class="col-sm-10">';
+                    $previewHtml .= '<h4>' . htmlspecialchars($candidate['firstname'] . ' ' . $candidate['lastname']) . '</h4>';
+                    if (!empty($partylist_name)) {
+                        $previewHtml .= '<p><strong>Partylist:</strong> ' . htmlspecialchars($partylist_name) . '</p>';
+                    }
+                    $previewHtml .= '</div>';
+                    $previewHtml .= '</div>';
+                }
+            }
+            
+            $previewHtml .= '</div>';
+        }
+    }
+    
+    $output['list'] = $previewHtml;
 
+} catch (Exception $e) {
+    $output['error'] = true;
+    $output['message'][] = $e->getMessage();
+}
+
+echo json_encode($output);
+exit();
 ?>

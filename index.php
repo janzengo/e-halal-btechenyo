@@ -1,35 +1,38 @@
 <?php
-session_start();
-include 'includes/conn.php';
+require_once 'init.php';
+require_once 'classes/Database.php';
+require_once 'classes/CustomSessionHandler.php';
+require_once 'classes/User.php';
+require_once 'classes/View.php';
+require_once 'classes/Election.php';
+require_once 'classes/Votes.php';
 
-// Check if election_status table is empty
-$sql = "SELECT COUNT(*) as count FROM election_status";
-$query = $conn->query($sql);
-$row = $query->fetch_assoc();
-if ($row['count'] == 0) {
-    $election_status = 'no_election';
+$session = CustomSessionHandler::getInstance();
+$user = new User();
+$view = View::getInstance();
+$election = new Election();
+$votes = new Votes();
+
+// Check if election has ended
+if (!$election->isElectionActive() && $election->hasEnded()) {
+    if ($user->isLoggedIn()) {
+        $user->logout();
+    }
+    $electionStatus = 'off';
 } else {
-    // Check election status
-    $sql = "SELECT status FROM election_status WHERE id = 1";
-    $query = $conn->query($sql);
-    $row = $query->fetch_assoc();
-    if ($query->num_rows > 0) {
-        $election_status = $row['status'];
-    } else {
-        $election_status = 'paused';
+    if($user->isLoggedIn()) {
+        $currentVoter = $user->getCurrentUser();
+        if ($votes->hasVoted($currentVoter['id'])) {
+            header('location: home.php?vote=complete');
+        } else {
+            header('location: home.php');
+        }
+        exit();
     }
 }
 
-if(isset($_SESSION['admin'])){
-    header('location: admin/home.php');
-}
-
-if(isset($_SESSION['voter'])){
-    header('location: home.php');
-}
+echo $view->renderHeader();
 ?>
-<?php include 'includes/links.php'; ?>
-<?php include 'includes/header.php'; ?>
 <body class="hold-transition login-page">
     <div class="inner-body">
         <div class="login-box">
@@ -38,24 +41,49 @@ if(isset($_SESSION['voter'])){
                 <h1><span>E-HALAL</span> <br> BTECHenyo</h1>
             </div>
             <p class="text-center text-smaller">A WEB-BASED VOTING SYSTEM FOR<br>DALUBHASAANG POLITEKNIKO NG LUNGSOD NG BALIWAG</p>
-            <?php 
-            if ($election_status == 'off'): ?>
+            
+            <?php
+            if ($session->hasError()) {
+                echo '<div class="alert alert-danger alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <ul>';
+                foreach ($session->getError() as $error) {
+                    echo "<li><i class='fa fa-exclamation-triangle'></i>&nbsp;" . $error . "</li>";
+                }
+                echo '</ul></div>';
+            }
+            // Clear session messages after displaying
+            $session->clearError();
+            $session->clearSuccess();
+
+            // Get current election status using Election class
+            $currentElection = $election->getCurrentElection();
+            $electionStatus = isset($electionStatus) ? $electionStatus : ($currentElection ? $currentElection['status'] : 'no_election');
+            $electionName = $currentElection ? $currentElection['election_name'] : 'Sangguniang Mag-aaral';
+
+            // Display appropriate message based on election status
+            if ($electionStatus === 'off' || ($currentElection && $election->hasEnded())): ?>
                 <section class="election-message">
                     <div class="election-message-box">
                         <h2>ELECTION PERIOD ENDED</h2>
-                        <p>The voting system is currently closed as the election period for Sangguniang Mag-aaral has ended. Stay tuned for future announcements, BTECHenyos!</p>
+                        <p>The voting system is currently closed as the election period for <?php echo htmlspecialchars($electionName); ?> has ended. Stay tuned for future announcements, BTECHenyos!</p>
                     </div>
                     <a href="#">Have some questions?</a>
                 </section>
-            <?php elseif ($election_status == 'paused') : ?>
+            <?php elseif ($electionStatus === 'paused'): ?>
                 <section class="election-message">
                     <div class="election-message-box">
-                        <h2>ELECTION PERIOD ENDED</h2>
-                        <p>The voting system for Sangguniang Mag-aaral is currently paused for a moment. Stay tuned, BTECHenyos!</p>
+                        <h2>ELECTION PAUSED</h2>
+                        <p>The voting system for <?php echo htmlspecialchars($electionName); ?> is currently paused. Stay tuned, BTECHenyos!</p>
+                        <?php if ($timeLeft = $election->getTimeRemaining()): ?>
+                        <p class="time-remaining">Time Remaining: <?php 
+                            echo "{$timeLeft['days']} days, {$timeLeft['hours']} hours, {$timeLeft['minutes']} minutes"; 
+                        ?></p>
+                        <?php endif; ?>
                     </div>
                     <a href="#">Have some questions?</a>
                 </section>
-            <?php elseif ($election_status == 'no_election') : ?>
+            <?php elseif ($electionStatus === 'no_election'): ?>
                 <section class="election-message">
                     <div class="election-message-box">
                         <h2>NO ELECTIONS</h2>
@@ -63,36 +91,98 @@ if(isset($_SESSION['voter'])){
                     </div>
                     <a href="#">Have some questions?</a>
                 </section>
-            <?php else : ?>
+            <?php elseif ($electionStatus === 'on' && $election->isElectionActive()): ?>
                 <div class="login-box-body">
                     <p class="text-center text-smaller lined"><span>LOGIN WITH YOUR STUDENT NUMBER</span></p>
+                    <?php if ($timeLeft = $election->getTimeRemaining()): ?>
+                    <p class="text-center time-remaining">Time Remaining: <?php 
+                        echo "{$timeLeft['days']} days, {$timeLeft['hours']} hours, {$timeLeft['minutes']} minutes"; 
+                    ?></p>
+                    <?php endif; ?>
                     <form action="login.php" method="POST" role="presentation" autocomplete="off">
                         <div class="form-group has-feedback">
                             <input type="text" autocomplete="off" class="form-control username" name="voter" placeholder="ENTER YOUR STUDENT NUMBER" required>
                             <span class="fa fa-fingerprint form-control-feedback"></span>
                         </div>
                         <div class="form-group has-feedback">
-                            <input type="password" autocomplete="off" class="form-control password" name="password" placeholder="PASSWORD" required>
-                            <span class="fa fa-key form-control-feedback"></span>
-                            <span class="forgot-password"><a href="#">Forgot Password?</a></span>
+                            <input type="password" class="form-control password" name="password" placeholder="ENTER YOUR PASSWORD" required>
+                            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block btn-flat custom" name="login">SIGN IN</button>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <button type="submit" class="btn btn-primary btn-block btn-flat" name="login"><i class="fa fa-sign-in"></i> LOGIN</button>
+                            </div>
+                        </div>
                     </form>
                 </div>
-                <?php
-                    if(isset($_SESSION['error'])){
-                        echo "
-                            <div class='callout callout-danger text-center mt20'>
-                                <p>".$_SESSION['error']."</p> 
-                            </div>
-                        ";
-                        unset($_SESSION['error']);
-                    }
-                ?>
+            <?php else: ?>
+                <section class="election-message">
+                    <div class="election-message-box">
+                        <h2>ELECTION PENDING</h2>
+                        <p>The election for <?php echo htmlspecialchars($electionName); ?> is scheduled but hasn't started yet. Please check back later.</p>
+                    </div>
+                    <a href="#">Have some questions?</a>
+                </section>
             <?php endif; ?>
         </div>
     </div>
+
+    <style>
+    .inner-body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
     
-    <?php include 'includes/scripts.php' ?>
+    .login-box {
+        width: 100%;
+        max-width: 360px;
+        margin: 0;
+    }
+
+    .alert-dismissible {
+        margin-bottom: 20px;
+    }
+
+    .alert-dismissible ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .alert-dismissible li {
+        margin-bottom: 5px;
+    }
+
+    .alert-dismissible li:last-child {
+        margin-bottom: 0;
+    }
+
+    .alert .close {
+        opacity: 0.8;
+        text-shadow: none;
+        cursor: pointer;
+    }
+
+    .alert .close:hover {
+        opacity: 1;
+    }
+    </style>
+
+    <!-- jQuery 3 -->
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    
+    <script>
+    $(document).ready(function() {
+        // Enable Bootstrap alert dismissal
+        $('.alert .close').click(function() {
+            $(this).closest('.alert').fadeOut('fast');
+        });
+    });
+    </script>
 </body>
 </html>

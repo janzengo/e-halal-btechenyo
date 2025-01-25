@@ -1,0 +1,127 @@
+/* General Layout */
+#ballotForm {
+    margin: 20px auto;
+    max-width: 900px;
+    padding: 25px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.position-section {
+    margin-bottom: 35px;
+}
+
+/* Position Header */
+.position-header {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Align reset button to the top */
+}
+
+/* Title and Instruction */
+.title-and-instruction {
+    display: flex;
+    flex-direction: column;
+    max-width: calc(100% - 100px); /* Prevent overlapping with reset button */
+}
+
+.position-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.position-instruction {
+    font-size: 14px;
+    color: #555;
+    margin: 5px 0 0; /* Add spacing below the title */
+}
+
+
+/* Candidates Grid */
+.candidates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Candidate Card */
+.candidate-card {
+    text-align: center;
+    padding: 15px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.candidate-card:hover {
+    transform: scale(1.05);
+}
+
+.candidate-photo {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.candidate-info {
+    margin-bottom: 10px;
+}
+
+.candidate-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.candidate-party {
+    font-size: 14px;
+    color: #666;
+}
+
+.candidate-select {
+    margin-top: 15px;
+}
+
+/* Platform Button */
+.platform-btn {
+    margin-bottom: 45px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.platform-btn:hover {
+    background-color: #218838;
+}
+
+/* Reset Button */
+.reset-btn {
+    font-size: 14px;
+    border: none;
+    background-color: #dc3545;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.reset-btn:hover {
+    background-color: #c82333;
+}
+
+/* General Button */
+.btn {
+    font-size: 14px;
+    padding: 8px 15px;
+}

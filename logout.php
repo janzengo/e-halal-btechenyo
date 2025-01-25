@@ -1,6 +1,11 @@
 <?php
-	session_start();
-	session_destroy();
+require_once 'init.php';
+require_once 'classes/CustomSessionHandler.php';
+require_once 'classes/User.php';
 
-	header('location: index.php');
+$user = new User();
+$user->logout();
+
+header('location: index.php');
+exit();
 ?>
