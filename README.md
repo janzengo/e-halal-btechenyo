@@ -155,9 +155,12 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contributors
 
-- Lead Developer: [Your Name]
-- UI/UX: [Designer Name]
-- Testing: [Tester Name]
+- Project Manager: Katrina Dela Cruz
+- Lead Developer: Janzen Go
+- UI/UX: Michael Domo
+- Testing: Mike Adrian Dela Cruz
+- Data Gathering Lead: Beatrice Valisno
+- Research and Docu Lead: Jennylyn Vinuya
 
 ## Contributing
 
