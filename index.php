@@ -77,7 +77,9 @@ echo $view->renderHeader();
                         <p>The voting system for <?php echo htmlspecialchars($electionName); ?> is currently paused. Stay tuned, BTECHenyos!</p>
                         <?php if ($timeLeft = $election->getTimeRemaining()): ?>
                         <p class="time-remaining">Time Remaining: <?php 
-                            echo "{$timeLeft['days']} days, {$timeLeft['hours']} hours, {$timeLeft['minutes']} minutes"; 
+                            echo $timeLeft['days'] > 0 ? ($timeLeft['days'] == 1 ? "{$timeLeft['days']} day, " : "{$timeLeft['days']} days, ") : '';
+                            echo $timeLeft['hours'] > 0 ? ($timeLeft['hours'] == 1 ? "{$timeLeft['hours']} hour, " : "{$timeLeft['hours']} hours, ") : '';
+                            echo $timeLeft['minutes'] > 0 ? ($timeLeft['minutes'] == 1 ? "{$timeLeft['minutes']} minute, " : "{$timeLeft['minutes']} minutes ") : '';                            
                         ?></p>
                         <?php endif; ?>
                     </div>
@@ -96,7 +98,9 @@ echo $view->renderHeader();
                     <p class="text-center text-smaller lined"><span>LOGIN WITH YOUR STUDENT NUMBER</span></p>
                     <?php if ($timeLeft = $election->getTimeRemaining()): ?>
                     <p class="text-center time-remaining">Time Remaining: <?php 
-                        echo "{$timeLeft['days']} days, {$timeLeft['hours']} hours, {$timeLeft['minutes']} minutes"; 
+                        echo $timeLeft['days'] > 0 ? ($timeLeft['days'] == 1 ? "{$timeLeft['days']} day, " : "{$timeLeft['days']} days, ") : '';
+                        echo $timeLeft['hours'] > 0 ? ($timeLeft['hours'] == 1 ? "{$timeLeft['hours']} hour, " : "{$timeLeft['hours']} hours, ") : '';
+                        echo $timeLeft['minutes'] > 0 ? ($timeLeft['minutes'] == 1 ? "{$timeLeft['minutes']} minute, " : "{$timeLeft['minutes']} minutes ") : '';                        
                     ?></p>
                     <?php endif; ?>
                     <form action="login.php" method="POST" role="presentation" autocomplete="off">
@@ -110,7 +114,7 @@ echo $view->renderHeader();
                         </div>
                         <div class="row">
                             <div class="col-xs-12">
-                                <button type="submit" class="btn btn-primary btn-block btn-flat" name="login"><i class="fa fa-sign-in"></i> LOGIN</button>
+                                <button type="submit" class="btn btn-primary btn-block btn-flat custom" name="login">LOGIN <i class="fa fa-sign-in"></i></button>
                             </div>
                         </div>
                     </form>
