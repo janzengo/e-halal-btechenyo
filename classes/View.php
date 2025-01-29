@@ -69,9 +69,9 @@ class View {
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <title>E-Halal BTECHenyo | Voting System</title>
             <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-            <link rel="stylesheet" href="<?php echo BASE_URL; ?>bower_components/bootstrap/dist/css/bootstrap.min.css">
+            <link rel="stylesheet" href="<?php echo BASE_URL; ?>node_modules/bootstrap/dist/css/bootstrap.min.css">
             <!--<link rel="stylesheet" href="<?php echo BASE_URL; ?>plugins/iCheck/all.css"> -->
-            <link rel="stylesheet" href="<?php echo BASE_URL; ?>bower_components/font-awesome/css/all.min.css"/>
+            <link rel="stylesheet" href="<?php echo BASE_URL; ?>node_modules/font-awesome/css/all.min.css"/>
             <link rel="stylesheet" href="<?php echo BASE_URL; ?>dist/css/AdminLTE.css">
             <link rel="stylesheet" href="<?php echo BASE_URL; ?>dist/css/skins/_all-skins.min.css">
             <link rel="stylesheet" href="<?php echo BASE_URL; ?>dist/css/custom.css">
@@ -104,18 +104,18 @@ class View {
         ob_start();
         ?>
         <!-- jQuery 3 -->
-        <script src="<?php echo BASE_URL; ?>bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="<?php echo BASE_URL; ?>node_modules/jquery/dist/jquery.min.js"></script>
         <!-- Bootstrap 3.3.7 -->
-        <script src="<?php echo BASE_URL; ?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="<?php echo BASE_URL; ?>node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
         <!-- iCheck 1.0.1 -->
         <script src="<?php echo BASE_URL; ?>plugins/iCheck/icheck.min.js"></script>
         <!-- DataTables -->
-        <script src="<?php echo BASE_URL; ?>bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
-        <script src="<?php echo BASE_URL; ?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+        <script src="<?php echo BASE_URL; ?>node_modules/datatables.net/js/jquery.dataTables.min.js"></script>
+        <script src="<?php echo BASE_URL; ?>node_modules/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
         <!-- SlimScroll -->
-        <script src="<?php echo BASE_URL; ?>bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+        <script src="<?php echo BASE_URL; ?>node_modules/jquery-slimscroll/jquery.slimscroll.min.js"></script>
         <!-- FastClick -->
-        <script src="<?php echo BASE_URL; ?>bower_components/fastclick/lib/fastclick.js"></script>
+        <script src="<?php echo BASE_URL; ?>node_modules/fastclick/lib/fastclick.js"></script>
         <!-- AdminLTE App -->
         <script src="<?php echo BASE_URL; ?>dist/js/adminlte.min.js"></script>
         <!-- SweetAlert2 -->
