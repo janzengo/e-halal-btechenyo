@@ -1,16 +1,33 @@
 <?php
+require_once 'init.php';
 
 class Database {
     private static $instance = null;
     private $connection;
-    private $host = 'localhost';
-    private $username = 'root';
-    private $password = '';
-    private $database = 'e-halal';
+    private $host;
+    private $username;
+    private $password;
+    private $database;
 
     private function __construct() {
+        $config = config();
+        $this->host = $config['DB_HOST'];
+        $this->username = $config['DB_USERNAME'];
+        $this->password = $config['DB_PASSWORD'];
+        $this->database = $config['DB_NAME'];
+
+        // Debug output
+        error_log("Database connection attempt with:");
+        error_log("Host: " . $this->host);
+        error_log("Username: " . $this->username);
+        error_log("Database: " . $this->database);
+
+        if (empty($this->host) || empty($this->username) || empty($this->database)) {
+            throw new Exception("Database configuration is incomplete. Please check your .env file.");
+        }
+
         $this->connection = new mysqli($this->host, $this->username, $this->password, $this->database);
-        
+
         if ($this->connection->connect_error) {
             die("Connection failed: " . $this->connection->connect_error);
         }
