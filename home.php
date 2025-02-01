@@ -84,11 +84,6 @@ echo $view->renderHeader();
                                     <h4><i class="icon fa fa-check"></i> Success!</h4>'
                                     . $session->getSuccess() .
                                 '</div>';
-                            } else {
-                                echo '<div class="alert alert-info text-center">
-                                    <h4><i class="icon fa fa-info"></i> Welcome!</h4>
-                                    Vote wisely, BTECHenyos!
-                                </div>';
                             }
                             break;
                     }

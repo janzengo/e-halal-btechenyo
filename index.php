@@ -110,7 +110,7 @@ echo $view->renderHeader();
                         </div>
                         <div class="form-group has-feedback">
                             <input type="password" class="form-control password" name="password" placeholder="ENTER YOUR PASSWORD" required>
-                            <span class="glyphicon glyphicon-lock form-control-feedback" name="lockIcon"></span>
+                            <span class="fa fa-key form-control-feedback"></span>
                         </div>
                         <div class="row">
                             <div class="col-xs-12">
@@ -143,9 +143,7 @@ echo $view->renderHeader();
     button[name="closeError"] {
         color: rgb(185, 59, 59) !important;
     }
-    span[name="lockIcon"] {
-        top: 14%;
-    }
+    
     .inner-body {
         min-height: 100vh;
         display: flex;
