@@ -132,6 +132,20 @@ echo $view->renderHeader();
     </div>
 
     <style>
+        /* invalid cred error */
+    [name="errorMessage"] {
+        background-color:rgb(253, 204, 201) !important;
+        border: none;
+        color: rgb(185, 59, 59) !important;
+        padding: 10px 30px;
+    }
+
+    button[name="closeError"] {
+        color: rgb(185, 59, 59) !important;
+    }
+    span[name="lockIcon"] {
+        top: 14%;
+    }
     .inner-body {
         min-height: 100vh;
         display: flex;
