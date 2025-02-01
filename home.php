@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once 'init.php';
 require_once 'classes/Database.php';
 require_once 'classes/CustomSessionHandler.php';
@@ -13,7 +13,7 @@ $ballot = new Ballot();
 $view = View::getInstance();
 $votes = new Votes();
 
-if(!$user->isLoggedIn()) {
+if (!$user->isLoggedIn()) {
     header('location: index.php');
     exit();
 }
@@ -40,7 +40,11 @@ if ($requestedStatus !== $voteStatus) {
 
 echo $view->renderHeader();
 ?>
+
 <body class="hold-transition skin-blue layout-top-nav">
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
     <div class="wrapper">
         <?php echo $view->renderNavbar(); ?>
         <div class="content-wrapper">
@@ -48,8 +52,8 @@ echo $view->renderHeader();
                 <section class="content">
                     <?php
                     $title = $ballot->getElectionName();
-                    echo '<h1 class="page-header text-center title title-custom"><b>'. strtoupper($title).'</b></h1>';
-                    
+                    echo '<h1 class="page-header text-center title title-custom"><b>' . strtoupper($title) . '</b></h1>';
+
                     if ($session->hasError()) {
                         echo '<div class="alert alert-danger alert-dismissible">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -69,26 +73,26 @@ echo $view->renderHeader();
                                 Your vote has been recorded successfully.
                             </div>';
                             break;
-                            
+
                         case 'already_voted':
                             echo '<div class="text-center">
                                 <h2>You have already voted.</h2>
                                 <p class="text-muted">Please tell an election officer/proctor if you think this is a mistake.</p>
                             </div>';
                             break;
-                            
+
                         case 'current':
                             if ($session->hasSuccess()) {
                                 echo '<div class="alert alert-success alert-dismissible">
                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                                     <h4><i class="icon fa fa-check"></i> Success!</h4>'
                                     . $session->getSuccess() .
-                                '</div>';
+                                    '</div>';
                             }
                             break;
                     }
                     ?>
-                    
+
                     <div class="row">
                         <div class="col-sm-10 col-sm-offset-1">
                             <?php
@@ -102,13 +106,13 @@ echo $view->renderHeader();
                                 echo $ballot->renderBallot();
                             } else {
                                 // Show the view ballot button for those who have voted
-                                ?>
+                            ?>
                                 <div class="text-center">
                                     <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#view">
                                         <i class="fa fa-eye"></i> View My Ballot
                                     </button>
                                 </div>
-                                <?php
+                            <?php
                             }
                             ?>
                         </div>
@@ -120,5 +124,69 @@ echo $view->renderHeader();
     </div>
     <?php echo $view->renderScripts(); ?>
     <?php include 'modals/ballot_modal.php'; ?>
+    <style>
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #F1F1F1;
+            z-index: 9999;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
+
+        #preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #239746;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <script>
+        function getCookie(name) {
+            const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+            return match ? match[2] : null;
+        }
+
+        const preloader = document.getElementById('preloader');
+        const preloaderShown = getCookie('preloader_shown');
+        const preloaderDuration = preloaderShown ? 500 : 2000;
+
+        if (preloader) {
+            setTimeout(() => {
+                preloader.classList.add('hidden');
+                setTimeout(() => {
+                    preloader.remove();
+                }, 500);
+
+                if (!preloaderShown) {
+                    document.cookie = "preloader_shown=1; path=/; SameSite=Strict";
+                }
+            }, preloaderDuration);
+        }
+    </script>
 </body>
+
 </html>

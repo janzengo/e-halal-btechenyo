@@ -233,7 +233,7 @@ echo $view->renderHeader();
 
         // initial duration for preloader
         const preloaderShown = getCookie('preloader_shown');
-        const preloaderDuration = preloaderShown ? 500 : 3000;
+        const preloaderDuration = preloaderShown ? 500 : 1000;
 
         // Handle preloader transition
         const preloader = document.getElementById('preloader');
