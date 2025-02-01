@@ -70,8 +70,7 @@ class View {
             <title>E-Halal BTECHenyo | Voting System</title>
             <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
             <link rel="stylesheet" href="<?php echo BASE_URL; ?>node_modules/bootstrap/dist/css/bootstrap.min.css">
-            <!--<link rel="stylesheet" href="<?php echo BASE_URL; ?>plugins/iCheck/all.css"> -->
-            <link rel="stylesheet" href="<?php echo BASE_URL; ?>node_modules/font-awesome/css/all.min.css"/>
+            <link rel="stylesheet" href="<?php echo BASE_URL; ?>node_modules/font-awesome/css/regular.min.css"/>
             <link rel="stylesheet" href="<?php echo BASE_URL; ?>dist/css/AdminLTE.css">
             <link rel="stylesheet" href="<?php echo BASE_URL; ?>dist/css/skins/_all-skins.min.css">
             <link rel="stylesheet" href="<?php echo BASE_URL; ?>dist/css/custom.css">
@@ -80,6 +79,8 @@ class View {
             <link rel="icon" type="image/x-icon" href="<?php echo BASE_URL; ?>images/icon.ico">
             <link rel="stylesheet" href="<?php echo BASE_URL; ?>dist/customFonts.css">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+            <link rel="stylesheet" href="<?php echo BASE_URL; ?>node_modules\sweetalert2\dist\sweetalert2.min.css" />
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
         </head>		
         <?php
         return ob_get_clean();
@@ -90,15 +91,23 @@ class View {
         ?>
         <footer class="main-footer" style="margin-left: 0px !important;">
             <div class="container">
-            <div class="text-center hidden-xs">
-                <?php $date = new DateTime(); ?>
-                <strong>Copyright &copy; <?php echo $date->format('Y'); ?> <a href="https://btech.edu.ph">Dalubhsaang Politekniko ng Lungsod ng Baliwag</a></strong>
-            </div>
+                <div class="text-center hidden-xs">
+                    <?php $date = new DateTime(); ?>
+                    <strong>Copyright &copy; <?php echo $date->format('Y'); ?> 
+                        <a href="https://btech.edu.ph">Dalubhsaang Politekniko ng Lungsod ng Baliwag</a>
+                    </strong>
+                </div>
             </div>
         </footer>
+        
+        <!-- Back to Top Button -->
+        <a href="#" class="back-to-top"><i class="fa fa-arrow-up"></i></a>
+        
         <?php
         return ob_get_clean();
     }
+    
+
 
     public function renderScripts() {
         ob_start();
@@ -118,9 +127,13 @@ class View {
         <script src="<?php echo BASE_URL; ?>node_modules/fastclick/lib/fastclick.js"></script>
         <!-- AdminLTE App -->
         <script src="<?php echo BASE_URL; ?>dist/js/adminlte.min.js"></script>
+        <!-- Font-awesome -->
+        <script src="<?php echo BASE_URL;?>node_modules/font-awesome/js/regular.min.js"></script>
         <!-- SweetAlert2 -->
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        
+        <script src="<?php echo BASE_URL; ?>node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+        <!-- Custom JS -->
+        <script src="<?php echo BASE_URL; ?>dist/js/main.js"></script>
+
         <style>
         .swal2-container {
             padding-right: 0 !important;
