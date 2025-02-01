@@ -197,7 +197,7 @@ class Ballot {
                 </div>
             <?php } ?>
             <div class="text-center ballot-actions">
-                <button type="button" class="btn btn-success btn-flat" id="preview"><i class="fa fa-file-text"></i> Preview</button>
+                <button type="button" class="btn btn-success btn-flat" id="preview" name="preview"><i class="fa fa-file-text"></i> Preview</button>
                 <button type="submit" class="btn btn-primary btn-flat" name="vote"><i class="fa fa-check"></i> Submit</button>
             </div>
         </form>
@@ -289,6 +289,16 @@ class Ballot {
 
         .ballot-actions button {
             margin: 0 10px;
+        }
+
+        /* preview and submit button */
+        button[name="vote"], button[name="preview"] {
+            background-color: #259646 !important;
+            border: none !important;
+        }
+        
+        button[name="vote"]:hover, button[name="preview"]:hover, button[name="vote"]:active, button[name="preview"]:active {
+            background-color: #1e7e34 !important;
         }
         </style>
 

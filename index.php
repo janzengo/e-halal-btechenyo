@@ -44,8 +44,8 @@ echo $view->renderHeader();
             
             <?php
             if ($session->hasError()) {
-                echo '<div class="alert alert-danger alert-dismissible">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                echo '<div class="alert alert-danger alert-dismissible" name="errorMessage">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true" name="closeError">&times;</button>
                     <ul>';
                 foreach ($session->getError() as $error) {
                     echo "<li><i class='fa fa-exclamation-triangle'></i>&nbsp;" . $error . "</li>";
@@ -110,7 +110,7 @@ echo $view->renderHeader();
                         </div>
                         <div class="form-group has-feedback">
                             <input type="password" class="form-control password" name="password" placeholder="ENTER YOUR PASSWORD" required>
-                            <span class="fa fa-key form-control-feedback"></span>
+                            <span class="glyphicon glyphicon-lock form-control-feedback" name="lockIcon"></span>
                         </div>
                         <div class="row">
                             <div class="col-xs-12">

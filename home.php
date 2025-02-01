@@ -104,7 +104,7 @@ echo $view->renderHeader();
                                 // Show the view ballot button for those who have voted
                                 ?>
                                 <div class="text-center">
-                                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#view">
+                                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#view" name="view_ballot">
                                         <i class="fa fa-eye"></i> View My Ballot
                                     </button>
                                 </div>
@@ -121,4 +121,28 @@ echo $view->renderHeader();
     <?php echo $view->renderScripts(); ?>
     <?php include 'modals/ballot_modal.php'; ?>
 </body>
+
+<style>
+    /* Hides scrollbar but still able to scroll */
+html, body {
+    overflow: auto;
+    -ms-overflow-style: none;  
+    scrollbar-width: none;
+}
+
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+    display: none;
+}
+
+button[name="view_ballot"] {
+    background-color: #259646;
+    border: none;
+    padding: 10px 30px;
+}
+
+button[name="view_ballot"]:hover, button[name="view_ballot"]:active {
+    background-color: #0f6d33 !important;
+}
+</style>
+
 </html>

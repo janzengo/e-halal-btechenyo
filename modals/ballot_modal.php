@@ -16,16 +16,14 @@ $currentVoter = $user->getCurrentUser();
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span></button>
               <h4 class="modal-title">Vote Preview</h4>
             </div>
             <div class="modal-body">
               <div id="preview_body" class="scrollable-content"></div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
-              <button type="submit" form="ballotForm" class="btn btn-success btn-flat" name="vote"><i class="fa fa-check"></i> Submit</button>
+              <button type="button" class="btn btn-default btn-flat pull-left" name="closePreview"data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
+              <button type="submit" form="ballotForm" class="btn btn-success btn-flat" name="submitPreview"><i class="fa fa-check"></i> Submit</button>
             </div>
         </div>
     </div>
@@ -36,9 +34,6 @@ $currentVoter = $user->getCurrentUser();
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
                 <h4 class="modal-title text-center"><b><span class="candidate"></span></b></h4>
             </div>
             <div class="modal-body">
@@ -54,7 +49,7 @@ $currentVoter = $user->getCurrentUser();
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal">
+                <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal" name="closePlatform">
                     <i class="fa fa-close"></i> Close
                 </button>
             </div>
@@ -67,8 +62,6 @@ $currentVoter = $user->getCurrentUser();
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span></button>
               <h4 class="modal-title">Your Ballot</h4>
             </div>
             <div class="modal-body">
@@ -114,7 +107,7 @@ $currentVoter = $user->getCurrentUser();
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
+              <button type="button" class="btn btn-default btn-flat pull-left" name="closePlatform" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
             </div>
         </div>
     </div>
@@ -285,6 +278,64 @@ $currentVoter = $user->getCurrentUser();
 #plat_view {
     margin: 0;
     white-space: pre-line;
+}
+
+/* Close button for viewing Platform and Ballot*/
+button[name="closePlatform"] {
+     background-color:rgb(207, 60, 50);
+    color: white; 
+     border: none; 
+     width: 100%;
+    padding: 10px 200px; 
+     font-size: 16px; 
+     cursor: pointer; 
+     border-radius: 5px; 
+}
+
+button[name="closePlatform"]:hover, button[name="closePlatform"]:focus, button[name="closePlatform"]:active {
+    background-color:rgb(182, 38, 38) !important;
+    color: white !important;
+}
+
+button[name="closePlatform"] i {
+        margin-right: 5px;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+/* Close and Submit button for Preview Modal */
+button[name="closePreview"] {
+    background-color:rgb(207, 60, 50);
+    color: white; 
+    border: none; 
+    width: 50%;
+    padding: 10px 30px; 
+    font-size: 16px; 
+    cursor: pointer; 
+    border-radius: 5px; 
+}
+button[name="closePreview"]:hover, button[name="closePreview"]:focus, button[name="closePreview"]:active {
+    background-color:rgb(182, 38, 38) !important;
+    color: white !important;
+}
+
+button[name="closePreview"] i {
+        margin-right: 5px;
+}
+
+button[name="submitPreview"] {
+    background-color:rgb(0, 166, 90);
+    color: white; 
+    border: none; 
+    width: 50%;
+    padding: 10px 30px; 
+    font-size: 16px; 
+    cursor: pointer; 
+    border-radius: 5px;
 }
 </style>
 

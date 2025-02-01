@@ -29,32 +29,41 @@ class View {
         ?>
         <header class="main-header">
             <nav class="navbar navbar-static-top">
-                <div class="container">
+                <div class="container" name="navbar">
                 <div class="navbar-header">
                     <a href="#" class="navbar-brand" style="padding: 0;">
                     <img src="images/h-logo.jpg" alt="Voting System Logo" style="height: 50px;">
                     </a>
-                    </button>
-                </div>
-                
-                <!-- /.navbar-collapse -->
+                </div>                
                 <!-- Navbar Right Menu -->
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
                     <li class="user user-menu">
                         <a href="#">
-                        <span class="hidden-xs">Welcome, </span>
-                        <span class="hidden-xs"><?php echo $voter['firstname']."!";?></span>
+                        <span>Welcome, </span>
+                        <span><?php echo $voter['firstname']."!";?></span>
                         </a>
                     </li>
                     <li><a href="logout.php"><i class="fa fa-sign-out"></i> Sign Out</a></li>  
                     </ul>
                 </div>
-                <!-- /.navbar-custom-menu -->
                 </div>
-                <!-- /.container-fluid -->
+
             </nav>
         </header>
+        <style>
+            /* navbar responsive */
+        .navbar-static-top {
+            height: 50px;
+        }
+        .container[name="navbar"] {
+            display: flex;
+            justify-content: space-between;
+            flex-grow: 1;
+            width: 100%;
+            padding: 10 50px;
+        }
+    </style>
         <?php
         return ob_get_clean();
     }
@@ -91,12 +100,10 @@ class View {
         ?>
         <footer class="main-footer" style="margin-left: 0px !important;">
             <div class="container">
-                <div class="text-center hidden-xs">
-                    <?php $date = new DateTime(); ?>
-                    <strong>Copyright &copy; <?php echo $date->format('Y'); ?> 
-                        <a href="https://btech.edu.ph">Dalubhsaang Politekniko ng Lungsod ng Baliwag</a>
-                    </strong>
-                </div>
+            <div class="text-center">
+                <?php $date = new DateTime(); ?>
+                <strong>Copyright &copy; <?php echo $date->format('Y'); ?> <a href="https://btech.edu.ph">Dalubhsaang Politekniko ng Lungsod ng Baliwag</a></strong>
+            </div>
             </div>
         </footer>
         
