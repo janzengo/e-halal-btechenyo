@@ -20,7 +20,7 @@ if (!$election->isElectionActive() && $election->hasEnded()) {
     }
     $electionStatus = 'off';
 } else {
-    if($user->isLoggedIn()) {
+    if ($user->isLoggedIn()) {
         $currentVoter = $user->getCurrentUser();
         if ($votes->hasVoted($currentVoter['id'])) {
             header('location: home.php?vote=complete');
@@ -33,7 +33,11 @@ if (!$election->isElectionActive() && $election->hasEnded()) {
 
 echo $view->renderHeader();
 ?>
+
 <body class="hold-transition login-page">
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
     <div class="inner-body">
         <div class="login-box">
             <div class="login-logo-container">
@@ -41,7 +45,7 @@ echo $view->renderHeader();
                 <h1><span>E-HALAL</span> <br> BTECHenyo</h1>
             </div>
             <p class="text-center text-smaller">A WEB-BASED VOTING SYSTEM FOR<br>DALUBHASAANG POLITEKNIKO NG LUNGSOD NG BALIWAG</p>
-            
+
             <?php
             if ($session->hasError()) {
                 echo '<div class="alert alert-danger alert-dismissible">
@@ -76,11 +80,11 @@ echo $view->renderHeader();
                         <h2>ELECTION PAUSED</h2>
                         <p>The voting system for <?php echo htmlspecialchars($electionName); ?> is currently paused. Stay tuned, BTECHenyos!</p>
                         <?php if ($timeLeft = $election->getTimeRemaining()): ?>
-                        <p class="time-remaining">Time Remaining: <?php 
-                            echo $timeLeft['days'] > 0 ? ($timeLeft['days'] == 1 ? "{$timeLeft['days']} day, " : "{$timeLeft['days']} days, ") : '';
-                            echo $timeLeft['hours'] > 0 ? ($timeLeft['hours'] == 1 ? "{$timeLeft['hours']} hour, " : "{$timeLeft['hours']} hours, ") : '';
-                            echo $timeLeft['minutes'] > 0 ? ($timeLeft['minutes'] == 1 ? "{$timeLeft['minutes']} minute, " : "{$timeLeft['minutes']} minutes ") : '';                            
-                        ?></p>
+                            <p class="time-remaining">Time Remaining: <?php
+                                                                        echo $timeLeft['days'] > 0 ? ($timeLeft['days'] == 1 ? "{$timeLeft['days']} day, " : "{$timeLeft['days']} days, ") : '';
+                                                                        echo $timeLeft['hours'] > 0 ? ($timeLeft['hours'] == 1 ? "{$timeLeft['hours']} hour, " : "{$timeLeft['hours']} hours, ") : '';
+                                                                        echo $timeLeft['minutes'] > 0 ? ($timeLeft['minutes'] == 1 ? "{$timeLeft['minutes']} minute, " : "{$timeLeft['minutes']} minutes ") : '';
+                                                                        ?></p>
                         <?php endif; ?>
                     </div>
                     <a href="#">Have some questions?</a>
@@ -97,11 +101,11 @@ echo $view->renderHeader();
                 <div class="login-box-body">
                     <p class="text-center text-smaller lined"><span>LOGIN WITH YOUR STUDENT NUMBER</span></p>
                     <?php if ($timeLeft = $election->getTimeRemaining()): ?>
-                    <p class="text-center time-remaining">Time Remaining: <?php 
-                        echo $timeLeft['days'] > 0 ? ($timeLeft['days'] == 1 ? "{$timeLeft['days']} day, " : "{$timeLeft['days']} days, ") : '';
-                        echo $timeLeft['hours'] > 0 ? ($timeLeft['hours'] == 1 ? "{$timeLeft['hours']} hour, " : "{$timeLeft['hours']} hours, ") : '';
-                        echo $timeLeft['minutes'] > 0 ? ($timeLeft['minutes'] == 1 ? "{$timeLeft['minutes']} minute, " : "{$timeLeft['minutes']} minutes ") : '';                        
-                    ?></p>
+                        <p class="text-center time-remaining">Time Remaining: <?php
+                                                                                echo $timeLeft['days'] > 0 ? ($timeLeft['days'] == 1 ? "{$timeLeft['days']} day, " : "{$timeLeft['days']} days, ") : '';
+                                                                                echo $timeLeft['hours'] > 0 ? ($timeLeft['hours'] == 1 ? "{$timeLeft['hours']} hour, " : "{$timeLeft['hours']} hours, ") : '';
+                                                                                echo $timeLeft['minutes'] > 0 ? ($timeLeft['minutes'] == 1 ? "{$timeLeft['minutes']} minute, " : "{$timeLeft['minutes']} minutes ") : '';
+                                                                                ?></p>
                     <?php endif; ?>
                     <form action="login.php" method="POST" role="presentation" autocomplete="off">
                         <div class="form-group has-feedback">
@@ -110,7 +114,7 @@ echo $view->renderHeader();
                         </div>
                         <div class="form-group has-feedback">
                             <input type="password" class="form-control password" name="password" placeholder="ENTER YOUR PASSWORD" required>
-                            <span class="fa fa-key form-control-feedback"></span>
+                            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                         </div>
                         <div class="row">
                             <div class="col-xs-12">
@@ -132,61 +136,122 @@ echo $view->renderHeader();
     </div>
 
     <style>
-    .inner-body {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-    }
-    
-    .login-box {
-        width: 100%;
-        max-width: 360px;
-        margin: 0;
-    }
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #F1F1F1;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s;
+        }
 
-    .alert-dismissible {
-        margin-bottom: 20px;
-    }
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #239746;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
 
-    .alert-dismissible ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
 
-    .alert-dismissible li {
-        margin-bottom: 5px;
-    }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
 
-    .alert-dismissible li:last-child {
-        margin-bottom: 0;
-    }
+        .inner-body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
 
-    .alert .close {
-        opacity: 0.8;
-        text-shadow: none;
-        cursor: pointer;
-    }
+        .login-box {
+            width: 100%;
+            max-width: 360px;
+            margin: 0;
+        }
 
-    .alert .close:hover {
-        opacity: 1;
-    }
+        .alert-dismissible {
+            margin-bottom: 20px;
+        }
+
+        .alert-dismissible ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .alert-dismissible li {
+            margin-bottom: 5px;
+        }
+
+        .alert-dismissible li:last-child {
+            margin-bottom: 0;
+        }
+
+        .alert .close {
+            opacity: 0.8;
+            text-shadow: none;
+            cursor: pointer;
+        }
+
+        .alert .close:hover {
+            opacity: 1;
+        }
     </style>
 
     <!-- jQuery 3 -->
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap 3.3.7 -->
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    
+
     <script>
-    $(document).ready(function() {
-        // Enable Bootstrap alert dismissal
-        $('.alert .close').click(function() {
-            $(this).closest('.alert').fadeOut('fast');
+        $(document).ready(function() {
+            // Enable Bootstrap alert dismissal
+            $('.alert .close').click(function() {
+                $(this).closest('.alert').fadeOut('fast');
+            });
         });
-    });
+    </script>
+    <script>
+        // Cookie handling for session-based preloader
+        function getCookie(name) {
+            return document.cookie.split(';').some(c => c.trim().startsWith(name + '='));
+        }
+
+        // initial duration for preloader
+        const preloaderShown = getCookie('preloader_shown');
+        const preloaderDuration = preloaderShown ? 500 : 3000;
+
+        // Handle preloader transition
+        const preloader = document.getElementById('preloader');
+        const content = document.querySelector('.inner-body');
+
+        setTimeout(() => {
+            preloader.style.opacity = '0';
+            setTimeout(() => {
+                preloader.remove();
+                content.style.display = 'flex';
+
+                // Set session cookie 
+                if (!preloaderShown) {
+                    document.cookie = "preloader_shown=1; path=/; SameSite=Strict";
+                }
+            }, 500);
+        }, preloaderDuration);
     </script>
 </body>
+
 </html>
