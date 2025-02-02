@@ -100,10 +100,12 @@ class View {
         ?>
         <footer class="main-footer" style="margin-left: 0px !important;">
             <div class="container">
-            <div class="text-center">
-                <?php $date = new DateTime(); ?>
-                <strong>Copyright &copy; <?php echo $date->format('Y'); ?> <a href="https://btech.edu.ph">Dalubhsaang Politekniko ng Lungsod ng Baliwag</a></strong>
-            </div>
+                <div class="text-center hidden-xs">
+                    <?php $date = new DateTime(); ?>
+                    <strong>Copyright &copy; <?php echo $date->format('Y'); ?> 
+                        <a href="https://btech.edu.ph">Dalubhsaang Politekniko ng Lungsod ng Baliwag</a>
+                    </strong>
+                </div>
             </div>
         </footer>
         
