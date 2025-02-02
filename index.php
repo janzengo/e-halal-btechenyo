@@ -22,6 +22,7 @@ if (!$election->isElectionActive() && $election->hasEnded()) {
 } else {
     if ($user->isLoggedIn()) {
         $currentVoter = $user->getCurrentUser();
+
         if ($votes->hasVoted($currentVoter['id'])) {
             header('location: home.php?vote=complete');
         } else {
@@ -233,7 +234,7 @@ echo $view->renderHeader();
 
         // initial duration for preloader
         const preloaderShown = getCookie('preloader_shown');
-        const preloaderDuration = preloaderShown ? 500 : 1000;
+        const preloaderDuration = preloaderShown ? 0 : 1000;
 
         // Handle preloader transition
         const preloader = document.getElementById('preloader');
