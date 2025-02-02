@@ -66,48 +66,36 @@ $currentVoter = $user->getCurrentUser();
             </div>
             <div class="modal-body">
               <div class="scrollable-content">
-                <div class="ballot-header">
-                  <div class="ballot-info">
-                    <h5>Election: <?php echo htmlspecialchars($ballot->getElectionName()); ?></h5>
-                    <p class="text-muted">
-                      <i class="fa fa-user"></i> 
-                      Voter: <?php echo htmlspecialchars($currentVoter['firstname'] . ' ' . $currentVoter['lastname']); ?>
-                    </p>
-                  </div>
-                </div>
                 <?php
                 $voterVotes = $votes->getVoterVotes($currentVoter['id']);
                 $currentPosition = '';
                 
                 foreach ($voterVotes as $vote) {
+                    // Start new position section if position changes
                     if ($currentPosition !== $vote['position']) {
                         if ($currentPosition !== '') {
                             echo '</div>'; // Close previous position div
                         }
                         $currentPosition = $vote['position'];
-                        echo '<div class="position-section">
-                              <div class="position-header">
-                                <h4>' . htmlspecialchars($vote['position']) . '</h4>
-                              </div>';
+                        echo '<div class="well">
+                              <h4>' . htmlspecialchars($vote['position']) . '</h4>';
                     }
                     ?>
-                    <div class="candidate-card">
-                        <div class="candidate-info">
-                            <div class="candidate-image-wrapper">
+                    <div class="row candidate-row">
+                        <div class="col-sm-3 candidate-image-container">
+                            <div class="square-image">
                                 <img src="<?php echo !empty($vote['photo']) ? 'images/'.$vote['photo'] : 'images/profile.jpg'; ?>" 
-                                     class="candidate-image">
-                                <?php if (!empty($vote['partylist'])): ?>
-                                    <span class="partylist-badge"><?php echo htmlspecialchars($vote['partylist']); ?></span>
-                                <?php endif; ?>
+                                     class="img candidate-image">
                             </div>
-                            <div class="candidate-details">
-                                <h4 class="candidate-name"><?php echo htmlspecialchars($vote['firstname'] . ' ' . $vote['lastname']); ?></h4>
-                                <?php if (!empty($vote['platform'])): ?>
-                                    <div class="platform-preview">
-                                        <p><i class="fa fa-bullhorn"></i> <?php echo htmlspecialchars($vote['platform']); ?></p>
-                                    </div>
-                                <?php endif; ?>
-                            </div>
+                        </div>
+                        <div class="col-sm-9">
+                            <h4><?php echo htmlspecialchars($vote['firstname'] . ' ' . $vote['lastname']); ?></h4>
+                            <?php if (!empty($vote['partylist'])): ?>
+                                <p><strong>Partylist:</strong> <?php echo htmlspecialchars($vote['partylist']); ?></p>
+                            <?php endif; ?>
+                            <?php if (!empty($vote['platform'])): ?>
+                                <p><strong>Platform:</strong> <?php echo htmlspecialchars($vote['platform']); ?></p>
+                            <?php endif; ?>
                         </div>
                     </div>
                     <?php
@@ -132,49 +120,21 @@ $currentVoter = $user->getCurrentUser();
     flex-direction: column;
     height: 90vh;
     max-height: 90vh;
-    border-radius: 12px;
-    border: none;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 .modal-header {
     flex: 0 0 auto;
     background: #fff;
-    border-bottom: 2px solid #e9ecef;
-    padding: 1.5rem;
-    border-radius: 12px 12px 0 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.modal-header .modal-title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #2c3e50;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.modal-header .close {
-    font-size: 1.5rem;
-    padding: 1rem;
-    margin: -1rem;
-    opacity: 0.5;
-    transition: opacity 0.2s;
-}
-
-.modal-header .close:hover {
-    opacity: 1;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 15px;
+    position: relative;
+    z-index: 1;
 }
 
 .modal-body {
     flex: 1 1 auto;
     position: relative;
     padding: 0;
-    background: #f8f9fa;
 }
 
 .scrollable-content {
@@ -184,163 +144,78 @@ $currentVoter = $user->getCurrentUser();
     right: 0;
     bottom: 0;
     overflow-y: auto;
-    padding: 1.5rem;
+    padding: 15px;
 }
 
 .modal-footer {
     flex: 0 0 auto;
     background: #fff;
-    border-top: 2px solid #e9ecef;
-    padding: 1.5rem;
-    border-radius: 0 0 12px 12px;
-    display: flex;
-    justify-content: space-between;
+    border-top: 1px solid #e5e5e5;
+    padding: 15px;
+    position: relative;
+    z-index: 1;
 }
 
-/* Ballot Header */
-.ballot-header {
-    background: #fff;
-    border-radius: 10px;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+/* Content styling */
+.well {
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    padding: 15px;
 }
 
-.ballot-info h5 {
-    color: #2c3e50;
-    font-size: 1.2rem;
-    margin: 0 0 0.5rem 0;
+.well h4 {
+    color: #249646;
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #e3e3e3;
+    padding-bottom: 10px;
 }
 
-.ballot-info .text-muted {
-    color: #6c757d;
+/* Image styling */
+.candidate-row {
     display: flex;
     align-items: center;
-    gap: 8px;
-    margin: 0;
-}
-
-/* Position Section */
-.position-section {
+    margin-bottom: 20px;
     background: #fff;
-    border-radius: 10px;
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    padding: 15px;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-.position-header {
-    margin-bottom: 1.5rem;
+.candidate-image-container {
+    padding: 0;
 }
 
-.position-header h4 {
-    color: #249646;
-    font-size: 1.3rem;
-    font-weight: 600;
-    margin: 0;
-    padding-bottom: 0.75rem;
-    border-bottom: 2px solid #e9ecef;
-}
-
-/* Candidate Card */
-.candidate-card {
-    background: #f8f9fa;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.candidate-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.candidate-info {
-    display: flex;
-    gap: 1.5rem;
-    padding: 1rem;
-}
-
-.candidate-image-wrapper {
+.square-image {
     position: relative;
-    flex: 0 0 120px;
+    width: 100%;
+    padding-bottom: 100%; /* Creates a square aspect ratio */
+    overflow: hidden;
 }
 
 .candidate-image {
-    width: 120px;
-    height: 120px;
-    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     border: 3px solid #fff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.partylist-badge {
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #249646;
-    color: #fff;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    white-space: nowrap;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+/* Preview modal specific styling */
+#preview_modal .square-image {
+    max-width: 200px;
+    margin: 0 auto;
 }
 
-.candidate-details {
-    flex: 1;
-}
-
-.candidate-name {
-    color: #2c3e50;
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin: 0 0 0.75rem 0;
-}
-
-.platform-preview {
-    background: #fff;
-    border-radius: 6px;
-    padding: 1rem;
-    margin-top: 0.75rem;
-}
-
-.platform-preview p {
-    color: #4a5568;
-    margin: 0;
-    line-height: 1.5;
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-}
-
-.platform-preview i {
-    color: #249646;
-    margin-top: 4px;
-}
-
-/* Button styling */
-.btn {
-    padding: 0.5rem 1rem;
-    font-weight: 500;
-    border-radius: 6px;
-    transition: all 0.2s;
-}
-
-.btn-success {
-    background: #249646;
-    border-color: #249646;
-}
-
-.btn-success:hover {
-    background: #1b7235;
-    border-color: #1b7235;
-}
-
-.btn i {
-    margin-right: 6px;
+/* View modal specific styling */
+#view .square-image {
+    max-width: 150px;
+    margin: 0 auto;
 }
 
 /* Scrollbar styling */
@@ -354,34 +229,55 @@ $currentVoter = $user->getCurrentUser();
 }
 
 .scrollable-content::-webkit-scrollbar-thumb {
-    background: #249646;
+    background: #888;
     border-radius: 4px;
 }
 
 .scrollable-content::-webkit-scrollbar-thumb:hover {
-    background: #1b7235;
+    background: #555;
 }
 
-/* Print styles */
-@media print {
-    .modal-dialog {
-        max-width: 100%;
-        margin: 0;
-    }
-    
-    .modal-content {
-        border: none;
-        box-shadow: none;
-    }
-    
-    .modal-header .close,
-    .modal-footer {
-        display: none;
-    }
-    
-    .candidate-card {
-        break-inside: avoid;
-    }
+/* Platform Modal Styling */
+#platform .modal-dialog {
+    max-width: 600px;
+}
+
+#platform .modal-body {
+    padding: 30px;
+}
+
+.platform-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.candidate-platform-image {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+.platform-text {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    width: 100%;
+    text-align: left;
+    line-height: 1.6;
+    color: #333;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+#platform .modal-title {
+    color: #249646;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+#plat_view {
+    margin: 0;
+    white-space: pre-line;
 }
 
 /* Close button for viewing Platform and Ballot*/
