@@ -1,6 +1,6 @@
 # E-Halal BTECHenyo Voting System
 
-A comprehensive web-based voting system designed specifically for halal certification organizations, featuring secure authentication, real-time vote tracking, and advanced administrative controls.
+E-Halal BTECHenyo is a voting system designed to facilitate fair and transparent voting processes within the local environment of Dalubhasaang Politekniko ng Lungsod ng Baliwag. This system operates in the web, making it accessible to every bonafide BTECH students to vote.
 
 ## Features
 
