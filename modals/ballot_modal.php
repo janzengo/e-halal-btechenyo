@@ -36,7 +36,7 @@ $currentVoter = $user->getCurrentUser();
             <div class="modal-header">
                 <h4 class="modal-title text-center"><b><span class="candidate"></span></b></h4>
             </div>
-            <div class="modal-body">
+            <div class="modal-body platform-modal-body">
                 <div class="platform-content text-center">
                     <div class="candidate-platform-image">
                         <div class="square-image">
@@ -129,12 +129,14 @@ $currentVoter = $user->getCurrentUser();
     padding: 15px;
     position: relative;
     z-index: 1;
+    cursor: pointer;
 }
 
 .modal-body {
     flex: 1 1 auto;
     position: relative;
     padding: 0;
+    cursor: pointer;
 }
 
 .scrollable-content {
@@ -238,12 +240,21 @@ $currentVoter = $user->getCurrentUser();
 }
 
 /* Platform Modal Styling */
-#platform .modal-dialog {
-    max-width: 600px;
+.platform-modal-content {
+    height: auto !important;
+    max-height: 90vh !important;
 }
 
-#platform .modal-body {
+.platform-modal-body {
+    position: relative !important;
+    height: auto !important;
+    max-height: calc(90vh - 120px) !important;
+    overflow-y: auto !important;
     padding: 30px;
+}
+
+#platform .modal-dialog {
+    max-width: 600px;
 }
 
 .platform-content {
@@ -352,6 +363,16 @@ document.addEventListener('DOMContentLoaded', function() {
         modal.find('.candidate').text(candidate);
         modal.find('#plat_view').text(platform);
         modal.find('#platform_image').attr('src', 'images/' + image);
+        
+        // Force scroll reset
+        setTimeout(function() {
+            modal.find('.platform-modal-body').scrollTop(0);
+        }, 100);
+    });
+
+    // Ensure scroll reset on modal hide
+    $('#platform').on('hide.bs.modal', function () {
+        $(this).find('.platform-modal-body').scrollTop(0);
     });
 });
 </script>
