@@ -20,8 +20,11 @@ $currentVoter = $user->getCurrentUser();
             </div>
             <div class="modal-body">
                 <div id="preview_body" class="scrollable-content"></div>
+                <div id="preview_body" class="scrollable-content"></div>
             </div>
             <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-flat pull-left" name="closePreview" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
+                <button type="submit" form="ballotForm" class="btn btn-success btn-flat" name="submitPreview"><i class="fa fa-check"></i> Submit</button>
                 <button type="button" class="btn btn-default btn-flat pull-left" name="closePreview" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
                 <button type="submit" form="ballotForm" class="btn btn-success btn-flat" name="submitPreview"><i class="fa fa-check"></i> Submit</button>
             </div>
@@ -152,7 +155,24 @@ $currentVoter = $user->getCurrentUser();
         overflow-y: auto;
         padding: 15px;
     }
+    .scrollable-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow-y: auto;
+        padding: 15px;
+    }
 
+    .modal-footer {
+        flex: 0 0 auto;
+        background: #fff;
+        border-top: 1px solid #e5e5e5;
+        padding: 15px;
+        position: relative;
+        z-index: 1;
+    }
     .modal-footer {
         flex: 0 0 auto;
         background: #fff;
@@ -170,7 +190,22 @@ $currentVoter = $user->getCurrentUser();
         border-radius: 4px;
         padding: 15px;
     }
+    /* Content styling */
+    .well {
+        margin-bottom: 20px;
+        background-color: #f9f9f9;
+        border: 1px solid #e3e3e3;
+        border-radius: 4px;
+        padding: 15px;
+    }
 
+    .well h4 {
+        color: #249646;
+        margin-top: 0;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #e3e3e3;
+        padding-bottom: 10px;
+    }
     .well h4 {
         color: #249646;
         margin-top: 0;
@@ -240,7 +275,16 @@ $currentVoter = $user->getCurrentUser();
         max-width: 150px;
         margin: 0 auto;
     }
+    /* View modal specific styling */
+    #view .square-image {
+        max-width: 150px;
+        margin: 0 auto;
+    }
 
+    /* Scrollbar styling */
+    .scrollable-content::-webkit-scrollbar {
+        width: 8px;
+    }
     /* Scrollbar styling */
     .scrollable-content::-webkit-scrollbar {
         width: 8px;
@@ -250,12 +294,23 @@ $currentVoter = $user->getCurrentUser();
         background: #f1f1f1;
         border-radius: 4px;
     }
+    .scrollable-content::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 4px;
+    }
 
     .scrollable-content::-webkit-scrollbar-thumb {
         background: #888;
         border-radius: 4px;
     }
+    .scrollable-content::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 4px;
+    }
 
+    .scrollable-content::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
     .scrollable-content::-webkit-scrollbar-thumb:hover {
         background: #555;
     }
