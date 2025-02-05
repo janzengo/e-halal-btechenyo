@@ -235,7 +235,7 @@ class Ballot {
 
         .candidate-card.selected {
             border-color: #249646;
-            background-color: #f8fff9;
+            background-color:rgb(232, 252, 238);
         }
 
         .candidate-card.disabled {
@@ -254,7 +254,7 @@ class Ballot {
             border-radius: 50%;
             overflow: hidden;
         }
-
+        
         .candidate-photo {
             width: 100%;
             height: 100%;
