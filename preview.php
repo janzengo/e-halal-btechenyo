@@ -63,12 +63,12 @@ try {
                     $partylist_result = $stmt->get_result()->fetch_assoc();
                     $partylist_name = $partylist_result ? $partylist_result['name'] : '';
 
-                    $previewHtml .= '<div class="row">';
-                    $previewHtml .= '<div class="col-sm-2">';
+                    $previewHtml .= '<div class="row candidate-preview-row">';
+                    $previewHtml .= '<div class="col-sm-3 preview-image-container">';
                     $previewHtml .= '<img src="' . (!empty($candidate['photo']) ? 'images/'.$candidate['photo'] : 'images/profile.jpg') . '" 
-                                         width="100px" height="100px" class="img-circle">';
+                                         class="preview-candidate-image">';
                     $previewHtml .= '</div>';
-                    $previewHtml .= '<div class="col-sm-10">';
+                    $previewHtml .= '<div class="col-sm-9 preview-candidate-info">';
                     $previewHtml .= '<h4>' . htmlspecialchars($candidate['firstname'] . ' ' . $candidate['lastname']) . '</h4>';
                     if (!empty($partylist_name)) {
                         $previewHtml .= '<p><strong>Partylist:</strong> ' . htmlspecialchars($partylist_name) . '</p>';
