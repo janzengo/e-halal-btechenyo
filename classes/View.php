@@ -151,6 +151,15 @@ class View {
         body {
             padding-right: 0 !important;
         }
+        .swal2-confirm,
+        .swal2-cancel {
+            padding: 10px 45px !important;
+            font-size: 13px !important;
+            margin: 0 10px !important;
+        }
+        .swal2-actions {
+            margin-top: 20px !important;
+        }
         </style>
         
         <script>
@@ -267,13 +276,15 @@ class View {
                     icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#239746',
-                    cancelButtonColor: '#d33',
+                    cancelButtonColor: '#CF3C32',
                     confirmButtonText: 'Confirm',
                     showLoaderOnConfirm: true,
                     allowOutsideClick: () => !Swal.isLoading(),
                     customClass: {
                         container: 'my-swal'
-                    }
+                    },
+                    reverseButtons: true
+
                 }).then((result) => {
                     if (result.isConfirmed) {
                         // Show loading state

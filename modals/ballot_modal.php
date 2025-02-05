@@ -16,9 +16,10 @@ $currentVoter = $user->getCurrentUser();
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Vote Preview</h4>
+                <h4 class="modal-title text-center w-100">Your Vote Preview</h4>
             </div>
             <div class="modal-body">
+                <div id="preview_body" class="scrollable-content"></div>
                 <div id="preview_body" class="scrollable-content"></div>
             </div>
             <div class="modal-footer">
@@ -34,9 +35,9 @@ $currentVoter = $user->getCurrentUser();
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title text-center"><b><span class="candidate"></span></b></h4>
+                <h4 class="modal-title text-center w-100"><b><span class="candidate"></span></b></h4>
             </div>
-            <div class="modal-body">
+            <div class="modal-body platform-modal-body">
                 <div class="platform-content text-center">
                     <div class="candidate-platform-image">
                         <div class="square-image">
@@ -115,6 +116,10 @@ $currentVoter = $user->getCurrentUser();
 
 <style>
     /* Modal styling */
+    .modal-title {
+        color:#259646;
+        font-weight: bold;
+    }
     .modal-content {
         display: flex;
         flex-direction: column;
@@ -129,12 +134,14 @@ $currentVoter = $user->getCurrentUser();
         padding: 15px;
         position: relative;
         z-index: 1;
+        cursor: pointer;
     }
 
     .modal-body {
         flex: 1 1 auto;
         position: relative;
         padding: 0;
+        cursor: pointer;
     }
 
     .scrollable-content {
@@ -174,25 +181,10 @@ $currentVoter = $user->getCurrentUser();
     }
 
     /* Image styling */
-    .candidate-row {
-        display: flex;
-        align-items: center;
-        margin-bottom: 20px;
-        background: #fff;
-        padding: 15px;
-        border-radius: 4px;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    }
-
-    .candidate-image-container {
-        padding: 0;
-    }
-
     .square-image {
         position: relative;
         width: 100%;
         padding-bottom: 100%;
-        /* Creates a square aspect ratio */
         overflow: hidden;
     }
 
@@ -203,17 +195,47 @@ $currentVoter = $user->getCurrentUser();
         width: 100%;
         height: 100%;
         object-fit: cover;
-        border: 3px solid #fff;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        border-radius: 20px;
+        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
     }
 
-    /* Preview modal specific styling */
-    #preview_modal .square-image {
-        max-width: 200px;
-        margin: 0 auto;
+    @media (max-width: 767px) {
+        .candidate-row {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
     }
 
-    /* View modal specific styling */
+    .candidate-preview-row {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 10px;
+        padding: 10px;
+        background: #F9F9F9;
+    }
+
+    .preview-image-container {
+        flex: 0 0 120px;
+        padding-right: 15px;
+    }
+
+    .preview-candidate-image {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 20px;
+        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 480px) {
+        .candidate-preview-row {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+    }
+
     #view .square-image {
         max-width: 150px;
         margin: 0 auto;
@@ -238,14 +260,23 @@ $currentVoter = $user->getCurrentUser();
         background: #555;
     }
 
-    /* Platform Modal Styling */
-    #platform .modal-dialog {
-        max-width: 600px;
-    }
+/* Platform Modal Styling */
+.platform-modal-content {
+    height: auto !important;
+    max-height: 90vh !important;
+}
 
-    #platform .modal-body {
-        padding: 30px;
-    }
+.platform-modal-body {
+    position: relative !important;
+    height: auto !important;
+    max-height: calc(90vh - 120px) !important;
+    overflow-y: auto !important;
+    padding: 30px;
+}
+
+#platform .modal-dialog {
+    max-width: 600px;
+}
 
     .platform-content {
         display: flex;
@@ -359,6 +390,16 @@ $currentVoter = $user->getCurrentUser();
 
             // Show the modal
             $('#platform').modal('show');
-        });
+            
+        // Force scroll reset
+        setTimeout(function() {
+            modal.find('.platform-modal-body').scrollTop(0);
+        }, 100);
+    });
+
+    // Ensure scroll reset on modal hide
+    $('#platform').on('hide.bs.modal', function () {
+        $(this).find('.platform-modal-body').scrollTop(0);
+    });
     });
 </script>
