@@ -31,10 +31,9 @@ class Election {
         if (!$election) return false;
 
         $timezone = new DateTimeZone('Asia/Manila'); // Ensure correct timezone
-    $now = new DateTime('now', $timezone);
-    $start = $election['start_time'] ? new DateTime($election['start_time'], $timezone) : null;
-    $end = new DateTime($election['end_time'], $timezone);
-
+        $now = new DateTime('now', $timezone);
+        $start = $election['start_time'] ? new DateTime($election['start_time'], $timezone) : null;
+        $end = new DateTime($election['end_time'], $timezone);
 
         return $election['status'] === 'on' && 
                $start && $now >= $start && 
