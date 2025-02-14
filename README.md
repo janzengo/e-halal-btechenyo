@@ -55,7 +55,6 @@ E-Halal BTECHenyo is a voting system designed to facilitate fair and transparent
   - PHP 7.4+
   - MySQL/MariaDB
   - Object-Oriented Programming
-  - MVC Architecture
 
 - **Server Requirements**
   - Apache/Nginx
@@ -100,17 +99,6 @@ e-halal/
 └── modals/              # Voter interface modals
 ```
 
-## Security Features
-
-- Password hashing using bcrypt
-- SQL injection prevention
-- XSS protection
-- CSRF protection
-- Session security
-- Input validation
-- Access control
-- Audit logging
-
 ## User Roles
 
 ### Admin
@@ -135,12 +123,6 @@ e-halal/
 - See [January 21-25 Documentation](docs/January%2021-25%20Documentation.md) for details
 
 ## Development
-
-### Prerequisites
-- XAMPP/WAMP/LAMP
-- Git
-- Text editor (VS Code recommended)
-- Basic PHP knowledge
 
 ### Setup Development Environment
 1. Install XAMPP
@@ -170,10 +152,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 4. Push to branch
 5. Create Pull Request
 
-## Support
-
-For support, please email [your-email@domain.com]
-
 ---
-
-Made with ❤️ by BTECHenyo Team
