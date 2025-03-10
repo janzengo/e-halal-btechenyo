@@ -2,14 +2,17 @@
 require_once __DIR__ . '/../init.php';
 require_once __DIR__ . '/Database.php';
 require_once __DIR__ . '/CustomSessionHandler.php';
+require_once __DIR__ . '/Votes.php';
 
 class Ballot {
     private $db;
     private $session;
+    private $votes;
 
     public function __construct() {
         $this->db = Database::getInstance();
         $this->session = CustomSessionHandler::getInstance();
+        $this->votes = new Votes();
     }
 
     public function getPositions() {
@@ -75,26 +78,17 @@ class Ballot {
             }
             
             // Check if voter has already voted
-            $sql = "SELECT COUNT(*) as count FROM votes WHERE voters_id = '" . $this->db->escape($voter_id) . "'";
+            $sql = "SELECT has_voted FROM voters WHERE id = '" . $this->db->escape($voter_id) . "'";
             $result = $this->db->query($sql);
             $row = $result->fetch_assoc();
             
-            if ($row['count'] > 0) {
+            if ($row['has_voted'] == 1) {
                 throw new Exception("You have already submitted your votes.");
             }
             
-            // Insert votes
-            foreach ($votes as $position_id => $candidates) {
-                $candidates = is_array($candidates) ? $candidates : [$candidates];
-                foreach ($candidates as $candidate_id) {
-                    $sql = "INSERT INTO votes (voters_id, position_id, candidate_id) 
-                            VALUES ('" . $this->db->escape($voter_id) . "', 
-                                    '" . $this->db->escape($position_id) . "', 
-                                    '" . $this->db->escape($candidate_id) . "')";
-                    if (!$this->db->query($sql)) {
-                        throw new Exception($this->db->getError());
-                    }
-                }
+            // Use the Votes class to submit votes
+            if (!$this->votes->submitVotes($voter_id, $votes)) {
+                throw new Exception("Failed to submit votes. Please try again.");
             }
             
             // Commit transaction
@@ -110,13 +104,7 @@ class Ballot {
     }
 
     public function getVoterVotes($voter_id) {
-        $sql = "SELECT v.*, p.description, c.firstname, c.lastname, pl.name as partylist_name
-                FROM votes v 
-                LEFT JOIN positions p ON p.id = v.position_id 
-                LEFT JOIN candidates c ON c.id = v.candidate_id 
-                LEFT JOIN partylists pl ON pl.id = c.partylist_id
-                WHERE v.voters_id = '" . $this->db->escape($voter_id) . "'";
-        return $this->db->query($sql);
+        return $this->votes->getVoterVotes($voter_id);
     }
 
     public function getElectionName() {

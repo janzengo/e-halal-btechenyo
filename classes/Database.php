@@ -44,11 +44,30 @@ class Database {
         return $this->connection;
     }
 
-    public function query($sql) {
-        return $this->connection->query($sql);
+    public function prepare($sql) {
+        $stmt = $this->connection->prepare($sql);
+        if (!$stmt) {
+            throw new Exception("Prepare failed: " . $this->connection->error);
+        }
+        return $stmt;
+    }
+
+    public function query($sql, $params = [], $types = '') {
+        if (empty($params)) {
+            return $this->connection->query($sql);
+        }
+
+        $stmt = $this->prepare($sql);
+        if ($types && $params) {
+            $stmt->bind_param($types, ...$params);
+        }
+        
+        $stmt->execute();
+        return $stmt->get_result();
     }
 
     public function escape($value) {
+        trigger_error('escape() is deprecated. Use prepared statements instead.', E_USER_DEPRECATED);
         return $this->connection->real_escape_string($value);
     }
 
@@ -60,5 +79,17 @@ class Database {
         if ($this->connection) {
             $this->connection->close();
         }
+    }
+
+    public function beginTransaction() {
+        return $this->connection->begin_transaction();
+    }
+
+    public function commit() {
+        return $this->connection->commit();
+    }
+
+    public function rollback() {
+        return $this->connection->rollback();
     }
 }

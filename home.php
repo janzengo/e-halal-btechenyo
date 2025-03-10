@@ -64,8 +64,7 @@ echo $view->renderHeader();
                     switch ($voteStatus) {
                         case 'complete':
                             echo '<div class="alert alert-success text-center">
-                                <h4><i class="icon fa fa-check"></i> Thank you for voting, '
-                                . $user->getCurrentUser()['firstname'] . '!</h4>
+                                <h4><i class="icon fa fa-check"></i> Thank you for voting, BTECHenyo!</h4>
                                 Your vote has been recorded successfully.
                             </div>';
                             break;
@@ -100,21 +99,13 @@ echo $view->renderHeader();
                             if ($voteStatus === 'current') {
                                 // Show the ballot form for voting
                                 echo $ballot->renderBallot();
-                            } else {
-                                // Show the view ballot button for those who have voted
-                                ?>
-                                <div class="text-center">
-                                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#view" name="view_ballot">
-                                        <i class="fa fa-eye"></i> View My Ballot
-                                    </button>
-                                </div>
-                                <?php
                             }
                             ?>
                         </div>
                     </div>
                 </section>
             </div>
+        </div>
         </div>
         <?php echo $view->renderFooter(); ?>
     </div>
