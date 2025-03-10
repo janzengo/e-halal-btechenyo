@@ -3,6 +3,7 @@
 	require_once 'classes/Database.php';
 	require_once 'classes/CustomSessionHandler.php';
 	require_once 'classes/User.php';
+	require_once 'classes/OTPMailer.php';
 
 	$session = CustomSessionHandler::getInstance();
 	$user = new User();
@@ -13,16 +14,20 @@
 	}
 
 	if(isset($_POST['login'])) {
-	    $voter_id = $_POST['voter'];
-	    $password = $_POST['password'];
+	    $student_number = $_POST['voter'];
 	    
-	    if($user->login($voter_id, $password)) {
-			$session->setSuccess('Vote wisely, BTECHenyo!');
-	        header('location: home.php');
+	    // Redirect to OTP verification instead of direct login
+	    if($user->authenticateWithOTP($student_number)) {
+			// Redirect to OTP verification page
+			header('location: otp_verify.php?student_number=' . urlencode($student_number));
 	        exit();
 	    } else {
-	        $session->setError('Invalid Student Number or password');
+	        $session->setError('Invalid Student Number or student not registered');
 			header('location: index.php');
+			exit();
 	    }
+	} else {
+		header('location: index.php');
+		exit();
 	}
 ?>

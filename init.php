@@ -16,7 +16,7 @@ $host = $_SERVER['HTTP_HOST'];
 // Define base URL for the application dynamically
 if (!defined('BASE_URL')) define('BASE_URL', 'http://' . $host . '/e-halal/');
 
-// Protect the config function from being redeclared
+// Protect the config functions from being redeclared
 if (!function_exists('config')) {
     function config() {
         return [
@@ -24,6 +24,25 @@ if (!function_exists('config')) {
             'DB_NAME' => $_ENV['DB_NAME'],
             'DB_USERNAME' => $_ENV['DB_USERNAME'],
             'DB_PASSWORD' => $_ENV['DB_PASSWORD'] ?? '',
+        ];
+    }
+}
+
+if (!function_exists('mail_config')) {
+    function mail_config() {
+        return [
+            'mailer' => $_ENV['MAIL_MAILER'] ?? 'sendmail',
+            'use_smtp' => ($_ENV['MAIL_MAILER'] ?? 'sendmail') === 'smtp',
+            'mail_from' => $_ENV['MAIL_FROM_ADDRESS'] ?? 'noreply@e-halal.edu.ph',
+            'mail_from_name' => $_ENV['MAIL_FROM_NAME'] ?? 'E-Halal Voting System',
+            'mail_reply_to' => $_ENV['MAIL_REPLY_TO'] ?? 'noreply@e-halal.edu.ph',
+            'smtp' => [
+                'host' => $_ENV['MAIL_HOST'] ?? '',
+                'port' => $_ENV['MAIL_PORT'] ?? 587,
+                'username' => $_ENV['MAIL_USERNAME'] ?? '',
+                'password' => $_ENV['MAIL_PASSWORD'] ?? '',
+                'encryption' => $_ENV['MAIL_ENCRYPTION'] ?? 'tls'
+            ]
         ];
     }
 }

@@ -40,8 +40,8 @@ class View {
                     <ul class="nav navbar-nav">
                     <li class="user user-menu">
                         <a href="#">
-                        <span>Welcome, </span>
-                        <span><?php echo $voter['firstname']."!";?></span>
+                        <span>Vote ID: </span>
+                        <span><?php echo isset($voter['student_number']) ? $voter['student_number'] : 'Voter'; ?></span>
                         </a>
                     </li>
                     <li><a href="logout.php"><i class="fa fa-sign-out"></i> Sign Out</a></li>  
