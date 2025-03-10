@@ -6,12 +6,14 @@ require_once 'classes/User.php';
 require_once 'classes/Ballot.php';
 require_once 'classes/View.php';
 require_once 'classes/Votes.php';
+require_once 'classes/Logger.php';
 
 $session = CustomSessionHandler::getInstance();
 $user = new User();
 $ballot = new Ballot();
 $view = View::getInstance();
 $votes = new Votes();
+$logger = new Logger();
 
 if(!$user->isLoggedIn()) {
     header('location: index.php');
@@ -21,10 +23,14 @@ if(!$user->isLoggedIn()) {
 $currentVoter = $user->getCurrentUser();
 $hasVoted = $votes->hasVoted($currentVoter['id']);
 
-// Determine the correct vote status
+// Log vote completion if just voted
 if (isset($_SESSION['just_voted']) && $_SESSION['just_voted']) {
+    if (isset($_SESSION['vote_ref'])) {
+        $logger->logVoteSubmission($currentVoter['student_number'], $_SESSION['vote_ref']);
+        unset($_SESSION['vote_ref']);
+    }
     $voteStatus = 'complete';
-    unset($_SESSION['just_voted']); // Clear the flag after using it
+    unset($_SESSION['just_voted']);
 } elseif ($hasVoted) {
     $voteStatus = 'already_voted';
 } else {
@@ -66,14 +72,27 @@ echo $view->renderHeader();
                             echo '<div class="alert alert-success text-center">
                                 <h4><i class="icon fa fa-check"></i> Thank you for voting, BTECHenyo!</h4>
                                 Your vote has been recorded successfully.
-                            </div>';
+                            </div>
+                            
+                            <div class="text-center">
+                                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#view" name="view_ballot">
+                                        <i class="fa fa-eye"></i> View My Ballot
+                                    </button>
+                                </div>
+                                ';
                             break;
                             
                         case 'already_voted':
                             echo '<div class="text-center">
                                 <h2>You have already voted.</h2>
                                 <p class="text-muted">Please tell an election officer/proctor if you think this is a mistake.</p>
-                            </div>';
+                            </div>
+                            <div class="text-center">
+                                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#view" name="view_ballot">
+                                        <i class="fa fa-eye"></i> View My Ballot
+                                    </button>
+                                </div>
+                            ';
                             break;
                             
                         case 'current':

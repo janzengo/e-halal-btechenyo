@@ -4,15 +4,29 @@ require_once __DIR__ . '/Database.php';
 require_once __DIR__ . '/CustomSessionHandler.php';
 require_once __DIR__ . '/Votes.php';
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+if (file_exists(__DIR__ . '/../vendor/autoload.php')) {
+    require_once __DIR__ . '/../vendor/autoload.php';
+} else {
+    require_once __DIR__ . '/../vendor/phpmailer/phpmailer/src/PHPMailer.php';
+    require_once __DIR__ . '/../vendor/phpmailer/phpmailer/src/SMTP.php';
+    require_once __DIR__ . '/../vendor/phpmailer/phpmailer/src/Exception.php';
+}
+
 class Ballot {
     private $db;
     private $session;
     private $votes;
+    private $mail_config;
 
     public function __construct() {
         $this->db = Database::getInstance();
         $this->session = CustomSessionHandler::getInstance();
         $this->votes = new Votes();
+        $this->mail_config = mail_config();
     }
 
     public function getPositions() {
@@ -24,20 +38,27 @@ class Ballot {
         $sql = "SELECT candidates.*, partylists.name AS partylist_name 
                 FROM candidates 
                 LEFT JOIN partylists ON candidates.partylist_id = partylists.id 
-                WHERE position_id = '" . $this->db->escape($position_id) . "'";
-        return $this->db->query($sql);
+                WHERE position_id = ?";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bind_param("i", $position_id);
+        $stmt->execute();
+        return $stmt->get_result();
     }
 
     public function getCandidate($candidate_id) {
-        $sql = "SELECT * FROM candidates WHERE id = '" . $this->db->escape($candidate_id) . "'";
-        $query = $this->db->query($sql);
-        return $query ? $query->fetch_assoc() : null;
+        $sql = "SELECT * FROM candidates WHERE id = ?";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bind_param("i", $candidate_id);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_assoc();
     }
 
     public function getPosition($position_id) {
-        $sql = "SELECT * FROM positions WHERE id = '" . $this->db->escape($position_id) . "'";
-        $query = $this->db->query($sql);
-        return $query->fetch_assoc();
+        $sql = "SELECT * FROM positions WHERE id = ?";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bind_param("i", $position_id);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_assoc();
     }
 
     public function validateVotes($votes) {
@@ -66,10 +87,210 @@ class Ballot {
         return $errors;
     }
 
+    public function generateReceipt($vote_ref, $voter, $votes_data, $election) {
+        try {
+            // Get voter's email - student number is used for email
+            $email = $voter['student_number'] . '@btech.ph.education';
+
+            // Build receipt HTML
+            $receipt = $this->buildReceiptHTML($voter, $vote_ref, $votes_data, $election);
+
+            // Send email using PHPMailer
+            return $this->sendReceiptEmail(
+                $email, 
+                $receipt, 
+                $vote_ref, 
+                $election['election_name'], 
+                $voter['firstname'] . ' ' . $voter['lastname']
+            );
+
+        } catch (Exception $e) {
+            error_log("Receipt generation error: " . $e->getMessage());
+            return [
+                'success' => false,
+                'message' => $e->getMessage()
+            ];
+        }
+    }
+
+    private function sendReceiptEmail($email, $html_content, $vote_ref, $election_name, $voter_name) {
+        $mail = new PHPMailer(true);
+        
+        try {
+            // Configure mail
+            if ($this->mail_config['use_smtp']) {
+                $mail->isSMTP();
+                $mail->Host = $this->mail_config['smtp']['host'];
+                $mail->SMTPAuth = true;
+                $mail->Username = $this->mail_config['smtp']['username'];
+                $mail->Password = $this->mail_config['smtp']['password'];
+                $mail->SMTPSecure = $this->mail_config['smtp']['encryption'] === 'tls' ? 
+                    PHPMailer::ENCRYPTION_STARTTLS : PHPMailer::ENCRYPTION_SMTPS;
+                $mail->Port = $this->mail_config['smtp']['port'];
+            } else {
+                $mail->isMail();
+            }
+            
+            // Recipients
+            $mail->setFrom(
+                $this->mail_config['mail_from'], 
+                $this->mail_config['mail_from_name']
+            );
+            $mail->addAddress($email, $voter_name);
+            $mail->addReplyTo(
+                $this->mail_config['mail_reply_to'], 
+                $this->mail_config['mail_from_name']
+            );
+            
+            // Content
+            $mail->isHTML(true);
+            $mail->Subject = $election_name . ' - Vote Receipt [Ref: ' . $vote_ref . ']';
+            $mail->Body = $html_content;
+            
+            // Plain text alternative
+            $mail->AltBody = "Your vote has been recorded.\nVote Reference: " . $vote_ref;
+            
+            // Send the email
+            $mail->send();
+            
+            return [
+                'success' => true,
+                'message' => "Receipt sent successfully to $email"
+            ];
+            
+        } catch (Exception $e) {
+            error_log("Failed to send receipt email: " . $e->getMessage());
+            return [
+                'success' => false,
+                'message' => "Could not send receipt. Error: {$mail->ErrorInfo}"
+            ];
+        }
+    }
+
+    private function buildReceiptHTML($voter, $vote_ref, $votes_data, $election) {
+        return <<<HTML
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Vote Receipt</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    line-height: 1.6;
+                    color: #333;
+                    margin: 0;
+                    padding: 0;
+                }
+                .container {
+                    max-width: 600px;
+                    margin: 0 auto;
+                    padding: 20px;
+                }
+                .header {
+                    background-color: #1d7c39;
+                    color: white;
+                    padding: 20px;
+                    text-align: center;
+                }
+                .content {
+                    background-color: #f9f9f9;
+                    padding: 20px;
+                    border-radius: 5px;
+                    margin-top: 20px;
+                }
+                .vote-ref {
+                    font-size: 24px;
+                    font-weight: bold;
+                    color: #1d7c39;
+                    text-align: center;
+                    margin: 20px 0;
+                }
+                .position {
+                    margin: 15px 0;
+                    padding: 10px;
+                    background: #fff;
+                    border-radius: 5px;
+                }
+                .position-title {
+                    color: #1d7c39;
+                    margin-bottom: 10px;
+                }
+                .candidate {
+                    padding: 5px 10px;
+                }
+                .footer {
+                    text-align: center;
+                    font-size: 12px;
+                    color: #666;
+                    margin-top: 20px;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <div class="header">
+                    <h1>{$election['election_name']}</h1>
+                </div>
+                <div class="content">
+                    <h2>Vote Receipt</h2>
+                    <div class="vote-ref">Reference: {$vote_ref}</div>
+                    
+                    <div class="voter-info">
+                        <p><strong>Student Number:</strong> {$voter['student_number']}</p>
+                        <p><strong>Date:</strong> " . date('F j, Y g:i A') . "</p>
+                    </div>
+
+                    <h3>Votes Cast:</h3>
+HTML;
+        
+        // Get all positions
+        $positions = $this->getPositions();
+        while ($position = $positions->fetch_assoc()) {
+            $html .= '<div class="position">';
+            $html .= '<h4 class="position-title">' . htmlspecialchars($position['description']) . '</h4>';
+            
+            if (isset($votes_data[$position['id']])) {
+                $position_votes = $votes_data[$position['id']];
+                if (!is_array($position_votes)) {
+                    $position_votes = [$position_votes];
+                }
+                
+                foreach ($position_votes as $candidate_id) {
+                    $candidate = $this->getCandidate($candidate_id);
+                    if ($candidate) {
+                        $html .= '<div class="candidate">';
+                        $html .= '• ' . htmlspecialchars($candidate['firstname'] . ' ' . $candidate['lastname']);
+                        if (!empty($candidate['partylist_name'])) {
+                            $html .= ' (' . htmlspecialchars($candidate['partylist_name']) . ')';
+                        }
+                        $html .= '</div>';
+                    }
+                }
+            } else {
+                $html .= '<div class="candidate">No vote cast</div>';
+            }
+            $html .= '</div>';
+        }
+
+        $html .= <<<HTML
+                </div>
+                <div class="footer">
+                    <p>&copy; 2025 E-Halal BTECHenyo Voting System. All rights reserved.</p>
+                    <p>This is an automated receipt, please keep for your records.</p>
+                </div>
+            </div>
+        </body>
+        </html>
+HTML;
+
+        return $html;
+    }
+
     public function submitVote($voter_id, $votes) {
         try {
-            // Start transaction
-            $this->db->query("START TRANSACTION");
+            $this->db->beginTransaction();
             
             // Validate votes
             $errors = $this->validateVotes($votes);
@@ -78,29 +299,62 @@ class Ballot {
             }
             
             // Check if voter has already voted
-            $sql = "SELECT has_voted FROM voters WHERE id = '" . $this->db->escape($voter_id) . "'";
-            $result = $this->db->query($sql);
-            $row = $result->fetch_assoc();
+            $sql = "SELECT has_voted, firstname, lastname, student_number 
+                    FROM voters 
+                    WHERE id = ?";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bind_param("i", $voter_id);
+            $stmt->execute();
+            $voter = $stmt->get_result()->fetch_assoc();
             
-            if ($row['has_voted'] == 1) {
+            if (!$voter) {
+                throw new Exception("Voter not found.");
+            }
+
+            if ($voter['has_voted'] == 1) {
                 throw new Exception("You have already submitted your votes.");
             }
             
-            // Use the Votes class to submit votes
-            if (!$this->votes->submitVotes($voter_id, $votes)) {
+            // Submit votes using Votes class
+            $voteResult = $this->votes->submitVotes($voter_id, $votes);
+            
+            if (!$voteResult['success']) {
                 throw new Exception("Failed to submit votes. Please try again.");
             }
-            
-            // Commit transaction
-            $this->db->query("COMMIT");
-            return true;
+
+            // Generate and send receipt
+            $result = $this->generateReceipt(
+                $voteResult['vote_ref'],
+                $voter,
+                $votes,
+                $this->getCurrentElection()
+            );
+
+            if (!$result['success']) {
+                // Log the error but don't stop the process
+                error_log("Failed to send receipt: " . $result['message']);
+            }
+
+            $this->db->commit();
+            return [
+                'success' => true,
+                'vote_ref' => $voteResult['vote_ref'],
+                'message' => 'Vote submitted successfully'
+            ];
             
         } catch (Exception $e) {
-            // Rollback on error
-            $this->db->query("ROLLBACK");
-            $this->session->setError($e->getMessage());
-            return false;
+            $this->db->rollback();
+            return [
+                'success' => false,
+                'message' => $e->getMessage()
+            ];
         }
+    }
+
+    private function getCurrentElection() {
+        $sql = "SELECT * FROM election_status WHERE status = 'on' LIMIT 1";
+        $result = $this->db->query($sql);
+        return $result->fetch_assoc();
     }
 
     public function getVoterVotes($voter_id) {
@@ -172,12 +426,6 @@ class Ballot {
                                             <p class="candidate-party"><?php echo $candidate['partylist_name']; ?></p>
                                         <?php endif; ?>
                                     </div>
-                                    <button type="button" class="btn btn-primary btn-sm btn-flat platform" 
-                                            data-platform="<?php echo htmlspecialchars($candidate['platform']); ?>" 
-                                            data-fullname="<?php echo htmlspecialchars($candidate['firstname'] . ' ' . $candidate['lastname']); ?>"
-                                            data-image="<?php echo !empty($candidate['photo']) ? $candidate['photo'] : 'profile.jpg'; ?>">
-                                        <i class="fa fa-search"></i> Platform
-                                    </button>
                                 </div>
                             </div>
                         <?php } ?>

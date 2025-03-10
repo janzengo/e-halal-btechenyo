@@ -29,6 +29,62 @@ $currentVoter = $user->getCurrentUser();
     </div>
 </div>
 
+<!-- View Ballot -->
+<div class="modal fade" id="view">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Your Ballot</h4>
+            </div>
+            <div class="modal-body">
+                <div class="scrollable-content">
+                    <?php
+                    $voterVotes = $votes->getVoterVotes($currentVoter['id']);
+                    $currentPosition = '';
+
+                    foreach ($voterVotes as $vote) {
+                        // Start new position section if position changes
+                        if ($currentPosition !== $vote['position']) {
+                            if ($currentPosition !== '') {
+                                echo '</div>'; // Close previous position div
+                            }
+                            $currentPosition = $vote['position'];
+                            echo '<div class="well">
+                              <h4>' . htmlspecialchars($vote['position']) . '</h4>';
+                        }
+                    ?>
+                        <div class="row candidate-row">
+                            <div class="col-sm-3 candidate-image-container">
+                                <div class="square-image">
+                                    <img src="<?php echo !empty($vote['photo']) ? 'images/' . $vote['photo'] : 'images/profile.jpg'; ?>"
+                                        class="img candidate-image">
+                                </div>
+                            </div>
+                            <div class="col-sm-9">
+                                <h4><?php echo htmlspecialchars($vote['firstname'] . ' ' . $vote['lastname']); ?></h4>
+                                <?php if (!empty($vote['partylist'])): ?>
+                                    <p><strong>Partylist:</strong> <?php echo htmlspecialchars($vote['partylist']); ?></p>
+                                <?php endif; ?>
+                                <?php if (!empty($vote['platform'])): ?>
+                                    <p><strong>Platform:</strong> <?php echo htmlspecialchars($vote['platform']); ?></p>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    <?php
+                    }
+                    if ($currentPosition !== '') {
+                        echo '</div>'; // Close last position div
+                    }
+                    ?>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-flat pull-left" name="closePlatform" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Platform 
 <div class="modal fade" id="platform">
     <div class="modal-dialog">

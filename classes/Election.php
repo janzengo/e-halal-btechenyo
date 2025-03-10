@@ -17,9 +17,19 @@ class Election {
      * @return array|false Election status data or false if no election exists
      */
     public function getCurrentElection() {
-        $sql = "SELECT * FROM election_status WHERE id = 1";
-        $result = $this->db->query($sql);
-        return $result ? $result->fetch_assoc() : false;
+        try {
+            $stmt = $this->db->prepare("
+                SELECT * FROM election_status 
+                WHERE status IN ('on', 'paused') 
+                ORDER BY id DESC LIMIT 1
+            ");
+            $stmt->execute();
+            $result = $stmt->get_result();
+            return $result->fetch_assoc();
+        } catch (Exception $e) {
+            error_log("Error getting current election: " . $e->getMessage());
+            return null;
+        }
     }
 
     /**
@@ -28,16 +38,9 @@ class Election {
      */
     public function isElectionActive() {
         $election = $this->getCurrentElection();
-        if (!$election) return false;
-
-        $timezone = new DateTimeZone('Asia/Manila'); // Ensure correct timezone
-        $now = new DateTime('now', $timezone);
-        $start = $election['start_time'] ? new DateTime($election['start_time'], $timezone) : null;
-        $end = new DateTime($election['end_time'], $timezone);
-
-        return $election['status'] === 'on' && 
-               $start && $now >= $start && 
-               $now <= $end;
+        return $election && $election['status'] === 'on' && 
+               strtotime($election['start_time']) <= time() && 
+               strtotime($election['end_time']) > time();
     }
 
     /**
@@ -117,45 +120,49 @@ class Election {
      * @param string $resultsPdf Path to results PDF
      * @return bool True if successful, false otherwise
      */
-    public function archiveElection($detailsPdf = '', $resultsPdf = '') {
-        $current = $this->getCurrentElection();
-        if (!$current) return false;
-
-        // Begin transaction
-        $this->db->getConnection()->begin_transaction();
-
+    public function archiveElection($election_id) {
         try {
-            // Insert into history
-            $sql = "INSERT INTO election_history 
-                    (election_name, start_date, end_date, details_pdf, results_pdf) 
-                    VALUES (?, ?, ?, ?, ?)";
-            
-            $stmt = $this->db->getConnection()->prepare($sql);
-            $stmt->bind_param('sssss', 
-                $current['election_name'],
-                $current['start_time'],
-                $current['end_time'],
-                $detailsPdf,
-                $resultsPdf
+            $this->db->beginTransaction();
+
+            // Get election details
+            $stmt = $this->db->prepare("
+                SELECT * FROM election_status WHERE id = ?
+            ");
+            $stmt->bind_param("i", $election_id);
+            $stmt->execute();
+            $election = $stmt->get_result()->fetch_assoc();
+
+            if (!$election) {
+                throw new Exception("Election not found");
+            }
+
+            // Insert into election_history
+            $stmt = $this->db->prepare("
+                INSERT INTO election_history 
+                (election_name, start_date, end_date, details_pdf, results_pdf) 
+                VALUES (?, ?, ?, '', '')
+            ");
+            $stmt->bind_param("sss", 
+                $election['election_name'],
+                $election['start_time'],
+                $election['end_time']
             );
             $stmt->execute();
 
-            // Reset current election status
-            $sql = "UPDATE election_status SET 
-                    status = 'pending',
-                    election_name = '',
-                    start_time = NULL,
-                    end_time = NULL 
-                    WHERE id = 1";
-            
-            $this->db->query($sql);
+            // Update election status to 'off'
+            $stmt = $this->db->prepare("
+                UPDATE election_status 
+                SET status = 'off' 
+                WHERE id = ?
+            ");
+            $stmt->bind_param("i", $election_id);
+            $stmt->execute();
 
-            $this->db->getConnection()->commit();
-            $this->logAction("Election archived: {$current['election_name']}");
+            $this->db->commit();
+            $this->logAction("Election archived: {$election['election_name']}");
             return true;
-
         } catch (Exception $e) {
-            $this->db->getConnection()->rollback();
+            $this->db->rollback();
             error_log("Error archiving election: " . $e->getMessage());
             return false;
         }
@@ -166,15 +173,18 @@ class Election {
      * @param int $limit Number of records to return
      * @return array Election history records
      */
-    public function getElectionHistory($limit = 10) {
-        $sql = "SELECT * FROM election_history 
-                ORDER BY created_at DESC 
-                LIMIT ?";
-        
-        $stmt = $this->db->getConnection()->prepare($sql);
-        $stmt->bind_param('i', $limit);
-        $stmt->execute();
-        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    public function getElectionHistory() {
+        try {
+            $stmt = $this->db->prepare("
+                SELECT * FROM election_history 
+                ORDER BY start_date DESC
+            ");
+            $stmt->execute();
+            return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        } catch (Exception $e) {
+            error_log("Error getting election history: " . $e->getMessage());
+            return [];
+        }
     }
 
     /**
@@ -199,21 +209,18 @@ class Election {
      */
     public function getTimeRemaining() {
         $election = $this->getCurrentElection();
-        if (!$election || !$election['end_time']) return false;
+        if (!$election) return false;
 
-        // Create DateTime objects with explicit timezone
-        $timezone = new DateTimeZone('Asia/Manila');
-        $now = new DateTime('now', $timezone);
-        $end = new DateTime($election['end_time'], $timezone);
-        
-        $interval = $now->diff($end);
+        $end_time = strtotime($election['end_time']);
+        $now = time();
+        $remaining = $end_time - $now;
 
-        if ($interval->invert) return false; // Election has ended
+        if ($remaining <= 0) return false;
 
         return [
-            'days' => $interval->d,
-            'hours' => $interval->h,
-            'minutes' => $interval->i
+            'days' => floor($remaining / (60 * 60 * 24)),
+            'hours' => floor(($remaining % (60 * 60 * 24)) / (60 * 60)),
+            'minutes' => floor(($remaining % (60 * 60)) / 60)
         ];
     }
 
@@ -249,12 +256,6 @@ class Election {
      */
     public function hasEnded() {
         $election = $this->getCurrentElection();
-        if (!$election || !$election['end_time']) return false;
-
-        $timezone = new DateTimeZone('Asia/Manila');
-        $now = new DateTime('now', $timezone);
-        $end = new DateTime($election['end_time'], $timezone);
-        
-        return $now > $end;
+        return $election && strtotime($election['end_time']) <= time();
     }
 }

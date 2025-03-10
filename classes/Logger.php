@@ -39,38 +39,47 @@ class Logger {
      * @return bool Success status
      */
     public function generateLog($role, $time, $username, $details) {
-        // Format the log entry
-        $log_entry = sprintf(
-            "[%s] %s | %s | %s\n",
-            $time,
-            str_pad($username, 20),
-            str_pad($role, 10),
-            $details
-        );
-
         try {
-            if ($role == 'superadmin' || $role == 'officer') {
-                // Write to admin logs
-                return file_put_contents(
-                    $this->admin_log_file, 
-                    $log_entry, 
-                    FILE_APPEND | LOCK_EX
-                ) !== false;
-            } 
-            else if ($role == 'student') {
-                // Write to voters logs
-                return file_put_contents(
-                    $this->voters_log_file, 
-                    $log_entry, 
-                    FILE_APPEND | LOCK_EX
-                ) !== false;
+            $this->db->beginTransaction();
+
+            // Log to database
+            $stmt = $this->db->prepare("
+                INSERT INTO logs (timestamp, username, details, role) 
+                VALUES (?, ?, ?, ?)
+            ");
+            $stmt->bind_param("ssss", $time, $username, $details, $role);
+            $dbSuccess = $stmt->execute();
+
+            // Format the log entry for file
+            $log_entry = sprintf(
+                "[%s] %s | %s | %s\n",
+                $time,
+                str_pad($username, 20),
+                str_pad($role, 10),
+                $details
+            );
+
+            // Determine which log file to use
+            $log_file = ($role == 'superadmin' || $role == 'officer') ? 
+                        $this->admin_log_file : $this->voters_log_file;
+
+            // Write to appropriate log file
+            $fileSuccess = file_put_contents(
+                $log_file,
+                $log_entry,
+                FILE_APPEND | LOCK_EX
+            ) !== false;
+
+            if ($dbSuccess && $fileSuccess) {
+                $this->db->commit();
+                return true;
+            } else {
+                $this->db->rollback();
+                return false;
             }
-            
-            // Log unknown role attempts
-            error_log("Unknown role attempted to log: $role");
-            return false;
         } catch (Exception $e) {
-            error_log("Error writing to log file: " . $e->getMessage());
+            $this->db->rollback();
+            error_log("Error in generateLog: " . $e->getMessage());
             return false;
         }
     }
@@ -83,28 +92,49 @@ class Logger {
      * @return array Log entries
      */
     public function readLogs($role, $lines = 0) {
-        $file = ($role == 'superadmin' || $role == 'officer') ? 
-                $this->admin_log_file : $this->voters_log_file;
-
         try {
-            if (!file_exists($file)) {
-                return [];
+            // Get logs from database
+            $stmt = $this->db->prepare("
+                SELECT * FROM logs 
+                WHERE role = ? 
+                ORDER BY timestamp DESC
+                " . ($lines > 0 ? "LIMIT ?" : "")
+            );
+
+            if ($lines > 0) {
+                $stmt->bind_param("si", $role, $lines);
+            } else {
+                $stmt->bind_param("s", $role);
             }
 
-            $logs = file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-            if (!$logs) {
-                return [];
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $dbLogs = $result->fetch_all(MYSQLI_ASSOC);
+
+            // Get logs from file
+            $file = ($role == 'superadmin' || $role == 'officer') ? 
+                    $this->admin_log_file : $this->voters_log_file;
+
+            $fileLogs = [];
+            if (file_exists($file)) {
+                $fileLogs = file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+                $fileLogs = array_reverse($fileLogs);
+                if ($lines > 0) {
+                    $fileLogs = array_slice($fileLogs, 0, $lines);
+                }
             }
 
-            // Reverse array to get newest first
-            $logs = array_reverse($logs);
-
-            // Return specified number of lines or all if $lines = 0
-            return $lines > 0 ? array_slice($logs, 0, $lines) : $logs;
+            return [
+                'database_logs' => $dbLogs,
+                'file_logs' => $fileLogs
+            ];
 
         } catch (Exception $e) {
-            error_log("Error reading log file: " . $e->getMessage());
-            return [];
+            error_log("Error reading logs: " . $e->getMessage());
+            return [
+                'database_logs' => [],
+                'file_logs' => []
+            ];
         }
     }
 
@@ -115,15 +145,58 @@ class Logger {
      * @return bool Success status
      */
     public function clearLogs($role) {
-        $file = ($role == 'superadmin' || $role == 'officer') ? 
-                $this->admin_log_file : $this->voters_log_file;
-
         try {
-            return file_put_contents($file, '') !== false;
+            $this->db->beginTransaction();
+
+            // Clear database logs
+            $stmt = $this->db->prepare("DELETE FROM logs WHERE role = ?");
+            $stmt->bind_param("s", $role);
+            $dbSuccess = $stmt->execute();
+
+            // Clear file logs
+            $file = ($role == 'superadmin' || $role == 'officer') ? 
+                    $this->admin_log_file : $this->voters_log_file;
+            $fileSuccess = file_put_contents($file, '') !== false;
+
+            if ($dbSuccess && $fileSuccess) {
+                $this->db->commit();
+                return true;
+            } else {
+                $this->db->rollback();
+                return false;
+            }
         } catch (Exception $e) {
-            error_log("Error clearing log file: " . $e->getMessage());
+            $this->db->rollback();
+            error_log("Error clearing logs: " . $e->getMessage());
             return false;
         }
+    }
+
+    public function logVoteSubmission($student_number, $vote_ref) {
+        return $this->generateLog(
+            'student',
+            date('Y-m-d H:i:s'),
+            $student_number,
+            "Vote submitted successfully. Reference: {$vote_ref}"
+        );
+    }
+
+    public function logLoginAttempt($student_number, $success, $details = '') {
+        return $this->generateLog(
+            'student',
+            date('Y-m-d H:i:s'),
+            $student_number,
+            $success ? "Login successful" : "Login failed - {$details}"
+        );
+    }
+
+    public function logLogout($student_number) {
+        return $this->generateLog(
+            'student',
+            date('Y-m-d H:i:s'),
+            $student_number,
+            "User logged out"
+        );
     }
 }
 ?>

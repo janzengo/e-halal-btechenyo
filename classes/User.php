@@ -33,13 +33,7 @@ class User {
         $result = $stmt->get_result();
 
         if ($result->num_rows < 1) {
-            // Log failed authentication attempt
-            $this->logger->generateLog(
-                'student',
-                date('Y-m-d H:i:s'),
-                $student_number,
-                'Failed authentication attempt - Student not found'
-            );
+            $this->logger->logLoginAttempt($student_number, false, 'Student not found');
             return false;
         }
 
@@ -49,14 +43,7 @@ class User {
         $this->course_id = $voter['course_id'];
         $this->has_voted = $voter['has_voted'];
 
-        // Log successful authentication
-        $this->logger->generateLog(
-            'student',
-            date('Y-m-d H:i:s'),
-            $student_number,
-            'Successful authentication'
-        );
-        
+        $this->logger->logLoginAttempt($student_number, true);
         return true;
     }
 
@@ -70,7 +57,6 @@ class User {
         $this->session->setSession('student_number', $this->student_number);
         session_regenerate_id(true);
 
-        // Log session creation
         $this->logger->generateLog(
             'student',
             date('Y-m-d H:i:s'),
@@ -80,14 +66,8 @@ class User {
     }
 
     public function logout() {
-        // Log logout action
         if ($this->student_number) {
-            $this->logger->generateLog(
-                'student',
-                date('Y-m-d H:i:s'),
-                $this->student_number,
-                'User logged out'
-            );
+            $this->logger->logLogout($this->student_number);
         }
 
         $this->session->unsetSession('voter');
