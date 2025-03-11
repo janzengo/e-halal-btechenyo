@@ -18,7 +18,7 @@ class CustomSessionHandler {
             session_start();
         }
         $this->db = Database::getInstance();
-        $this->logger = new Logger();
+        $this->logger = Logger::getInstance();
     }
 
     public static function getInstance() {

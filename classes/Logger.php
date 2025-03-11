@@ -3,6 +3,7 @@ require_once __DIR__ . '/../init.php';
 require_once __DIR__ . '/Database.php';
 
 class Logger {
+    private static $instance = null;
     private $db;
     private $admin_log_file = __DIR__ . '/../administrator/logs/admin_logs.log';
     private $voters_log_file = __DIR__ . '/../administrator/logs/voters_logs.log';
@@ -10,6 +11,26 @@ class Logger {
     public function __construct() {
         $this->db = Database::getInstance();
         $this->ensureLogFiles();
+    }
+
+    /**
+     * Get Logger instance (Singleton)
+     * 
+     * @return Logger
+     */
+    public static function getInstance() {
+        if (self::$instance === null) {
+            self::$instance = new self();
+        }
+        return self::$instance;
+    }
+
+    // Prevent cloning of the instance
+    protected function __clone() {}
+
+    // Prevent unserialization of the instance
+    public function __wakeup() {
+        throw new Exception("Cannot unserialize singleton");
     }
 
     /**
