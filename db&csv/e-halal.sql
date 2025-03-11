@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 10, 2025 at 05:27 AM
+-- Generation Time: Mar 10, 2025 at 09:45 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -81,7 +81,17 @@ CREATE TABLE `candidates` (
 --
 
 INSERT INTO `candidates` (`id`, `position_id`, `firstname`, `lastname`, `partylist_id`, `photo`, `platform`) VALUES
-(1, 1, 'Jebron', 'Lames', 1, '', 'Jebron Lames');
+(1, 1, 'Jebron', 'Lames', 1, '', 'Jebron Lames'),
+(35, 1, 'Janzen', 'Go', 2, '', 'Janzen Go'),
+(36, 1, 'Steph', 'Curry', 3, '', 'Steph Curry'),
+(37, 13, 'Shai', 'Alexander', 1, '', 'Shai Alexander'),
+(38, 13, 'Ja', 'Morant', 2, '', 'Ja Morant'),
+(39, 13, 'Luka', 'Doncic', 3, '', 'Luka Doncic'),
+(40, 14, 'Yuki', 'Kawamura', 1, '', 'Yuki Kawamura'),
+(41, 14, 'Austin', 'Reaves', 2, '', 'Austin Reaves'),
+(42, 14, 'Jimmy', 'Butler', 3, '', 'Jimmy Buckets'),
+(43, 1, 'Katrina', 'Dela Cruz', 1, '', 'Katrina Dela Cruz'),
+(44, 13, 'Katrina', 'Dela Cruz', 2, '', 'Hello');
 
 -- --------------------------------------------------------
 
@@ -166,14 +176,6 @@ CREATE TABLE `logs` (
   `role` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `logs`
---
-
-INSERT INTO `logs` (`id`, `timestamp`, `username`, `details`, `role`) VALUES
-(0, '2025-03-09 15:20:05', 'wallysabangan2024', 'Added new candidate: Jebron Lames for President under Sandigan partylist', 'superadmin'),
-(0, '2025-03-10 00:51:52', 'wallysabangan2024', 'Successful login', 'superadmin');
-
 -- --------------------------------------------------------
 
 --
@@ -235,7 +237,9 @@ CREATE TABLE `partylists` (
 --
 
 INSERT INTO `partylists` (`id`, `name`) VALUES
-(1, 'Sandigan');
+(1, 'Sandigan'),
+(2, 'Democrats'),
+(3, 'Independent');
 
 -- --------------------------------------------------------
 
@@ -255,7 +259,9 @@ CREATE TABLE `positions` (
 --
 
 INSERT INTO `positions` (`id`, `description`, `max_vote`, `priority`) VALUES
-(1, 'President', 1, 1);
+(1, 'President', 1, 1),
+(13, 'Vice President', 1, 2),
+(14, 'Secretary', 1, 3);
 
 -- --------------------------------------------------------
 
@@ -268,16 +274,17 @@ CREATE TABLE `voters` (
   `course_id` int(11) DEFAULT NULL,
   `student_number` varchar(20) NOT NULL,
   `has_voted` tinyint(1) DEFAULT 0,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `voted` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `voters`
 --
 
-INSERT INTO `voters` (`id`, `course_id`, `student_number`, `has_voted`, `created_at`) VALUES
-(1, 1, '202320023', 0, '2025-03-07 03:59:04'),
-(2, 1, '202320024', 0, '2025-03-07 03:59:04');
+INSERT INTO `voters` (`id`, `course_id`, `student_number`, `has_voted`, `created_at`, `voted`) VALUES
+(1, 1, '202320023', 1, '2025-03-06 19:59:04', 0),
+(63, 1, '202210223', 0, '2025-03-06 19:59:04', 0);
 
 -- --------------------------------------------------------
 
@@ -290,45 +297,34 @@ CREATE TABLE `votes` (
   `election_id` int(11) NOT NULL,
   `vote_ref` varchar(20) NOT NULL,
   `votes_data` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL CHECK (json_valid(`votes_data`)),
-  `vote_hash` varchar(64) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `votes`
+--
+
+INSERT INTO `votes` (`id`, `election_id`, `vote_ref`, `votes_data`, `created_at`) VALUES
+(187, 1, 'VOTE-250310-7683', '{\"1\":\"36\",\"13\":\"39\",\"14\":\"42\"}', '2025-03-10 07:37:18'),
+(188, 1, 'VOTE-250310-5842', '{\"1\":\"36\",\"13\":\"38\",\"14\":\"40\"}', '2025-03-10 08:35:15');
 
 --
 -- Triggers `votes`
 --
 DELIMITER $$
-CREATE TRIGGER `after_vote_insert` AFTER INSERT ON `votes` FOR EACH ROW BEGIN
-    INSERT INTO vote_receipts (vote_ref) VALUES (NEW.vote_ref);
-END
-$$
-DELIMITER ;
-DELIMITER $$
 CREATE TRIGGER `before_vote_insert` BEFORE INSERT ON `votes` FOR EACH ROW BEGIN
     -- Generate vote reference if not provided
     IF NEW.vote_ref IS NULL OR NEW.vote_ref = '' THEN
-        SET NEW.vote_ref = CONCAT('VOTE-', UNIX_TIMESTAMP(), '-', FLOOR(RAND() * 1000));
+        SET NEW.vote_ref = CONCAT(
+            'VOTE-',
+            DATE_FORMAT(NOW(), '%y%m%d'),
+            '-',
+            LPAD(FLOOR(RAND() * 10000), 4, '0')
+        );
     END IF;
-    
-    -- Generate vote hash
-    SET NEW.vote_hash = SHA2(CONCAT(NEW.vote_ref, NEW.votes_data, NEW.created_at), 256);
 END
 $$
 DELIMITER ;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `vote_receipts`
---
-
-CREATE TABLE `vote_receipts` (
-  `id` int(11) NOT NULL,
-  `vote_ref` varchar(20) NOT NULL,
-  `email_sent` tinyint(1) DEFAULT 0,
-  `sent_at` datetime DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Indexes for dumped tables
@@ -406,13 +402,6 @@ ALTER TABLE `votes`
   ADD KEY `idx_election_time` (`election_id`,`created_at`);
 
 --
--- Indexes for table `vote_receipts`
---
-ALTER TABLE `vote_receipts`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `vote_ref` (`vote_ref`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -420,13 +409,13 @@ ALTER TABLE `vote_receipts`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `candidates`
 --
 ALTER TABLE `candidates`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `courses`
@@ -438,7 +427,7 @@ ALTER TABLE `courses`
 -- AUTO_INCREMENT for table `election_history`
 --
 ALTER TABLE `election_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `election_status`
@@ -450,37 +439,31 @@ ALTER TABLE `election_status`
 -- AUTO_INCREMENT for table `otp_requests`
 --
 ALTER TABLE `otp_requests`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `partylists`
 --
 ALTER TABLE `partylists`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `positions`
 --
 ALTER TABLE `positions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `voters`
 --
 ALTER TABLE `voters`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `votes`
 --
 ALTER TABLE `votes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `vote_receipts`
---
-ALTER TABLE `vote_receipts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=189;
 
 --
 -- Constraints for dumped tables
@@ -509,13 +492,7 @@ ALTER TABLE `voters`
 -- Constraints for table `votes`
 --
 ALTER TABLE `votes`
-  ADD CONSTRAINT `fk_vote_election` FOREIGN KEY (`election_id`) REFERENCES `election_history` (`id`);
-
---
--- Constraints for table `vote_receipts`
---
-ALTER TABLE `vote_receipts`
-  ADD CONSTRAINT `fk_receipt_vote` FOREIGN KEY (`vote_ref`) REFERENCES `votes` (`vote_ref`);
+  ADD CONSTRAINT `fk_vote_election` FOREIGN KEY (`election_id`) REFERENCES `election_status` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

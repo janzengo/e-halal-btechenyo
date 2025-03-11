@@ -5,12 +5,14 @@ require_once 'classes/User.php';
 require_once 'classes/Ballot.php';
 require_once 'classes/Votes.php';
 require_once 'classes/Election.php';
+require_once 'classes/Receipt.php';
 
 $session = CustomSessionHandler::getInstance();
 $user = new User();
 $ballot = new Ballot();
 $votes = new Votes();
 $election = new Election();
+$receipt = new Receipt();
 
 if (!$user->isLoggedIn()) {
     header('location: index.php');
@@ -79,8 +81,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             throw new Exception($voteResult['message']);
         }
 
-        // Send receipt email
-        $receiptResult = $ballot->generateReceipt(
+        // Generate and send receipt email
+        $receiptResult = $receipt->generate(
             $voteResult['vote_ref'],
             $currentVoter,
             $votesData,

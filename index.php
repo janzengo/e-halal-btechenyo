@@ -140,6 +140,7 @@ echo $view->renderHeader();
                             </div>
                         </div>
                     </form>
+                    <p class="text-center text-smaller" style="margin-top: 10px;">Already voted? <a href="request_receipt.php">See your receipt here</a></p>
                 </div>
             <?php 
             // Handle form submission
@@ -149,31 +150,44 @@ echo $view->renderHeader();
                 $student_number = trim($_POST['student_number']);
                 $response = array();
                 
-                // Validate student number exists in database
+                // Validate student number exists in database and check voting status
                 $db = Database::getInstance();
-                $stmt = $db->prepare("SELECT * FROM voters WHERE student_number = ?");
+                $stmt = $db->prepare("SELECT has_voted FROM voters WHERE student_number = ?");
                 $stmt->bind_param("s", $student_number);
                 $stmt->execute();
                 $result = $stmt->get_result();
                 
                 if ($result->num_rows === 0) {
+                    $session->setError('Student number not found in the database.');
                     $response['success'] = false;
-                    $response['message'] = 'Student number not found in the database.';
+                    $response['message'] = $session->getError();
+                    echo json_encode($response);
+                    exit();
+                }
+
+                // Check if student has already voted
+                $voter = $result->fetch_assoc();
+                if ($voter['has_voted'] == 1) {
+                    $session->setError('You have already cast your vote in this election. Each student can only vote once.');
+                    $response['success'] = false;
+                    $response['message'] = $session->getError();
                     echo json_encode($response);
                     exit();
                 }
                 
-                // Generate and send OTP
+                // If not voted, proceed with OTP generation and sending
                 $otpMailer = new OTPMailer($db->getConnection());
                 $sendResult = $otpMailer->generateAndSendOTP($student_number);
                 
                 if ($sendResult['success']) {
                     // Store student number in session for OTP verification
                     $session->setSession('otp_student_number', $student_number);
+                    $session->setSuccess('OTP sent successfully.');
                     $response['success'] = true;
                 } else {
+                    $session->setError('Failed to send OTP. Please try again.');
                     $response['success'] = false;
-                    $response['message'] = 'Failed to send OTP. Please try again.';
+                    $response['message'] = $session->getError();
                 }
                 
                 echo json_encode($response);

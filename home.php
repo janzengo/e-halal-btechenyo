@@ -24,11 +24,8 @@ $currentVoter = $user->getCurrentUser();
 $hasVoted = $votes->hasVoted($currentVoter['id']);
 
 // Log vote completion if just voted
-if (isset($_SESSION['just_voted']) && $_SESSION['just_voted']) {
-    if (isset($_SESSION['vote_ref'])) {
-        $logger->logVoteSubmission($currentVoter['student_number'], $_SESSION['vote_ref']);
-        unset($_SESSION['vote_ref']);
-    }
+if (isset($_SESSION['just_voted']) && $_SESSION['just_voted'] && isset($_SESSION['vote_ref'])) {
+    $logger->logVoteSubmission($currentVoter['student_number'], $_SESSION['vote_ref']);
     $voteStatus = 'complete';
     unset($_SESSION['just_voted']);
 } elseif ($hasVoted) {
@@ -54,8 +51,6 @@ echo $view->renderHeader();
                 <section class="content">
                     <?php
                     $title = $ballot->getElectionName();
-                    echo '<h1 class="page-header text-center title title-custom"><b>'. strtoupper($title).'</b></h1>';
-                    
                     if ($session->hasError()) {
                         echo '<div class="alert alert-danger alert-dismissible">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -69,33 +64,55 @@ echo $view->renderHeader();
                     // Display appropriate content based on vote status
                     switch ($voteStatus) {
                         case 'complete':
-                            echo '<div class="alert alert-success text-center">
-                                <h4><i class="icon fa fa-check"></i> Thank you for voting, BTECHenyo!</h4>
-                                Your vote has been recorded successfully.
-                            </div>
-                            
-                            <div class="text-center">
-                                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#view" name="view_ballot">
-                                        <i class="fa fa-eye"></i> View My Ballot
-                                    </button>
+                            ?>
+                            <div class="vote-success-container">
+                                <div class="success-content">
+                                    <div class="check-circle">
+                                        <i class="fa fa-check"></i>
+                                    </div>
+                                    <h2>Thank You for Voting!</h2>
+                                    <p class="vote-ref">Reference Number: <strong><?php echo htmlspecialchars($_SESSION['vote_ref']); ?></strong></p>
+                                    <p class="success-message">Your vote has been recorded successfully and a receipt has been sent to your email.</p>
+                                    <div class="action-buttons">
+                                        <a href="download_receipt.php?ref=<?php echo urlencode($_SESSION['vote_ref']); ?>" 
+                                           class="btn btn-primary"
+                                           target="_blank">
+                                            <i class="fa fa-download"></i> Download PDF Receipt
+                                        </a>
+                                        <a href="logout.php" class="btn btn-secondary">
+                                            <i class="fa fa-sign-out"></i> Sign Out
+                                        </a>
+                                    </div>
                                 </div>
-                                ';
+                            </div>
+                            <?php
                             break;
                             
                         case 'already_voted':
-                            echo '<div class="text-center">
-                                <h2>You have already voted.</h2>
-                                <p class="text-muted">Please tell an election officer/proctor if you think this is a mistake.</p>
-                            </div>
-                            <div class="text-center">
-                                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#view" name="view_ballot">
-                                        <i class="fa fa-eye"></i> View My Ballot
-                                    </button>
+                            ?>
+                            <div class="vote-success-container">
+                                <div class="success-content">
+                                    <div class="check-circle">
+                                        <i class="fa fa-check"></i>
+                                    </div>
+                                    <h2>You have already voted!</h2>
+                                    <p class="vote-ref">Reference Number: <strong><?php echo htmlspecialchars($_SESSION['vote_ref']); ?></strong></p>
+                                    <p class="success-message">Your vote has been recorded successfully and a receipt has been sent to your email.</p>
+                                    <div class="action-buttons">
+                                        <a href="download_receipt.php?ref=<?php echo urlencode($_SESSION['vote_ref']); ?>" target="_blank" class="btn btn-primary">
+                                            <i class="fa fa-download"></i> Download PDF Receipt
+                                        </a>
+                                        <a href="logout.php" class="btn btn-secondary">
+                                            <i class="fa fa-sign-out"></i> Sign Out
+                                        </a>
+                                    </div>
                                 </div>
-                            ';
+                            </div>
+                            <?php
                             break;
                             
                         case 'current':
+                            echo '<h1 class="page-header text-center title title-custom"><b>'. strtoupper($title).'</b></h1>';
                             if ($session->hasSuccess()) {
                                 echo '<div class="alert alert-success alert-dismissible">
                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -152,6 +169,68 @@ button[name="view_ballot"] {
 
 button[name="view_ballot"]:hover, button[name="view_ballot"]:active {
     background-color: #0f6d33 !important;
+}
+
+.announcement {
+    /* Vertical Align */   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.vote-success-container {
+    background: #fff;
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+.check-circle {
+    width: 80px;
+    height: 80px;
+    background: #28a745;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.check-circle i {
+    color: white;
+    font-size: 40px;
+}
+
+.success-content h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.vote-ref {
+    font-size: 1.2em;
+    color: #259646;
+    margin: 15px 0;
+}
+
+.success-message {
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.action-buttons .btn {
+    padding: 10px 20px;
 }
 </style>
 

@@ -103,7 +103,7 @@ class Logger {
 
             if ($lines > 0) {
                 $stmt->bind_param("si", $role, $lines);
-            } else {
+        } else {
                 $stmt->bind_param("s", $role);
             }
 
