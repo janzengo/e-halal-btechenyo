@@ -106,7 +106,10 @@ if (!$admin->isLoggedIn()) {
                                     <?php
                                     $candidates = $candidate->getAllCandidates();
                                     foreach($candidates as $row){
-                                        $image = (!empty($row['photo'])) ? '../assets/images/'.$row['photo'] : '../assets/images/profile.jpg';
+                                        $image = (!empty($row['photo'])) ? BASE_URL . 'administrator/assets/images/'.$row['photo'] : BASE_URL . 'administrator/assets/images/profile.jpg';
+                                        if (!file_exists($image)) {
+                                            $image = BASE_URL . 'administrator/assets/images/profile.jpg';
+                                        }
                                         echo "
                                         <tr>
                                             <td>".$row['position']."</td>
@@ -139,6 +142,8 @@ if (!$admin->isLoggedIn()) {
 <?php echo $view->renderScripts(); ?>
 
 <script>
+var baseUrl = '<?php echo BASE_URL; ?>';
+
 $(function() {
     $('#candidateTable').DataTable({
         responsive: true,
@@ -156,7 +161,7 @@ $(function() {
         
         $.ajax({
             type: 'POST',
-            url: '../pages/includes/modals/controllers/CandidateController.php',
+            url: baseUrl + 'administrator/pages/includes/modals/controllers/CandidateController.php',
             data: {id:id, action:'get'},
             dataType: 'json',
             success: function(response){
@@ -168,9 +173,9 @@ $(function() {
                     $('#edit_platform').val(response.data.platform);
                     
                     if(response.data.photo){
-                        $('#edit-photo-preview').attr('src', '../assets/images/' + response.data.photo);
+                        $('#edit-photo-preview').attr('src', baseUrl + 'administrator/assets/images/' + response.data.photo);
                     } else {
-                        $('#edit-photo-preview').attr('src', '../assets/images/profile.jpg');
+                        $('#edit-photo-preview').attr('src', baseUrl + 'administrator/assets/images/profile.jpg');
                     }
                 } else {
                     Swal.fire({
@@ -198,7 +203,7 @@ $(function() {
         
         $.ajax({
             type: 'POST',
-            url: '../pages/includes/modals/controllers/CandidateController.php',
+            url: baseUrl + 'administrator/pages/includes/modals/controllers/CandidateController.php',
             data: {id:id, action:'get'},
             dataType: 'json',
             success: function(response){

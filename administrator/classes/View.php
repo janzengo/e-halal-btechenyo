@@ -53,7 +53,7 @@ class View {
                     '/e-halal/administrator/ballot',
                     '/e-halal/administrator/configure',
                     '/e-halal/administrator/history',
-                    '/e-halal/administrator/log',
+                    '/e-halal/administrator/log_admin',
                     '/e-halal/administrator/officers'
                 ];
                 if(in_array($current_path, $urls)) :?>
@@ -119,7 +119,7 @@ class View {
                     <li class=""><a href="configure"><i class="fa fa-sliders"></i> <span>Configure Election</span></a></li>
                     <li class=""><a href="history"><i class="fa fa-clock-rotate-left"></i> <span>Election History</span></a></li>
                     <li class="header">ADMIN ACTIONS</li>
-                    <li class=""><a href="log"><i class="fa fa-file"></i> <span>View Logs</span></a></li>
+                    <li class=""><a href="log_admin"><i class="fa fa-file"></i> <span>Admin Logs</span></a></li>
                     <li class=""><a href="officers"><i class="fa fa-wrench"></i> <span>Manage Officers</span></a></li>
                 </ul>
             </section>

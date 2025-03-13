@@ -3,14 +3,14 @@ require_once __DIR__ . '/../init.php';
 require_once __DIR__ . '/Database.php';
 
 class Logger {
+    protected $logPath;
     private static $instance = null;
     private $db;
-    private $admin_log_file = __DIR__ . '/../administrator/logs/admin_logs.log';
-    private $voters_log_file = __DIR__ . '/../administrator/logs/voters_logs.log';
     
-    public function __construct() {
+    protected function __construct() {
         $this->db = Database::getInstance();
-        $this->ensureLogFiles();
+        $this->logPath = __DIR__ . '/../administrator/logs/';
+        $this->ensureLogDirectoryExists();
     }
 
     /**
@@ -33,190 +33,91 @@ class Logger {
         throw new Exception("Cannot unserialize singleton");
     }
 
-    /**
-     * Ensure log files exist and are writable
-     */
-    private function ensureLogFiles() {
-        $files = [$this->admin_log_file, $this->voters_log_file];
-        foreach ($files as $file) {
-            if (!file_exists($file)) {
-                $dir = dirname($file);
-                if (!is_dir($dir)) {
-                    mkdir($dir, 0755, true);
-                }
-                touch($file);
-                chmod($file, 0644);
-            }
+    protected function ensureLogDirectoryExists() {
+        if (!file_exists($this->logPath)) {
+            mkdir($this->logPath, 0755, true);
         }
     }
 
-    /**
-     * Generate and write log entry based on role
-     * 
-     * @param string $role User role (superadmin, officer, student)
-     * @param string $time Timestamp
-     * @param string $username Username/Student number
-     * @param string $details Action details
-     * @return bool Success status
-     */
-    public function generateLog($role, $time, $username, $details) {
-        try {
-            $this->db->beginTransaction();
+    protected function generateLog($type, $timestamp, $user_id, $action) {
+        $logFile = $this->logPath . $type . '_logs.json';
+        
+        // Create log entry
+        $logEntry = [
+            'timestamp' => $timestamp,
+            'user_id' => $user_id,
+            'action' => $action
+        ];
 
-            // Log to database
-            $stmt = $this->db->prepare("
-                INSERT INTO logs (timestamp, username, details, role) 
-                VALUES (?, ?, ?, ?)
-            ");
-            $stmt->bind_param("ssss", $time, $username, $details, $role);
-            $dbSuccess = $stmt->execute();
-
-            // Format the log entry for file
-            $log_entry = sprintf(
-                "[%s] %s | %s | %s\n",
-                $time,
-                str_pad($username, 20),
-                str_pad($role, 10),
-                $details
-            );
-
-            // Determine which log file to use
-            $log_file = ($role == 'superadmin' || $role == 'officer') ? 
-                        $this->admin_log_file : $this->voters_log_file;
-
-            // Write to appropriate log file
-            $fileSuccess = file_put_contents(
-                $log_file,
-                $log_entry,
-                FILE_APPEND | LOCK_EX
-            ) !== false;
-
-            if ($dbSuccess && $fileSuccess) {
-                $this->db->commit();
-                return true;
-            } else {
-                $this->db->rollback();
-                return false;
+        // Read existing logs
+        $logs = [];
+        if (file_exists($logFile)) {
+            $jsonContent = file_get_contents($logFile);
+            if (!empty($jsonContent)) {
+                $logs = json_decode($jsonContent, true) ?? [];
             }
-        } catch (Exception $e) {
-            $this->db->rollback();
-            error_log("Error in generateLog: " . $e->getMessage());
-            return false;
         }
+
+        // Add new log entry
+        $logs[] = $logEntry;
+
+        // Write back to file with proper formatting
+        return file_put_contents($logFile, json_encode($logs, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
     }
 
-    /**
-     * Read logs for a specific role
-     * 
-     * @param string $role Role to get logs for
-     * @param int $lines Number of lines to read (0 for all)
-     * @return array Log entries
-     */
-    public function readLogs($role, $lines = 0) {
-        try {
-            // Get logs from database
-            $stmt = $this->db->prepare("
-                SELECT * FROM logs 
-                WHERE role = ? 
-                ORDER BY timestamp DESC
-                " . ($lines > 0 ? "LIMIT ?" : "")
-            );
+    protected function readLogs($type, $limit = 0) {
+        $logFile = $this->logPath . $type . '_logs.json';
+        $logs = [];
 
-            if ($lines > 0) {
-                $stmt->bind_param("si", $role, $lines);
-        } else {
-                $stmt->bind_param("s", $role);
+        if (file_exists($logFile)) {
+            $jsonContent = file_get_contents($logFile);
+            if (!empty($jsonContent)) {
+                $logs = json_decode($jsonContent, true) ?? [];
             }
-
-            $stmt->execute();
-            $result = $stmt->get_result();
-            $dbLogs = $result->fetch_all(MYSQLI_ASSOC);
-
-            // Get logs from file
-            $file = ($role == 'superadmin' || $role == 'officer') ? 
-                    $this->admin_log_file : $this->voters_log_file;
-
-            $fileLogs = [];
-            if (file_exists($file)) {
-                $fileLogs = file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-                $fileLogs = array_reverse($fileLogs);
-                if ($lines > 0) {
-                    $fileLogs = array_slice($fileLogs, 0, $lines);
-                }
-            }
-
-            return [
-                'database_logs' => $dbLogs,
-                'file_logs' => $fileLogs
-            ];
-
-        } catch (Exception $e) {
-            error_log("Error reading logs: " . $e->getMessage());
-            return [
-                'database_logs' => [],
-                'file_logs' => []
-            ];
         }
+
+        // Sort logs by timestamp in descending order
+        usort($logs, function($a, $b) {
+            return strtotime($b['timestamp']) - strtotime($a['timestamp']);
+        });
+
+        // Apply limit if specified
+        if ($limit > 0 && count($logs) > $limit) {
+            $logs = array_slice($logs, 0, $limit);
+        }
+
+        return $logs;
     }
 
-    /**
-     * Clear logs for a specific role
-     * 
-     * @param string $role Role whose logs to clear
-     * @return bool Success status
-     */
-    public function clearLogs($role) {
-        try {
-            $this->db->beginTransaction();
-
-            // Clear database logs
-            $stmt = $this->db->prepare("DELETE FROM logs WHERE role = ?");
-            $stmt->bind_param("s", $role);
-            $dbSuccess = $stmt->execute();
-
-            // Clear file logs
-            $file = ($role == 'superadmin' || $role == 'officer') ? 
-                    $this->admin_log_file : $this->voters_log_file;
-            $fileSuccess = file_put_contents($file, '') !== false;
-
-            if ($dbSuccess && $fileSuccess) {
-                $this->db->commit();
-                return true;
-            } else {
-                $this->db->rollback();
-                return false;
-            }
-        } catch (Exception $e) {
-            $this->db->rollback();
-            error_log("Error clearing logs: " . $e->getMessage());
-            return false;
-        }
+    protected function clearLogs($type) {
+        $logFile = $this->logPath . $type . '_logs.json';
+        return file_put_contents($logFile, json_encode([], JSON_PRETTY_PRINT));
     }
 
     public function logVoteSubmission($student_number, $vote_ref) {
         return $this->generateLog(
-            'student',
+            'voters',
             date('Y-m-d H:i:s'),
             $student_number,
-            "Vote submitted successfully. Reference: {$vote_ref}"
+            ['action' => "Vote submitted successfully. Reference: {$vote_ref}"]
         );
     }
 
     public function logLoginAttempt($student_number, $success, $details = '') {
         return $this->generateLog(
-            'student',
+            'voters',
             date('Y-m-d H:i:s'),
             $student_number,
-            $success ? "Login successful" : "Login failed - {$details}"
+            ['action' => $success ? "Login successful" : "Login failed - {$details}"]
         );
     }
 
     public function logLogout($student_number) {
         return $this->generateLog(
-            'student',
+            'voters',
             date('Y-m-d H:i:s'),
             $student_number,
-            "User logged out"
+            ['action' => "User logged out"]
         );
     }
 }

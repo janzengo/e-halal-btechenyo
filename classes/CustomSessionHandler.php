@@ -64,10 +64,10 @@ class CustomSessionHandler {
             session_regenerate_id(true);
             
             $this->logger->generateLog(
-                'student',
+                'voters',
                 date('Y-m-d H:i:s'),
                 $_SESSION['student_number'] ?? 'unknown',
-                'New session created'
+                ['action' => 'New session created']
             );
         }
     }
@@ -88,10 +88,10 @@ class CustomSessionHandler {
     public function destroySession() {
         if (isset($_SESSION['student_number'])) {
             $this->logger->generateLog(
-                'student',
+                'voters',
                 date('Y-m-d H:i:s'),
                 $_SESSION['student_number'],
-                'Session destroyed'
+                ['action' => 'Session destroyed']
             );
         }
         

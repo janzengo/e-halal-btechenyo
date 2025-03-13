@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Halal Database Schema</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #fff;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        caption {
+            margin: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h1>E-Halal Database Schema</h1>
+
+<table>
+    <caption>Admin Table</caption>
+    <thead>
+        <tr>
+            <th>Column</th>
+            <th>Type</th>
+            <th>Notes</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>id</td><td>int(11)</td><td>Primary Key</td></tr>
+        <tr><td>username</td><td>varchar(50)</td><td>Unique username</td></tr>
+        <tr><td>password</td><td>varchar(60)</td><td>Hashed password</td></tr>
+        <tr><td>firstname</td><td>varchar(50)</td><td>Admin's first name</td></tr>
+        <tr><td>lastname</td><td>varchar(50)</td><td>Admin's last name</td></tr>
+        <tr><td>photo</td><td>varchar(150)</td><td>Profile photo path</td></tr>
+        <tr><td>created_on</td><td>date</td><td>Date of creation</td></tr>
+        <tr><td>role</td><td>varchar(20)</td><td>Role of the admin</td></tr>
+        <tr><td>gender</td><td>varchar(10)</td><td>Gender of the admin</td></tr>
+    </tbody>
+</table>
+
+<table>
+    <caption>Candidates Table</caption>
+    <thead>
+        <tr>
+            <th>Column</th>
+            <th>Type</th>
+            <th>Notes</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>id</td><td>int(11)</td><td>Primary Key</td></tr>
+        <tr><td>position_id</td><td>int(11)</td><td>Foreign Key to positions</td></tr>
+        <tr><td>firstname</td><td>varchar(30)</td><td>Candidate's first name</td></tr>
+        <tr><td>lastname</td><td>varchar(30)</td><td>Candidate's last name</td></tr>
+        <tr><td>partylist_id</td><td>int(11)</td><td>Foreign Key to partylists</td></tr>
+        <tr><td>photo</td><td>varchar(150)</td><td>Candidate's photo path</td></tr>
+        <tr><td>platform</td><td>text</td><td>Candidate's platform</td></tr>
+        <tr><td>votes</td><td>int(11)</td><td>Vote count</td></tr>
+    </tbody>
+</table>
+
+<table>
+    <caption>Election History Table</caption>
+    <thead>
+        <tr>
+            <th>Column</th>
+            <th>Type</th>
+            <th>Notes</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>id</td><td>int(11)</td><td>Primary Key</td></tr>
+        <tr><td>election_name</td><td>varchar(255)</td><td>Name of the election</td></tr>
+        <tr><td>start_date</td><td>datetime</td><td>Start date and time</td></tr>
+        <tr><td>end_date</td><td>datetime</td><td>End date and time</td></tr>
+        <tr><td>details_pdf</td><td>varchar(255)</td><td>Path to details PDF</td></tr>
+        <tr><td>results_pdf</td><td>varchar(255)</td><td>Path to results PDF</td></tr>
+        <tr><td>created_at</td><td>timestamp</td><td>Creation timestamp</td></tr>
+    </tbody>
+</table>
+
+<table>
+    <caption>Election Status Table</caption>
+    <thead>
+        <tr>
+            <th>Column</th>
+            <th>Type</th>
+            <th>Notes</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>id</td><td>int(11)</td><td>Primary Key</td></tr>
+        <tr><td>status</td><td>enum('pending','on','off','paused')</td><td>Current status of the election</td></tr>
+        <tr><td>election_name</td><td>varchar(255)</td><td>Name of the election</td></tr>
+        <tr><td>start_time</td><td>datetime</td><td>Start time of the election</td></tr>
+        <tr><td>end_time</td><td>datetime</td><td>End time of the election</td></tr>
+        <tr><td>last_status_change</td><td>datetime</td><td>Last status change timestamp</td></tr>
+    </tbody>
+</table>
+
+<table>
+    <caption>Logs Table</caption>
+    <thead>
+        <tr>
+            <th>Column</th>
+            <th>Type</th>
+            <th>Notes</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>id</td><td>int(11)</td><td>Primary Key</td></tr>
+        <tr><td>timestamp</td><td>timestamp</td><td>Log entry timestamp</td></tr>
+        <tr><td>username</td><td>varchar(255)</td><td>Admin username</td></tr>
+        <tr><td>details</td><td>text</td><td>Details of the log entry</td></tr>
+        <tr><td>role</td><td>varchar(50)</td><td>Role of the admin</td></tr>
+    </tbody>
+</table>
+
+<table>
+    <caption>OTP Requests Table</caption>
+    <thead>
+        <tr>
+            <th>Column</th>
+            <th>Type</th>
+            <th>Notes</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>id</td><td>int(11)</td><td>Primary Key</td></tr>
+        <tr><td>student_number</td><td>varchar(20)</td><td>Student number requesting OTP</td></tr>
+        <tr><td>otp</td><td>varchar(6)</td><td>One-time password</td></tr>
+        <tr><td>attempts</td><td>int(11)</td><td>Number of attempts made</td></tr>
+        <tr><td>created_at</td><td>timestamp</td><td>Request creation timestamp</td></tr>
+        <tr><td>expires_at</td><td>datetime</td><td>Expiration time of the OTP</td></tr>
+    </tbody>
+</table>
+
+<table>
+    <caption>Party Lists Table</caption>
+    <thead>
+        <tr>
+            <th>Column</th>
+            <th>Type</th>
+            <th>Notes</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>id</td><td>int(11)</td><td>Primary Key</td></tr>
+        <tr><td>name</td><td>varchar(255)</td><td>Name of the party list</td></tr>
+    </tbody>
+</table>
+
+<table>
+    <caption>Positions Table</caption>
+    <thead>
+        <tr>
+            <th>Column</th>
+            <th>Type</th>
+            <th>Notes</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>id</td><td>int(11)</td><td>Primary Key</td></tr>
+        <tr><td>description</td><td>varchar(50)</td><td>Description of the position</td></tr>
+        <tr><td>max_vote</td><td>int(11)</td><td>Maximum votes for the position</td></tr>
+        <tr><td>priority</td><td>int(11)</td><td>Priority for sorting</td></tr>
+    </tbody>
+</table>
+
+<table>
+    <caption>Voters Table</caption>
+    <thead>
+        <tr>
+            <th>Column</th>
+            <th>Type</th>
+            <th>Notes</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>id</td><td>int(11)</td><td>Primary Key</td></tr>
+        <tr><td>course_id</td><td>int(11)</td><td>Foreign Key to courses</td></tr>
+        <tr><td>student_number</td><td>varchar(20)</td><td>Unique student number</td></tr>
+        <tr><td>has_voted</td><td>tinyint(1)</td><td>Indicates if the voter has voted</td></tr>
+        <tr><td>created_at</td><td>timestamp</td><td>Creation timestamp</td></tr>
+    </tbody>
+</table>
+
+<table>
+    <caption>Votes Table</caption>
+    <thead>
+        <tr>
+            <th>Column</th>
+            <th>Type</th>
+            <th>Notes</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>id</td><td>int(11)</td><td>Primary Key</td></tr>
+        <tr><td>election_id</td><td>int(11)</td><td>Foreign Key to election_status</td></tr>
+        <tr><td>vote_ref</td><td>varchar(20)</td><td>Unique reference for the vote</td></tr>
+        <tr><td>votes_data</td><td>longtext</td><td>JSON data of votes</td></tr>
+        <tr><td>created_at</td><td>timestamp</td><td>Creation timestamp</td></tr>
+    </tbody>
+</table>
+
+</body>
+</html>

@@ -53,11 +53,11 @@ if (!$admin->isLoggedIn() && !empty($page)) {
 
 // Load appropriate page
 if ($admin->isLoggedIn() && !empty($page)) {
-    $file = 'pages/' . $page . '.php';
+    $file = __DIR__ . '/pages/' . $page . '.php';
     if (file_exists($file)) {
         require_once $file;
     } else {
-        header('Location: home');
+        header('Location: ' . BASE_URL . 'administrator/home');
         exit();
     }
 } else {

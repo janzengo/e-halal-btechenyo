@@ -18,8 +18,8 @@ if (!$admin->isLoggedIn()) {
 if (isset($_POST['clear_logs']) && $admin->isAdmin()) {
     $type = $_POST['log_type'] ?? 'all';
     $logger->clearLogs($type);
-    $_SESSION['success'] = 'Logs cleared successfully';
-    header('Location: logs.php');
+    $_SESSION['success'] = 'Voter logs cleared successfully';
+    header('Location: log_voters.php');
     exit();
 }
 ?>
@@ -28,7 +28,7 @@ if (isset($_POST['clear_logs']) && $admin->isAdmin()) {
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>E-Halal Voting System | System Logs</title>
+    <title>E-Halal Voting System | Voter Logs</title>
     <?php echo $view->renderHeader(); ?>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -43,12 +43,12 @@ if (isset($_POST['clear_logs']) && $admin->isAdmin()) {
         <!-- Content Header -->
         <section class="content-header">
             <h1>
-                System Logs
-                <small>View all system activities</small>
+                Voter Logs
+                <small>View all voter activities</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Admin Actions</a></li>
-                <li class="active">Logs</li>
+                <li class="active">Voter Logs</li>
             </ol>
         </section>
 
@@ -78,58 +78,6 @@ if (isset($_POST['clear_logs']) && $admin->isAdmin()) {
             ?>
 
             <div class="row">
-                <!-- Admin Logs -->
-                <div class="col-xs-12">
-                    <div class="box">
-                        <div class="box-header with-border">
-                            <h3 class="box-title">Administrator Logs</h3>
-                            <?php if ($admin->isAdmin()): ?>
-                            <div class="pull-right">
-                                <form method="POST" class="form-inline" style="display: inline;">
-                                    <input type="hidden" name="log_type" value="admin">
-                                    <button type="submit" name="clear_logs" class="btn btn-danger btn-sm btn-flat" onclick="return confirm('Are you sure you want to clear admin logs?');">
-                                        <i class="fa fa-trash"></i> Clear Admin Logs
-                                    </button>
-                                </form>
-                            </div>
-                            <?php endif; ?>
-                        </div>
-                        <div class="box-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>Timestamp</th>
-                                            <th>Admin ID</th>
-                                            <th>Action</th>
-                                            <th>Details</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                        $admin_logs = $logger->getAdminLogs();
-                                        if (empty($admin_logs)) {
-                                            echo "<tr><td colspan='4' class='text-center'>No logs found</td></tr>";
-                                        } else {
-                                            foreach ($admin_logs as $log) {
-                                                if (preg_match('/\[(.*?)\] Admin ID: (.*?) \| Action: (.*?)(?:\| Details: (.*?))?$/', $log, $matches)) {
-                                                    echo "<tr>";
-                                                    echo "<td>" . htmlspecialchars($matches[1]) . "</td>";
-                                                    echo "<td>" . htmlspecialchars($matches[2]) . "</td>";
-                                                    echo "<td>" . htmlspecialchars($matches[3]) . "</td>";
-                                                    echo "<td>" . htmlspecialchars($matches[4] ?? '') . "</td>";
-                                                    echo "</tr>";
-                                                }
-                                            }
-                                        }
-                                        ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- Voter Logs -->
                 <div class="col-xs-12">
                     <div class="box">
@@ -148,7 +96,7 @@ if (isset($_POST['clear_logs']) && $admin->isAdmin()) {
                         </div>
                         <div class="box-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered table-striped">
+                                <table id="voter_logs_table" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
                                             <th>Timestamp</th>
@@ -164,14 +112,12 @@ if (isset($_POST['clear_logs']) && $admin->isAdmin()) {
                                             echo "<tr><td colspan='4' class='text-center'>No logs found</td></tr>";
                                         } else {
                                             foreach ($voter_logs as $log) {
-                                                if (preg_match('/\[(.*?)\] Voter ID: (.*?) \| Action: (.*?)(?:\| Details: (.*?))?$/', $log, $matches)) {
-                                                    echo "<tr>";
-                                                    echo "<td>" . htmlspecialchars($matches[1]) . "</td>";
-                                                    echo "<td>" . htmlspecialchars($matches[2]) . "</td>";
-                                                    echo "<td>" . htmlspecialchars($matches[3]) . "</td>";
-                                                    echo "<td>" . htmlspecialchars($matches[4] ?? '') . "</td>";
-                                                    echo "</tr>";
-                                                }
+                                                echo "<tr>";
+                                                echo "<td>" . htmlspecialchars($log['timestamp']) . "</td>";
+                                                echo "<td>" . htmlspecialchars($log['user_id']) . "</td>";
+                                                echo "<td>" . htmlspecialchars($log['action']['action']) . "</td>";
+                                                echo "<td></td>"; // Reserved for future details
+                                                echo "</tr>";
                                             }
                                         }
                                         ?>
@@ -192,17 +138,19 @@ if (isset($_POST['clear_logs']) && $admin->isAdmin()) {
 
 <script>
 $(function() {
-    $('.table').DataTable({
-        'order': [[0, 'desc']],
-        'pageLength': 25,
-        'columns': [
-            { 'data': 'timestamp' },
-            { 'data': 'id' },
-            { 'data': 'action' },
-            { 'data': 'details' }
-        ],
-        'autoWidth': false
-    });
+    var voterTable = $('#voter_logs_table');
+    if (voterTable.find('tbody tr').length > 0 && voterTable.find('tbody tr td').length > 1) {
+        voterTable.DataTable({
+            'order': [[0, 'desc']],
+            'pageLength': 25,
+            'responsive': true,
+            'autoWidth': false,
+            'language': {
+                'emptyTable': 'No voter logs found',
+                'zeroRecords': 'No matching voter logs found'
+            }
+        });
+    }
 });
 </script>
 </body>
