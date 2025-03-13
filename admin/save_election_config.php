@@ -1,6 +1,7 @@
 <?php
 include 'includes/session.php';
 include 'db_operations.php';
+require_once __DIR__ . '/../vendor/tecnickcom/tcpdf/tcpdf.php';
 include 'pdf_generation.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -99,45 +100,49 @@ function handleCandidatesConfig($conn) {
         $_SESSION['candidates_config_complete'] = false;
     } elseif ($query->num_rows > 0) {
         if (updateElectionStatus($conn, 'paused')) {
-            // Generate PDFs and save election history when status is set to "paused"
-            $election_name = htmlspecialchars(strip_tags($_POST['election_name']));
-            $end_time = htmlspecialchars(strip_tags($_POST['end_time']));
-            $formatted_end_time = date('Y-m-d H:i:s', strtotime($end_time));
-
-            $query = $conn->query("SELECT id, start_time FROM election_status ORDER BY id DESC LIMIT 1");
-
-            if ($query->num_rows > 0) {
-                $row = $query->fetch_assoc();
-                $election_id = $row['id'];
-                $start_time = $row['start_time'];
-
-                $folder_name = strtolower(str_replace(' ', '-', $election_name));
-                $folder_path = __DIR__ . "/election_history/$folder_name";
-                if (!file_exists($folder_path)) {
-                    mkdir($folder_path, 0777, true);
+            try {
+                // Get election details from election_status table instead of POST
+                $election_query = $conn->query("SELECT election_name, end_time FROM election_status ORDER BY id DESC LIMIT 1");
+                if (!$election_query || $election_query->num_rows == 0) {
+                    throw new Exception('No election record found.');
                 }
+                
+                $election_data = $election_query->fetch_assoc();
+                $election_name = $election_data['election_name'];
+                $end_time = $election_data['end_time'];
+                $formatted_end_time = date('Y-m-d H:i:s', strtotime($end_time));
 
-                $details_pdf_path = "$folder_path/details.pdf";
-                generateDetailsPdfWithHeader($conn, $election_id, $details_pdf_path, $election_name);
+                $query = $conn->query("SELECT id, start_time FROM election_status ORDER BY id DESC LIMIT 1");
 
-                $results_pdf_path = "$folder_path/results.pdf";
-                generateResultsPdfWithHeader($conn, $election_id, $results_pdf_path, $election_name);
+                if ($query->num_rows > 0) {
+                    $row = $query->fetch_assoc();
+                    $election_id = $row['id'];
+                    $start_time = $row['start_time'];
 
-                $end_date = date('Y-m-d H:i:s');
-                insertElectionHistory($conn, $election_name, $start_time, $end_date, $details_pdf_path, $results_pdf_path);
+                    $folder_name = strtolower(str_replace(' ', '-', $election_name));
+                    $folder_path = __DIR__ . "/election_history/$folder_name";
+                    if (!file_exists($folder_path)) {
+                        mkdir($folder_path, 0777, true);
+                    }
 
-                // For testing purposes, do not truncate the tables
-                // truncateTable($conn, 'election_status');
-                // truncateTable($conn, 'positions');
-                // truncateTable($conn, 'voters');
-                // truncateTable($conn, 'votes');
-                // truncateTable($conn, 'candidates');
+                    $details_pdf_path = "$folder_path/details.pdf";
+                    generateDetailsPdfWithHeader($conn, $election_id, $details_pdf_path, $election_name);
 
-                $_SESSION['success'] = $_POST['election_name'] . ' was successfully created!';
-                header('location: home.php');
+                    $results_pdf_path = "$folder_path/results.pdf";
+                    generateResultsPdfWithHeader($conn, $election_id, $results_pdf_path, $election_name);
+
+                    $end_date = date('Y-m-d H:i:s');
+                    insertElectionHistory($conn, $election_name, $start_time, $end_date, $details_pdf_path, $results_pdf_path);
+
+                    $_SESSION['success'] = $election_name . ' was successfully created!';
+                    header('location: home.php');
+                    exit();
+                }
+            } catch (Exception $e) {
+                error_log("Error in handleCandidatesConfig: " . $e->getMessage());
+                $_SESSION['error'] = 'Error: ' . $e->getMessage();
+                header('location: pre_election_candidates.php');
                 exit();
-            } else {
-                $_SESSION['error'] = 'No election record found.';
             }
         } else {
             $_SESSION['error'] = 'Failed to update the election status.';

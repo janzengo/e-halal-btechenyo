@@ -1,0 +1,86 @@
+[
+    {
+        "timestamp": "2025-03-12 08:55:50",
+        "user_id": "202320023",
+        "action": {
+            "action": "Login successful"
+        }
+    },
+    {
+        "timestamp": "2025-03-12 01:57:34",
+        "user_id": "202320023",
+        "action": {
+            "action": "Vote submitted successfully. Reference: VOTE-250312-1200"
+        }
+    },
+    {
+        "timestamp": "2025-03-12 10:58:37",
+        "user_id": "202320023",
+        "action": {
+            "action": "Login successful"
+        }
+    },
+    {
+        "timestamp": "2025-03-12 03:59:01",
+        "user_id": "202320023",
+        "action": {
+            "action": "Vote submitted successfully. Reference: VOTE-250312-5643"
+        }
+    },
+    {
+        "timestamp": "2025-03-12 11:33:49",
+        "user_id": "202320023",
+        "action": {
+            "action": "Login successful"
+        }
+    },
+    {
+        "timestamp": "2025-03-12 04:34:01",
+        "user_id": "202320023",
+        "action": {
+            "action": "Vote submitted successfully. Reference: VOTE-250312-8334"
+        }
+    },
+    {
+        "timestamp": "2025-03-12 12:56:34",
+        "user_id": "202320023",
+        "action": {
+            "action": "Login successful"
+        }
+    },
+    {
+        "timestamp": "2025-03-12 05:56:55",
+        "user_id": "202320023",
+        "action": {
+            "action": "Vote submitted successfully. Reference: VOTE-250312-8558"
+        }
+    },
+    {
+        "timestamp": "2025-03-12 12:59:08",
+        "user_id": "202320023",
+        "action": {
+            "action": "Login successful"
+        }
+    },
+    {
+        "timestamp": "2025-03-12 05:59:26",
+        "user_id": "202320023",
+        "action": {
+            "action": "Vote submitted successfully. Reference: VOTE-250312-0538"
+        }
+    },
+    {
+        "timestamp": "2025-03-12 13:04:11",
+        "user_id": "202320023",
+        "action": {
+            "action": "Login successful"
+        }
+    },
+    {
+        "timestamp": "2025-03-12 06:04:54",
+        "user_id": "202320023",
+        "action": {
+            "action": "Vote submitted successfully. Reference: VOTE-250312-0189"
+        }
+    }
+]

@@ -192,4 +192,11 @@ class Admin {
     public function isOfficer() {
         return $this->isLoggedIn() && $this->role === 'officer';
     }
+
+    public function getAdminId() {
+        if (isset($_SESSION['admin'])) {
+            return $_SESSION['admin'];
+        }
+        return null;
+    }
 }

@@ -192,7 +192,8 @@ class Receipt {
 
     private function getEmailTemplate($voter, $vote_ref, $election) {
         date_default_timezone_set('Asia/Manila');
-        $date = date('F j, Y g:i A', strtotime($vote['created_at']));
+        $receiptDateTime = new DateTime(); // Current date and time
+        $formattedDateTime = $receiptDateTime->format('F j, Y g:i A');
         return <<<HTML
         <!DOCTYPE html>
         <html>
@@ -212,6 +213,7 @@ class Receipt {
                 .footer { text-align: center; font-size: 12px; color: #666; margin-top: 40px; }
             </style>
         </head>
+        
         <body>
             <div class="container">
                 <div class="header">
@@ -222,7 +224,7 @@ class Receipt {
                     <div class="vote-ref">Reference: {$vote_ref}</div>
                     <div class="voter-info">
                         <p><strong>Student Number:</strong> {$voter['student_number']}</p>
-                        <p><strong>Date:</strong> {$date}</p>
+                        <p><strong>Date and Time:</strong> {$formattedDateTime}</p>
                     </div>
                     <h3 style="text-align: center;">Votes Cast</h3>
                     <table class="votes-table">

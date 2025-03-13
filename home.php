@@ -13,7 +13,7 @@ $user = new User();
 $ballot = new Ballot();
 $view = View::getInstance();
 $votes = new Votes();
-$logger = new Logger();
+$logger = Logger::getInstance();
 
 if(!$user->isLoggedIn()) {
     header('location: index.php');

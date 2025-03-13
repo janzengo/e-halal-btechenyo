@@ -16,7 +16,7 @@ class User {
     public function __construct() {
         $this->db = Database::getInstance();
         $this->session = CustomSessionHandler::getInstance();
-        $this->logger = new Logger();
+        $this->logger = Logger::getInstance();
     }
 
     /**
@@ -58,10 +58,10 @@ class User {
         session_regenerate_id(true);
 
         $this->logger->generateLog(
-            'student',
+            'voters',
             date('Y-m-d H:i:s'),
             $this->student_number,
-            'Session created'
+            ['action' => 'Session created']
         );
     }
 
@@ -125,10 +125,10 @@ class User {
 
         if ($success) {
             $this->logger->generateLog(
-                'student',
+                'voters',
                 date('Y-m-d H:i:s'),
                 $this->student_number,
-                'Vote recorded'
+                ['action' => 'Vote recorded']
             );
         }
 

@@ -1,12 +1,23 @@
 <?php
+require_once __DIR__ . '/../../init.php';
 require_once __DIR__ . '/../../classes/Database.php';
+require_once __DIR__ . '/../../classes/CustomSessionHandler.php';
+require_once __DIR__ . '/Logger.php';
+require_once __DIR__ . '/Admin.php';
 
 class Elections {
     private $db;
+    private $logger;
     private static $instance = null;
+
+    // Valid election statuses
+    const STATUS_ON = 'on';
+    const STATUS_OFF = 'off';
+    const STATUS_PAUSED = 'paused';
 
     private function __construct() {
         $this->db = Database::getInstance();
+        $this->logger = AdminLogger::getInstance();
     }
 
     public static function getInstance() {
@@ -23,43 +34,125 @@ class Elections {
     public function getCurrentElection() {
         $query = "SELECT * FROM election_status WHERE id = 1";
         $result = $this->db->query($query);
-        return $result ? $result->fetch_assoc() : null;
+        
+        if ($result && $result->num_rows > 0) {
+            return $result->fetch_assoc();
+        }
+        
+        return null;
+    }
+
+    /**
+     * Validate election status change
+     * @param string $newStatus
+     * @param array $currentElection
+     * @return array ['valid' => bool, 'message' => string]
+     */
+    private function validateStatusChange($newStatus, $currentElection) {
+        $validStatuses = [self::STATUS_ON, self::STATUS_OFF, self::STATUS_PAUSED, 'pending'];
+        
+        if (!in_array($newStatus, $validStatuses)) {
+            return ['valid' => false, 'message' => 'Invalid status provided'];
+        }
+
+        // Only validate end time when turning election ON
+        if ($newStatus === self::STATUS_ON) {
+            $now = new DateTime();
+            $endTime = new DateTime($currentElection['end_time']);
+
+            if ($now > $endTime) {
+                return ['valid' => false, 'message' => 'Cannot start election after ' . $endTime->format('F j, Y g:i A')];
+            }
+        }
+
+        return ['valid' => true, 'message' => ''];
     }
 
     /**
      * Create or update election configuration
      * @param array $data
-     * @return bool
+     * @return array ['success' => bool, 'message' => string]
      */
     public function configureElection($data) {
         try {
             $this->db->beginTransaction();
 
-            $query = "INSERT INTO election_status (election_name, status, start_time, end_time) 
-                     VALUES (?, ?, ?, ?) 
-                     ON DUPLICATE KEY UPDATE 
-                     election_name = VALUES(election_name),
-                     status = VALUES(status),
-                     start_time = VALUES(start_time),
-                     end_time = VALUES(end_time)";
+            // Validate dates only if status is not pending
+            if ($data['status'] !== 'pending') {
+                $startTime = new DateTime($data['start_time']);
+                $endTime = new DateTime($data['end_time']);
 
-            $stmt = $this->db->prepare($query, [
-                $data['election_name'],
-                $data['status'],
-                $data['start_time'],
-                $data['end_time']
-            ]);
-
-            if (!$stmt->execute()) {
-                throw new Exception("Failed to configure election");
+                if ($endTime <= $startTime) {
+                    throw new Exception("End time must be after start time");
+                }
             }
 
+            // Get current election to check if this is an update or new creation
+            $currentElection = $this->getCurrentElection();
+            
+            // For status validation, use the new data since we're validating the new configuration
+            $validation = $this->validateStatusChange($data['status'], $currentElection);
+            if (!$validation['valid']) {
+                throw new Exception($validation['message']);
+            }
+
+            // If turning on manually, set start_time to current time
+            if ($data['status'] === self::STATUS_ON && (!$currentElection || $currentElection['status'] !== self::STATUS_ON)) {
+                $data['start_time'] = (new DateTime())->format('Y-m-d H:i:s');
+            }
+
+            // Prepare variables for binding
+            $startTimeParam = isset($data['start_time']) ? $data['start_time'] : null;
+            $endTimeParam = isset($data['end_time']) ? $data['end_time'] : null;
+
+            if ($currentElection) {
+                // Update existing election
+                $query = "UPDATE election_status SET 
+                         election_name = ?,
+                         status = ?,
+                         start_time = ?,
+                         end_time = ?
+                         WHERE id = 1";
+            } else {
+                // Create new election
+                $query = "INSERT INTO election_status (id, election_name, status, start_time, end_time) 
+                         VALUES (1, ?, ?, ?, ?)";
+            }
+
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("ssss", 
+                $data['election_name'],
+                $data['status'],
+                $startTimeParam,
+                $endTimeParam
+            );
+
+            if (!$stmt->execute()) {
+                throw new Exception("Failed to " . ($currentElection ? "update" : "create") . " election");
+            }
+
+            // Get admin info from session
+            $admin = Admin::getInstance();
+            
+            // Log the configuration change with more detailed information
+            $logMessage = ($currentElection ? "Updated" : "Created") . " election configuration:";
+            $logMessage .= " Name: {$data['election_name']},";
+            $logMessage .= " Status: {$data['status']},";
+            $logMessage .= " Start: " . ($data['start_time'] ?? 'Not set');
+            $logMessage .= " End: " . ($data['end_time'] ?? 'Not set');
+
+            $this->logger->logAdminAction(
+                $admin->getUsername(),
+                $admin->getRole(),
+                $logMessage
+            );
+
             $this->db->commit();
-            return true;
+            return ['success' => true, 'message' => 'Election ' . ($currentElection ? "updated" : "created") . ' successfully'];
         } catch (Exception $e) {
             $this->db->rollback();
             error_log("Election configuration error: " . $e->getMessage());
-            return false;
+            return ['success' => false, 'message' => $e->getMessage()];
         }
     }
 
@@ -69,13 +162,14 @@ class Elections {
      * @return bool
      */
     public function updateStatus($status) {
-        $validStatuses = ['on', 'off', 'paused', 'pending'];
+        $validStatuses = [self::STATUS_ON, self::STATUS_OFF, self::STATUS_PAUSED];
         if (!in_array($status, $validStatuses)) {
             return false;
         }
 
         $query = "UPDATE election_status SET status = ? WHERE id = 1";
-        $stmt = $this->db->prepare($query, [$status]);
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param('s', $status);
         return $stmt->execute();
     }
 

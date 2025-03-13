@@ -54,7 +54,7 @@ class Vote {
                  VALUES ($voter_id, $candidate_id, NOW())";
         
         // Mark voter as having voted
-        $updateVoter = "UPDATE voters SET voted = 1 WHERE id = $voter_id";
+        $updateVoter = "UPDATE voters SET has_voted = 1 WHERE id = $voter_id";
         
         try {
             $this->db->getConnection()->begin_transaction();
@@ -76,24 +76,21 @@ class Vote {
     }
 
     public function getVotingStatistics() {
-        $stats = [];
-        
-        // Get total registered voters
+        // Get total number of voters
         $query = "SELECT COUNT(*) as total FROM voters";
         $result = $this->db->query($query);
-        $row = $result->fetch_assoc();
-        $stats['total_voters'] = $row['total'];
-        
-        // Get voters who have voted
-        $query = "SELECT COUNT(*) as voted FROM voters WHERE voted = 1";
+        $total = $result->fetch_assoc()['total'];
+
+        // Get number of voters who have voted
+        $query = "SELECT COUNT(*) as voted FROM voters WHERE has_voted = 1";
         $result = $this->db->query($query);
-        $row = $result->fetch_assoc();
-        $stats['voted'] = $row['voted'];
-        
-        // Get voters who haven't voted
-        $stats['not_voted'] = $stats['total_voters'] - $stats['voted'];
-        
-        return $stats;
+        $voted = $result->fetch_assoc()['voted'];
+
+        return [
+            'total_voters' => $total,
+            'voted' => $voted,
+            'not_voted' => $total - $voted
+        ];
     }
 
     public function getCandidateVoteHistory($candidate_id) {
@@ -110,5 +107,43 @@ class Vote {
         
         // Return array of [initial, current] votes
         return [$initialVotes, $currentVotes];
+    }
+
+    public function getVoteTimeline() {
+        $query = "SELECT DATE(v.vote_timestamp) as date, COUNT(*) as count 
+                  FROM voters v 
+                  WHERE v.has_voted = 1 
+                  GROUP BY DATE(v.vote_timestamp) 
+                  ORDER BY date";
+        $result = $this->db->query($query);
+        
+        $timeline = [
+            'labels' => [],
+            'data' => []
+        ];
+        
+        while ($row = $result->fetch_assoc()) {
+            $timeline['labels'][] = $row['date'];
+            $timeline['data'][] = (int)$row['count'];
+        }
+        
+        return $timeline;
+    }
+
+    public function hasVoted($voterId) {
+        $query = "SELECT has_voted FROM voters WHERE id = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $voterId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+        return $row ? (bool)$row['has_voted'] : false;
+    }
+
+    public function markAsVoted($voterId) {
+        $query = "UPDATE voters SET has_voted = 1 WHERE id = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $voterId);
+        return $stmt->execute();
     }
 }

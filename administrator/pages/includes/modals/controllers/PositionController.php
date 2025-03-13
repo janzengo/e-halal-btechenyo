@@ -14,7 +14,7 @@ if (!$admin->isLoggedIn()) {
 
 // Initialize classes
 $position = Position::getInstance();
-$logger = Logger::getInstance();
+$logger = AdminLogger::getInstance();
 
 // Check if request is POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -36,10 +36,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     (int)$_POST['max_vote']
                 );
                 
-                $logger->generateLog(
-                    'superadmin', 
-                    date('Y-m-d H:i:s'),
-                    $admin->getUsername(), 
+                $logger->logAdminAction(
+                    $admin->getUsername(),
+                    $admin->getRole(),
                     "Added position: {$_POST['description']} with max vote: {$_POST['max_vote']}"
                 );
                 
@@ -62,10 +61,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 );
                 
                 if ($result) {
-                    $logger->generateLog(
-                        'superadmin',
-                        date('Y-m-d H:i:s'),
+                    $logger->logAdminAction(
                         $admin->getUsername(),
+                        $admin->getRole(),
                         "Updated position from '{$oldPosition['description']}' to '{$_POST['description']}'"
                     );
                     $response['message'] = 'Position updated successfully';
@@ -88,10 +86,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $result = $position->deletePosition($_POST['id']);
                 
                 if ($result) {
-                    $logger->generateLog(
-                        'superadmin',
-                        date('Y-m-d H:i:s'),
+                    $logger->logAdminAction(
                         $admin->getUsername(),
+                        $admin->getRole(),
                         "Deleted position: {$positionData['description']}"
                     );
                     $response['message'] = 'Position deleted successfully';
@@ -108,10 +105,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $result = $position->reorderPositions($_POST['positions']);
                 
                 if ($result) {
-                    $logger->generateLog(
-                        'superadmin',
-                        date('Y-m-d H:i:s'),
+                    $logger->logAdminAction(
                         $admin->getUsername(),
+                        $admin->getRole(),
                         'Updated position priorities'
                     );
                     $response['message'] = 'Positions reordered successfully';
@@ -141,10 +137,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $response['message'] = $e->getMessage();
         
         // Log the error
-        $logger->generateLog(
-            'superadmin',
-            date('Y-m-d H:i:s'),
+        $logger->logAdminAction(
             $admin->getUsername(),
+            $admin->getRole(),
             "Error in position management: {$e->getMessage()}"
         );
     }

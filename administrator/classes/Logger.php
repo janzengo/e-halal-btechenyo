@@ -24,17 +24,34 @@ class AdminLogger extends Logger {
      * Log an admin action
      * 
      * @param string $admin_id Admin identifier
+     * @param string $role Admin role
      * @param string $action Action performed
-     * @param string $details Additional details
      * @return bool Success status
      */
-    public function logAdminAction($admin_id, $action, $details = '') {
-        return $this->generateLog(
-            'admin',
-            date('Y-m-d H:i:s'),
-            $admin_id,
-            $action . ($details ? " | {$details}" : '')
-        );
+    public function logAdminAction($admin_id, $role, $action) {
+        $logEntry = [
+            'timestamp' => date('Y-m-d H:i:s'),
+            'user_id' => $admin_id,
+            'role' => $role,
+            'action' => $action
+        ];
+
+        $logFile = $this->logPath . 'admin_logs.json';
+        
+        // Read existing logs
+        $logs = [];
+        if (file_exists($logFile)) {
+            $jsonContent = file_get_contents($logFile);
+            if (!empty($jsonContent)) {
+                $logs = json_decode($jsonContent, true) ?? [];
+            }
+        }
+
+        // Add new log entry
+        $logs[] = $logEntry;
+
+        // Write back to file
+        return file_put_contents($logFile, json_encode($logs, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
     }
 
     /**
@@ -42,15 +59,14 @@ class AdminLogger extends Logger {
      * 
      * @param string $voter_id Voter identifier
      * @param string $action Action performed
-     * @param string $details Additional details
      * @return bool Success status
      */
-    public function logVoterAction($voter_id, $action, $details = '') {
+    public function logVoterAction($voter_id, $action) {
         return $this->generateLog(
-            'student',
+            'voters',
             date('Y-m-d H:i:s'),
             $voter_id,
-            $action . ($details ? " | {$details}" : '')
+            ['action' => $action]
         );
     }
 
@@ -61,8 +77,7 @@ class AdminLogger extends Logger {
      * @return array Log entries
      */
     public function getAdminLogs($limit = 100) {
-        $logs = $this->readLogs('admin', $limit);
-        return array_merge($logs['database_logs'], $logs['file_logs']);
+        return $this->readLogs('admin', $limit);
     }
 
     /**
@@ -72,8 +87,7 @@ class AdminLogger extends Logger {
      * @return array Log entries
      */
     public function getVoterLogs($limit = 100) {
-        $logs = $this->readLogs('student', $limit);
-        return array_merge($logs['database_logs'], $logs['file_logs']);
+        return $this->readLogs('voters', $limit);
     }
 
     /**
@@ -86,10 +100,10 @@ class AdminLogger extends Logger {
         $success = true;
         
         if ($type === 'all' || $type === 'admin') {
-            $success &= $this->clearLogs('admin');
+            $success &= parent::clearLogs('admin');
         }
         if ($type === 'all' || $type === 'voters') {
-            $success &= $this->clearLogs('student');
+            $success &= parent::clearLogs('voters');
         }
         
         return $success;

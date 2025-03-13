@@ -136,6 +136,32 @@ echo $view->renderHeader();
                 <h1><span>E-HALAL</span> <br> BTECHenyo</h1>
             </div>
             <p class="text-center text-smaller">A WEB-BASED VOTING SYSTEM FOR<br>DALUBHASAANG POLITEKNIKO NG LUNGSOD NG BALIWAG</p>
+            <?php
+            if ($session->hasSuccess()) {
+                echo '<div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <h4><i class="icon fa fa-check"></i> Success!</h4>'
+                    . $session->getSuccess() .
+                '</div>';
+            }
+            // Clear session messages after displaying
+            $session->clearError();
+            $session->clearSuccess();
+            ?>
+            <?php
+            if ($session->hasError()) {
+                echo '<div class="alert alert-danger alert-dismissible" name="errorMessage">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true" name="closeError">&times;</button>
+                    <ul>';
+                foreach ($session->getError() as $error) {
+                    echo "<li><i class='fa fa-exclamation-triangle'></i>&nbsp;" . $error . "</li>";
+                }
+                echo '</ul></div>';
+            }
+            // Clear session messages after displaying
+            $session->clearError();
+            $session->clearSuccess();
+            ?>
             
             <?php if (!empty($message)): ?>
                 <div class="alert alert-<?php echo $status === 'success' ? 'success' : 'danger'; ?> alert-dismissible" name="errorMessage">

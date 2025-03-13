@@ -63,38 +63,34 @@ class Candidate {
     }
 
     public function addCandidate($firstname, $lastname, $position_id, $platform, $photo = '') {
-        $firstname = $this->db->escape($firstname);
-        $lastname = $this->db->escape($lastname);
-        $position_id = (int)$position_id;
-        $platform = $this->db->escape($platform);
-        $photo = $this->db->escape($photo);
-        
         $query = "INSERT INTO candidates (firstname, lastname, position_id, platform, photo) 
-                 VALUES ('$firstname', '$lastname', $position_id, '$platform', '$photo')";
-        return $this->db->query($query);
+                  VALUES (?, ?, ?, ?, ?)";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("ssiss", $firstname, $lastname, $position_id, $platform, $photo);
+        return $stmt->execute();
     }
 
     public function updateCandidate($id, $firstname, $lastname, $position_id, $platform, $photo = null) {
-        $id = (int)$id;
-        $firstname = $this->db->escape($firstname);
-        $lastname = $this->db->escape($lastname);
-        $position_id = (int)$position_id;
-        $platform = $this->db->escape($platform);
-        
-        $photoClause = $photo ? ", photo = '" . $this->db->escape($photo) . "'" : "";
-        
-        $query = "UPDATE candidates 
-                 SET firstname = '$firstname', 
-                     lastname = '$lastname', 
-                     position_id = $position_id, 
-                     platform = '$platform'" . $photoClause . 
-                 " WHERE id = $id";
-        return $this->db->query($query);
+        if ($photo !== null) {
+            $query = "UPDATE candidates 
+                     SET firstname = ?, lastname = ?, position_id = ?, platform = ?, photo = ? 
+                     WHERE id = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("ssissi", $firstname, $lastname, $position_id, $platform, $photo, $id);
+        } else {
+            $query = "UPDATE candidates 
+                     SET firstname = ?, lastname = ?, position_id = ?, platform = ? 
+                     WHERE id = ?";
+            $stmt = $this->db->prepare($query);
+            $stmt->bind_param("ssisi", $firstname, $lastname, $position_id, $platform, $id);
+        }
+        return $stmt->execute();
     }
 
     public function deleteCandidate($id) {
-        $id = (int)$id;
-        $query = "DELETE FROM candidates WHERE id = $id";
-        return $this->db->query($query);
+        $query = "DELETE FROM candidates WHERE id = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $id);
+        return $stmt->execute();
     }
 }

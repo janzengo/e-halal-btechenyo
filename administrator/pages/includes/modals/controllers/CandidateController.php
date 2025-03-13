@@ -1,326 +1,235 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 require_once __DIR__ . '/../../../../classes/Candidate.php';
-require_once __DIR__ . '/../../../../classes/Admin.php';
 require_once __DIR__ . '/../../../../classes/Logger.php';
+require_once __DIR__ . '/../../../../classes/Admin.php';
 
 // Check if admin is logged in
 $admin = Admin::getInstance();
 if (!$admin->isLoggedIn()) {
-    echo json_encode([
-        'error' => true,
-        'message' => 'Unauthorized access'
-    ]);
+    header('Content-Type: application/json');
+    echo json_encode(['error' => true, 'message' => 'Unauthorized access']);
     exit();
 }
 
+// Initialize classes
 $candidate = Candidate::getInstance();
-$logger = Logger::getInstance();
+$logger = AdminLogger::getInstance();
 
-// Set the upload directory
-$uploadDir = __DIR__ . '/../../../../assets/images/';
-$defaultPhoto = 'profile.jpg'; // Default profile image
+// At the top of the file, after session_start()
+define('UPLOAD_PATH', $_SERVER['DOCUMENT_ROOT'] . '/e-halal/administrator/assets/images/');
 
-// Handle AJAX requests
+// Check if request is POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $action = isset($_POST['action']) ? $_POST['action'] : '';
+    $response = ['error' => false, 'message' => ''];
     
-    switch ($action) {
-        case 'add':
-            addCandidate();
-            break;
-        case 'edit':
-            editCandidate();
-            break;
-        case 'delete':
-            deleteCandidate();
-            break;
-        case 'get':
-            getCandidate();
-            break;
-        default:
-            echo json_encode([
-                'error' => true,
-                'message' => 'Invalid action'
-            ]);
-            break;
-    }
-}
+    try {
+        if (!isset($_POST['action'])) {
+            throw new Exception('Action not specified');
+        }
 
-/**
- * Add a new candidate
- */
-function addCandidate() {
-    global $candidate, $logger, $uploadDir, $admin, $defaultPhoto;
-    
-    // Check if required fields are set
-    if (!isset($_POST['firstname']) || !isset($_POST['lastname']) || !isset($_POST['position_id']) || !isset($_POST['platform'])) {
-        echo json_encode([
-            'error' => true,
-            'message' => 'All fields are required'
-        ]);
-        return;
-    }
-    
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $position_id = $_POST['position_id'];
-    $platform = $_POST['platform'];
-    $photo = '';
-    
-    // Handle photo upload
-    if (isset($_FILES['photo']) && $_FILES['photo']['error'] === UPLOAD_ERR_OK && !empty($_FILES['photo']['name'])) {
-        $photoName = time() . '_' . basename($_FILES['photo']['name']);
-        $targetFile = $uploadDir . $photoName;
-        $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
-        
-        // Check if image file is a valid image
-        $check = getimagesize($_FILES['photo']['tmp_name']);
-        if ($check === false) {
-            echo json_encode([
-                'error' => true,
-                'message' => 'File is not an image'
-            ]);
-            return;
-        }
-        
-        // Check file size (max 5MB)
-        if ($_FILES['photo']['size'] > 5000000) {
-            echo json_encode([
-                'error' => true,
-                'message' => 'File is too large. Maximum size is 5MB'
-            ]);
-            return;
-        }
-        
-        // Allow certain file formats
-        if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
-            echo json_encode([
-                'error' => true,
-                'message' => 'Only JPG, JPEG, PNG & GIF files are allowed'
-            ]);
-            return;
-        }
-        
-        // Upload the file
-        if (move_uploaded_file($_FILES['photo']['tmp_name'], $targetFile)) {
-            $photo = $photoName;
-        } else {
-            echo json_encode([
-                'error' => true,
-                'message' => 'Failed to upload image'
-            ]);
-            return;
-        }
-    }
-    
-    // Add candidate to database
-    $result = $candidate->addCandidate($firstname, $lastname, $position_id, $platform, $photo);
-    
-    if ($result) {
-        // Log the action
-        $logger->generateLog(
-            'superadmin',
-            date('Y-m-d H:i:s'),
-            $admin->getAdminId(),
-            'Added candidate: ' . $firstname . ' ' . $lastname
-        );
-        
-        echo json_encode([
-            'error' => false,
-            'message' => 'Candidate added successfully'
-        ]);
-    } else {
-        echo json_encode([
-            'error' => true,
-            'message' => 'Failed to add candidate'
-        ]);
-    }
-}
-
-/**
- * Edit an existing candidate
- */
-function editCandidate() {
-    global $candidate, $logger, $uploadDir, $admin, $defaultPhoto;
-    
-    // Check if required fields are set
-    if (!isset($_POST['id']) || !isset($_POST['firstname']) || !isset($_POST['lastname']) || !isset($_POST['position_id']) || !isset($_POST['platform'])) {
-        echo json_encode([
-            'error' => true,
-            'message' => 'All fields are required'
-        ]);
-        return;
-    }
-    
-    $id = $_POST['id'];
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $position_id = $_POST['position_id'];
-    $platform = $_POST['platform'];
-    $photo = null;
-    
-    // Handle photo upload
-    if (isset($_FILES['photo']) && $_FILES['photo']['error'] === UPLOAD_ERR_OK && !empty($_FILES['photo']['name'])) {
-        $photoName = time() . '_' . basename($_FILES['photo']['name']);
-        $targetFile = $uploadDir . $photoName;
-        $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
-        
-        // Check if image file is a valid image
-        $check = getimagesize($_FILES['photo']['tmp_name']);
-        if ($check === false) {
-            echo json_encode([
-                'error' => true,
-                'message' => 'File is not an image'
-            ]);
-            return;
-        }
-        
-        // Check file size (max 5MB)
-        if ($_FILES['photo']['size'] > 5000000) {
-            echo json_encode([
-                'error' => true,
-                'message' => 'File is too large. Maximum size is 5MB'
-            ]);
-            return;
-        }
-        
-        // Allow certain file formats
-        if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
-            echo json_encode([
-                'error' => true,
-                'message' => 'Only JPG, JPEG, PNG & GIF files are allowed'
-            ]);
-            return;
-        }
-        
-        // Upload the file
-        if (move_uploaded_file($_FILES['photo']['tmp_name'], $targetFile)) {
-            $photo = $photoName;
-            
-            // Get the old photo to delete it
-            $candidateData = $candidate->getCandidate($id);
-            if ($candidateData && !empty($candidateData['photo'])) {
-                $oldPhoto = $uploadDir . $candidateData['photo'];
-                if (file_exists($oldPhoto) && basename($oldPhoto) !== $defaultPhoto) {
-                    unlink($oldPhoto);
+        switch ($_POST['action']) {
+            case 'add':
+                if (!isset($_POST['firstname'], $_POST['lastname'], $_POST['position_id'], $_POST['platform'])) {
+                    throw new Exception('Missing required fields');
                 }
-            }
-        } else {
-            echo json_encode([
-                'error' => true,
-                'message' => 'Failed to upload image'
-            ]);
-            return;
-        }
-    }
-    
-    // Update candidate in database
-    $result = $candidate->updateCandidate($id, $firstname, $lastname, $position_id, $platform, $photo);
-    
-    if ($result) {
-        // Log the action
-        $logger->generateLog(
-            'superadmin',
-            date('Y-m-d H:i:s'),
-            $admin->getAdminId(),
-            'Updated candidate: ' . $firstname . ' ' . $lastname
-        );
-        
-        echo json_encode([
-            'error' => false,
-            'message' => 'Candidate updated successfully'
-        ]);
-    } else {
-        echo json_encode([
-            'error' => true,
-            'message' => 'Failed to update candidate'
-        ]);
-    }
-}
 
-/**
- * Delete a candidate
- */
-function deleteCandidate() {
-    global $candidate, $logger, $uploadDir, $admin, $defaultPhoto;
-    
-    // Check if ID is set
-    if (!isset($_POST['id'])) {
-        echo json_encode([
-            'error' => true,
-            'message' => 'Candidate ID is required'
-        ]);
-        return;
-    }
-    
-    $id = $_POST['id'];
-    
-    // Get candidate data to delete photo if exists
-    $candidateData = $candidate->getCandidate($id);
-    
-    // Delete candidate from database
-    $result = $candidate->deleteCandidate($id);
-    
-    if ($result) {
-        // Delete photo if exists
-        if ($candidateData && !empty($candidateData['photo'])) {
-            $photo = $uploadDir . $candidateData['photo'];
-            if (file_exists($photo) && basename($photo) !== $defaultPhoto) {
-                unlink($photo);
-            }
-        }
-        
-        // Log the action
-        $logger->generateLog(
-            'superadmin',
-            date('Y-m-d H:i:s'),
-            $admin->getAdminId(),
-            'Deleted candidate: ' . $candidateData['firstname'] . ' ' . $candidateData['lastname']
-        );
-        
-        echo json_encode([
-            'error' => false,
-            'message' => 'Candidate deleted successfully'
-        ]);
-    } else {
-        echo json_encode([
-            'error' => true,
-            'message' => 'Failed to delete candidate'
-        ]);
-    }
-}
+                // Handle photo upload
+                $photo = '';
+                if (isset($_FILES['photo']) && $_FILES['photo']['error'] == 0) {
+                    $allowed = ['jpg', 'jpeg', 'png'];
+                    $filename = $_FILES['photo']['name'];
+                    $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+                    
+                    if (!in_array($ext, $allowed)) {
+                        throw new Exception('Invalid file format. Only JPG, JPEG & PNG files are allowed.');
+                    }
+                    
+                    try {
+                        if (!is_dir(UPLOAD_PATH)) {
+                            if (!mkdir(UPLOAD_PATH, 0755, true)) {
+                                throw new Exception('Failed to create upload directory');
+                            }
+                        }
+                        
+                        if (!is_writable(UPLOAD_PATH)) {
+                            throw new Exception('Upload directory is not writable');
+                        }
+                        
+                        $photo = time() . '_' . $filename;
+                        if (!move_uploaded_file($_FILES['photo']['tmp_name'], UPLOAD_PATH . $photo)) {
+                            throw new Exception('Failed to move uploaded file');
+                        }
+                    } catch (Exception $e) {
+                        error_log('File upload error: ' . $e->getMessage());
+                        throw new Exception('Error handling file upload: ' . $e->getMessage());
+                    }
+                }
 
-/**
- * Get candidate data
- */
-function getCandidate() {
-    global $candidate;
-    
-    // Check if ID is set
-    if (!isset($_POST['id'])) {
-        echo json_encode([
-            'error' => true,
-            'message' => 'Candidate ID is required'
-        ]);
-        return;
+                $result = $candidate->addCandidate(
+                    $_POST['firstname'],
+                    $_POST['lastname'],
+                    $_POST['position_id'],
+                    $_POST['platform'],
+                    $photo
+                );
+                
+                $logger->logAdminAction(
+                    $admin->getUsername(),
+                    $admin->getRole(),
+                    "Added candidate: {$_POST['firstname']} {$_POST['lastname']}"
+                );
+                
+                $response['message'] = 'Candidate added successfully';
+                break;
+
+            case 'edit':
+                if (!isset($_POST['id'], $_POST['firstname'], $_POST['lastname'], $_POST['position_id'], $_POST['platform'])) {
+                    throw new Exception('Missing required fields');
+                }
+
+                // Get old candidate data for logging
+                $oldCandidate = $candidate->getCandidate($_POST['id']);
+                if (!$oldCandidate) {
+                    throw new Exception('Candidate not found');
+                }
+                
+                // Handle photo upload
+                $photo = null;
+                if (isset($_FILES['photo']) && $_FILES['photo']['error'] == 0) {
+                    $allowed = ['jpg', 'jpeg', 'png'];
+                    $filename = $_FILES['photo']['name'];
+                    $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+                    
+                    if (!in_array($ext, $allowed)) {
+                        throw new Exception('Invalid file format. Only JPG, JPEG & PNG files are allowed.');
+                    }
+                    
+                    try {
+                        if (!is_dir(UPLOAD_PATH)) {
+                            if (!mkdir(UPLOAD_PATH, 0755, true)) {
+                                throw new Exception('Failed to create upload directory');
+                            }
+                        }
+                        
+                        if (!is_writable(UPLOAD_PATH)) {
+                            throw new Exception('Upload directory is not writable');
+                        }
+                        
+                        $photo = time() . '_' . $filename;
+                        if (!move_uploaded_file($_FILES['photo']['tmp_name'], UPLOAD_PATH . $photo)) {
+                            throw new Exception('Failed to move uploaded file');
+                        }
+                    } catch (Exception $e) {
+                        error_log('File upload error: ' . $e->getMessage());
+                        throw new Exception('Error handling file upload: ' . $e->getMessage());
+                    }
+                    
+                    // Delete old photo if it exists and is not the default
+                    if ($oldCandidate && isset($oldCandidate['photo']) && 
+                        $oldCandidate['photo'] && $oldCandidate['photo'] != 'profile.jpg') {
+                        $photoPath = UPLOAD_PATH . $oldCandidate['photo'];
+                        if (file_exists($photoPath)) {
+                            @unlink($photoPath);
+                        }
+                    }
+                }
+
+                $result = $candidate->updateCandidate(
+                    $_POST['id'],
+                    $_POST['firstname'],
+                    $_POST['lastname'],
+                    $_POST['position_id'],
+                    $_POST['platform'],
+                    $photo
+                );
+                
+                if ($result) {
+                    $logger->logAdminAction(
+                        $admin->getUsername(),
+                        $admin->getRole(),
+                        "Updated candidate: {$oldCandidate['firstname']} {$oldCandidate['lastname']}"
+                    );
+                    $response['message'] = 'Candidate updated successfully';
+                } else {
+                    throw new Exception('No changes made to candidate');
+                }
+                break;
+
+            case 'delete':
+                if (!isset($_POST['id'])) {
+                    throw new Exception('Candidate ID not provided');
+                }
+
+                // Get candidate data for logging before deletion
+                $candidateData = $candidate->getCandidate($_POST['id']);
+                if (!$candidateData) {
+                    throw new Exception('Candidate not found');
+                }
+
+                // Delete photo if it exists and is not the default
+                if ($candidateData['photo'] && $candidateData['photo'] != 'profile.jpg') {
+                    $photoPath = UPLOAD_PATH . $candidateData['photo'];
+                    if (file_exists($photoPath)) {
+                        @unlink($photoPath);
+                    }
+                }
+
+                $result = $candidate->deleteCandidate($_POST['id']);
+                
+                if ($result) {
+                    $logger->logAdminAction(
+                        $admin->getUsername(),
+                        $admin->getRole(),
+                        "Deleted candidate: {$candidateData['firstname']} {$candidateData['lastname']}"
+                    );
+                    $response['message'] = 'Candidate deleted successfully';
+                } else {
+                    throw new Exception('Failed to delete candidate');
+                }
+                break;
+
+            case 'get':
+                if (!isset($_POST['id'])) {
+                    throw new Exception('Candidate ID not provided');
+                }
+
+                $candidateData = $candidate->getCandidate($_POST['id']);
+                if (!$candidateData) {
+                    throw new Exception('Candidate not found');
+                }
+
+                $response['data'] = $candidateData;
+                break;
+
+            default:
+                throw new Exception('Invalid action');
+        }
+    } catch (Exception $e) {
+        $response['error'] = true;
+        $response['message'] = $e->getMessage();
+        
+        // Log the error
+        $logger->logAdminAction(
+            $admin->getUsername(),
+            $admin->getRole(),
+            "Error in candidate management: {$e->getMessage()}"
+        );
     }
-    
-    $id = $_POST['id'];
-    
-    // Get candidate data
-    $candidateData = $candidate->getCandidate($id);
-    
-    if ($candidateData) {
-        echo json_encode([
-            'error' => false,
-            'data' => $candidateData
-        ]);
-    } else {
-        echo json_encode([
-            'error' => true,
-            'message' => 'Candidate not found'
-        ]);
-    }
+
+    // Send JSON response
+    header('Content-Type: application/json');
+    echo json_encode($response);
+    exit();
+} else {
+    // Handle non-POST requests
+    header('Content-Type: application/json');
+    echo json_encode([
+        'error' => true,
+        'message' => 'Invalid request method'
+    ]);
+    exit();
 }
-?>
