@@ -65,7 +65,7 @@ try {
 
                     $previewHtml .= '<div class="row">';
                     $previewHtml .= '<div class="col-sm-2">';
-                    $previewHtml .= '<img src="' . (!empty($candidate['photo']) ? 'images/'.$candidate['photo'] : 'images/profile.jpg') . '" 
+                    $previewHtml .= '<img src="' . (!empty($candidate['photo']) ? 'administrator/'.$candidate['photo'] : 'administrator/assets/images/profile.jpg') . '" 
                                          width="100px" height="100px" class="img-circle">';
                     $previewHtml .= '</div>';
                     $previewHtml .= '<div class="col-sm-10">';

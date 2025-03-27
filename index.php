@@ -37,21 +37,14 @@ if ($student_number) {
 }
 
 // Then continue with election checks
-if (!$election->isElectionActive() && $election->hasEnded()) {
-    if ($user->isLoggedIn()) {
-        $user->logout();
+if ($user->isLoggedIn()) {
+    $currentVoter = $user->getCurrentUser();
+    if ($votes->hasVoted($currentVoter['id'])) {
+        header('location: home.php?vote=complete');
+    } else {
+        header('location: home.php');
     }
-    $electionStatus = 'off';
-} else {
-    if($user->isLoggedIn()) {
-        $currentVoter = $user->getCurrentUser();
-        if ($votes->hasVoted($currentVoter['id'])) {
-            header('location: home.php?vote=complete');
-        } else {
-            header('location: home.php');
-        }
-        exit();
-    }
+    exit();
 }
 
 echo $view->renderHeader();
@@ -81,11 +74,24 @@ echo $view->renderHeader();
 
             // Get current election status using Election class
             $currentElection = $election->getCurrentElection();
-            $electionStatus = isset($electionStatus) ? $electionStatus : ($currentElection ? $currentElection['status'] : 'no_election');
+            $electionStatus = $currentElection ? $currentElection['status'] : 'no_election';
             $electionName = $currentElection ? $currentElection['election_name'] : 'Sangguniang Mag-aaral';
 
+            // Get current time
+            $currentTime = new DateTime('now', new DateTimeZone('Asia/Manila'));
+            $endTime = null;
+
+            if ($currentElection) {
+                $endTime = new DateTime($currentElection['end_time'], new DateTimeZone('Asia/Manila'));
+                
+                // Check if election has ended
+                if ($currentTime >= $endTime) {
+                    $electionStatus = Election::STATUS_COMPLETED;
+                }
+            }
+
             // Display appropriate message based on election status
-            if ($electionStatus === 'off' || ($currentElection && $election->hasEnded())): ?>
+            if ($electionStatus === Election::STATUS_COMPLETED || ($currentElection && $currentTime >= $endTime)): ?>
                 <section class="election-message">
                     <div class="election-message-box">
                         <h2>ELECTION PERIOD ENDED</h2>
@@ -93,37 +99,38 @@ echo $view->renderHeader();
                     </div>
                     <a href="#">Have some questions?</a>
                 </section>
-            <?php elseif ($electionStatus === 'paused'): ?>
+            <?php elseif ($electionStatus === Election::STATUS_PAUSED): ?>
                 <section class="election-message">
                     <div class="election-message-box">
                         <h2>ELECTION PAUSED</h2>
                         <p>The voting system for <?php echo htmlspecialchars($electionName); ?> is currently paused. Stay tuned, BTECHenyos!</p>
-                        <?php if ($timeLeft = $election->getTimeRemaining()): ?>
-                        <p class="time-remaining">Time Remaining: <?php 
-                            echo $timeLeft['days'] > 0 ? ($timeLeft['days'] == 1 ? "{$timeLeft['days']} day, " : "{$timeLeft['days']} days, ") : '';
-                            echo $timeLeft['hours'] > 0 ? ($timeLeft['hours'] == 1 ? "{$timeLeft['hours']} hour, " : "{$timeLeft['hours']} hours, ") : '';
-                            echo $timeLeft['minutes'] > 0 ? ($timeLeft['minutes'] == 1 ? "{$timeLeft['minutes']} minute, " : "{$timeLeft['minutes']} minutes ") : '';                            
-                        ?></p>
-                        <?php endif; ?>
                     </div>
                     <a href="#">Have some questions?</a>
                 </section>
-            <?php elseif ($electionStatus === 'no_election'): ?>
+            <?php elseif ($electionStatus === Election::STATUS_PENDING): ?>
                 <section class="election-message">
                     <div class="election-message-box">
-                        <h2>NO ELECTIONS</h2>
-                        <p>There are no elections going on at the moment. Stay tuned, BTECHenyos!</p>
+                        <h2>ELECTION PENDING</h2>
+                        <p>The election for <?php echo htmlspecialchars($electionName); ?> is being set up. Stay tuned, BTECHenyos!</p>
                     </div>
                     <a href="#">Have some questions?</a>
                 </section>
-            <?php elseif ($electionStatus === 'on' && $election->isElectionActive()): ?>
+            <?php elseif ($electionStatus === 'no_election' || $electionStatus === Election::STATUS_SETUP): ?>
+                <section class="election-message">
+                    <div class="election-message-box">
+                        <h2>NO ACTIVE ELECTION</h2>
+                        <p>There are no active elections at the moment. Stay tuned, BTECHenyos!</p>
+                    </div>
+                    <a href="#">Have some questions?</a>
+                </section>
+            <?php elseif ($electionStatus === Election::STATUS_ACTIVE): ?>
                 <div class="login-box-body">
                     <p class="text-center text-smaller lined"><span>LOGIN WITH YOUR STUDENT NUMBER</span></p>
                     <?php if ($timeLeft = $election->getTimeRemaining()): ?>
                     <p class="text-center time-remaining">Time Remaining: <?php 
                         echo $timeLeft['days'] > 0 ? ($timeLeft['days'] == 1 ? "{$timeLeft['days']} day, " : "{$timeLeft['days']} days, ") : '';
                         echo $timeLeft['hours'] > 0 ? ($timeLeft['hours'] == 1 ? "{$timeLeft['hours']} hour, " : "{$timeLeft['hours']} hours, ") : '';
-                        echo $timeLeft['minutes'] > 0 ? ($timeLeft['minutes'] == 1 ? "{$timeLeft['minutes']} minute, " : "{$timeLeft['minutes']} minutes ") : '';                        
+                        echo $timeLeft['minutes'] > 0 ? ($timeLeft['minutes'] == 1 ? "{$timeLeft['minutes']} minute" : "{$timeLeft['minutes']} minutes") : '';
                     ?></p>
                     <?php endif; ?>
                     <form id="otpForm" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" role="presentation" autocomplete="off">
@@ -182,6 +189,7 @@ echo $view->renderHeader();
                 if ($sendResult['success']) {
                     // Store student number in session for OTP verification
                     $session->setSession('otp_student_number', $student_number);
+                    
                     $session->setSuccess('OTP sent successfully.');
                     $response['success'] = true;
                 } else {

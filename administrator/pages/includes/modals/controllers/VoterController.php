@@ -1,11 +1,13 @@
 <?php
 // Suppress all notices and warnings to prevent them from breaking JSON output
 error_reporting(0);
-
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 require_once __DIR__ . '/../../../../classes/Voter.php';
 require_once __DIR__ . '/../../../../classes/Logger.php';
 require_once __DIR__ . '/../../../../classes/Admin.php';
+require_once __DIR__ . '/../../../../classes/Elections.php';
 
 // Check if admin is logged in
 $admin = Admin::getInstance();
@@ -18,6 +20,14 @@ if (!$admin->isLoggedIn()) {
 // Initialize classes
 $voter = Voter::getInstance();
 $logger = AdminLogger::getInstance();
+$election = Elections::getInstance();
+
+// Check if election is active
+if ($election->isModificationLocked()) {
+    header('Content-Type: application/json');
+    echo json_encode(['error' => true, 'message' => 'Modifications are not allowed while election is active']);
+    exit();
+}
 
 // Check if request is POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

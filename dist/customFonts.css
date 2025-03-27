@@ -9,7 +9,7 @@
 
 @font-face {
     font-family: 'SF Pro Display';
-    src: url(../plugins/fonts/sfpro/SFPRODISPLAYBOLD.OTF) format('opentype');
+    src: url('../plugins/fonts/sfpro/SFPRODISPLAYBOLD.OTF') format('opentype');
     font-weight: bold;
 }
 
@@ -21,6 +21,6 @@
 
 @font-face {
     font-family: 'SF Pro Display';
-    src: url('../plugins/fonts/sfpro/SFPRODISPLAYITALIC.OTF') format('opentype');
+    src: url('../plugins/fonts/sfpro/SFPRODISPLAYLIGHTITALIC.OTF') format('opentype');
     font-style: italic;
 }

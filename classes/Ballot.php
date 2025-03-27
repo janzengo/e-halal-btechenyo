@@ -189,7 +189,7 @@ class Ballot {
                                        style="display: none !important;visibility: hidden !important;">
                                 <div class="card-content">
                                     <div class="candidate-photo-container">
-                                        <img src="<?php echo !empty($candidate['photo']) ? 'images/' . $candidate['photo'] : 'images/profile.jpg'; ?>" 
+                                        <img src="<?php echo !empty($candidate['photo']) ? 'administrator/' . $candidate['photo'] : 'administrator/assets/images/profile.jpg'; ?>" 
                                              alt="Candidate Photo" 
                                              class="candidate-photo">
                                     </div>
@@ -197,6 +197,16 @@ class Ballot {
                                         <strong class="candidate-name"><?php echo $candidate['firstname'] . ' ' . $candidate['lastname']; ?></strong>
                                         <?php if (!empty($candidate['partylist_name'])): ?>
                                             <p class="candidate-party"><?php echo $candidate['partylist_name']; ?></p>
+                                        <?php else: ?>
+                                            <p class="candidate-party">Independent</p>
+                                        <?php endif; ?>
+                                        <?php if (!empty($candidate['platform'])): ?>
+                                            <button type="button" class="btn btn-primary btn-sm platform" 
+                                                    data-platform="<?php echo htmlspecialchars($candidate['platform']); ?>"
+                                                    data-fullname="<?php echo htmlspecialchars($candidate['firstname'] . ' ' . $candidate['lastname']); ?>"
+                                                    data-image="<?php echo $candidate['photo']; ?>">
+                                                <i class="fa fa-search"></i> Platform
+                                            </button>
                                         <?php endif; ?>
                                     </div>
                                 </div>

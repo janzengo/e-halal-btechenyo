@@ -28,8 +28,6 @@ $voteStats = $vote->getVotingStatistics();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>E-Halal Voting System | Voting Results</title>
     <?php echo $view->renderHeader(); ?>
-    <!-- Additional CSS for data tables -->
-    <link rel="stylesheet" href="../plugins/datatables/dataTables.bootstrap.css">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -47,7 +45,7 @@ $voteStats = $vote->getVotingStatistics();
                 <small>Detailed Vote Analysis</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="home"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li><a href="home"><i class="fa fa-dashboard"></i>Reports</a></li>
                 <li class="active">Votes</li>
             </ol>
         </section>
@@ -90,66 +88,93 @@ $voteStats = $vote->getVotingStatistics();
                         <div class="box-header with-border">
                             <h3 class="box-title">Position-wise Results</h3>
                             <div class="box-tools pull-right">
-                                <button type="button" class="btn btn-success btn-sm" id="printResults">
-                                    <i class="fa fa-print"></i> Print Results
+                                <button type="button" class="btn btn-success btn-sm" id="generateReport">
+                                    <i class="fa fa-file-pdf"></i> Generate Report
                                 </button>
                             </div>
                         </div>
                         <div class="box-body">
-                            <?php foreach ($positions as $position): ?>
-                            <div class="position-results">
-                                <h4><?php echo $position['description']; ?></h4>
-                                <div class="table-responsive">
-                                    <table class="table table-bordered table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>Candidate</th>
-                                                <th>Votes</th>
-                                                <th>Percentage</th>
-                                                <th>Graph</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php 
-                                            $candidates = $vote->getVotesByPosition($position['id']);
-                                            $totalVotes = array_sum(array_column($candidates, 'votes'));
-                                            foreach ($candidates as $candidate):
-                                                $votePercentage = ($totalVotes > 0) 
-                                                    ? ($candidate['votes'] / $totalVotes) * 100 
-                                                    : 0;
-                                            ?>
-                                            <tr>
-                                                <td><?php echo $candidate['firstname'] . ' ' . $candidate['lastname']; ?></td>
-                                                <td><?php echo $candidate['votes']; ?></td>
-                                                <td><?php echo number_format($votePercentage, 2); ?>%</td>
-                                                <td>
-                                                    <div class="progress">
-                                                        <div class="progress-bar progress-bar-success" 
-                                                             style="width: <?php echo $votePercentage; ?>%">
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <?php endforeach; ?>
-                                        </tbody>
-                                    </table>
+                            <?php if (empty($positions)): ?>
+                                <div class="alert alert-info">
+                                    <i class="fa fa-info-circle"></i> No positions have been configured yet.
                                 </div>
-                            </div>
-                            <?php endforeach; ?>
+                            <?php else: ?>
+                                <?php foreach ($positions as $position): ?>
+                                <div class="position-results">
+                                    <h4><?php echo htmlspecialchars($position['description']); ?></h4>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th width="40%">Candidate</th>
+                                                    <th width="15%">Votes</th>
+                                                    <th width="15%">Percentage</th>
+                                                    <th width="30%">Graph</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php 
+                                                $candidates = $vote->getVotesByPosition($position['id']);
+                                                if (empty($candidates)): ?>
+                                                    <tr>
+                                                        <td colspan="4" class="text-center">No candidates for this position.</td>
+                                                    </tr>
+                                                <?php else:
+                                                    $totalVotes = array_sum(array_column($candidates, 'votes'));
+                                                    foreach ($candidates as $candidate):
+                                                        $votePercentage = ($totalVotes > 0) 
+                                                            ? ($candidate['votes'] / $totalVotes) * 100 
+                                                            : 0;
+                                                ?>
+                                                <tr>
+                                                    <td>
+                                                        <strong><?php echo htmlspecialchars($candidate['firstname'] . ' ' . $candidate['lastname']); ?></strong>
+                                                        <br>
+                                                        <small class="text-muted"><?php echo htmlspecialchars($candidate['partylist_name'] ?: 'Independent'); ?></small>
+                                                    </td>
+                                                    <td><strong><?php echo $candidate['votes']; ?></strong></td>
+                                                    <td><?php echo number_format($votePercentage, 1); ?>%</td>
+                                                    <td>
+                                                        <div class="progress">
+                                                            <div class="progress-bar progress-bar-success" 
+                                                                 style="width: <?php echo $votePercentage; ?>%"
+                                                                 title="<?php echo number_format($votePercentage, 1); ?>%">
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <?php endforeach; 
+                                                endif; ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Vote Timeline -->
+            <!-- Charts Section -->
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <div class="box box-solid">
                         <div class="box-header with-border">
-                            <h3 class="box-title">Voting Timeline</h3>
+                            <h3 class="box-title">Position Participation Rate</h3>
                         </div>
                         <div class="box-body">
-                            <canvas id="voteTimeline" style="height: 300px;"></canvas>
+                            <canvas id="positionParticipationChart" style="height: 300px;"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="box box-solid">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Partylist Performance</h3>
+                        </div>
+                        <div class="box-body">
+                            <canvas id="partylistChart" style="height: 300px;"></canvas>
                         </div>
                     </div>
                 </div>
@@ -162,60 +187,51 @@ $voteStats = $vote->getVotingStatistics();
 
 <!-- Scripts -->
 <?php echo $view->renderScripts(); ?>
-<!-- DataTables -->
-<script src="../plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="../plugins/datatables/dataTables.bootstrap.min.js"></script>
+
 <!-- Chart.js -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="<?php echo BASE_URL; ?>node_modules/chart.js/dist/chart.umd.js"></script>
 
 <script>
-$(function() {
-    // Initialize DataTables
-    $('.table').DataTable({
-        "paging": true,
-        "lengthChange": false,
-        "searching": true,
-        "ordering": true,
-        "info": true,
-        "autoWidth": false
-    });
-
-    // Print functionality
-    $('#printResults').click(function() {
-        window.print();
-    });
-
-    // Vote Timeline Chart
-    const timelineCtx = document.getElementById('voteTimeline').getContext('2d');
-    const timelineData = <?php echo json_encode($vote->getVoteTimeline()); ?>;
+    // Global variables for votes.js
+    window.BASE_URL = '<?php echo BASE_URL; ?>';
     
-    new Chart(timelineCtx, {
-        type: 'line',
-        data: {
-            labels: timelineData.labels,
-            datasets: [{
-                label: 'Votes Cast',
-                data: timelineData.data,
-                borderColor: '#00a65a',
-                tension: 0.1,
-                fill: false
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                        stepSize: 1
-                    }
-                }
-            }
+    // Prepare data for partylist chart
+    window.partylistData = <?php 
+        $partylistVotes = $vote->getVotesByPartylist();
+        error_log("Partylist votes data: " . json_encode($partylistVotes));
+        echo json_encode([
+            'labels' => array_column($partylistVotes, 'partylist_name'),
+            'data' => array_column($partylistVotes, 'total_votes')
+        ]); 
+    ?>;
+
+    // Prepare data for position participation chart
+    window.positionData = <?php 
+        $positionData = [];
+        foreach ($positions as $pos) {
+            $candidates = $vote->getVotesByPosition($pos['id']);
+            $totalVotes = array_sum(array_column($candidates, 'votes'));
+            $positionData[] = [
+                'position' => $pos['description'],
+                'votes' => $totalVotes
+            ];
+            error_log("Position {$pos['description']}: {$totalVotes} votes");
         }
-    });
-});
+        $chartData = [
+            'labels' => array_column($positionData, 'position'),
+            'data' => array_column($positionData, 'votes')
+        ];
+        error_log("Position chart data: " . json_encode($chartData));
+        echo json_encode($chartData);
+    ?>;
+
+    // Debug data
+    console.log('Position Data:', window.positionData);
+    console.log('Partylist Data:', window.partylistData);
 </script>
+
+<!-- Custom scripts -->
+<script src="<?php echo BASE_URL; ?>administrator/pages/includes/scripts/votes.js"></script>
 
 <style>
 /* Modern UI Styles */

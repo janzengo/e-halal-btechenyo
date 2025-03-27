@@ -1,8 +1,12 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 require_once __DIR__ . '/../../../../classes/Position.php';
 require_once __DIR__ . '/../../../../classes/Logger.php';
 require_once __DIR__ . '/../../../../classes/Admin.php';
+require_once __DIR__ . '/../../../../classes/Elections.php';
 
 // Check if admin is logged in
 $admin = Admin::getInstance();
@@ -15,6 +19,14 @@ if (!$admin->isLoggedIn()) {
 // Initialize classes
 $position = Position::getInstance();
 $logger = AdminLogger::getInstance();
+$election = Elections::getInstance();
+
+// Check if election is active
+if ($election->isModificationLocked()) {
+    header('Content-Type: application/json');
+    echo json_encode(['error' => true, 'message' => 'Modifications are not allowed while election is active']);
+    exit();
+}
 
 // Check if request is POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -27,19 +39,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         switch ($_POST['action']) {
             case 'add':
-                if (!isset($_POST['description'], $_POST['max_vote'])) {
-                    throw new Exception('Missing required fields');
+                if (empty($_POST['description']) || empty($_POST['max_vote'])) {
+                    throw new Exception('Description and maximum vote are required');
                 }
-
-                $result = $position->addPosition(
-                    $_POST['description'],
-                    (int)$_POST['max_vote']
-                );
+                
+                if (!is_numeric($_POST['max_vote'])) {
+                    throw new Exception('Maximum vote must be a number');
+                }
+                
+                $description = $_POST['description'];
+                $max_vote = (int)$_POST['max_vote'];
+                
+                $result = $position->addPosition($description, $max_vote);
                 
                 $logger->logAdminAction(
                     $admin->getUsername(),
                     $admin->getRole(),
-                    "Added position: {$_POST['description']} with max vote: {$_POST['max_vote']}"
+                    "Added new position: $description with auto-assigned priority {$result['priority']}"
                 );
                 
                 $response['message'] = 'Position added successfully';
@@ -47,29 +63,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 break;
 
             case 'edit':
-                if (!isset($_POST['id'], $_POST['description'], $_POST['max_vote'])) {
-                    throw new Exception('Missing required fields');
+                if (empty($_POST['id']) || empty($_POST['description']) || empty($_POST['max_vote'])) {
+                    throw new Exception('All required fields must be filled');
                 }
-
-                // Get old position data for logging
-                $oldPosition = $position->getPosition($_POST['id']);
                 
-                $result = $position->updatePosition(
-                    (int)$_POST['id'],
-                    $_POST['description'],
-                    (int)$_POST['max_vote']
+                if (!is_numeric($_POST['id']) || !is_numeric($_POST['max_vote'])) {
+                    throw new Exception('ID and maximum vote must be numbers');
+                }
+                
+                $id = (int)$_POST['id'];
+                $description = $_POST['description'];
+                $max_vote = (int)$_POST['max_vote'];
+                
+                // Get existing position data
+                $oldPosition = $position->getPosition($id);
+                if (!$oldPosition) {
+                    throw new Exception('Position not found');
+                }
+                
+                // Keep the existing priority
+                $priority = $oldPosition['priority'];
+                
+                // Update position
+                $result = $position->updatePosition($id, $description, $max_vote, $priority);
+                
+                $logger->logAdminAction(
+                    $admin->getUsername(),
+                    $admin->getRole(),
+                    "Updated position: {$oldPosition['description']} to $description (priority unchanged)"
                 );
                 
-                if ($result) {
-                    $logger->logAdminAction(
-                        $admin->getUsername(),
-                        $admin->getRole(),
-                        "Updated position from '{$oldPosition['description']}' to '{$_POST['description']}'"
-                    );
-                    $response['message'] = 'Position updated successfully';
-                } else {
-                    throw new Exception('No changes made to position');
-                }
+                $response['message'] = 'Position updated successfully';
                 break;
 
             case 'delete':

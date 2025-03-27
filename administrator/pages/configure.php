@@ -4,15 +4,31 @@ require_once __DIR__ . '/../classes/Admin.php';
 require_once __DIR__ . '/../classes/Elections.php';
 require_once __DIR__ . '/../classes/Logger.php';
 
+// Set timezone to Philippine time
+date_default_timezone_set('Asia/Manila');
+
 // Initialize classes
 $view = View::getInstance();
 $admin = Admin::getInstance();
 $election = Elections::getInstance();
 $logger = AdminLogger::getInstance();
 
-// Check if admin is logged in
-if (!$admin->isLoggedIn()) {
-    header('Location: ../administrator');
+// Check if admin is logged in and is superadmin
+if (!$admin->isLoggedIn() || !$admin->isSuperAdmin()) {
+    $_SESSION['error'] = 'Access Denied. This page is restricted to superadmins only.';
+    header('Location: home');
+    exit();
+}
+
+// Get current election status
+$current_election = $election->getCurrentElection();
+$end_time = isset($current_election['end_time']) ? new DateTime($current_election['end_time'], new DateTimeZone('Asia/Manila')) : null;
+$now = new DateTime('now', new DateTimeZone('Asia/Manila'));
+$is_past_end_time = $end_time && $end_time <= $now;
+
+// Redirect to setup if in setup status
+if (isset($current_election['status']) && $current_election['status'] === 'setup') {
+    header('Location: setup.php');
     exit();
 }
 ?>
@@ -74,68 +90,66 @@ if (!$admin->isLoggedIn()) {
                 <div class="col-xs-12">
                     <div class="box">
                         <div class="box-body">
-                            <?php
-                            // Get current election status
-                            $current_election = $election->getCurrentElection();
-                            ?>
                             <form action="<?php echo BASE_URL; ?>administrator/pages/includes/controllers/election_configure.php" method="POST">
                                 <div class="form-group">
                                     <label>Election Name</label>
                                     <input type="text" class="form-control" id="election_name" name="election_name" 
                                            value="<?php echo isset($current_election['election_name']) ? htmlspecialchars($current_election['election_name']) : ''; ?>" 
-                                           <?php echo (isset($current_election['status']) && in_array($current_election['status'], ['on', 'off'])) ? 'readonly' : ''; ?>
+                                           <?php echo (isset($current_election['status']) && (in_array($current_election['status'], ['active', 'completed']) || $is_past_end_time)) ? 'readonly' : ''; ?>
                                            required>
                                 </div>
                                 <div class="form-group">
-                                    <label>Start Time & Date</label>
-                                    <?php 
-                                    $now = new DateTime();
-                                    $start_time = isset($current_election['start_time']) ? 
-                                        (new DateTime($current_election['start_time']))->format('Y-m-d\TH:i') : '';
-                                    $end_time = isset($current_election['end_time']) ? 
-                                        (new DateTime($current_election['end_time']))->format('Y-m-d\TH:i') : '';
-                                    
-                                    $canEditDates = isset($current_election['status']) && 
-                                                   in_array($current_election['status'], ['pending', 'paused']);
-                                    ?>
-                                    <input type="datetime-local" class="form-control" id="start_time" name="start_time" 
-                                           value="<?php echo $start_time; ?>" 
-                                           <?php echo !$canEditDates ? 'readonly' : ''; ?>
-                                           <?php echo ($current_election['status'] !== 'pending') ? 'required' : ''; ?>>
-                                </div>
-                                <div class="form-group">
                                     <label>End Time & Date</label>
+                                    <?php 
+                                    $end_time_value = isset($current_election['end_time']) ? 
+                                        (new DateTime($current_election['end_time'], new DateTimeZone('Asia/Manila')))->format('Y-m-d\TH:i') : '';
+                                    
+                                    // Only allow end time modification in pending status
+                                    $can_edit_end_time = isset($current_election['status']) && 
+                                                       $current_election['status'] === 'pending';
+                                    ?>
                                     <input type="datetime-local" class="form-control" id="end_time" name="end_time" 
-                                           value="<?php echo $end_time; ?>" 
-                                           <?php echo !$canEditDates ? 'readonly' : ''; ?>
-                                           <?php echo ($current_election['status'] !== 'pending') ? 'required' : ''; ?>>
+                                           value="<?php echo $end_time_value; ?>" 
+                                           <?php echo !$can_edit_end_time ? 'readonly' : ''; ?>
+                                           required>
+                                    <?php if (!$can_edit_end_time): ?>
+                                        <small class="text-muted">End time cannot be modified after pending status.</small>
+                                    <?php endif; ?>
+                                    <small class="text-muted d-block">All times are in Philippine Time (UTC+8:00)</small>
                                 </div>
                                 <div class="form-group">
                                     <label>Election Status</label>
                                     <?php
-                                    // Determine available status options based on current state
+                                    // Determine available status options based on current state and end time
                                     $availableStatuses = [];
                                     if (isset($current_election['status'])) {
                                         $currentStatus = $current_election['status'];
                                         switch ($currentStatus) {
                                             case 'pending':
-                                                // Can only turn on if dates are set
-                                                $availableStatuses = ['pending'];
-                                                if ($start_time && $end_time) {
-                                                    $availableStatuses[] = 'on';
+                                                // Can activate or go back to setup
+                                                $availableStatuses = ['pending', 'active'];
+                                                break;
+                                            case 'active':
+                                                if ($is_past_end_time) {
+                                                    // If past end time, can only complete
+                                                    $availableStatuses = ['active', 'completed'];
+                                                } else {
+                                                    // Can pause or complete
+                                                    $availableStatuses = ['active', 'paused', 'completed'];
                                                 }
                                                 break;
-                                            case 'on':
-                                                // Can only pause or turn off
-                                                $availableStatuses = ['on', 'paused', 'off'];
-                                                break;
                                             case 'paused':
-                                                // Can resume, turn off, or go back to pending
-                                                $availableStatuses = ['paused', 'on', 'off', 'pending'];
+                                                if ($is_past_end_time) {
+                                                    // If past end time, can only complete
+                                                    $availableStatuses = ['paused', 'completed'];
+                                                } else {
+                                                    // Can resume, complete, or go back to pending
+                                                    $availableStatuses = ['paused', 'active', 'completed'];
+                                                }
                                                 break;
-                                            case 'off':
-                                                // Can only go to pending to start fresh
-                                                $availableStatuses = ['off', 'pending'];
+                                            case 'completed':
+                                                // Can only go to setup to start fresh
+                                                $availableStatuses = ['completed', 'setup'];
                                                 break;
                                         }
                                     } else {
@@ -144,15 +158,19 @@ if (!$admin->isLoggedIn()) {
                                     }
                                     ?>
                                     <select class="form-control" id="status" name="status" required>
-                                        <?php foreach ($availableStatuses as $status): ?>
+                                        <?php 
+                                        foreach ($availableStatuses as $status): 
+                                            // Skip 'completed' as it will be handled by a button
+                                            if ($status === 'completed') continue;
+                                        ?>
                                             <option value="<?php echo $status; ?>" 
                                                     <?php echo (isset($current_election['status']) && $current_election['status'] == $status) ? 'selected' : ''; ?>>
                                                 <?php 
                                                 $statusLabels = [
-                                                    'pending' => 'Pending (Setup Mode)',
-                                                    'on' => 'On (Active)',
+                                                    'pending' => 'Pending (Ready for Activation)',
+                                                    'active' => 'Active (Voting Ongoing)',
                                                     'paused' => 'Paused (Maintenance)',
-                                                    'off' => 'Off (Completed)'
+                                                    'completed' => 'Completed (Election Ended)'
                                                 ];
                                                 echo $statusLabels[$status];
                                                 ?>
@@ -170,43 +188,76 @@ if (!$admin->isLoggedIn()) {
                                         <p><strong>Name:</strong> <?php echo htmlspecialchars($current_election['election_name']); ?></p>
                                         <p><strong>Status:</strong> 
                                             <span class="label label-<?php 
-                                                echo $current_election['status'] == 'on' ? 'success' : 
+                                                echo $current_election['status'] == 'active' ? 'success' : 
                                                     ($current_election['status'] == 'paused' ? 'warning' : 
                                                     ($current_election['status'] == 'pending' ? 'info' : 'danger')); 
                                             ?>">
                                                 <?php echo ucfirst($current_election['status']); ?>
                                             </span>
                                         </p>
-                                        <?php if ($current_election['status'] !== 'pending'): ?>
-                                            <p><strong>Start Time:</strong> <?php echo $start_time ? date('F j, Y g:i A', strtotime($current_election['start_time'])) : 'Not set'; ?></p>
-                                            <p><strong>End Time:</strong> <?php echo $end_time ? date('F j, Y g:i A', strtotime($current_election['end_time'])) : 'Not set'; ?></p>
-                                        <?php endif; ?>
+                                        <p><strong>End Time:</strong> 
+                                            <?php 
+                                            if ($end_time) {
+                                                echo $end_time->format('F j, Y g:i A') . ' (Philippine Time)';
+                                            } else {
+                                                echo 'Not set';
+                                            }
+                                            ?>
+                                        </p>
                                         
-                                        <?php
-                                        // Status-specific messages
-                                        switch($current_election['status']) {
-                                            case 'pending':
-                                                echo '<div class="alert alert-info">
-                                                        <i class="fa fa-info-circle"></i> Election is in setup mode. You can modify candidates, positions, and voters.
-                                                      </div>';
-                                                break;
-                                            case 'on':
-                                                echo '<div class="alert alert-success">
-                                                        <i class="fa fa-check-circle"></i> Election is active. No modifications allowed.
-                                                      </div>';
-                                                break;
-                                            case 'paused':
-                                                echo '<div class="alert alert-warning">
-                                                        <i class="fa fa-pause-circle"></i> Election is paused. Limited modifications allowed.
-                                                      </div>';
-                                                break;
-                                            case 'off':
-                                                echo '<div class="alert alert-danger">
-                                                        <i class="fa fa-stop-circle"></i> Election is completed. No modifications allowed.
-                                                      </div>';
-                                                break;
-                                        }
-                                        ?>
+                                        <?php if ($is_past_end_time): ?>
+                                            <div class="alert alert-danger">
+                                                <i class="fa fa-exclamation-triangle"></i> 
+                                                <strong>Warning: Election end time has been reached!</strong><br>
+                                                <?php if ($current_election['status'] === 'active'): ?>
+                                                    The election is still active but has passed its end time; voting is now disabled. You must end the election - it cannot be reactivated.
+                                                <?php elseif ($current_election['status'] === 'paused'): ?>
+                                                    The election is still paused but has passed its end time; voting is now disabled. You must end the election - it cannot be reactivated.
+                                                <?php endif; ?>
+                                            </div>
+                                        <?php else: ?>
+                                            <?php
+                                            // Regular status messages when not past end time
+                                            switch($current_election['status']) {
+                                                case 'pending':
+                                                    echo '<div class="alert alert-info">
+                                                            <i class="fa fa-info-circle"></i> Election is ready for activation. Review all settings before starting.
+                                                          </div>';
+                                                    break;
+                                                case 'active':
+                                                    echo '<div class="alert alert-success">
+                                                            <i class="fa fa-check-circle"></i> Election is active. Voting is enabled.
+                                                          </div>';
+                                                    break;
+                                                case 'paused':
+                                                    echo '<div class="alert alert-warning">
+                                                            <i class="fa fa-pause-circle"></i> Election is paused. Voting is temporarily disabled.
+                                                          </div>';
+                                                    break;
+                                                case 'completed':
+                                                    echo '<div class="alert alert-danger">
+                                                            <i class="fa fa-stop-circle"></i> Election is completed. No further changes allowed.
+                                                          </div>';
+                                                    break;
+                                            }
+                                            ?>
+                                        <?php endif; ?>
+
+                                        <?php if ($end_time): ?>
+                                            <?php
+                                            $time_remaining = $end_time->getTimestamp() - $now->getTimestamp();
+                                            if ($time_remaining > 0 && in_array($current_election['status'], ['active', 'paused'])):
+                                                $hours = floor($time_remaining / 3600);
+                                                $minutes = floor(($time_remaining % 3600) / 60);
+                                            ?>
+                                                <div class="alert alert-info">
+                                                    <i class="fa fa-clock"></i> 
+                                                    <strong>Time Remaining:</strong> 
+                                                    <?php echo $hours . ' hour' . ($hours != 1 ? 's' : '') . ' and ' . 
+                                                              $minutes . ' minute' . ($minutes != 1 ? 's' : ''); ?>
+                                                </div>
+                                            <?php endif; ?>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                                 <?php endif; ?>
@@ -215,16 +266,28 @@ if (!$admin->isLoggedIn()) {
                                     <i class="fa fa-info-circle"></i> 
                                     <strong>Status Rules:</strong>
                                     <ul>
-                                        <li><strong>Pending:</strong> Initial setup mode. All modifications allowed. No voting possible.</li>
-                                        <li><strong>On:</strong> Active election. No modifications allowed. Voting enabled.</li>
+                                        <li><strong>Pending:</strong> Ready for activation. All modifications allowed.</li>
+                                        <li><strong>Active:</strong> Election is running. No modifications allowed.</li>
                                         <li><strong>Paused:</strong> Temporary halt. Limited modifications allowed. No voting possible.</li>
-                                        <li><strong>Off:</strong> Completed election. No modifications allowed. No voting possible.</li>
-                                        <li>Start and end times must be set before activating the election.</li>
-                                        <li>To make major changes, pause the election or return to pending status.</li>
+                                        <li><strong>Completed:</strong> Election ended. No modifications allowed. Results available.</li>
+                                        <li>End time must be set before activating the election.</li>
+                                        <li>After end time is reached, election must be completed.</li>
+                                        <li>To make major changes, pause the election or return to setup status.</li>
                                     </ul>
                                 </ol>
 
-                                <button type="submit" class="btn btn-success" name="save">Save Changes</button>
+                                <div class="form-group">
+                                    <?php if (!$is_past_end_time): ?>
+                                        <button type="submit" class="btn btn-success" name="save">
+                                            <i class="fa fa-save"></i> Save Changes
+                                        </button>
+                                    <?php endif; ?>
+                                    <?php if (in_array('completed', $availableStatuses)): ?>
+                                        <button type="button" class="btn btn-danger" id="completeElectionBtn">
+                                            <i class="fa fa-stop-circle"></i> End Election
+                                        </button>
+                                    <?php endif; ?>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -240,20 +303,55 @@ if (!$admin->isLoggedIn()) {
 
 <script>
 $(document).ready(function() {
-    var startInput = document.getElementById('start_time');
     var endInput = document.getElementById('end_time');
     var statusSelect = document.getElementById('status');
     var currentStatus = statusSelect.value;
     
+    // Handle Complete Election button click
+    $('#completeElectionBtn').click(function() {
+        Swal.fire({
+            title: 'Complete Election?',
+            text: "This will end the election permanently. This action cannot be undone!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Yes, complete election',
+            cancelButtonText: 'No, cancel'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Set the status to completed and submit the form
+                $('#status').val('completed');
+                $('form').submit();
+            }
+        });
+    });
+    
     // Handle status changes
     $('#status').change(function() {
         var newStatus = $(this).val();
+        // Convert input time to Philippine time for comparison
+        var endTimeStr = endInput.value;
+        if (endTimeStr) {
+            var endTime = new Date(endTimeStr);
+            // Add offset for Philippine time if needed
+            var now = new Date();
+            
+            // Check if end time has passed
+            if (endTime <= now) {
+                if (newStatus !== 'completed') {
+                    alert('Election end time has passed. The election must be completed.');
+                    $(this).val(currentStatus);
+                    return false;
+                }
+            }
+        }
         
-        // Only require dates when changing from pending to another status
-        if (currentStatus === 'pending' && newStatus !== 'pending') {
-            if (!startInput.value || !endInput.value) {
-                alert('Start and end times must be set before activating the election');
-                $(this).val('pending');
+        // Require end date when moving to active status
+        if (newStatus === 'active') {
+            if (!endInput.value) {
+                alert('End time must be set before activating the election');
+                $(this).val(currentStatus);
                 return false;
             }
         }
@@ -265,26 +363,25 @@ $(document).ready(function() {
         var formValid = true;
         var errorMessage = [];
         
-        // Allow submission with just election name if staying in pending status
-        if (status === 'pending') {
-            // Only validate election name
+        // Convert input time to Philippine time for comparison
+        var endTimeStr = endInput.value;
+        if (endTimeStr) {
+            var endTime = new Date(endTimeStr);
+            var now = new Date();
+            
+            // Validate required fields
             if (!$('#election_name').val()) {
                 errorMessage.push('Election name is required');
                 formValid = false;
             }
-        } else {
-            // Validate all fields for non-pending status
-            if (!startInput.value || !endInput.value) {
-                errorMessage.push('Start time and End time are required for non-pending status');
+            
+            // Validate end time
+            if (!endInput.value) {
+                errorMessage.push('End time is required');
                 formValid = false;
-            } else {
-                var start = new Date(startInput.value);
-                var end = new Date(endInput.value);
-                
-                if (end <= start) {
-                    errorMessage.push('End time must be after start time');
-                    formValid = false;
-                }
+            } else if (endTime <= now && status !== 'completed') {
+                errorMessage.push('Election end time has passed. The election must be completed.');
+                formValid = false;
             }
         }
         

@@ -16,6 +16,16 @@ class Admin {
     private $role;
     private $gender;
 
+    const ROLE_SUPERADMIN = 'superadmin';
+    const ROLE_OFFICER = 'officer';
+
+    // Restricted pages for officers
+    private $restrictedPages = [
+        'admin_logs.php',
+        'officers.php',
+        'configure.php'
+    ];
+
     private function __construct() {
         $this->db = Database::getInstance();
         $this->session = CustomSessionHandler::getInstance();
@@ -154,25 +164,26 @@ class Admin {
     public function getGender() { return $this->gender; }
 
     /**
+     * Get full name of admin
+     * @return string
+     */
+    public function getFullName() {
+        return $this->firstname . ' ' . $this->lastname;
+    }
+
+    /**
      * Get all admin users from the database
      * 
      * @return array Array of admin users
      */
     public function getAllAdmins() {
-        try {
-            $sql = "SELECT id, username, firstname, lastname, gender, role, created_on 
-                   FROM admin 
-                   ORDER BY created_on DESC";
-            $result = $this->db->getConnection()->query($sql);
-            
-            if ($result) {
-                return $result->fetch_all(MYSQLI_ASSOC);
-            }
-            return [];
-        } catch (Exception $e) {
-            error_log("Error in getAllAdmins: " . $e->getMessage());
-            return [];
+        $query = "SELECT * FROM admin ORDER BY created_on DESC";
+        $result = $this->db->query($query);
+        $admins = [];
+        while ($row = $result->fetch_assoc()) {
+            $admins[] = $row;
         }
+        return $admins;
     }
 
     /**
@@ -198,5 +209,220 @@ class Admin {
             return $_SESSION['admin'];
         }
         return null;
+    }
+
+    /**
+     * Check if current admin is superadmin
+     * @return bool
+     */
+    public function isSuperAdmin() {
+        return $this->getRole() === self::ROLE_SUPERADMIN;
+    }
+
+    /**
+     * Check if current admin has access to a page
+     * @param string $page
+     * @return bool
+     */
+    public function hasPageAccess($page) {
+        if ($this->getRole() === self::ROLE_SUPERADMIN) {
+            return true;
+        }
+
+        return !in_array($page, $this->restrictedPages);
+    }
+
+    /**
+     * Update admin profile information
+     * @param string $username New username
+     * @param string $firstname New firstname
+     * @param string $lastname New lastname
+     * @param string $photo Photo path
+     * @return bool Success status
+     */
+    public function updateProfile($username, $firstname, $lastname, $photo = null) {
+        if (!$this->isLoggedIn()) {
+            return false;
+        }
+        
+        try {
+            // Check if username is taken by another admin
+            $sql = "SELECT id FROM admin WHERE username = ? AND id != ?";
+            $stmt = $this->db->getConnection()->prepare($sql);
+            $stmt->bind_param("si", $username, $this->id);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            
+            if ($result->num_rows > 0) {
+                throw new Exception("Username is already taken");
+            }
+            
+            // Update admin profile
+            $sql = "UPDATE admin SET username = ?, firstname = ?, lastname = ?";
+            $params = [$username, $firstname, $lastname];
+            $types = "sss";
+            
+            if ($photo) {
+                $sql .= ", photo = ?";
+                $params[] = $photo;
+                $types .= "s";
+            }
+            
+            $sql .= " WHERE id = ?";
+            $params[] = $this->id;
+            $types .= "i";
+            
+            $stmt = $this->db->getConnection()->prepare($sql);
+            $stmt->bind_param($types, ...$params);
+            
+            if ($stmt->execute()) {
+                // Update local properties
+                $this->username = $username;
+                $this->firstname = $firstname;
+                $this->lastname = $lastname;
+                if ($photo) {
+                    $this->photo = $photo;
+                }
+                return true;
+            }
+            
+            return false;
+        } catch (Exception $e) {
+            error_log("Error updating admin profile: " . $e->getMessage());
+            throw $e;
+        }
+    }
+    
+    /**
+     * Update admin password
+     * @param string $currentPassword Current password for verification
+     * @param string $newPassword New password
+     * @return bool Success status
+     */
+    public function updatePassword($currentPassword, $newPassword) {
+        if (!$this->isLoggedIn()) {
+            return false;
+        }
+        
+        try {
+            // Get current admin data
+            $sql = "SELECT password FROM admin WHERE id = ?";
+            $stmt = $this->db->getConnection()->prepare($sql);
+            $stmt->bind_param("i", $this->id);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            
+            if ($result->num_rows === 0) {
+                return false;
+            }
+            
+            $row = $result->fetch_assoc();
+            
+            // Verify current password
+            if (!password_verify($currentPassword, $row['password'])) {
+                return false;
+            }
+            
+            // Hash the new password
+            $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+            
+            // Update password
+            $sql = "UPDATE admin SET password = ? WHERE id = ?";
+            $stmt = $this->db->getConnection()->prepare($sql);
+            $stmt->bind_param("si", $hashedPassword, $this->id);
+            
+            return $stmt->execute();
+        } catch (Exception $e) {
+            error_log("Error updating admin password: " . $e->getMessage());
+            return false;
+        }
+    }
+
+    public function getOfficer($id) {
+        $id = (int)$id;
+        $query = "SELECT * FROM admin WHERE id = ? AND role = 'officer'";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if ($result->num_rows > 0) {
+            return $result->fetch_assoc();
+        }
+        return false;
+    }
+
+    public function checkUsername($username, $excludeId = null) {
+        $query = "SELECT id FROM admin WHERE username = ?";
+        $params = [$username];
+        $types = "s";
+
+        if ($excludeId !== null) {
+            $query .= " AND id != ?";
+            $params[] = $excludeId;
+            $types .= "i";
+        }
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param($types, ...$params);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->num_rows > 0;
+    }
+
+    public function addOfficer($firstname, $lastname, $username, $password, $gender) {
+        // Hash password
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+        $query = "INSERT INTO admin (username, password, firstname, lastname, gender, role, created_on) 
+                 VALUES (?, ?, ?, ?, ?, 'officer', NOW())";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("sssss", 
+            $username,
+            $hashedPassword,
+            $firstname,
+            $lastname,
+            $gender
+        );
+        
+        return $stmt->execute();
+    }
+
+    public function updateOfficer($id, $firstname, $lastname, $username, $password, $gender) {
+        // Prevent updating self
+        if ($id == $this->getId()) {
+            return false;
+        }
+
+        $query = "UPDATE admin SET username = ?, firstname = ?, lastname = ?, gender = ?";
+        $params = [$username, $firstname, $lastname, $gender];
+        $types = "ssss";
+
+        // Update password if provided
+        if (!empty($password)) {
+            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+            $query .= ", password = ?";
+            $params[] = $hashedPassword;
+            $types .= "s";
+        }
+
+        $query .= " WHERE id = ? AND role = 'officer'";
+        $params[] = $id;
+        $types .= "i";
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param($types, ...$params);
+        return $stmt->execute();
+    }
+
+    public function deleteOfficer($id) {
+        // Prevent deleting self
+        if ($id == $this->getId()) {
+            return false;
+        }
+
+        $query = "DELETE FROM admin WHERE id = ? AND role = 'officer'";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("i", $id);
+        return $stmt->execute();
     }
 }

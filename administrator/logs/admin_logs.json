@@ -1,176 +1,698 @@
 [
     {
-        "timestamp": "2025-03-11 16:45:37",
+        "timestamp": "2025-03-21 03:45:44",
         "user_id": "wallysabangan2024",
         "role": "superadmin",
-        "action": "Added position: President with max vote: 1"
+        "action": "Updated candidate: Juan Dela Cruz"
     },
     {
-        "timestamp": "2025-03-11 16:45:51",
+        "timestamp": "2025-03-21 04:00:54",
         "user_id": "wallysabangan2024",
         "role": "superadmin",
-        "action": "Deleted position: President"
+        "action": "Updated candidate: Juan De Guzman"
     },
     {
-        "timestamp": "2025-03-11 16:55:06",
+        "timestamp": "2025-03-21 04:01:00",
         "user_id": "wallysabangan2024",
         "role": "superadmin",
-        "action": "Added voter: 202320023"
+        "action": "Updated candidate: Juan De Guzman"
     },
     {
-        "timestamp": "2025-03-11 16:55:34",
+        "timestamp": "2025-03-21 04:01:28",
         "user_id": "wallysabangan2024",
         "role": "superadmin",
-        "action": "Added voter: 202320024"
+        "action": "Updated election configuration: Name: Sangguniang Mag-aaral Elections, Status: pending, Start: 2025-03-21 07:53:00 End: 2025-03-17 07:55:00"
     },
     {
-        "timestamp": "2025-03-11 16:55:58",
+        "timestamp": "2025-03-21 04:02:03",
         "user_id": "wallysabangan2024",
         "role": "superadmin",
-        "action": "Added voter: 202120023"
+        "action": "Updated election configuration: Name: Sangguniang Mag-aaral Elections, Status: pending, Start: 2025-03-21 07:53:00 End: 2025-03-22 07:55:00"
     },
     {
-        "timestamp": "2025-03-11 16:57:54",
+        "timestamp": "2025-03-21 04:02:19",
         "user_id": "wallysabangan2024",
         "role": "superadmin",
-        "action": "Added voter: 202351599"
+        "action": "Updated election configuration: Name: Sangguniang Mag-aaral Elections, Status: pending, Start: 2025-03-21 11:45:00 End: 2025-03-22 07:55:00"
     },
     {
-        "timestamp": "2025-03-11 16:59:07",
+        "timestamp": "2025-03-21 04:02:23",
         "user_id": "wallysabangan2024",
         "role": "superadmin",
-        "action": "Added voter: 202312026"
+        "action": "Updated election configuration: Name: Sangguniang Mag-aaral Elections, Status: on, Start: 2025-03-21 04:02:23 End: 2025-03-22 07:55:00"
     },
     {
-        "timestamp": "2025-03-11 16:59:24",
+        "timestamp": "2025-03-22 01:21:01",
         "user_id": "wallysabangan2024",
         "role": "superadmin",
-        "action": "Added position: President with max vote: 1"
+        "action": "Updated election configuration: Name: Sangguniang Mag-aaral Elections, Status: paused, Start: 2025-03-21 04:02:00 End: 2025-03-22 07:55:00"
     },
     {
-        "timestamp": "2025-03-12 01:17:17",
+        "timestamp": "2025-03-22 01:21:23",
         "user_id": "wallysabangan2024",
         "role": "superadmin",
-        "action": "Added voter: 202320023"
+        "action": "Updated election configuration: Name: Sangguniang Mag-aaral Elections, Status: paused, Start: 2025-03-22 08:00:00 End: 2025-03-23 07:55:00"
     },
     {
-        "timestamp": "2025-03-12 01:22:43",
-        "user_id": null,
-        "role": "superadmin",
-        "action": "Updated election configuration - Name: 2025 Sanggu, Status: paused"
-    },
-    {
-        "timestamp": "2025-03-12 01:38:25",
+        "timestamp": "2025-03-22 01:21:27",
         "user_id": "wallysabangan2024",
         "role": "superadmin",
-        "action": "Updated election configuration - Name: Sanggu Elections, Status: paused"
+        "action": "Updated election configuration: Name: Sangguniang Mag-aaral Elections, Status: on, Start: 2025-03-22 01:21:27 End: 2025-03-23 07:55:00"
     },
     {
-        "timestamp": "2025-03-12 01:41:33",
+        "timestamp": "2025-03-24 11:12:25",
         "user_id": "wallysabangan2024",
         "role": "superadmin",
-        "action": "Updated election configuration - Name: Sanggu Elections, Status: paused"
+        "action": "Updated election configuration: Name: Sangguniang Mag-aaral Elections, Status: paused, End: 2025-03-25 07:55:00"
     },
     {
-        "timestamp": "2025-03-12 01:44:08",
+        "timestamp": "2025-03-24 11:23:53",
         "user_id": "wallysabangan2024",
         "role": "superadmin",
-        "action": "Updated election configuration - Name: Sanggu Elections, Status: paused"
+        "action": "Updated election configuration: Name: Sangguniang Mag-aaral Elections, Status: active, End: 2025-03-25 07:55:00"
     },
     {
-        "timestamp": "2025-03-12 01:44:41",
+        "timestamp": "2025-03-24 12:25:17",
         "user_id": "wallysabangan2024",
         "role": "superadmin",
-        "action": "Updated election configuration - Name: Sanggu Elections, Status: paused"
+        "action": "Updated election configuration: Name: Sangguniang Mag-aaral Elections, Status: paused, End: 2025-03-25 07:55:00"
     },
     {
-        "timestamp": "2025-03-12 01:47:50",
+        "timestamp": "2025-03-24 12:29:49",
         "user_id": "wallysabangan2024",
         "role": "superadmin",
-        "action": "Updated election configuration - Name: Sanggu Elections, Status: paused"
+        "action": "Updated election configuration: Name: Sangguniang Mag-aaral Elections, Status: active, End: 2025-03-25 07:55:00"
     },
     {
-        "timestamp": "2025-03-12 01:54:43",
+        "timestamp": "2025-03-24 12:30:45",
         "user_id": "wallysabangan2024",
         "role": "superadmin",
-        "action": "Updated election configuration: Name: Sanggu Elections, Status: on, Start: 2025-03-12 01:54:43 End: 2025-03-14 08:37:00"
+        "action": "Updated election configuration: Name: Sangguniang Mag-aaral Elections, Status: paused, End: 2025-03-25 07:55:00"
     },
     {
-        "timestamp": "2025-03-12 02:05:48",
+        "timestamp": "2025-03-24 12:36:23",
         "user_id": "wallysabangan2024",
         "role": "superadmin",
-        "action": "Updated election configuration: Name: Sanggu Elections, Status: on, Start: 2025-03-12 09:04:00 End: 2025-03-12 09:05:00"
+        "action": "Updated election configuration: Name: Sangguniang Mag-aaral Elections, Status: active, End: 2025-03-25 07:55:00"
     },
     {
-        "timestamp": "2025-03-12 02:16:17",
+        "timestamp": "2025-03-24 12:47:00",
         "user_id": "wallysabangan2024",
         "role": "superadmin",
-        "action": "Updated election configuration: Name: Sanggu Elections, Status: off, Start: 2025-03-12 09:17:00 End: 2025-03-14 08:00:00"
+        "action": "Updated election configuration: Name: Sangguniang Mag-aaral Elections, Status: paused, End: 2025-03-25 07:55:00"
     },
     {
-        "timestamp": "2025-03-12 02:32:47",
+        "timestamp": "2025-03-24 12:54:01",
         "user_id": "wallysabangan2024",
         "role": "superadmin",
-        "action": "Updated election configuration: Name: Sanggu Elections, Status: on, Start: 2025-03-12 02:32:47 End: 2025-03-14 08:00:00"
+        "action": "Updated election configuration: Name: Sangguniang Mag-aaral Elections, Status: active, End: 2025-03-25 07:55:00"
     },
     {
-        "timestamp": "2025-03-12 02:33:05",
+        "timestamp": "2025-03-24 12:54:09",
         "user_id": "wallysabangan2024",
         "role": "superadmin",
-        "action": "Updated election configuration: Name: Sanggu Elections, Status: paused, Start: 2025-03-12 02:32:00 End: 2025-03-14 08:00:00"
+        "action": "Updated election configuration: Name: Sangguniang Mag-aaral Elections, Status: paused, End: 2025-03-25 07:55:00"
     },
     {
-        "timestamp": "2025-03-12 02:33:14",
+        "timestamp": "2025-03-24 13:06:12",
         "user_id": "wallysabangan2024",
         "role": "superadmin",
-        "action": "Updated election configuration: Name: Sanggu Elections, Status: on, Start: 2025-03-12 02:33:14 End: 2025-03-14 08:00:00"
+        "action": "Updated election configuration: Name: Sangguniang Mag-aaral Elections, Status: active, End: 2025-03-25 07:55:00"
     },
     {
-        "timestamp": "2025-03-12 02:34:20",
+        "timestamp": "2025-03-24 13:08:58",
         "user_id": "wallysabangan2024",
         "role": "superadmin",
-        "action": "Updated election configuration: Name: Sanggu Elections, Status: paused, Start: 2025-03-12 02:33:00 End: 2025-03-14 08:00:00"
+        "action": "Updated election configuration: Name: Sangguniang Mag-aaral Elections, Status: paused, End: 2025-03-25 07:55:00"
     },
     {
-        "timestamp": "2025-03-12 02:58:16",
+        "timestamp": "2025-03-24 13:09:21",
         "user_id": "wallysabangan2024",
         "role": "superadmin",
-        "action": "Updated election configuration: Name: Sanggu, Status: pending, Start: Not set End: Not set"
+        "action": "Added candidate: Lebron James"
     },
     {
-        "timestamp": "2025-03-12 02:58:41",
+        "timestamp": "2025-03-24 14:05:59",
         "user_id": "wallysabangan2024",
         "role": "superadmin",
-        "action": "Updated election configuration: Name: Sanggu Elections, Status: pending, Start: Not set End: Not set"
+        "action": "Error in candidate management: Action not specified"
     },
     {
-        "timestamp": "2025-03-12 03:03:23",
+        "timestamp": "2025-03-24 14:06:56",
         "user_id": "wallysabangan2024",
         "role": "superadmin",
-        "action": "Updated election configuration: Name: Sanggu Election, Status: pending, Start: Not set End: Not set"
+        "action": "Error in candidate management: Action not specified"
     },
     {
-        "timestamp": "2025-03-12 03:04:38",
+        "timestamp": "2025-03-24 14:08:19",
         "user_id": "wallysabangan2024",
         "role": "superadmin",
-        "action": "Updated election configuration: Name: Sanggu Elections, Status: pending, Start: Not set End: Not set"
+        "action": "Error in candidate management: Action not specified"
     },
     {
-        "timestamp": "2025-03-12 03:07:19",
+        "timestamp": "2025-03-24 14:16:00",
         "user_id": "wallysabangan2024",
         "role": "superadmin",
-        "action": "Updated election configuration: Name: Sanggu Election, Status: pending, Start: Not set End: Not set"
+        "action": "Added candidate: Janzen Go"
     },
     {
-        "timestamp": "2025-03-12 03:34:36",
+        "timestamp": "2025-03-24 14:25:39",
         "user_id": "wallysabangan2024",
         "role": "superadmin",
-        "action": "Updated election configuration: Name: Sanggu Election, Status: pending, Start: 2025-03-12 10:35:00 End: 2025-03-15 10:34:00"
+        "action": "Deleted candidate: Juan De Guzman"
     },
     {
-        "timestamp": "2025-03-12 03:35:13",
+        "timestamp": "2025-03-24 14:25:43",
         "user_id": "wallysabangan2024",
         "role": "superadmin",
-        "action": "Updated election configuration: Name: Sanggu Election, Status: on, Start: 2025-03-12 03:35:13 End: 2025-03-15 10:34:00"
+        "action": "Deleted candidate: Janzen Go"
+    },
+    {
+        "timestamp": "2025-03-24 14:26:05",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Added candidate: Steph Curry"
+    },
+    {
+        "timestamp": "2025-03-24 14:29:16",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Updated candidate: Steph Curry"
+    },
+    {
+        "timestamp": "2025-03-24 14:30:12",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Error in candidate management: Invalid file format. Only JPG, JPEG & PNG files are allowed."
+    },
+    {
+        "timestamp": "2025-03-24 14:31:19",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Added candidate: Lebron James"
+    },
+    {
+        "timestamp": "2025-03-24 14:32:32",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Updated candidate: Lebron James"
+    },
+    {
+        "timestamp": "2025-03-24 14:33:43",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Added candidate: James Lebron"
+    },
+    {
+        "timestamp": "2025-03-24 14:35:48",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Deleted candidate: James Lebron"
+    },
+    {
+        "timestamp": "2025-03-24 14:35:50",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Deleted candidate: Lebron James"
+    },
+    {
+        "timestamp": "2025-03-24 14:35:52",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Deleted candidate: Steph Curry"
+    },
+    {
+        "timestamp": "2025-03-24 14:36:07",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Added candidate: Lebwrong James"
+    },
+    {
+        "timestamp": "2025-03-24 14:51:51",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Updated candidate: Lebwrong James"
+    },
+    {
+        "timestamp": "2025-03-24 15:55:39",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Updated election configuration: Name: Sangguniang Mag-aaral Elections, Status: active, End: 2025-03-25 07:55:00"
+    },
+    {
+        "timestamp": "2025-03-24 16:04:33",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Updated election configuration: Name: Sangguniang Mag-aaral Elections, Status: paused, End: 2025-03-25 07:55:00"
+    },
+    {
+        "timestamp": "2025-03-25 01:13:15",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Added partylist: Kanlungan"
+    },
+    {
+        "timestamp": "2025-03-25 01:13:28",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Updated candidate: Lebron James"
+    },
+    {
+        "timestamp": "2025-03-25 01:57:31",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Added candidate: Stephen Curry"
+    },
+    {
+        "timestamp": "2025-03-25 01:57:41",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Deleted candidate: Lebwrong James"
+    },
+    {
+        "timestamp": "2025-03-25 01:57:54",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Deleted candidate: Lebron James"
+    },
+    {
+        "timestamp": "2025-03-25 01:57:55",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Deleted candidate: Stephen Curry"
+    },
+    {
+        "timestamp": "2025-03-25 01:58:12",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Added candidate: Stephen Curry"
+    },
+    {
+        "timestamp": "2025-03-25 01:58:45",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Added candidate: Jimmy Buttler"
+    },
+    {
+        "timestamp": "2025-03-25 01:59:07",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Added candidate: Moses Moody"
+    },
+    {
+        "timestamp": "2025-03-25 01:59:31",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Added candidate: Lebron James"
+    },
+    {
+        "timestamp": "2025-03-25 02:00:16",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Added candidate: Luka Doncic"
+    },
+    {
+        "timestamp": "2025-03-25 02:14:33",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Added candidate: Bronny James"
+    },
+    {
+        "timestamp": "2025-03-25 02:15:26",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Updated election configuration: Name: Sangguniang Mag-aaral Elections, Status: active, End: 2025-03-26 07:55:00"
+    },
+    {
+        "timestamp": "2025-03-25 02:43:11",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Updated election configuration: Name: Sangguniang Mag-aaral Elections, Status: paused, End: 2025-03-26 07:55:00"
+    },
+    {
+        "timestamp": "2025-03-25 02:43:35",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Added voter: 202411986"
+    },
+    {
+        "timestamp": "2025-03-25 04:01:04",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Updated election configuration: Name: Sangguniang Mag-aaral Elections, Status: active, End: 2025-03-26 07:55:00"
+    },
+    {
+        "timestamp": "2025-03-25 04:01:57",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Updated election configuration: Name: Sangguniang Mag-aaral Elections, Status: paused, End: 2025-03-26 07:55:00"
+    },
+    {
+        "timestamp": "2025-03-25 04:02:27",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Added candidate: Nikola Jokic"
+    },
+    {
+        "timestamp": "2025-03-25 04:02:52",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Added candidate: Ja Morant"
+    },
+    {
+        "timestamp": "2025-03-25 04:03:10",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Added candidate: Klay Thompson"
+    },
+    {
+        "timestamp": "2025-03-25 04:04:26",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Deleted voter: 2023200232"
+    },
+    {
+        "timestamp": "2025-03-25 04:04:47",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Added voter: 202110615"
+    },
+    {
+        "timestamp": "2025-03-25 04:05:28",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Added voter: 202111184"
+    },
+    {
+        "timestamp": "2025-03-25 04:32:33",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Updated election configuration: Name: Sangguniang Mag-aaral Elections, Status: active, End: 2025-03-26 07:55:00"
+    },
+    {
+        "timestamp": "2025-03-25 04:55:44",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Updated election configuration: Name: Sangguniang Mag-aaral Elections, Status: paused, End: 2025-03-26 07:55:00"
+    },
+    {
+        "timestamp": "2025-03-25 05:02:10",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Updated election configuration: Name: Sangguniang Mag-aaral Elections, Status: active, End: 2025-03-26 07:55:00"
+    },
+    {
+        "timestamp": "2025-03-25 05:06:35",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Updated election configuration: Name: Sangguniang Mag-aaral Elections, Status: paused, End: 2025-03-26 07:55:00"
+    },
+    {
+        "timestamp": "2025-03-25 05:41:05",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Error in profile update: Current password is incorrect"
+    },
+    {
+        "timestamp": "2025-03-25 05:44:25",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Error in profile update: Current password is incorrect"
+    },
+    {
+        "timestamp": "2025-03-25 05:58:19",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Error in profile update: Current password is incorrect"
+    },
+    {
+        "timestamp": "2025-03-25 06:04:30",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Updated admin profile"
+    },
+    {
+        "timestamp": "2025-03-25 08:49:57",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Added position: PIO with max vote: 2"
+    },
+    {
+        "timestamp": "2025-03-25 08:50:36",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Added candidate: Yuki Kawamura"
+    },
+    {
+        "timestamp": "2025-03-25 08:51:01",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Added candidate: Victor Wembanayama"
+    },
+    {
+        "timestamp": "2025-03-25 08:51:25",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Added candidate: Chris Paul"
+    },
+    {
+        "timestamp": "2025-03-27 07:04:04",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Deleted course: Bachelor of Arts in Computer Science"
+    },
+    {
+        "timestamp": "2025-03-27 07:05:56",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Added course: Bachelor of Science in Computer Science"
+    },
+    {
+        "timestamp": "2025-03-27 07:06:08",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Deleted course: Bachelor of Science in Mathematics"
+    },
+    {
+        "timestamp": "2025-03-27 07:06:12",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Deleted course: Bachelor of Science in Computer Science"
+    },
+    {
+        "timestamp": "2025-03-27 09:02:20",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Added new position: Treasurer with auto-assigned priority 5"
+    },
+    {
+        "timestamp": "2025-03-27 09:24:27",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Added partylist: Sagada"
+    },
+    {
+        "timestamp": "2025-03-27 09:27:21",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Added course: Bachelor of Science Computer Engineering"
+    },
+    {
+        "timestamp": "2025-03-27 09:27:28",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Deleted course: Bachelor of Science Computer Engineering"
+    },
+    {
+        "timestamp": "2025-03-27 09:30:13",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Added candidate: Juan De Guzman"
+    },
+    {
+        "timestamp": "2025-03-27 10:34:14",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Deleted officer ID: 8"
+    },
+    {
+        "timestamp": "2025-03-27 10:40:31",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Deleted officer ID: 4"
+    },
+    {
+        "timestamp": "2025-03-27 10:49:42",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Error in officer management: Action not specified"
+    },
+    {
+        "timestamp": "2025-03-27 10:49:45",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Error in officer management: Action not specified"
+    },
+    {
+        "timestamp": "2025-03-27 10:49:58",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Error in officer management: Action not specified"
+    },
+    {
+        "timestamp": "2025-03-27 10:51:19",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Updated election configuration: Name: Sangguniang Mag-aaral Elections 2025, Status: paused, End: 2025-03-28 07:55:00"
+    },
+    {
+        "timestamp": "2025-03-27 10:51:39",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Error in officer management: Invalid action"
+    },
+    {
+        "timestamp": "2025-03-27 10:52:08",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Error in officer management: Invalid action"
+    },
+    {
+        "timestamp": "2025-03-27 10:53:10",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Error in officer management: Invalid action"
+    },
+    {
+        "timestamp": "2025-03-27 10:53:12",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Error in officer management: Invalid action"
+    },
+    {
+        "timestamp": "2025-03-27 10:53:18",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Error in officer management: Invalid action"
+    },
+    {
+        "timestamp": "2025-03-27 10:54:02",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Error in officer management: Invalid action"
+    },
+    {
+        "timestamp": "2025-03-27 10:55:02",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Error in officer management: Action not specified"
+    },
+    {
+        "timestamp": "2025-03-27 10:56:12",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Error in officer management: Action not specified"
+    },
+    {
+        "timestamp": "2025-03-27 10:56:33",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Error in officer management: Action not specified"
+    },
+    {
+        "timestamp": "2025-03-27 11:01:52",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Added officer: Janzen Go"
+    },
+    {
+        "timestamp": "2025-03-27 11:02:07",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Updated officer: Janzen Go"
+    },
+    {
+        "timestamp": "2025-03-27 11:02:44",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Updated officer: Janzen Go"
+    },
+    {
+        "timestamp": "2025-03-27 11:02:51",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Updated officer: Janzen Go"
+    },
+    {
+        "timestamp": "2025-03-27 11:14:47",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Added candidate: Janzen Go"
+    },
+    {
+        "timestamp": "2025-03-27 11:16:04",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Updated officer: Janzen Go"
+    },
+    {
+        "timestamp": "2025-03-27 11:17:53",
+        "user_id": "janzengo",
+        "role": "officer",
+        "action": "Deleted course: Bachelor of Science in Mathematics"
+    },
+    {
+        "timestamp": "2025-03-27 11:18:34",
+        "user_id": "janzengo",
+        "role": "officer",
+        "action": "Updated admin profile"
+    },
+    {
+        "timestamp": "2025-03-27 11:21:46",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Error in partylist management: Cannot delete partylist with existing candidates"
+    },
+    {
+        "timestamp": "2025-03-27 11:21:58",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Deleted candidate: Juan De Guzman"
+    },
+    {
+        "timestamp": "2025-03-27 11:22:06",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Deleted candidate: Janzen Go"
+    },
+    {
+        "timestamp": "2025-03-27 11:22:30",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Deleted partylist: Sagada"
+    },
+    {
+        "timestamp": "2025-03-27 12:39:43",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Added candidate: Michael Jordan"
+    },
+    {
+        "timestamp": "2025-03-27 13:46:28",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Updated election configuration: Name: Sangguniang Mag-aaral Elections 2025, Status: paused, End: 2025-03-28 07:55:00"
+    },
+    {
+        "timestamp": "2025-03-27 13:46:36",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Updated election configuration: Name: Sangguniang Mag-aaral Elections 2024, Status: paused, End: 2025-03-28 07:55:00"
+    },
+    {
+        "timestamp": "2025-03-27 13:47:54",
+        "user_id": "wallysabangan2024",
+        "role": "superadmin",
+        "action": "Updated election configuration: Name: Sangguniang Mag-aaral Elections 2024, Status: active, End: 2025-03-28 07:55:00"
     }
 ]

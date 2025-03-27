@@ -1,4 +1,4 @@
-{{ ... }}# E-Halal Project Progress
+# E-Halal Project Progress
 
 ## Project Overview
 E-Halal is an electronic voting system with OTP-based authentication, designed to provide a secure and efficient platform for elections.

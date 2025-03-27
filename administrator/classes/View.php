@@ -7,17 +7,37 @@ require_once 'Admin.php';
 require_once 'Position.php';
 require_once 'Candidate.php';
 require_once 'Vote.php';
+require_once 'Elections.php';
+require_once 'Partylist.php';
 
 class View {
     private $admin;
     private $adminData;
     private $session;
     private static $instance = null;
+    private $elections;
 
     private function __construct() {
         $this->session = CustomSessionHandler::getInstance();
         $this->admin = Admin::getInstance();
         $this->adminData = $this->admin->getAdminData();
+        $this->elections = Elections::getInstance();
+    }
+
+    /**
+     * Check if modifications are allowed based on election status
+     * @return bool
+     */
+    public function canModify() {
+        return !$this->elections->isModificationLocked();
+    }
+
+    /**
+     * Get hidden class based on election status
+     * @return string
+     */
+    public function getHiddenClass() {
+        return $this->canModify() ? '' : 'hidden';
     }
 
     public static function getInstance() {
@@ -67,22 +87,27 @@ class View {
                         <!-- User Account: style can be found in dropdown.less -->
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <img src="<?php echo (!empty($admin_data['photo'])) ? BASE_URL.'images/'.$admin_data['photo'] : BASE_URL.'images/profile.jpg'; ?>" class="user-image" alt="User Image">
-                                <span class="hidden-xs"><?php echo $admin_data['firstname'].' '.$admin_data['lastname']; ?></span>
+                                <img src="<?php echo (!empty($admin->getPhoto())) ? BASE_URL.'administrator/'.$admin->getPhoto() : BASE_URL.'administrator/assets/images/profile.jpg'; ?>" class="user-image" alt="User Image">
+                                <span class="hidden-xs">
+                                    <?php 
+                                    echo $admin->getFullName(); 
+                                    echo ' (' . ucfirst($admin->getRole()) . ')';
+                                    ?>
+                                </span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header">
-                                    <img src="<?php echo (!empty($admin_data['photo'])) ? BASE_URL.'images/'.$admin_data['photo'] : BASE_URL.'images/profile.jpg'; ?>" class="img-circle" alt="User Image">
+                                    <img src="<?php echo (!empty($admin->getPhoto())) ? BASE_URL.'administrator/'.$admin->getPhoto() : BASE_URL.'administrator/assets/images/profile.jpg'; ?>" class="img-circle" alt="User Image">
                                     <p>
-                                        <?php echo $admin_data['firstname'].' '.$admin_data['lastname']; ?>
-                                        <small>Member since <?php echo date('M. Y', strtotime($admin_data['created_on'])); ?></small>
+                                        <?php echo $admin->getFullName(); ?>
+                                        <small>Member since <?php echo date('M. Y', strtotime($admin->getAdminData()['created_on'])); ?></small>
                                     </p>
                                 </li>
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="#profile" data-toggle="modal" class="btn btn-default btn-flat" id="admin_profile">Update</a>
+                                        <a href="#" class="btn btn-default btn-flat" id="admin_profile">Update</a>
                                     </div>
                                     <div class="pull-right">
                                         <a href="?action=logout" class="btn btn-default btn-flat">Sign out</a>
@@ -100,6 +125,8 @@ class View {
 
     public function renderMenubar() {
         ob_start();
+        // Get current page from URL
+        $current_page = basename($_SERVER['PHP_SELF']);
         ?>
         <aside class="main-sidebar">
             <!-- sidebar: style can be found in sidebar.less -->
@@ -107,20 +134,57 @@ class View {
                 <!-- Sidebar user panel -->
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu" data-widget="tree">
-                    <li class="header">REPORTS</li>
-                    <li class=""><a href="home"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-                    <li class=""><a href="votes"><i class="fa fa-check-circle"></i> <span>Votes</span></a></li>
-                    <li class="header">MANAGE</li>
-                    <li class=""><a href="voters"><i class="fa fa-users"></i> <span>Voters</span></a></li>
-                    <li class=""><a href="positions"><i class="fa fa-list-alt"></i> <span>Positions</span></a></li>
-                    <li class=""><a href="candidates"><i class="fa fa-user"></i> <span>Candidates</span></a></li>
+                    <!-- Dashboard -->
+                    <li class="<?php echo $current_page == 'home.php' ? 'active' : ''; ?>">
+                        <a href="home"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
+                    </li>
+
+                    <!-- Election Management -->
+                    <li class="header">ELECTION MANAGEMENT</li>
+                    <li class="<?php echo $current_page == 'positions.php' ? 'active' : ''; ?>">
+                        <a href="positions"><i class="fa fa-tasks"></i> <span>Positions</span></a>
+                    </li>
+                    <li class="<?php echo $current_page == 'candidates.php' ? 'active' : ''; ?>">
+                        <a href="candidates"><i class="fa fa-user-tie"></i> <span>Candidates</span></a>
+                    </li>
+                    <li class="<?php echo $current_page == 'partylists.php' ? 'active' : ''; ?>">
+                        <a href="partylists"><i class="fa fa-list"></i> <span>Partylists</span></a>
+                    </li>
+                    <li class="<?php echo $current_page == 'voters.php' ? 'active' : ''; ?>">
+                        <a href="voters"><i class="fa fa-users"></i> <span>Voters</span></a>
+                    </li>
+                    <li class="<?php echo $current_page == 'courses.php' ? 'active' : ''; ?>">
+                        <a href="courses"><i class="fa fa-graduation-cap"></i> <span>Courses</span></a>
+                    </li>
+
+                    <!-- Reports & Analytics -->
+                    <li class="header">REPORTS & ANALYTICS</li>
+                    <li class="<?php echo $current_page == 'votes.php' ? 'active' : ''; ?>">
+                        <a href="votes"><i class="fa fa-chart-bar"></i> <span>Votes</span></a>
+                    </li>
+                    <li class="<?php echo $current_page == 'history.php' ? 'active' : ''; ?>">
+                        <a href="history"><i class="fa fa-history"></i> <span>Election History</span></a>
+                    </li>
+
+                    <?php if ($this->admin->isSuperAdmin()): ?>
+                    <!-- System Administration -->
+                    <li class="header">ADMINISTRATION</li>
+                    <li class="<?php echo $current_page == 'officers.php' ? 'active' : ''; ?>">
+                        <a href="officers"><i class="fa fa-user-shield"></i> <span>Officers</span></a>
+                    </li>
+                    <li class="<?php echo $current_page == 'log_admin.php' ? 'active' : ''; ?>">
+                        <a href="log_admin"><i class="fa fa-user-shield"></i> <span>Admin Logs</span></a>
+                    </li>
+
+                    <!-- System Settings -->
                     <li class="header">SETTINGS</li>
-                    <li class=""><a href="ballot"><i class="fa fa-file-text"></i> <span>Ballot Position</span></a></li>
-                    <li class=""><a href="configure"><i class="fa fa-sliders"></i> <span>Configure Election</span></a></li>
-                    <li class=""><a href="history"><i class="fa fa-clock-rotate-left"></i> <span>Election History</span></a></li>
-                    <li class="header">ADMIN ACTIONS</li>
-                    <li class=""><a href="log_admin"><i class="fa fa-file"></i> <span>Admin Logs</span></a></li>
-                    <li class=""><a href="officers"><i class="fa fa-wrench"></i> <span>Manage Officers</span></a></li>
+                    <li class="<?php echo $current_page == 'configure.php' ? 'active' : ''; ?>">
+                        <a href="configure"><i class="fa fa-cogs"></i> <span>Configure Election</span></a>
+                    </li>
+                    <li class="<?php echo $current_page == 'ballot.php' ? 'active' : ''; ?>">
+                        <a href="ballot"><i class="fa fa-ticket-alt"></i> <span>Ballot Settings</span></a>
+                    </li>
+                    <?php endif; ?>
                 </ul>
             </section>
             <!-- /.sidebar -->
@@ -135,12 +199,11 @@ class View {
         <!DOCTYPE html>
         <html>
         <head>
-            <title>E-Halal BTECHenyo Admin Login</title>
-            <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <title>E-Halal Voting System | Admin Dashboard</title>
             <!-- Bootstrap -->
             <link rel="stylesheet" href="<?php echo BASE_URL; ?>node_modules/bootstrap/dist/css/bootstrap.min.css">
-            <!-- Font Awesome -->
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
             <!-- AdminLTE -->
             <link rel="stylesheet" href="<?php echo BASE_URL; ?>dist/css/AdminLTE.min.css">
             <link rel="stylesheet" href="<?php echo BASE_URL; ?>dist/css/skins/_all-skins.min.css">
@@ -149,40 +212,47 @@ class View {
             <link rel="stylesheet" href="<?php echo BASE_URL; ?>dist/css/custom.css">
             <link rel="stylesheet" href="<?php echo BASE_URL; ?>dist/css/login.css">
             <link rel="stylesheet" href="<?php echo BASE_URL; ?>dist/css/ballots.css">
+            <link rel="stylesheet" href="<?php echo BASE_URL; ?>administrator/assets/css/styles.css">
             <!-- DataTables -->
-            <link rel="stylesheet" href="<?php echo BASE_URL; ?>node_modules/datatables.net-bs/css/dataTables.bootstrap.min.css">
+            <link rel="stylesheet" href="<?php echo BASE_URL; ?>node_modules\datatables.net-bs\css\dataTables.bootstrap.css">
             <!-- iCheck -->
-            <link rel="stylesheet" href="<?php echo BASE_URL; ?>plugins/iCheck/all.css">
+            <link rel="stylesheet" href="<?php echo BASE_URL; ?>node_modules/iCheck/skins/all.css">
             <!-- Date Range Picker -->
             <link rel="stylesheet" href="<?php echo BASE_URL; ?>node_modules/bootstrap-daterangepicker/daterangepicker.css">
             <!-- Date Picker -->
             <link rel="stylesheet" href="<?php echo BASE_URL; ?>node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
             <!-- Time Picker -->
-            <link rel="stylesheet" href="<?php echo BASE_URL; ?>plugins/timepicker/bootstrap-timepicker.min.css">
+            <link rel="stylesheet" href="<?php echo BASE_URL; ?>node_modules/bootstrap-timepicker/css/bootstrap-timepicker.min.css">
             <!-- SweetAlert2 -->
             <link rel="stylesheet" href="<?php echo BASE_URL; ?>node_modules/sweetalert2/dist/sweetalert2.min.css">
-            <!-- Fancybox -->
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
             <!-- Custom Fonts -->
             <link rel="stylesheet" href="<?php echo BASE_URL; ?>dist/customFonts.css">
             <!-- Favicon -->
             <link rel="icon" type="image/x-icon" href="<?php echo BASE_URL; ?>images/icon.ico">
-
+            <!-- Custom CSS -->
+            <link rel="stylesheet" href="<?php echo BASE_URL; ?>administrator/assets/css/styles.css">
+            <!-- Font Awesome -->
+            <link rel="stylesheet" href="<?php echo BASE_URL; ?>plugins/font-awesome/css/all.min.css" />
+            <!-- Fancybox -->
+            <link rel="stylesheet" href="<?php echo BASE_URL; ?>node_modules/@fancyapps/ui/dist/fancybox/fancybox.css" />
+            <!-- Modals -->
+            <link rel="stylesheet" href="<?php echo BASE_URL; ?>administrator/assets/css/modals.css">
+            
             <!-- jQuery -->
-            <script src="<?php echo BASE_URL; ?>node_modules/jquery/dist/jquery.min.js"></script>
-            <!-- Popper.js -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+            <script src="<?php echo BASE_URL; ?>node_modules/jquery/dist/jquery.min.js"></script>            
             <!-- Bootstrap -->
             <script src="<?php echo BASE_URL; ?>node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
             <!-- DataTables -->
-            <script src="<?php echo BASE_URL; ?>node_modules/datatables.net/js/jquery.dataTables.min.js"></script>
-            <script src="<?php echo BASE_URL; ?>node_modules/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+            <script src="<?php echo BASE_URL; ?>node_modules/datatables.net/js/jquery.dataTables.js"></script>
+            <script src="<?php echo BASE_URL; ?>node_modules/datatables.net-bs/js/dataTables.bootstrap.js"></script>
             <!-- SlimScroll -->
-            <script src="<?php echo BASE_URL; ?>administrator/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+            <script src="<?php echo BASE_URL; ?>node_modules/jquery-slimscroll/jquery.slimscroll.min.js"></script>
             <!-- FastClick -->
             <script src="<?php echo BASE_URL; ?>node_modules/fastclick/lib/fastclick.js"></script>
             <!-- Chart.js -->
-            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script src="<?php echo BASE_URL; ?>node_modules/chart.js/dist/chart.umd.js"></script>
+            <!-- Popper.js -->
+            <script src="<?php echo BASE_URL; ?>node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
         </head>		
         <?php
         return ob_get_clean();
@@ -246,78 +316,12 @@ class View {
         
         <!-- AdminLTE App -->
         <script src="<?php echo BASE_URL; ?>dist/js/adminlte.min.js"></script>
-
-        <!-- Admin Profile Modal -->
-        <div class="modal fade" id="profile">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h4 class="modal-title"><b>Admin Profile</b></h4>
-                    </div>
-                    <div class="modal-body">
-                        <form class="form-horizontal" method="POST" action="profile_update.php?return=<?php echo basename($_SERVER['PHP_SELF']); ?>" enctype="multipart/form-data">
-                            <div class="form-group">
-                                <label for="username" class="col-sm-3 control-label">Username</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="username" name="username" value="<?php echo $this->adminData['username']; ?>">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="password" class="col-sm-3 control-label">Password</label>
-                                <div class="col-sm-9"> 
-                                    <input type="password" class="form-control" id="password" name="password" value="<?php echo $this->adminData['password']; ?>">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="firstname" class="col-sm-3 control-label">Firstname</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="firstname" name="firstname" value="<?php echo $this->adminData['firstname']; ?>">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="lastname" class="col-sm-3 control-label">Lastname</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="lastname" name="lastname" value="<?php echo $this->adminData['lastname']; ?>">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="photo" class="col-sm-3 control-label">Photo:</label>
-                                <div class="col-sm-9">
-                                    <input type="file" id="photo" name="photo">
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="form-group">
-                                <label for="curr_password" class="col-sm-3 control-label">Current Password:</label>
-                                <div class="col-sm-9">
-                                    <input type="password" class="form-control" id="curr_password" name="curr_password" placeholder="input current password to save changes" required>
-                                </div>
-                            </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
-                        <button type="submit" class="btn btn-success btn-flat" name="save"><i class="fa fa-check-square-o"></i> Save</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <script>
-        $(function() {
-            // Handle admin profile modal
-            $(document).on('click', '#admin_profile', function(e) {
-                e.preventDefault();
-                $('#profile').modal('show');
-            });
-        });
-        </script>
-                <?php
-                return ob_get_clean();
-            }
+        
+        <!-- Admin Modal -->
+        <?php include __DIR__ . '/../modals/admin_modal.php'; ?>
+        <?php
+        return ob_get_clean();
+    }
 
     public function getChartData() {
         $position = Position::getInstance();
@@ -327,52 +331,122 @@ class View {
         $positions = $position->getAllPositions();
         $chartData = [];
 
+        // Debug information
+        error_log("Positions found: " . count($positions));
+
         foreach ($positions as $pos) {
             $candidates = $candidate->getCandidatesByPosition($pos['id']);
+            
+            // Debug information
+            error_log("Position {$pos['description']}: Found " . count($candidates) . " candidates");
             
             if (!empty($candidates)) {
                 $candidateNames = [];
                 $voteData = [];
                 $backgroundColor = [];
-                $datasets = [];
 
                 foreach ($candidates as $cand) {
-                    $candidateNames[] = $cand['firstname'] . ' ' . $cand['lastname'];
-                    $votes = $vote->getCandidateVotes($cand['id']);
-                    $voteData[] = $votes;
+                    // Build candidate name with partylist
+                    $fullName = $cand['firstname'] . ' ' . $cand['lastname'];
+                    if (!empty($cand['partylist_id'])) {
+                        $partylist = Partylist::getInstance();
+                        $partylistData = $partylist->getPartylist($cand['partylist_id']);
+                        if ($partylistData) {
+                            $fullName .= ' (' . $partylistData['name'] . ')';
+                        }
+                    }
+                    $candidateNames[] = $fullName;
                     
-                    // Generate a consistent color based on candidate ID
+                    // Get vote count from votes table
+                    $voteCount = $vote->getCandidateVotes($cand['id']);
+                    $voteData[] = intval($voteCount); // Ensure integer value
+                    
+                    // Debug information
+                    error_log("Candidate {$fullName}: {$voteCount} votes");
+
+                    // Generate a consistent color
                     $hue = ($cand['id'] * 137.508) % 360;
-                    $color = "hsla($hue, 70%, 50%, 0.8)";
-                    $backgroundColor[] = $color;
-                    
-                    // Dataset for line charts
-                    $datasets[] = [
-                        'label' => $cand['firstname'] . ' ' . $cand['lastname'],
-                        'data' => [0, $votes], // [initial, current]
-                        'borderColor' => $color,
-                        'backgroundColor' => str_replace('0.8', '0.1', $color),
-                        'fill' => true,
-                        'tension' => 0.4,
-                        'pointRadius' => 4,
-                        'pointHoverRadius' => 6
-                    ];
+                    $backgroundColor[] = "hsla($hue, 70%, 50%, 0.8)";
                 }
 
-                $chartData[] = [
-                    'position' => $pos['description'],
-                    'candidates' => $candidateNames,
-                    'votes' => $voteData,
-                    'backgroundColor' => $backgroundColor,
-                    'datasets' => $datasets
-                ];
+                // Only add to chart data if we have valid vote data
+                if (!empty($candidateNames) && !empty($voteData)) {
+                    $chartData[] = [
+                        'position' => $pos['description'],
+                        'candidates' => $candidateNames,
+                        'votes' => $voteData,
+                        'backgroundColor' => $backgroundColor
+                    ];
+                }
             }
         }
 
+        // Debug information
+        error_log("Final chart data: " . json_encode($chartData));
         return $chartData;
     }
 
     public function renderPositionCharts() {
         return ''; // Charts are now rendered client-side
+    }
+
+    public function isModificationAllowed() {
+        $election = Elections::getInstance();
+        $current_election = $election->getCurrentElection();
+        
+        // If no election exists or election is in setup status, allow modifications
+        if (!$current_election || $current_election['status'] === 'setup') {
+            return true;
+        }
+        
+        // If election is active or completed, prevent modifications
+        if (in_array($current_election['status'], ['active', 'completed'])) {
+            return false;
+        }
+        
+        // For paused status, check if end time has passed
+        if ($current_election['status'] === 'paused') {
+            $end_time = new DateTime($current_election['end_time'], new DateTimeZone('Asia/Manila'));
+            $now = new DateTime('now', new DateTimeZone('Asia/Manila'));
+            return $end_time > $now;
+        }
+        
+        return true;
+    }
+
+    public function getModificationMessage() {
+        $election = Elections::getInstance();
+        $current_election = $election->getCurrentElection();
+        
+        if (!$current_election) {
+            return '';
+        }
+
+        $end_time = new DateTime($current_election['end_time'], new DateTimeZone('Asia/Manila'));
+        $now = new DateTime('now', new DateTimeZone('Asia/Manila'));
+        $is_past_end_time = $end_time <= $now;
+
+        switch ($current_election['status']) {
+            case 'active':
+                if ($is_past_end_time) {
+                    return 'Modifications are not allowed. The election has passed its end time and must be completed.';
+                }
+                return 'Modifications are not allowed while the election is active.';
+            case 'paused':
+                if ($is_past_end_time) {
+                    return 'Modifications are not allowed. The election has passed its end time and must be completed.';
+                }
+                return 'Modifications are allowed while the election is paused.';
+            case 'completed':
+                return 'Modifications are not allowed. The election has been completed.';
+            case 'pending':
+                return 'Modifications are allowed while the election is pending.';
+            default:
+                return 'Modifications are not allowed at this time.';
+        }
+    }
+
+    public function getDisabledAttribute() {
+        return $this->isModificationAllowed() ? '' : 'disabled';
     }
 }

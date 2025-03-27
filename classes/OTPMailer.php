@@ -223,32 +223,26 @@ class OTPMailer {
         $mail = new PHPMailer(true);
         
         try {
-            // Configure mail
-            if ($this->mail_config['use_smtp']) {
-                // Use SMTP configuration
-                $mail->isSMTP();
-                $mail->Host = $this->mail_config['smtp']['host'];
-                $mail->SMTPAuth = true;
-                $mail->Username = $this->mail_config['smtp']['username'];
-                $mail->Password = $this->mail_config['smtp']['password'];
-                $mail->SMTPSecure = $this->mail_config['smtp']['encryption'] === 'tls' ? 
-                    PHPMailer::ENCRYPTION_STARTTLS : PHPMailer::ENCRYPTION_SMTPS;
-                $mail->Port = $this->mail_config['smtp']['port'];
-            } else {
-                // Use PHP mail() function
-                $mail->isMail();
-            }
+            // Server settings
+            $mail->SMTPDebug = SMTP::DEBUG_OFF; // Disable debug output in production
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->SMTPAuth = true;
+            $mail->Username = $_ENV['MAIL_USERNAME'];
+            $mail->Password = $_ENV['MAIL_PASSWORD'];
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->Port = 587;
+            
+            // Set timeout and keep alive
+            $mail->Timeout = 60;
+            $mail->SMTPKeepAlive = true;
+            
+            // Set character encoding
+            $mail->CharSet = 'UTF-8';
             
             // Recipients
-            $mail->setFrom(
-                $this->mail_config['mail_from'], 
-                $this->mail_config['mail_from_name']
-            );
+            $mail->setFrom($_ENV['MAIL_USERNAME'], 'E-Halal System');
             $mail->addAddress($email, $name);
-            $mail->addReplyTo(
-                $this->mail_config['mail_reply_to'], 
-                $this->mail_config['mail_from_name']
-            );
             
             // Content
             $mail->isHTML(true);
@@ -270,10 +264,16 @@ class OTPMailer {
             ];
             
         } catch (Exception $e) {
+            error_log("Mail Error: " . $mail->ErrorInfo);
             return [
                 'success' => false,
                 'message' => "Message could not be sent. Mailer Error: {$mail->ErrorInfo}"
             ];
+        }
+
+        // Close SMTP connection
+        if ($mail->SMTPKeepAlive) {
+            $mail->smtpClose();
         }
     }
 

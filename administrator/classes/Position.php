@@ -41,51 +41,48 @@ class Position {
         return 0;
     }
 
-    public function addPosition($description, $maxVote) {
+    /**
+     * Add a new position
+     * @param string $description Position description
+     * @param int $max_vote Maximum votes allowed
+     * @return bool|array
+     */
+    public function addPosition($description, $max_vote) {
         try {
             // Get current highest priority
             $query = "SELECT MAX(priority) as max_priority FROM positions";
-            $stmt = $this->db->prepare($query);
-            $stmt->execute();
-            $result = $stmt->get_result();
+            $result = $this->db->query($query);
             $row = $result->fetch_assoc();
             $priority = ($row['max_priority'] ?? 0) + 1;
-
-            // Start transaction
-            $this->db->getConnection()->begin_transaction();
-
+            
             // Insert new position
             $query = "INSERT INTO positions (description, max_vote, priority) VALUES (?, ?, ?)";
             $stmt = $this->db->prepare($query);
-            $stmt->bind_param("sii", $description, $maxVote, $priority);
+            $stmt->bind_param("sii", $description, $max_vote, $priority);
             
             if (!$stmt->execute()) {
                 throw new Exception("Failed to add position");
             }
-
-            $id = $stmt->insert_id;
-            $this->db->getConnection()->commit();
-            return ['id' => $id, 'priority' => $priority];
+            
+            return ['id' => $stmt->insert_id, 'priority' => $priority];
         } catch (Exception $e) {
-            $this->db->getConnection()->rollback();
             throw $e;
         }
     }
 
-    public function updatePosition($id, $description, $maxVote) {
-        try {
-            $query = "UPDATE positions SET description = ?, max_vote = ? WHERE id = ?";
-            $stmt = $this->db->prepare($query);
-            $stmt->bind_param("sii", $description, $maxVote, $id);
-            
-            if (!$stmt->execute()) {
-                throw new Exception("Failed to update position");
-            }
-            
-            return $stmt->affected_rows > 0;
-        } catch (Exception $e) {
-            throw $e;
-        }
+    /**
+     * Update an existing position
+     * @param int $id Position ID
+     * @param string $description Position description
+     * @param int $max_vote Maximum votes allowed
+     * @param int $priority Position priority (lower number = higher priority)
+     * @return bool
+     */
+    public function updatePosition($id, $description, $max_vote, $priority = 1) {
+        $query = "UPDATE positions SET description = ?, max_vote = ?, priority = ? WHERE id = ?";
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param("siii", $description, $max_vote, $priority, $id);
+        return $stmt->execute();
     }
 
     public function deletePosition($id) {
@@ -170,5 +167,19 @@ class Position {
             return $result->fetch_all(MYSQLI_ASSOC);
         }
         return [];
+    }
+
+    /**
+     * Get all positions sorted by priority (lowest number first)
+     * @return array
+     */
+    public function getAllPositionsByPriority() {
+        $sql = "SELECT * FROM positions ORDER BY priority ASC";
+        $result = $this->db->query($sql);
+        $positions = [];
+        while ($row = $result->fetch_assoc()) {
+            $positions[] = $row;
+        }
+        return $positions;
     }
 }

@@ -79,7 +79,6 @@ class View {
             <title>E-Halal BTECHenyo | Voting System</title>
             <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
             <link rel="stylesheet" href="<?php echo BASE_URL; ?>node_modules/bootstrap/dist/css/bootstrap.min.css">
-            <link rel="stylesheet" href="<?php echo BASE_URL; ?>node_modules/font-awesome/css/regular.min.css"/>
             <link rel="stylesheet" href="<?php echo BASE_URL; ?>dist/css/AdminLTE.css">
             <link rel="stylesheet" href="<?php echo BASE_URL; ?>dist/css/skins/_all-skins.min.css">
             <link rel="stylesheet" href="<?php echo BASE_URL; ?>dist/css/custom.css">
@@ -87,9 +86,11 @@ class View {
             <link rel="stylesheet" href="<?php echo BASE_URL; ?>dist/css/ballots.css">
             <link rel="icon" type="image/x-icon" href="<?php echo BASE_URL; ?>images/icon.ico">
             <link rel="stylesheet" href="<?php echo BASE_URL; ?>dist/customFonts.css">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
-            <link rel="stylesheet" href="<?php echo BASE_URL; ?>node_modules\sweetalert2\dist\sweetalert2.min.css" />
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+            <link rel="stylesheet" href="<?php echo BASE_URL; ?>node_modules/sweetalert2/dist/sweetalert2.min.css" />
+            <!-- Font Awesome -->
+            <link rel="stylesheet" href="<?php echo BASE_URL; ?>plugins/font-awesome/css/all.min.css" />
+            <!-- Fancybox -->
+            <link rel="stylesheet" href="<?php echo BASE_URL; ?>node_modules/@fancyapps/ui/dist/fancybox/fancybox.css" />
         </head>		
         <?php
         return ob_get_clean();
@@ -124,22 +125,21 @@ class View {
         <!-- Bootstrap 3.3.7 -->
         <script src="<?php echo BASE_URL; ?>node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
         <!-- iCheck 1.0.1 -->
-        <script src="<?php echo BASE_URL; ?>plugins/iCheck/icheck.min.js"></script>
+        <script src="<?php echo BASE_URL; ?>node_modules/iCheck/icheck.min.js"></script>
         <!-- DataTables -->
-        <script src="<?php echo BASE_URL; ?>node_modules/datatables.net/js/jquery.dataTables.min.js"></script>
-        <script src="<?php echo BASE_URL; ?>node_modules/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+        <script src="<?php echo BASE_URL; ?>node_modules/datatables.net/js/jquery.dataTables.js"></script>
+        <script src="<?php echo BASE_URL; ?>node_modules/datatables.net-bs/js/dataTables.bootstrap.js"></script>
         <!-- SlimScroll -->
         <script src="<?php echo BASE_URL; ?>node_modules/jquery-slimscroll/jquery.slimscroll.min.js"></script>
         <!-- FastClick -->
         <script src="<?php echo BASE_URL; ?>node_modules/fastclick/lib/fastclick.js"></script>
         <!-- AdminLTE App -->
         <script src="<?php echo BASE_URL; ?>dist/js/adminlte.min.js"></script>
-        <!-- Font-awesome -->
-        <script src="<?php echo BASE_URL;?>node_modules/font-awesome/js/regular.min.js"></script>
         <!-- SweetAlert2 -->
         <script src="<?php echo BASE_URL; ?>node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
         <!-- Custom JS -->
         <script src="<?php echo BASE_URL; ?>dist/js/main.js"></script>
+        
 
         <style>
         .swal2-container {
@@ -174,8 +174,11 @@ class View {
                 $('#platform').modal('show');
                 var platform = $(this).data('platform');
                 var fullname = $(this).data('fullname');
+                var image = $(this).data('image');
+                
                 $('.candidate').html(fullname);
                 $('#plat_view').html(platform);
+                $('#platform_image').attr('src', !image ? 'administrator/assets/images/profile.jpg' : 'administrator/' + image);
             });
 
             // Preview button handler
@@ -307,6 +310,20 @@ class View {
             }
         });
         </script>
+        <?php
+        return ob_get_clean();
+    }
+
+    public function renderForms() {
+        ob_start();
+        ?>
+        <section class="election-message">
+                    <div class="election-message-box">
+                        <h2>ELECTION PERIOD ENDED</h2>
+                        <p>The voting system is currently closed as the election period for <?php echo htmlspecialchars($electionName); ?> has ended. Stay tuned for future announcements, BTECHenyos!</p>
+                    </div>
+                    <a href="#">Have some questions?</a>
+        </section>
         <?php
         return ob_get_clean();
     }

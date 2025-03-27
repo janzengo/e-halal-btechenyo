@@ -8,9 +8,10 @@ $view = View::getInstance();
 $admin = Admin::getInstance();
 $logger = AdminLogger::getInstance();
 
-// Check if admin is logged in
-if (!$admin->isLoggedIn()) {
-    header('Location: ../administrator');
+// Check if admin is logged in and is superadmin
+if (!$admin->isLoggedIn() || !$admin->isSuperAdmin()) {
+    $_SESSION['error'] = 'Access Denied. This page is restricted to superadmins only.';
+    header('Location: home');
     exit();
 }
 
@@ -20,6 +21,13 @@ if (isset($_POST['clear_logs']) && $admin->isAdmin()) {
     $logger->clearLogs($type);
     $_SESSION['success'] = 'Admin logs cleared successfully';
     header('Location: log_admin.php');
+    exit();
+}
+
+// At the top of admin_logs.php, officers.php, and configure.php
+if (!$admin->isSuperAdmin()) {
+    $_SESSION['error'] = 'Access Denied. This page is restricted to superadmins only.';
+    header('Location: home');
     exit();
 }
 ?>
@@ -47,7 +55,7 @@ if (isset($_POST['clear_logs']) && $admin->isAdmin()) {
                 <small>View all administrator activities</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Admin Actions</a></li>
+                <li><a href="#"><i class="fa fa-dashboard"></i>Reports</a></li>
                 <li class="active">Admin Logs</li>
             </ol>
         </section>
@@ -81,19 +89,6 @@ if (isset($_POST['clear_logs']) && $admin->isAdmin()) {
                 <!-- Admin Logs -->
                 <div class="col-xs-12">
                     <div class="box">
-                        <div class="box-header with-border">
-                            <h3 class="box-title">Administrator Logs</h3>
-                            <?php if ($admin->isAdmin()): ?>
-                            <div class="pull-right">
-                                <form method="POST" class="form-inline" style="display: inline;">
-                                    <input type="hidden" name="log_type" value="admin">
-                                    <button type="submit" name="clear_logs" class="btn btn-danger btn-sm btn-flat" onclick="return confirm('Are you sure you want to clear admin logs?');">
-                                        <i class="fa fa-trash"></i> Clear Admin Logs
-                                    </button>
-                                </form>
-                            </div>
-                            <?php endif; ?>
-                        </div>
                         <div class="box-body">
                             <div class="table-responsive">
                                 <table id="admin_logs_table" class="table table-bordered table-striped">
@@ -142,7 +137,7 @@ $(function() {
     if (adminTable.find('tbody tr').length > 0 && adminTable.find('tbody tr td').length > 1) {
         adminTable.DataTable({
             'order': [[0, 'desc']],
-            'pageLength': 25,
+            'pageLength': 15,
             'responsive': true,
             'autoWidth': false,
             'language': {
