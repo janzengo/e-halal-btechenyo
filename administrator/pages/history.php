@@ -121,12 +121,12 @@ $history = $election->getElectionHistory($limit, $offset);
                                                 echo "<td>";
                                                 if ($row['details_pdf']) {
                                                     echo "<a href='../uploads/pdfs/" . htmlspecialchars($row['details_pdf']) . "' class='btn btn-info btn-sm' target='_blank'>
-                                                            <i class='fa fa-file-pdf-o'></i> Details
+                                                            <i class='fa fa-file-pdf'></i> Details
                                                           </a> ";
                                                 }
                                                 if ($row['results_pdf']) {
                                                     echo "<a href='../uploads/pdfs/" . htmlspecialchars($row['results_pdf']) . "' class='btn btn-success btn-sm' target='_blank'>
-                                                            <i class='fa fa-file-pdf-o'></i> Results
+                                                            <i class='fa fa-file-pdf'></i> Results
                                                           </a>";
                                                 }
                                                 echo "</td>";

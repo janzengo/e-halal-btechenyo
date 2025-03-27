@@ -5,7 +5,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 try {
     $dotenv->load();
-    $dotenv->required(['DB_HOST', 'DB_NAME', 'DB_USERNAME'])->notEmpty();
+    $dotenv->required(['DB_HOST', 'DB_NAME', 'DB_USERNAME', 'MAIL_MAILER', 'MAIL_HOST', 'MAIL_PORT', 'MAIL_USERNAME', 'MAIL_PASSWORD'])->notEmpty();
 } catch (Exception $e) {
     die('Error loading environment variables: ' . $e->getMessage());
 }
@@ -34,7 +34,7 @@ if (!function_exists('mail_config')) {
             'mailer' => $_ENV['MAIL_MAILER'] ?? 'sendmail',
             'use_smtp' => ($_ENV['MAIL_MAILER'] ?? 'sendmail') === 'smtp',
             'mail_from' => $_ENV['MAIL_FROM_ADDRESS'] ?? 'noreply@e-halal.edu.ph',
-            'mail_from_name' => $_ENV['MAIL_FROM_NAME'] ?? 'E-Halal Voting System',
+            'mail_from_name' => $_ENV['MAIL_FROM_NAME'] ?? 'E-Halal BTECHenyo Voting System',
             'mail_reply_to' => $_ENV['MAIL_REPLY_TO'] ?? 'noreply@e-halal.edu.ph',
             'smtp' => [
                 'host' => $_ENV['MAIL_HOST'] ?? '',

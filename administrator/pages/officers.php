@@ -9,9 +9,9 @@ $admin = Admin::getInstance();
 $logger = AdminLogger::getInstance();
 
 // Check if admin is logged in and is superadmin
-if (!$admin->isLoggedIn() || !$admin->isAdmin()) {
-    $_SESSION['error'] = 'You do not have permission to access this page.';
-    header('Location: ../administrator');
+if (!$admin->isLoggedIn() || !$admin->isSuperAdmin()) {
+    $_SESSION['error'] = 'Access Denied. This page is restricted to superadmins only.';
+    header('Location: home');
     exit();
 }
 ?>
@@ -39,7 +39,7 @@ if (!$admin->isLoggedIn() || !$admin->isAdmin()) {
                 <small>Add, Edit, Delete Election Officers</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Admin Actions</a></li>
+                <li><a href="#"><i class="fa fa-dashboard"></i> Manage</a></li>
                 <li class="active">Officers</li>
             </ol>
         </section>
@@ -127,53 +127,13 @@ if (!$admin->isLoggedIn() || !$admin->isAdmin()) {
     <?php echo $view->renderFooter(); ?>
 </div>
 
-<?php include 'includes/officers_modal.php'; ?>
+<?php include 'includes/modals/officers_modal.php'; ?>
 <?php echo $view->renderScripts(); ?>
 
 <script>
-$(function() {
-    $('#officerTable').DataTable({
-        responsive: true,
-        "order": [[ 4, "desc" ]]
-    });
-
-    // Initialize all tooltips
-    $('[data-toggle="tooltip"]').tooltip();
-
-    // Edit officer
-    $(document).on('click', '.edit', function(e){
-        e.preventDefault();
-        $('#edit').modal('show');
-        var id = $(this).data('id');
-        getRow(id);
-    });
-
-    // Delete officer
-    $(document).on('click', '.delete', function(e){
-        e.preventDefault();
-        $('#delete').modal('show');
-        var id = $(this).data('id');
-        getRow(id);
-    });
-});
-
-function getRow(id){
-    $.ajax({
-        type: 'POST',
-        url: 'includes/officers_row.php',
-        data: {id:id},
-        dataType: 'json',
-        success: function(response){
-            $('.admin_id').val(response.id);
-            $('#edit_username').val(response.username);
-            $('#edit_firstname').val(response.firstname);
-            $('#edit_lastname').val(response.lastname);
-            $('#edit_gender').val(response.gender);
-            $('#edit_role').val(response.role);
-            $('.fullname').html(response.firstname + ' ' + response.lastname);
-        }
-    });
-}
+    // Global variables for officer.js
+    window.BASE_URL = '<?php echo BASE_URL; ?>';
 </script>
+<script src="<?php echo BASE_URL; ?>administrator/pages/includes/scripts/officer.js"></script>
 </body>
 </html> 

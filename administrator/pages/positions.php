@@ -14,6 +14,22 @@ if (!$admin->isLoggedIn()) {
     exit();
 }
 
+// Handle logout
+if (isset($_GET['action']) && $_GET['action'] == 'logout') {
+    $admin->logout();
+    header('location: ../index.php');
+    exit();
+}
+
+// Check if modifications are allowed
+$canModify = $view->isModificationAllowed();
+if (!$canModify) {
+    $_SESSION['warning'] = $view->getModificationMessage();
+}
+
+// Get all positions
+$positions = $position->getAllPositionsByPriority();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,7 +55,7 @@ if (!$admin->isLoggedIn()) {
                 <small>Add, Edit, Delete Positions</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="home"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li><a href="#"><i class="fa fa-dashboard"></i> Manage</a></li>
                 <li class="active">Positions</li>
             </ol>
         </section>
@@ -47,22 +63,22 @@ if (!$admin->isLoggedIn()) {
         <!-- Main content -->
         <section class="content">
             <?php
-            if (isset($_SESSION['error'])) {
+            if(isset($_SESSION['error'])){
                 echo "
                     <div class='alert alert-danger alert-dismissible'>
                         <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
                         <h4><i class='icon fa fa-warning'></i> Error!</h4>
-                        " . $_SESSION['error'] . "
+                        ".$_SESSION['error']."
                     </div>
                 ";
                 unset($_SESSION['error']);
             }
-            if (isset($_SESSION['success'])) {
+            if(isset($_SESSION['success'])){
                 echo "
                     <div class='alert alert-success alert-dismissible'>
                         <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
                         <h4><i class='icon fa fa-check'></i> Success!</h4>
-                        " . $_SESSION['success'] . "
+                        ".$_SESSION['success']."
                     </div>
                 ";
                 unset($_SESSION['success']);
@@ -71,42 +87,54 @@ if (!$admin->isLoggedIn()) {
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box">
-                        <div class="box-header with-border">
-                            <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat">
+                    <div class="box-header with-border">
+                            <button type="button" class="btn btn-primary btn-sm btn-flat" data-toggle="modal" data-target="#addnew" <?php echo $view->getDisabledAttribute(); ?> <?php echo $view->getDisabledAttribute() ? 'data-toggle="tooltip" title="' . $view->getModificationMessage() . '"' : ''; ?>>
                                 <i class="fa fa-plus"></i> New Position
-                            </a>
+                            </button>
                         </div>
                         <div class="box-body">
-                            <table id="positionTable" class="table table-bordered table-striped">
+                            <table id="positionsTable" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
+                                        <th>Priority</th>
                                         <th>Description</th>
                                         <th>Maximum Vote</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php
-                                    $positions = $position->getAllPositions();
-                                    foreach ($positions as $row) {
-                                        echo "
-                                            <tr>
-                                                <td>" . $row['description'] . "</td>
-                                                <td>" . $row['max_vote'] . "</td>
-                                                <td>
-                                                    <button class='btn btn-success btn-sm edit btn-flat' data-id='" . $row['id'] . "'>
-                                                        <i class='fa fa-edit'></i> Edit
-                                                    </button>
-                                                    <button class='btn btn-danger btn-sm delete btn-flat' data-id='" . $row['id'] . "'>
-                                                        <i class='fa fa-trash'></i> Delete
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                        ";
-                                    }
-                                    ?>
+                                    <?php foreach ($positions as $pos): ?>
+                                        <tr>
+                                            <td><?php echo $pos['priority']; ?></td>
+                                            <td><?php echo htmlspecialchars($pos['description']); ?></td>
+                                            <td><?php echo $pos['max_vote']; ?></td>
+                                            <td>
+                                                <button class="btn btn-primary btn-sm edit-position" data-id="<?php echo $pos['id']; ?>" <?php echo $view->getDisabledAttribute(); ?> <?php echo $view->getDisabledAttribute() ? 'data-toggle="tooltip" title="' . $view->getModificationMessage() . '"' : ''; ?>>
+                                                    <i class="fa fa-edit"></i> Edit
+                                                </button>
+                                                <button class="btn btn-danger btn-sm delete-position" data-id="<?php echo $pos['id']; ?>" <?php echo $view->getDisabledAttribute(); ?> <?php echo $view->getDisabledAttribute() ? 'data-toggle="tooltip" title="' . $view->getModificationMessage() . '"' : ''; ?>>
+                                                    <i class="fa fa-trash"></i> Delete
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
+                            
+                            <ol class='breadcrumb' style='margin-top: 20px;'>
+                                <li class='active'><i class='fa fa-info-circle'></i> Position priority determines the order of positions on the ballot. To change position ordering, please use the <strong>Ballot Settings</strong> page.</li>
+                            </ol>
+                            
+                            <?php
+                            if(isset($_SESSION['warning'])){
+                                echo "
+                                    <ol class='breadcrumb' style='margin-top: 20px;'>
+                                        <li class='active'><i class='fa fa-info-circle'></i> " . $_SESSION['warning'] . "</li>
+                                    </ol>
+                                ";
+                                unset($_SESSION['warning']);
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -117,61 +145,14 @@ if (!$admin->isLoggedIn()) {
     <?php 
     echo $view->renderFooter();
     include 'includes/modals/positions_modal.php';
-    echo $view->renderScripts(); 
-    ?>
-</div>
+    echo $view->renderScripts(); ?>
 
 <script>
-$(function() {
-    // Initialize DataTable
-    $('#positionTable').DataTable({
-        'responsive': true,
-        'autoWidth': false,
-        'language': {
-            'searchPlaceholder': 'Search positions...'
-        }
-    });
-
-    // Handle Edit button click
-    $(document).on('click', '.edit', function(e) {
-        e.preventDefault();
-        $('#edit').modal('show');
-        var id = $(this).data('id');
-        getRow(id);
-    });
-
-    // Handle Delete button click
-    $(document).on('click', '.delete', function(e) {
-        e.preventDefault();
-        $('#delete').modal('show');
-        var id = $(this).data('id');
-        getRow(id);
-    });
-});
-
-function getRow(id){
-    $.ajax({
-        type: 'POST',
-        url: '<?php echo BASE_URL; ?>administrator/pages/includes/modals/controllers/PositionController.php',
-        data: {id:id, action:'get'},
-        dataType: 'json',
-        success: function(response){
-            if (!response.error) {
-                $('.position_id').val(response.data.id);
-                $('#edit_description').val(response.data.description);
-                $('#edit_max_vote').val(response.data.max_vote);
-                $('.description').html(response.data.description);
-            } else {
-                console.error(response.message);
-                alert('Error: ' + response.message);
-            }
-        },
-        error: function(xhr, status, error) {
-            console.error(xhr.responseText);
-            alert('Error fetching position data. Please try again.');
-        }
-    });
-}
+    // Global variables for position.js
+    window.canModify = <?php echo $canModify ? 'true' : 'false'; ?>;
+    window.modificationMessage = '<?php echo addslashes($view->getModificationMessage()); ?>';
+    window.BASE_URL = '<?php echo BASE_URL; ?>';
 </script>
+<script src="<?php echo BASE_URL; ?>administrator/pages/includes/scripts/position.js"></script>
 </body>
 </html> 

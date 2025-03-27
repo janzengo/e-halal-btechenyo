@@ -26,25 +26,14 @@ if (!isset($_POST['status']) || empty($_POST['status'])) {
 $data['election_name'] = $_POST['election_name'] ?? '';
 $data['status'] = $_POST['status'] ?? '';
 
-// If status is not pending, validate dates
-if ($data['status'] !== 'pending') {
-    if (!isset($_POST['start_time']) || empty($_POST['start_time'])) {
-        $errors[] = "Start time is required for non-pending status";
-    }
+// Validate end time based on status
+if ($data['status'] !== Elections::STATUS_SETUP) {
     if (!isset($_POST['end_time']) || empty($_POST['end_time'])) {
-        $errors[] = "End time is required for non-pending status";
+        $errors[] = "End time is required for non-setup status";
     }
 }
 
-// Add dates to data array if they exist
-if (isset($_POST['start_time']) && !empty($_POST['start_time'])) {
-    try {
-        $data['start_time'] = (new DateTime($_POST['start_time']))->format('Y-m-d H:i:s');
-    } catch (Exception $e) {
-        $errors[] = "Invalid start time format";
-    }
-}
-
+// Add end time to data array if it exists
 if (isset($_POST['end_time']) && !empty($_POST['end_time'])) {
     try {
         $data['end_time'] = (new DateTime($_POST['end_time']))->format('Y-m-d H:i:s');
@@ -79,4 +68,4 @@ try {
 }
 
 header("Location: " . BASE_URL . "administrator/configure");
-exit(); 
+exit();

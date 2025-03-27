@@ -53,25 +53,47 @@ $stats = [
                 <small>Control Panel</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li><a href="#"><i class="fa fa-dashboard"></i>Reports</a></li>
                 <li class="active">Dashboard</li>
             </ol>
         </section>
 
         <!-- Main content -->
         <section class="content">
+        <?php
+            if(isset($_SESSION['error'])){
+                echo "
+                    <div class='alert alert-danger alert-dismissible'>
+                        <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+                        <h4><i class='icon fa fa-warning'></i> Error!</h4>
+                        ".$_SESSION['error']."
+                    </div>
+                ";
+                unset($_SESSION['error']);
+            }
+            if(isset($_SESSION['success'])){
+                echo "
+                    <div class='alert alert-success alert-dismissible'>
+                        <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+                        <h4><i class='icon fa fa-check'></i> Success!</h4>
+                        ".$_SESSION['success']."
+                    </div>
+                ";
+                unset($_SESSION['success']);
+            }
+            ?>
             <!-- Modern Stats Cards -->
             <div class="row">
                 <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-gradient" style="background: linear-gradient(135deg, #6B8DD6 0%, #8E37D7 100%);">
-                        <div class="inner">
-                            <h3><?php echo $stats['positions']; ?></h3>
-                            <p>Positions</p>
+                        <div class="inner" style="color: white;">
+                            <h3 style="color: white;"><?php echo $stats['positions']; ?></h3>
+                            <p style="color: white;">Positions</p>
                         </div>
                         <div class="icon">
                             <i class="fa fa-list-alt"></i>
                         </div>
-                        <a href="positions" class="small-box-footer">
+                        <a href="positions" class="small-box-footer" style="color: white;">
                             More info <i class="fa fa-arrow-circle-right"></i>
                         </a>
                     </div>
@@ -79,14 +101,14 @@ $stats = [
 
                 <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-gradient" style="background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);">
-                        <div class="inner">
-                            <h3><?php echo $stats['candidates']; ?></h3>
-                            <p>Candidates</p>
+                        <div class="inner" style="color: white;">
+                            <h3 style="color: white;"><?php echo $stats['candidates']; ?></h3>
+                            <p style="color: white;">Candidates</p>
                         </div>
                         <div class="icon">
                             <i class="fa fa-user"></i>
                         </div>
-                        <a href="candidates" class="small-box-footer">
+                        <a href="candidates" class="small-box-footer" style="color: white;">
                             More info <i class="fa fa-arrow-circle-right"></i>
                         </a>
                     </div>
@@ -94,14 +116,14 @@ $stats = [
 
                 <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-gradient" style="background: linear-gradient(135deg, #FFB74D 0%, #FF9800 100%);">
-                        <div class="inner">
-                            <h3><?php echo $stats['total_voters']; ?></h3>
-                            <p>Total Voters</p>
+                        <div class="inner" style="color: white;">
+                            <h3 style="color: white;"><?php echo $stats['total_voters']; ?></h3>
+                            <p style="color: white;">Total Voters</p>
                         </div>
                         <div class="icon">
                             <i class="fa fa-users"></i>
                         </div>
-                        <a href="voters" class="small-box-footer">
+                        <a href="voters" class="small-box-footer" style="color: white;">
                             More info <i class="fa fa-arrow-circle-right"></i>
                         </a>
                     </div>
@@ -109,14 +131,14 @@ $stats = [
 
                 <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-gradient" style="background: linear-gradient(135deg, #EF5350 0%, #D32F2F 100%);">
-                        <div class="inner">
-                            <h3><?php echo $stats['voted']; ?></h3>
-                            <p>Voters Voted</p>
+                        <div class="inner" style="color: white;">
+                            <h3 style="color: white;"><?php echo $stats['voted']; ?></h3>
+                            <p style="color: white;">Voters Voted</p>
                         </div>
                         <div class="icon">
                             <i class="fa fa-check-circle"></i>
                         </div>
-                        <a href="votes" class="small-box-footer">
+                        <a href="votes" class="small-box-footer" style="color: white;">
                             More info <i class="fa fa-arrow-circle-right"></i>
                         </a>
                     </div>
@@ -142,6 +164,9 @@ $stats = [
                             </div>
                         </div>
                         <div class="box-body">
+                            <?php 
+                            $chartData = $view->getChartData();
+                            ?>
                             <div id="chartsContainer" class="row">
                             </div>
                         </div>
@@ -149,116 +174,121 @@ $stats = [
                 </div>
             </div>
 
-            <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                const chartTypeSelector = document.getElementById('chartTypeSelector');
-                const chartData = <?php echo json_encode($view->getChartData()); ?>;
-                const chartsContainer = document.getElementById('chartsContainer');
-                
-                function createChartConfig(type, data) {
-                    const config = {
-                        type: type,
-                        options: {
-                            responsive: true,
-                            maintainAspectRatio: false,
-                            plugins: {
-                                title: {
-                                    display: true,
-                                    text: data.position + ' - Vote Distribution',
-                                    font: { size: 16 }
-                                }
-                            }
-                        }
-                    };
-                    
-                    if (type === 'line') {
-                        config.data = {
-                            labels: ['Initial', 'Current'],
-                            datasets: data.datasets
-                        };
-                        config.options.scales = {
-                            y: {
-                                beginAtZero: true,
-                                ticks: { stepSize: 1 }
-                            }
-                        };
-                    } 
-                    else if (type === 'pie' || type === 'doughnut' || type === 'polarArea') {
-                        config.data = {
-                            labels: data.candidates,
-                            datasets: [{
-                                data: data.votes,
-                                backgroundColor: data.backgroundColor
-                            }]
-                        };
-                        config.options.plugins.legend = {
-                            display: true,
-                            position: 'right'
-                        };
-                    }
-                    else { // bar
-                        config.data = {
-                            labels: data.candidates,
-                            datasets: [{
-                                label: 'Votes',
-                                data: data.votes,
-                                backgroundColor: data.backgroundColor
-                            }]
-                        };
-                        config.options.scales = {
-                            y: {
-                                beginAtZero: true,
-                                ticks: { stepSize: 1 }
-                            }
-                        };
-                    }
-                    
-                    return config;
-                }
+            <!-- Load Chart.js from node_modules -->
+            <script src="<?php echo BASE_URL; ?>node_modules/chart.js/dist/chart.umd.js"></script>
 
-                function renderCharts(type) {
-                    // Clear the container
-                    chartsContainer.innerHTML = '';
-                    
-                    // Create new chart elements
-                    chartData.forEach((data, index) => {
-                        // Create column div
-                        const colDiv = document.createElement('div');
-                        colDiv.className = 'col-md-6';
-                        
-                        // Create box div
-                        const boxDiv = document.createElement('div');
-                        boxDiv.className = 'box box-success';
-                        
-                        // Create box body
-                        const boxBody = document.createElement('div');
-                        boxBody.className = 'box-body';
-                        
-                        // Create canvas
-                        const canvas = document.createElement('canvas');
-                        canvas.id = 'chart_' + index;
-                        canvas.style.height = '300px';
-                        
-                        // Assemble the elements
-                        boxBody.appendChild(canvas);
-                        boxDiv.appendChild(boxBody);
-                        colDiv.appendChild(boxDiv);
-                        chartsContainer.appendChild(colDiv);
-                        
-                        // Create the chart
-                        const ctx = canvas.getContext('2d');
-                        new Chart(ctx, createChartConfig(type, data));
+            <!-- Initialize Charts -->
+            <script>
+                var chartData = <?php echo json_encode($view->getChartData()); ?>;
+
+                function initCharts() {
+                    const chartsContainer = document.getElementById('chartsContainer');
+                    const chartTypeSelector = document.getElementById('chartTypeSelector');
+
+                    if (!chartData || chartData.length === 0) {
+                        chartsContainer.innerHTML = '<div class="alert alert-warning">No voting data available to display.</div>';
+                        return;
+                    }
+
+                    function renderChart(type) {
+                        chartsContainer.innerHTML = ''; // Clear previous charts
+
+                        chartData.forEach((data, index) => {
+                            // Create the chart container
+                            const chartDiv = document.createElement('div');
+                            chartDiv.className = 'col-md-6';
+                            chartDiv.style.marginBottom = '20px';
+
+                            const chartBox = document.createElement('div');
+                            chartBox.style.padding = '20px';
+                            chartBox.style.background = '#fff';
+                            chartBox.style.borderRadius = '8px';
+                            chartBox.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+                            chartBox.style.height = '400px';
+
+                            const canvas = document.createElement('canvas');
+                            canvas.id = 'chart_' + index;
+                            chartBox.appendChild(canvas);
+                            chartDiv.appendChild(chartBox);
+                            chartsContainer.appendChild(chartDiv);
+
+                            try {
+                                const ctx = canvas.getContext('2d');
+                                new Chart(ctx, {
+                                    type: type,
+                                    data: {
+                                        labels: data.candidates,
+                                        datasets: [{
+                                            label: data.position,
+                                            data: data.votes,
+                                            backgroundColor: [
+                                                'rgba(255, 99, 132, 0.7)',   // Pink
+                                                'rgba(54, 162, 235, 0.7)',   // Blue
+                                                'rgba(255, 206, 86, 0.7)',   // Yellow
+                                                'rgba(75, 192, 192, 0.7)',   // Teal
+                                                'rgba(153, 102, 255, 0.7)',  // Purple
+                                                'rgba(255, 159, 64, 0.7)',   // Orange
+                                                'rgba(46, 204, 113, 0.7)',   // Green
+                                                'rgba(231, 76, 60, 0.7)',    // Red
+                                                'rgba(52, 73, 94, 0.7)',     // Dark Blue
+                                                'rgba(155, 89, 182, 0.7)'    // Lavender
+                                            ],
+                                            borderColor: [
+                                                'rgb(255, 99, 132)',
+                                                'rgb(54, 162, 235)',
+                                                'rgb(255, 206, 86)',
+                                                'rgb(75, 192, 192)',
+                                                'rgb(153, 102, 255)',
+                                                'rgb(255, 159, 64)',
+                                                'rgb(46, 204, 113)',
+                                                'rgb(231, 76, 60)',
+                                                'rgb(52, 73, 94)',
+                                                'rgb(155, 89, 182)'
+                                            ],
+                                            borderWidth: 1
+                                        }]
+                                    },
+                                    options: {
+                                        responsive: true,
+                                        maintainAspectRatio: false,
+                                        plugins: {
+                                            title: {
+                                                display: true,
+                                                text: data.position,
+                                                font: { size: 16 }
+                                            }
+                                        },
+                                        scales: type !== 'pie' && type !== 'doughnut' ? {
+                                            y: {
+                                                beginAtZero: true,
+                                                ticks: {
+                                                    stepSize: 1
+                                                }
+                                            }
+                                        } : undefined
+                                    }
+                                });
+                            } catch (error) {
+                                chartBox.innerHTML = `<div class="alert alert-danger">Error creating chart</div>`;
+                            }
+                        });
+                    }
+
+                    // Initial render
+                    renderChart('bar');
+
+                    // Handle chart type changes
+                    chartTypeSelector.addEventListener('change', function() {
+                        renderChart(this.value);
                     });
                 }
 
-                // Initialize charts
-                renderCharts('bar');
-
-                // Handle chart type changes
-                chartTypeSelector.addEventListener('change', function() {
-                    renderCharts(this.value);
-                });
-            });
+                // Wait for DOM to be ready
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', initCharts);
+                } else {
+                    initCharts();
+                }
             </script>
 
             <style>
@@ -423,5 +453,7 @@ $stats = [
     <?php echo $view->renderFooter(); ?>
 </div>
 <!-- ./wrapper -->
+
+<?php echo $view->renderScripts(); ?>
 </body>
 </html>

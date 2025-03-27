@@ -14,6 +14,13 @@ if (!$admin->isLoggedIn()) {
     exit();
 }
 
+// Handle logout
+if (isset($_GET['action']) && $_GET['action'] == 'logout') {
+    $admin->logout();
+    header('location: ../index.php');
+    exit();
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,51 +46,86 @@ if (!$admin->isLoggedIn()) {
                 <small>Add, Edit, Delete Voters</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="home"><i class="fa fa-dashboard"></i> Home</a></li>
+                <li><a href="#"><i class="fa fa-dashboard"></i> Manage</a></li>
                 <li class="active">Voters</li>
             </ol>
         </section>
 
         <!-- Main content -->
         <section class="content">
+        <?php
+            if(isset($_SESSION['error'])){
+                echo "
+                    <div class='alert alert-danger alert-dismissible'>
+                        <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+                        <h4><i class='icon fa fa-warning'></i> Error!</h4>
+                        ".$_SESSION['error']."
+                    </div>
+                ";
+                unset($_SESSION['error']);
+            }
+            if(isset($_SESSION['success'])){
+                echo "
+                    <div class='alert alert-success alert-dismissible'>
+                        <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+                        <h4><i class='icon fa fa-check'></i> Success!</h4>
+                        ".$_SESSION['success']."
+                    </div>
+                ";
+                unset($_SESSION['success']);
+            }
+            ?>
             <div class="row">
                 <div class="col-xs-12">
                     <div class="box">
                         <div class="box-header with-border">
-                            <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat">
+                            <button type="button" class="btn btn-primary btn-sm btn-flat" data-toggle="modal" data-target="#addnew" <?php echo $view->getDisabledAttribute(); ?>>
                                 <i class="fa fa-plus"></i> New Voter
-                            </a>
+                            </button>
                         </div>
                         <div class="box-body">
-                            <table id="voterTable" class="table table-bordered table-striped">
+                            <table id="example1" class="table table-bordered">
                                 <thead>
                                     <tr>
                                         <th>Student Number</th>
                                         <th>Course</th>
-                                        <th>Registration Date</th>
                                         <th>Status</th>
-                                        <th>Actions</th>
+                                        <th>Tools</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
                                     $voters = $voter->getAllVoters();
-                                    foreach($voters as $row){
+                                    foreach ($voters as $row) {
+                                        $status = $row['has_voted'] ? '<span class="label label-success">Voted</span>' : '<span class="label label-danger">Not Voted</span>';
+                                        // Combine election status and voter status restrictions
+                                        // If election is active OR voter has voted, buttons should be disabled
+                                        $voterDisabled = $row['has_voted'] ? 'disabled' : '';
+                                        $combinedDisabled = $view->getDisabledAttribute() ? 'disabled' : $voterDisabled;
+                                        
+                                        // Set appropriate tooltip message
+                                        $tooltip = '';
+                                        if ($view->getDisabledAttribute()) {
+                                            $tooltip = 'data-toggle="tooltip" title="Cannot modify voters while election is active"';
+                                        } elseif ($row['has_voted']) {
+                                            $tooltip = 'data-toggle="tooltip" title="Cannot modify voters who have already voted"';
+                                        }
+                                        
                                         echo "
-                                        <tr>
-                                            <td>".$row['student_number']."</td>
-                                            <td>".$row['course_name']."</td>
-                                            <td>".date('M d, Y', strtotime($row['created_at']))."</td>
-                                            <td>".($row['has_voted'] ? '<span class="label label-success">Voted</span>' : '<span class="label label-warning">Not Voted</span>')."</td>
-                                            <td>
-                                                <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['id']."'>
-                                                    <i class='fa fa-edit'></i> Edit
-                                                </button>
-                                                <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['id']."'>
-                                                    <i class='fa fa-trash'></i> Delete
-                                                </button>
-                                            </td>
-                                        </tr>";
+                                            <tr>
+                                                <td>" . $row['student_number'] . "</td>
+                                                <td>" . $row['course_name'] . "</td>
+                                                <td>" . $status . "</td>
+                                                <td>
+                                                    <button type='button' class='btn btn-success btn-sm edit btn-flat' data-id='" . $row['id'] . "' " . $combinedDisabled . " " . $tooltip . ">
+                                                        <i class='fa fa-edit'></i> Edit
+                                                    </button>
+                                                    <button type='button' class='btn btn-danger btn-sm delete btn-flat' data-id='" . $row['id'] . "' " . $combinedDisabled . " " . $tooltip . ">
+                                                        <i class='fa fa-trash'></i> Delete
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        ";
                                     }
                                     ?>
                                 </tbody>
@@ -106,7 +148,7 @@ if (!$admin->isLoggedIn()) {
 var baseUrl = '<?php echo BASE_URL; ?>';
 
 $(function() {
-    $('#voterTable').DataTable({
+    $('#example1').DataTable({
         responsive: true,
         "order": [[ 0, "desc" ]]
     });
@@ -115,19 +157,23 @@ $(function() {
     $('[data-toggle="tooltip"]').tooltip();
 
     // Edit voter
-    $(document).on('click', '.edit', function(e){
+    $(document).on('click', '.edit', function(e) {
         e.preventDefault();
-        $('#edit').modal('show');
-        var id = $(this).data('id');
-        getRow(id);
+        if (!$(this).prop('disabled')) {
+            $('#edit').modal('show');
+            var id = $(this).data('id');
+            getRow(id);
+        }
     });
 
     // Delete voter
-    $(document).on('click', '.delete', function(e){
+    $(document).on('click', '.delete', function(e) {
         e.preventDefault();
-        $('#delete').modal('show');
-        var id = $(this).data('id');
-        getRow(id);
+        if (!$(this).prop('disabled')) {
+            $('#delete').modal('show');
+            var id = $(this).data('id');
+            getRow(id);
+        }
     });
 });
 

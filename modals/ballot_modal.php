@@ -29,6 +29,30 @@ $currentVoter = $user->getCurrentUser();
     </div>
 </div>
 
+<!-- Platform Modal -->
+<div class="modal fade" id="platform">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title"><b><span class="candidate"></span></b></h4>
+            </div>
+            <div class="modal-body">
+                <div class="platform-content">
+                    <img src="" id="platform_image" class="candidate-platform-image" alt="Candidate Photo">
+                    <div class="platform-text">
+                        <p id="plat_view"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default btn-flat" name="closePlatform" data-dismiss="modal">
+                    <i class="fa fa-close"></i> Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <style>
     /* Modal styling */
     .modal-content {
@@ -271,7 +295,7 @@ $currentVoter = $user->getCurrentUser();
             // Update the modal content
             $('.candidate').text(fullname);
             $('#plat_view').text(platform);
-            $('#platform_image').attr('src', 'images/' + image);
+            $('#platform_image').attr('src', !image ? 'administrator/assets/images/profile.jpg' : 'administrator/' + image);
 
             // Show the modal
             $('#platform').modal('show');

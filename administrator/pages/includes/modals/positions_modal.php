@@ -10,6 +10,9 @@
             </div>
             <form id="addPositionForm" class="form-horizontal">
                 <div class="modal-body">
+                    <div class="alert alert-info">
+                        <i class="fa fa-info-circle"></i> Position priority will be automatically assigned based on the current highest priority number.
+                    </div>
                     <div class="form-group">
                         <label for="description" class="col-sm-3 control-label">Description</label>
                         <div class="col-sm-9">
@@ -45,6 +48,13 @@
             <form id="editPositionForm" class="form-horizontal">
                 <div class="modal-body">
                     <input type="hidden" class="position_id" name="id">
+                    <div class="form-group">
+                        <label for="edit_priority" class="col-sm-3 control-label">Priority</label>
+                        <div class="col-sm-9">
+                            <input type="number" class="form-control" id="edit_priority" name="priority" required min="1" placeholder="Enter priority (1 = highest)">
+                            <small class="text-muted">Lower number means higher priority</small>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label for="edit_description" class="col-sm-3 control-label">Description</label>
                         <div class="col-sm-9">

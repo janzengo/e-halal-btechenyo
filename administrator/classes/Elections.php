@@ -10,10 +10,12 @@ class Elections {
     private $logger;
     private static $instance = null;
 
-    // Valid election statuses
-    const STATUS_ON = 'on';
-    const STATUS_OFF = 'off';
+    // Updated valid election statuses
+    const STATUS_SETUP = 'setup';
+    const STATUS_PENDING = 'pending';
+    const STATUS_ACTIVE = 'active';
     const STATUS_PAUSED = 'paused';
+    const STATUS_COMPLETED = 'completed';
 
     private function __construct() {
         $this->db = Database::getInstance();
@@ -43,25 +45,64 @@ class Elections {
     }
 
     /**
+     * Check if election is active and modifications are not allowed
+     * @return bool
+     */
+    public function isModificationLocked() {
+        $current = $this->getCurrentElection();
+        return $current && $current['status'] === self::STATUS_ACTIVE;
+    }
+
+    /**
      * Validate election status change
      * @param string $newStatus
      * @param array $currentElection
      * @return array ['valid' => bool, 'message' => string]
      */
     private function validateStatusChange($newStatus, $currentElection) {
-        $validStatuses = [self::STATUS_ON, self::STATUS_OFF, self::STATUS_PAUSED, 'pending'];
+        $validStatuses = [
+            self::STATUS_SETUP,
+            self::STATUS_PENDING,
+            self::STATUS_ACTIVE,
+            self::STATUS_PAUSED,
+            self::STATUS_COMPLETED
+        ];
         
         if (!in_array($newStatus, $validStatuses)) {
             return ['valid' => false, 'message' => 'Invalid status provided'];
         }
 
-        // Only validate end time when turning election ON
-        if ($newStatus === self::STATUS_ON) {
+        // Validate status transitions
+        if ($currentElection) {
+            $currentStatus = $currentElection['status'];
+            $validTransitions = [
+                self::STATUS_SETUP => [self::STATUS_SETUP, self::STATUS_PENDING],
+                self::STATUS_PENDING => [self::STATUS_SETUP, self::STATUS_PENDING, self::STATUS_ACTIVE],
+                self::STATUS_ACTIVE => [self::STATUS_ACTIVE, self::STATUS_PAUSED, self::STATUS_COMPLETED],
+                self::STATUS_PAUSED => [self::STATUS_PAUSED, self::STATUS_ACTIVE, self::STATUS_COMPLETED, self::STATUS_PENDING],
+                self::STATUS_COMPLETED => [self::STATUS_COMPLETED, self::STATUS_SETUP]
+            ];
+
+            if (!isset($validTransitions[$currentStatus]) || 
+                !in_array($newStatus, $validTransitions[$currentStatus])) {
+                return [
+                    'valid' => false, 
+                    'message' => "Invalid status transition from {$currentStatus} to {$newStatus}"
+                ];
+            }
+        }
+
+        // Validate end time when activating election
+        if ($newStatus === self::STATUS_ACTIVE) {
+            if (empty($currentElection['end_time'])) {
+                return ['valid' => false, 'message' => 'End time must be set before activating the election'];
+            }
+
             $now = new DateTime();
             $endTime = new DateTime($currentElection['end_time']);
 
-            if ($now > $endTime) {
-                return ['valid' => false, 'message' => 'Cannot start election after ' . $endTime->format('F j, Y g:i A')];
+            if ($now >= $endTime) {
+                return ['valid' => false, 'message' => 'Cannot activate election: End time must be in the future'];
             }
         }
 
@@ -77,54 +118,33 @@ class Elections {
         try {
             $this->db->beginTransaction();
 
-            // Validate dates only if status is not pending
-            if ($data['status'] !== 'pending') {
-                $startTime = new DateTime($data['start_time']);
-                $endTime = new DateTime($data['end_time']);
-
-                if ($endTime <= $startTime) {
-                    throw new Exception("End time must be after start time");
-                }
-            }
-
             // Get current election to check if this is an update or new creation
             $currentElection = $this->getCurrentElection();
             
-            // For status validation, use the new data since we're validating the new configuration
+            // Validate status change
             $validation = $this->validateStatusChange($data['status'], $currentElection);
             if (!$validation['valid']) {
                 throw new Exception($validation['message']);
             }
-
-            // If turning on manually, set start_time to current time
-            if ($data['status'] === self::STATUS_ON && (!$currentElection || $currentElection['status'] !== self::STATUS_ON)) {
-                $data['start_time'] = (new DateTime())->format('Y-m-d H:i:s');
-            }
-
-            // Prepare variables for binding
-            $startTimeParam = isset($data['start_time']) ? $data['start_time'] : null;
-            $endTimeParam = isset($data['end_time']) ? $data['end_time'] : null;
 
             if ($currentElection) {
                 // Update existing election
                 $query = "UPDATE election_status SET 
                          election_name = ?,
                          status = ?,
-                         start_time = ?,
                          end_time = ?
                          WHERE id = 1";
             } else {
                 // Create new election
-                $query = "INSERT INTO election_status (id, election_name, status, start_time, end_time) 
-                         VALUES (1, ?, ?, ?, ?)";
+                $query = "INSERT INTO election_status (id, election_name, status, end_time) 
+                         VALUES (1, ?, ?, ?)";
             }
 
             $stmt = $this->db->prepare($query);
-            $stmt->bind_param("ssss", 
+            $stmt->bind_param("sss", 
                 $data['election_name'],
                 $data['status'],
-                $startTimeParam,
-                $endTimeParam
+                $data['end_time']
             );
 
             if (!$stmt->execute()) {
@@ -134,11 +154,10 @@ class Elections {
             // Get admin info from session
             $admin = Admin::getInstance();
             
-            // Log the configuration change with more detailed information
+            // Log the configuration change
             $logMessage = ($currentElection ? "Updated" : "Created") . " election configuration:";
             $logMessage .= " Name: {$data['election_name']},";
             $logMessage .= " Status: {$data['status']},";
-            $logMessage .= " Start: " . ($data['start_time'] ?? 'Not set');
             $logMessage .= " End: " . ($data['end_time'] ?? 'Not set');
 
             $this->logger->logAdminAction(
@@ -162,7 +181,14 @@ class Elections {
      * @return bool
      */
     public function updateStatus($status) {
-        $validStatuses = [self::STATUS_ON, self::STATUS_OFF, self::STATUS_PAUSED];
+        $validStatuses = [
+            self::STATUS_SETUP,
+            self::STATUS_PENDING,
+            self::STATUS_ACTIVE,
+            self::STATUS_PAUSED,
+            self::STATUS_COMPLETED
+        ];
+
         if (!in_array($status, $validStatuses)) {
             return false;
         }
@@ -311,7 +337,7 @@ class Elections {
 
             // Archive current election first
             $current = $this->getCurrentElection();
-            if ($current && $current['status'] !== 'off') {
+            if ($current && $current['status'] !== self::STATUS_COMPLETED) {
                 // Generate archive files
                 $files = [
                     'details_pdf' => 'election_details_' . date('Y-m-d_H-i-s') . '.pdf',
@@ -329,8 +355,8 @@ class Elections {
             // Reset candidate vote counts
             $this->db->query("UPDATE candidates SET votes = 0");
             
-            // Reset election status
-            $this->db->query("UPDATE election_status SET status = 'pending', start_time = NULL WHERE id = 1");
+            // Reset election status to setup
+            $this->db->query("UPDATE election_status SET status = 'setup', end_time = NULL WHERE id = 1");
 
             $this->db->commit();
             return true;
