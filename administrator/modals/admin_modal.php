@@ -6,7 +6,7 @@ $admin = Admin::getInstance();
 $adminData = $admin->getAdminData();
 ?>
 
-<!-- Admin Profile Modal -->
+<!-- Electoral Head Profile Modal -->
 <div class="modal fade" id="admin_profile_modal">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -14,7 +14,7 @@ $adminData = $admin->getAdminData();
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h4 class="modal-title"><b>Admin Profile</b></h4>
+                <h4 class="modal-title"><b>Electoral Head Profile</b></h4>
             </div>
             <div class="modal-body">
                 <form class="form-horizontal" method="POST" action="<?php echo BASE_URL; ?>administrator/modals/controllers/AdminController.php" enctype="multipart/form-data">
@@ -45,6 +45,17 @@ $adminData = $admin->getAdminData();
                         </div>
                     </div>
                     <div class="form-group">
+                        <label for="email" class="col-sm-3 control-label">Email</label>
+                        <div class="col-sm-9">
+                            <input type="email" class="form-control" id="email" name="email" value="<?php echo $adminData['email']; ?>" <?php echo ($adminData['role'] === 'head') ? 'required' : ''; ?>>
+                            <?php if ($adminData['role'] !== 'head'): ?>
+                            <small class="text-muted">Optional for election officers</small>
+                            <?php else: ?>
+                            <small class="text-info">Required for electoral head</small>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label for="photo" class="col-sm-3 control-label">Photo:</label>
                         <div class="col-sm-9">
                             <input type="file" class="form-control" id="photo" name="photo" accept="image/*">
@@ -65,8 +76,8 @@ $adminData = $admin->getAdminData();
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
-                    <button type="submit" class="btn btn-success btn-flat" name="save"><i class="fa fa-check-square-o"></i> Save</button>
+                    <button type="button" class="btn btn-default btn-flat" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
+                    <button type="submit" class="btn btn-primary btn-flat custom" name="save"><i class="fa fa-check"></i> Save</button>
                 </form>
             </div>
         </div>
@@ -75,7 +86,7 @@ $adminData = $admin->getAdminData();
 
 <script>
 $(function() {
-    // Handle admin profile modal
+    // Handle Electoral Head Profile modal
     $(document).on('click', '#admin_profile', function(e) {
         e.preventDefault();
         $('#admin_profile_modal').modal('show');

@@ -17,11 +17,11 @@
                     <input type="hidden" name="action" value="add">
                     <div class="form-group">
                         <label>Course Description</label>
-                        <input type="text" class="form-control" name="description" required>
+                        <input type="text" class="form-control" name="description" placeholder="Enter course description" required>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
-                        <button type="submit" class="btn btn-primary btn-flat"><i class="fa fa-save"></i> Save</button>
+                        <button type="submit" class="btn btn-primary btn-flat custom"><i class="fa fa-save"></i> Save</button>
                     </div>
                 </form>
             </div>
@@ -49,7 +49,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal"><i class="fa fa-close"></i> Close</button>
-                        <button type="submit" class="btn btn-primary btn-flat"><i class="fa fa-save"></i> Save</button>
+                        <button type="submit" class="btn btn-primary btn-flat custom"><i class="fa fa-save"></i> Save</button>
                     </div>
                 </form>
             </div>

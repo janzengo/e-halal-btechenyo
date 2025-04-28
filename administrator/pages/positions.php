@@ -2,6 +2,9 @@
 require_once __DIR__ . '/../classes/View.php';
 require_once __DIR__ . '/../classes/Admin.php';
 require_once __DIR__ . '/../classes/Position.php';
+require_once __DIR__ . '/../classes/Elections.php';
+Elections::enforceCompletedRedirect();
+Elections::enforceSetupRedirect();
 
 // Initialize classes
 $view = View::getInstance();
@@ -36,8 +39,9 @@ $positions = $position->getAllPositionsByPriority();
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>E-Halal Voting System | Positions Management</title>
+    <title>E-Halal BTECHenyo | Positions</title>
     <?php echo $view->renderHeader(); ?>
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>administrator/assets/css/admin.css">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -88,7 +92,7 @@ $positions = $position->getAllPositionsByPriority();
                 <div class="col-xs-12">
                     <div class="box">
                     <div class="box-header with-border">
-                            <button type="button" class="btn btn-primary btn-sm btn-flat" data-toggle="modal" data-target="#addnew" <?php echo $view->getDisabledAttribute(); ?> <?php echo $view->getDisabledAttribute() ? 'data-toggle="tooltip" title="' . $view->getModificationMessage() . '"' : ''; ?>>
+                            <button type="button" class="btn btn-primary btn-sm btn-flat custom" data-toggle="modal" data-target="#addnew" <?php echo $view->getDisabledAttribute(); ?> <?php echo $view->getDisabledAttribute() ? 'data-toggle="tooltip" title="' . $view->getModificationMessage() . '"' : ''; ?>>
                                 <i class="fa fa-plus"></i> New Position
                             </button>
                         </div>
@@ -109,7 +113,7 @@ $positions = $position->getAllPositionsByPriority();
                                             <td><?php echo htmlspecialchars($pos['description']); ?></td>
                                             <td><?php echo $pos['max_vote']; ?></td>
                                             <td>
-                                                <button class="btn btn-primary btn-sm edit-position" data-id="<?php echo $pos['id']; ?>" <?php echo $view->getDisabledAttribute(); ?> <?php echo $view->getDisabledAttribute() ? 'data-toggle="tooltip" title="' . $view->getModificationMessage() . '"' : ''; ?>>
+                                                <button class="btn btn-primary btn-sm edit-position custom" data-id="<?php echo $pos['id']; ?>" <?php echo $view->getDisabledAttribute(); ?> <?php echo $view->getDisabledAttribute() ? 'data-toggle="tooltip" title="' . $view->getModificationMessage() . '"' : ''; ?>>
                                                     <i class="fa fa-edit"></i> Edit
                                                 </button>
                                                 <button class="btn btn-danger btn-sm delete-position" data-id="<?php echo $pos['id']; ?>" <?php echo $view->getDisabledAttribute(); ?> <?php echo $view->getDisabledAttribute() ? 'data-toggle="tooltip" title="' . $view->getModificationMessage() . '"' : ''; ?>>
@@ -121,14 +125,14 @@ $positions = $position->getAllPositionsByPriority();
                                 </tbody>
                             </table>
                             
-                            <ol class='breadcrumb' style='margin-top: 20px;'>
+                            <ol class='breadcrumb breadcrumb-info'>
                                 <li class='active'><i class='fa fa-info-circle'></i> Position priority determines the order of positions on the ballot. To change position ordering, please use the <strong>Ballot Settings</strong> page.</li>
                             </ol>
                             
                             <?php
                             if(isset($_SESSION['warning'])){
                                 echo "
-                                    <ol class='breadcrumb' style='margin-top: 20px;'>
+                                    <ol class='breadcrumb breadcrumb-info'>
                                         <li class='active'><i class='fa fa-info-circle'></i> " . $_SESSION['warning'] . "</li>
                                     </ol>
                                 ";

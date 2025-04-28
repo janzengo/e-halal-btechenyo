@@ -1,5 +1,7 @@
 <?php
 require_once __DIR__ . '/../classes/View.php';
+require_once __DIR__ . '/../classes/Elections.php';
+Elections::enforceCompletedRedirect();
 require_once __DIR__ . '/../classes/Admin.php';
 require_once __DIR__ . '/../classes/Logger.php';
 
@@ -8,9 +10,9 @@ $view = View::getInstance();
 $admin = Admin::getInstance();
 $logger = AdminLogger::getInstance();
 
-// Check if admin is logged in and is superadmin
-if (!$admin->isLoggedIn() || !$admin->isSuperAdmin()) {
-    $_SESSION['error'] = 'Access Denied. This page is restricted to superadmins only.';
+// Check if admin is logged in and is Electoral Head
+if (!$admin->isLoggedIn() || !$admin->isHead()) {
+    $_SESSION['error'] = 'Access Denied. This page is restricted to Electoral Heads only.';
     header('Location: home');
     exit();
 }
@@ -25,8 +27,8 @@ if (isset($_POST['clear_logs']) && $admin->isAdmin()) {
 }
 
 // At the top of admin_logs.php, officers.php, and configure.php
-if (!$admin->isSuperAdmin()) {
-    $_SESSION['error'] = 'Access Denied. This page is restricted to superadmins only.';
+if (!$admin->isHead()) {
+    $_SESSION['error'] = 'Access Denied. This page is restricted to Electoral Heads only.';
     header('Location: home');
     exit();
 }
@@ -36,8 +38,9 @@ if (!$admin->isSuperAdmin()) {
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>E-Halal Voting System | Administrator Logs</title>
+    <title>E-Halal BTECHenyo | Administrator Logs</title>
     <?php echo $view->renderHeader(); ?>
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>administrator/assets/css/admin.css">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">

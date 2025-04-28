@@ -27,6 +27,19 @@ $(function(){
         });
     }
 
+    // Function to show success message using SweetAlert
+    function showSuccess(message) {
+        Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            text: message,
+            timer: 2000,
+            showConfirmButton: false
+        }).then(() => {
+            location.reload();
+        });
+    }
+
     // Function to show warning message using SweetAlert
     function showWarning(message) {
         Swal.fire({
@@ -65,7 +78,7 @@ $(function(){
     }
 
     // Prevent modal from showing if modifications are not allowed
-    $('#addnew, #edit, #delete').on('show.bs.modal', function(e) {
+    $('#addnew, #edit').on('show.bs.modal', function(e) {
         if (!isModificationAllowed()) {
             e.preventDefault();
             e.stopPropagation();
@@ -96,9 +109,37 @@ $(function(){
             showWarning(getModificationMessage());
             return;
         }
+
+        const partylistId = $(this).data('id');
+        const partylistName = $(this).closest('tr').find('td:first').text();
         
-        $('#delete').modal('show');
-        getRow($(this).data('id'));
+        Swal.fire({
+            title: 'Delete Partylist',
+            text: `Are you sure you want to delete partylist "${partylistName}"?`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'No, cancel'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type: 'POST',
+                    url: `${BASE_URL}administrator/pages/includes/modals/controllers/PartylistController.php`,
+                    data: { id: partylistId, action: 'delete' },
+                    dataType: 'json',
+                    success: function(response) {
+                        if (!response.error) {
+                            showSuccess('Partylist has been deleted successfully!');
+                        } else {
+                            showError(response.message);
+                        }
+                    },
+                    error: handleServerError
+                });
+            }
+        });
     });
 
     // Form submission handler function
@@ -108,14 +149,19 @@ $(function(){
             return;
         }
 
+        const formData = form.serialize();
+        const isEdit = action === 'edit';
+        const partylistName = isEdit ? $('#edit_name').val() : $('#add_name').val();
+
         $.ajax({
             type: 'POST',
             url: form.attr('action'),
-            data: form.serialize(),
+            data: formData,
             dataType: 'json',
             success: function(response) {
                 if (!response.error) {
-                    location.reload();
+                    showSuccess(`Partylist "${partylistName}" has been ${isEdit ? 'updated' : 'added'} successfully!`);
+                    form.closest('.modal').modal('hide');
                 } else {
                     showError(response.message);
                 }
@@ -134,11 +180,5 @@ $(function(){
     $('#edit form').submit(function(e) {
         e.preventDefault();
         handleFormSubmission($(this), 'edit');
-    });
-
-    // Delete form submission
-    $('#delete form').submit(function(e) {
-        e.preventDefault();
-        handleFormSubmission($(this), 'delete');
     });
 });

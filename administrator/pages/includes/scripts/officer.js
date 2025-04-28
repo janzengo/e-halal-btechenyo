@@ -35,8 +35,11 @@ $(function() {
             icon: 'success',
             title: 'Success!',
             text: message,
-            showConfirmButton: true,
-            timer: 2000
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true
+        }).then(() => {
+            location.reload();
         });
     }
 
@@ -45,6 +48,13 @@ $(function() {
         console.error('Error:', error);
         console.log('Response:', xhr.responseText);
         showError('Server error occurred. Please try again.');
+    }
+
+    // Function to validate email
+    function validateEmail(email) {
+        if (!email) return true; // Empty email is valid (optional field)
+        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
     }
 
     // Function to get officer data
@@ -63,7 +73,10 @@ $(function() {
                     $('#edit_lastname').val(data.lastname);
                     $('#edit_gender').val(data.gender);
                     $('#edit_role').val(data.role);
+                    $('#edit_email').val(data.email || '');
                     $('.fullname').html(data.firstname + ' ' + data.lastname);
+                    // Store current role for comparison
+                    $('#edit form').data('current-role', data.role);
                 } else {
                     showError(response.message);
                 }
@@ -83,45 +96,78 @@ $(function() {
     $(document).on('click', '.delete', function(e) {
         e.preventDefault();
         const id = $(this).data('id');
-        getRow(id);
-
-        Swal.fire({
-            title: 'Delete Officer',
-            text: 'Are you sure you want to delete this officer?',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#d33',
-            cancelButtonColor: '#3085d6',
-            confirmButtonText: 'Yes, delete it!',
-            cancelButtonText: 'Cancel'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                $.ajax({
-                    type: 'POST',
-                    url: `${BASE_URL}administrator/pages/includes/modals/controllers/OfficerController.php`,
-                    data: {
-                        id: id,
-                        action: 'delete'
-                    },
-                    dataType: 'json',
-                    success: function(response) {
-                        if (!response.error) {
-                            showSuccess(response.message);
-                            setTimeout(() => {
-                                location.reload();
-                            }, 2000);
-                        } else {
-                            showError(response.message);
+        
+        $.ajax({
+            type: 'POST',
+            url: `${BASE_URL}administrator/pages/includes/modals/controllers/OfficerController.php`,
+            data: {id: id, action: 'get'},
+            dataType: 'json',
+            success: function(response) {
+                if (!response.error) {
+                    const data = response.data;
+                    const officerName = data.firstname + ' ' + data.lastname;
+                    
+                    Swal.fire({
+                        title: 'Delete Officer',
+                        text: `Are you sure you want to delete ${officerName}?`,
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#d33',
+                        cancelButtonColor: '#3085d6',
+                        confirmButtonText: 'Yes, delete',
+                        cancelButtonText: 'Cancel'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            $.ajax({
+                                type: 'POST',
+                                url: `${BASE_URL}administrator/pages/includes/modals/controllers/OfficerController.php`,
+                                data: {
+                                    id: id,
+                                    action: 'delete'
+                                },
+                                dataType: 'json',
+                                success: function(response) {
+                                    if (!response.error) {
+                                        showSuccess(`${officerName} has been deleted successfully.`);
+                                    } else {
+                                        showError(response.message);
+                                    }
+                                },
+                                error: handleServerError
+                            });
                         }
-                    },
-                    error: handleServerError
-                });
-            }
+                    });
+                } else {
+                    showError(response.message);
+                }
+            },
+            error: handleServerError
         });
     });
 
+    // Form validation function
+    function validateForm(form) {
+        const email = form.find('input[name="email"]').val();
+        if (email && !validateEmail(email)) {
+            showError('Please enter a valid email address');
+            return false;
+        }
+        return true;
+    }
+
     // Form submission handler function
     function handleFormSubmission(form) {
+        if (!validateForm(form)) {
+            return;
+        }
+
+        const submitBtn = form.find('button[type="submit"]');
+        const originalContent = submitBtn.html();
+        
+        // Show loading state
+        submitBtn.prop('disabled', true)
+                .html('<i class="fa fa-spinner fa-spin"></i> Saving...');
+
         const formData = new FormData(form[0]);
         
         $.ajax({
@@ -134,32 +180,90 @@ $(function() {
             success: function(response) {
                 if (!response.error) {
                     showSuccess(response.message);
-                    setTimeout(() => {
-                        location.reload();
-                    }, 1000);
                 } else {
                     showError(response.message);
                 }
             },
-            error: handleServerError
+            error: handleServerError,
+            complete: function() {
+                // Restore button state
+                submitBtn.prop('disabled', false)
+                        .html(originalContent);
+            }
         });
     }
 
     // Add form submission
     $('#addnew form').submit(function(e) {
         e.preventDefault();
-        handleFormSubmission($(this));
+        const form = $(this);
+        const officerName = $('#add_firstname').val() + ' ' + $('#add_lastname').val();
+        const role = $('#add_role').val();
+
+        if (role === 'head') {
+            Swal.fire({
+                title: 'Add Head Officer',
+                text: `Warning: You are about to add ${officerName} as a Head Officer. Head Officers have full permissions to modify election settings and manage the entire system. Are you sure you want to proceed?`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#28a745',
+                cancelButtonColor: '#dc3545',
+                confirmButtonText: 'Yes, add as Head',
+                cancelButtonText: 'Cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    handleFormSubmission(form);
+                }
+            });
+        } else {
+            handleFormSubmission(form);
+        }
     });
 
     // Edit form submission
     $('#edit form').submit(function(e) {
         e.preventDefault();
-        handleFormSubmission($(this));
+        const form = $(this);
+        const officerName = $('#edit_firstname').val() + ' ' + $('#edit_lastname').val();
+        const newRole = $('#edit_role').val();
+        const currentRole = $(this).data('current-role');
+
+        if (newRole === 'head' && currentRole !== 'head') {
+            Swal.fire({
+                title: 'Change to Head Officer',
+                text: `Warning: You are about to change ${officerName}'s role to Head Officer. Head Officers have full permissions to modify election settings and manage the entire system. Are you sure you want to proceed?`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#28a745',
+                cancelButtonColor: '#dc3545',
+                confirmButtonText: 'Yes, change to Head',
+                cancelButtonText: 'Cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    handleFormSubmission(form);
+                }
+            });
+        } else {
+            handleFormSubmission(form);
+        }
     });
 
-    // Delete form submission
-    $('#delete form').submit(function(e) {
-        e.preventDefault();
-        handleFormSubmission($(this));
+    // Remove delete form submission since we're handling it in the delete button click handler
+    $('#delete form').off('submit');
+
+    // Real-time email validation
+    $('input[name="email"]').on('blur', function() {
+        const email = $(this).val();
+        if (email && !validateEmail(email)) {
+            $(this).addClass('is-invalid');
+            $(this).next('.text-muted').hide();
+            if (!$(this).next('.invalid-feedback').length) {
+                $(this).after('<div class="invalid-feedback">Please enter a valid email address</div>');
+            }
+        } else {
+            $(this).removeClass('is-invalid');
+            $(this).next('.invalid-feedback').remove();
+            $(this).next('.text-muted').show();
+        }
     });
 }); 

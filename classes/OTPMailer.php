@@ -246,7 +246,7 @@ class OTPMailer {
             
             // Content
             $mail->isHTML(true);
-            $mail->Subject = 'Your OTP Verification Code - E-Halal Voting System';
+            $mail->Subject = 'Your OTP Verification Code - E-Halal BTECHenyo';
             
             // Build email body with responsive design
             $mailBody = $this->buildEmailTemplate($otp, $name, $student_number);
@@ -388,11 +388,11 @@ class OTPMailer {
         <body>
             <div class="container">
                 <div class="header">
-                    <h1>E-Halal Voting System</h1>
+                    <h1>E-Halal BTECHenyo</h1>
                 </div>
                 <div class="content">
                     <p>$greeting,</p>
-                    <p>You have requested an OTP (One-Time Password) for accessing the E-Halal Voting System. Your verification code is:</p>
+                    <p>You have requested an OTP (One-Time Password) for accessing the E-Halal BTECHenyo. Your verification code is:</p>
                     
                     <div class="otp-code">$otp</div>
                     

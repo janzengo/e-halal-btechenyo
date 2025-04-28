@@ -14,13 +14,13 @@
                     <div class="form-group">
                         <label for="add_firstname" class="col-sm-3 control-label">First Name</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="add_firstname" name="firstname" required>
+                            <input type="text" class="form-control" id="add_firstname" name="firstname" placeholder="Enter first name" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="add_lastname" class="col-sm-3 control-label">Last Name</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="add_lastname" name="lastname" required>
+                            <input type="text" class="form-control" id="add_lastname" name="lastname" placeholder="Enter last name" required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -54,7 +54,7 @@
                     <div class="form-group">
                         <label for="add_platform" class="col-sm-3 control-label">Platform</label>
                         <div class="col-sm-9">
-                            <textarea class="form-control" id="add_platform" name="platform" rows="7" required></textarea>
+                            <textarea class="form-control" id="add_platform" name="platform" rows="7" placeholder="Enter platform (optional)"></textarea>
                         </div>
                     </div>
                     <div class="form-group">
@@ -69,7 +69,7 @@
                     <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal">
                         <i class="fa fa-close"></i> Close
                     </button>
-                    <button type="submit" class="btn btn-primary btn-flat">
+                    <button type="submit" class="btn btn-primary btn-flat custom" id="addCandidateBtn">
                         <i class="fa fa-save"></i> Save
                     </button>
                 </div>
@@ -139,9 +139,10 @@
                     <div class="form-group">
                         <label for="edit_photo" class="col-sm-3 control-label">Photo</label>
                         <div class="col-sm-9">
+                            <div id="current_photo" class="mb-2"></div>
                             <input type="file" class="form-control" id="edit_photo" name="photo" accept="image/*">
+                            <div class="photo-preview mt-2"></div>
                             <small class="help-block">Max file size: 2MB. Allowed formats: JPG, PNG</small>
-                            <div id="current_photo" class="mt-2"></div>
                         </div>
                     </div>
                 </div>
@@ -149,8 +150,8 @@
                     <button type="button" class="btn btn-default btn-flat pull-left" data-dismiss="modal">
                         <i class="fa fa-close"></i> Close
                     </button>
-                    <button type="submit" class="btn btn-success btn-flat">
-                        <i class="fa fa-check-square-o"></i> Update
+                    <button type="submit" class="btn btn-primary btn-flat custom" id="editCandidateBtn">
+                        <i class="fa fa-check"></i> Update
                     </button>
                 </div>
             </form>

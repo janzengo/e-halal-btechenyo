@@ -1,5 +1,7 @@
 <?php
 require_once __DIR__ . '/../classes/View.php';
+require_once __DIR__ . '/../classes/Elections.php';
+Elections::enforceCompletedRedirect();
 require_once __DIR__ . '/../classes/Admin.php';
 require_once __DIR__ . '/../classes/Logger.php';
 
@@ -28,7 +30,7 @@ if (isset($_POST['clear_logs']) && $admin->isAdmin()) {
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>E-Halal Voting System | Voter Logs</title>
+    <title>E-Halal BTECHenyo | Voter Logs</title>
     <?php echo $view->renderHeader(); ?>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">

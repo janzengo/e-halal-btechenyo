@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 13, 2025 at 10:42 AM
+-- Generation Time: Apr 20, 2025 at 12:44 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,18 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `e-halal`
 --
-
-DELIMITER $$
---
--- Procedures
---
-CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_check_and_delete_otp` (IN `p_student_number` VARCHAR(20))   BEGIN
-    DELETE FROM otp_requests 
-    WHERE student_number = p_student_number 
-    AND attempts >= 5;
-END$$
-
-DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -56,10 +44,10 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`, `firstname`, `lastname`, `photo`, `created_on`, `role`, `gender`) VALUES
-(1, 'wallysabangan2024', '$2y$10$JJyv3iRlgpbEeHKlyRZIOeRvtuLcskovhJn8vZvExSLNmrOj2uyVO', 'Wally', 'Sabangan', 'profile.jpg', '2024-06-06', 'superadmin', 'Male'),
+(1, 'wallysabangan2024', '$2y$10$Z2JnQG/8o3lzk.CmLLr5yuL.focykBBCWcZEPLSBn6k.gY5hkRfwq', 'Wally', 'Sabangan', 'assets/images/administrators/superadmin_sabangan_wally.jpg', '2024-06-06', 'head', 'Male'),
 (2, 'dejesus', '$2y$10$aUdUxJ/vc8Gm/Sc8NhLDouuHZo0DWXIDQDvueQ3byii815n0Xn85W', 'Reanne', 'De Jesus', 'profile.jpg', '2024-06-06', 'officer', 'Female'),
 (4, 'juandcruz', '$2y$10$fDvGDLZGY3OcMG6qhPha..BkVCF2SBUMafaat8sHprQXiQ98L.6Iy', 'Juan', 'Dela Cruz', 'profile.jpg', '2024-06-11', 'officer', 'Male'),
-(8, 'johndoe', '$2y$10$rZYyyUe3MzyggPkNM8MeX.nZHKuzs6UIgi.Mg8qEvVZxbluyAuy1C', 'John', 'Doe', 'profile.jpg', '2025-03-12', 'officer', 'Male');
+(8, 'johndoe', '$2y$10$JJyv3iRlgpbEeHKlyRZIOeRvtuLcskovhJn8vZvExSLNmrOj2uyVO', 'John', 'Doe', 'profile.jpg', '2025-03-12', 'officer', 'Male');
 
 -- --------------------------------------------------------
 
@@ -83,7 +71,18 @@ CREATE TABLE `candidates` (
 --
 
 INSERT INTO `candidates` (`id`, `position_id`, `firstname`, `lastname`, `partylist_id`, `photo`, `platform`, `votes`) VALUES
-(51, 20, 'Juan', 'Dela Cruz', 11, '', 'Example Platform.', 6);
+(59, 20, 'Stephen', 'Curry', 12, 'assets/images/profile.jpg', 'Steph Curry', 2),
+(60, 21, 'Jimmy', 'Buttler', 12, 'assets/images/profile.jpg', 'Jimmy Buttler', 1),
+(61, 22, 'Moses', 'Moody', 12, 'assets/images/profile.jpg', 'Moses Moody', 1),
+(62, 20, 'Lebron', 'James', 11, 'assets/images/candidates/candidate_james_lebron.jpg', 'King James', 4),
+(63, 21, 'Luka', 'Doncic', 11, 'assets/images/profile.jpg', 'Magic Doncic', 2),
+(64, 22, 'Bronny', 'James', 11, 'assets/images/profile.jpg', 'Prince James', 1),
+(65, 20, 'Nikola', 'Jokic', NULL, 'assets/images/profile.jpg', 'Nikola Jokic', 0),
+(66, 21, 'Ja', 'Morant', NULL, 'assets/images/profile.jpg', 'Ja Morant', 3),
+(67, 22, 'Klay', 'Thompson', NULL, 'assets/images/profile.jpg', 'Klay Thompson', 3),
+(68, 23, 'Yuki', 'Kawamura', 12, 'assets/images/profile.jpg', 'Yuki Kawamura', 0),
+(69, 23, 'Victor', 'Wembanayama', 11, 'assets/images/profile.jpg', 'Victor Wemby', 0),
+(70, 23, 'Chris', 'Paul', NULL, 'assets/images/profile.jpg', 'Ringless Paul', 0);
 
 -- --------------------------------------------------------
 
@@ -126,19 +125,14 @@ INSERT INTO `courses` (`id`, `description`) VALUES
 CREATE TABLE `election_history` (
   `id` int(11) NOT NULL,
   `election_name` varchar(255) NOT NULL,
-  `start_date` datetime NOT NULL,
-  `end_date` datetime NOT NULL,
+  `status` enum('setup','pending','active','paused','completed') NOT NULL DEFAULT 'completed',
+  `end_time` datetime NOT NULL,
+  `last_status_change` datetime DEFAULT NULL,
   `details_pdf` varchar(255) NOT NULL,
   `results_pdf` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `control_number` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `election_history`
---
-
-INSERT INTO `election_history` (`id`, `election_name`, `start_date`, `end_date`, `details_pdf`, `results_pdf`, `created_at`) VALUES
-(1, '2024 Student Council Election', '2024-08-01 08:00:00', '2024-08-02 18:00:00', '/2024-student-council-election/details.pdf', '/2024-student-council-election/results.pdf', '2024-09-04 03:30:46');
 
 -- --------------------------------------------------------
 
@@ -148,34 +142,20 @@ INSERT INTO `election_history` (`id`, `election_name`, `start_date`, `end_date`,
 
 CREATE TABLE `election_status` (
   `id` int(11) NOT NULL,
-  `status` enum('pending','on','off','paused') NOT NULL DEFAULT 'pending',
+  `status` enum('setup','pending','active','paused','completed') NOT NULL DEFAULT 'setup',
   `election_name` varchar(255) NOT NULL,
-  `start_time` datetime DEFAULT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `end_time` datetime DEFAULT NULL,
-  `last_status_change` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `last_status_change` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `control_number` varchar(20) NOT NULL DEFAULT concat('E-',year(current_timestamp()),'-',lpad(floor(rand() * 10000),4,'0'))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `election_status`
 --
 
-INSERT INTO `election_status` (`id`, `status`, `election_name`, `start_time`, `end_time`, `last_status_change`) VALUES
-(1, 'on', 'Sanggu Election', '2025-03-12 03:35:13', '2025-03-15 10:34:00', '2025-03-12 10:35:13');
-
---
--- Triggers `election_status`
---
-DELIMITER $$
-CREATE TRIGGER `before_election_update` BEFORE UPDATE ON `election_status` FOR EACH ROW BEGIN
-    -- If status is being turned on manually, set start_time to current time
-    IF NEW.status = 'on' AND OLD.status != 'on' THEN
-        IF NEW.start_time = OLD.start_time THEN
-            SET NEW.start_time = CURRENT_TIMESTAMP;
-        END IF;
-    END IF;
-END
-$$
-DELIMITER ;
+INSERT INTO `election_status` (`id`, `status`, `election_name`, `created_at`, `end_time`, `last_status_change`, `control_number`) VALUES
+(1, 'completed', 'Sangguniang Mag-aaral Elections', '2025-02-12 22:30:30', '2025-03-26 07:55:00', '2025-04-20 06:39:59', 'E-2025-1094');
 
 -- --------------------------------------------------------
 
@@ -196,51 +176,53 @@ CREATE TABLE `logs` (
 --
 
 INSERT INTO `logs` (`id`, `timestamp`, `username`, `details`, `role`) VALUES
-(0, '2025-03-11 07:27:27', 'wallysabangan2024', 'Successful login', 'superadmin'),
-(0, '2025-03-11 08:45:37', 'wallysabangan2024', 'Added position: President with max vote: 1', 'superadmin'),
-(0, '2025-03-11 08:45:51', 'wallysabangan2024', 'Deleted position: President', 'superadmin'),
-(0, '2025-03-11 08:55:06', 'wallysabangan2024', 'Added voter: 202320023', 'superadmin'),
-(0, '2025-03-11 08:55:34', 'wallysabangan2024', 'Added voter: 202320024', 'superadmin'),
-(0, '2025-03-11 08:55:58', 'wallysabangan2024', 'Added voter: 202120023', 'superadmin'),
-(0, '2025-03-11 08:57:54', 'wallysabangan2024', 'Added voter: 202351599', 'superadmin'),
-(0, '2025-03-11 08:59:07', 'wallysabangan2024', 'Added voter: 202312026', 'superadmin'),
-(0, '2025-03-11 08:59:24', 'wallysabangan2024', 'Added position: President with max vote: 1', 'superadmin'),
-(0, '2025-03-11 09:00:15', 'wallysabangan2024', 'Added voter: 201216528', 'superadmin'),
-(0, '2025-03-11 09:09:54', 'wallysabangan2024', 'Deleted voter: 202351599', 'superadmin'),
-(0, '2025-03-11 09:10:38', 'wallysabangan2024', 'Added voter: 202320045', 'superadmin'),
-(0, '2025-03-11 09:10:45', 'wallysabangan2024', 'Updated voter from \'202320045\' to \'202320046\'', 'superadmin'),
-(0, '2025-03-11 09:10:59', 'wallysabangan2024', 'Added voter: 8951919', 'superadmin'),
-(0, '2025-03-11 09:11:18', 'wallysabangan2024', 'Deleted voter: 202320046', 'superadmin'),
-(0, '2025-03-11 09:11:30', 'wallysabangan2024', 'Deleted voter: 8951919', 'superadmin'),
-(0, '2025-03-11 10:06:59', 'wallysabangan2024', 'Added position: Vice President with max vote: 1', 'superadmin'),
-(0, '2025-03-11 10:07:09', 'wallysabangan2024', 'Added voter: 20232126919', 'superadmin'),
-(0, '2025-03-11 10:34:01', 'wallysabangan2024', 'Error in candidate management: Candidate not found', 'superadmin'),
-(0, '2025-03-11 10:35:23', 'wallysabangan2024', 'Error in candidate management: Candidate not found', 'superadmin'),
-(0, '2025-03-11 10:40:49', 'wallysabangan2024', 'Error in candidate management: Candidate not found', 'superadmin'),
-(0, '2025-03-11 10:40:57', 'wallysabangan2024', 'Error in candidate management: Candidate not found', 'superadmin'),
-(0, '2025-03-11 10:41:04', 'wallysabangan2024', 'Updated candidate:  ', 'superadmin'),
-(0, '2025-03-11 10:41:09', 'wallysabangan2024', 'Added candidate: asd dada', 'superadmin'),
-(0, '2025-03-11 10:41:20', 'wallysabangan2024', 'Error in candidate management: Candidate not found', 'superadmin'),
-(0, '2025-03-11 10:41:27', 'wallysabangan2024', 'Updated candidate:  ', 'superadmin'),
-(0, '2025-03-11 10:42:48', 'wallysabangan2024', 'Error in candidate management: Candidate not found', 'superadmin'),
-(0, '2025-03-11 10:42:58', 'wallysabangan2024', 'Error in candidate management: Candidate not found', 'superadmin'),
-(0, '2025-03-11 10:43:03', 'wallysabangan2024', 'Error in candidate management: Candidate not found', 'superadmin'),
-(0, '2025-03-11 10:44:41', 'wallysabangan2024', 'Error in candidate management: Candidate not found', 'superadmin'),
-(0, '2025-03-11 10:44:52', 'wallysabangan2024', 'Added candidate: Janzen Go', 'superadmin'),
-(0, '2025-03-11 10:45:10', 'wallysabangan2024', 'Error in candidate management: Candidate not found', 'superadmin'),
-(0, '2025-03-11 10:45:17', 'wallysabangan2024', 'Error in candidate management: Candidate not found', 'superadmin'),
-(0, '2025-03-11 10:46:41', 'wallysabangan2024', 'Deleted candidate: dad asd', 'superadmin'),
-(0, '2025-03-11 10:46:45', 'wallysabangan2024', 'Deleted candidate: Asda asdas', 'superadmin'),
-(0, '2025-03-11 10:47:06', 'wallysabangan2024', 'Updated candidate: asd dada', 'superadmin'),
-(0, '2025-03-11 22:54:32', 'wallysabangan2024', 'Successful login', 'superadmin'),
-(0, '2025-03-11 23:02:54', 'wallysabangan2024', 'Added new President position with 1 maximum vote', 'superadmin'),
-(0, '2025-03-11 23:03:24', 'wallysabangan2024', 'Added new partylist: Sandigan', 'superadmin'),
-(0, '2025-03-11 23:04:05', 'wallysabangan2024', 'Added new candidate: Juan Dela Cruz for President under Sandigan partylist', 'superadmin'),
-(0, '2025-03-11 23:17:55', 'wallysabangan2024', 'Added new President position with 1 maximum vote', 'superadmin'),
-(0, '2025-03-11 23:18:05', 'wallysabangan2024', 'Added new partylist: Sandigan', 'superadmin'),
-(0, '2025-03-11 23:18:36', 'wallysabangan2024', 'Added new candidate: Juan Dela Cruz for President under Sandigan partylist', 'superadmin'),
-(0, '2025-03-11 23:31:08', 'wallysabangan2024', 'Added new President position with 1 maximum vote', 'superadmin'),
-(0, '2025-03-11 23:31:44', 'wallysabangan2024', 'Added new candidate: Juan Dela Cruz for President under Sandigan partylist', 'superadmin');
+(0, '2025-03-11 07:27:27', 'wallysabangan2024', 'Successful login', 'head'),
+(0, '2025-03-11 08:45:37', 'wallysabangan2024', 'Added position: President with max vote: 1', 'head'),
+(0, '2025-03-11 08:45:51', 'wallysabangan2024', 'Deleted position: President', 'head'),
+(0, '2025-03-11 08:55:06', 'wallysabangan2024', 'Added voter: 202320023', 'head'),
+(0, '2025-03-11 08:55:34', 'wallysabangan2024', 'Added voter: 202320024', 'head'),
+(0, '2025-03-11 08:55:58', 'wallysabangan2024', 'Added voter: 202120023', 'head'),
+(0, '2025-03-11 08:57:54', 'wallysabangan2024', 'Added voter: 202351599', 'head'),
+(0, '2025-03-11 08:59:07', 'wallysabangan2024', 'Added voter: 202312026', 'head'),
+(0, '2025-03-11 08:59:24', 'wallysabangan2024', 'Added position: President with max vote: 1', 'head'),
+(0, '2025-03-11 09:00:15', 'wallysabangan2024', 'Added voter: 201216528', 'head'),
+(0, '2025-03-11 09:09:54', 'wallysabangan2024', 'Deleted voter: 202351599', 'head'),
+(0, '2025-03-11 09:10:38', 'wallysabangan2024', 'Added voter: 202320045', 'head'),
+(0, '2025-03-11 09:10:45', 'wallysabangan2024', 'Updated voter from \'202320045\' to \'202320046\'', 'head'),
+(0, '2025-03-11 09:10:59', 'wallysabangan2024', 'Added voter: 8951919', 'head'),
+(0, '2025-03-11 09:11:18', 'wallysabangan2024', 'Deleted voter: 202320046', 'head'),
+(0, '2025-03-11 09:11:30', 'wallysabangan2024', 'Deleted voter: 8951919', 'head'),
+(0, '2025-03-11 10:06:59', 'wallysabangan2024', 'Added position: Vice President with max vote: 1', 'head'),
+(0, '2025-03-11 10:07:09', 'wallysabangan2024', 'Added voter: 20232126919', 'head'),
+(0, '2025-03-11 10:34:01', 'wallysabangan2024', 'Error in candidate management: Candidate not found', 'head'),
+(0, '2025-03-11 10:35:23', 'wallysabangan2024', 'Error in candidate management: Candidate not found', 'head'),
+(0, '2025-03-11 10:40:49', 'wallysabangan2024', 'Error in candidate management: Candidate not found', 'head'),
+(0, '2025-03-11 10:40:57', 'wallysabangan2024', 'Error in candidate management: Candidate not found', 'head'),
+(0, '2025-03-11 10:41:04', 'wallysabangan2024', 'Updated candidate:  ', 'head'),
+(0, '2025-03-11 10:41:09', 'wallysabangan2024', 'Added candidate: asd dada', 'head'),
+(0, '2025-03-11 10:41:20', 'wallysabangan2024', 'Error in candidate management: Candidate not found', 'head'),
+(0, '2025-03-11 10:41:27', 'wallysabangan2024', 'Updated candidate:  ', 'head'),
+(0, '2025-03-11 10:42:48', 'wallysabangan2024', 'Error in candidate management: Candidate not found', 'head'),
+(0, '2025-03-11 10:42:58', 'wallysabangan2024', 'Error in candidate management: Candidate not found', 'head'),
+(0, '2025-03-11 10:43:03', 'wallysabangan2024', 'Error in candidate management: Candidate not found', 'head'),
+(0, '2025-03-11 10:44:41', 'wallysabangan2024', 'Error in candidate management: Candidate not found', 'head'),
+(0, '2025-03-11 10:44:52', 'wallysabangan2024', 'Added candidate: Janzen Go', 'head'),
+(0, '2025-03-11 10:45:10', 'wallysabangan2024', 'Error in candidate management: Candidate not found', 'head'),
+(0, '2025-03-11 10:45:17', 'wallysabangan2024', 'Error in candidate management: Candidate not found', 'head'),
+(0, '2025-03-11 10:46:41', 'wallysabangan2024', 'Deleted candidate: dad asd', 'head'),
+(0, '2025-03-11 10:46:45', 'wallysabangan2024', 'Deleted candidate: Asda asdas', 'head'),
+(0, '2025-03-11 10:47:06', 'wallysabangan2024', 'Updated candidate: asd dada', 'head'),
+(0, '2025-03-11 22:54:32', 'wallysabangan2024', 'Successful login', 'head'),
+(0, '2025-03-11 23:02:54', 'wallysabangan2024', 'Added new President position with 1 maximum vote', 'head'),
+(0, '2025-03-11 23:03:24', 'wallysabangan2024', 'Added new partylist: Sandigan', 'head'),
+(0, '2025-03-11 23:04:05', 'wallysabangan2024', 'Added new candidate: Juan Dela Cruz for President under Sandigan partylist', 'head'),
+(0, '2025-03-11 23:17:55', 'wallysabangan2024', 'Added new President position with 1 maximum vote', 'head'),
+(0, '2025-03-11 23:18:05', 'wallysabangan2024', 'Added new partylist: Sandigan', 'head'),
+(0, '2025-03-11 23:18:36', 'wallysabangan2024', 'Added new candidate: Juan Dela Cruz for President under Sandigan partylist', 'head'),
+(0, '2025-03-11 23:31:08', 'wallysabangan2024', 'Added new President position with 1 maximum vote', 'head'),
+(0, '2025-03-11 23:31:44', 'wallysabangan2024', 'Added new candidate: Juan Dela Cruz for President under Sandigan partylist', 'head'),
+(0, '2025-03-25 06:09:27', 'wallysabangan2024', 'Failed login attempt: incorrect password', 'head'),
+(0, '2025-03-25 06:09:32', 'wallysabangan2024', 'Failed login attempt: incorrect password', 'head');
 
 -- --------------------------------------------------------
 
@@ -303,7 +285,8 @@ CREATE TABLE `partylists` (
 --
 
 INSERT INTO `partylists` (`id`, `name`) VALUES
-(11, 'Sandigan');
+(11, 'Sandigan'),
+(12, 'Kanlungan');
 
 -- --------------------------------------------------------
 
@@ -323,7 +306,10 @@ CREATE TABLE `positions` (
 --
 
 INSERT INTO `positions` (`id`, `description`, `max_vote`, `priority`) VALUES
-(20, 'President', 1, 1);
+(20, 'President', 1, 1),
+(21, 'Vice President', 1, 2),
+(22, 'Secretary', 1, 3),
+(23, 'PIO', 2, 4);
 
 -- --------------------------------------------------------
 
@@ -344,7 +330,10 @@ CREATE TABLE `voters` (
 --
 
 INSERT INTO `voters` (`id`, `course_id`, `student_number`, `has_voted`, `created_at`) VALUES
-(74, 11, '202320023', 1, '2025-03-12 00:17:17');
+(74, 11, '202320023', 1, '2025-03-12 00:17:17'),
+(76, 6, '202411986', 1, '2025-03-25 01:43:35'),
+(77, 1, '202110615', 1, '2025-03-25 03:04:47'),
+(78, 1, '202111184', 1, '2025-03-25 03:05:28');
 
 -- --------------------------------------------------------
 
@@ -365,12 +354,13 @@ CREATE TABLE `votes` (
 --
 
 INSERT INTO `votes` (`id`, `election_id`, `vote_ref`, `votes_data`, `created_at`) VALUES
-(206, 1, 'VOTE-250312-1200', '{\"20\":\"51\"}', '2025-03-12 00:57:27'),
-(207, 1, 'VOTE-250312-5643', '{\"20\":\"51\"}', '2025-03-12 02:58:54'),
-(208, 1, 'VOTE-250312-8334', '{\"20\":\"51\"}', '2025-03-12 03:33:55'),
-(209, 1, 'VOTE-250312-8558', '{\"20\":\"51\"}', '2025-03-12 04:56:46'),
-(210, 1, 'VOTE-250312-0538', '{\"20\":\"51\"}', '2025-03-12 04:59:19'),
-(211, 1, 'VOTE-250312-0189', '{\"20\":\"51\"}', '2025-03-12 05:04:47');
+(213, 1, 'VOTE-250324-2572', '{\"20\":\"57\",\"22\":\"55\"}', '2025-03-24 14:56:21'),
+(214, 1, 'VOTE-250325-9835', '{\"20\":\"59\",\"21\":\"63\",\"22\":\"64\"}', '2025-03-25 01:40:14'),
+(215, 1, 'VOTE-250325-3210', '{\"20\":\"59\",\"21\":\"66\",\"22\":\"61\"}', '2025-03-25 03:33:54'),
+(216, 1, 'VOTE-250325-8720', '{\"20\":\"62\",\"21\":\"60\",\"22\":\"67\"}', '2025-03-25 03:33:54'),
+(217, 1, 'VOTE-250325-3730', '{\"20\":\"62\",\"21\":\"63\"}', '2025-03-25 03:36:56'),
+(218, 1, 'VOTE-250325-4325', '{\"20\":\"62\",\"21\":\"66\",\"22\":\"67\"}', '2025-03-25 03:47:05'),
+(219, 1, 'VOTE-250325-5743', '{\"20\":\"62\",\"21\":\"66\",\"22\":\"67\"}', '2025-03-25 03:48:08');
 
 --
 -- Triggers `votes`
@@ -419,14 +409,19 @@ ALTER TABLE `courses`
 --
 ALTER TABLE `election_history`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `idx_election_dates` (`start_date`,`end_date`);
+  ADD UNIQUE KEY `control_number` (`control_number`),
+  ADD KEY `idx_election_history_control` (`control_number`),
+  ADD KEY `idx_status_history` (`status`,`end_time`),
+  ADD KEY `idx_election_end_status` (`end_time`,`status`);
 
 --
 -- Indexes for table `election_status`
 --
 ALTER TABLE `election_status`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `idx_status` (`status`,`start_time`,`end_time`);
+  ADD UNIQUE KEY `control_number` (`control_number`),
+  ADD KEY `idx_status` (`status`,`end_time`),
+  ADD KEY `idx_election_status_control` (`control_number`);
 
 --
 -- Indexes for table `otp_requests`
@@ -479,7 +474,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `candidates`
 --
 ALTER TABLE `candidates`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT for table `courses`
@@ -491,7 +486,7 @@ ALTER TABLE `courses`
 -- AUTO_INCREMENT for table `election_history`
 --
 ALTER TABLE `election_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `election_status`
@@ -503,31 +498,31 @@ ALTER TABLE `election_status`
 -- AUTO_INCREMENT for table `otp_requests`
 --
 ALTER TABLE `otp_requests`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT for table `partylists`
 --
 ALTER TABLE `partylists`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `positions`
 --
 ALTER TABLE `positions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `voters`
 --
 ALTER TABLE `voters`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT for table `votes`
 --
 ALTER TABLE `votes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=212;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=220;
 
 --
 -- Constraints for dumped tables
@@ -557,32 +552,6 @@ ALTER TABLE `voters`
 --
 ALTER TABLE `votes`
   ADD CONSTRAINT `fk_vote_election` FOREIGN KEY (`election_id`) REFERENCES `election_status` (`id`);
-
-DELIMITER $$
---
--- Events
---
-CREATE DEFINER=`root`@`localhost` EVENT `check_election_start` ON SCHEDULE EVERY 1 MINUTE STARTS '2025-03-12 01:44:18' ON COMPLETION NOT PRESERVE ENABLE DO BEGIN
-    UPDATE election_status 
-    SET status = 'on'
-    WHERE id = 1 
-    AND status != 'on'
-    AND status != 'off'
-    AND status != 'pending'
-    AND start_time <= CURRENT_TIMESTAMP
-    AND end_time > CURRENT_TIMESTAMP;
-END$$
-
-CREATE DEFINER=`root`@`localhost` EVENT `check_election_end` ON SCHEDULE EVERY 1 MINUTE STARTS '2025-03-12 01:44:18' ON COMPLETION NOT PRESERVE ENABLE DO BEGIN
-    UPDATE election_status 
-    SET status = 'off'
-    WHERE id = 1 
-    AND status != 'off'
-    AND status != 'pending'
-    AND end_time <= CURRENT_TIMESTAMP;
-END$$
-
-DELIMITER ;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

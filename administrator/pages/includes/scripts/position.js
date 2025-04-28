@@ -2,11 +2,15 @@ $(function(){
     // Initialize DataTable
     const positionTable = $('#positionsTable').DataTable({
         responsive: true,
-        order: [[0, 'asc']], // Sort by priority column (first column) in ascending order
+        order: [[0, 'asc']], // Sort by priority column in ascending order
         columnDefs: [
-            { 
+            {
                 targets: 0, // Priority column
-                width: '80px'
+                visible: false // Hide the priority column
+            },
+            {
+                targets: -1, // Actions column
+                orderable: false // Disable sorting for actions column
             }
         ]
     });
@@ -29,31 +33,85 @@ $(function(){
         return window.modificationMessage || 'Modifications are not allowed';
     }
 
-    // Function to show error message using SweetAlert
-    function showError(message) {
+    // Function to show success message
+    function showSuccess(message) {
         Swal.fire({
-            icon: 'error',
-            title: 'Error!',
-            text: message || 'An error occurred',
-            showConfirmButton: true
+            icon: 'success',
+            title: 'Success!',
+            text: message,
+            timer: 2000,
+            timerProgressBar: true,
+            showConfirmButton: false
+        }).then(() => {
+            window.location.reload();
         });
     }
 
-    // Function to show warning message using SweetAlert
-    function showWarning(message) {
+    // Function to show error message
+    function showError(message, form = null) {
+        const modal = form ? form.closest('.modal') : null;
+        
+        // If there's a modal, keep track of its state
+        const wasModalOpen = modal ? modal.is(':visible') : false;
+        
+        // If modal is open, hide it properly before showing error
+        if (wasModalOpen) {
+            modal.modal('hide');
+        }
+
         Swal.fire({
+            icon: 'error',
+            title: 'Error!',
+            text: message,
+            confirmButtonText: 'OK',
+            confirmButtonColor: '#d33'
+        }).then(() => {
+            // Clean up any modal artifacts
+            $('.modal-backdrop').remove();
+            $('body').removeClass('modal-open').css('padding-right', '');
+            
+            // Reset form if it exists
+            if (form) {
+                form[0].reset();
+                form.find('button[type="submit"]').prop('disabled', false);
+            }
+        });
+    }
+
+    function showWarning(message) {
+        return Swal.fire({
             icon: 'warning',
             title: 'Access Denied',
             text: message,
-            showConfirmButton: true
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'OK'
+        });
+    }
+
+    function showDeleteConfirmation() {
+        return Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'Cancel'
         });
     }
 
     // Function to handle server errors
-    function handleServerError(xhr, status, error) {
-        console.error('Error:', error);
-        console.log('Response:', xhr.responseText);
-        showError('Server error occurred. Please try again.');
+    function handleServerError(xhr, form = null) {
+        console.error('Server Error:', xhr.responseText);
+        let errorMessage = 'A server error occurred. Please try again.';
+        try {
+            const response = JSON.parse(xhr.responseText);
+            errorMessage = response.message || errorMessage;
+        } catch (e) {
+            console.error('Error parsing response:', e);
+        }
+        showError(errorMessage, form);
     }
 
     // Function to get position data
@@ -62,7 +120,7 @@ $(function(){
 
         $.ajax({
             type: 'POST',
-            url: `${BASE_URL}administrator/pages/includes/modals/controllers/PositionController.php`,
+            url: baseUrl + 'administrator/pages/includes/modals/controllers/PositionController.php',
             data: {id: id, action: 'get'},
             dataType: 'json',
             success: function(response) {
@@ -72,12 +130,14 @@ $(function(){
                     $('#edit_description').val(data.description);
                     $('#edit_max_vote').val(data.max_vote);
                     $('#edit_priority').val(data.priority);
-                    $('.position_description').html(data.description);
+                    $('.description').html(data.description);
                 } else {
                     showError(response.message);
                 }
             },
-            error: handleServerError
+            error: function(xhr) {
+                handleServerError(xhr);
+            }
         });
     }
 
@@ -85,7 +145,7 @@ $(function(){
     $('#addnew, #edit, #delete').on('show.bs.modal', function(e) {
         if (!isModificationAllowed()) {
             e.preventDefault();
-            e.stopPropagation();
+            showWarning(getModificationMessage());
             return false;
         }
     });
@@ -93,13 +153,6 @@ $(function(){
     // Edit button click handler
     $(document).on('click', '.edit-position', function(e) {
         e.preventDefault();
-        e.stopPropagation();
-        
-        if (!isModificationAllowed()) {
-            showWarning(getModificationMessage());
-            return;
-        }
-        
         $('#edit').modal('show');
         getRow($(this).data('id'));
     });
@@ -107,19 +160,12 @@ $(function(){
     // Delete button click handler
     $(document).on('click', '.delete-position', function(e) {
         e.preventDefault();
-        e.stopPropagation();
-        
-        if (!isModificationAllowed()) {
-            showWarning(getModificationMessage());
-            return;
-        }
-
         const id = $(this).data('id');
-        getRow(id);
+        const description = $(this).closest('tr').find('td:eq(1)').text();
 
         Swal.fire({
             title: 'Delete Position',
-            text: 'Are you sure you want to delete this position?',
+            text: `Are you sure you want to delete "${description}"?`,
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#d33',
@@ -129,24 +175,18 @@ $(function(){
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
-                    type: 'POST',
-                    url: `${BASE_URL}administrator/pages/includes/modals/controllers/PositionController.php`,
+                    url: baseUrl + 'administrator/pages/includes/modals/controllers/PositionController.php',
+                    method: 'POST',
                     data: {
-                        id: id,
-                        action: 'delete'
+                        action: 'delete',
+                        id: id
                     },
                     dataType: 'json',
                     success: function(response) {
                         if (!response.error) {
-                            Swal.fire(
-                                'Deleted!',
-                                'Position has been deleted.',
-                                'success'
-                            ).then(() => {
-                                location.reload();
-                            });
+                            showSuccess('Position deleted successfully!');
                         } else {
-                            showError(response.message);
+                            showError(response.message || 'An error occurred. Please try again.');
                         }
                     },
                     error: handleServerError
@@ -155,38 +195,87 @@ $(function(){
         });
     });
 
-    // Form submission handler function
-    function handleFormSubmission(form) {
-        if (!isModificationAllowed()) {
-            showWarning(getModificationMessage());
-            return;
-        }
+    // Function to handle form submission
+    function handleFormSubmission(form, action) {
+        const submitBtn = form.find('button[type="submit"]');
+        const originalBtnText = submitBtn.html();
+        const modal = form.closest('.modal');
+        
+        // Disable button and show loading state
+        submitBtn.prop('disabled', true);
+        submitBtn.html('<i class="fa fa-spinner fa-spin"></i> Processing...');
 
         $.ajax({
-            type: 'POST',
-            url: form.attr('action'),
-            data: form.serialize(),
+            url: baseUrl + 'administrator/pages/includes/modals/controllers/PositionController.php',
+            method: 'POST',
+            data: form.serialize() + '&action=' + action,
             dataType: 'json',
             success: function(response) {
                 if (!response.error) {
-                    location.reload();
+                    // Hide modal and show success
+                    modal.modal('hide');
+                    showSuccess(action === 'add' ? 'Position added successfully!' : 
+                              action === 'edit' ? 'Position updated successfully!' :
+                              'Position deleted successfully!');
                 } else {
-                    showError(response.message);
+                    // Re-enable button and restore text
+                    submitBtn.prop('disabled', false);
+                    submitBtn.html(originalBtnText);
+                    showError(response.message || 'An error occurred. Please try again.', form);
                 }
             },
-            error: handleServerError
+            error: function(xhr) {
+                // Re-enable button and restore text
+                submitBtn.prop('disabled', false);
+                submitBtn.html(originalBtnText);
+                handleServerError(xhr, form);
+            }
         });
+
+        return false; // Prevent form submission
     }
 
-    // Add form submission
-    $('#addnew form').submit(function(e) {
+    // Add Position Form Submit
+    $('#addPositionForm').submit(function(e) {
         e.preventDefault();
-        handleFormSubmission($(this));
+        return handleFormSubmission($(this), 'add');
     });
 
-    // Edit form submission
-    $('#edit form').submit(function(e) {
+    // Edit Position Form Submit
+    $('#editPositionForm').submit(function(e) {
         e.preventDefault();
-        handleFormSubmission($(this));
+        return handleFormSubmission($(this), 'edit');
+    });
+
+    // Delete Position Form Submit
+    $('#deletePositionForm').submit(function(e) {
+        e.preventDefault();
+        showDeleteConfirmation().then((result) => {
+            if (result.isConfirmed) {
+                return handleFormSubmission($(this), 'delete');
+            }
+        });
+        return false;
+    });
+
+    // Handle modal cleanup
+    $('.modal').on('hidden.bs.modal', function() {
+        // Reset the form
+        const form = $(this).find('form');
+        if (form.length) {
+            form[0].reset();
+            form.find('button[type="submit"]').prop('disabled', false);
+        }
+        
+        // Remove any leftover backdrops and cleanup body
+        $('.modal-backdrop').remove();
+        $('body').removeClass('modal-open').css('padding-right', '');
+    });
+
+    // Prevent modal from showing if there's an error alert visible
+    $('#addnew').on('show.bs.modal', function(e) {
+        if ($('.swal2-container').length) {
+            e.preventDefault();
+        }
     });
 }); 

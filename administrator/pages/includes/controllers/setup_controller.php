@@ -1,8 +1,8 @@
 <?php
-require_once __DIR__ . '/../../classes/View.php';
-require_once __DIR__ . '/../../classes/Admin.php';
-require_once __DIR__ . '/../../classes/Elections.php';
-require_once __DIR__ . '/../../classes/Logger.php';
+require_once __DIR__ . '/../../../../administrator/classes/View.php';
+require_once __DIR__ . '/../../../../administrator/classes/Admin.php';
+require_once __DIR__ . '/../../../../administrator/classes/Elections.php';
+require_once __DIR__ . '/../../../../administrator/classes/Logger.php';
 
 class SetupController {
     private $view;
@@ -20,9 +20,9 @@ class SetupController {
     }
 
     public function saveSetup() {
-        // Check if admin is logged in and is superadmin
-        if (!$this->admin->isLoggedIn() || !$this->admin->isSuperAdmin()) {
-            $_SESSION['error'] = 'Access Denied. This page is restricted to superadmins only.';
+        // Check if admin is logged in and is head
+        if (!$this->admin->isLoggedIn() || !$this->admin->isHead()) {
+            $_SESSION['error'] = 'Access Denied. This page is restricted to heads only.';
             header('Location: home');
             exit();
         }
@@ -31,7 +31,7 @@ class SetupController {
         $current_status = $this->election->getCurrentStatus();
         if ($current_status !== 'setup') {
             $_SESSION['error'] = 'Setup page is only accessible when election status is in setup mode.';
-            header('Location: configure.php');
+            header('Location: configure');
             exit();
         }
 
@@ -74,7 +74,7 @@ class SetupController {
                 $this->conn->commit();
 
                 $_SESSION['success'] = 'Election setup completed successfully. The election is now in pending status.';
-                header('Location: configure.php');
+                header('Location: configure');
                 exit();
 
             } catch (Exception $e) {
@@ -82,12 +82,12 @@ class SetupController {
                 $this->conn->rollback();
                 
                 $_SESSION['error'] = 'Error completing setup: ' . $e->getMessage();
-                header('Location: setup.php');
+                header('Location: setup');
                 exit();
             }
         } else {
             // If not POST request, redirect to setup page
-            header('Location: setup.php');
+            header('Location: setup');
             exit();
         }
     }

@@ -1,15 +1,31 @@
 <?php
+require_once __DIR__ . '/../../init.php';
+require_once __DIR__ . '/../../classes/Database.php';
+require_once __DIR__ . '/../../classes/CustomSessionHandler.php';
 require_once __DIR__ . '/../classes/View.php';
 require_once __DIR__ . '/../classes/Admin.php';
 require_once __DIR__ . '/../classes/Candidate.php';
+require_once __DIR__ . '/../classes/Elections.php';
 require_once __DIR__ . '/../classes/Position.php';
 require_once __DIR__ . '/../classes/Partylist.php';
+require_once __DIR__ . '/../includes/access_control.php';
 
 // Initialize classes
 $view = View::getInstance();
 $admin = Admin::getInstance();
 $candidate = Candidate::getInstance();
 $position = Position::getInstance();
+$accessControl = AccessControl::getInstance();
+
+// Check access control
+$accessControl->checkPageAccess(basename(__FILE__));
+
+// Debug output to check if classes are loaded
+echo "<!-- Classes loaded successfully -->";
+
+// Initialize other classes
+Elections::enforceCompletedRedirect();
+Elections::enforceSetupRedirect();
 $partylist = Partylist::getInstance();
 
 // Check if admin is logged in
@@ -40,31 +56,9 @@ $candidates = $candidate->getAllCandidates();
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>E-Halal Voting System | Candidates Management</title>
+    <title>E-Halal BTECHenyo | Candidates</title>
     <?php echo $view->renderHeader(); ?>
-    <style>
-        .candidate-photo {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-        .platform-text {
-            max-width: 300px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .fileupload-buttonbar {
-            margin-bottom: 10px;
-        }
-        .fileupload-progress {
-            margin-top: 10px;
-        }
-        .fileupload-progress .progress {
-            margin-bottom: 5px;
-        }
-    </style>
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>administrator/assets/css/admin.css">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -115,7 +109,7 @@ $candidates = $candidate->getAllCandidates();
                 <div class="col-xs-12">
                     <div class="box">
                         <div class="box-header with-border">
-                            <button type="button" class="btn btn-primary btn-sm btn-flat" data-toggle="modal" data-target="#addnew" <?php echo $view->getDisabledAttribute(); ?> <?php echo $view->getDisabledAttribute() ? 'data-toggle="tooltip" title="' . $view->getModificationMessage() . '"' : ''; ?>>
+                            <button type="button" class="btn btn-primary btn-sm btn-flat custom" data-toggle="modal" data-target="#addnew" <?php echo $view->getDisabledAttribute(); ?> <?php echo $view->getDisabledAttribute() ? 'data-toggle="tooltip" title="' . $view->getModificationMessage() . '"' : ''; ?>>
                                 <i class="fa fa-plus"></i> New Candidate
                             </button>
                         </div>
@@ -140,7 +134,7 @@ $candidates = $candidate->getAllCandidates();
                                         <td><?php echo htmlspecialchars($cand['position']); ?></td>
                                         <td><?php echo htmlspecialchars($cand['partylist_name'] ?: 'Independent'); ?></td>
                                         <td>
-                                            <button class="btn btn-primary btn-sm edit-candidate" data-id="<?php echo $cand['id']; ?>" <?php echo $view->getDisabledAttribute(); ?> <?php echo $view->getDisabledAttribute() ? 'data-toggle="tooltip" title="' . $view->getModificationMessage() . '"' : ''; ?>>
+                                            <button class="btn btn-primary btn-sm edit-candidate custom" data-id="<?php echo $cand['id']; ?>" <?php echo $view->getDisabledAttribute(); ?> <?php echo $view->getDisabledAttribute() ? 'data-toggle="tooltip" title="' . $view->getModificationMessage() . '"' : ''; ?>>
                                                 <i class="fa fa-edit"></i> Edit
                                             </button>
                                             <button class="btn btn-danger btn-sm delete-candidate" data-id="<?php echo $cand['id']; ?>" <?php echo $view->getDisabledAttribute(); ?> <?php echo $view->getDisabledAttribute() ? 'data-toggle="tooltip" title="' . $view->getModificationMessage() . '"' : ''; ?>>

@@ -16,12 +16,17 @@ class View {
     private $session;
     private static $instance = null;
     private $elections;
+    private $current_page;
 
     private function __construct() {
         $this->session = CustomSessionHandler::getInstance();
         $this->admin = Admin::getInstance();
         $this->adminData = $this->admin->getAdminData();
         $this->elections = Elections::getInstance();
+        
+        // Get page from URL parameter, fallback to index if not set
+        $page = isset($_GET['page']) ? $_GET['page'] : 'index';
+        $this->current_page = $page . '.php';
     }
 
     /**
@@ -61,27 +66,6 @@ class View {
             </span>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top">
-                <!-- Sidebar toggle button-->
-                <?php 
-                $current_path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-                $urls = [
-                    '/e-halal/administrator/home',
-                    '/e-halal/administrator/votes',
-                    '/e-halal/administrator/voters',
-                    '/e-halal/administrator/positions',
-                    '/e-halal/administrator/candidates',
-                    '/e-halal/administrator/ballot',
-                    '/e-halal/administrator/configure',
-                    '/e-halal/administrator/history',
-                    '/e-halal/administrator/log_admin',
-                    '/e-halal/administrator/officers'
-                ];
-                if(in_array($current_path, $urls)) :?>
-                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-                    <span class="sr-only">Toggle navigation</span>
-                </a>
-                <?php endif; ?>
-
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
                         <!-- User Account: style can be found in dropdown.less -->
@@ -125,8 +109,7 @@ class View {
 
     public function renderMenubar() {
         ob_start();
-        // Get current page from URL
-        $current_page = basename($_SERVER['PHP_SELF']);
+        // Use the class property instead of local variable
         ?>
         <aside class="main-sidebar">
             <!-- sidebar: style can be found in sidebar.less -->
@@ -135,53 +118,53 @@ class View {
                 <!-- sidebar menu: : style can be found in sidebar.less -->
                 <ul class="sidebar-menu" data-widget="tree">
                     <!-- Dashboard -->
-                    <li class="<?php echo $current_page == 'home.php' ? 'active' : ''; ?>">
+                    <li class="<?php echo $this->current_page == 'home.php' ? 'active' : ''; ?>">
                         <a href="home"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
                     </li>
 
                     <!-- Election Management -->
                     <li class="header">ELECTION MANAGEMENT</li>
-                    <li class="<?php echo $current_page == 'positions.php' ? 'active' : ''; ?>">
+                    <li class="<?php echo $this->current_page == 'positions.php' ? 'active' : ''; ?>">
                         <a href="positions"><i class="fa fa-tasks"></i> <span>Positions</span></a>
                     </li>
-                    <li class="<?php echo $current_page == 'candidates.php' ? 'active' : ''; ?>">
+                    <li class="<?php echo $this->current_page == 'candidates.php' ? 'active' : ''; ?>">
                         <a href="candidates"><i class="fa fa-user-tie"></i> <span>Candidates</span></a>
                     </li>
-                    <li class="<?php echo $current_page == 'partylists.php' ? 'active' : ''; ?>">
+                    <li class="<?php echo $this->current_page == 'partylists.php' ? 'active' : ''; ?>">
                         <a href="partylists"><i class="fa fa-list"></i> <span>Partylists</span></a>
                     </li>
-                    <li class="<?php echo $current_page == 'voters.php' ? 'active' : ''; ?>">
+                    <li class="<?php echo $this->current_page == 'voters.php' ? 'active' : ''; ?>">
                         <a href="voters"><i class="fa fa-users"></i> <span>Voters</span></a>
                     </li>
-                    <li class="<?php echo $current_page == 'courses.php' ? 'active' : ''; ?>">
+                    <li class="<?php echo $this->current_page == 'courses.php' ? 'active' : ''; ?>">
                         <a href="courses"><i class="fa fa-graduation-cap"></i> <span>Courses</span></a>
                     </li>
 
                     <!-- Reports & Analytics -->
                     <li class="header">REPORTS & ANALYTICS</li>
-                    <li class="<?php echo $current_page == 'votes.php' ? 'active' : ''; ?>">
+                    <li class="<?php echo $this->current_page == 'votes.php' ? 'active' : ''; ?>">
                         <a href="votes"><i class="fa fa-chart-bar"></i> <span>Votes</span></a>
                     </li>
-                    <li class="<?php echo $current_page == 'history.php' ? 'active' : ''; ?>">
+                    <li class="<?php echo $this->current_page == 'history.php' ? 'active' : ''; ?>">
                         <a href="history"><i class="fa fa-history"></i> <span>Election History</span></a>
                     </li>
 
-                    <?php if ($this->admin->isSuperAdmin()): ?>
+                    <?php if ($this->admin->isElectoralHead()): ?>
                     <!-- System Administration -->
                     <li class="header">ADMINISTRATION</li>
-                    <li class="<?php echo $current_page == 'officers.php' ? 'active' : ''; ?>">
+                    <li class="<?php echo $this->current_page == 'officers.php' ? 'active' : ''; ?>">
                         <a href="officers"><i class="fa fa-user-shield"></i> <span>Officers</span></a>
                     </li>
-                    <li class="<?php echo $current_page == 'log_admin.php' ? 'active' : ''; ?>">
+                    <li class="<?php echo $this->current_page == 'log_admin.php' ? 'active' : ''; ?>">
                         <a href="log_admin"><i class="fa fa-user-shield"></i> <span>Admin Logs</span></a>
                     </li>
 
                     <!-- System Settings -->
                     <li class="header">SETTINGS</li>
-                    <li class="<?php echo $current_page == 'configure.php' ? 'active' : ''; ?>">
+                    <li class="<?php echo $this->current_page == 'configure.php' ? 'active' : ''; ?>">
                         <a href="configure"><i class="fa fa-cogs"></i> <span>Configure Election</span></a>
                     </li>
-                    <li class="<?php echo $current_page == 'ballot.php' ? 'active' : ''; ?>">
+                    <li class="<?php echo $this->current_page == 'ballot.php' ? 'active' : ''; ?>">
                         <a href="ballot"><i class="fa fa-ticket-alt"></i> <span>Ballot Settings</span></a>
                     </li>
                     <?php endif; ?>
@@ -201,58 +184,62 @@ class View {
         <head>
             <meta charset="utf-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <title>E-Halal Voting System | Admin Dashboard</title>
-            <!-- Bootstrap -->
+            <title>E-Halal BTECHenyo | Admin Dashboard</title>
+            
+            <!-- Core CSS -->
             <link rel="stylesheet" href="<?php echo BASE_URL; ?>node_modules/bootstrap/dist/css/bootstrap.min.css">
-            <!-- AdminLTE -->
+            <link rel="stylesheet" href="<?php echo BASE_URL; ?>plugins/font-awesome/css/all.min.css" />
+            
+            <!-- Third Party CSS -->
+            <link rel="stylesheet" href="<?php echo BASE_URL; ?>node_modules/datatables.net-bs/css/dataTables.bootstrap.css">
+            <link rel="stylesheet" href="<?php echo BASE_URL; ?>node_modules/iCheck/skins/all.css">
+            <link rel="stylesheet" href="<?php echo BASE_URL; ?>node_modules/bootstrap-daterangepicker/daterangepicker.css">
+            <link rel="stylesheet" href="<?php echo BASE_URL; ?>node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+            <link rel="stylesheet" href="<?php echo BASE_URL; ?>node_modules/bootstrap-timepicker/css/bootstrap-timepicker.min.css">
+            <link rel="stylesheet" href="<?php echo BASE_URL; ?>node_modules/sweetalert2/dist/sweetalert2.min.css">
+            <link rel="stylesheet" href="<?php echo BASE_URL; ?>node_modules/@fancyapps/ui/dist/fancybox/fancybox.css" />
+            
+            <!-- AdminLTE Theme -->
             <link rel="stylesheet" href="<?php echo BASE_URL; ?>dist/css/AdminLTE.min.css">
             <link rel="stylesheet" href="<?php echo BASE_URL; ?>dist/css/skins/_all-skins.min.css">
-
+            
             <!-- Custom Styles -->
             <link rel="stylesheet" href="<?php echo BASE_URL; ?>dist/css/custom.css">
             <link rel="stylesheet" href="<?php echo BASE_URL; ?>dist/css/login.css">
-            <link rel="stylesheet" href="<?php echo BASE_URL; ?>dist/css/ballots.css">
             <link rel="stylesheet" href="<?php echo BASE_URL; ?>administrator/assets/css/styles.css">
-            <!-- DataTables -->
-            <link rel="stylesheet" href="<?php echo BASE_URL; ?>node_modules\datatables.net-bs\css\dataTables.bootstrap.css">
-            <!-- iCheck -->
-            <link rel="stylesheet" href="<?php echo BASE_URL; ?>node_modules/iCheck/skins/all.css">
-            <!-- Date Range Picker -->
-            <link rel="stylesheet" href="<?php echo BASE_URL; ?>node_modules/bootstrap-daterangepicker/daterangepicker.css">
-            <!-- Date Picker -->
-            <link rel="stylesheet" href="<?php echo BASE_URL; ?>node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
-            <!-- Time Picker -->
-            <link rel="stylesheet" href="<?php echo BASE_URL; ?>node_modules/bootstrap-timepicker/css/bootstrap-timepicker.min.css">
-            <!-- SweetAlert2 -->
-            <link rel="stylesheet" href="<?php echo BASE_URL; ?>node_modules/sweetalert2/dist/sweetalert2.min.css">
-            <!-- Custom Fonts -->
+            <link rel="stylesheet" href="<?php echo BASE_URL; ?>administrator/assets/css/modals.css">
             <link rel="stylesheet" href="<?php echo BASE_URL; ?>dist/customFonts.css">
+            <?php if ($this->current_page == 'setup.php'): ?>  
+            <link rel="stylesheet" href="<?php echo BASE_URL; ?>administrator/assets/css/setup.css">
+            <?php elseif ($this->current_page == 'completed.php'): ?>
+            <link rel="stylesheet" href="<?php echo BASE_URL; ?>administrator/assets/css/completed.css?v=2">
+            <?php endif; ?>
             <!-- Favicon -->
             <link rel="icon" type="image/x-icon" href="<?php echo BASE_URL; ?>images/icon.ico">
-            <!-- Custom CSS -->
-            <link rel="stylesheet" href="<?php echo BASE_URL; ?>administrator/assets/css/styles.css">
-            <!-- Font Awesome -->
-            <link rel="stylesheet" href="<?php echo BASE_URL; ?>plugins/font-awesome/css/all.min.css" />
-            <!-- Fancybox -->
-            <link rel="stylesheet" href="<?php echo BASE_URL; ?>node_modules/@fancyapps/ui/dist/fancybox/fancybox.css" />
-            <!-- Modals -->
-            <link rel="stylesheet" href="<?php echo BASE_URL; ?>administrator/assets/css/modals.css">
             
-            <!-- jQuery -->
-            <script src="<?php echo BASE_URL; ?>node_modules/jquery/dist/jquery.min.js"></script>            
-            <!-- Bootstrap -->
+            <!-- Core JavaScript -->
+            <script src="<?php echo BASE_URL; ?>node_modules/jquery/dist/jquery.min.js"></script>
+            <script src="<?php echo BASE_URL; ?>node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
             <script src="<?php echo BASE_URL; ?>node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-            <!-- DataTables -->
+            
+            <!-- Third Party JavaScript -->
             <script src="<?php echo BASE_URL; ?>node_modules/datatables.net/js/jquery.dataTables.js"></script>
             <script src="<?php echo BASE_URL; ?>node_modules/datatables.net-bs/js/dataTables.bootstrap.js"></script>
-            <!-- SlimScroll -->
             <script src="<?php echo BASE_URL; ?>node_modules/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-            <!-- FastClick -->
             <script src="<?php echo BASE_URL; ?>node_modules/fastclick/lib/fastclick.js"></script>
-            <!-- Chart.js -->
             <script src="<?php echo BASE_URL; ?>node_modules/chart.js/dist/chart.umd.js"></script>
-            <!-- Popper.js -->
-            <script src="<?php echo BASE_URL; ?>node_modules/@popperjs/core/dist/umd/popper.min.js"></script>
+            <script src="<?php echo BASE_URL; ?>node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+
+            <!-- jQuery UI Tabs dependencies -->
+            <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+            <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+            <!-- SweetAlert2 for better alerts and progress indication -->
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            <!-- DataTables CSS & JS -->
+            <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+            <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+            <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.min.js"></script>
         </head>		
         <?php
         return ob_get_clean();
@@ -263,7 +250,7 @@ class View {
         ?>
         <footer class="main-footer">
             <div class="pull-right hidden-xs">
-                <b><a>Term of Use</a></b>
+                <b><a>See Guidelines</a></b>
             </div>
             <strong>Copyright &copy; 2024 <a href="https://btech.edu.ph">Dalubhsaang Politekniko ng Lungsod ng Baliwag</a></strong>
         </footer>
@@ -273,6 +260,8 @@ class View {
 
         <!-- AdminLTE App -->
         <script src="<?php echo BASE_URL; ?>dist/js/adminlte.min.js"></script>
+
+        <?php include __DIR__ . '/../modals/admin_modal.php'; ?>
 
         <script>
         $(document).ready(function() {
@@ -316,9 +305,7 @@ class View {
         
         <!-- AdminLTE App -->
         <script src="<?php echo BASE_URL; ?>dist/js/adminlte.min.js"></script>
-        
-        <!-- Admin Modal -->
-        <?php include __DIR__ . '/../modals/admin_modal.php'; ?>
+    
         <?php
         return ob_get_clean();
     }

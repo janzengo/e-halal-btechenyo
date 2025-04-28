@@ -1,0 +1,1897 @@
+2025-04-26 15:54:29 SERVER -> CLIENT: 220 smtp.gmail.com ESMTP d2e1a72fcca58-73e25a6b1e7sm4471788b3a.108 - gsmtp
+2025-04-26 15:54:29 CLIENT -> SERVER: EHLO localhost
+2025-04-26 15:54:30 SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2001:4450:814c:100:3168:ff76:e755:a100]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+2025-04-26 15:54:30 CLIENT -> SERVER: STARTTLS
+2025-04-26 15:54:30 SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+2025-04-26 15:54:30 CLIENT -> SERVER: EHLO localhost
+2025-04-26 15:54:30 SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2001:4450:814c:100:3168:ff76:e755:a100]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+2025-04-26 15:54:30 CLIENT -> SERVER: AUTH LOGIN
+2025-04-26 15:54:31 SERVER -> CLIENT: 334 VXNlcm5hbWU6
+2025-04-26 15:54:31 CLIENT -> SERVER: [credentials hidden]
+2025-04-26 15:54:31 SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+2025-04-26 15:54:31 CLIENT -> SERVER: [credentials hidden]
+2025-04-26 15:54:31 SERVER -> CLIENT: 235 2.7.0 Accepted
+2025-04-26 15:54:31 CLIENT -> SERVER: MAIL FROM:
+2025-04-26 15:54:31 SERVER -> CLIENT: 250 2.1.0 OK d2e1a72fcca58-73e25a6b1e7sm4471788b3a.108 - gsmtp
+2025-04-26 15:54:31 CLIENT -> SERVER: RCPT TO:
+2025-04-26 15:54:31 SERVER -> CLIENT: 250 2.1.5 OK d2e1a72fcca58-73e25a6b1e7sm4471788b3a.108 - gsmtp
+2025-04-26 15:54:31 CLIENT -> SERVER: DATA
+2025-04-26 15:54:32 SERVER -> CLIENT: 354 Go ahead d2e1a72fcca58-73e25a6b1e7sm4471788b3a.108 - gsmtp
+2025-04-26 15:54:32 CLIENT -> SERVER: Date: Sat, 26 Apr 2025 15:54:29 +0800
+2025-04-26 15:54:32 CLIENT -> SERVER: To: Chris Go
+2025-04-26 15:54:32 CLIENT -> SERVER: From: E-Halal System
+2025-04-26 15:54:32 CLIENT -> SERVER: Reply-To: E-Halal System
+2025-04-26 15:54:32 CLIENT -> SERVER: Subject: Your Officer Account Credentials - E-Halal BTECHenyo
+2025-04-26 15:54:32 CLIENT -> SERVER: Message-ID:
+2025-04-26 15:54:32 CLIENT -> SERVER: X-Mailer: PHPMailer 6.9.3 (https://github.com/PHPMailer/PHPMailer)
+2025-04-26 15:54:32 CLIENT -> SERVER: MIME-Version: 1.0
+2025-04-26 15:54:32 CLIENT -> SERVER: Content-Type: multipart/alternative;
+2025-04-26 15:54:32 CLIENT -> SERVER:  boundary="b1=_SDZg89rioflsEYWsVwijtjpKIvFLXhe3RIoWpHC3xc"
+2025-04-26 15:54:32 CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+2025-04-26 15:54:32 CLIENT -> SERVER:
+2025-04-26 15:54:32 CLIENT -> SERVER: --b1=_SDZg89rioflsEYWsVwijtjpKIvFLXhe3RIoWpHC3xc
+2025-04-26 15:54:32 CLIENT -> SERVER: Content-Type: text/plain; charset=us-ascii
+2025-04-26 15:54:32 CLIENT -> SERVER:
+2025-04-26 15:54:32 CLIENT -> SERVER: Hello Chris Go,
+2025-04-26 15:54:32 CLIENT -> SERVER: Your officer account for E-Halal BTECHenyo has been created.
+2025-04-26 15:54:32 CLIENT -> SERVER: Username: chris
+2025-04-26 15:54:32 CLIENT -> SERVER: Password: jgFCpRc9LPZGxW5
+2025-04-26 15:54:32 CLIENT -> SERVER: Please log in and change your password as soon as possible.
+2025-04-26 15:54:32 CLIENT -> SERVER:
+2025-04-26 15:54:32 CLIENT -> SERVER: --b1=_SDZg89rioflsEYWsVwijtjpKIvFLXhe3RIoWpHC3xc
+2025-04-26 15:54:32 CLIENT -> SERVER: Content-Type: text/html; charset=us-ascii
+2025-04-26 15:54:32 CLIENT -> SERVER:
+2025-04-26 15:54:32 CLIENT -> SERVER:
+2025-04-26 15:54:32 CLIENT -> SERVER:
+2025-04-26 15:54:32 CLIENT -> SERVER:
+2025-04-26 15:54:32 CLIENT -> SERVER:
+2025-04-26 15:54:32 CLIENT -> SERVER:
+2025-04-26 15:54:32 CLIENT -> SERVER:     Officer Account Credentials
+2025-04-26 15:54:32 CLIENT -> SERVER:
+2025-04-26 15:54:32 CLIENT -> SERVER:         body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; padding: 0; }
+2025-04-26 15:54:32 CLIENT -> SERVER:         .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+2025-04-26 15:54:32 CLIENT -> SERVER:         .header { background-color: #1d7c39; color: white; padding: 20px; text-align: center; }
+2025-04-26 15:54:32 CLIENT -> SERVER:         .content { background-color: #f9f9f9; padding: 20px; border-radius: 0 0 5px 5px; }
+2025-04-26 15:54:32 CLIENT -> SERVER:         .credentials { font-size: 18px; color: #1d7c39; margin: 20px 0; }
+2025-04-26 15:54:32 CLIENT -> SERVER:         .footer { text-align: center; font-size: 12px; color: #666; margin-top: 20px; }
+2025-04-26 15:54:32 CLIENT -> SERVER:         .advice { color: #d9534f; font-weight: bold; }
+2025-04-26 15:54:32 CLIENT -> SERVER:
+2025-04-26 15:54:32 CLIENT -> SERVER:
+2025-04-26 15:54:32 CLIENT -> SERVER:
+2025-04-26 15:54:32 CLIENT -> SERVER:
+2025-04-26 15:54:32 CLIENT -> SERVER:
+2025-04-26 15:54:32 CLIENT -> SERVER:             E-Halal BTECHenyo
+2025-04-26 15:54:32 CLIENT -> SERVER:
+2025-04-26 15:54:32 CLIENT -> SERVER:
+2025-04-26 15:54:32 CLIENT -> SERVER:             Hello Chris Go,
+2025-04-26 15:54:32 CLIENT -> SERVER:             Your officer account for E-Halal BTECHenyo has been created. Here are your credentials:
+2025-04-26 15:54:32 CLIENT -> SERVER:
+2025-04-26 15:54:32 CLIENT -> SERVER:                 Username: chris
+2025-04-26 15:54:32 CLIENT -> SERVER:                 Password: jgFCpRc9LPZGxW5
+2025-04-26 15:54:32 CLIENT -> SERVER:
+2025-04-26 15:54:32 CLIENT -> SERVER:             Please log in and change your password as soon as possible for security reasons.
+2025-04-26 15:54:32 CLIENT -> SERVER:             If you did not expect this email, please contact the system administrator.
+2025-04-26 15:54:32 CLIENT -> SERVER:
+2025-04-26 15:54:32 CLIENT -> SERVER:
+2025-04-26 15:54:32 CLIENT -> SERVER:             &copy; 2025 E-Halal BTECHenyo Voting System. All rights reserved.
+2025-04-26 15:54:32 CLIENT -> SERVER:             This is an automated email, please do not reply.
+2025-04-26 15:54:32 CLIENT -> SERVER:
+2025-04-26 15:54:32 CLIENT -> SERVER:
+2025-04-26 15:54:32 CLIENT -> SERVER:
+2025-04-26 15:54:32 CLIENT -> SERVER:
+2025-04-26 15:54:32 CLIENT -> SERVER:
+2025-04-26 15:54:32 CLIENT -> SERVER:
+2025-04-26 15:54:32 CLIENT -> SERVER: --b1=_SDZg89rioflsEYWsVwijtjpKIvFLXhe3RIoWpHC3xc--
+2025-04-26 15:54:32 CLIENT -> SERVER:
+2025-04-26 15:54:32 CLIENT -> SERVER: .
+2025-04-26 15:54:33 SERVER -> CLIENT: 250 2.0.0 OK  1745654072 d2e1a72fcca58-73e25a6b1e7sm4471788b3a.108 - gsmtp
+2025-04-26 15:54:33 CLIENT -> SERVER: RSET
+2025-04-26 15:54:33 SERVER -> CLIENT: 250 2.1.5 Flushed d2e1a72fcca58-73e25a6b1e7sm4471788b3a.108 - gsmtp
+2025-04-26 15:54:33 CLIENT -> SERVER: QUIT
+2025-04-26 15:54:33 SERVER -> CLIENT: 221 2.0.0 closing connection d2e1a72fcca58-73e25a6b1e7sm4471788b3a.108 - gsmtp
+2025-04-26 16:00:49 SERVER -> CLIENT: 220 smtp.gmail.com ESMTP d9443c01a7336-22db4d77ab1sm44686925ad.23 - gsmtp
+2025-04-26 16:00:49 CLIENT -> SERVER: EHLO localhost
+2025-04-26 16:00:50 SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2001:4450:814c:100:3168:ff76:e755:a100]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+2025-04-26 16:00:50 CLIENT -> SERVER: STARTTLS
+2025-04-26 16:00:50 SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+2025-04-26 16:00:50 CLIENT -> SERVER: EHLO localhost
+2025-04-26 16:00:50 SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2001:4450:814c:100:3168:ff76:e755:a100]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+2025-04-26 16:00:50 CLIENT -> SERVER: AUTH LOGIN
+2025-04-26 16:00:51 SERVER -> CLIENT: 334 VXNlcm5hbWU6
+2025-04-26 16:00:51 CLIENT -> SERVER: [credentials hidden]
+2025-04-26 16:00:51 SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+2025-04-26 16:00:51 CLIENT -> SERVER: [credentials hidden]
+2025-04-26 16:00:51 SERVER -> CLIENT: 235 2.7.0 Accepted
+2025-04-26 16:00:51 CLIENT -> SERVER: MAIL FROM:
+2025-04-26 16:00:51 SERVER -> CLIENT: 250 2.1.0 OK d9443c01a7336-22db4d77ab1sm44686925ad.23 - gsmtp
+2025-04-26 16:00:51 CLIENT -> SERVER: RCPT TO:
+2025-04-26 16:00:51 SERVER -> CLIENT: 250 2.1.5 OK d9443c01a7336-22db4d77ab1sm44686925ad.23 - gsmtp
+2025-04-26 16:00:51 CLIENT -> SERVER: DATA
+2025-04-26 16:00:52 SERVER -> CLIENT: 354 Go ahead d9443c01a7336-22db4d77ab1sm44686925ad.23 - gsmtp
+2025-04-26 16:00:52 CLIENT -> SERVER: Date: Sat, 26 Apr 2025 16:00:49 +0800
+2025-04-26 16:00:52 CLIENT -> SERVER: To: Chris Malabanan
+2025-04-26 16:00:52 CLIENT -> SERVER: From: E-Halal System
+2025-04-26 16:00:52 CLIENT -> SERVER: Reply-To: E-Halal System
+2025-04-26 16:00:52 CLIENT -> SERVER: Subject: Your Officer Account Credentials - E-Halal BTECHenyo
+2025-04-26 16:00:52 CLIENT -> SERVER: Message-ID:
+2025-04-26 16:00:52 CLIENT -> SERVER: X-Mailer: PHPMailer 6.9.3 (https://github.com/PHPMailer/PHPMailer)
+2025-04-26 16:00:52 CLIENT -> SERVER: MIME-Version: 1.0
+2025-04-26 16:00:52 CLIENT -> SERVER: Content-Type: multipart/alternative;
+2025-04-26 16:00:52 CLIENT -> SERVER:  boundary="b1=_ivFcOfJXqeuADBmn8WsPfccfHHvQYAxidyVZrHXp88"
+2025-04-26 16:00:52 CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+2025-04-26 16:00:52 CLIENT -> SERVER:
+2025-04-26 16:00:52 CLIENT -> SERVER: --b1=_ivFcOfJXqeuADBmn8WsPfccfHHvQYAxidyVZrHXp88
+2025-04-26 16:00:52 CLIENT -> SERVER: Content-Type: text/plain; charset=us-ascii
+2025-04-26 16:00:52 CLIENT -> SERVER:
+2025-04-26 16:00:52 CLIENT -> SERVER: Hello Chris Malabanan,
+2025-04-26 16:00:52 CLIENT -> SERVER: Your officer account for E-Halal BTECHenyo has been created.
+2025-04-26 16:00:52 CLIENT -> SERVER: Username: chris2024
+2025-04-26 16:00:52 CLIENT -> SERVER: Password: 9nUF12I7VQBE6CW
+2025-04-26 16:00:52 CLIENT -> SERVER: Please log in and change your password as soon as possible.
+2025-04-26 16:00:52 CLIENT -> SERVER:
+2025-04-26 16:00:52 CLIENT -> SERVER: --b1=_ivFcOfJXqeuADBmn8WsPfccfHHvQYAxidyVZrHXp88
+2025-04-26 16:00:52 CLIENT -> SERVER: Content-Type: text/html; charset=us-ascii
+2025-04-26 16:00:52 CLIENT -> SERVER:
+2025-04-26 16:00:52 CLIENT -> SERVER:
+2025-04-26 16:00:52 CLIENT -> SERVER:
+2025-04-26 16:00:52 CLIENT -> SERVER:
+2025-04-26 16:00:52 CLIENT -> SERVER:
+2025-04-26 16:00:52 CLIENT -> SERVER:
+2025-04-26 16:00:52 CLIENT -> SERVER:     Officer Account Credentials
+2025-04-26 16:00:52 CLIENT -> SERVER:
+2025-04-26 16:00:52 CLIENT -> SERVER:         body {
+2025-04-26 16:00:52 CLIENT -> SERVER:             font-family: Arial, sans-serif;
+2025-04-26 16:00:52 CLIENT -> SERVER:             line-height: 1.6;
+2025-04-26 16:00:52 CLIENT -> SERVER:             color: #333;
+2025-04-26 16:00:52 CLIENT -> SERVER:             margin: 0;
+2025-04-26 16:00:52 CLIENT -> SERVER:             padding: 0;
+2025-04-26 16:00:52 CLIENT -> SERVER:         }
+2025-04-26 16:00:52 CLIENT -> SERVER:         .container {
+2025-04-26 16:00:52 CLIENT -> SERVER:             max-width: 600px;
+2025-04-26 16:00:52 CLIENT -> SERVER:             margin: 0 auto;
+2025-04-26 16:00:52 CLIENT -> SERVER:             padding: 20px;
+2025-04-26 16:00:52 CLIENT -> SERVER:         }
+2025-04-26 16:00:52 CLIENT -> SERVER:         .header {
+2025-04-26 16:00:52 CLIENT -> SERVER:             background-color: #1d7c39;
+2025-04-26 16:00:52 CLIENT -> SERVER:             color: white;
+2025-04-26 16:00:52 CLIENT -> SERVER:             padding: 20px;
+2025-04-26 16:00:52 CLIENT -> SERVER:             text-align: center;
+2025-04-26 16:00:52 CLIENT -> SERVER:         }
+2025-04-26 16:00:52 CLIENT -> SERVER:         .content {
+2025-04-26 16:00:52 CLIENT -> SERVER:             background-color: #f9f9f9;
+2025-04-26 16:00:52 CLIENT -> SERVER:             padding: 20px;
+2025-04-26 16:00:52 CLIENT -> SERVER:             border-radius: 0 0 5px 5px;
+2025-04-26 16:00:52 CLIENT -> SERVER:         }
+2025-04-26 16:00:52 CLIENT -> SERVER:         .credentials {
+2025-04-26 16:00:52 CLIENT -> SERVER:             font-size: 32px;
+2025-04-26 16:00:52 CLIENT -> SERVER:             font-weight: bold;
+2025-04-26 16:00:52 CLIENT -> SERVER:             color: #1d7c39;
+2025-04-26 16:00:52 CLIENT -> SERVER:             text-align: center;
+2025-04-26 16:00:52 CLIENT -> SERVER:             margin: 20px 0;
+2025-04-26 16:00:52 CLIENT -> SERVER:             letter-spacing: 3px;
+2025-04-26 16:00:52 CLIENT -> SERVER:             padding: 20px;
+2025-04-26 16:00:52 CLIENT -> SERVER:             background-color: #fff;
+2025-04-26 16:00:52 CLIENT -> SERVER:             border-radius: 5px;
+2025-04-26 16:00:52 CLIENT -> SERVER:             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+2025-04-26 16:00:52 CLIENT -> SERVER:         }
+2025-04-26 16:00:52 CLIENT -> SERVER:         .credentials-label {
+2025-04-26 16:00:52 CLIENT -> SERVER:             font-size: 14px;
+2025-04-26 16:00:52 CLIENT -> SERVER:             color: #666;
+2025-04-26 16:00:52 CLIENT -> SERVER:             display: block;
+2025-04-26 16:00:52 CLIENT -> SERVER:             margin-bottom: 5px;
+2025-04-26 16:00:52 CLIENT -> SERVER:         }
+2025-04-26 16:00:52 CLIENT -> SERVER:         .warning {
+2025-04-26 16:00:52 CLIENT -> SERVER:             text-align: center;
+2025-04-26 16:00:52 CLIENT -> SERVER:             color: #d9534f;
+2025-04-26 16:00:52 CLIENT -> SERVER:             font-weight: bold;
+2025-04-26 16:00:52 CLIENT -> SERVER:             margin: 20px 0;
+2025-04-26 16:00:52 CLIENT -> SERVER:             padding: 15px;
+2025-04-26 16:00:52 CLIENT -> SERVER:             background-color: #fff;
+2025-04-26 16:00:52 CLIENT -> SERVER:             border-left: 4px solid #d9534f;
+2025-04-26 16:00:52 CLIENT -> SERVER:             border-radius: 3px;
+2025-04-26 16:00:52 CLIENT -> SERVER:         }
+2025-04-26 16:00:52 CLIENT -> SERVER:         .footer {
+2025-04-26 16:00:52 CLIENT -> SERVER:             text-align: center;
+2025-04-26 16:00:52 CLIENT -> SERVER:             font-size: 12px;
+2025-04-26 16:00:52 CLIENT -> SERVER:             color: #666;
+2025-04-26 16:00:52 CLIENT -> SERVER:             margin-top: 20px;
+2025-04-26 16:00:52 CLIENT -> SERVER:         }
+2025-04-26 16:00:52 CLIENT -> SERVER:         .security-note {
+2025-04-26 16:00:52 CLIENT -> SERVER:             background-color: #fff3cd;
+2025-04-26 16:00:52 CLIENT -> SERVER:             border: 1px solid #ffeeba;
+2025-04-26 16:00:52 CLIENT -> SERVER:             color: #856404;
+2025-04-26 16:00:52 CLIENT -> SERVER:             padding: 15px;
+2025-04-26 16:00:52 CLIENT -> SERVER:             margin: 20px 0;
+2025-04-26 16:00:52 CLIENT -> SERVER:             border-radius: 5px;
+2025-04-26 16:00:52 CLIENT -> SERVER:         }
+2025-04-26 16:00:52 CLIENT -> SERVER:
+2025-04-26 16:00:52 CLIENT -> SERVER:
+2025-04-26 16:00:52 CLIENT -> SERVER:
+2025-04-26 16:00:52 CLIENT -> SERVER:
+2025-04-26 16:00:52 CLIENT -> SERVER:
+2025-04-26 16:00:52 CLIENT -> SERVER:             E-Halal BTECHenyo
+2025-04-26 16:00:52 CLIENT -> SERVER:
+2025-04-26 16:00:52 CLIENT -> SERVER:
+2025-04-26 16:00:52 CLIENT -> SERVER:             Hello Chris Malabanan,
+2025-04-26 16:00:52 CLIENT -> SERVER:             Your officer account for E-Halal BTECHenyo has been created. Please find your login credentials below:
+2025-04-26 16:00:52 CLIENT -> SERVER:
+2025-04-26 16:00:52 CLIENT -> SERVER:
+2025-04-26 16:00:52 CLIENT -> SERVER:                 Username
+2025-04-26 16:00:52 CLIENT -> SERVER:                 chris2024
+2025-04-26 16:00:52 CLIENT -> SERVER:                 Password
+2025-04-26 16:00:52 CLIENT -> SERVER:                 9nUF12I7VQBE6CW
+2025-04-26 16:00:52 CLIENT -> SERVER:
+2025-04-26 16:00:52 CLIENT -> SERVER:
+2025-04-26 16:00:52 CLIENT -> SERVER:
+2025-04-26 16:00:52 CLIENT -> SERVER:                 For security reasons, please change your password immediately after your first login.
+2025-04-26 16:00:52 CLIENT -> SERVER:
+2025-04-26 16:00:52 CLIENT -> SERVER:
+2025-04-26 16:00:52 CLIENT -> SERVER:
+2025-04-26 16:00:52 CLIENT -> SERVER:                 Important Security Notes:
+2025-04-26 16:00:52 CLIENT -> SERVER:
+2025-04-26 16:00:52 CLIENT -> SERVER:                     Never share your credentials with anyone
+2025-04-26 16:00:52 CLIENT -> SERVER:                     Make sure to use a strong password when changing it
+2025-04-26 16:00:52 CLIENT -> SERVER:                     Log out when you're done using the system
+2025-04-26 16:00:52 CLIENT -> SERVER:
+2025-04-26 16:00:52 CLIENT -> SERVER:
+2025-04-26 16:00:52 CLIENT -> SERVER:
+2025-04-26 16:00:52 CLIENT -> SERVER:             If you did not expect this email or believe it was sent in error, please contact the system administrator immediately.
+2025-04-26 16:00:52 CLIENT -> SERVER:
+2025-04-26 16:00:52 CLIENT -> SERVER:
+2025-04-26 16:00:52 CLIENT -> SERVER:             &copy; 2025 E-Halal BTECHenyo Voting System. All rights reserved.
+2025-04-26 16:00:52 CLIENT -> SERVER:             This is an automated email, please do not reply.
+2025-04-26 16:00:52 CLIENT -> SERVER:
+2025-04-26 16:00:52 CLIENT -> SERVER:
+2025-04-26 16:00:52 CLIENT -> SERVER:
+2025-04-26 16:00:52 CLIENT -> SERVER:
+2025-04-26 16:00:52 CLIENT -> SERVER:
+2025-04-26 16:00:52 CLIENT -> SERVER:
+2025-04-26 16:00:52 CLIENT -> SERVER: --b1=_ivFcOfJXqeuADBmn8WsPfccfHHvQYAxidyVZrHXp88--
+2025-04-26 16:00:52 CLIENT -> SERVER:
+2025-04-26 16:00:52 CLIENT -> SERVER: .
+2025-04-26 16:00:53 SERVER -> CLIENT: 250 2.0.0 OK  1745654452 d9443c01a7336-22db4d77ab1sm44686925ad.23 - gsmtp
+2025-04-26 16:00:53 CLIENT -> SERVER: RSET
+2025-04-26 16:00:53 SERVER -> CLIENT: 250 2.1.5 Flushed d9443c01a7336-22db4d77ab1sm44686925ad.23 - gsmtp
+2025-04-26 16:00:53 CLIENT -> SERVER: QUIT
+2025-04-26 16:00:53 SERVER -> CLIENT: 221 2.0.0 closing connection d9443c01a7336-22db4d77ab1sm44686925ad.23 - gsmtp
+2025-04-26 16:25:14 SERVER -> CLIENT: 220 smtp.gmail.com ESMTP d9443c01a7336-22db50e7a40sm45213185ad.147 - gsmtp
+2025-04-26 16:25:14 CLIENT -> SERVER: EHLO localhost
+2025-04-26 16:25:14 SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2001:4450:814c:100:3168:ff76:e755:a100]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+2025-04-26 16:25:14 CLIENT -> SERVER: STARTTLS
+2025-04-26 16:25:14 SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+2025-04-26 16:25:14 CLIENT -> SERVER: EHLO localhost
+2025-04-26 16:25:14 SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2001:4450:814c:100:3168:ff76:e755:a100]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+2025-04-26 16:25:14 CLIENT -> SERVER: AUTH LOGIN
+2025-04-26 16:25:15 SERVER -> CLIENT: 334 VXNlcm5hbWU6
+2025-04-26 16:25:15 CLIENT -> SERVER: [credentials hidden]
+2025-04-26 16:25:15 SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+2025-04-26 16:25:15 CLIENT -> SERVER: [credentials hidden]
+2025-04-26 16:25:15 SERVER -> CLIENT: 235 2.7.0 Accepted
+2025-04-26 16:25:15 CLIENT -> SERVER: MAIL FROM:
+2025-04-26 16:25:15 SERVER -> CLIENT: 250 2.1.0 OK d9443c01a7336-22db50e7a40sm45213185ad.147 - gsmtp
+2025-04-26 16:25:15 CLIENT -> SERVER: RCPT TO:
+2025-04-26 16:25:15 SERVER -> CLIENT: 250 2.1.5 OK d9443c01a7336-22db50e7a40sm45213185ad.147 - gsmtp
+2025-04-26 16:25:15 CLIENT -> SERVER: DATA
+2025-04-26 16:25:16 SERVER -> CLIENT: 354 Go ahead d9443c01a7336-22db50e7a40sm45213185ad.147 - gsmtp
+2025-04-26 16:25:16 CLIENT -> SERVER: Date: Sat, 26 Apr 2025 16:25:13 +0800
+2025-04-26 16:25:16 CLIENT -> SERVER: To: Chris Malabanan
+2025-04-26 16:25:16 CLIENT -> SERVER: From: E-Halal System
+2025-04-26 16:25:16 CLIENT -> SERVER: Reply-To: E-Halal System
+2025-04-26 16:25:16 CLIENT -> SERVER: Subject: Your Officer Account Credentials - E-Halal BTECHenyo
+2025-04-26 16:25:16 CLIENT -> SERVER: Message-ID:
+2025-04-26 16:25:16 CLIENT -> SERVER: X-Mailer: PHPMailer 6.9.3 (https://github.com/PHPMailer/PHPMailer)
+2025-04-26 16:25:16 CLIENT -> SERVER: MIME-Version: 1.0
+2025-04-26 16:25:16 CLIENT -> SERVER: Content-Type: multipart/alternative;
+2025-04-26 16:25:16 CLIENT -> SERVER:  boundary="b1=_VFM8zhXITkgkzZygUvt89G711mSA4MDBlOxgzkaw"
+2025-04-26 16:25:16 CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+2025-04-26 16:25:16 CLIENT -> SERVER:
+2025-04-26 16:25:16 CLIENT -> SERVER: --b1=_VFM8zhXITkgkzZygUvt89G711mSA4MDBlOxgzkaw
+2025-04-26 16:25:16 CLIENT -> SERVER: Content-Type: text/plain; charset=us-ascii
+2025-04-26 16:25:16 CLIENT -> SERVER:
+2025-04-26 16:25:16 CLIENT -> SERVER: Hello Chris Malabanan,
+2025-04-26 16:25:16 CLIENT -> SERVER: Your officer account for E-Halal BTECHenyo has been created.
+2025-04-26 16:25:16 CLIENT -> SERVER: Username: chris
+2025-04-26 16:25:16 CLIENT -> SERVER: Password: RBoQ52GiLxASdTV
+2025-04-26 16:25:16 CLIENT -> SERVER: Please log in and change your password as soon as possible.
+2025-04-26 16:25:16 CLIENT -> SERVER:
+2025-04-26 16:25:16 CLIENT -> SERVER: --b1=_VFM8zhXITkgkzZygUvt89G711mSA4MDBlOxgzkaw
+2025-04-26 16:25:16 CLIENT -> SERVER: Content-Type: text/html; charset=us-ascii
+2025-04-26 16:25:16 CLIENT -> SERVER:
+2025-04-26 16:25:16 CLIENT -> SERVER:
+2025-04-26 16:25:16 CLIENT -> SERVER:
+2025-04-26 16:25:16 CLIENT -> SERVER:
+2025-04-26 16:25:16 CLIENT -> SERVER:
+2025-04-26 16:25:16 CLIENT -> SERVER:
+2025-04-26 16:25:16 CLIENT -> SERVER:     Officer Account Credentials
+2025-04-26 16:25:16 CLIENT -> SERVER:
+2025-04-26 16:25:16 CLIENT -> SERVER:         body {
+2025-04-26 16:25:16 CLIENT -> SERVER:             font-family: Arial, sans-serif;
+2025-04-26 16:25:16 CLIENT -> SERVER:             line-height: 1.6;
+2025-04-26 16:25:16 CLIENT -> SERVER:             color: #333;
+2025-04-26 16:25:16 CLIENT -> SERVER:             margin: 0;
+2025-04-26 16:25:16 CLIENT -> SERVER:             padding: 0;
+2025-04-26 16:25:16 CLIENT -> SERVER:         }
+2025-04-26 16:25:16 CLIENT -> SERVER:         .container {
+2025-04-26 16:25:16 CLIENT -> SERVER:             max-width: 600px;
+2025-04-26 16:25:16 CLIENT -> SERVER:             margin: 0 auto;
+2025-04-26 16:25:16 CLIENT -> SERVER:             padding: 20px;
+2025-04-26 16:25:16 CLIENT -> SERVER:         }
+2025-04-26 16:25:16 CLIENT -> SERVER:         .header {
+2025-04-26 16:25:16 CLIENT -> SERVER:             background-color: #1d7c39;
+2025-04-26 16:25:16 CLIENT -> SERVER:             color: white;
+2025-04-26 16:25:16 CLIENT -> SERVER:             padding: 20px;
+2025-04-26 16:25:16 CLIENT -> SERVER:             text-align: center;
+2025-04-26 16:25:16 CLIENT -> SERVER:         }
+2025-04-26 16:25:16 CLIENT -> SERVER:         .content {
+2025-04-26 16:25:16 CLIENT -> SERVER:             background-color: #f9f9f9;
+2025-04-26 16:25:16 CLIENT -> SERVER:             padding: 20px;
+2025-04-26 16:25:16 CLIENT -> SERVER:             border-radius: 0 0 5px 5px;
+2025-04-26 16:25:16 CLIENT -> SERVER:         }
+2025-04-26 16:25:16 CLIENT -> SERVER:         .credentials {
+2025-04-26 16:25:16 CLIENT -> SERVER:             font-size: 32px;
+2025-04-26 16:25:16 CLIENT -> SERVER:             font-weight: bold;
+2025-04-26 16:25:16 CLIENT -> SERVER:             color: #1d7c39;
+2025-04-26 16:25:16 CLIENT -> SERVER:             text-align: center;
+2025-04-26 16:25:16 CLIENT -> SERVER:             margin: 20px 0;
+2025-04-26 16:25:16 CLIENT -> SERVER:             letter-spacing: 3px;
+2025-04-26 16:25:16 CLIENT -> SERVER:             padding: 20px;
+2025-04-26 16:25:16 CLIENT -> SERVER:             background-color: #fff;
+2025-04-26 16:25:16 CLIENT -> SERVER:             border-radius: 5px;
+2025-04-26 16:25:16 CLIENT -> SERVER:             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+2025-04-26 16:25:16 CLIENT -> SERVER:         }
+2025-04-26 16:25:16 CLIENT -> SERVER:         .credentials-label {
+2025-04-26 16:25:16 CLIENT -> SERVER:             font-size: 14px;
+2025-04-26 16:25:16 CLIENT -> SERVER:             color: #666;
+2025-04-26 16:25:16 CLIENT -> SERVER:             display: block;
+2025-04-26 16:25:16 CLIENT -> SERVER:             margin-bottom: 5px;
+2025-04-26 16:25:16 CLIENT -> SERVER:         }
+2025-04-26 16:25:16 CLIENT -> SERVER:         .warning {
+2025-04-26 16:25:16 CLIENT -> SERVER:             text-align: center;
+2025-04-26 16:25:16 CLIENT -> SERVER:             color: #d9534f;
+2025-04-26 16:25:16 CLIENT -> SERVER:             font-weight: bold;
+2025-04-26 16:25:16 CLIENT -> SERVER:             margin: 20px 0;
+2025-04-26 16:25:16 CLIENT -> SERVER:             padding: 15px;
+2025-04-26 16:25:16 CLIENT -> SERVER:             background-color: #fff;
+2025-04-26 16:25:16 CLIENT -> SERVER:             border-left: 4px solid #d9534f;
+2025-04-26 16:25:16 CLIENT -> SERVER:             border-radius: 3px;
+2025-04-26 16:25:16 CLIENT -> SERVER:         }
+2025-04-26 16:25:16 CLIENT -> SERVER:         .footer {
+2025-04-26 16:25:16 CLIENT -> SERVER:             text-align: center;
+2025-04-26 16:25:16 CLIENT -> SERVER:             font-size: 12px;
+2025-04-26 16:25:16 CLIENT -> SERVER:             color: #666;
+2025-04-26 16:25:16 CLIENT -> SERVER:             margin-top: 20px;
+2025-04-26 16:25:16 CLIENT -> SERVER:         }
+2025-04-26 16:25:16 CLIENT -> SERVER:         .security-note {
+2025-04-26 16:25:16 CLIENT -> SERVER:             background-color: #fff3cd;
+2025-04-26 16:25:16 CLIENT -> SERVER:             border: 1px solid #ffeeba;
+2025-04-26 16:25:16 CLIENT -> SERVER:             color: #856404;
+2025-04-26 16:25:16 CLIENT -> SERVER:             padding: 15px;
+2025-04-26 16:25:16 CLIENT -> SERVER:             margin: 20px 0;
+2025-04-26 16:25:16 CLIENT -> SERVER:             border-radius: 5px;
+2025-04-26 16:25:16 CLIENT -> SERVER:         }
+2025-04-26 16:25:16 CLIENT -> SERVER:
+2025-04-26 16:25:16 CLIENT -> SERVER:
+2025-04-26 16:25:16 CLIENT -> SERVER:
+2025-04-26 16:25:16 CLIENT -> SERVER:
+2025-04-26 16:25:16 CLIENT -> SERVER:
+2025-04-26 16:25:16 CLIENT -> SERVER:             E-Halal BTECHenyo
+2025-04-26 16:25:16 CLIENT -> SERVER:
+2025-04-26 16:25:16 CLIENT -> SERVER:
+2025-04-26 16:25:16 CLIENT -> SERVER:             Hello Chris Malabanan,
+2025-04-26 16:25:16 CLIENT -> SERVER:             Your officer account for E-Halal BTECHenyo has been created. Please find your login credentials below:
+2025-04-26 16:25:16 CLIENT -> SERVER:
+2025-04-26 16:25:16 CLIENT -> SERVER:
+2025-04-26 16:25:16 CLIENT -> SERVER:                 Username
+2025-04-26 16:25:16 CLIENT -> SERVER:                 chris
+2025-04-26 16:25:16 CLIENT -> SERVER:                 Password
+2025-04-26 16:25:16 CLIENT -> SERVER:                 RBoQ52GiLxASdTV
+2025-04-26 16:25:16 CLIENT -> SERVER:
+2025-04-26 16:25:16 CLIENT -> SERVER:
+2025-04-26 16:25:16 CLIENT -> SERVER:
+2025-04-26 16:25:16 CLIENT -> SERVER:                 For security reasons, please change your password immediately after your first login.
+2025-04-26 16:25:16 CLIENT -> SERVER:
+2025-04-26 16:25:16 CLIENT -> SERVER:
+2025-04-26 16:25:16 CLIENT -> SERVER:
+2025-04-26 16:25:16 CLIENT -> SERVER:                 Important Security Notes:
+2025-04-26 16:25:16 CLIENT -> SERVER:
+2025-04-26 16:25:16 CLIENT -> SERVER:                     Never share your credentials with anyone
+2025-04-26 16:25:16 CLIENT -> SERVER:                     Make sure to use a strong password when changing it
+2025-04-26 16:25:16 CLIENT -> SERVER:                     Log out when you're done using the system
+2025-04-26 16:25:16 CLIENT -> SERVER:
+2025-04-26 16:25:16 CLIENT -> SERVER:
+2025-04-26 16:25:16 CLIENT -> SERVER:
+2025-04-26 16:25:16 CLIENT -> SERVER:             If you did not expect this email or believe it was sent in error, please contact the system administrator immediately.
+2025-04-26 16:25:16 CLIENT -> SERVER:
+2025-04-26 16:25:16 CLIENT -> SERVER:
+2025-04-26 16:25:16 CLIENT -> SERVER:             &copy; 2025 E-Halal BTECHenyo Voting System. All rights reserved.
+2025-04-26 16:25:16 CLIENT -> SERVER:             This is an automated email, please do not reply.
+2025-04-26 16:25:16 CLIENT -> SERVER:
+2025-04-26 16:25:16 CLIENT -> SERVER:
+2025-04-26 16:25:16 CLIENT -> SERVER:
+2025-04-26 16:25:16 CLIENT -> SERVER:
+2025-04-26 16:25:16 CLIENT -> SERVER:
+2025-04-26 16:25:16 CLIENT -> SERVER:
+2025-04-26 16:25:16 CLIENT -> SERVER: --b1=_VFM8zhXITkgkzZygUvt89G711mSA4MDBlOxgzkaw--
+2025-04-26 16:25:16 CLIENT -> SERVER:
+2025-04-26 16:25:16 CLIENT -> SERVER: .
+2025-04-26 16:25:17 SERVER -> CLIENT: 250 2.0.0 OK  1745655916 d9443c01a7336-22db50e7a40sm45213185ad.147 - gsmtp
+2025-04-26 16:25:17 CLIENT -> SERVER: RSET
+2025-04-26 16:25:17 SERVER -> CLIENT: 250 2.1.5 Flushed d9443c01a7336-22db50e7a40sm45213185ad.147 - gsmtp
+2025-04-26 16:25:17 CLIENT -> SERVER: QUIT
+2025-04-26 16:25:17 SERVER -> CLIENT: 221 2.0.0 closing connection d9443c01a7336-22db50e7a40sm45213185ad.147 - gsmtp
+2025-04-26 22:09:23 SMTP ERROR: Failed to connect to server: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond (10060)
+2025-04-26 22:09:23 SMTP Error: Could not connect to SMTP host. Failed to connect to server
+2025-04-27 08:34:31 SERVER -> CLIENT: 220 smtp.gmail.com ESMTP d9443c01a7336-22db4dbdce2sm55763715ad.85 - gsmtp
+2025-04-27 08:34:31 CLIENT -> SERVER: EHLO localhost
+2025-04-27 08:34:31 SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2001:4450:814c:100:3168:ff76:e755:a100]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+2025-04-27 08:34:31 CLIENT -> SERVER: STARTTLS
+2025-04-27 08:34:31 SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+2025-04-27 08:34:32 CLIENT -> SERVER: EHLO localhost
+2025-04-27 08:34:32 SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2001:4450:814c:100:3168:ff76:e755:a100]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+2025-04-27 08:34:32 CLIENT -> SERVER: AUTH LOGIN
+2025-04-27 08:34:32 SERVER -> CLIENT: 334 VXNlcm5hbWU6
+2025-04-27 08:34:32 CLIENT -> SERVER: [credentials hidden]
+2025-04-27 08:34:32 SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+2025-04-27 08:34:32 CLIENT -> SERVER: [credentials hidden]
+2025-04-27 08:34:33 SERVER -> CLIENT: 235 2.7.0 Accepted
+2025-04-27 08:34:33 CLIENT -> SERVER: MAIL FROM:
+2025-04-27 08:34:33 SERVER -> CLIENT: 250 2.1.0 OK d9443c01a7336-22db4dbdce2sm55763715ad.85 - gsmtp
+2025-04-27 08:34:33 CLIENT -> SERVER: RCPT TO:
+2025-04-27 08:34:33 SERVER -> CLIENT: 250 2.1.5 OK d9443c01a7336-22db4dbdce2sm55763715ad.85 - gsmtp
+2025-04-27 08:34:33 CLIENT -> SERVER: DATA
+2025-04-27 08:34:33 SERVER -> CLIENT: 354 Go ahead d9443c01a7336-22db4dbdce2sm55763715ad.85 - gsmtp
+2025-04-27 08:34:33 CLIENT -> SERVER: Date: Sun, 27 Apr 2025 08:34:30 +0800
+2025-04-27 08:34:33 CLIENT -> SERVER: To: Hamil Mohammad
+2025-04-27 08:34:33 CLIENT -> SERVER: From: E-Halal System
+2025-04-27 08:34:33 CLIENT -> SERVER: Reply-To: E-Halal System
+2025-04-27 08:34:33 CLIENT -> SERVER: Subject: Your Officer Account Credentials - E-Halal BTECHenyo
+2025-04-27 08:34:33 CLIENT -> SERVER: Message-ID:
+2025-04-27 08:34:33 CLIENT -> SERVER: X-Mailer: PHPMailer 6.9.3 (https://github.com/PHPMailer/PHPMailer)
+2025-04-27 08:34:33 CLIENT -> SERVER: MIME-Version: 1.0
+2025-04-27 08:34:33 CLIENT -> SERVER: Content-Type: multipart/alternative;
+2025-04-27 08:34:33 CLIENT -> SERVER:  boundary="b1=_5S42hopPieggIbQQlF4yImM1sWstCYqcqP7rboreqJc"
+2025-04-27 08:34:33 CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+2025-04-27 08:34:33 CLIENT -> SERVER:
+2025-04-27 08:34:33 CLIENT -> SERVER: --b1=_5S42hopPieggIbQQlF4yImM1sWstCYqcqP7rboreqJc
+2025-04-27 08:34:33 CLIENT -> SERVER: Content-Type: text/plain; charset=us-ascii
+2025-04-27 08:34:33 CLIENT -> SERVER:
+2025-04-27 08:34:33 CLIENT -> SERVER: Hello Hamil Mohammad,
+2025-04-27 08:34:33 CLIENT -> SERVER: Your officer account for E-Halal BTECHenyo has been created.
+2025-04-27 08:34:33 CLIENT -> SERVER: Username: hamil
+2025-04-27 08:34:33 CLIENT -> SERVER: Password: s1cnyapxN5JHdP9
+2025-04-27 08:34:33 CLIENT -> SERVER: Please log in and change your password as soon as possible.
+2025-04-27 08:34:33 CLIENT -> SERVER:
+2025-04-27 08:34:33 CLIENT -> SERVER: --b1=_5S42hopPieggIbQQlF4yImM1sWstCYqcqP7rboreqJc
+2025-04-27 08:34:33 CLIENT -> SERVER: Content-Type: text/html; charset=us-ascii
+2025-04-27 08:34:33 CLIENT -> SERVER:
+2025-04-27 08:34:33 CLIENT -> SERVER:
+2025-04-27 08:34:33 CLIENT -> SERVER:
+2025-04-27 08:34:33 CLIENT -> SERVER:
+2025-04-27 08:34:33 CLIENT -> SERVER:
+2025-04-27 08:34:33 CLIENT -> SERVER:
+2025-04-27 08:34:33 CLIENT -> SERVER:     Officer Account Credentials
+2025-04-27 08:34:33 CLIENT -> SERVER:
+2025-04-27 08:34:33 CLIENT -> SERVER:         body {
+2025-04-27 08:34:33 CLIENT -> SERVER:             font-family: Arial, sans-serif;
+2025-04-27 08:34:33 CLIENT -> SERVER:             line-height: 1.6;
+2025-04-27 08:34:33 CLIENT -> SERVER:             color: #333;
+2025-04-27 08:34:33 CLIENT -> SERVER:             margin: 0;
+2025-04-27 08:34:33 CLIENT -> SERVER:             padding: 0;
+2025-04-27 08:34:33 CLIENT -> SERVER:         }
+2025-04-27 08:34:33 CLIENT -> SERVER:         .container {
+2025-04-27 08:34:33 CLIENT -> SERVER:             max-width: 600px;
+2025-04-27 08:34:33 CLIENT -> SERVER:             margin: 0 auto;
+2025-04-27 08:34:33 CLIENT -> SERVER:             padding: 20px;
+2025-04-27 08:34:33 CLIENT -> SERVER:         }
+2025-04-27 08:34:33 CLIENT -> SERVER:         .header {
+2025-04-27 08:34:33 CLIENT -> SERVER:             background-color: #1d7c39;
+2025-04-27 08:34:33 CLIENT -> SERVER:             color: white;
+2025-04-27 08:34:33 CLIENT -> SERVER:             padding: 20px;
+2025-04-27 08:34:33 CLIENT -> SERVER:             text-align: center;
+2025-04-27 08:34:33 CLIENT -> SERVER:         }
+2025-04-27 08:34:33 CLIENT -> SERVER:         .content {
+2025-04-27 08:34:33 CLIENT -> SERVER:             background-color: #f9f9f9;
+2025-04-27 08:34:33 CLIENT -> SERVER:             padding: 20px;
+2025-04-27 08:34:33 CLIENT -> SERVER:             border-radius: 0 0 5px 5px;
+2025-04-27 08:34:33 CLIENT -> SERVER:         }
+2025-04-27 08:34:33 CLIENT -> SERVER:         .credentials {
+2025-04-27 08:34:33 CLIENT -> SERVER:             font-size: 32px;
+2025-04-27 08:34:33 CLIENT -> SERVER:             font-weight: bold;
+2025-04-27 08:34:33 CLIENT -> SERVER:             color: #1d7c39;
+2025-04-27 08:34:33 CLIENT -> SERVER:             text-align: center;
+2025-04-27 08:34:33 CLIENT -> SERVER:             margin: 20px 0;
+2025-04-27 08:34:33 CLIENT -> SERVER:             letter-spacing: 3px;
+2025-04-27 08:34:33 CLIENT -> SERVER:             padding: 20px;
+2025-04-27 08:34:33 CLIENT -> SERVER:             background-color: #fff;
+2025-04-27 08:34:33 CLIENT -> SERVER:             border-radius: 5px;
+2025-04-27 08:34:33 CLIENT -> SERVER:             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+2025-04-27 08:34:33 CLIENT -> SERVER:         }
+2025-04-27 08:34:33 CLIENT -> SERVER:         .credentials-label {
+2025-04-27 08:34:33 CLIENT -> SERVER:             font-size: 14px;
+2025-04-27 08:34:33 CLIENT -> SERVER:             color: #666;
+2025-04-27 08:34:33 CLIENT -> SERVER:             display: block;
+2025-04-27 08:34:33 CLIENT -> SERVER:             margin-bottom: 5px;
+2025-04-27 08:34:33 CLIENT -> SERVER:         }
+2025-04-27 08:34:33 CLIENT -> SERVER:         .warning {
+2025-04-27 08:34:33 CLIENT -> SERVER:             text-align: center;
+2025-04-27 08:34:33 CLIENT -> SERVER:             color: #d9534f;
+2025-04-27 08:34:33 CLIENT -> SERVER:             font-weight: bold;
+2025-04-27 08:34:33 CLIENT -> SERVER:             margin: 20px 0;
+2025-04-27 08:34:33 CLIENT -> SERVER:             padding: 15px;
+2025-04-27 08:34:33 CLIENT -> SERVER:             background-color: #fff;
+2025-04-27 08:34:33 CLIENT -> SERVER:             border-left: 4px solid #d9534f;
+2025-04-27 08:34:33 CLIENT -> SERVER:             border-radius: 3px;
+2025-04-27 08:34:33 CLIENT -> SERVER:         }
+2025-04-27 08:34:33 CLIENT -> SERVER:         .footer {
+2025-04-27 08:34:33 CLIENT -> SERVER:             text-align: center;
+2025-04-27 08:34:33 CLIENT -> SERVER:             font-size: 12px;
+2025-04-27 08:34:33 CLIENT -> SERVER:             color: #666;
+2025-04-27 08:34:33 CLIENT -> SERVER:             margin-top: 20px;
+2025-04-27 08:34:33 CLIENT -> SERVER:         }
+2025-04-27 08:34:33 CLIENT -> SERVER:         .security-note {
+2025-04-27 08:34:33 CLIENT -> SERVER:             background-color: #fff3cd;
+2025-04-27 08:34:33 CLIENT -> SERVER:             border: 1px solid #ffeeba;
+2025-04-27 08:34:33 CLIENT -> SERVER:             color: #856404;
+2025-04-27 08:34:33 CLIENT -> SERVER:             padding: 15px;
+2025-04-27 08:34:33 CLIENT -> SERVER:             margin: 20px 0;
+2025-04-27 08:34:33 CLIENT -> SERVER:             border-radius: 5px;
+2025-04-27 08:34:33 CLIENT -> SERVER:         }
+2025-04-27 08:34:33 CLIENT -> SERVER:
+2025-04-27 08:34:33 CLIENT -> SERVER:
+2025-04-27 08:34:33 CLIENT -> SERVER:
+2025-04-27 08:34:33 CLIENT -> SERVER:
+2025-04-27 08:34:33 CLIENT -> SERVER:
+2025-04-27 08:34:33 CLIENT -> SERVER:             E-Halal BTECHenyo
+2025-04-27 08:34:33 CLIENT -> SERVER:
+2025-04-27 08:34:33 CLIENT -> SERVER:
+2025-04-27 08:34:33 CLIENT -> SERVER:             Hello Hamil Mohammad,
+2025-04-27 08:34:33 CLIENT -> SERVER:             Your officer account for E-Halal BTECHenyo has been created. Please find your login credentials below:
+2025-04-27 08:34:33 CLIENT -> SERVER:
+2025-04-27 08:34:33 CLIENT -> SERVER:
+2025-04-27 08:34:33 CLIENT -> SERVER:                 Username
+2025-04-27 08:34:33 CLIENT -> SERVER:                 hamil
+2025-04-27 08:34:33 CLIENT -> SERVER:                 Password
+2025-04-27 08:34:33 CLIENT -> SERVER:                 s1cnyapxN5JHdP9
+2025-04-27 08:34:33 CLIENT -> SERVER:
+2025-04-27 08:34:33 CLIENT -> SERVER:
+2025-04-27 08:34:33 CLIENT -> SERVER:
+2025-04-27 08:34:33 CLIENT -> SERVER:                 For security reasons, please change your password immediately after your first login.
+2025-04-27 08:34:33 CLIENT -> SERVER:
+2025-04-27 08:34:33 CLIENT -> SERVER:
+2025-04-27 08:34:33 CLIENT -> SERVER:
+2025-04-27 08:34:33 CLIENT -> SERVER:                 Important Security Notes:
+2025-04-27 08:34:33 CLIENT -> SERVER:
+2025-04-27 08:34:33 CLIENT -> SERVER:                     Never share your credentials with anyone
+2025-04-27 08:34:33 CLIENT -> SERVER:                     Make sure to use a strong password when changing it
+2025-04-27 08:34:33 CLIENT -> SERVER:                     Log out when you're done using the system
+2025-04-27 08:34:33 CLIENT -> SERVER:
+2025-04-27 08:34:33 CLIENT -> SERVER:
+2025-04-27 08:34:33 CLIENT -> SERVER:
+2025-04-27 08:34:33 CLIENT -> SERVER:             If you did not expect this email or believe it was sent in error, please contact the system administrator immediately.
+2025-04-27 08:34:33 CLIENT -> SERVER:
+2025-04-27 08:34:33 CLIENT -> SERVER:
+2025-04-27 08:34:33 CLIENT -> SERVER:             &copy; 2025 E-Halal BTECHenyo Voting System. All rights reserved.
+2025-04-27 08:34:33 CLIENT -> SERVER:             This is an automated email, please do not reply.
+2025-04-27 08:34:33 CLIENT -> SERVER:
+2025-04-27 08:34:33 CLIENT -> SERVER:
+2025-04-27 08:34:33 CLIENT -> SERVER:
+2025-04-27 08:34:33 CLIENT -> SERVER:
+2025-04-27 08:34:33 CLIENT -> SERVER:
+2025-04-27 08:34:33 CLIENT -> SERVER:
+2025-04-27 08:34:33 CLIENT -> SERVER: --b1=_5S42hopPieggIbQQlF4yImM1sWstCYqcqP7rboreqJc--
+2025-04-27 08:34:33 CLIENT -> SERVER:
+2025-04-27 08:34:33 CLIENT -> SERVER: .
+2025-04-27 08:34:34 SERVER -> CLIENT: 250 2.0.0 OK  1745714074 d9443c01a7336-22db4dbdce2sm55763715ad.85 - gsmtp
+2025-04-27 08:34:34 CLIENT -> SERVER: RSET
+2025-04-27 08:34:35 SERVER -> CLIENT: 250 2.1.5 Flushed d9443c01a7336-22db4dbdce2sm55763715ad.85 - gsmtp
+2025-04-27 08:34:35 CLIENT -> SERVER: QUIT
+2025-04-27 08:34:35 SERVER -> CLIENT: 221 2.0.0 closing connection d9443c01a7336-22db4dbdce2sm55763715ad.85 - gsmtp
+2025-04-27 17:28:03 SERVER -> CLIENT: 220 smtp.gmail.com ESMTP d9443c01a7336-22db50e7636sm61427545ad.117 - gsmtp
+2025-04-27 17:28:03 CLIENT -> SERVER: EHLO localhost
+2025-04-27 17:28:03 SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2001:4450:814c:100:be57:e4c:d1e0:67f8]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+2025-04-27 17:28:03 CLIENT -> SERVER: STARTTLS
+2025-04-27 17:28:04 SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+2025-04-27 17:28:04 CLIENT -> SERVER: EHLO localhost
+2025-04-27 17:28:04 SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2001:4450:814c:100:be57:e4c:d1e0:67f8]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+2025-04-27 17:28:04 CLIENT -> SERVER: AUTH LOGIN
+2025-04-27 17:28:04 SERVER -> CLIENT: 334 VXNlcm5hbWU6
+2025-04-27 17:28:04 CLIENT -> SERVER: [credentials hidden]
+2025-04-27 17:28:05 SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+2025-04-27 17:28:05 CLIENT -> SERVER: [credentials hidden]
+2025-04-27 17:28:05 SERVER -> CLIENT: 235 2.7.0 Accepted
+2025-04-27 17:28:05 CLIENT -> SERVER: MAIL FROM:
+2025-04-27 17:28:05 SERVER -> CLIENT: 250 2.1.0 OK d9443c01a7336-22db50e7636sm61427545ad.117 - gsmtp
+2025-04-27 17:28:05 CLIENT -> SERVER: RCPT TO:
+2025-04-27 17:28:05 SERVER -> CLIENT: 250 2.1.5 OK d9443c01a7336-22db50e7636sm61427545ad.117 - gsmtp
+2025-04-27 17:28:05 CLIENT -> SERVER: DATA
+2025-04-27 17:28:06 SERVER -> CLIENT: 354 Go ahead d9443c01a7336-22db50e7636sm61427545ad.117 - gsmtp
+2025-04-27 17:28:06 CLIENT -> SERVER: Date: Sun, 27 Apr 2025 17:28:03 +0800
+2025-04-27 17:28:06 CLIENT -> SERVER: To: Red Hernandez
+2025-04-27 17:28:06 CLIENT -> SERVER: From: E-Halal System
+2025-04-27 17:28:06 CLIENT -> SERVER: Reply-To: E-Halal System
+2025-04-27 17:28:06 CLIENT -> SERVER: Subject: Your Officer Account Credentials - E-Halal BTECHenyo
+2025-04-27 17:28:06 CLIENT -> SERVER: Message-ID:
+2025-04-27 17:28:06 CLIENT -> SERVER: X-Mailer: PHPMailer 6.9.3 (https://github.com/PHPMailer/PHPMailer)
+2025-04-27 17:28:06 CLIENT -> SERVER: MIME-Version: 1.0
+2025-04-27 17:28:06 CLIENT -> SERVER: Content-Type: multipart/alternative;
+2025-04-27 17:28:06 CLIENT -> SERVER:  boundary="b1=_56V0LhTLxxIrjmlmWMn0ALZ77sjPnPwhzI9ZS6JSqLo"
+2025-04-27 17:28:06 CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+2025-04-27 17:28:06 CLIENT -> SERVER:
+2025-04-27 17:28:06 CLIENT -> SERVER: --b1=_56V0LhTLxxIrjmlmWMn0ALZ77sjPnPwhzI9ZS6JSqLo
+2025-04-27 17:28:06 CLIENT -> SERVER: Content-Type: text/plain; charset=us-ascii
+2025-04-27 17:28:06 CLIENT -> SERVER:
+2025-04-27 17:28:06 CLIENT -> SERVER: Hello Red Hernandez,
+2025-04-27 17:28:06 CLIENT -> SERVER: Your officer account for E-Halal BTECHenyo has been created.
+2025-04-27 17:28:06 CLIENT -> SERVER: Username: redhernandez
+2025-04-27 17:28:06 CLIENT -> SERVER: Password: rRGI1UhBDjVL73Z
+2025-04-27 17:28:06 CLIENT -> SERVER: Please log in and change your password as soon as possible.
+2025-04-27 17:28:06 CLIENT -> SERVER:
+2025-04-27 17:28:06 CLIENT -> SERVER: --b1=_56V0LhTLxxIrjmlmWMn0ALZ77sjPnPwhzI9ZS6JSqLo
+2025-04-27 17:28:06 CLIENT -> SERVER: Content-Type: text/html; charset=us-ascii
+2025-04-27 17:28:06 CLIENT -> SERVER:
+2025-04-27 17:28:06 CLIENT -> SERVER:
+2025-04-27 17:28:06 CLIENT -> SERVER:
+2025-04-27 17:28:06 CLIENT -> SERVER:
+2025-04-27 17:28:06 CLIENT -> SERVER:
+2025-04-27 17:28:06 CLIENT -> SERVER:
+2025-04-27 17:28:06 CLIENT -> SERVER:     Officer Account Credentials
+2025-04-27 17:28:06 CLIENT -> SERVER:
+2025-04-27 17:28:06 CLIENT -> SERVER:         body {
+2025-04-27 17:28:06 CLIENT -> SERVER:             font-family: Arial, sans-serif;
+2025-04-27 17:28:06 CLIENT -> SERVER:             line-height: 1.6;
+2025-04-27 17:28:06 CLIENT -> SERVER:             color: #333;
+2025-04-27 17:28:06 CLIENT -> SERVER:             margin: 0;
+2025-04-27 17:28:06 CLIENT -> SERVER:             padding: 0;
+2025-04-27 17:28:06 CLIENT -> SERVER:         }
+2025-04-27 17:28:06 CLIENT -> SERVER:         .container {
+2025-04-27 17:28:06 CLIENT -> SERVER:             max-width: 600px;
+2025-04-27 17:28:06 CLIENT -> SERVER:             margin: 0 auto;
+2025-04-27 17:28:06 CLIENT -> SERVER:             padding: 20px;
+2025-04-27 17:28:06 CLIENT -> SERVER:         }
+2025-04-27 17:28:06 CLIENT -> SERVER:         .header {
+2025-04-27 17:28:06 CLIENT -> SERVER:             background-color: #1d7c39;
+2025-04-27 17:28:06 CLIENT -> SERVER:             color: white;
+2025-04-27 17:28:06 CLIENT -> SERVER:             padding: 20px;
+2025-04-27 17:28:06 CLIENT -> SERVER:             text-align: center;
+2025-04-27 17:28:06 CLIENT -> SERVER:         }
+2025-04-27 17:28:06 CLIENT -> SERVER:         .content {
+2025-04-27 17:28:06 CLIENT -> SERVER:             background-color: #f9f9f9;
+2025-04-27 17:28:06 CLIENT -> SERVER:             padding: 20px;
+2025-04-27 17:28:06 CLIENT -> SERVER:             border-radius: 0 0 5px 5px;
+2025-04-27 17:28:06 CLIENT -> SERVER:         }
+2025-04-27 17:28:06 CLIENT -> SERVER:         .credentials {
+2025-04-27 17:28:06 CLIENT -> SERVER:             font-size: 32px;
+2025-04-27 17:28:06 CLIENT -> SERVER:             font-weight: bold;
+2025-04-27 17:28:06 CLIENT -> SERVER:             color: #1d7c39;
+2025-04-27 17:28:06 CLIENT -> SERVER:             text-align: center;
+2025-04-27 17:28:06 CLIENT -> SERVER:             margin: 20px 0;
+2025-04-27 17:28:06 CLIENT -> SERVER:             letter-spacing: 3px;
+2025-04-27 17:28:06 CLIENT -> SERVER:             padding: 20px;
+2025-04-27 17:28:06 CLIENT -> SERVER:             background-color: #fff;
+2025-04-27 17:28:06 CLIENT -> SERVER:             border-radius: 5px;
+2025-04-27 17:28:06 CLIENT -> SERVER:             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+2025-04-27 17:28:06 CLIENT -> SERVER:         }
+2025-04-27 17:28:06 CLIENT -> SERVER:         .credentials-label {
+2025-04-27 17:28:06 CLIENT -> SERVER:             font-size: 14px;
+2025-04-27 17:28:06 CLIENT -> SERVER:             color: #666;
+2025-04-27 17:28:06 CLIENT -> SERVER:             display: block;
+2025-04-27 17:28:06 CLIENT -> SERVER:             margin-bottom: 5px;
+2025-04-27 17:28:06 CLIENT -> SERVER:         }
+2025-04-27 17:28:06 CLIENT -> SERVER:         .warning {
+2025-04-27 17:28:06 CLIENT -> SERVER:             text-align: center;
+2025-04-27 17:28:06 CLIENT -> SERVER:             color: #d9534f;
+2025-04-27 17:28:06 CLIENT -> SERVER:             font-weight: bold;
+2025-04-27 17:28:06 CLIENT -> SERVER:             margin: 20px 0;
+2025-04-27 17:28:06 CLIENT -> SERVER:             padding: 15px;
+2025-04-27 17:28:06 CLIENT -> SERVER:             background-color: #fff;
+2025-04-27 17:28:06 CLIENT -> SERVER:             border-left: 4px solid #d9534f;
+2025-04-27 17:28:06 CLIENT -> SERVER:             border-radius: 3px;
+2025-04-27 17:28:06 CLIENT -> SERVER:         }
+2025-04-27 17:28:06 CLIENT -> SERVER:         .footer {
+2025-04-27 17:28:06 CLIENT -> SERVER:             text-align: center;
+2025-04-27 17:28:06 CLIENT -> SERVER:             font-size: 12px;
+2025-04-27 17:28:06 CLIENT -> SERVER:             color: #666;
+2025-04-27 17:28:06 CLIENT -> SERVER:             margin-top: 20px;
+2025-04-27 17:28:06 CLIENT -> SERVER:         }
+2025-04-27 17:28:06 CLIENT -> SERVER:         .security-note {
+2025-04-27 17:28:06 CLIENT -> SERVER:             background-color: #fff3cd;
+2025-04-27 17:28:06 CLIENT -> SERVER:             border: 1px solid #ffeeba;
+2025-04-27 17:28:06 CLIENT -> SERVER:             color: #856404;
+2025-04-27 17:28:06 CLIENT -> SERVER:             padding: 15px;
+2025-04-27 17:28:06 CLIENT -> SERVER:             margin: 20px 0;
+2025-04-27 17:28:06 CLIENT -> SERVER:             border-radius: 5px;
+2025-04-27 17:28:06 CLIENT -> SERVER:         }
+2025-04-27 17:28:06 CLIENT -> SERVER:
+2025-04-27 17:28:06 CLIENT -> SERVER:
+2025-04-27 17:28:06 CLIENT -> SERVER:
+2025-04-27 17:28:06 CLIENT -> SERVER:
+2025-04-27 17:28:06 CLIENT -> SERVER:
+2025-04-27 17:28:06 CLIENT -> SERVER:             E-Halal BTECHenyo
+2025-04-27 17:28:06 CLIENT -> SERVER:
+2025-04-27 17:28:06 CLIENT -> SERVER:
+2025-04-27 17:28:06 CLIENT -> SERVER:             Hello Red Hernandez,
+2025-04-27 17:28:06 CLIENT -> SERVER:             Your officer account for E-Halal BTECHenyo has been created. Please find your login credentials below:
+2025-04-27 17:28:06 CLIENT -> SERVER:
+2025-04-27 17:28:06 CLIENT -> SERVER:
+2025-04-27 17:28:06 CLIENT -> SERVER:                 Username
+2025-04-27 17:28:06 CLIENT -> SERVER:                 redhernandez
+2025-04-27 17:28:06 CLIENT -> SERVER:                 Password
+2025-04-27 17:28:06 CLIENT -> SERVER:                 rRGI1UhBDjVL73Z
+2025-04-27 17:28:06 CLIENT -> SERVER:
+2025-04-27 17:28:06 CLIENT -> SERVER:
+2025-04-27 17:28:06 CLIENT -> SERVER:
+2025-04-27 17:28:06 CLIENT -> SERVER:                 For security reasons, please change your password immediately after your first login.
+2025-04-27 17:28:06 CLIENT -> SERVER:
+2025-04-27 17:28:06 CLIENT -> SERVER:
+2025-04-27 17:28:06 CLIENT -> SERVER:
+2025-04-27 17:28:06 CLIENT -> SERVER:                 Important Security Notes:
+2025-04-27 17:28:06 CLIENT -> SERVER:
+2025-04-27 17:28:06 CLIENT -> SERVER:                     Never share your credentials with anyone
+2025-04-27 17:28:06 CLIENT -> SERVER:                     Make sure to use a strong password when changing it
+2025-04-27 17:28:06 CLIENT -> SERVER:                     Log out when you're done using the system
+2025-04-27 17:28:06 CLIENT -> SERVER:
+2025-04-27 17:28:06 CLIENT -> SERVER:
+2025-04-27 17:28:06 CLIENT -> SERVER:
+2025-04-27 17:28:06 CLIENT -> SERVER:             If you did not expect this email or believe it was sent in error, please contact the system administrator immediately.
+2025-04-27 17:28:06 CLIENT -> SERVER:
+2025-04-27 17:28:06 CLIENT -> SERVER:
+2025-04-27 17:28:06 CLIENT -> SERVER:             &copy; 2025 E-Halal BTECHenyo Voting System. All rights reserved.
+2025-04-27 17:28:06 CLIENT -> SERVER:             This is an automated email, please do not reply.
+2025-04-27 17:28:06 CLIENT -> SERVER:
+2025-04-27 17:28:06 CLIENT -> SERVER:
+2025-04-27 17:28:06 CLIENT -> SERVER:
+2025-04-27 17:28:06 CLIENT -> SERVER:
+2025-04-27 17:28:06 CLIENT -> SERVER:
+2025-04-27 17:28:06 CLIENT -> SERVER:
+2025-04-27 17:28:06 CLIENT -> SERVER: --b1=_56V0LhTLxxIrjmlmWMn0ALZ77sjPnPwhzI9ZS6JSqLo--
+2025-04-27 17:28:06 CLIENT -> SERVER:
+2025-04-27 17:28:06 CLIENT -> SERVER: .
+2025-04-27 17:28:07 SERVER -> CLIENT: 250 2.0.0 OK  1745746086 d9443c01a7336-22db50e7636sm61427545ad.117 - gsmtp
+2025-04-27 17:28:07 CLIENT -> SERVER: RSET
+2025-04-27 17:28:07 SERVER -> CLIENT: 250 2.1.5 Flushed d9443c01a7336-22db50e7636sm61427545ad.117 - gsmtp
+2025-04-27 17:28:07 CLIENT -> SERVER: QUIT
+2025-04-27 17:28:07 SERVER -> CLIENT: 221 2.0.0 closing connection d9443c01a7336-22db50e7636sm61427545ad.117 - gsmtp
+2025-04-27 17:42:05 SERVER -> CLIENT: 220 smtp.gmail.com ESMTP d9443c01a7336-22db4dbbf8dsm61776525ad.65 - gsmtp
+2025-04-27 17:42:05 CLIENT -> SERVER: EHLO localhost
+2025-04-27 17:42:05 SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2001:4450:814c:100:be57:e4c:d1e0:67f8]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+2025-04-27 17:42:05 CLIENT -> SERVER: STARTTLS
+2025-04-27 17:42:05 SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+2025-04-27 17:42:05 CLIENT -> SERVER: EHLO localhost
+2025-04-27 17:42:05 SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2001:4450:814c:100:be57:e4c:d1e0:67f8]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+2025-04-27 17:42:05 CLIENT -> SERVER: AUTH LOGIN
+2025-04-27 17:42:06 SERVER -> CLIENT: 334 VXNlcm5hbWU6
+2025-04-27 17:42:06 CLIENT -> SERVER: [credentials hidden]
+2025-04-27 17:42:06 SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+2025-04-27 17:42:06 CLIENT -> SERVER: [credentials hidden]
+2025-04-27 17:42:06 SERVER -> CLIENT: 235 2.7.0 Accepted
+2025-04-27 17:42:06 CLIENT -> SERVER: MAIL FROM:
+2025-04-27 17:42:06 SERVER -> CLIENT: 250 2.1.0 OK d9443c01a7336-22db4dbbf8dsm61776525ad.65 - gsmtp
+2025-04-27 17:42:06 CLIENT -> SERVER: RCPT TO:
+2025-04-27 17:42:07 SERVER -> CLIENT: 250 2.1.5 OK d9443c01a7336-22db4dbbf8dsm61776525ad.65 - gsmtp
+2025-04-27 17:42:07 CLIENT -> SERVER: DATA
+2025-04-27 17:42:07 SERVER -> CLIENT: 354 Go ahead d9443c01a7336-22db4dbbf8dsm61776525ad.65 - gsmtp
+2025-04-27 17:42:07 CLIENT -> SERVER: Date: Sun, 27 Apr 2025 17:42:04 +0800
+2025-04-27 17:42:07 CLIENT -> SERVER: To: Red Hernandez
+2025-04-27 17:42:07 CLIENT -> SERVER: From: E-Halal System
+2025-04-27 17:42:07 CLIENT -> SERVER: Reply-To: E-Halal System
+2025-04-27 17:42:07 CLIENT -> SERVER: Subject: Your Officer Account Credentials - E-Halal BTECHenyo
+2025-04-27 17:42:07 CLIENT -> SERVER: Message-ID:
+2025-04-27 17:42:07 CLIENT -> SERVER: X-Mailer: PHPMailer 6.9.3 (https://github.com/PHPMailer/PHPMailer)
+2025-04-27 17:42:07 CLIENT -> SERVER: MIME-Version: 1.0
+2025-04-27 17:42:07 CLIENT -> SERVER: Content-Type: multipart/alternative;
+2025-04-27 17:42:07 CLIENT -> SERVER:  boundary="b1=_LZys45ewyMDCRIslMB7EMpbnTuhSStCxkLJeAjnY"
+2025-04-27 17:42:07 CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+2025-04-27 17:42:07 CLIENT -> SERVER:
+2025-04-27 17:42:07 CLIENT -> SERVER: --b1=_LZys45ewyMDCRIslMB7EMpbnTuhSStCxkLJeAjnY
+2025-04-27 17:42:07 CLIENT -> SERVER: Content-Type: text/plain; charset=us-ascii
+2025-04-27 17:42:07 CLIENT -> SERVER:
+2025-04-27 17:42:07 CLIENT -> SERVER: Hello Red Hernandez,
+2025-04-27 17:42:07 CLIENT -> SERVER: Your officer account for E-Halal BTECHenyo has been created.
+2025-04-27 17:42:07 CLIENT -> SERVER: Username: redhernandez
+2025-04-27 17:42:07 CLIENT -> SERVER: Password: 18JagRedUSn9Gik
+2025-04-27 17:42:07 CLIENT -> SERVER: Please log in and change your password as soon as possible.
+2025-04-27 17:42:07 CLIENT -> SERVER:
+2025-04-27 17:42:07 CLIENT -> SERVER: --b1=_LZys45ewyMDCRIslMB7EMpbnTuhSStCxkLJeAjnY
+2025-04-27 17:42:07 CLIENT -> SERVER: Content-Type: text/html; charset=us-ascii
+2025-04-27 17:42:07 CLIENT -> SERVER:
+2025-04-27 17:42:07 CLIENT -> SERVER:
+2025-04-27 17:42:07 CLIENT -> SERVER:
+2025-04-27 17:42:07 CLIENT -> SERVER:
+2025-04-27 17:42:07 CLIENT -> SERVER:
+2025-04-27 17:42:07 CLIENT -> SERVER:
+2025-04-27 17:42:07 CLIENT -> SERVER:     Officer Account Credentials
+2025-04-27 17:42:07 CLIENT -> SERVER:
+2025-04-27 17:42:07 CLIENT -> SERVER:         body {
+2025-04-27 17:42:07 CLIENT -> SERVER:             font-family: Arial, sans-serif;
+2025-04-27 17:42:07 CLIENT -> SERVER:             line-height: 1.6;
+2025-04-27 17:42:07 CLIENT -> SERVER:             color: #333;
+2025-04-27 17:42:07 CLIENT -> SERVER:             margin: 0;
+2025-04-27 17:42:07 CLIENT -> SERVER:             padding: 0;
+2025-04-27 17:42:07 CLIENT -> SERVER:         }
+2025-04-27 17:42:07 CLIENT -> SERVER:         .container {
+2025-04-27 17:42:07 CLIENT -> SERVER:             max-width: 600px;
+2025-04-27 17:42:07 CLIENT -> SERVER:             margin: 0 auto;
+2025-04-27 17:42:07 CLIENT -> SERVER:             padding: 20px;
+2025-04-27 17:42:07 CLIENT -> SERVER:         }
+2025-04-27 17:42:07 CLIENT -> SERVER:         .header {
+2025-04-27 17:42:07 CLIENT -> SERVER:             background-color: #1d7c39;
+2025-04-27 17:42:07 CLIENT -> SERVER:             color: white;
+2025-04-27 17:42:07 CLIENT -> SERVER:             padding: 20px;
+2025-04-27 17:42:07 CLIENT -> SERVER:             text-align: center;
+2025-04-27 17:42:07 CLIENT -> SERVER:         }
+2025-04-27 17:42:07 CLIENT -> SERVER:         .content {
+2025-04-27 17:42:07 CLIENT -> SERVER:             background-color: #f9f9f9;
+2025-04-27 17:42:07 CLIENT -> SERVER:             padding: 20px;
+2025-04-27 17:42:07 CLIENT -> SERVER:             border-radius: 0 0 5px 5px;
+2025-04-27 17:42:07 CLIENT -> SERVER:         }
+2025-04-27 17:42:07 CLIENT -> SERVER:         .credentials {
+2025-04-27 17:42:07 CLIENT -> SERVER:             font-size: 32px;
+2025-04-27 17:42:07 CLIENT -> SERVER:             font-weight: bold;
+2025-04-27 17:42:07 CLIENT -> SERVER:             color: #1d7c39;
+2025-04-27 17:42:07 CLIENT -> SERVER:             text-align: center;
+2025-04-27 17:42:07 CLIENT -> SERVER:             margin: 20px 0;
+2025-04-27 17:42:07 CLIENT -> SERVER:             letter-spacing: 3px;
+2025-04-27 17:42:07 CLIENT -> SERVER:             padding: 20px;
+2025-04-27 17:42:07 CLIENT -> SERVER:             background-color: #fff;
+2025-04-27 17:42:07 CLIENT -> SERVER:             border-radius: 5px;
+2025-04-27 17:42:07 CLIENT -> SERVER:             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+2025-04-27 17:42:07 CLIENT -> SERVER:         }
+2025-04-27 17:42:07 CLIENT -> SERVER:         .credentials-label {
+2025-04-27 17:42:07 CLIENT -> SERVER:             font-size: 14px;
+2025-04-27 17:42:07 CLIENT -> SERVER:             color: #666;
+2025-04-27 17:42:07 CLIENT -> SERVER:             display: block;
+2025-04-27 17:42:07 CLIENT -> SERVER:             margin-bottom: 5px;
+2025-04-27 17:42:07 CLIENT -> SERVER:         }
+2025-04-27 17:42:07 CLIENT -> SERVER:         .warning {
+2025-04-27 17:42:07 CLIENT -> SERVER:             text-align: center;
+2025-04-27 17:42:07 CLIENT -> SERVER:             color: #d9534f;
+2025-04-27 17:42:07 CLIENT -> SERVER:             font-weight: bold;
+2025-04-27 17:42:07 CLIENT -> SERVER:             margin: 20px 0;
+2025-04-27 17:42:07 CLIENT -> SERVER:             padding: 15px;
+2025-04-27 17:42:07 CLIENT -> SERVER:             background-color: #fff;
+2025-04-27 17:42:07 CLIENT -> SERVER:             border-left: 4px solid #d9534f;
+2025-04-27 17:42:07 CLIENT -> SERVER:             border-radius: 3px;
+2025-04-27 17:42:07 CLIENT -> SERVER:         }
+2025-04-27 17:42:07 CLIENT -> SERVER:         .footer {
+2025-04-27 17:42:07 CLIENT -> SERVER:             text-align: center;
+2025-04-27 17:42:07 CLIENT -> SERVER:             font-size: 12px;
+2025-04-27 17:42:07 CLIENT -> SERVER:             color: #666;
+2025-04-27 17:42:07 CLIENT -> SERVER:             margin-top: 20px;
+2025-04-27 17:42:07 CLIENT -> SERVER:         }
+2025-04-27 17:42:07 CLIENT -> SERVER:         .security-note {
+2025-04-27 17:42:07 CLIENT -> SERVER:             background-color: #fff3cd;
+2025-04-27 17:42:07 CLIENT -> SERVER:             border: 1px solid #ffeeba;
+2025-04-27 17:42:07 CLIENT -> SERVER:             color: #856404;
+2025-04-27 17:42:07 CLIENT -> SERVER:             padding: 15px;
+2025-04-27 17:42:07 CLIENT -> SERVER:             margin: 20px 0;
+2025-04-27 17:42:07 CLIENT -> SERVER:             border-radius: 5px;
+2025-04-27 17:42:07 CLIENT -> SERVER:         }
+2025-04-27 17:42:07 CLIENT -> SERVER:
+2025-04-27 17:42:07 CLIENT -> SERVER:
+2025-04-27 17:42:07 CLIENT -> SERVER:
+2025-04-27 17:42:07 CLIENT -> SERVER:
+2025-04-27 17:42:07 CLIENT -> SERVER:
+2025-04-27 17:42:07 CLIENT -> SERVER:             E-Halal BTECHenyo
+2025-04-27 17:42:07 CLIENT -> SERVER:
+2025-04-27 17:42:07 CLIENT -> SERVER:
+2025-04-27 17:42:07 CLIENT -> SERVER:             Hello Red Hernandez,
+2025-04-27 17:42:07 CLIENT -> SERVER:             Your officer account for E-Halal BTECHenyo has been created. Please find your login credentials below:
+2025-04-27 17:42:07 CLIENT -> SERVER:
+2025-04-27 17:42:07 CLIENT -> SERVER:
+2025-04-27 17:42:07 CLIENT -> SERVER:                 Username
+2025-04-27 17:42:07 CLIENT -> SERVER:                 redhernandez
+2025-04-27 17:42:07 CLIENT -> SERVER:                 Password
+2025-04-27 17:42:07 CLIENT -> SERVER:                 18JagRedUSn9Gik
+2025-04-27 17:42:07 CLIENT -> SERVER:
+2025-04-27 17:42:07 CLIENT -> SERVER:
+2025-04-27 17:42:07 CLIENT -> SERVER:
+2025-04-27 17:42:07 CLIENT -> SERVER:                 For security reasons, please change your password immediately after your first login.
+2025-04-27 17:42:07 CLIENT -> SERVER:
+2025-04-27 17:42:07 CLIENT -> SERVER:
+2025-04-27 17:42:07 CLIENT -> SERVER:
+2025-04-27 17:42:07 CLIENT -> SERVER:                 Important Security Notes:
+2025-04-27 17:42:07 CLIENT -> SERVER:
+2025-04-27 17:42:07 CLIENT -> SERVER:                     Never share your credentials with anyone
+2025-04-27 17:42:07 CLIENT -> SERVER:                     Make sure to use a strong password when changing it
+2025-04-27 17:42:07 CLIENT -> SERVER:                     Log out when you're done using the system
+2025-04-27 17:42:07 CLIENT -> SERVER:
+2025-04-27 17:42:07 CLIENT -> SERVER:
+2025-04-27 17:42:07 CLIENT -> SERVER:
+2025-04-27 17:42:07 CLIENT -> SERVER:             If you did not expect this email or believe it was sent in error, please contact the system administrator immediately.
+2025-04-27 17:42:07 CLIENT -> SERVER:
+2025-04-27 17:42:07 CLIENT -> SERVER:
+2025-04-27 17:42:07 CLIENT -> SERVER:             &copy; 2025 E-Halal BTECHenyo Voting System. All rights reserved.
+2025-04-27 17:42:07 CLIENT -> SERVER:             This is an automated email, please do not reply.
+2025-04-27 17:42:07 CLIENT -> SERVER:
+2025-04-27 17:42:07 CLIENT -> SERVER:
+2025-04-27 17:42:07 CLIENT -> SERVER:
+2025-04-27 17:42:07 CLIENT -> SERVER:
+2025-04-27 17:42:07 CLIENT -> SERVER:
+2025-04-27 17:42:07 CLIENT -> SERVER:
+2025-04-27 17:42:07 CLIENT -> SERVER: --b1=_LZys45ewyMDCRIslMB7EMpbnTuhSStCxkLJeAjnY--
+2025-04-27 17:42:07 CLIENT -> SERVER:
+2025-04-27 17:42:07 CLIENT -> SERVER: .
+2025-04-27 17:42:08 SERVER -> CLIENT: 250 2.0.0 OK  1745746927 d9443c01a7336-22db4dbbf8dsm61776525ad.65 - gsmtp
+2025-04-27 17:42:08 CLIENT -> SERVER: RSET
+2025-04-27 17:42:08 SERVER -> CLIENT: 250 2.1.5 Flushed d9443c01a7336-22db4dbbf8dsm61776525ad.65 - gsmtp
+2025-04-27 17:42:08 CLIENT -> SERVER: QUIT
+2025-04-27 17:42:08 SERVER -> CLIENT: 221 2.0.0 closing connection d9443c01a7336-22db4dbbf8dsm61776525ad.65 - gsmtp
+2025-04-27 17:47:45 SERVER -> CLIENT: 220 smtp.gmail.com ESMTP d9443c01a7336-22db50e7c5asm61721685ad.122 - gsmtp
+2025-04-27 17:47:45 CLIENT -> SERVER: EHLO localhost
+2025-04-27 17:47:46 SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2001:4450:814c:100:be57:e4c:d1e0:67f8]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+2025-04-27 17:47:46 CLIENT -> SERVER: STARTTLS
+2025-04-27 17:47:46 SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+2025-04-27 17:47:46 CLIENT -> SERVER: EHLO localhost
+2025-04-27 17:47:47 SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2001:4450:814c:100:be57:e4c:d1e0:67f8]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+2025-04-27 17:47:47 CLIENT -> SERVER: AUTH LOGIN
+2025-04-27 17:47:47 SERVER -> CLIENT: 334 VXNlcm5hbWU6
+2025-04-27 17:47:47 CLIENT -> SERVER: [credentials hidden]
+2025-04-27 17:47:47 SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+2025-04-27 17:47:47 CLIENT -> SERVER: [credentials hidden]
+2025-04-27 17:47:47 SERVER -> CLIENT: 235 2.7.0 Accepted
+2025-04-27 17:47:47 CLIENT -> SERVER: MAIL FROM:
+2025-04-27 17:47:47 SERVER -> CLIENT: 250 2.1.0 OK d9443c01a7336-22db50e7c5asm61721685ad.122 - gsmtp
+2025-04-27 17:47:47 CLIENT -> SERVER: RCPT TO:
+2025-04-27 17:47:48 SERVER -> CLIENT: 250 2.1.5 OK d9443c01a7336-22db50e7c5asm61721685ad.122 - gsmtp
+2025-04-27 17:47:48 CLIENT -> SERVER: DATA
+2025-04-27 17:47:48 SERVER -> CLIENT: 354 Go ahead d9443c01a7336-22db50e7c5asm61721685ad.122 - gsmtp
+2025-04-27 17:47:48 CLIENT -> SERVER: Date: Sun, 27 Apr 2025 17:47:44 +0800
+2025-04-27 17:47:48 CLIENT -> SERVER: To: Red Hernandez
+2025-04-27 17:47:48 CLIENT -> SERVER: From: E-Halal System
+2025-04-27 17:47:48 CLIENT -> SERVER: Reply-To: E-Halal System
+2025-04-27 17:47:48 CLIENT -> SERVER: Subject: Your Officer Account Credentials - E-Halal BTECHenyo
+2025-04-27 17:47:48 CLIENT -> SERVER: Message-ID:
+2025-04-27 17:47:48 CLIENT -> SERVER: X-Mailer: PHPMailer 6.9.3 (https://github.com/PHPMailer/PHPMailer)
+2025-04-27 17:47:48 CLIENT -> SERVER: MIME-Version: 1.0
+2025-04-27 17:47:48 CLIENT -> SERVER: Content-Type: multipart/alternative;
+2025-04-27 17:47:48 CLIENT -> SERVER:  boundary="b1=_5XPlovo1v77LWIleqoplpDX9elhUF3OWSO9p40qk"
+2025-04-27 17:47:48 CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+2025-04-27 17:47:48 CLIENT -> SERVER:
+2025-04-27 17:47:48 CLIENT -> SERVER: --b1=_5XPlovo1v77LWIleqoplpDX9elhUF3OWSO9p40qk
+2025-04-27 17:47:48 CLIENT -> SERVER: Content-Type: text/plain; charset=us-ascii
+2025-04-27 17:47:48 CLIENT -> SERVER:
+2025-04-27 17:47:48 CLIENT -> SERVER: Hello Red Hernandez,
+2025-04-27 17:47:48 CLIENT -> SERVER: Your officer account for E-Halal BTECHenyo has been created.
+2025-04-27 17:47:48 CLIENT -> SERVER: Username: redhernandez
+2025-04-27 17:47:48 CLIENT -> SERVER: Password: SBDI7FpXc5w4PTj
+2025-04-27 17:47:48 CLIENT -> SERVER: Please log in and change your password as soon as possible.
+2025-04-27 17:47:48 CLIENT -> SERVER:
+2025-04-27 17:47:48 CLIENT -> SERVER: --b1=_5XPlovo1v77LWIleqoplpDX9elhUF3OWSO9p40qk
+2025-04-27 17:47:48 CLIENT -> SERVER: Content-Type: text/html; charset=us-ascii
+2025-04-27 17:47:48 CLIENT -> SERVER:
+2025-04-27 17:47:48 CLIENT -> SERVER:
+2025-04-27 17:47:48 CLIENT -> SERVER:
+2025-04-27 17:47:48 CLIENT -> SERVER:
+2025-04-27 17:47:48 CLIENT -> SERVER:
+2025-04-27 17:47:48 CLIENT -> SERVER:
+2025-04-27 17:47:48 CLIENT -> SERVER:     Officer Account Credentials
+2025-04-27 17:47:48 CLIENT -> SERVER:
+2025-04-27 17:47:48 CLIENT -> SERVER:         body {
+2025-04-27 17:47:48 CLIENT -> SERVER:             font-family: Arial, sans-serif;
+2025-04-27 17:47:48 CLIENT -> SERVER:             line-height: 1.6;
+2025-04-27 17:47:48 CLIENT -> SERVER:             color: #333;
+2025-04-27 17:47:48 CLIENT -> SERVER:             margin: 0;
+2025-04-27 17:47:48 CLIENT -> SERVER:             padding: 0;
+2025-04-27 17:47:48 CLIENT -> SERVER:         }
+2025-04-27 17:47:48 CLIENT -> SERVER:         .container {
+2025-04-27 17:47:48 CLIENT -> SERVER:             max-width: 600px;
+2025-04-27 17:47:48 CLIENT -> SERVER:             margin: 0 auto;
+2025-04-27 17:47:48 CLIENT -> SERVER:             padding: 20px;
+2025-04-27 17:47:48 CLIENT -> SERVER:         }
+2025-04-27 17:47:48 CLIENT -> SERVER:         .header {
+2025-04-27 17:47:48 CLIENT -> SERVER:             background-color: #1d7c39;
+2025-04-27 17:47:48 CLIENT -> SERVER:             color: white;
+2025-04-27 17:47:48 CLIENT -> SERVER:             padding: 20px;
+2025-04-27 17:47:48 CLIENT -> SERVER:             text-align: center;
+2025-04-27 17:47:48 CLIENT -> SERVER:         }
+2025-04-27 17:47:48 CLIENT -> SERVER:         .content {
+2025-04-27 17:47:48 CLIENT -> SERVER:             background-color: #f9f9f9;
+2025-04-27 17:47:48 CLIENT -> SERVER:             padding: 20px;
+2025-04-27 17:47:48 CLIENT -> SERVER:             border-radius: 0 0 5px 5px;
+2025-04-27 17:47:48 CLIENT -> SERVER:         }
+2025-04-27 17:47:48 CLIENT -> SERVER:         .credentials {
+2025-04-27 17:47:48 CLIENT -> SERVER:             font-size: 32px;
+2025-04-27 17:47:48 CLIENT -> SERVER:             font-weight: bold;
+2025-04-27 17:47:48 CLIENT -> SERVER:             color: #1d7c39;
+2025-04-27 17:47:48 CLIENT -> SERVER:             text-align: center;
+2025-04-27 17:47:48 CLIENT -> SERVER:             margin: 20px 0;
+2025-04-27 17:47:48 CLIENT -> SERVER:             letter-spacing: 3px;
+2025-04-27 17:47:48 CLIENT -> SERVER:             padding: 20px;
+2025-04-27 17:47:48 CLIENT -> SERVER:             background-color: #fff;
+2025-04-27 17:47:48 CLIENT -> SERVER:             border-radius: 5px;
+2025-04-27 17:47:48 CLIENT -> SERVER:             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+2025-04-27 17:47:48 CLIENT -> SERVER:         }
+2025-04-27 17:47:48 CLIENT -> SERVER:         .credentials-label {
+2025-04-27 17:47:48 CLIENT -> SERVER:             font-size: 14px;
+2025-04-27 17:47:48 CLIENT -> SERVER:             color: #666;
+2025-04-27 17:47:48 CLIENT -> SERVER:             display: block;
+2025-04-27 17:47:48 CLIENT -> SERVER:             margin-bottom: 5px;
+2025-04-27 17:47:48 CLIENT -> SERVER:         }
+2025-04-27 17:47:48 CLIENT -> SERVER:         .warning {
+2025-04-27 17:47:48 CLIENT -> SERVER:             text-align: center;
+2025-04-27 17:47:48 CLIENT -> SERVER:             color: #d9534f;
+2025-04-27 17:47:48 CLIENT -> SERVER:             font-weight: bold;
+2025-04-27 17:47:48 CLIENT -> SERVER:             margin: 20px 0;
+2025-04-27 17:47:48 CLIENT -> SERVER:             padding: 15px;
+2025-04-27 17:47:48 CLIENT -> SERVER:             background-color: #fff;
+2025-04-27 17:47:48 CLIENT -> SERVER:             border-left: 4px solid #d9534f;
+2025-04-27 17:47:48 CLIENT -> SERVER:             border-radius: 3px;
+2025-04-27 17:47:48 CLIENT -> SERVER:         }
+2025-04-27 17:47:48 CLIENT -> SERVER:         .footer {
+2025-04-27 17:47:48 CLIENT -> SERVER:             text-align: center;
+2025-04-27 17:47:48 CLIENT -> SERVER:             font-size: 12px;
+2025-04-27 17:47:48 CLIENT -> SERVER:             color: #666;
+2025-04-27 17:47:48 CLIENT -> SERVER:             margin-top: 20px;
+2025-04-27 17:47:48 CLIENT -> SERVER:         }
+2025-04-27 17:47:48 CLIENT -> SERVER:         .security-note {
+2025-04-27 17:47:48 CLIENT -> SERVER:             background-color: #fff3cd;
+2025-04-27 17:47:48 CLIENT -> SERVER:             border: 1px solid #ffeeba;
+2025-04-27 17:47:48 CLIENT -> SERVER:             color: #856404;
+2025-04-27 17:47:48 CLIENT -> SERVER:             padding: 15px;
+2025-04-27 17:47:48 CLIENT -> SERVER:             margin: 20px 0;
+2025-04-27 17:47:48 CLIENT -> SERVER:             border-radius: 5px;
+2025-04-27 17:47:48 CLIENT -> SERVER:         }
+2025-04-27 17:47:48 CLIENT -> SERVER:
+2025-04-27 17:47:48 CLIENT -> SERVER:
+2025-04-27 17:47:48 CLIENT -> SERVER:
+2025-04-27 17:47:48 CLIENT -> SERVER:
+2025-04-27 17:47:48 CLIENT -> SERVER:
+2025-04-27 17:47:48 CLIENT -> SERVER:             E-Halal BTECHenyo
+2025-04-27 17:47:48 CLIENT -> SERVER:
+2025-04-27 17:47:48 CLIENT -> SERVER:
+2025-04-27 17:47:48 CLIENT -> SERVER:             Hello Red Hernandez,
+2025-04-27 17:47:48 CLIENT -> SERVER:             Your officer account for E-Halal BTECHenyo has been created. Please find your login credentials below:
+2025-04-27 17:47:48 CLIENT -> SERVER:
+2025-04-27 17:47:48 CLIENT -> SERVER:
+2025-04-27 17:47:48 CLIENT -> SERVER:                 Username
+2025-04-27 17:47:48 CLIENT -> SERVER:                 redhernandez
+2025-04-27 17:47:48 CLIENT -> SERVER:                 Password
+2025-04-27 17:47:48 CLIENT -> SERVER:                 SBDI7FpXc5w4PTj
+2025-04-27 17:47:48 CLIENT -> SERVER:
+2025-04-27 17:47:48 CLIENT -> SERVER:
+2025-04-27 17:47:48 CLIENT -> SERVER:
+2025-04-27 17:47:48 CLIENT -> SERVER:                 For security reasons, please change your password immediately after your first login.
+2025-04-27 17:47:48 CLIENT -> SERVER:
+2025-04-27 17:47:48 CLIENT -> SERVER:
+2025-04-27 17:47:48 CLIENT -> SERVER:
+2025-04-27 17:47:48 CLIENT -> SERVER:                 Important Security Notes:
+2025-04-27 17:47:48 CLIENT -> SERVER:
+2025-04-27 17:47:48 CLIENT -> SERVER:                     Never share your credentials with anyone
+2025-04-27 17:47:48 CLIENT -> SERVER:                     Make sure to use a strong password when changing it
+2025-04-27 17:47:48 CLIENT -> SERVER:                     Log out when you're done using the system
+2025-04-27 17:47:48 CLIENT -> SERVER:
+2025-04-27 17:47:48 CLIENT -> SERVER:
+2025-04-27 17:47:48 CLIENT -> SERVER:
+2025-04-27 17:47:48 CLIENT -> SERVER:             If you did not expect this email or believe it was sent in error, please contact the system administrator immediately.
+2025-04-27 17:47:48 CLIENT -> SERVER:
+2025-04-27 17:47:48 CLIENT -> SERVER:
+2025-04-27 17:47:48 CLIENT -> SERVER:             &copy; 2025 E-Halal BTECHenyo Voting System. All rights reserved.
+2025-04-27 17:47:48 CLIENT -> SERVER:             This is an automated email, please do not reply.
+2025-04-27 17:47:48 CLIENT -> SERVER:
+2025-04-27 17:47:48 CLIENT -> SERVER:
+2025-04-27 17:47:48 CLIENT -> SERVER:
+2025-04-27 17:47:48 CLIENT -> SERVER:
+2025-04-27 17:47:48 CLIENT -> SERVER:
+2025-04-27 17:47:48 CLIENT -> SERVER:
+2025-04-27 17:47:48 CLIENT -> SERVER: --b1=_5XPlovo1v77LWIleqoplpDX9elhUF3OWSO9p40qk--
+2025-04-27 17:47:48 CLIENT -> SERVER:
+2025-04-27 17:47:48 CLIENT -> SERVER: .
+2025-04-27 17:47:49 SERVER -> CLIENT: 250 2.0.0 OK  1745747268 d9443c01a7336-22db50e7c5asm61721685ad.122 - gsmtp
+2025-04-27 17:47:49 CLIENT -> SERVER: RSET
+2025-04-27 17:47:49 SERVER -> CLIENT: 250 2.1.5 Flushed d9443c01a7336-22db50e7c5asm61721685ad.122 - gsmtp
+2025-04-27 17:47:49 CLIENT -> SERVER: QUIT
+2025-04-27 17:47:49 SERVER -> CLIENT: 221 2.0.0 closing connection d9443c01a7336-22db50e7c5asm61721685ad.122 - gsmtp
+2025-04-27 17:50:01 SERVER -> CLIENT: 220 smtp.gmail.com ESMTP 98e67ed59e1d1-309f7763edbsm4854840a91.22 - gsmtp
+2025-04-27 17:50:01 CLIENT -> SERVER: EHLO localhost
+2025-04-27 17:50:01 SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2001:4450:814c:100:be57:e4c:d1e0:67f8]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+2025-04-27 17:50:01 CLIENT -> SERVER: STARTTLS
+2025-04-27 17:50:02 SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+2025-04-27 17:50:02 CLIENT -> SERVER: EHLO localhost
+2025-04-27 17:50:02 SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2001:4450:814c:100:be57:e4c:d1e0:67f8]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+2025-04-27 17:50:02 CLIENT -> SERVER: AUTH LOGIN
+2025-04-27 17:50:02 SERVER -> CLIENT: 334 VXNlcm5hbWU6
+2025-04-27 17:50:02 CLIENT -> SERVER: [credentials hidden]
+2025-04-27 17:50:03 SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+2025-04-27 17:50:03 CLIENT -> SERVER: [credentials hidden]
+2025-04-27 17:50:03 SERVER -> CLIENT: 235 2.7.0 Accepted
+2025-04-27 17:50:03 CLIENT -> SERVER: MAIL FROM:
+2025-04-27 17:50:03 SERVER -> CLIENT: 250 2.1.0 OK 98e67ed59e1d1-309f7763edbsm4854840a91.22 - gsmtp
+2025-04-27 17:50:03 CLIENT -> SERVER: RCPT TO:
+2025-04-27 17:50:03 SERVER -> CLIENT: 250 2.1.5 OK 98e67ed59e1d1-309f7763edbsm4854840a91.22 - gsmtp
+2025-04-27 17:50:03 CLIENT -> SERVER: DATA
+2025-04-27 17:50:03 SERVER -> CLIENT: 354 Go ahead 98e67ed59e1d1-309f7763edbsm4854840a91.22 - gsmtp
+2025-04-27 17:50:03 CLIENT -> SERVER: Date: Sun, 27 Apr 2025 17:50:00 +0800
+2025-04-27 17:50:03 CLIENT -> SERVER: To: Red Hernandez
+2025-04-27 17:50:03 CLIENT -> SERVER: From: E-Halal System
+2025-04-27 17:50:03 CLIENT -> SERVER: Reply-To: E-Halal System
+2025-04-27 17:50:03 CLIENT -> SERVER: Subject: Your Officer Account Credentials - E-Halal BTECHenyo
+2025-04-27 17:50:03 CLIENT -> SERVER: Message-ID:
+2025-04-27 17:50:03 CLIENT -> SERVER: X-Mailer: PHPMailer 6.9.3 (https://github.com/PHPMailer/PHPMailer)
+2025-04-27 17:50:03 CLIENT -> SERVER: MIME-Version: 1.0
+2025-04-27 17:50:03 CLIENT -> SERVER: Content-Type: multipart/alternative;
+2025-04-27 17:50:03 CLIENT -> SERVER:  boundary="b1=_p60wr6QblRMUjYGm1TofopAypJOFVgvh7h2fDnzRPr8"
+2025-04-27 17:50:03 CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+2025-04-27 17:50:03 CLIENT -> SERVER:
+2025-04-27 17:50:03 CLIENT -> SERVER: --b1=_p60wr6QblRMUjYGm1TofopAypJOFVgvh7h2fDnzRPr8
+2025-04-27 17:50:03 CLIENT -> SERVER: Content-Type: text/plain; charset=us-ascii
+2025-04-27 17:50:03 CLIENT -> SERVER:
+2025-04-27 17:50:03 CLIENT -> SERVER: Hello Red Hernandez,
+2025-04-27 17:50:03 CLIENT -> SERVER: Your officer account for E-Halal BTECHenyo has been created.
+2025-04-27 17:50:03 CLIENT -> SERVER: Username: redhernandez
+2025-04-27 17:50:03 CLIENT -> SERVER: Password: mjlaqf7HwEBnZ6k
+2025-04-27 17:50:03 CLIENT -> SERVER: Please log in and change your password as soon as possible.
+2025-04-27 17:50:03 CLIENT -> SERVER:
+2025-04-27 17:50:03 CLIENT -> SERVER: --b1=_p60wr6QblRMUjYGm1TofopAypJOFVgvh7h2fDnzRPr8
+2025-04-27 17:50:03 CLIENT -> SERVER: Content-Type: text/html; charset=us-ascii
+2025-04-27 17:50:03 CLIENT -> SERVER:
+2025-04-27 17:50:03 CLIENT -> SERVER:
+2025-04-27 17:50:03 CLIENT -> SERVER:
+2025-04-27 17:50:03 CLIENT -> SERVER:
+2025-04-27 17:50:03 CLIENT -> SERVER:
+2025-04-27 17:50:03 CLIENT -> SERVER:
+2025-04-27 17:50:03 CLIENT -> SERVER:     Officer Account Credentials
+2025-04-27 17:50:03 CLIENT -> SERVER:
+2025-04-27 17:50:03 CLIENT -> SERVER:         body {
+2025-04-27 17:50:03 CLIENT -> SERVER:             font-family: Arial, sans-serif;
+2025-04-27 17:50:03 CLIENT -> SERVER:             line-height: 1.6;
+2025-04-27 17:50:03 CLIENT -> SERVER:             color: #333;
+2025-04-27 17:50:03 CLIENT -> SERVER:             margin: 0;
+2025-04-27 17:50:03 CLIENT -> SERVER:             padding: 0;
+2025-04-27 17:50:03 CLIENT -> SERVER:         }
+2025-04-27 17:50:03 CLIENT -> SERVER:         .container {
+2025-04-27 17:50:03 CLIENT -> SERVER:             max-width: 600px;
+2025-04-27 17:50:03 CLIENT -> SERVER:             margin: 0 auto;
+2025-04-27 17:50:03 CLIENT -> SERVER:             padding: 20px;
+2025-04-27 17:50:03 CLIENT -> SERVER:         }
+2025-04-27 17:50:03 CLIENT -> SERVER:         .header {
+2025-04-27 17:50:03 CLIENT -> SERVER:             background-color: #1d7c39;
+2025-04-27 17:50:03 CLIENT -> SERVER:             color: white;
+2025-04-27 17:50:03 CLIENT -> SERVER:             padding: 20px;
+2025-04-27 17:50:03 CLIENT -> SERVER:             text-align: center;
+2025-04-27 17:50:03 CLIENT -> SERVER:         }
+2025-04-27 17:50:03 CLIENT -> SERVER:         .content {
+2025-04-27 17:50:03 CLIENT -> SERVER:             background-color: #f9f9f9;
+2025-04-27 17:50:03 CLIENT -> SERVER:             padding: 20px;
+2025-04-27 17:50:03 CLIENT -> SERVER:             border-radius: 0 0 5px 5px;
+2025-04-27 17:50:03 CLIENT -> SERVER:         }
+2025-04-27 17:50:03 CLIENT -> SERVER:         .credentials {
+2025-04-27 17:50:03 CLIENT -> SERVER:             font-size: 32px;
+2025-04-27 17:50:03 CLIENT -> SERVER:             font-weight: bold;
+2025-04-27 17:50:03 CLIENT -> SERVER:             color: #1d7c39;
+2025-04-27 17:50:03 CLIENT -> SERVER:             text-align: center;
+2025-04-27 17:50:03 CLIENT -> SERVER:             margin: 20px 0;
+2025-04-27 17:50:03 CLIENT -> SERVER:             letter-spacing: 3px;
+2025-04-27 17:50:03 CLIENT -> SERVER:             padding: 20px;
+2025-04-27 17:50:03 CLIENT -> SERVER:             background-color: #fff;
+2025-04-27 17:50:03 CLIENT -> SERVER:             border-radius: 5px;
+2025-04-27 17:50:03 CLIENT -> SERVER:             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+2025-04-27 17:50:03 CLIENT -> SERVER:         }
+2025-04-27 17:50:03 CLIENT -> SERVER:         .credentials-label {
+2025-04-27 17:50:03 CLIENT -> SERVER:             font-size: 14px;
+2025-04-27 17:50:03 CLIENT -> SERVER:             color: #666;
+2025-04-27 17:50:03 CLIENT -> SERVER:             display: block;
+2025-04-27 17:50:03 CLIENT -> SERVER:             margin-bottom: 5px;
+2025-04-27 17:50:03 CLIENT -> SERVER:         }
+2025-04-27 17:50:03 CLIENT -> SERVER:         .warning {
+2025-04-27 17:50:03 CLIENT -> SERVER:             text-align: center;
+2025-04-27 17:50:03 CLIENT -> SERVER:             color: #d9534f;
+2025-04-27 17:50:03 CLIENT -> SERVER:             font-weight: bold;
+2025-04-27 17:50:03 CLIENT -> SERVER:             margin: 20px 0;
+2025-04-27 17:50:03 CLIENT -> SERVER:             padding: 15px;
+2025-04-27 17:50:03 CLIENT -> SERVER:             background-color: #fff;
+2025-04-27 17:50:03 CLIENT -> SERVER:             border-left: 4px solid #d9534f;
+2025-04-27 17:50:03 CLIENT -> SERVER:             border-radius: 3px;
+2025-04-27 17:50:03 CLIENT -> SERVER:         }
+2025-04-27 17:50:03 CLIENT -> SERVER:         .footer {
+2025-04-27 17:50:03 CLIENT -> SERVER:             text-align: center;
+2025-04-27 17:50:03 CLIENT -> SERVER:             font-size: 12px;
+2025-04-27 17:50:03 CLIENT -> SERVER:             color: #666;
+2025-04-27 17:50:03 CLIENT -> SERVER:             margin-top: 20px;
+2025-04-27 17:50:03 CLIENT -> SERVER:         }
+2025-04-27 17:50:03 CLIENT -> SERVER:         .security-note {
+2025-04-27 17:50:03 CLIENT -> SERVER:             background-color: #fff3cd;
+2025-04-27 17:50:03 CLIENT -> SERVER:             border: 1px solid #ffeeba;
+2025-04-27 17:50:03 CLIENT -> SERVER:             color: #856404;
+2025-04-27 17:50:03 CLIENT -> SERVER:             padding: 15px;
+2025-04-27 17:50:03 CLIENT -> SERVER:             margin: 20px 0;
+2025-04-27 17:50:03 CLIENT -> SERVER:             border-radius: 5px;
+2025-04-27 17:50:03 CLIENT -> SERVER:         }
+2025-04-27 17:50:03 CLIENT -> SERVER:
+2025-04-27 17:50:03 CLIENT -> SERVER:
+2025-04-27 17:50:03 CLIENT -> SERVER:
+2025-04-27 17:50:03 CLIENT -> SERVER:
+2025-04-27 17:50:03 CLIENT -> SERVER:
+2025-04-27 17:50:03 CLIENT -> SERVER:             E-Halal BTECHenyo
+2025-04-27 17:50:03 CLIENT -> SERVER:
+2025-04-27 17:50:03 CLIENT -> SERVER:
+2025-04-27 17:50:03 CLIENT -> SERVER:             Hello Red Hernandez,
+2025-04-27 17:50:03 CLIENT -> SERVER:             Your officer account for E-Halal BTECHenyo has been created. Please find your login credentials below:
+2025-04-27 17:50:03 CLIENT -> SERVER:
+2025-04-27 17:50:03 CLIENT -> SERVER:
+2025-04-27 17:50:03 CLIENT -> SERVER:                 Username
+2025-04-27 17:50:03 CLIENT -> SERVER:                 redhernandez
+2025-04-27 17:50:03 CLIENT -> SERVER:                 Password
+2025-04-27 17:50:03 CLIENT -> SERVER:                 mjlaqf7HwEBnZ6k
+2025-04-27 17:50:03 CLIENT -> SERVER:
+2025-04-27 17:50:03 CLIENT -> SERVER:
+2025-04-27 17:50:03 CLIENT -> SERVER:
+2025-04-27 17:50:03 CLIENT -> SERVER:                 For security reasons, please change your password immediately after your first login.
+2025-04-27 17:50:03 CLIENT -> SERVER:
+2025-04-27 17:50:03 CLIENT -> SERVER:
+2025-04-27 17:50:03 CLIENT -> SERVER:
+2025-04-27 17:50:03 CLIENT -> SERVER:                 Important Security Notes:
+2025-04-27 17:50:03 CLIENT -> SERVER:
+2025-04-27 17:50:03 CLIENT -> SERVER:                     Never share your credentials with anyone
+2025-04-27 17:50:03 CLIENT -> SERVER:                     Make sure to use a strong password when changing it
+2025-04-27 17:50:03 CLIENT -> SERVER:                     Log out when you're done using the system
+2025-04-27 17:50:03 CLIENT -> SERVER:
+2025-04-27 17:50:03 CLIENT -> SERVER:
+2025-04-27 17:50:03 CLIENT -> SERVER:
+2025-04-27 17:50:03 CLIENT -> SERVER:             If you did not expect this email or believe it was sent in error, please contact the system administrator immediately.
+2025-04-27 17:50:03 CLIENT -> SERVER:
+2025-04-27 17:50:03 CLIENT -> SERVER:
+2025-04-27 17:50:03 CLIENT -> SERVER:             &copy; 2025 E-Halal BTECHenyo Voting System. All rights reserved.
+2025-04-27 17:50:03 CLIENT -> SERVER:             This is an automated email, please do not reply.
+2025-04-27 17:50:03 CLIENT -> SERVER:
+2025-04-27 17:50:03 CLIENT -> SERVER:
+2025-04-27 17:50:03 CLIENT -> SERVER:
+2025-04-27 17:50:03 CLIENT -> SERVER:
+2025-04-27 17:50:03 CLIENT -> SERVER:
+2025-04-27 17:50:03 CLIENT -> SERVER:
+2025-04-27 17:50:03 CLIENT -> SERVER: --b1=_p60wr6QblRMUjYGm1TofopAypJOFVgvh7h2fDnzRPr8--
+2025-04-27 17:50:03 CLIENT -> SERVER:
+2025-04-27 17:50:03 CLIENT -> SERVER: .
+2025-04-27 17:50:04 SERVER -> CLIENT: 250 2.0.0 OK  1745747403 98e67ed59e1d1-309f7763edbsm4854840a91.22 - gsmtp
+2025-04-27 17:50:04 CLIENT -> SERVER: RSET
+2025-04-27 17:50:05 SERVER -> CLIENT: 250 2.1.5 Flushed 98e67ed59e1d1-309f7763edbsm4854840a91.22 - gsmtp
+2025-04-27 17:50:05 CLIENT -> SERVER: QUIT
+2025-04-27 17:50:05 SERVER -> CLIENT: 221 2.0.0 closing connection 98e67ed59e1d1-309f7763edbsm4854840a91.22 - gsmtp
+2025-04-27 17:54:59 SERVER -> CLIENT: 220 smtp.gmail.com ESMTP d9443c01a7336-22db50e7a6csm61468605ad.151 - gsmtp
+2025-04-27 17:54:59 CLIENT -> SERVER: EHLO localhost
+2025-04-27 17:55:00 SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2001:4450:814c:100:be57:e4c:d1e0:67f8]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+2025-04-27 17:55:00 CLIENT -> SERVER: STARTTLS
+2025-04-27 17:55:00 SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+2025-04-27 17:55:00 CLIENT -> SERVER: EHLO localhost
+2025-04-27 17:55:01 SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2001:4450:814c:100:be57:e4c:d1e0:67f8]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+2025-04-27 17:55:01 CLIENT -> SERVER: AUTH LOGIN
+2025-04-27 17:55:01 SERVER -> CLIENT: 334 VXNlcm5hbWU6
+2025-04-27 17:55:01 CLIENT -> SERVER: [credentials hidden]
+2025-04-27 17:55:01 SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+2025-04-27 17:55:01 CLIENT -> SERVER: [credentials hidden]
+2025-04-27 17:55:01 SERVER -> CLIENT: 235 2.7.0 Accepted
+2025-04-27 17:55:01 CLIENT -> SERVER: MAIL FROM:
+2025-04-27 17:55:02 SERVER -> CLIENT: 250 2.1.0 OK d9443c01a7336-22db50e7a6csm61468605ad.151 - gsmtp
+2025-04-27 17:55:02 CLIENT -> SERVER: RCPT TO:
+2025-04-27 17:55:02 SERVER -> CLIENT: 250 2.1.5 OK d9443c01a7336-22db50e7a6csm61468605ad.151 - gsmtp
+2025-04-27 17:55:02 CLIENT -> SERVER: DATA
+2025-04-27 17:55:02 SERVER -> CLIENT: 354 Go ahead d9443c01a7336-22db50e7a6csm61468605ad.151 - gsmtp
+2025-04-27 17:55:02 CLIENT -> SERVER: Date: Sun, 27 Apr 2025 17:54:59 +0800
+2025-04-27 17:55:02 CLIENT -> SERVER: To: Red Go
+2025-04-27 17:55:02 CLIENT -> SERVER: From: E-Halal System
+2025-04-27 17:55:02 CLIENT -> SERVER: Reply-To: E-Halal System
+2025-04-27 17:55:02 CLIENT -> SERVER: Subject: Your Officer Account Credentials - E-Halal BTECHenyo
+2025-04-27 17:55:02 CLIENT -> SERVER: Message-ID:
+2025-04-27 17:55:02 CLIENT -> SERVER: X-Mailer: PHPMailer 6.9.3 (https://github.com/PHPMailer/PHPMailer)
+2025-04-27 17:55:02 CLIENT -> SERVER: MIME-Version: 1.0
+2025-04-27 17:55:02 CLIENT -> SERVER: Content-Type: multipart/alternative;
+2025-04-27 17:55:02 CLIENT -> SERVER:  boundary="b1=_uxpPqosIVglwubu1vjO456dXNyo6oN9h4OeNDO46JP0"
+2025-04-27 17:55:02 CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+2025-04-27 17:55:02 CLIENT -> SERVER:
+2025-04-27 17:55:02 CLIENT -> SERVER: --b1=_uxpPqosIVglwubu1vjO456dXNyo6oN9h4OeNDO46JP0
+2025-04-27 17:55:02 CLIENT -> SERVER: Content-Type: text/plain; charset=us-ascii
+2025-04-27 17:55:02 CLIENT -> SERVER:
+2025-04-27 17:55:02 CLIENT -> SERVER: Hello Red Go,
+2025-04-27 17:55:02 CLIENT -> SERVER: Your officer account for E-Halal BTECHenyo has been created.
+2025-04-27 17:55:02 CLIENT -> SERVER: Username: redgo
+2025-04-27 17:55:02 CLIENT -> SERVER: Password: shqSXKN68rcOj9e
+2025-04-27 17:55:02 CLIENT -> SERVER: Please log in and change your password as soon as possible.
+2025-04-27 17:55:02 CLIENT -> SERVER:
+2025-04-27 17:55:02 CLIENT -> SERVER: --b1=_uxpPqosIVglwubu1vjO456dXNyo6oN9h4OeNDO46JP0
+2025-04-27 17:55:02 CLIENT -> SERVER: Content-Type: text/html; charset=us-ascii
+2025-04-27 17:55:02 CLIENT -> SERVER:
+2025-04-27 17:55:02 CLIENT -> SERVER:
+2025-04-27 17:55:02 CLIENT -> SERVER:
+2025-04-27 17:55:02 CLIENT -> SERVER:
+2025-04-27 17:55:02 CLIENT -> SERVER:
+2025-04-27 17:55:02 CLIENT -> SERVER:
+2025-04-27 17:55:02 CLIENT -> SERVER:     Officer Account Credentials
+2025-04-27 17:55:02 CLIENT -> SERVER:
+2025-04-27 17:55:02 CLIENT -> SERVER:         body {
+2025-04-27 17:55:02 CLIENT -> SERVER:             font-family: Arial, sans-serif;
+2025-04-27 17:55:02 CLIENT -> SERVER:             line-height: 1.6;
+2025-04-27 17:55:02 CLIENT -> SERVER:             color: #333;
+2025-04-27 17:55:02 CLIENT -> SERVER:             margin: 0;
+2025-04-27 17:55:02 CLIENT -> SERVER:             padding: 0;
+2025-04-27 17:55:02 CLIENT -> SERVER:         }
+2025-04-27 17:55:02 CLIENT -> SERVER:         .container {
+2025-04-27 17:55:02 CLIENT -> SERVER:             max-width: 600px;
+2025-04-27 17:55:02 CLIENT -> SERVER:             margin: 0 auto;
+2025-04-27 17:55:02 CLIENT -> SERVER:             padding: 20px;
+2025-04-27 17:55:02 CLIENT -> SERVER:         }
+2025-04-27 17:55:02 CLIENT -> SERVER:         .header {
+2025-04-27 17:55:02 CLIENT -> SERVER:             background-color: #1d7c39;
+2025-04-27 17:55:02 CLIENT -> SERVER:             color: white;
+2025-04-27 17:55:02 CLIENT -> SERVER:             padding: 20px;
+2025-04-27 17:55:02 CLIENT -> SERVER:             text-align: center;
+2025-04-27 17:55:02 CLIENT -> SERVER:         }
+2025-04-27 17:55:02 CLIENT -> SERVER:         .content {
+2025-04-27 17:55:02 CLIENT -> SERVER:             background-color: #f9f9f9;
+2025-04-27 17:55:02 CLIENT -> SERVER:             padding: 20px;
+2025-04-27 17:55:02 CLIENT -> SERVER:             border-radius: 0 0 5px 5px;
+2025-04-27 17:55:02 CLIENT -> SERVER:         }
+2025-04-27 17:55:02 CLIENT -> SERVER:         .credentials {
+2025-04-27 17:55:02 CLIENT -> SERVER:             font-size: 32px;
+2025-04-27 17:55:02 CLIENT -> SERVER:             font-weight: bold;
+2025-04-27 17:55:02 CLIENT -> SERVER:             color: #1d7c39;
+2025-04-27 17:55:02 CLIENT -> SERVER:             text-align: center;
+2025-04-27 17:55:02 CLIENT -> SERVER:             margin: 20px 0;
+2025-04-27 17:55:02 CLIENT -> SERVER:             letter-spacing: 3px;
+2025-04-27 17:55:02 CLIENT -> SERVER:             padding: 20px;
+2025-04-27 17:55:02 CLIENT -> SERVER:             background-color: #fff;
+2025-04-27 17:55:02 CLIENT -> SERVER:             border-radius: 5px;
+2025-04-27 17:55:02 CLIENT -> SERVER:             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+2025-04-27 17:55:02 CLIENT -> SERVER:         }
+2025-04-27 17:55:02 CLIENT -> SERVER:         .credentials-label {
+2025-04-27 17:55:02 CLIENT -> SERVER:             font-size: 14px;
+2025-04-27 17:55:02 CLIENT -> SERVER:             color: #666;
+2025-04-27 17:55:02 CLIENT -> SERVER:             display: block;
+2025-04-27 17:55:02 CLIENT -> SERVER:             margin-bottom: 5px;
+2025-04-27 17:55:02 CLIENT -> SERVER:         }
+2025-04-27 17:55:02 CLIENT -> SERVER:         .warning {
+2025-04-27 17:55:02 CLIENT -> SERVER:             text-align: center;
+2025-04-27 17:55:02 CLIENT -> SERVER:             color: #d9534f;
+2025-04-27 17:55:02 CLIENT -> SERVER:             font-weight: bold;
+2025-04-27 17:55:02 CLIENT -> SERVER:             margin: 20px 0;
+2025-04-27 17:55:02 CLIENT -> SERVER:             padding: 15px;
+2025-04-27 17:55:02 CLIENT -> SERVER:             background-color: #fff;
+2025-04-27 17:55:02 CLIENT -> SERVER:             border-left: 4px solid #d9534f;
+2025-04-27 17:55:02 CLIENT -> SERVER:             border-radius: 3px;
+2025-04-27 17:55:02 CLIENT -> SERVER:         }
+2025-04-27 17:55:02 CLIENT -> SERVER:         .footer {
+2025-04-27 17:55:02 CLIENT -> SERVER:             text-align: center;
+2025-04-27 17:55:02 CLIENT -> SERVER:             font-size: 12px;
+2025-04-27 17:55:02 CLIENT -> SERVER:             color: #666;
+2025-04-27 17:55:02 CLIENT -> SERVER:             margin-top: 20px;
+2025-04-27 17:55:02 CLIENT -> SERVER:         }
+2025-04-27 17:55:02 CLIENT -> SERVER:         .security-note {
+2025-04-27 17:55:02 CLIENT -> SERVER:             background-color: #fff3cd;
+2025-04-27 17:55:02 CLIENT -> SERVER:             border: 1px solid #ffeeba;
+2025-04-27 17:55:02 CLIENT -> SERVER:             color: #856404;
+2025-04-27 17:55:02 CLIENT -> SERVER:             padding: 15px;
+2025-04-27 17:55:02 CLIENT -> SERVER:             margin: 20px 0;
+2025-04-27 17:55:02 CLIENT -> SERVER:             border-radius: 5px;
+2025-04-27 17:55:02 CLIENT -> SERVER:         }
+2025-04-27 17:55:02 CLIENT -> SERVER:
+2025-04-27 17:55:02 CLIENT -> SERVER:
+2025-04-27 17:55:02 CLIENT -> SERVER:
+2025-04-27 17:55:02 CLIENT -> SERVER:
+2025-04-27 17:55:02 CLIENT -> SERVER:
+2025-04-27 17:55:02 CLIENT -> SERVER:             E-Halal BTECHenyo
+2025-04-27 17:55:02 CLIENT -> SERVER:
+2025-04-27 17:55:02 CLIENT -> SERVER:
+2025-04-27 17:55:02 CLIENT -> SERVER:             Hello Red Go,
+2025-04-27 17:55:02 CLIENT -> SERVER:             Your officer account for E-Halal BTECHenyo has been created. Please find your login credentials below:
+2025-04-27 17:55:02 CLIENT -> SERVER:
+2025-04-27 17:55:02 CLIENT -> SERVER:
+2025-04-27 17:55:02 CLIENT -> SERVER:                 Username
+2025-04-27 17:55:02 CLIENT -> SERVER:                 redgo
+2025-04-27 17:55:02 CLIENT -> SERVER:                 Password
+2025-04-27 17:55:02 CLIENT -> SERVER:                 shqSXKN68rcOj9e
+2025-04-27 17:55:02 CLIENT -> SERVER:
+2025-04-27 17:55:02 CLIENT -> SERVER:
+2025-04-27 17:55:02 CLIENT -> SERVER:
+2025-04-27 17:55:02 CLIENT -> SERVER:                 For security reasons, please change your password immediately after your first login.
+2025-04-27 17:55:02 CLIENT -> SERVER:
+2025-04-27 17:55:02 CLIENT -> SERVER:
+2025-04-27 17:55:02 CLIENT -> SERVER:
+2025-04-27 17:55:02 CLIENT -> SERVER:                 Important Security Notes:
+2025-04-27 17:55:02 CLIENT -> SERVER:
+2025-04-27 17:55:02 CLIENT -> SERVER:                     Never share your credentials with anyone
+2025-04-27 17:55:02 CLIENT -> SERVER:                     Make sure to use a strong password when changing it
+2025-04-27 17:55:02 CLIENT -> SERVER:                     Log out when you're done using the system
+2025-04-27 17:55:02 CLIENT -> SERVER:
+2025-04-27 17:55:02 CLIENT -> SERVER:
+2025-04-27 17:55:02 CLIENT -> SERVER:
+2025-04-27 17:55:02 CLIENT -> SERVER:             If you did not expect this email or believe it was sent in error, please contact the system administrator immediately.
+2025-04-27 17:55:02 CLIENT -> SERVER:
+2025-04-27 17:55:02 CLIENT -> SERVER:
+2025-04-27 17:55:02 CLIENT -> SERVER:             &copy; 2025 E-Halal BTECHenyo Voting System. All rights reserved.
+2025-04-27 17:55:02 CLIENT -> SERVER:             This is an automated email, please do not reply.
+2025-04-27 17:55:02 CLIENT -> SERVER:
+2025-04-27 17:55:02 CLIENT -> SERVER:
+2025-04-27 17:55:02 CLIENT -> SERVER:
+2025-04-27 17:55:02 CLIENT -> SERVER:
+2025-04-27 17:55:02 CLIENT -> SERVER:
+2025-04-27 17:55:02 CLIENT -> SERVER:
+2025-04-27 17:55:02 CLIENT -> SERVER: --b1=_uxpPqosIVglwubu1vjO456dXNyo6oN9h4OeNDO46JP0--
+2025-04-27 17:55:02 CLIENT -> SERVER:
+2025-04-27 17:55:02 CLIENT -> SERVER: .
+2025-04-27 17:55:03 SERVER -> CLIENT: 250 2.0.0 OK  1745747702 d9443c01a7336-22db50e7a6csm61468605ad.151 - gsmtp
+2025-04-27 17:55:03 CLIENT -> SERVER: RSET
+2025-04-27 17:55:03 SERVER -> CLIENT: 250 2.1.5 Flushed d9443c01a7336-22db50e7a6csm61468605ad.151 - gsmtp
+2025-04-27 17:55:03 CLIENT -> SERVER: QUIT
+2025-04-27 17:55:03 SERVER -> CLIENT: 221 2.0.0 closing connection d9443c01a7336-22db50e7a6csm61468605ad.151 - gsmtp
+2025-04-27 17:57:34 SERVER -> CLIENT: 220 smtp.gmail.com ESMTP 41be03b00d2f7-b15f7ec3121sm5373159a12.32 - gsmtp
+2025-04-27 17:57:34 CLIENT -> SERVER: EHLO localhost
+2025-04-27 17:57:34 SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2001:4450:814c:100:be57:e4c:d1e0:67f8]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+2025-04-27 17:57:34 CLIENT -> SERVER: STARTTLS
+2025-04-27 17:57:34 SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+2025-04-27 17:57:35 CLIENT -> SERVER: EHLO localhost
+2025-04-27 17:57:35 SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2001:4450:814c:100:be57:e4c:d1e0:67f8]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+2025-04-27 17:57:35 CLIENT -> SERVER: AUTH LOGIN
+2025-04-27 17:57:35 SERVER -> CLIENT: 334 VXNlcm5hbWU6
+2025-04-27 17:57:35 CLIENT -> SERVER: [credentials hidden]
+2025-04-27 17:57:35 SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+2025-04-27 17:57:35 CLIENT -> SERVER: [credentials hidden]
+2025-04-27 17:57:35 SERVER -> CLIENT: 235 2.7.0 Accepted
+2025-04-27 17:57:35 CLIENT -> SERVER: MAIL FROM:
+2025-04-27 17:57:36 SERVER -> CLIENT: 250 2.1.0 OK 41be03b00d2f7-b15f7ec3121sm5373159a12.32 - gsmtp
+2025-04-27 17:57:36 CLIENT -> SERVER: RCPT TO:
+2025-04-27 17:57:36 SERVER -> CLIENT: 250 2.1.5 OK 41be03b00d2f7-b15f7ec3121sm5373159a12.32 - gsmtp
+2025-04-27 17:57:36 CLIENT -> SERVER: DATA
+2025-04-27 17:57:36 SERVER -> CLIENT: 354 Go ahead 41be03b00d2f7-b15f7ec3121sm5373159a12.32 - gsmtp
+2025-04-27 17:57:36 CLIENT -> SERVER: Date: Sun, 27 Apr 2025 17:57:33 +0800
+2025-04-27 17:57:36 CLIENT -> SERVER: To: Red Go
+2025-04-27 17:57:36 CLIENT -> SERVER: From: E-Halal System
+2025-04-27 17:57:36 CLIENT -> SERVER: Reply-To: E-Halal System
+2025-04-27 17:57:36 CLIENT -> SERVER: Subject: Your Officer Account Credentials - E-Halal BTECHenyo
+2025-04-27 17:57:36 CLIENT -> SERVER: Message-ID:
+2025-04-27 17:57:36 CLIENT -> SERVER: X-Mailer: PHPMailer 6.9.3 (https://github.com/PHPMailer/PHPMailer)
+2025-04-27 17:57:36 CLIENT -> SERVER: MIME-Version: 1.0
+2025-04-27 17:57:36 CLIENT -> SERVER: Content-Type: multipart/alternative;
+2025-04-27 17:57:36 CLIENT -> SERVER:  boundary="b1=_HAVKf66zxPPNjpQzWiSKvOZrIK41dlXn6IROH8gLDA"
+2025-04-27 17:57:36 CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+2025-04-27 17:57:36 CLIENT -> SERVER:
+2025-04-27 17:57:36 CLIENT -> SERVER: --b1=_HAVKf66zxPPNjpQzWiSKvOZrIK41dlXn6IROH8gLDA
+2025-04-27 17:57:36 CLIENT -> SERVER: Content-Type: text/plain; charset=us-ascii
+2025-04-27 17:57:36 CLIENT -> SERVER:
+2025-04-27 17:57:36 CLIENT -> SERVER: Hello Red Go,
+2025-04-27 17:57:36 CLIENT -> SERVER: Your officer account for E-Halal BTECHenyo has been created.
+2025-04-27 17:57:36 CLIENT -> SERVER: Username: redgo
+2025-04-27 17:57:36 CLIENT -> SERVER: Password: wZ19RxCAcGv6oin
+2025-04-27 17:57:36 CLIENT -> SERVER: Please log in and change your password as soon as possible.
+2025-04-27 17:57:36 CLIENT -> SERVER:
+2025-04-27 17:57:36 CLIENT -> SERVER: --b1=_HAVKf66zxPPNjpQzWiSKvOZrIK41dlXn6IROH8gLDA
+2025-04-27 17:57:36 CLIENT -> SERVER: Content-Type: text/html; charset=us-ascii
+2025-04-27 17:57:36 CLIENT -> SERVER:
+2025-04-27 17:57:36 CLIENT -> SERVER:
+2025-04-27 17:57:36 CLIENT -> SERVER:
+2025-04-27 17:57:36 CLIENT -> SERVER:
+2025-04-27 17:57:36 CLIENT -> SERVER:
+2025-04-27 17:57:36 CLIENT -> SERVER:
+2025-04-27 17:57:36 CLIENT -> SERVER:     Officer Account Credentials
+2025-04-27 17:57:36 CLIENT -> SERVER:
+2025-04-27 17:57:36 CLIENT -> SERVER:         body {
+2025-04-27 17:57:36 CLIENT -> SERVER:             font-family: Arial, sans-serif;
+2025-04-27 17:57:36 CLIENT -> SERVER:             line-height: 1.6;
+2025-04-27 17:57:36 CLIENT -> SERVER:             color: #333;
+2025-04-27 17:57:36 CLIENT -> SERVER:             margin: 0;
+2025-04-27 17:57:36 CLIENT -> SERVER:             padding: 0;
+2025-04-27 17:57:36 CLIENT -> SERVER:         }
+2025-04-27 17:57:36 CLIENT -> SERVER:         .container {
+2025-04-27 17:57:36 CLIENT -> SERVER:             max-width: 600px;
+2025-04-27 17:57:36 CLIENT -> SERVER:             margin: 0 auto;
+2025-04-27 17:57:36 CLIENT -> SERVER:             padding: 20px;
+2025-04-27 17:57:36 CLIENT -> SERVER:         }
+2025-04-27 17:57:36 CLIENT -> SERVER:         .header {
+2025-04-27 17:57:36 CLIENT -> SERVER:             background-color: #1d7c39;
+2025-04-27 17:57:36 CLIENT -> SERVER:             color: white;
+2025-04-27 17:57:36 CLIENT -> SERVER:             padding: 20px;
+2025-04-27 17:57:36 CLIENT -> SERVER:             text-align: center;
+2025-04-27 17:57:36 CLIENT -> SERVER:         }
+2025-04-27 17:57:36 CLIENT -> SERVER:         .content {
+2025-04-27 17:57:36 CLIENT -> SERVER:             background-color: #f9f9f9;
+2025-04-27 17:57:36 CLIENT -> SERVER:             padding: 20px;
+2025-04-27 17:57:36 CLIENT -> SERVER:             border-radius: 0 0 5px 5px;
+2025-04-27 17:57:36 CLIENT -> SERVER:         }
+2025-04-27 17:57:36 CLIENT -> SERVER:         .credentials {
+2025-04-27 17:57:36 CLIENT -> SERVER:             font-size: 32px;
+2025-04-27 17:57:36 CLIENT -> SERVER:             font-weight: bold;
+2025-04-27 17:57:36 CLIENT -> SERVER:             color: #1d7c39;
+2025-04-27 17:57:36 CLIENT -> SERVER:             text-align: center;
+2025-04-27 17:57:36 CLIENT -> SERVER:             margin: 20px 0;
+2025-04-27 17:57:36 CLIENT -> SERVER:             letter-spacing: 3px;
+2025-04-27 17:57:36 CLIENT -> SERVER:             padding: 20px;
+2025-04-27 17:57:36 CLIENT -> SERVER:             background-color: #fff;
+2025-04-27 17:57:36 CLIENT -> SERVER:             border-radius: 5px;
+2025-04-27 17:57:36 CLIENT -> SERVER:             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+2025-04-27 17:57:36 CLIENT -> SERVER:         }
+2025-04-27 17:57:36 CLIENT -> SERVER:         .credentials-label {
+2025-04-27 17:57:36 CLIENT -> SERVER:             font-size: 14px;
+2025-04-27 17:57:36 CLIENT -> SERVER:             color: #666;
+2025-04-27 17:57:36 CLIENT -> SERVER:             display: block;
+2025-04-27 17:57:36 CLIENT -> SERVER:             margin-bottom: 5px;
+2025-04-27 17:57:36 CLIENT -> SERVER:         }
+2025-04-27 17:57:36 CLIENT -> SERVER:         .warning {
+2025-04-27 17:57:36 CLIENT -> SERVER:             text-align: center;
+2025-04-27 17:57:36 CLIENT -> SERVER:             color: #d9534f;
+2025-04-27 17:57:36 CLIENT -> SERVER:             font-weight: bold;
+2025-04-27 17:57:36 CLIENT -> SERVER:             margin: 20px 0;
+2025-04-27 17:57:36 CLIENT -> SERVER:             padding: 15px;
+2025-04-27 17:57:36 CLIENT -> SERVER:             background-color: #fff;
+2025-04-27 17:57:36 CLIENT -> SERVER:             border-left: 4px solid #d9534f;
+2025-04-27 17:57:36 CLIENT -> SERVER:             border-radius: 3px;
+2025-04-27 17:57:36 CLIENT -> SERVER:         }
+2025-04-27 17:57:36 CLIENT -> SERVER:         .footer {
+2025-04-27 17:57:36 CLIENT -> SERVER:             text-align: center;
+2025-04-27 17:57:36 CLIENT -> SERVER:             font-size: 12px;
+2025-04-27 17:57:36 CLIENT -> SERVER:             color: #666;
+2025-04-27 17:57:36 CLIENT -> SERVER:             margin-top: 20px;
+2025-04-27 17:57:36 CLIENT -> SERVER:         }
+2025-04-27 17:57:36 CLIENT -> SERVER:         .security-note {
+2025-04-27 17:57:36 CLIENT -> SERVER:             background-color: #fff3cd;
+2025-04-27 17:57:36 CLIENT -> SERVER:             border: 1px solid #ffeeba;
+2025-04-27 17:57:36 CLIENT -> SERVER:             color: #856404;
+2025-04-27 17:57:36 CLIENT -> SERVER:             padding: 15px;
+2025-04-27 17:57:36 CLIENT -> SERVER:             margin: 20px 0;
+2025-04-27 17:57:36 CLIENT -> SERVER:             border-radius: 5px;
+2025-04-27 17:57:36 CLIENT -> SERVER:         }
+2025-04-27 17:57:36 CLIENT -> SERVER:
+2025-04-27 17:57:36 CLIENT -> SERVER:
+2025-04-27 17:57:36 CLIENT -> SERVER:
+2025-04-27 17:57:36 CLIENT -> SERVER:
+2025-04-27 17:57:36 CLIENT -> SERVER:
+2025-04-27 17:57:36 CLIENT -> SERVER:             E-Halal BTECHenyo
+2025-04-27 17:57:36 CLIENT -> SERVER:
+2025-04-27 17:57:36 CLIENT -> SERVER:
+2025-04-27 17:57:36 CLIENT -> SERVER:             Hello Red Go,
+2025-04-27 17:57:36 CLIENT -> SERVER:             Your officer account for E-Halal BTECHenyo has been created. Please find your login credentials below:
+2025-04-27 17:57:36 CLIENT -> SERVER:
+2025-04-27 17:57:36 CLIENT -> SERVER:
+2025-04-27 17:57:36 CLIENT -> SERVER:                 Username
+2025-04-27 17:57:36 CLIENT -> SERVER:                 redgo
+2025-04-27 17:57:36 CLIENT -> SERVER:                 Password
+2025-04-27 17:57:36 CLIENT -> SERVER:                 wZ19RxCAcGv6oin
+2025-04-27 17:57:36 CLIENT -> SERVER:
+2025-04-27 17:57:36 CLIENT -> SERVER:
+2025-04-27 17:57:36 CLIENT -> SERVER:
+2025-04-27 17:57:36 CLIENT -> SERVER:                 For security reasons, please change your password immediately after your first login.
+2025-04-27 17:57:36 CLIENT -> SERVER:
+2025-04-27 17:57:36 CLIENT -> SERVER:
+2025-04-27 17:57:36 CLIENT -> SERVER:
+2025-04-27 17:57:36 CLIENT -> SERVER:                 Important Security Notes:
+2025-04-27 17:57:36 CLIENT -> SERVER:
+2025-04-27 17:57:36 CLIENT -> SERVER:                     Never share your credentials with anyone
+2025-04-27 17:57:36 CLIENT -> SERVER:                     Make sure to use a strong password when changing it
+2025-04-27 17:57:36 CLIENT -> SERVER:                     Log out when you're done using the system
+2025-04-27 17:57:36 CLIENT -> SERVER:
+2025-04-27 17:57:36 CLIENT -> SERVER:
+2025-04-27 17:57:36 CLIENT -> SERVER:
+2025-04-27 17:57:36 CLIENT -> SERVER:             If you did not expect this email or believe it was sent in error, please contact the system administrator immediately.
+2025-04-27 17:57:36 CLIENT -> SERVER:
+2025-04-27 17:57:36 CLIENT -> SERVER:
+2025-04-27 17:57:36 CLIENT -> SERVER:             &copy; 2025 E-Halal BTECHenyo Voting System. All rights reserved.
+2025-04-27 17:57:36 CLIENT -> SERVER:             This is an automated email, please do not reply.
+2025-04-27 17:57:36 CLIENT -> SERVER:
+2025-04-27 17:57:36 CLIENT -> SERVER:
+2025-04-27 17:57:36 CLIENT -> SERVER:
+2025-04-27 17:57:36 CLIENT -> SERVER:
+2025-04-27 17:57:36 CLIENT -> SERVER:
+2025-04-27 17:57:36 CLIENT -> SERVER:
+2025-04-27 17:57:36 CLIENT -> SERVER: --b1=_HAVKf66zxPPNjpQzWiSKvOZrIK41dlXn6IROH8gLDA--
+2025-04-27 17:57:36 CLIENT -> SERVER:
+2025-04-27 17:57:36 CLIENT -> SERVER: .
+2025-04-27 17:57:37 SERVER -> CLIENT: 250 2.0.0 OK  1745747856 41be03b00d2f7-b15f7ec3121sm5373159a12.32 - gsmtp
+2025-04-27 17:57:37 CLIENT -> SERVER: RSET
+2025-04-27 17:57:37 SERVER -> CLIENT: 250 2.1.5 Flushed 41be03b00d2f7-b15f7ec3121sm5373159a12.32 - gsmtp
+2025-04-27 17:57:37 CLIENT -> SERVER: QUIT
+2025-04-27 17:57:37 SERVER -> CLIENT: 221 2.0.0 closing connection 41be03b00d2f7-b15f7ec3121sm5373159a12.32 - gsmtp
+2025-04-27 18:06:06 SERVER -> CLIENT: 220 smtp.gmail.com ESMTP 41be03b00d2f7-b15f76f48b2sm5491690a12.8 - gsmtp
+2025-04-27 18:06:06 CLIENT -> SERVER: EHLO localhost
+2025-04-27 18:06:07 SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2001:4450:814c:100:be57:e4c:d1e0:67f8]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+2025-04-27 18:06:07 CLIENT -> SERVER: STARTTLS
+2025-04-27 18:06:07 SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+2025-04-27 18:06:07 CLIENT -> SERVER: EHLO localhost
+2025-04-27 18:06:07 SERVER -> CLIENT: 250-smtp.gmail.com at your service, [2001:4450:814c:100:be57:e4c:d1e0:67f8]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+2025-04-27 18:06:07 CLIENT -> SERVER: AUTH LOGIN
+2025-04-27 18:06:08 SERVER -> CLIENT: 334 VXNlcm5hbWU6
+2025-04-27 18:06:08 CLIENT -> SERVER: [credentials hidden]
+2025-04-27 18:06:08 SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+2025-04-27 18:06:08 CLIENT -> SERVER: [credentials hidden]
+2025-04-27 18:06:08 SERVER -> CLIENT: 235 2.7.0 Accepted
+2025-04-27 18:06:08 CLIENT -> SERVER: MAIL FROM:
+2025-04-27 18:06:08 SERVER -> CLIENT: 250 2.1.0 OK 41be03b00d2f7-b15f76f48b2sm5491690a12.8 - gsmtp
+2025-04-27 18:06:08 CLIENT -> SERVER: RCPT TO:
+2025-04-27 18:06:08 SERVER -> CLIENT: 250 2.1.5 OK 41be03b00d2f7-b15f76f48b2sm5491690a12.8 - gsmtp
+2025-04-27 18:06:08 CLIENT -> SERVER: DATA
+2025-04-27 18:06:09 SERVER -> CLIENT: 354 Go ahead 41be03b00d2f7-b15f76f48b2sm5491690a12.8 - gsmtp
+2025-04-27 18:06:09 CLIENT -> SERVER: Date: Sun, 27 Apr 2025 18:06:06 +0800
+2025-04-27 18:06:09 CLIENT -> SERVER: To: Red  Go
+2025-04-27 18:06:09 CLIENT -> SERVER: From: E-Halal System
+2025-04-27 18:06:09 CLIENT -> SERVER: Reply-To: E-Halal System
+2025-04-27 18:06:09 CLIENT -> SERVER: Subject: Your Officer Account Credentials - E-Halal BTECHenyo
+2025-04-27 18:06:09 CLIENT -> SERVER: Message-ID:
+2025-04-27 18:06:09 CLIENT -> SERVER: X-Mailer: PHPMailer 6.9.3 (https://github.com/PHPMailer/PHPMailer)
+2025-04-27 18:06:09 CLIENT -> SERVER: MIME-Version: 1.0
+2025-04-27 18:06:09 CLIENT -> SERVER: Content-Type: multipart/alternative;
+2025-04-27 18:06:09 CLIENT -> SERVER:  boundary="b1=_PQMYQZrfBR3J3iurHFwv6stG8UMKesKfWRdQ3MghEIk"
+2025-04-27 18:06:09 CLIENT -> SERVER: Content-Transfer-Encoding: 8bit
+2025-04-27 18:06:09 CLIENT -> SERVER:
+2025-04-27 18:06:09 CLIENT -> SERVER: --b1=_PQMYQZrfBR3J3iurHFwv6stG8UMKesKfWRdQ3MghEIk
+2025-04-27 18:06:09 CLIENT -> SERVER: Content-Type: text/plain; charset=us-ascii
+2025-04-27 18:06:09 CLIENT -> SERVER:
+2025-04-27 18:06:09 CLIENT -> SERVER: Hello Red  Go,
+2025-04-27 18:06:09 CLIENT -> SERVER: Your officer account for E-Halal BTECHenyo has been created.
+2025-04-27 18:06:09 CLIENT -> SERVER: Username: redgo
+2025-04-27 18:06:09 CLIENT -> SERVER: Password: zQA9IGVtjeDNynF
+2025-04-27 18:06:09 CLIENT -> SERVER: Please log in and change your password as soon as possible.
+2025-04-27 18:06:09 CLIENT -> SERVER:
+2025-04-27 18:06:09 CLIENT -> SERVER: --b1=_PQMYQZrfBR3J3iurHFwv6stG8UMKesKfWRdQ3MghEIk
+2025-04-27 18:06:09 CLIENT -> SERVER: Content-Type: text/html; charset=us-ascii
+2025-04-27 18:06:09 CLIENT -> SERVER:
+2025-04-27 18:06:09 CLIENT -> SERVER:
+2025-04-27 18:06:09 CLIENT -> SERVER:
+2025-04-27 18:06:09 CLIENT -> SERVER:
+2025-04-27 18:06:09 CLIENT -> SERVER:
+2025-04-27 18:06:09 CLIENT -> SERVER:
+2025-04-27 18:06:09 CLIENT -> SERVER:     Officer Account Credentials
+2025-04-27 18:06:09 CLIENT -> SERVER:
+2025-04-27 18:06:09 CLIENT -> SERVER:         body {
+2025-04-27 18:06:09 CLIENT -> SERVER:             font-family: Arial, sans-serif;
+2025-04-27 18:06:09 CLIENT -> SERVER:             line-height: 1.6;
+2025-04-27 18:06:09 CLIENT -> SERVER:             color: #333;
+2025-04-27 18:06:09 CLIENT -> SERVER:             margin: 0;
+2025-04-27 18:06:09 CLIENT -> SERVER:             padding: 0;
+2025-04-27 18:06:09 CLIENT -> SERVER:         }
+2025-04-27 18:06:09 CLIENT -> SERVER:         .container {
+2025-04-27 18:06:09 CLIENT -> SERVER:             max-width: 600px;
+2025-04-27 18:06:09 CLIENT -> SERVER:             margin: 0 auto;
+2025-04-27 18:06:09 CLIENT -> SERVER:             padding: 20px;
+2025-04-27 18:06:09 CLIENT -> SERVER:         }
+2025-04-27 18:06:09 CLIENT -> SERVER:         .header {
+2025-04-27 18:06:09 CLIENT -> SERVER:             background-color: #1d7c39;
+2025-04-27 18:06:09 CLIENT -> SERVER:             color: white;
+2025-04-27 18:06:09 CLIENT -> SERVER:             padding: 20px;
+2025-04-27 18:06:09 CLIENT -> SERVER:             text-align: center;
+2025-04-27 18:06:09 CLIENT -> SERVER:         }
+2025-04-27 18:06:09 CLIENT -> SERVER:         .content {
+2025-04-27 18:06:09 CLIENT -> SERVER:             background-color: #f9f9f9;
+2025-04-27 18:06:09 CLIENT -> SERVER:             padding: 20px;
+2025-04-27 18:06:09 CLIENT -> SERVER:             border-radius: 0 0 5px 5px;
+2025-04-27 18:06:09 CLIENT -> SERVER:         }
+2025-04-27 18:06:09 CLIENT -> SERVER:         .credentials {
+2025-04-27 18:06:09 CLIENT -> SERVER:             font-size: 32px;
+2025-04-27 18:06:09 CLIENT -> SERVER:             font-weight: bold;
+2025-04-27 18:06:09 CLIENT -> SERVER:             color: #1d7c39;
+2025-04-27 18:06:09 CLIENT -> SERVER:             text-align: center;
+2025-04-27 18:06:09 CLIENT -> SERVER:             margin: 20px 0;
+2025-04-27 18:06:09 CLIENT -> SERVER:             letter-spacing: 3px;
+2025-04-27 18:06:09 CLIENT -> SERVER:             padding: 20px;
+2025-04-27 18:06:09 CLIENT -> SERVER:             background-color: #fff;
+2025-04-27 18:06:09 CLIENT -> SERVER:             border-radius: 5px;
+2025-04-27 18:06:09 CLIENT -> SERVER:             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+2025-04-27 18:06:09 CLIENT -> SERVER:         }
+2025-04-27 18:06:09 CLIENT -> SERVER:         .credentials-label {
+2025-04-27 18:06:09 CLIENT -> SERVER:             font-size: 14px;
+2025-04-27 18:06:09 CLIENT -> SERVER:             color: #666;
+2025-04-27 18:06:09 CLIENT -> SERVER:             display: block;
+2025-04-27 18:06:09 CLIENT -> SERVER:             margin-bottom: 5px;
+2025-04-27 18:06:09 CLIENT -> SERVER:         }
+2025-04-27 18:06:09 CLIENT -> SERVER:         .warning {
+2025-04-27 18:06:09 CLIENT -> SERVER:             text-align: center;
+2025-04-27 18:06:09 CLIENT -> SERVER:             color: #d9534f;
+2025-04-27 18:06:09 CLIENT -> SERVER:             font-weight: bold;
+2025-04-27 18:06:09 CLIENT -> SERVER:             margin: 20px 0;
+2025-04-27 18:06:09 CLIENT -> SERVER:             padding: 15px;
+2025-04-27 18:06:09 CLIENT -> SERVER:             background-color: #fff;
+2025-04-27 18:06:09 CLIENT -> SERVER:             border-left: 4px solid #d9534f;
+2025-04-27 18:06:09 CLIENT -> SERVER:             border-radius: 3px;
+2025-04-27 18:06:09 CLIENT -> SERVER:         }
+2025-04-27 18:06:09 CLIENT -> SERVER:         .footer {
+2025-04-27 18:06:09 CLIENT -> SERVER:             text-align: center;
+2025-04-27 18:06:09 CLIENT -> SERVER:             font-size: 12px;
+2025-04-27 18:06:09 CLIENT -> SERVER:             color: #666;
+2025-04-27 18:06:09 CLIENT -> SERVER:             margin-top: 20px;
+2025-04-27 18:06:09 CLIENT -> SERVER:         }
+2025-04-27 18:06:09 CLIENT -> SERVER:         .security-note {
+2025-04-27 18:06:09 CLIENT -> SERVER:             background-color: #fff3cd;
+2025-04-27 18:06:09 CLIENT -> SERVER:             border: 1px solid #ffeeba;
+2025-04-27 18:06:09 CLIENT -> SERVER:             color: #856404;
+2025-04-27 18:06:09 CLIENT -> SERVER:             padding: 15px;
+2025-04-27 18:06:09 CLIENT -> SERVER:             margin: 20px 0;
+2025-04-27 18:06:09 CLIENT -> SERVER:             border-radius: 5px;
+2025-04-27 18:06:09 CLIENT -> SERVER:         }
+2025-04-27 18:06:09 CLIENT -> SERVER:
+2025-04-27 18:06:09 CLIENT -> SERVER:
+2025-04-27 18:06:09 CLIENT -> SERVER:
+2025-04-27 18:06:09 CLIENT -> SERVER:
+2025-04-27 18:06:09 CLIENT -> SERVER:
+2025-04-27 18:06:09 CLIENT -> SERVER:             E-Halal BTECHenyo
+2025-04-27 18:06:09 CLIENT -> SERVER:
+2025-04-27 18:06:09 CLIENT -> SERVER:
+2025-04-27 18:06:09 CLIENT -> SERVER:             Hello Red  Go,
+2025-04-27 18:06:09 CLIENT -> SERVER:             Your officer account for E-Halal BTECHenyo has been created. Please find your login credentials below:
+2025-04-27 18:06:09 CLIENT -> SERVER:
+2025-04-27 18:06:09 CLIENT -> SERVER:
+2025-04-27 18:06:09 CLIENT -> SERVER:                 Username
+2025-04-27 18:06:09 CLIENT -> SERVER:                 redgo
+2025-04-27 18:06:09 CLIENT -> SERVER:                 Password
+2025-04-27 18:06:09 CLIENT -> SERVER:                 zQA9IGVtjeDNynF
+2025-04-27 18:06:09 CLIENT -> SERVER:
+2025-04-27 18:06:09 CLIENT -> SERVER:
+2025-04-27 18:06:09 CLIENT -> SERVER:
+2025-04-27 18:06:09 CLIENT -> SERVER:                 For security reasons, please change your password immediately after your first login.
+2025-04-27 18:06:09 CLIENT -> SERVER:
+2025-04-27 18:06:09 CLIENT -> SERVER:
+2025-04-27 18:06:09 CLIENT -> SERVER:
+2025-04-27 18:06:09 CLIENT -> SERVER:                 Important Security Notes:
+2025-04-27 18:06:09 CLIENT -> SERVER:
+2025-04-27 18:06:09 CLIENT -> SERVER:                     Never share your credentials with anyone
+2025-04-27 18:06:09 CLIENT -> SERVER:                     Make sure to use a strong password when changing it
+2025-04-27 18:06:09 CLIENT -> SERVER:                     Log out when you're done using the system
+2025-04-27 18:06:09 CLIENT -> SERVER:
+2025-04-27 18:06:09 CLIENT -> SERVER:
+2025-04-27 18:06:09 CLIENT -> SERVER:
+2025-04-27 18:06:09 CLIENT -> SERVER:             If you did not expect this email or believe it was sent in error, please contact the system administrator immediately.
+2025-04-27 18:06:09 CLIENT -> SERVER:
+2025-04-27 18:06:09 CLIENT -> SERVER:
+2025-04-27 18:06:09 CLIENT -> SERVER:             &copy; 2025 E-Halal BTECHenyo Voting System. All rights reserved.
+2025-04-27 18:06:09 CLIENT -> SERVER:             This is an automated email, please do not reply.
+2025-04-27 18:06:09 CLIENT -> SERVER:
+2025-04-27 18:06:09 CLIENT -> SERVER:
+2025-04-27 18:06:09 CLIENT -> SERVER:
+2025-04-27 18:06:09 CLIENT -> SERVER:
+2025-04-27 18:06:09 CLIENT -> SERVER:
+2025-04-27 18:06:09 CLIENT -> SERVER:
+2025-04-27 18:06:09 CLIENT -> SERVER: --b1=_PQMYQZrfBR3J3iurHFwv6stG8UMKesKfWRdQ3MghEIk--
+2025-04-27 18:06:09 CLIENT -> SERVER:
+2025-04-27 18:06:09 CLIENT -> SERVER: .
+2025-04-27 18:06:10 SERVER -> CLIENT: 250 2.0.0 OK  1745748369 41be03b00d2f7-b15f76f48b2sm5491690a12.8 - gsmtp
+2025-04-27 18:06:10 CLIENT -> SERVER: RSET
+2025-04-27 18:06:10 SERVER -> CLIENT: 250 2.1.5 Flushed 41be03b00d2f7-b15f76f48b2sm5491690a12.8 - gsmtp
+2025-04-27 18:06:10 CLIENT -> SERVER: QUIT
+2025-04-27 18:06:10 SERVER -> CLIENT: 221 2.0.0 closing connection 41be03b00d2f7-b15f76f48b2sm5491690a12.8 - gsmtp

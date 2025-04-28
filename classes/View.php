@@ -322,7 +322,7 @@ class View {
                         <h2>ELECTION PERIOD ENDED</h2>
                         <p>The voting system is currently closed as the election period for <?php echo htmlspecialchars($electionName); ?> has ended. Stay tuned for future announcements, BTECHenyos!</p>
                     </div>
-                    <a href="#">Have some questions?</a>
+                    <a href="https://www.facebook.com/BTECHDPLB/" target="_blank">Have some questions?</a>
         </section>
         <?php
         return ob_get_clean();

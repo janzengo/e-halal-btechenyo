@@ -5,11 +5,13 @@ require_once __DIR__ . '/../classes/CustomSessionHandler.php';
 require_once __DIR__ . '/../classes/Election.php';
 require_once __DIR__ . '/classes/View.php';
 require_once __DIR__ . '/classes/Admin.php';
+require_once __DIR__ . '/classes/AdminOTPMailer.php';
 
 $session = CustomSessionHandler::getInstance();
 $election = new Election();
 $view = View::getInstance();
 $admin = Admin::getInstance();
+$otpMailer = new AdminOTPMailer();
 
 // Handle logout action
 if (isset($_GET['action']) && $_GET['action'] === 'logout') {
@@ -35,12 +37,59 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && empty($page)) {
     if (empty($username) || empty($password)) {
         $session->setError('Please fill in all fields');
     } else {
-        if ($admin->login($username, $password)) {
-            $session->setSuccess('Login successful');
-            header('Location: home');
-            exit();
-        } else {
-            $session->setError('Invalid username or password');
+        try {
+            // Get admin data
+            $adminData = $admin->getAdminByUsername($username);
+
+            // Check if admin exists and verify password
+            if ($adminData && password_verify($password, $adminData['password'])) {
+                // Check if admin is an officer
+                if ($adminData['role'] === 'officer') {
+                    require_once __DIR__ . '/classes/Elections.php';
+                    $elections = Elections::getInstance();
+                    $currentStatus = $elections->getCurrentStatus();
+                    
+                    // Officers can only login during pending or active elections
+                    if ($currentStatus !== Elections::STATUS_PENDING && $currentStatus !== Elections::STATUS_ACTIVE) {
+                        $session->setError('Access denied. Officers can only login during pending or active elections.');
+                        goto display_login;
+                    }
+                }
+                
+                // For head admin, require OTP verification
+                if ($adminData['role'] === 'head') {
+                    if (empty($adminData['email'])) {
+                        $session->setError('Head admin email is not configured. Please contact support.');
+                        goto display_login;
+                    }
+                    
+                    // Store admin data temporarily for OTP verification
+                    $session->setSession('temp_admin_username', $username);
+                    $session->setSession('temp_admin_data', $adminData);
+                    
+                    // Generate and send OTP
+                    $result = $otpMailer->generateAndSendOTP($adminData['email'], $adminData['firstname'] . ' ' . $adminData['lastname']);
+                    
+                    if ($result['success']) {
+                        header('Location: auth/otp_verify.php');
+                        exit();
+                    } else {
+                        $session->setError($result['message']);
+                        goto display_login;
+                    }
+                }
+                
+                // For non-head admins, complete login directly
+                if ($admin->login($username, $password)) {
+                    $session->setSuccess('Login successful');
+                    header('Location: home');
+                    exit();
+                }
+            }
+
+            $session->setError('Invalid username or password.');
+        } catch (Exception $e) {
+            $session->setError($e->getMessage());
         }
     }
 }
@@ -61,6 +110,7 @@ if ($admin->isLoggedIn() && !empty($page)) {
         exit();
     }
 } else {
+    display_login:  // Label for displaying login page
     // Show login page
     echo $view->renderHeader();
     ?>
@@ -111,7 +161,10 @@ if ($admin->isLoggedIn() && !empty($page)) {
                         </div>
                         <div class="row">
                             <div class="col-xs-12">
-                                <button type="submit" class="btn btn-primary btn-block btn-flat custom">LOGIN <i class="fa fa-sign-in"></i></button>
+                                <button type="submit" class="btn btn-primary btn-block btn-flat custom" id="loginButton">
+                                    LOGIN <i class="fa fa-sign-in" id="loginIcon"></i>
+                                    <img src="assets/images/assets/spin-icon.svg" class="spinner d-none" width="20" height="20" alt="loading">
+                                </button>
                             </div>
                         </div>
                     </form>
@@ -173,6 +226,20 @@ if ($admin->isLoggedIn() && !empty($page)) {
         .alert .close:hover {
             opacity: 1;
         }
+
+        .d-none {
+            display: none !important;
+        }
+
+        .spinner {
+            vertical-align: middle;
+            margin-left: 5px;
+        }
+
+        button:disabled {
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
         </style>
 
         <script>
@@ -180,6 +247,20 @@ if ($admin->isLoggedIn() && !empty($page)) {
             // Enable Bootstrap alert dismissal
             $('.alert .close').click(function() {
                 $(this).closest('.alert').fadeOut('fast');
+            });
+
+            // Handle form submission
+            $('form').on('submit', function(e) {
+                var form = $(this);
+                var btn = form.find('#loginButton');
+                var icon = btn.find('#loginIcon');
+                var spinner = btn.find('.spinner');
+                
+                // Show loading state
+                btn.prop('disabled', true);
+                icon.addClass('d-none');
+                spinner.removeClass('d-none');
+                btn.contents().first().replaceWith('LOGGING IN ');
             });
         });
         </script>

@@ -104,6 +104,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             throw new Exception('Missing required fields');
         }
 
+        // Validate email for head admin
+        $email = isset($_POST['email']) ? trim($_POST['email']) : null;
+        if ($adminData['role'] === 'head' && empty($email)) {
+            throw new Exception('Email is required for electoral head');
+        }
+
+        // Validate email format if provided
+        if (!empty($email) && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            throw new Exception('Invalid email format');
+        }
+
         // Process photo upload
         $photo = $adminData['photo'] ?: DEFAULT_PHOTO;
         if (isset($_FILES['photo']) && $_FILES['photo']['error'] == 0) {
@@ -131,6 +142,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_POST['username'],
             $_POST['firstname'],
             $_POST['lastname'],
+            $email,
             $photo
         );
         

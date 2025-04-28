@@ -2,6 +2,7 @@
 require_once __DIR__ . '/../classes/View.php';
 require_once __DIR__ . '/../classes/Admin.php';
 require_once __DIR__ . '/../classes/Elections.php';
+Elections::enforceCompletedRedirect();
 require_once __DIR__ . '/../classes/Logger.php';
 
 // Initialize classes
@@ -40,8 +41,9 @@ $history = $election->getElectionHistory($limit, $offset);
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>E-Halal Voting System | Election History</title>
+    <title>E-Halal BTECHenyo | Election History</title>
     <?php echo $view->renderHeader(); ?>
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>administrator/assets/css/admin.css">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -101,9 +103,9 @@ $history = $election->getElectionHistory($limit, $offset);
                                     <thead>
                                         <tr>
                                             <th>Election Name</th>
-                                            <th>Start Date</th>
-                                            <th>End Date</th>
                                             <th>Created At</th>
+                                            <th>End Time</th>
+                                            <th>Status</th>
                                             <th>Documents</th>
                                         </tr>
                                     </thead>
@@ -115,17 +117,19 @@ $history = $election->getElectionHistory($limit, $offset);
                                             foreach ($history as $row) {
                                                 echo "<tr>";
                                                 echo "<td>" . htmlspecialchars($row['election_name']) . "</td>";
-                                                echo "<td>" . date('M d, Y h:i A', strtotime($row['start_date'])) . "</td>";
-                                                echo "<td>" . date('M d, Y h:i A', strtotime($row['end_date'])) . "</td>";
                                                 echo "<td>" . date('M d, Y h:i A', strtotime($row['created_at'])) . "</td>";
+                                                echo "<td>" . date('M d, Y h:i A', strtotime($row['end_time'])) . "</td>";
+                                                echo "<td><span class='label label-" . 
+                                                    ($row['status'] === 'completed' ? 'success' : 'default') . 
+                                                    "'>" . ucfirst(htmlspecialchars($row['status'])) . "</span></td>";
                                                 echo "<td>";
                                                 if ($row['details_pdf']) {
-                                                    echo "<a href='../uploads/pdfs/" . htmlspecialchars($row['details_pdf']) . "' class='btn btn-info btn-sm' target='_blank'>
+                                                    echo "<a href='" . BASE_URL . "administrator/" . htmlspecialchars($row['details_pdf']) . "' class='btn btn-info btn-sm' target='_blank'>
                                                             <i class='fa fa-file-pdf'></i> Details
                                                           </a> ";
                                                 }
                                                 if ($row['results_pdf']) {
-                                                    echo "<a href='../uploads/pdfs/" . htmlspecialchars($row['results_pdf']) . "' class='btn btn-success btn-sm' target='_blank'>
+                                                    echo "<a href='" . BASE_URL . "administrator/" . htmlspecialchars($row['results_pdf']) . "' class='btn btn-success btn-sm' target='_blank'>
                                                             <i class='fa fa-file-pdf'></i> Results
                                                           </a>";
                                                 }
@@ -180,15 +184,15 @@ $(function() {
     $('.table').DataTable({
         'pageLength': <?php echo $limit; ?>,
         'ordering': true,
-        'order': [[3, 'desc']], // Sort by created_at by default
+        'order': [[1, 'desc']], // Sort by created_at by default
         'searching': true,
         'info': true,
         'autoWidth': false,
         'columns': [
             { 'data': 'election_name' },
-            { 'data': 'start_date' },
-            { 'data': 'end_date' },
             { 'data': 'created_at' },
+            { 'data': 'end_time' },
+            { 'data': 'status' },
             { 'data': 'documents', 'orderable': false }
         ]
     });
