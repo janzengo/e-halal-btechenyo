@@ -31,6 +31,9 @@ $stats = [
     'voted' => $voter->getVotersWhoVoted()
 ];
 
+// Get all positions
+$positions = $position->getAllPositions();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -333,27 +336,93 @@ $stats = [
                             $chartData = $view->getChartData();
                             ?>
                             <div id="chartsContainer" class="row">
+                                <div class="col-md-6">
+                                    <canvas id="positionParticipationChart"></canvas>
+                                </div>
+                                <div class="col-md-6">
+                                    <canvas id="partylistChart"></canvas>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Load Chart.js from node_modules -->
+            <!-- Chart.js -->
             <script src="<?php echo BASE_URL; ?>node_modules/chart.js/dist/chart.umd.js"></script>
 
-            <!-- Initialize Charts -->
             <script>
-                var chartData = <?php echo json_encode($view->getChartData()); ?>;
+                // Global variables for votes.js
+                window.BASE_URL = '<?php echo BASE_URL; ?>';
+                
+                // Prepare data for partylist chart
+                window.partylistData = <?php 
+                    $partylistVotes = $vote->getVotesByPartylist();
+                    error_log("Partylist votes data: " . json_encode($partylistVotes));
+                    $partylistChartData = [
+                        'labels' => array_column($partylistVotes, 'partylist_name'),
+                        'data' => array_column($partylistVotes, 'total_votes')
+                    ];
+                    echo json_encode($partylistChartData); 
+                ?>;
 
-                function initCharts() {
-                    const chartsContainer = document.getElementById('chartsContainer');
+                // Prepare data for position participation chart
+                window.positionData = <?php 
+                    $positionData = [];
+                    if (!empty($positions)) {
+                        foreach ($positions as $pos) {
+                            // Get candidates and their votes for this position
+                            $candidates = $vote->getVotesByPosition($pos['id']);
+                            
+                            // Calculate total votes for this position
+                            $totalVotes = array_sum(array_column($candidates, 'votes'));
+                            
+                            // Store position data
+                            $positionData[] = [
+                                'position' => $pos['description'],
+                                'votes' => $totalVotes,
+                                'candidates' => array_map(function($c) {
+                                    return [
+                                        'name' => $c['firstname'] . ' ' . $c['lastname'],
+                                        'votes' => (int)$c['votes']
+                                    ];
+                                }, $candidates)
+                            ];
+                            error_log("Position {$pos['description']}: {$totalVotes} votes");
+                            error_log("Candidates data: " . json_encode($candidates));
+                        }
+                    }
+                    
+                    $chartData = [
+                        'labels' => array_column($positionData, 'position'),
+                        'data' => array_column($positionData, 'votes'),
+                        'candidateData' => array_map(function($pos) {
+                            return [
+                                'position' => $pos['position'],
+                                'candidates' => $pos['candidates']
+                            ];
+                        }, $positionData)
+                    ];
+                    error_log("Position chart data: " . json_encode($chartData));
+                    echo json_encode($chartData);
+                ?>;
+
+                // Debug data
+                console.log('Position Data:', window.positionData);
+                console.log('Partylist Data:', window.partylistData);
+            </script>
+
+            <!-- Custom scripts -->
+            <script src="<?php echo BASE_URL; ?>administrator/pages/includes/scripts/votes.js"></script>
+
+            <script>
+                // Initialize charts with the updated data
+                document.addEventListener('DOMContentLoaded', function() {
                     const chartTypeSelector = document.getElementById('chartTypeSelector');
+                    const chartsContainer = document.getElementById('chartsContainer');
 
-                    if (!chartData || chartData.length === 0) {
-                        // Hide the chart type selector when there's no data
-                        chartTypeSelector.style.display = 'none';
-                        
+                    if (!window.positionData || !window.positionData.labels) {
+                        // Handle no data scenario
                         chartsContainer.innerHTML = `
                             <div class="col-xs-12">
                                 <div class="box box-default">
@@ -384,108 +453,128 @@ $stats = [
                         return;
                     }
 
-                    // Show the chart type selector when there's data
-                    chartTypeSelector.style.display = 'inline-block';
+                    function renderCharts(type) {
+                        chartsContainer.innerHTML = '';
 
-                    function renderChart(type) {
-                        chartsContainer.innerHTML = ''; // Clear previous charts
+                        // Create position chart
+                        const positionChartDiv = document.createElement('div');
+                        positionChartDiv.className = 'col-md-12';
+                        positionChartDiv.style.marginBottom = '20px';
+                        const positionCanvas = document.createElement('canvas');
+                        positionChartDiv.appendChild(positionCanvas);
+                        chartsContainer.appendChild(positionChartDiv);
 
-                        chartData.forEach((data, index) => {
-                            // Create the chart container
-                            const chartDiv = document.createElement('div');
-                            chartDiv.className = 'col-md-6';
-                            chartDiv.style.marginBottom = '20px';
-
-                            const chartBox = document.createElement('div');
-                            chartBox.style.padding = '20px';
-                            chartBox.style.background = '#fff';
-                            chartBox.style.borderRadius = '8px';
-                            chartBox.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-                            chartBox.style.height = '400px';
-
-                            const canvas = document.createElement('canvas');
-                            canvas.id = 'chart_' + index;
-                            chartBox.appendChild(canvas);
-                            chartDiv.appendChild(chartBox);
-                            chartsContainer.appendChild(chartDiv);
-
-                            try {
-                                const ctx = canvas.getContext('2d');
-                                new Chart(ctx, {
-                                    type: type,
-                                    data: {
-                                        labels: data.candidates,
-                                        datasets: [{
-                                            label: data.position,
-                                            data: data.votes,
-                                            backgroundColor: [
-                                                'rgba(255, 99, 132, 0.7)',   // Pink
-                                                'rgba(54, 162, 235, 0.7)',   // Blue
-                                                'rgba(255, 206, 86, 0.7)',   // Yellow
-                                                'rgba(75, 192, 192, 0.7)',   // Teal
-                                                'rgba(153, 102, 255, 0.7)',  // Purple
-                                                'rgba(255, 159, 64, 0.7)',   // Orange
-                                                'rgba(46, 204, 113, 0.7)',   // Green
-                                                'rgba(231, 76, 60, 0.7)',    // Red
-                                                'rgba(52, 73, 94, 0.7)',     // Dark Blue
-                                                'rgba(155, 89, 182, 0.7)'    // Lavender
-                                            ],
-                                            borderColor: [
-                                                'rgb(255, 99, 132)',
-                                                'rgb(54, 162, 235)',
-                                                'rgb(255, 206, 86)',
-                                                'rgb(75, 192, 192)',
-                                                'rgb(153, 102, 255)',
-                                                'rgb(255, 159, 64)',
-                                                'rgb(46, 204, 113)',
-                                                'rgb(231, 76, 60)',
-                                                'rgb(52, 73, 94)',
-                                                'rgb(155, 89, 182)'
-                                            ],
-                                            borderWidth: 1
-                                        }]
-                                    },
-                                    options: {
-                                        responsive: true,
-                                        maintainAspectRatio: false,
-                                        plugins: {
-                                            title: {
-                                                display: true,
-                                                text: data.position,
-                                                font: { size: 16 }
-                                            }
-                                        },
-                                        scales: type !== 'pie' && type !== 'doughnut' ? {
-                                            y: {
-                                                beginAtZero: true,
-                                                ticks: {
-                                                    stepSize: 1
-                                                }
-                                            }
-                                        } : undefined
+                        new Chart(positionCanvas, {
+                            type: type,
+                            data: {
+                                labels: window.positionData.labels,
+                                datasets: [{
+                                    label: 'Total Votes Cast',
+                                    data: window.positionData.data,
+                                    backgroundColor: [
+                                        'rgba(255, 99, 132, 0.7)',
+                                        'rgba(54, 162, 235, 0.7)',
+                                        'rgba(255, 206, 86, 0.7)',
+                                        'rgba(75, 192, 192, 0.7)',
+                                        'rgba(153, 102, 255, 0.7)'
+                                    ],
+                                    borderColor: [
+                                        'rgb(255, 99, 132)',
+                                        'rgb(54, 162, 235)',
+                                        'rgb(255, 206, 86)',
+                                        'rgb(75, 192, 192)',
+                                        'rgb(153, 102, 255)'
+                                    ],
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                maintainAspectRatio: false,
+                                scales: type !== 'pie' && type !== 'doughnut' ? {
+                                    y: {
+                                        beginAtZero: true,
+                                        ticks: {
+                                            stepSize: 1
+                                        }
                                     }
-                                });
-                            } catch (error) {
-                                chartBox.innerHTML = `<div class="alert alert-danger">Error creating chart</div>`;
+                                } : undefined,
+                                plugins: {
+                                    title: {
+                                        display: true,
+                                        text: 'Votes by Position',
+                                        font: { size: 16 }
+                                    }
+                                }
                             }
+                        });
+
+                        // Create detailed charts for each position
+                        window.positionData.candidateData.forEach((posData) => {
+                            const detailChartDiv = document.createElement('div');
+                            detailChartDiv.className = 'col-md-6';
+                            detailChartDiv.style.marginBottom = '20px';
+                            const detailCanvas = document.createElement('canvas');
+                            detailChartDiv.appendChild(detailCanvas);
+                            chartsContainer.appendChild(detailChartDiv);
+
+                            new Chart(detailCanvas, {
+                                type: type === 'line' ? 'bar' : type,
+                                data: {
+                                    labels: posData.candidates.map(c => c.name),
+                                    datasets: [{
+                                        label: posData.position + ' Candidates',
+                                        data: posData.candidates.map(c => c.votes),
+                                        backgroundColor: [
+                                            'rgba(255, 99, 132, 0.7)',
+                                            'rgba(54, 162, 235, 0.7)',
+                                            'rgba(255, 206, 86, 0.7)',
+                                            'rgba(75, 192, 192, 0.7)',
+                                            'rgba(153, 102, 255, 0.7)',
+                                            'rgba(255, 159, 64, 0.7)'
+                                        ],
+                                        borderColor: [
+                                            'rgb(255, 99, 132)',
+                                            'rgb(54, 162, 235)',
+                                            'rgb(255, 206, 86)',
+                                            'rgb(75, 192, 192)',
+                                            'rgb(153, 102, 255)',
+                                            'rgb(255, 159, 64)'
+                                        ],
+                                        borderWidth: 1
+                                    }]
+                                },
+                                options: {
+                                    responsive: true,
+                                    maintainAspectRatio: false,
+                                    scales: type !== 'pie' && type !== 'doughnut' ? {
+                                        y: {
+                                            beginAtZero: true,
+                                            ticks: {
+                                                stepSize: 1
+                                            }
+                                        }
+                                    } : undefined,
+                                    plugins: {
+                                        title: {
+                                            display: true,
+                                            text: posData.position + ' - Candidate Votes',
+                                            font: { size: 16 }
+                                        }
+                                    }
+                                }
+                            });
                         });
                     }
 
                     // Initial render
-                    renderChart('bar');
+                    renderCharts(chartTypeSelector.value);
 
                     // Handle chart type changes
                     chartTypeSelector.addEventListener('change', function() {
-                        renderChart(this.value);
+                        renderCharts(this.value);
                     });
-                }
-
-                // Wait for DOM to be ready
-                if (document.readyState === 'loading') {
-                    document.addEventListener('DOMContentLoaded', initCharts);
-                } else {
-                    initCharts();
-                }
+                });
             </script>
         </section>
     </div>

@@ -180,17 +180,21 @@ try {
             return $b['votes'] - $a['votes'];
         });
         
+        // Get max winners for this position
+        $maxWinners = (int)$pos['max_vote'];
+        
         // Add candidate rows with alternating colors
         $pdf->SetFont('helvetica', '', 10);
         $isAlternate = false;
-        foreach ($candidates as $candidate) {
+        foreach ($candidates as $index => $candidate) {
             $votes = (int)$candidate['votes'];
             $percentage = $totalVotes > 0 ? round(($votes / $totalVotes) * 100, 2) : 0;
             
-            // Highlight winner(s) with green background
-            if ($votes === max(array_column($candidates, 'votes')) && $votes > 0) {
+            // Highlight top N candidates based on max_vote, where N is max_vote
+            // Only highlight if they have at least 1 vote
+            if ($index < $maxWinners && $votes > 0) {
                 $pdf->SetFont('helvetica', 'B', 10);
-                $pdf->SetFillColor(230, 255, 230);
+                $pdf->SetFillColor(230, 255, 230); // Light green for winners
             } else {
                 $pdf->SetFont('helvetica', '', 10);
                 $pdf->SetFillColor($isAlternate ? 255 : 249, 249, 249);
@@ -202,7 +206,7 @@ try {
             $pdf->Cell(25, 8, $percentage . '%', 1, 1, 'C', true);
             
             $isAlternate = !$isAlternate;
-            }
+        }
         
         $pdf->Ln(4);
         

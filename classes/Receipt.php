@@ -326,9 +326,6 @@ HTML;
                 throw new Exception("Vote not found or unauthorized access");
             }
 
-            // Debug log
-            error_log("Vote data retrieved: " . print_r($vote, true));
-
             // Create PDF
             $pdf = new CustomReceipt('P', 'mm', 'A4', true, 'UTF-8', false);
             $pdf->SetCreator('E-Halal BTECHenyo');
@@ -337,10 +334,10 @@ HTML;
             $pdf->setFooterFont(Array('helvetica', '', 8));
             $pdf->SetDefaultMonospacedFont('helvetica');
             $pdf->SetMargins(PDF_MARGIN_LEFT, 40, PDF_MARGIN_RIGHT);
-            $pdf->SetFooterMargin(15); // Adjusted footer margin
+            $pdf->SetFooterMargin(15);
             $pdf->setPrintHeader(true);
             $pdf->setPrintFooter(true);
-            $pdf->SetAutoPageBreak(TRUE, 25); // Increased bottom margin
+            $pdf->SetAutoPageBreak(TRUE, 25);
             $pdf->AddPage();
 
             // Header content
@@ -366,8 +363,13 @@ HTML;
             $pdf->SetFillColor(29, 124, 57); // #1d7c39
             $pdf->SetTextColor(255, 255, 255);
             $pdf->SetFont('helvetica', 'B', 11);
-            $pdf->Cell(80, 8, 'Position', 1, 0, 'L', true);
-            $pdf->Cell(90, 8, 'Candidate', 1, 1, 'L', true);
+            
+            // Define column widths
+            $posWidth = 50;
+            $candWidth = 120;
+            
+            $pdf->Cell($posWidth, 8, 'Position', 1, 0, 'L', true);
+            $pdf->Cell($candWidth, 8, 'Candidate', 1, 1, 'L', true);
             
             // Reset text color
             $pdf->SetTextColor(0, 0, 0);
@@ -379,7 +381,8 @@ HTML;
             $positions = $this->db->query($sql);
             
             while ($position = $positions->fetch_assoc()) {
-                $pdf->Cell(80, 8, $position['description'], 1, 0, 'L');
+                $startY = $pdf->GetY();
+                $startX = $pdf->GetX();
                 
                 if (isset($votes_data[$position['id']])) {
                     $position_votes = $votes_data[$position['id']];
@@ -398,21 +401,53 @@ HTML;
                             $candidates[] = $candidate_text;
                         }
                     }
-                    $pdf->Cell(90, 8, implode(', ', $candidates), 1, 1, 'L');
+                    
+                    // Calculate required height
+                    $lineHeight = 8;
+                    $totalHeight = max(count($candidates) * $lineHeight, $lineHeight);
+                    
+                    // Draw position cell
+                    $pdf->Cell($posWidth, $totalHeight, $position['description'], 1, 0, 'L');
+                    
+                    // Move to candidate column
+                    $pdf->SetX($startX + $posWidth);
+                    
+                    // Draw candidate cell with all candidates
+                    $candidateY = $startY;
+                    foreach ($candidates as $index => $candidate) {
+                        if ($index === 0) {
+                            // First candidate
+                            $pdf->Cell($candWidth, $lineHeight, $candidate, ($index === count($candidates) - 1 ? 1 : 'LTR'), 1, 'L');
+                        } else if ($index === count($candidates) - 1) {
+                            // Last candidate
+                            $pdf->SetXY($startX + $posWidth, $candidateY);
+                            $pdf->Cell($candWidth, $lineHeight, $candidate, 'LRB', 1, 'L');
+                        } else {
+                            // Middle candidates
+                            $pdf->SetXY($startX + $posWidth, $candidateY);
+                            $pdf->Cell($candWidth, $lineHeight, $candidate, 'LR', 1, 'L');
+                        }
+                        $candidateY += $lineHeight;
+                    }
+                    
+                    // Move to next row
+                    $pdf->SetXY($startX, $startY + $totalHeight);
+                    
                 } else {
+                    // No votes case
                     $pdf->SetFont('helvetica', 'I', 11);
-                    $pdf->Cell(90, 8, 'No vote cast', 1, 1, 'L');
+                    $pdf->Cell($posWidth, 8, $position['description'], 1, 0, 'L');
+                    $pdf->Cell($candWidth, 8, 'No vote cast', 1, 1, 'L');
                     $pdf->SetFont('helvetica', '', 11);
                 }
             }
 
-            // Footer text - positioned at the bottom
+            // Footer text
+            $pdf->Ln(10);
             $pdf->SetFont('helvetica', 'I', 10);
             $pdf->Cell(0, 6, 'This is an official vote receipt from the E-Halal BTECHenyo Voting System.', 0, 1, 'C');
             $pdf->Cell(0, 6, 'Please keep this document for your records.', 0, 1, 'C');
 
-            // Instead of $pdf->Output('Vote_Receipt_' . $vote_ref . '.pdf', 'I');
-            // Return the PDF content as a string
             return $pdf->Output('Vote_Receipt_' . $vote_ref . '.pdf', 'S');
 
         } catch (Exception $e) {

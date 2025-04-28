@@ -285,37 +285,14 @@ if (isset($current_election['status']) && $current_election['status'] === 'setup
                                         </button>
                                     <?php endif; ?>
                                     <?php if (in_array('completed', $availableStatuses)): ?>
-                                        <button type="button" class="btn btn-danger custom" id="completeElectionBtn">
+                                        <button type="button" class="btn btn-danger" id="completeElectionBtn">
                                             <i class="fa fa-stop-circle"></i> End Election
                                         </button>
                                     <?php endif; ?>
                                 </div>
                             </form>
-
-<!-- Complete Election Password Modal -->
-<div class="modal fade" id="completeElectionPasswordModal" tabindex="-1" role="dialog" aria-labelledby="completeElectionPasswordModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="completeElectionPasswordModalLabel">Confirm End Election</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="form-group">
-          <label for="completeElectionPassword">Enter your password to confirm:</label>
-          <input type="password" class="form-control" id="completeElectionPassword" placeholder="Current Password" autocomplete="current-password">
-          <div class="invalid-feedback">Password is required.</div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-danger" id="confirmCompleteElection">Confirm End Election</button>
-      </div>
-    </div>
-  </div>
-</div>
+                            <!-- Complete Election Password Modal -->
+                            <?php include 'includes/modals/configure_modal.php'; ?>
                         </div>
                     </div>
                 </div>

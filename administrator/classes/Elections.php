@@ -508,84 +508,123 @@ class Elections {
     }
 
     /**
-     * Reset election for a new one
-     * @return array ['success' => bool, 'message' => string]
+     * Reset the election system for a new election
      */
     public function resetElection() {
         try {
-            $this->db->beginTransaction();
+            // Clean up candidate images first
+            $this->cleanupCandidateImages();
             
-            $current = $this->getCurrentElection();
+            // Get the mysqli connection
+            $mysqli = $this->db->getConnection();
             
-            // Check if current election is archived before reset
-            if (!$this->isCurrentElectionArchived()) {
-                throw new Exception('Current election must be archived before starting a new one');
+            // Start transaction using mysqli
+            $mysqli->begin_transaction();
+            
+            try {
+                // Disable foreign key checks
+                $mysqli->query('SET FOREIGN_KEY_CHECKS = 0');
+                
+                // Truncate tables in correct order to handle dependencies
+                $tables = [
+                    'otp_requests',        // Remove voter OTP requests (depends on voters)
+                    'votes',               // Remove votes (depends on candidates)
+                    'candidates',          // Remove candidates (depends on positions and partylists)
+                    'voters',              // Remove voters (depends on courses)
+                    'positions',           // Remove positions
+                    'courses',             // Remove courses
+                    'partylists'           // Remove partylists
+                ];
+                
+                // Truncate each table
+                foreach ($tables as $table) {
+                    if (!$mysqli->query("TRUNCATE TABLE `$table`")) {
+                        throw new Exception("Failed to truncate table: $table");
+                    }
+                }
+                
+                // Reset election status
+                $query = "UPDATE election_status SET 
+                    status = ?,
+                    election_name = NULL,
+                    end_time = NULL,
+                    last_status_change = NOW(),
+                    control_number = CONCAT('E', DATE_FORMAT(NOW(), '%y%m%d'), LPAD(FLOOR(RAND() * 10000), 4, '0'))
+                    WHERE id = 1";
+                
+                $stmt = $mysqli->prepare($query);
+                if (!$stmt) {
+                    throw new Exception("Failed to prepare election status update");
+                }
+                
+                $status = self::STATUS_SETUP;
+                $stmt->bind_param('s', $status);
+                
+                if (!$stmt->execute()) {
+                    throw new Exception("Failed to update election status");
+                }
+                
+                // Re-enable foreign key checks
+                $mysqli->query('SET FOREIGN_KEY_CHECKS = 1');
+                
+                // Get admin info for logging
+                $admin = Admin::getInstance();
+                
+                // Log the reset action
+                $this->logger->logAdminAction(
+                    $admin->getUsername(),
+                    $admin->getRole(),
+                    "Reset election system - All tables cleared and system reset to setup state"
+                );
+                
+                // Commit the transaction
+                $mysqli->commit();
+                
+                return [
+                    'success' => true,
+                    'message' => 'Election system has been reset successfully. You can now configure a new election.'
+                ];
+                
+            } catch (Exception $e) {
+                // Rollback on error
+                $mysqli->rollback();
+                
+                // Re-enable foreign key checks even on error
+                $mysqli->query('SET FOREIGN_KEY_CHECKS = 1');
+                
+                throw $e;
             }
             
-            // Generate a new control number
-            $new_control_number = 'E' . date('ymd') . str_pad(mt_rand(1, 9999), 4, '0', STR_PAD_LEFT);
-            
-            // Reset the election_status table
-            $query = "UPDATE election_status SET 
-                     status = ?,
-                     election_name = NULL,
-                     end_time = NULL,
-                     control_number = ?
-                     WHERE id = 1";
-                     
-            $stmt = $this->db->prepare($query);
-            $status = self::STATUS_SETUP;
-            $stmt->bind_param("ss", $status, $new_control_number);
-            
-            if (!$stmt->execute()) {
-                throw new Exception('Failed to reset election status');
-            }
-            
-            // Archive and move current logs before clearing tables
-            $this->archiveLogs($current['control_number']);
-            
-            // Clear all election-related tables
-            $tables_to_truncate = [
-                'votes',
-                'voters',
-                'candidates',
-                'courses',
-                'partylists',
-                'positions'
+        } catch (Exception $e) {
+            error_log("Election reset error: " . $e->getMessage());
+            return [
+                'success' => false,
+                'message' => 'Failed to reset election: ' . $e->getMessage()
             ];
+        }
+    }
+
+    /**
+     * Clean up candidate images from the images directory
+     */
+    private function cleanupCandidateImages() {
+        $candidatesDir = __DIR__ . '/../assets/images/candidates';
+        if (is_dir($candidatesDir)) {
+            $pattern = $candidatesDir . '/candidate_*.{jpg,jpeg,png,gif}';
+            $files = glob($pattern, GLOB_BRACE);
             
-            foreach ($tables_to_truncate as $table) {
-                if (!$this->db->query("TRUNCATE TABLE $table")) {
-                    throw new Exception("Failed to truncate table: $table");
+            if ($files === false) {
+                error_log("Failed to search for candidate images in: " . $pattern);
+                return;
+            }
+            
+            foreach ($files as $file) {
+                if (is_file($file)) {
+                    if (!unlink($file)) {
+                        error_log("Failed to delete candidate image: " . $file);
+                    }
                 }
             }
-            
-            // Remove all officers (keep head admin)
-            $query = "DELETE FROM admin WHERE role = 'officer'";
-            if (!$this->db->query($query)) {
-                throw new Exception('Failed to remove officers');
-            }
-            
-            // Get admin info from session
-            $admin = Admin::getInstance();
-            
-            // Log the reset action
-            $this->logger->logAdminAction(
-                $admin->getUsername(),
-                $admin->getRole(),
-                "Reset election system for new election (Control #: {$new_control_number})"
-            );
-            
-            $this->db->commit();
-            return [
-                'success' => true, 
-                'message' => 'Election system reset successfully',
-                'control_number' => $new_control_number
-            ];
-        } catch (Exception $e) {
-            $this->db->rollback();
-            error_log("Election reset error: " . $e->getMessage());
-            return ['success' => false, 'message' => $e->getMessage()];
         }
     }
 

@@ -1,155 +1,95 @@
 # E-Halal BTECHenyo Voting System
 
-E-Halal BTECHenyo is a voting system designed to facilitate fair and transparent voting processes within the local environment of Dalubhasaang Politekniko ng Lungsod ng Baliwag. This system operates in the web, making it accessible to every bonafide BTECH students to vote.
+E-Halal BTECHenyo is a secure web-based voting system designed for Dalubhasaang Politekniko ng Lungsod ng Baliwag. The system enables fair and transparent student council elections through a modern, secure, and user-friendly platform.
 
-## Features
+## Core Features
 
 ### Voter Features
-- **Modern Card-Based Voting Interface**
-  - Intuitive candidate selection
-  - Real-time vote validation
-  - Maximum vote enforcement
-  - Mobile-responsive design
-
-- **Secure Authentication**
-  - Unique voter ID system
-  - Password protection
-  - Session management
-  - Automatic logout on election end
+- Two-factor authentication with OTP verification
+- Card-based voting interface with real-time validation
+- Vote receipt generation and verification
+- Mobile-responsive design
 
 ### Administrative Features
-- **Election Management**
-  - Configure election parameters
-  - Set voting period
-  - Real-time election monitoring
-  - Post-election results processing
-
-- **Candidate Management**
-  - Add/Edit candidates
-  - Upload candidate photos
-  - Manage party lists
-  - Position prioritization
-
-- **Voter Management**
-  - Bulk voter registration via CSV
-  - Individual voter registration
-  - Voter status tracking
-  - Access control
-
-- **Results & Analytics**
-  - Real-time vote counting
-  - Generate PDF reports
-  - Election statistics
-  - Vote audit logs
+- Role-based access control (Head Admin/Officers)
+- Complete election lifecycle management
+- Real-time monitoring and status tracking
+- Comprehensive audit logging
 
 ## Technology Stack
 
-- **Frontend**
-  - HTML5, CSS3, JavaScript
-  - Bootstrap 3
-  - Font Awesome 5
-  - Chart.js
-  - jQuery
+### Backend
+- PHP 7.4+
+- MySQL/MariaDB
+- Object-Oriented Architecture
 
-- **Backend**
-  - PHP 7.4+
-  - MySQL/MariaDB
-  - Object-Oriented Programming
+### Frontend
+- Bootstrap 3
+- jQuery 2.2.4
+- Chart.js
+- SweetAlert2
+- Font Awesome 4.7.0
 
-- **Server Requirements**
-  - Apache/Nginx
-  - PHP 7.4 or higher
-  - MySQL 5.7 or higher
-  - mod_rewrite enabled
+### Server Requirements
+- Apache/Nginx web server
+- PHP 7.4 or higher
+- MySQL 5.7/MariaDB 10.4+
+- mod_rewrite enabled
+- SMTP server access
 
 ## Installation
 
-1. **Clone the Repository**
-   ```bash
-   git clone https://github.com/yourusername/e-halal.git
+1. **Database Setup**
+   - Create a MySQL database
+   - Import schema from `db/schema.sql`
+
+2. **Environment Configuration**
+   ```env
+   DB_HOST=localhost
+   DB_NAME=e-halal
+   DB_USERNAME=root
+   DB_PASSWORD=
+
+   MAIL_MAILER=smtp
+   MAIL_HOST=smtp.gmail.com
+   MAIL_PORT=587
+   MAIL_USERNAME=
+   MAIL_PASSWORD=
+   MAIL_ENCRYPTION=tls
    ```
 
-2. **Database Setup**
-   - Create a MySQL database
-   - Import the provided SQL file from `database/e-halal.sql`
-
-3. **Configuration**
-   - Configure database connection in `classes/Database.php`
-   - Set timezone in `init.php`
-   - Configure election parameters in `admin/config.ini`
-
-4. **Server Configuration**
-   - Ensure mod_rewrite is enabled
-   - Set proper file permissions
-   - Configure virtual host (optional)
-
-## Project Structure
-
+## Directory Structure
 ```
 e-halal/
-├── admin/                 # Administrative interface
+├── administrator/         # Administrative interface
 │   ├── classes/          # Admin-specific classes
 │   ├── includes/         # Admin components
 │   └── modals/          # Admin modal forms
 ├── classes/              # Core system classes
-├── database/             # Database scripts
+│   ├── Database.php     # Database connection
+│   ├── Election.php     # Election management
+│   ├── OTPMailer.php    # Email system
+│   ├── User.php         # User management
+│   └── Votes.php        # Vote processing
 ├── dist/                 # Distribution files
-├── docs/                # Documentation
 ├── images/              # Uploaded images
-└── modals/              # Voter interface modals
+├── modals/              # Voter interface modals
+└── vendor/              # Composer packages
 ```
 
-## User Roles
-
-### Admin
-- Full system access
-- Election configuration
-- User management
-- Results processing
-
-### Voters
-- One-time voting access
-- View candidate information
-- Track voting status
-- View election results
-
-## Recent Updates (January 21-25, 2025)
-
-- Implemented modern card-based voting interface
-- Transformed codebase to OOP architecture
-- Enhanced security measures
-- Improved user experience
-- Added real-time vote validation
-- See [January 21-25 Documentation](docs/January%2021-25%20Documentation.md) for details
-
-## Development
-
-### Setup Development Environment
-1. Install XAMPP
-2. Clone repository to htdocs
-3. Configure virtual host
-4. Import database
-5. Start development
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## Security Features
+- Two-factor authentication with OTP
+- Session management and security
+- Audit logging of all activities
+- Encrypted vote storage
+- Role-based access control
+- Rate limiting for OTP requests
 
 ## Contributors
-
 - Project Manager: Katrina Dela Cruz
 - Lead Developer: Janzen Go
 - UI/UX: Michael Domo
 - Testing: Mike Adrian Dela Cruz
 - Data Gathering Lead: Beatrice Valisno
-- Research and Docu Lead: Jennylyn Vinuya
+- Research and Documentation Lead: Jennylyn Vinuya
 
-## Contributing
-
-1. Fork the repository
-2. Create feature branch
-3. Commit changes
-4. Push to branch
-5. Create Pull Request
-
----

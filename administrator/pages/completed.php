@@ -149,10 +149,11 @@ if (isset($_POST['reset_election'])) {
                 <div class="new-election-container mt-4 mb-4 p-3">
                     <div class="actions-title">New Election</div>
                     <div class="new-election-btn-group">
-                        <form method="POST">
-                            <button type="submit" name="reset_election" class="btn btn-warning btn-lg">
+                        <form method="POST" id="resetElectionForm">
+                            <button type="button" id="resetElectionBtn" class="btn btn-warning btn-lg">
                                 <i class="fa fa-plus-circle"></i> Start New Election
                             </button>
+                            <input type="hidden" name="reset_election" value="1">
                         </form>
                         <p class="help-text mt-2">
                             <i class="fa fa-info-circle"></i> This will reset all votes, candidates, and positions for a new election setup.
@@ -242,6 +243,40 @@ if (isset($_POST['reset_election'])) {
     });
     </script>
     <!-- End Chart.js & Election Summary Charts -->
+
+    <!-- Add SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <!-- Add reset election confirmation -->
+    <script>
+    document.getElementById('resetElectionBtn')?.addEventListener('click', function() {
+        Swal.fire({
+            title: 'Start New Election?',
+            html: 
+                '<div class="text-left">' +
+                '<p>This action will:</p>' +
+                '<ul>' +
+                '<li>Delete all current candidates and their images</li>' +
+                '<li>Remove all positions and partylists</li>' +
+                '<li>Clear all voter records</li>' +
+                '<li>Reset the election status</li>' +
+                '</ul>' +
+                '<p class="text-warning"><strong>This action cannot be undone!</strong></p>' +
+                '</div>',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Yes, start new election',
+            cancelButtonText: 'Cancel',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById('resetElectionForm').submit();
+            }
+        });
+    });
+    </script>
 </div> <!-- end .wrapper -->
 </body>
 </html>

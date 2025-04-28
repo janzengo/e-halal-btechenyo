@@ -226,3 +226,411 @@
 [28-Apr-2025 14:55:37 Asia/Manila] Host: localhost
 [28-Apr-2025 14:55:37 Asia/Manila] Username: root
 [28-Apr-2025 14:55:37 Asia/Manila] Database: e-halal
+[28-Apr-2025 13:13:01 Europe/Berlin] generate_report.php called: 2025-04-28 13:13:01
+[28-Apr-2025 19:13:01 Asia/Manila] Database connection attempt with:
+[28-Apr-2025 19:13:01 Asia/Manila] Host: localhost
+[28-Apr-2025 19:13:01 Asia/Manila] Username: root
+[28-Apr-2025 19:13:01 Asia/Manila] Database: e-halal
+[28-Apr-2025 19:13:01 Asia/Manila] Candidate votes: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidates\/candidate_curry_stephen.jpg","partylist_name":"Golden State Warriors","votes":0}
+[28-Apr-2025 19:13:01 Asia/Manila] Candidate votes: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","partylist_name":"Los Angeles Lakers","votes":0}
+[28-Apr-2025 19:13:01 Asia/Manila] Candidate votes: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/candidates\/candidate_jokic_nikola.jpg","partylist_name":"Denver Nuggets","votes":0}
+[28-Apr-2025 19:13:01 Asia/Manila] Candidate votes: {"firstname":"Jimmy","lastname":"Butler","photo":"assets\/images\/candidates\/candidate_butler_jimmy.jpg","partylist_name":"Golden State Warriors","votes":0}
+[28-Apr-2025 19:13:01 Asia/Manila] Candidate votes: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/candidates\/candidate_doncic_luka.jpg","partylist_name":"Los Angeles Lakers","votes":0}
+[28-Apr-2025 19:13:01 Asia/Manila] Candidate votes: {"firstname":"Russell","lastname":"Westbrook","photo":"assets\/images\/candidates\/candidate_westbrook_russell.jpg","partylist_name":"Denver Nuggets","votes":0}
+[28-Apr-2025 19:13:01 Asia/Manila] Candidate votes: {"firstname":"Draymond","lastname":"Green","photo":"assets\/images\/candidates\/candidate_green_draymond.jpg","partylist_name":"Golden State Warriors","votes":0}
+[28-Apr-2025 19:13:01 Asia/Manila] Candidate votes: {"firstname":"Jamal","lastname":"Murray","photo":"assets\/images\/candidates\/candidate_murray_jamal.jpg","partylist_name":"Denver Nuggets","votes":0}
+[28-Apr-2025 19:13:01 Asia/Manila] Candidate votes: {"firstname":"Austin","lastname":"Reeves","photo":"assets\/images\/candidates\/candidate_reeves_austin.jpg","partylist_name":"Los Angeles Lakers","votes":0}
+[28-Apr-2025 19:13:01 Asia/Manila] Candidate votes: {"firstname":"Aaron","lastname":"Gordon","photo":"assets\/images\/candidates\/candidate_gordon_aaron.jpg","partylist_name":"Denver Nuggets","votes":0}
+[28-Apr-2025 19:13:01 Asia/Manila] Candidate votes: {"firstname":"Buddy","lastname":"Hield","photo":"assets\/images\/candidates\/candidate_hield_buddy.jpg","partylist_name":"Golden State Warriors","votes":0}
+[28-Apr-2025 19:13:01 Asia/Manila] Candidate votes: {"firstname":"Dalton","lastname":"Knecht","photo":"assets\/images\/candidates\/candidate_knecht_dalton.jpg","partylist_name":"Los Angeles Lakers","votes":0}
+[28-Apr-2025 19:13:01 Asia/Manila] Candidate votes: {"firstname":"Rui","lastname":"Hachimura","photo":"assets\/images\/candidates\/candidate_hachimura_rui.jpg","partylist_name":"Los Angeles Lakers","votes":0}
+[28-Apr-2025 19:13:01 Asia/Manila] Candidate votes: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_bronny.jpg","partylist_name":"Los Angeles Lakers","votes":0}
+[28-Apr-2025 19:13:01 Asia/Manila] Candidate votes: {"firstname":"DeAndre","lastname":"Jordan","photo":"assets\/images\/candidates\/candidate_jordan_deandre.jpg","partylist_name":"Denver Nuggets","votes":0}
+[28-Apr-2025 19:13:01 Asia/Manila] Candidate votes: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/candidates\/candidate_moody_moses.jpg","partylist_name":"Golden State Warriors","votes":0}
+[28-Apr-2025 19:13:01 Asia/Manila] Candidate votes: {"firstname":"Gary","lastname":"Payton II","photo":"assets\/images\/candidates\/candidate_payton ii_gary.jpg","partylist_name":"Golden State Warriors","votes":0}
+[28-Apr-2025 19:13:01 Asia/Manila] Candidate votes: {"firstname":"Michael","lastname":"Porter Jr.","photo":"assets\/images\/candidates\/candidate_porter jr._michael.jpg","partylist_name":"Denver Nuggets","votes":0}
+[28-Apr-2025 14:33:41 Europe/Berlin] generate_report.php called: 2025-04-28 14:33:41
+[28-Apr-2025 20:33:41 Asia/Manila] Database connection attempt with:
+[28-Apr-2025 20:33:41 Asia/Manila] Host: localhost
+[28-Apr-2025 20:33:41 Asia/Manila] Username: root
+[28-Apr-2025 20:33:41 Asia/Manila] Database: e-halal
+[28-Apr-2025 20:33:41 Asia/Manila] Candidate votes: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidates\/candidate_curry_stephen.jpg","partylist_name":"Golden State Warriors","votes":4}
+[28-Apr-2025 20:33:41 Asia/Manila] Candidate votes: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/candidates\/candidate_jokic_nikola.jpg","partylist_name":"Denver Nuggets","votes":2}
+[28-Apr-2025 20:33:41 Asia/Manila] Candidate votes: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","partylist_name":"Los Angeles Lakers","votes":1}
+[28-Apr-2025 20:33:41 Asia/Manila] Candidate votes: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/candidates\/candidate_doncic_luka.jpg","partylist_name":"Los Angeles Lakers","votes":3}
+[28-Apr-2025 20:33:41 Asia/Manila] Candidate votes: {"firstname":"Russell","lastname":"Westbrook","photo":"assets\/images\/candidates\/candidate_westbrook_russell.jpg","partylist_name":"Denver Nuggets","votes":3}
+[28-Apr-2025 20:33:41 Asia/Manila] Candidate votes: {"firstname":"Jimmy","lastname":"Butler","photo":"assets\/images\/candidates\/candidate_butler_jimmy.jpg","partylist_name":"Golden State Warriors","votes":1}
+[28-Apr-2025 20:33:41 Asia/Manila] Candidate votes: {"firstname":"Draymond","lastname":"Green","photo":"assets\/images\/candidates\/candidate_green_draymond.jpg","partylist_name":"Golden State Warriors","votes":3}
+[28-Apr-2025 20:33:41 Asia/Manila] Candidate votes: {"firstname":"Jamal","lastname":"Murray","photo":"assets\/images\/candidates\/candidate_murray_jamal.jpg","partylist_name":"Denver Nuggets","votes":2}
+[28-Apr-2025 20:33:41 Asia/Manila] Candidate votes: {"firstname":"Austin","lastname":"Reeves","photo":"assets\/images\/candidates\/candidate_reeves_austin.jpg","partylist_name":"Los Angeles Lakers","votes":2}
+[28-Apr-2025 20:33:41 Asia/Manila] Candidate votes: {"firstname":"Dalton","lastname":"Knecht","photo":"assets\/images\/candidates\/candidate_knecht_dalton.jpg","partylist_name":"Los Angeles Lakers","votes":4}
+[28-Apr-2025 20:33:41 Asia/Manila] Candidate votes: {"firstname":"Buddy","lastname":"Hield","photo":"assets\/images\/candidates\/candidate_hield_buddy.jpg","partylist_name":"Golden State Warriors","votes":2}
+[28-Apr-2025 20:33:41 Asia/Manila] Candidate votes: {"firstname":"Aaron","lastname":"Gordon","photo":"assets\/images\/candidates\/candidate_gordon_aaron.jpg","partylist_name":"Denver Nuggets","votes":1}
+[28-Apr-2025 20:33:41 Asia/Manila] Candidate votes: {"firstname":"Rui","lastname":"Hachimura","photo":"assets\/images\/candidates\/candidate_hachimura_rui.jpg","partylist_name":"Los Angeles Lakers","votes":0}
+[28-Apr-2025 20:33:41 Asia/Manila] Candidate votes: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_bronny.jpg","partylist_name":"Los Angeles Lakers","votes":0}
+[28-Apr-2025 20:33:41 Asia/Manila] Candidate votes: {"firstname":"DeAndre","lastname":"Jordan","photo":"assets\/images\/candidates\/candidate_jordan_deandre.jpg","partylist_name":"Denver Nuggets","votes":0}
+[28-Apr-2025 20:33:41 Asia/Manila] Candidate votes: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/candidates\/candidate_moody_moses.jpg","partylist_name":"Golden State Warriors","votes":0}
+[28-Apr-2025 20:33:41 Asia/Manila] Candidate votes: {"firstname":"Gary","lastname":"Payton II","photo":"assets\/images\/candidates\/candidate_payton ii_gary.jpg","partylist_name":"Golden State Warriors","votes":0}
+[28-Apr-2025 20:33:41 Asia/Manila] Candidate votes: {"firstname":"Michael","lastname":"Porter Jr.","photo":"assets\/images\/candidates\/candidate_porter jr._michael.jpg","partylist_name":"Denver Nuggets","votes":0}
+[28-Apr-2025 14:37:41 Europe/Berlin] generate_report.php called: 2025-04-28 14:37:41
+[28-Apr-2025 20:37:42 Asia/Manila] Database connection attempt with:
+[28-Apr-2025 20:37:42 Asia/Manila] Host: localhost
+[28-Apr-2025 20:37:42 Asia/Manila] Username: root
+[28-Apr-2025 20:37:42 Asia/Manila] Database: e-halal
+[28-Apr-2025 20:37:42 Asia/Manila] Candidate votes: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidates\/candidate_curry_stephen.jpg","votes":4,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 20:37:42 Asia/Manila] Candidate votes: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/candidates\/candidate_jokic_nikola.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 20:37:42 Asia/Manila] Candidate votes: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","votes":1,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 20:37:42 Asia/Manila] Candidate votes: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/candidates\/candidate_doncic_luka.jpg","votes":3,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 20:37:42 Asia/Manila] Candidate votes: {"firstname":"Russell","lastname":"Westbrook","photo":"assets\/images\/candidates\/candidate_westbrook_russell.jpg","votes":3,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 20:37:42 Asia/Manila] Candidate votes: {"firstname":"Jimmy","lastname":"Butler","photo":"assets\/images\/candidates\/candidate_butler_jimmy.jpg","votes":1,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 20:37:42 Asia/Manila] Candidate votes: {"firstname":"Draymond","lastname":"Green","photo":"assets\/images\/candidates\/candidate_green_draymond.jpg","votes":3,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 20:37:42 Asia/Manila] Candidate votes: {"firstname":"Jamal","lastname":"Murray","photo":"assets\/images\/candidates\/candidate_murray_jamal.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 20:37:42 Asia/Manila] Candidate votes: {"firstname":"Austin","lastname":"Reeves","photo":"assets\/images\/candidates\/candidate_reeves_austin.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 20:37:42 Asia/Manila] Candidate votes: {"firstname":"Dalton","lastname":"Knecht","photo":"assets\/images\/candidates\/candidate_knecht_dalton.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 20:37:42 Asia/Manila] Candidate votes: {"firstname":"Buddy","lastname":"Hield","photo":"assets\/images\/candidates\/candidate_hield_buddy.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 20:37:42 Asia/Manila] Candidate votes: {"firstname":"Aaron","lastname":"Gordon","photo":"assets\/images\/candidates\/candidate_gordon_aaron.jpg","votes":1,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 20:37:42 Asia/Manila] Candidate votes: {"firstname":"Michael","lastname":"Porter Jr.","photo":"assets\/images\/candidates\/candidate_porter jr._michael.jpg","votes":4,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 20:37:42 Asia/Manila] Candidate votes: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_bronny.jpg","votes":3,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 20:37:42 Asia/Manila] Candidate votes: {"firstname":"Gary","lastname":"Payton II","photo":"assets\/images\/candidates\/candidate_payton ii_gary.jpg","votes":3,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 20:37:42 Asia/Manila] Candidate votes: {"firstname":"Rui","lastname":"Hachimura","photo":"assets\/images\/candidates\/candidate_hachimura_rui.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 20:37:42 Asia/Manila] Candidate votes: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/candidates\/candidate_moody_moses.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 20:37:42 Asia/Manila] Candidate votes: {"firstname":"DeAndre","lastname":"Jordan","photo":"assets\/images\/candidates\/candidate_jordan_deandre.jpg","votes":0,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 14:43:01 Europe/Berlin] generate_report.php called: 2025-04-28 14:43:01
+[28-Apr-2025 20:43:01 Asia/Manila] Database connection attempt with:
+[28-Apr-2025 20:43:01 Asia/Manila] Host: localhost
+[28-Apr-2025 20:43:01 Asia/Manila] Username: root
+[28-Apr-2025 20:43:01 Asia/Manila] Database: e-halal
+[28-Apr-2025 20:43:01 Asia/Manila] Candidate votes: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidates\/candidate_curry_stephen.jpg","votes":5,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 20:43:01 Asia/Manila] Candidate votes: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/candidates\/candidate_jokic_nikola.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 20:43:01 Asia/Manila] Candidate votes: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","votes":1,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 20:43:01 Asia/Manila] Candidate votes: {"firstname":"Russell","lastname":"Westbrook","photo":"assets\/images\/candidates\/candidate_westbrook_russell.jpg","votes":4,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 20:43:01 Asia/Manila] Candidate votes: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/candidates\/candidate_doncic_luka.jpg","votes":3,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 20:43:01 Asia/Manila] Candidate votes: {"firstname":"Jimmy","lastname":"Butler","photo":"assets\/images\/candidates\/candidate_butler_jimmy.jpg","votes":1,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 20:43:01 Asia/Manila] Candidate votes: {"firstname":"Draymond","lastname":"Green","photo":"assets\/images\/candidates\/candidate_green_draymond.jpg","votes":4,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 20:43:01 Asia/Manila] Candidate votes: {"firstname":"Jamal","lastname":"Murray","photo":"assets\/images\/candidates\/candidate_murray_jamal.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 20:43:01 Asia/Manila] Candidate votes: {"firstname":"Austin","lastname":"Reeves","photo":"assets\/images\/candidates\/candidate_reeves_austin.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 20:43:01 Asia/Manila] Candidate votes: {"firstname":"Dalton","lastname":"Knecht","photo":"assets\/images\/candidates\/candidate_knecht_dalton.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 20:43:01 Asia/Manila] Candidate votes: {"firstname":"Aaron","lastname":"Gordon","photo":"assets\/images\/candidates\/candidate_gordon_aaron.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 20:43:01 Asia/Manila] Candidate votes: {"firstname":"Buddy","lastname":"Hield","photo":"assets\/images\/candidates\/candidate_hield_buddy.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 20:43:01 Asia/Manila] Candidate votes: {"firstname":"Michael","lastname":"Porter Jr.","photo":"assets\/images\/candidates\/candidate_porter jr._michael.jpg","votes":5,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 20:43:01 Asia/Manila] Candidate votes: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_bronny.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 20:43:01 Asia/Manila] Candidate votes: {"firstname":"Gary","lastname":"Payton II","photo":"assets\/images\/candidates\/candidate_payton ii_gary.jpg","votes":3,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 20:43:01 Asia/Manila] Candidate votes: {"firstname":"Rui","lastname":"Hachimura","photo":"assets\/images\/candidates\/candidate_hachimura_rui.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 20:43:01 Asia/Manila] Candidate votes: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/candidates\/candidate_moody_moses.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 20:43:01 Asia/Manila] Candidate votes: {"firstname":"DeAndre","lastname":"Jordan","photo":"assets\/images\/candidates\/candidate_jordan_deandre.jpg","votes":0,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 15:02:35 Europe/Berlin] generate_report.php called: 2025-04-28 15:02:35
+[28-Apr-2025 21:02:35 Asia/Manila] Database connection attempt with:
+[28-Apr-2025 21:02:35 Asia/Manila] Host: localhost
+[28-Apr-2025 21:02:35 Asia/Manila] Username: root
+[28-Apr-2025 21:02:35 Asia/Manila] Database: e-halal
+[28-Apr-2025 21:02:36 Asia/Manila] Candidate votes: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidates\/candidate_curry_stephen.jpg","votes":5,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:02:36 Asia/Manila] Candidate votes: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/candidates\/candidate_jokic_nikola.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:02:36 Asia/Manila] Candidate votes: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","votes":1,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:02:36 Asia/Manila] Candidate votes: {"firstname":"Russell","lastname":"Westbrook","photo":"assets\/images\/candidates\/candidate_westbrook_russell.jpg","votes":4,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:02:36 Asia/Manila] Candidate votes: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/candidates\/candidate_doncic_luka.jpg","votes":3,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:02:36 Asia/Manila] Candidate votes: {"firstname":"Jimmy","lastname":"Butler","photo":"assets\/images\/candidates\/candidate_butler_jimmy.jpg","votes":1,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:02:36 Asia/Manila] Candidate votes: {"firstname":"Draymond","lastname":"Green","photo":"assets\/images\/candidates\/candidate_green_draymond.jpg","votes":4,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:02:36 Asia/Manila] Candidate votes: {"firstname":"Jamal","lastname":"Murray","photo":"assets\/images\/candidates\/candidate_murray_jamal.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:02:36 Asia/Manila] Candidate votes: {"firstname":"Austin","lastname":"Reeves","photo":"assets\/images\/candidates\/candidate_reeves_austin.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:02:36 Asia/Manila] Candidate votes: {"firstname":"Dalton","lastname":"Knecht","photo":"assets\/images\/candidates\/candidate_knecht_dalton.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:02:36 Asia/Manila] Candidate votes: {"firstname":"Aaron","lastname":"Gordon","photo":"assets\/images\/candidates\/candidate_gordon_aaron.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:02:36 Asia/Manila] Candidate votes: {"firstname":"Buddy","lastname":"Hield","photo":"assets\/images\/candidates\/candidate_hield_buddy.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:02:36 Asia/Manila] Candidate votes: {"firstname":"Michael","lastname":"Porter Jr.","photo":"assets\/images\/candidates\/candidate_porter jr._michael.jpg","votes":5,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:02:36 Asia/Manila] Candidate votes: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_bronny.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:02:36 Asia/Manila] Candidate votes: {"firstname":"Gary","lastname":"Payton II","photo":"assets\/images\/candidates\/candidate_payton ii_gary.jpg","votes":3,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:02:36 Asia/Manila] Candidate votes: {"firstname":"Rui","lastname":"Hachimura","photo":"assets\/images\/candidates\/candidate_hachimura_rui.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:02:36 Asia/Manila] Candidate votes: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/candidates\/candidate_moody_moses.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:02:36 Asia/Manila] Candidate votes: {"firstname":"DeAndre","lastname":"Jordan","photo":"assets\/images\/candidates\/candidate_jordan_deandre.jpg","votes":0,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 15:24:03 Europe/Berlin] export_results.php called: 2025-04-28 15:24:03
+[28-Apr-2025 21:24:03 Asia/Manila] Database connection attempt with:
+[28-Apr-2025 21:24:03 Asia/Manila] Host: localhost
+[28-Apr-2025 21:24:03 Asia/Manila] Username: root
+[28-Apr-2025 21:24:03 Asia/Manila] Database: e-halal
+[28-Apr-2025 21:24:03 Asia/Manila] Candidate votes: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidates\/candidate_curry_stephen.jpg","votes":5,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:24:03 Asia/Manila] Candidate votes: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/candidates\/candidate_jokic_nikola.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:24:03 Asia/Manila] Candidate votes: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","votes":1,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:24:03 Asia/Manila] Candidate votes: {"firstname":"Russell","lastname":"Westbrook","photo":"assets\/images\/candidates\/candidate_westbrook_russell.jpg","votes":4,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:24:03 Asia/Manila] Candidate votes: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/candidates\/candidate_doncic_luka.jpg","votes":3,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:24:03 Asia/Manila] Candidate votes: {"firstname":"Jimmy","lastname":"Butler","photo":"assets\/images\/candidates\/candidate_butler_jimmy.jpg","votes":1,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:24:03 Asia/Manila] Candidate votes: {"firstname":"Draymond","lastname":"Green","photo":"assets\/images\/candidates\/candidate_green_draymond.jpg","votes":4,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:24:03 Asia/Manila] Candidate votes: {"firstname":"Jamal","lastname":"Murray","photo":"assets\/images\/candidates\/candidate_murray_jamal.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:24:03 Asia/Manila] Candidate votes: {"firstname":"Austin","lastname":"Reeves","photo":"assets\/images\/candidates\/candidate_reeves_austin.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:24:04 Asia/Manila] Candidate votes: {"firstname":"Dalton","lastname":"Knecht","photo":"assets\/images\/candidates\/candidate_knecht_dalton.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:24:04 Asia/Manila] Candidate votes: {"firstname":"Aaron","lastname":"Gordon","photo":"assets\/images\/candidates\/candidate_gordon_aaron.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:24:04 Asia/Manila] Candidate votes: {"firstname":"Buddy","lastname":"Hield","photo":"assets\/images\/candidates\/candidate_hield_buddy.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:24:04 Asia/Manila] Candidate votes: {"firstname":"Michael","lastname":"Porter Jr.","photo":"assets\/images\/candidates\/candidate_porter jr._michael.jpg","votes":5,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:24:04 Asia/Manila] Candidate votes: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_bronny.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:24:04 Asia/Manila] Candidate votes: {"firstname":"Gary","lastname":"Payton II","photo":"assets\/images\/candidates\/candidate_payton ii_gary.jpg","votes":3,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:24:04 Asia/Manila] Candidate votes: {"firstname":"Rui","lastname":"Hachimura","photo":"assets\/images\/candidates\/candidate_hachimura_rui.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:24:04 Asia/Manila] Candidate votes: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/candidates\/candidate_moody_moses.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:24:04 Asia/Manila] Candidate votes: {"firstname":"DeAndre","lastname":"Jordan","photo":"assets\/images\/candidates\/candidate_jordan_deandre.jpg","votes":0,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 15:24:07 Europe/Berlin] export_summary.php called: 2025-04-28 15:24:07
+[28-Apr-2025 21:24:07 Asia/Manila] Database connection attempt with:
+[28-Apr-2025 21:24:07 Asia/Manila] Host: localhost
+[28-Apr-2025 21:24:07 Asia/Manila] Username: root
+[28-Apr-2025 21:24:07 Asia/Manila] Database: e-halal
+[28-Apr-2025 21:24:07 Asia/Manila] Candidate votes: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidates\/candidate_curry_stephen.jpg","votes":5,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:24:07 Asia/Manila] Candidate votes: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/candidates\/candidate_jokic_nikola.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:24:07 Asia/Manila] Candidate votes: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","votes":1,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:24:07 Asia/Manila] Candidate votes: {"firstname":"Russell","lastname":"Westbrook","photo":"assets\/images\/candidates\/candidate_westbrook_russell.jpg","votes":4,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:24:07 Asia/Manila] Candidate votes: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/candidates\/candidate_doncic_luka.jpg","votes":3,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:24:07 Asia/Manila] Candidate votes: {"firstname":"Jimmy","lastname":"Butler","photo":"assets\/images\/candidates\/candidate_butler_jimmy.jpg","votes":1,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:24:07 Asia/Manila] Candidate votes: {"firstname":"Draymond","lastname":"Green","photo":"assets\/images\/candidates\/candidate_green_draymond.jpg","votes":4,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:24:07 Asia/Manila] Candidate votes: {"firstname":"Jamal","lastname":"Murray","photo":"assets\/images\/candidates\/candidate_murray_jamal.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:24:07 Asia/Manila] Candidate votes: {"firstname":"Austin","lastname":"Reeves","photo":"assets\/images\/candidates\/candidate_reeves_austin.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:24:07 Asia/Manila] Candidate votes: {"firstname":"Dalton","lastname":"Knecht","photo":"assets\/images\/candidates\/candidate_knecht_dalton.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:24:07 Asia/Manila] Candidate votes: {"firstname":"Aaron","lastname":"Gordon","photo":"assets\/images\/candidates\/candidate_gordon_aaron.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:24:07 Asia/Manila] Candidate votes: {"firstname":"Buddy","lastname":"Hield","photo":"assets\/images\/candidates\/candidate_hield_buddy.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:24:07 Asia/Manila] Candidate votes: {"firstname":"Michael","lastname":"Porter Jr.","photo":"assets\/images\/candidates\/candidate_porter jr._michael.jpg","votes":5,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:24:07 Asia/Manila] Candidate votes: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_bronny.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:24:07 Asia/Manila] Candidate votes: {"firstname":"Gary","lastname":"Payton II","photo":"assets\/images\/candidates\/candidate_payton ii_gary.jpg","votes":3,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:24:07 Asia/Manila] Candidate votes: {"firstname":"Rui","lastname":"Hachimura","photo":"assets\/images\/candidates\/candidate_hachimura_rui.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:24:07 Asia/Manila] Candidate votes: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/candidates\/candidate_moody_moses.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:24:07 Asia/Manila] Candidate votes: {"firstname":"DeAndre","lastname":"Jordan","photo":"assets\/images\/candidates\/candidate_jordan_deandre.jpg","votes":0,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:24:07 Asia/Manila] Candidate votes: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidates\/candidate_curry_stephen.jpg","votes":5,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:24:07 Asia/Manila] Candidate votes: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/candidates\/candidate_jokic_nikola.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:24:07 Asia/Manila] Candidate votes: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","votes":1,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:24:07 Asia/Manila] Candidate votes: {"firstname":"Russell","lastname":"Westbrook","photo":"assets\/images\/candidates\/candidate_westbrook_russell.jpg","votes":4,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:24:07 Asia/Manila] Candidate votes: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/candidates\/candidate_doncic_luka.jpg","votes":3,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:24:07 Asia/Manila] Candidate votes: {"firstname":"Jimmy","lastname":"Butler","photo":"assets\/images\/candidates\/candidate_butler_jimmy.jpg","votes":1,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:24:07 Asia/Manila] Candidate votes: {"firstname":"Draymond","lastname":"Green","photo":"assets\/images\/candidates\/candidate_green_draymond.jpg","votes":4,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:24:07 Asia/Manila] Candidate votes: {"firstname":"Jamal","lastname":"Murray","photo":"assets\/images\/candidates\/candidate_murray_jamal.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:24:07 Asia/Manila] Candidate votes: {"firstname":"Austin","lastname":"Reeves","photo":"assets\/images\/candidates\/candidate_reeves_austin.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:24:07 Asia/Manila] Candidate votes: {"firstname":"Dalton","lastname":"Knecht","photo":"assets\/images\/candidates\/candidate_knecht_dalton.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:24:07 Asia/Manila] Candidate votes: {"firstname":"Aaron","lastname":"Gordon","photo":"assets\/images\/candidates\/candidate_gordon_aaron.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:24:07 Asia/Manila] Candidate votes: {"firstname":"Buddy","lastname":"Hield","photo":"assets\/images\/candidates\/candidate_hield_buddy.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:24:07 Asia/Manila] Candidate votes: {"firstname":"Michael","lastname":"Porter Jr.","photo":"assets\/images\/candidates\/candidate_porter jr._michael.jpg","votes":5,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:24:07 Asia/Manila] Candidate votes: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_bronny.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:24:07 Asia/Manila] Candidate votes: {"firstname":"Gary","lastname":"Payton II","photo":"assets\/images\/candidates\/candidate_payton ii_gary.jpg","votes":3,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:24:07 Asia/Manila] Candidate votes: {"firstname":"Rui","lastname":"Hachimura","photo":"assets\/images\/candidates\/candidate_hachimura_rui.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:24:07 Asia/Manila] Candidate votes: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/candidates\/candidate_moody_moses.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:24:07 Asia/Manila] Candidate votes: {"firstname":"DeAndre","lastname":"Jordan","photo":"assets\/images\/candidates\/candidate_jordan_deandre.jpg","votes":0,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 15:26:45 Europe/Berlin] generate_report.php called: 2025-04-28 15:26:45
+[28-Apr-2025 21:26:45 Asia/Manila] Database connection attempt with:
+[28-Apr-2025 21:26:45 Asia/Manila] Host: localhost
+[28-Apr-2025 21:26:45 Asia/Manila] Username: root
+[28-Apr-2025 21:26:45 Asia/Manila] Database: e-halal
+[28-Apr-2025 21:26:45 Asia/Manila] Candidate votes: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidates\/candidate_curry_stephen.jpg","votes":5,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:26:45 Asia/Manila] Candidate votes: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/candidates\/candidate_jokic_nikola.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:26:45 Asia/Manila] Candidate votes: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","votes":1,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:26:45 Asia/Manila] Candidate votes: {"firstname":"Russell","lastname":"Westbrook","photo":"assets\/images\/candidates\/candidate_westbrook_russell.jpg","votes":4,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:26:45 Asia/Manila] Candidate votes: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/candidates\/candidate_doncic_luka.jpg","votes":3,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:26:45 Asia/Manila] Candidate votes: {"firstname":"Jimmy","lastname":"Butler","photo":"assets\/images\/candidates\/candidate_butler_jimmy.jpg","votes":1,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:26:45 Asia/Manila] Candidate votes: {"firstname":"Draymond","lastname":"Green","photo":"assets\/images\/candidates\/candidate_green_draymond.jpg","votes":4,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:26:45 Asia/Manila] Candidate votes: {"firstname":"Jamal","lastname":"Murray","photo":"assets\/images\/candidates\/candidate_murray_jamal.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:26:45 Asia/Manila] Candidate votes: {"firstname":"Austin","lastname":"Reeves","photo":"assets\/images\/candidates\/candidate_reeves_austin.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:26:45 Asia/Manila] Candidate votes: {"firstname":"Dalton","lastname":"Knecht","photo":"assets\/images\/candidates\/candidate_knecht_dalton.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:26:45 Asia/Manila] Candidate votes: {"firstname":"Aaron","lastname":"Gordon","photo":"assets\/images\/candidates\/candidate_gordon_aaron.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:26:45 Asia/Manila] Candidate votes: {"firstname":"Buddy","lastname":"Hield","photo":"assets\/images\/candidates\/candidate_hield_buddy.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:26:45 Asia/Manila] Candidate votes: {"firstname":"Michael","lastname":"Porter Jr.","photo":"assets\/images\/candidates\/candidate_porter jr._michael.jpg","votes":5,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:26:45 Asia/Manila] Candidate votes: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_bronny.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:26:45 Asia/Manila] Candidate votes: {"firstname":"Gary","lastname":"Payton II","photo":"assets\/images\/candidates\/candidate_payton ii_gary.jpg","votes":3,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:26:45 Asia/Manila] Candidate votes: {"firstname":"Rui","lastname":"Hachimura","photo":"assets\/images\/candidates\/candidate_hachimura_rui.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:26:45 Asia/Manila] Candidate votes: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/candidates\/candidate_moody_moses.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:26:45 Asia/Manila] Candidate votes: {"firstname":"DeAndre","lastname":"Jordan","photo":"assets\/images\/candidates\/candidate_jordan_deandre.jpg","votes":0,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 15:26:47 Europe/Berlin] export_summary.php called: 2025-04-28 15:26:47
+[28-Apr-2025 21:26:47 Asia/Manila] Database connection attempt with:
+[28-Apr-2025 21:26:47 Asia/Manila] Host: localhost
+[28-Apr-2025 21:26:47 Asia/Manila] Username: root
+[28-Apr-2025 21:26:47 Asia/Manila] Database: e-halal
+[28-Apr-2025 21:26:47 Asia/Manila] Candidate votes: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidates\/candidate_curry_stephen.jpg","votes":5,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:26:47 Asia/Manila] Candidate votes: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/candidates\/candidate_jokic_nikola.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:26:47 Asia/Manila] Candidate votes: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","votes":1,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:26:47 Asia/Manila] Candidate votes: {"firstname":"Russell","lastname":"Westbrook","photo":"assets\/images\/candidates\/candidate_westbrook_russell.jpg","votes":4,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:26:47 Asia/Manila] Candidate votes: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/candidates\/candidate_doncic_luka.jpg","votes":3,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:26:47 Asia/Manila] Candidate votes: {"firstname":"Jimmy","lastname":"Butler","photo":"assets\/images\/candidates\/candidate_butler_jimmy.jpg","votes":1,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:26:47 Asia/Manila] Candidate votes: {"firstname":"Draymond","lastname":"Green","photo":"assets\/images\/candidates\/candidate_green_draymond.jpg","votes":4,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:26:47 Asia/Manila] Candidate votes: {"firstname":"Jamal","lastname":"Murray","photo":"assets\/images\/candidates\/candidate_murray_jamal.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:26:47 Asia/Manila] Candidate votes: {"firstname":"Austin","lastname":"Reeves","photo":"assets\/images\/candidates\/candidate_reeves_austin.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:26:47 Asia/Manila] Candidate votes: {"firstname":"Dalton","lastname":"Knecht","photo":"assets\/images\/candidates\/candidate_knecht_dalton.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:26:47 Asia/Manila] Candidate votes: {"firstname":"Aaron","lastname":"Gordon","photo":"assets\/images\/candidates\/candidate_gordon_aaron.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:26:47 Asia/Manila] Candidate votes: {"firstname":"Buddy","lastname":"Hield","photo":"assets\/images\/candidates\/candidate_hield_buddy.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:26:47 Asia/Manila] Candidate votes: {"firstname":"Michael","lastname":"Porter Jr.","photo":"assets\/images\/candidates\/candidate_porter jr._michael.jpg","votes":5,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:26:47 Asia/Manila] Candidate votes: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_bronny.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:26:47 Asia/Manila] Candidate votes: {"firstname":"Gary","lastname":"Payton II","photo":"assets\/images\/candidates\/candidate_payton ii_gary.jpg","votes":3,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:26:47 Asia/Manila] Candidate votes: {"firstname":"Rui","lastname":"Hachimura","photo":"assets\/images\/candidates\/candidate_hachimura_rui.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:26:47 Asia/Manila] Candidate votes: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/candidates\/candidate_moody_moses.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:26:47 Asia/Manila] Candidate votes: {"firstname":"DeAndre","lastname":"Jordan","photo":"assets\/images\/candidates\/candidate_jordan_deandre.jpg","votes":0,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:26:47 Asia/Manila] Candidate votes: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidates\/candidate_curry_stephen.jpg","votes":5,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:26:47 Asia/Manila] Candidate votes: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/candidates\/candidate_jokic_nikola.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:26:47 Asia/Manila] Candidate votes: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","votes":1,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:26:47 Asia/Manila] Candidate votes: {"firstname":"Russell","lastname":"Westbrook","photo":"assets\/images\/candidates\/candidate_westbrook_russell.jpg","votes":4,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:26:47 Asia/Manila] Candidate votes: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/candidates\/candidate_doncic_luka.jpg","votes":3,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:26:47 Asia/Manila] Candidate votes: {"firstname":"Jimmy","lastname":"Butler","photo":"assets\/images\/candidates\/candidate_butler_jimmy.jpg","votes":1,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:26:47 Asia/Manila] Candidate votes: {"firstname":"Draymond","lastname":"Green","photo":"assets\/images\/candidates\/candidate_green_draymond.jpg","votes":4,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:26:47 Asia/Manila] Candidate votes: {"firstname":"Jamal","lastname":"Murray","photo":"assets\/images\/candidates\/candidate_murray_jamal.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:26:47 Asia/Manila] Candidate votes: {"firstname":"Austin","lastname":"Reeves","photo":"assets\/images\/candidates\/candidate_reeves_austin.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:26:47 Asia/Manila] Candidate votes: {"firstname":"Dalton","lastname":"Knecht","photo":"assets\/images\/candidates\/candidate_knecht_dalton.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:26:47 Asia/Manila] Candidate votes: {"firstname":"Aaron","lastname":"Gordon","photo":"assets\/images\/candidates\/candidate_gordon_aaron.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:26:47 Asia/Manila] Candidate votes: {"firstname":"Buddy","lastname":"Hield","photo":"assets\/images\/candidates\/candidate_hield_buddy.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:26:47 Asia/Manila] Candidate votes: {"firstname":"Michael","lastname":"Porter Jr.","photo":"assets\/images\/candidates\/candidate_porter jr._michael.jpg","votes":5,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:26:47 Asia/Manila] Candidate votes: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_bronny.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:26:47 Asia/Manila] Candidate votes: {"firstname":"Gary","lastname":"Payton II","photo":"assets\/images\/candidates\/candidate_payton ii_gary.jpg","votes":3,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:26:47 Asia/Manila] Candidate votes: {"firstname":"Rui","lastname":"Hachimura","photo":"assets\/images\/candidates\/candidate_hachimura_rui.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:26:47 Asia/Manila] Candidate votes: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/candidates\/candidate_moody_moses.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:26:47 Asia/Manila] Candidate votes: {"firstname":"DeAndre","lastname":"Jordan","photo":"assets\/images\/candidates\/candidate_jordan_deandre.jpg","votes":0,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 15:28:26 Europe/Berlin] export_summary.php called: 2025-04-28 15:28:26
+[28-Apr-2025 21:28:26 Asia/Manila] Database connection attempt with:
+[28-Apr-2025 21:28:26 Asia/Manila] Host: localhost
+[28-Apr-2025 21:28:26 Asia/Manila] Username: root
+[28-Apr-2025 21:28:26 Asia/Manila] Database: e-halal
+[28-Apr-2025 21:28:26 Asia/Manila] Candidate votes: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidates\/candidate_curry_stephen.jpg","votes":5,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:28:26 Asia/Manila] Candidate votes: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/candidates\/candidate_jokic_nikola.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:28:26 Asia/Manila] Candidate votes: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","votes":1,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:28:26 Asia/Manila] Candidate votes: {"firstname":"Russell","lastname":"Westbrook","photo":"assets\/images\/candidates\/candidate_westbrook_russell.jpg","votes":4,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:28:26 Asia/Manila] Candidate votes: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/candidates\/candidate_doncic_luka.jpg","votes":3,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:28:26 Asia/Manila] Candidate votes: {"firstname":"Jimmy","lastname":"Butler","photo":"assets\/images\/candidates\/candidate_butler_jimmy.jpg","votes":1,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:28:26 Asia/Manila] Candidate votes: {"firstname":"Draymond","lastname":"Green","photo":"assets\/images\/candidates\/candidate_green_draymond.jpg","votes":4,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:28:26 Asia/Manila] Candidate votes: {"firstname":"Jamal","lastname":"Murray","photo":"assets\/images\/candidates\/candidate_murray_jamal.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:28:26 Asia/Manila] Candidate votes: {"firstname":"Austin","lastname":"Reeves","photo":"assets\/images\/candidates\/candidate_reeves_austin.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:28:26 Asia/Manila] Candidate votes: {"firstname":"Dalton","lastname":"Knecht","photo":"assets\/images\/candidates\/candidate_knecht_dalton.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:28:26 Asia/Manila] Candidate votes: {"firstname":"Aaron","lastname":"Gordon","photo":"assets\/images\/candidates\/candidate_gordon_aaron.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:28:26 Asia/Manila] Candidate votes: {"firstname":"Buddy","lastname":"Hield","photo":"assets\/images\/candidates\/candidate_hield_buddy.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:28:26 Asia/Manila] Candidate votes: {"firstname":"Michael","lastname":"Porter Jr.","photo":"assets\/images\/candidates\/candidate_porter jr._michael.jpg","votes":5,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:28:26 Asia/Manila] Candidate votes: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_bronny.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:28:26 Asia/Manila] Candidate votes: {"firstname":"Gary","lastname":"Payton II","photo":"assets\/images\/candidates\/candidate_payton ii_gary.jpg","votes":3,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:28:26 Asia/Manila] Candidate votes: {"firstname":"Rui","lastname":"Hachimura","photo":"assets\/images\/candidates\/candidate_hachimura_rui.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:28:26 Asia/Manila] Candidate votes: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/candidates\/candidate_moody_moses.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:28:26 Asia/Manila] Candidate votes: {"firstname":"DeAndre","lastname":"Jordan","photo":"assets\/images\/candidates\/candidate_jordan_deandre.jpg","votes":0,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:28:26 Asia/Manila] Candidate votes: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidates\/candidate_curry_stephen.jpg","votes":5,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:28:26 Asia/Manila] Candidate votes: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/candidates\/candidate_jokic_nikola.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:28:26 Asia/Manila] Candidate votes: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","votes":1,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:28:26 Asia/Manila] Candidate votes: {"firstname":"Russell","lastname":"Westbrook","photo":"assets\/images\/candidates\/candidate_westbrook_russell.jpg","votes":4,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:28:26 Asia/Manila] Candidate votes: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/candidates\/candidate_doncic_luka.jpg","votes":3,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:28:26 Asia/Manila] Candidate votes: {"firstname":"Jimmy","lastname":"Butler","photo":"assets\/images\/candidates\/candidate_butler_jimmy.jpg","votes":1,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:28:26 Asia/Manila] Candidate votes: {"firstname":"Draymond","lastname":"Green","photo":"assets\/images\/candidates\/candidate_green_draymond.jpg","votes":4,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:28:26 Asia/Manila] Candidate votes: {"firstname":"Jamal","lastname":"Murray","photo":"assets\/images\/candidates\/candidate_murray_jamal.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:28:26 Asia/Manila] Candidate votes: {"firstname":"Austin","lastname":"Reeves","photo":"assets\/images\/candidates\/candidate_reeves_austin.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:28:26 Asia/Manila] Candidate votes: {"firstname":"Dalton","lastname":"Knecht","photo":"assets\/images\/candidates\/candidate_knecht_dalton.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:28:26 Asia/Manila] Candidate votes: {"firstname":"Aaron","lastname":"Gordon","photo":"assets\/images\/candidates\/candidate_gordon_aaron.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:28:26 Asia/Manila] Candidate votes: {"firstname":"Buddy","lastname":"Hield","photo":"assets\/images\/candidates\/candidate_hield_buddy.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:28:26 Asia/Manila] Candidate votes: {"firstname":"Michael","lastname":"Porter Jr.","photo":"assets\/images\/candidates\/candidate_porter jr._michael.jpg","votes":5,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:28:26 Asia/Manila] Candidate votes: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_bronny.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:28:26 Asia/Manila] Candidate votes: {"firstname":"Gary","lastname":"Payton II","photo":"assets\/images\/candidates\/candidate_payton ii_gary.jpg","votes":3,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:28:26 Asia/Manila] Candidate votes: {"firstname":"Rui","lastname":"Hachimura","photo":"assets\/images\/candidates\/candidate_hachimura_rui.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:28:26 Asia/Manila] Candidate votes: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/candidates\/candidate_moody_moses.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:28:26 Asia/Manila] Candidate votes: {"firstname":"DeAndre","lastname":"Jordan","photo":"assets\/images\/candidates\/candidate_jordan_deandre.jpg","votes":0,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 15:40:14 Europe/Berlin] Archive process starting: 2025-04-28 15:40:14
+[28-Apr-2025 21:40:14 Asia/Manila] Database connection attempt with:
+[28-Apr-2025 21:40:14 Asia/Manila] Host: localhost
+[28-Apr-2025 21:40:14 Asia/Manila] Username: root
+[28-Apr-2025 21:40:14 Asia/Manila] Database: e-halal
+[28-Apr-2025 21:40:14 Asia/Manila] export_results.php called: 2025-04-28 21:40:14
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidates\/candidate_curry_stephen.jpg","votes":5,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/candidates\/candidate_jokic_nikola.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","votes":1,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Russell","lastname":"Westbrook","photo":"assets\/images\/candidates\/candidate_westbrook_russell.jpg","votes":4,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/candidates\/candidate_doncic_luka.jpg","votes":3,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Jimmy","lastname":"Butler","photo":"assets\/images\/candidates\/candidate_butler_jimmy.jpg","votes":1,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Draymond","lastname":"Green","photo":"assets\/images\/candidates\/candidate_green_draymond.jpg","votes":4,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Jamal","lastname":"Murray","photo":"assets\/images\/candidates\/candidate_murray_jamal.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Austin","lastname":"Reeves","photo":"assets\/images\/candidates\/candidate_reeves_austin.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Dalton","lastname":"Knecht","photo":"assets\/images\/candidates\/candidate_knecht_dalton.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Aaron","lastname":"Gordon","photo":"assets\/images\/candidates\/candidate_gordon_aaron.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Buddy","lastname":"Hield","photo":"assets\/images\/candidates\/candidate_hield_buddy.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Michael","lastname":"Porter Jr.","photo":"assets\/images\/candidates\/candidate_porter jr._michael.jpg","votes":5,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_bronny.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Gary","lastname":"Payton II","photo":"assets\/images\/candidates\/candidate_payton ii_gary.jpg","votes":3,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Rui","lastname":"Hachimura","photo":"assets\/images\/candidates\/candidate_hachimura_rui.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/candidates\/candidate_moody_moses.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"DeAndre","lastname":"Jordan","photo":"assets\/images\/candidates\/candidate_jordan_deandre.jpg","votes":0,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:40:14 Asia/Manila] export_summary.php called: 2025-04-28 21:40:14
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidates\/candidate_curry_stephen.jpg","votes":5,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/candidates\/candidate_jokic_nikola.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","votes":1,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Russell","lastname":"Westbrook","photo":"assets\/images\/candidates\/candidate_westbrook_russell.jpg","votes":4,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/candidates\/candidate_doncic_luka.jpg","votes":3,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Jimmy","lastname":"Butler","photo":"assets\/images\/candidates\/candidate_butler_jimmy.jpg","votes":1,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Draymond","lastname":"Green","photo":"assets\/images\/candidates\/candidate_green_draymond.jpg","votes":4,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Jamal","lastname":"Murray","photo":"assets\/images\/candidates\/candidate_murray_jamal.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Austin","lastname":"Reeves","photo":"assets\/images\/candidates\/candidate_reeves_austin.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Dalton","lastname":"Knecht","photo":"assets\/images\/candidates\/candidate_knecht_dalton.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Aaron","lastname":"Gordon","photo":"assets\/images\/candidates\/candidate_gordon_aaron.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Buddy","lastname":"Hield","photo":"assets\/images\/candidates\/candidate_hield_buddy.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Michael","lastname":"Porter Jr.","photo":"assets\/images\/candidates\/candidate_porter jr._michael.jpg","votes":5,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_bronny.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Gary","lastname":"Payton II","photo":"assets\/images\/candidates\/candidate_payton ii_gary.jpg","votes":3,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Rui","lastname":"Hachimura","photo":"assets\/images\/candidates\/candidate_hachimura_rui.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/candidates\/candidate_moody_moses.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"DeAndre","lastname":"Jordan","photo":"assets\/images\/candidates\/candidate_jordan_deandre.jpg","votes":0,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidates\/candidate_curry_stephen.jpg","votes":5,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/candidates\/candidate_jokic_nikola.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","votes":1,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Russell","lastname":"Westbrook","photo":"assets\/images\/candidates\/candidate_westbrook_russell.jpg","votes":4,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/candidates\/candidate_doncic_luka.jpg","votes":3,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Jimmy","lastname":"Butler","photo":"assets\/images\/candidates\/candidate_butler_jimmy.jpg","votes":1,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Draymond","lastname":"Green","photo":"assets\/images\/candidates\/candidate_green_draymond.jpg","votes":4,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Jamal","lastname":"Murray","photo":"assets\/images\/candidates\/candidate_murray_jamal.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Austin","lastname":"Reeves","photo":"assets\/images\/candidates\/candidate_reeves_austin.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Dalton","lastname":"Knecht","photo":"assets\/images\/candidates\/candidate_knecht_dalton.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Aaron","lastname":"Gordon","photo":"assets\/images\/candidates\/candidate_gordon_aaron.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Buddy","lastname":"Hield","photo":"assets\/images\/candidates\/candidate_hield_buddy.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Michael","lastname":"Porter Jr.","photo":"assets\/images\/candidates\/candidate_porter jr._michael.jpg","votes":5,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_bronny.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Gary","lastname":"Payton II","photo":"assets\/images\/candidates\/candidate_payton ii_gary.jpg","votes":3,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Rui","lastname":"Hachimura","photo":"assets\/images\/candidates\/candidate_hachimura_rui.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/candidates\/candidate_moody_moses.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 21:40:14 Asia/Manila] Candidate votes: {"firstname":"DeAndre","lastname":"Jordan","photo":"assets\/images\/candidates\/candidate_jordan_deandre.jpg","votes":0,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 21:40:14 Asia/Manila] Final PDF paths - Summary: archives/E2504218634/summary.pdf, Results: archives/E2504218634/results.pdf
+[28-Apr-2025 16:30:16 Europe/Berlin] Archive process starting: 2025-04-28 16:30:16
+[28-Apr-2025 22:30:16 Asia/Manila] Database connection attempt with:
+[28-Apr-2025 22:30:16 Asia/Manila] Host: localhost
+[28-Apr-2025 22:30:16 Asia/Manila] Username: root
+[28-Apr-2025 22:30:16 Asia/Manila] Database: e-halal
+[28-Apr-2025 22:30:16 Asia/Manila] export_results.php called: 2025-04-28 22:30:16
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidates\/candidate_curry_stephen.jpg","votes":5,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/candidates\/candidate_jokic_nikola.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","votes":1,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Russell","lastname":"Westbrook","photo":"assets\/images\/candidates\/candidate_westbrook_russell.jpg","votes":4,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/candidates\/candidate_doncic_luka.jpg","votes":3,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Jimmy","lastname":"Butler","photo":"assets\/images\/candidates\/candidate_butler_jimmy.jpg","votes":1,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Draymond","lastname":"Green","photo":"assets\/images\/candidates\/candidate_green_draymond.jpg","votes":4,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Jamal","lastname":"Murray","photo":"assets\/images\/candidates\/candidate_murray_jamal.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Austin","lastname":"Reeves","photo":"assets\/images\/candidates\/candidate_reeves_austin.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Dalton","lastname":"Knecht","photo":"assets\/images\/candidates\/candidate_knecht_dalton.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Aaron","lastname":"Gordon","photo":"assets\/images\/candidates\/candidate_gordon_aaron.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Buddy","lastname":"Hield","photo":"assets\/images\/candidates\/candidate_hield_buddy.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Michael","lastname":"Porter Jr.","photo":"assets\/images\/candidates\/candidate_porter jr._michael.jpg","votes":5,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_bronny.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Gary","lastname":"Payton II","photo":"assets\/images\/candidates\/candidate_payton ii_gary.jpg","votes":3,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Rui","lastname":"Hachimura","photo":"assets\/images\/candidates\/candidate_hachimura_rui.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/candidates\/candidate_moody_moses.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"DeAndre","lastname":"Jordan","photo":"assets\/images\/candidates\/candidate_jordan_deandre.jpg","votes":0,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 22:30:16 Asia/Manila] export_summary.php called: 2025-04-28 22:30:16
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidates\/candidate_curry_stephen.jpg","votes":5,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/candidates\/candidate_jokic_nikola.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","votes":1,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Russell","lastname":"Westbrook","photo":"assets\/images\/candidates\/candidate_westbrook_russell.jpg","votes":4,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/candidates\/candidate_doncic_luka.jpg","votes":3,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Jimmy","lastname":"Butler","photo":"assets\/images\/candidates\/candidate_butler_jimmy.jpg","votes":1,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Draymond","lastname":"Green","photo":"assets\/images\/candidates\/candidate_green_draymond.jpg","votes":4,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Jamal","lastname":"Murray","photo":"assets\/images\/candidates\/candidate_murray_jamal.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Austin","lastname":"Reeves","photo":"assets\/images\/candidates\/candidate_reeves_austin.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Dalton","lastname":"Knecht","photo":"assets\/images\/candidates\/candidate_knecht_dalton.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Aaron","lastname":"Gordon","photo":"assets\/images\/candidates\/candidate_gordon_aaron.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Buddy","lastname":"Hield","photo":"assets\/images\/candidates\/candidate_hield_buddy.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Michael","lastname":"Porter Jr.","photo":"assets\/images\/candidates\/candidate_porter jr._michael.jpg","votes":5,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_bronny.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Gary","lastname":"Payton II","photo":"assets\/images\/candidates\/candidate_payton ii_gary.jpg","votes":3,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Rui","lastname":"Hachimura","photo":"assets\/images\/candidates\/candidate_hachimura_rui.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/candidates\/candidate_moody_moses.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"DeAndre","lastname":"Jordan","photo":"assets\/images\/candidates\/candidate_jordan_deandre.jpg","votes":0,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidates\/candidate_curry_stephen.jpg","votes":5,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/candidates\/candidate_jokic_nikola.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","votes":1,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Russell","lastname":"Westbrook","photo":"assets\/images\/candidates\/candidate_westbrook_russell.jpg","votes":4,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/candidates\/candidate_doncic_luka.jpg","votes":3,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Jimmy","lastname":"Butler","photo":"assets\/images\/candidates\/candidate_butler_jimmy.jpg","votes":1,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Draymond","lastname":"Green","photo":"assets\/images\/candidates\/candidate_green_draymond.jpg","votes":4,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Jamal","lastname":"Murray","photo":"assets\/images\/candidates\/candidate_murray_jamal.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Austin","lastname":"Reeves","photo":"assets\/images\/candidates\/candidate_reeves_austin.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Dalton","lastname":"Knecht","photo":"assets\/images\/candidates\/candidate_knecht_dalton.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Aaron","lastname":"Gordon","photo":"assets\/images\/candidates\/candidate_gordon_aaron.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Buddy","lastname":"Hield","photo":"assets\/images\/candidates\/candidate_hield_buddy.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Michael","lastname":"Porter Jr.","photo":"assets\/images\/candidates\/candidate_porter jr._michael.jpg","votes":5,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_bronny.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Gary","lastname":"Payton II","photo":"assets\/images\/candidates\/candidate_payton ii_gary.jpg","votes":3,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Rui","lastname":"Hachimura","photo":"assets\/images\/candidates\/candidate_hachimura_rui.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/candidates\/candidate_moody_moses.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+[28-Apr-2025 22:30:16 Asia/Manila] Candidate votes: {"firstname":"DeAndre","lastname":"Jordan","photo":"assets\/images\/candidates\/candidate_jordan_deandre.jpg","votes":0,"partylist_name":"Denver Nuggets"}
+[28-Apr-2025 22:30:16 Asia/Manila] Final PDF paths - Summary: archives/E2504282546/summary.pdf, Results: archives/E2504282546/results.pdf
