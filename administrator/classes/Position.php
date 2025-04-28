@@ -42,6 +42,34 @@ class Position {
     }
 
     /**
+     * Check if a position with the given description already exists
+     * @param string $description Position description
+     * @param int|null $excludeId Optional ID to exclude from the check (for updates)
+     * @return bool
+     */
+    public function positionExists($description, $excludeId = null) {
+        $query = "SELECT COUNT(*) as count FROM positions WHERE LOWER(description) = LOWER(?)";
+        $params = [$description];
+        $types = "s";
+        
+        if ($excludeId !== null) {
+            $query .= " AND id != ?";
+            $params[] = $excludeId;
+            $types .= "i";
+        }
+        
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param($types, ...$params);
+        
+        if ($stmt->execute()) {
+            $result = $stmt->get_result();
+            $row = $result->fetch_assoc();
+            return $row['count'] > 0;
+        }
+        return false;
+    }
+
+    /**
      * Add a new position
      * @param string $description Position description
      * @param int $max_vote Maximum votes allowed
@@ -49,6 +77,11 @@ class Position {
      */
     public function addPosition($description, $max_vote) {
         try {
+            // Check for duplicate position
+            if ($this->positionExists($description)) {
+                throw new Exception("A position with this name already exists");
+            }
+
             // Get current highest priority
             $query = "SELECT MAX(priority) as max_priority FROM positions";
             $result = $this->db->query($query);
@@ -79,6 +112,11 @@ class Position {
      * @return bool
      */
     public function updatePosition($id, $description, $max_vote, $priority = 1) {
+        // Check for duplicate position, excluding current position
+        if ($this->positionExists($description, $id)) {
+            throw new Exception("A position with this name already exists");
+        }
+
         $query = "UPDATE positions SET description = ?, max_vote = ?, priority = ? WHERE id = ?";
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("siii", $description, $max_vote, $priority, $id);

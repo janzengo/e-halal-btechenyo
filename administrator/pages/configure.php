@@ -4,6 +4,7 @@ require_once __DIR__ . '/../classes/Admin.php';
 require_once __DIR__ . '/../classes/Elections.php';
 require_once __DIR__ . '/../classes/Logger.php';
 
+Elections::enforceCompletedRedirect();
 // Set timezone to Philippine time
 date_default_timezone_set('Asia/Manila');
 
@@ -13,9 +14,9 @@ $admin = Admin::getInstance();
 $election = Elections::getInstance();
 $logger = AdminLogger::getInstance();
 
-// Check if admin is logged in and is superadmin
-if (!$admin->isLoggedIn() || !$admin->isSuperAdmin()) {
-    $_SESSION['error'] = 'Access Denied. This page is restricted to superadmins only.';
+// Check if admin is logged in and is head
+if (!$admin->isLoggedIn() || !$admin->isHead()) {
+    $_SESSION['error'] = 'Access Denied. This page is restricted to heads only.';
     header('Location: home');
     exit();
 }
@@ -28,7 +29,7 @@ $is_past_end_time = $end_time && $end_time <= $now;
 
 // Redirect to setup if in setup status
 if (isset($current_election['status']) && $current_election['status'] === 'setup') {
-    header('Location: setup.php');
+    header('Location: setup');
     exit();
 }
 ?>
@@ -37,8 +38,9 @@ if (isset($current_election['status']) && $current_election['status'] === 'setup
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>E-Halal Voting System | Configure Election</title>
+    <title>E-Halal BTECHenyo | Configure Election</title>
     <?php echo $view->renderHeader(); ?>
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>administrator/assets/css/admin.css">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -90,7 +92,8 @@ if (isset($current_election['status']) && $current_election['status'] === 'setup
                 <div class="col-xs-12">
                     <div class="box">
                         <div class="box-body">
-                            <form action="<?php echo BASE_URL; ?>administrator/pages/includes/controllers/election_configure.php" method="POST">
+                            <form id="electionForm" action="<?php echo BASE_URL; ?>administrator/pages/includes/controllers/election_configure.php" method="POST">
+                                <input type="hidden" name="curr_password" id="curr_password" value="">
                                 <div class="form-group">
                                     <label>Election Name</label>
                                     <input type="text" class="form-control" id="election_name" name="election_name" 
@@ -160,11 +163,10 @@ if (isset($current_election['status']) && $current_election['status'] === 'setup
                                     <select class="form-control" id="status" name="status" required>
                                         <?php 
                                         foreach ($availableStatuses as $status): 
-                                            // Skip 'completed' as it will be handled by a button
-                                            if ($status === 'completed') continue;
                                         ?>
                                             <option value="<?php echo $status; ?>" 
-                                                    <?php echo (isset($current_election['status']) && $current_election['status'] == $status) ? 'selected' : ''; ?>>
+                                                    <?php echo (isset($current_election['status']) && $current_election['status'] == $status) ? 'selected' : ''; ?>
+                                                    <?php if ($status === 'completed') echo 'style="display:none;"'; ?>>
                                                 <?php 
                                                 $statusLabels = [
                                                     'pending' => 'Pending (Ready for Activation)',
@@ -278,17 +280,42 @@ if (isset($current_election['status']) && $current_election['status'] === 'setup
 
                                 <div class="form-group">
                                     <?php if (!$is_past_end_time): ?>
-                                        <button type="submit" class="btn btn-success" name="save">
+                                        <button type="submit" class="btn btn-primary custom" name="save">
                                             <i class="fa fa-save"></i> Save Changes
                                         </button>
                                     <?php endif; ?>
                                     <?php if (in_array('completed', $availableStatuses)): ?>
-                                        <button type="button" class="btn btn-danger" id="completeElectionBtn">
+                                        <button type="button" class="btn btn-danger custom" id="completeElectionBtn">
                                             <i class="fa fa-stop-circle"></i> End Election
                                         </button>
                                     <?php endif; ?>
                                 </div>
                             </form>
+
+<!-- Complete Election Password Modal -->
+<div class="modal fade" id="completeElectionPasswordModal" tabindex="-1" role="dialog" aria-labelledby="completeElectionPasswordModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="completeElectionPasswordModalLabel">Confirm End Election</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="completeElectionPassword">Enter your password to confirm:</label>
+          <input type="password" class="form-control" id="completeElectionPassword" placeholder="Current Password" autocomplete="current-password">
+          <div class="invalid-feedback">Password is required.</div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger" id="confirmCompleteElection">Confirm End Election</button>
+      </div>
+    </div>
+  </div>
+</div>
                         </div>
                     </div>
                 </div>
@@ -320,11 +347,33 @@ $(document).ready(function() {
             cancelButtonText: 'No, cancel'
         }).then((result) => {
             if (result.isConfirmed) {
-                // Set the status to completed and submit the form
-                $('#status').val('completed');
-                $('form').submit();
+                // Show password modal instead of submitting directly
+                $('#completeElectionPasswordModal').modal('show');
             }
         });
+    });
+
+    // Handle password modal submit
+    $('#confirmCompleteElection').click(function() {
+        var password = $('#completeElectionPassword').val();
+        if (!password) {
+            $('#completeElectionPassword').addClass('is-invalid');
+            return;
+        }
+        $('#completeElectionPassword').removeClass('is-invalid');
+        // Set hidden password input and status
+        $('#status').val('completed').trigger('change');
+        $('#curr_password').val(password);
+        $('#electionForm').submit();
+        // Hide and clear modal
+        $('#completeElectionPasswordModal').modal('hide');
+        $('#completeElectionPassword').val('');
+    });
+
+    // Clear password field on modal close
+    $('#completeElectionPasswordModal').on('hidden.bs.modal', function () {
+        $('#completeElectionPassword').val('');
+        $('#completeElectionPassword').removeClass('is-invalid');
     });
     
     // Handle status changes
@@ -338,12 +387,10 @@ $(document).ready(function() {
             var now = new Date();
             
             // Check if end time has passed
-            if (endTime <= now) {
-                if (newStatus !== 'completed') {
-                    alert('Election end time has passed. The election must be completed.');
-                    $(this).val(currentStatus);
-                    return false;
-                }
+            // If end time has passed, only allow 'completed' status, but do not show alert here.
+            if (endTime <= now && newStatus !== 'completed') {
+                $(this).val(currentStatus);
+                return false;
             }
         }
         
@@ -379,9 +426,12 @@ $(document).ready(function() {
             if (!endInput.value) {
                 errorMessage.push('End time is required');
                 formValid = false;
-            } else if (endTime <= now && status !== 'completed') {
-                errorMessage.push('Election end time has passed. The election must be completed.');
-                formValid = false;
+            } else {
+                console.log('DEBUG: status=', status, 'endTime=', endTime, 'now=', now);
+                if (endTime <= now && status !== 'completed') {
+                    errorMessage.push('Election end time has passed. The election must be completed.');
+                    formValid = false;
+                }
             }
         }
         

@@ -25,7 +25,8 @@ class Vote {
         $position_id = (int)$position_id;
         $query = "SELECT 
                     c.firstname, 
-                    c.lastname, 
+                    c.lastname,
+                    c.photo, 
                     pl.name as partylist_name,
                     (
                         SELECT COUNT(*) 

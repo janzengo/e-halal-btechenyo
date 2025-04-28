@@ -1,0 +1,228 @@
+[21-Apr-2025 08:57:26 Europe/Berlin] Archive process starting: 2025-04-21 08:57:26
+[21-Apr-2025 14:57:26 Asia/Manila] Database connection attempt with:
+[21-Apr-2025 14:57:26 Asia/Manila] Host: localhost
+[21-Apr-2025 14:57:26 Asia/Manila] Username: root
+[21-Apr-2025 14:57:26 Asia/Manila] Database: e-halal
+[21-Apr-2025 14:57:26 Asia/Manila] export_results.php called: 2025-04-21 14:57:26
+[21-Apr-2025 14:57:26 Asia/Manila] Candidate votes: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","partylist_name":"Sandigan","votes":4}
+[21-Apr-2025 14:57:26 Asia/Manila] Candidate votes: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidate_curry_steph.jpg","partylist_name":"Kanlungan","votes":2}
+[21-Apr-2025 14:57:26 Asia/Manila] Candidate votes: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+[21-Apr-2025 14:57:26 Asia/Manila] Candidate votes: {"firstname":"Ja","lastname":"Morant","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":3}
+[21-Apr-2025 14:57:26 Asia/Manila] Candidate votes: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":2}
+[21-Apr-2025 14:57:26 Asia/Manila] Candidate votes: {"firstname":"Jimmy","lastname":"Buttler","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":1}
+[21-Apr-2025 14:57:26 Asia/Manila] Candidate votes: {"firstname":"Klay","lastname":"Thompson","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":3}
+[21-Apr-2025 14:57:26 Asia/Manila] Candidate votes: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":1}
+[21-Apr-2025 14:57:26 Asia/Manila] Candidate votes: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":1}
+[21-Apr-2025 14:57:26 Asia/Manila] Candidate votes: {"firstname":"Yuki","lastname":"Kawamura","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":0}
+[21-Apr-2025 14:57:26 Asia/Manila] Candidate votes: {"firstname":"Chris","lastname":"Paul","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+[21-Apr-2025 14:57:26 Asia/Manila] Candidate votes: {"firstname":"Victor","lastname":"Wembanayama","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":0}
+[21-Apr-2025 14:57:26 Asia/Manila] export_summary.php called: 2025-04-21 14:57:26
+[21-Apr-2025 14:57:26 Asia/Manila] Candidate votes: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","partylist_name":"Sandigan","votes":4}
+[21-Apr-2025 14:57:26 Asia/Manila] Candidate votes: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidate_curry_steph.jpg","partylist_name":"Kanlungan","votes":2}
+[21-Apr-2025 14:57:26 Asia/Manila] Candidate votes: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+[21-Apr-2025 14:57:26 Asia/Manila] Candidate votes: {"firstname":"Ja","lastname":"Morant","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":3}
+[21-Apr-2025 14:57:26 Asia/Manila] Candidate votes: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":2}
+[21-Apr-2025 14:57:26 Asia/Manila] Candidate votes: {"firstname":"Jimmy","lastname":"Buttler","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":1}
+[21-Apr-2025 14:57:26 Asia/Manila] Candidate votes: {"firstname":"Klay","lastname":"Thompson","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":3}
+[21-Apr-2025 14:57:26 Asia/Manila] Candidate votes: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":1}
+[21-Apr-2025 14:57:26 Asia/Manila] Candidate votes: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":1}
+[21-Apr-2025 14:57:26 Asia/Manila] Candidate votes: {"firstname":"Yuki","lastname":"Kawamura","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":0}
+[21-Apr-2025 14:57:26 Asia/Manila] Candidate votes: {"firstname":"Chris","lastname":"Paul","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+[21-Apr-2025 14:57:26 Asia/Manila] Candidate votes: {"firstname":"Victor","lastname":"Wembanayama","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":0}
+[21-Apr-2025 14:57:26 Asia/Manila] Candidate votes: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","partylist_name":"Sandigan","votes":4}
+[21-Apr-2025 14:57:26 Asia/Manila] Candidate votes: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidate_curry_steph.jpg","partylist_name":"Kanlungan","votes":2}
+[21-Apr-2025 14:57:26 Asia/Manila] Candidate votes: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+[21-Apr-2025 14:57:26 Asia/Manila] Candidate votes: {"firstname":"Ja","lastname":"Morant","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":3}
+[21-Apr-2025 14:57:26 Asia/Manila] Candidate votes: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":2}
+[21-Apr-2025 14:57:26 Asia/Manila] Candidate votes: {"firstname":"Jimmy","lastname":"Buttler","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":1}
+[21-Apr-2025 14:57:26 Asia/Manila] Candidate votes: {"firstname":"Klay","lastname":"Thompson","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":3}
+[21-Apr-2025 14:57:26 Asia/Manila] Candidate votes: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":1}
+[21-Apr-2025 14:57:26 Asia/Manila] Candidate votes: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":1}
+[21-Apr-2025 14:57:26 Asia/Manila] Candidate votes: {"firstname":"Yuki","lastname":"Kawamura","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":0}
+[21-Apr-2025 14:57:26 Asia/Manila] Candidate votes: {"firstname":"Chris","lastname":"Paul","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+[21-Apr-2025 14:57:26 Asia/Manila] Candidate votes: {"firstname":"Victor","lastname":"Wembanayama","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":0}
+[21-Apr-2025 14:57:26 Asia/Manila] Final PDF paths - Summary: archives/E-2025-1094/summary.pdf, Results: archives/E-2025-1094/results.pdf
+[21-Apr-2025 09:00:47 Europe/Berlin] Archive process starting: 2025-04-21 09:00:47
+[21-Apr-2025 15:00:47 Asia/Manila] Database connection attempt with:
+[21-Apr-2025 15:00:47 Asia/Manila] Host: localhost
+[21-Apr-2025 15:00:47 Asia/Manila] Username: root
+[21-Apr-2025 15:00:47 Asia/Manila] Database: e-halal
+[21-Apr-2025 15:00:47 Asia/Manila] export_results.php called: 2025-04-21 15:00:47
+[21-Apr-2025 15:00:47 Asia/Manila] Candidate votes: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","partylist_name":"Sandigan","votes":4}
+[21-Apr-2025 15:00:47 Asia/Manila] Candidate votes: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidate_curry_steph.jpg","partylist_name":"Kanlungan","votes":2}
+[21-Apr-2025 15:00:47 Asia/Manila] Candidate votes: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+[21-Apr-2025 15:00:47 Asia/Manila] Candidate votes: {"firstname":"Ja","lastname":"Morant","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":3}
+[21-Apr-2025 15:00:47 Asia/Manila] Candidate votes: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":2}
+[21-Apr-2025 15:00:47 Asia/Manila] Candidate votes: {"firstname":"Jimmy","lastname":"Buttler","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":1}
+[21-Apr-2025 15:00:47 Asia/Manila] Candidate votes: {"firstname":"Klay","lastname":"Thompson","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":3}
+[21-Apr-2025 15:00:47 Asia/Manila] Candidate votes: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":1}
+[21-Apr-2025 15:00:47 Asia/Manila] Candidate votes: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":1}
+[21-Apr-2025 15:00:47 Asia/Manila] Candidate votes: {"firstname":"Yuki","lastname":"Kawamura","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":0}
+[21-Apr-2025 15:00:47 Asia/Manila] Candidate votes: {"firstname":"Chris","lastname":"Paul","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+[21-Apr-2025 15:00:47 Asia/Manila] Candidate votes: {"firstname":"Victor","lastname":"Wembanayama","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":0}
+[21-Apr-2025 15:00:47 Asia/Manila] export_summary.php called: 2025-04-21 15:00:47
+[21-Apr-2025 15:00:47 Asia/Manila] Candidate votes: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","partylist_name":"Sandigan","votes":4}
+[21-Apr-2025 15:00:47 Asia/Manila] Candidate votes: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidate_curry_steph.jpg","partylist_name":"Kanlungan","votes":2}
+[21-Apr-2025 15:00:47 Asia/Manila] Candidate votes: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+[21-Apr-2025 15:00:47 Asia/Manila] Candidate votes: {"firstname":"Ja","lastname":"Morant","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":3}
+[21-Apr-2025 15:00:47 Asia/Manila] Candidate votes: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":2}
+[21-Apr-2025 15:00:47 Asia/Manila] Candidate votes: {"firstname":"Jimmy","lastname":"Buttler","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":1}
+[21-Apr-2025 15:00:47 Asia/Manila] Candidate votes: {"firstname":"Klay","lastname":"Thompson","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":3}
+[21-Apr-2025 15:00:47 Asia/Manila] Candidate votes: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":1}
+[21-Apr-2025 15:00:47 Asia/Manila] Candidate votes: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":1}
+[21-Apr-2025 15:00:47 Asia/Manila] Candidate votes: {"firstname":"Yuki","lastname":"Kawamura","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":0}
+[21-Apr-2025 15:00:47 Asia/Manila] Candidate votes: {"firstname":"Chris","lastname":"Paul","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+[21-Apr-2025 15:00:47 Asia/Manila] Candidate votes: {"firstname":"Victor","lastname":"Wembanayama","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":0}
+[21-Apr-2025 15:00:47 Asia/Manila] Candidate votes: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","partylist_name":"Sandigan","votes":4}
+[21-Apr-2025 15:00:47 Asia/Manila] Candidate votes: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidate_curry_steph.jpg","partylist_name":"Kanlungan","votes":2}
+[21-Apr-2025 15:00:47 Asia/Manila] Candidate votes: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+[21-Apr-2025 15:00:47 Asia/Manila] Candidate votes: {"firstname":"Ja","lastname":"Morant","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":3}
+[21-Apr-2025 15:00:47 Asia/Manila] Candidate votes: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":2}
+[21-Apr-2025 15:00:47 Asia/Manila] Candidate votes: {"firstname":"Jimmy","lastname":"Buttler","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":1}
+[21-Apr-2025 15:00:47 Asia/Manila] Candidate votes: {"firstname":"Klay","lastname":"Thompson","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":3}
+[21-Apr-2025 15:00:47 Asia/Manila] Candidate votes: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":1}
+[21-Apr-2025 15:00:47 Asia/Manila] Candidate votes: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":1}
+[21-Apr-2025 15:00:47 Asia/Manila] Candidate votes: {"firstname":"Yuki","lastname":"Kawamura","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":0}
+[21-Apr-2025 15:00:47 Asia/Manila] Candidate votes: {"firstname":"Chris","lastname":"Paul","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+[21-Apr-2025 15:00:47 Asia/Manila] Candidate votes: {"firstname":"Victor","lastname":"Wembanayama","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":0}
+[21-Apr-2025 15:00:47 Asia/Manila] Final PDF paths - Summary: archives/E-2025-1094/summary.pdf, Results: archives/E-2025-1094/results.pdf
+[21-Apr-2025 09:01:21 Europe/Berlin] export_summary.php called: 2025-04-21 09:01:21
+[21-Apr-2025 15:01:21 Asia/Manila] Database connection attempt with:
+[21-Apr-2025 15:01:21 Asia/Manila] Host: localhost
+[21-Apr-2025 15:01:21 Asia/Manila] Username: root
+[21-Apr-2025 15:01:21 Asia/Manila] Database: e-halal
+[21-Apr-2025 15:01:21 Asia/Manila] Candidate votes: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","partylist_name":"Sandigan","votes":4}
+[21-Apr-2025 15:01:21 Asia/Manila] Candidate votes: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidate_curry_steph.jpg","partylist_name":"Kanlungan","votes":2}
+[21-Apr-2025 15:01:21 Asia/Manila] Candidate votes: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+[21-Apr-2025 15:01:21 Asia/Manila] Candidate votes: {"firstname":"Ja","lastname":"Morant","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":3}
+[21-Apr-2025 15:01:21 Asia/Manila] Candidate votes: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":2}
+[21-Apr-2025 15:01:21 Asia/Manila] Candidate votes: {"firstname":"Jimmy","lastname":"Buttler","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":1}
+[21-Apr-2025 15:01:21 Asia/Manila] Candidate votes: {"firstname":"Klay","lastname":"Thompson","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":3}
+[21-Apr-2025 15:01:21 Asia/Manila] Candidate votes: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":1}
+[21-Apr-2025 15:01:21 Asia/Manila] Candidate votes: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":1}
+[21-Apr-2025 15:01:21 Asia/Manila] Candidate votes: {"firstname":"Yuki","lastname":"Kawamura","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":0}
+[21-Apr-2025 15:01:21 Asia/Manila] Candidate votes: {"firstname":"Chris","lastname":"Paul","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+[21-Apr-2025 15:01:21 Asia/Manila] Candidate votes: {"firstname":"Victor","lastname":"Wembanayama","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":0}
+[21-Apr-2025 15:01:21 Asia/Manila] Candidate votes: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","partylist_name":"Sandigan","votes":4}
+[21-Apr-2025 15:01:21 Asia/Manila] Candidate votes: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidate_curry_steph.jpg","partylist_name":"Kanlungan","votes":2}
+[21-Apr-2025 15:01:21 Asia/Manila] Candidate votes: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+[21-Apr-2025 15:01:21 Asia/Manila] Candidate votes: {"firstname":"Ja","lastname":"Morant","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":3}
+[21-Apr-2025 15:01:21 Asia/Manila] Candidate votes: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":2}
+[21-Apr-2025 15:01:21 Asia/Manila] Candidate votes: {"firstname":"Jimmy","lastname":"Buttler","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":1}
+[21-Apr-2025 15:01:21 Asia/Manila] Candidate votes: {"firstname":"Klay","lastname":"Thompson","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":3}
+[21-Apr-2025 15:01:21 Asia/Manila] Candidate votes: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":1}
+[21-Apr-2025 15:01:21 Asia/Manila] Candidate votes: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":1}
+[21-Apr-2025 15:01:21 Asia/Manila] Candidate votes: {"firstname":"Yuki","lastname":"Kawamura","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":0}
+[21-Apr-2025 15:01:21 Asia/Manila] Candidate votes: {"firstname":"Chris","lastname":"Paul","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+[21-Apr-2025 15:01:21 Asia/Manila] Candidate votes: {"firstname":"Victor","lastname":"Wembanayama","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":0}
+[21-Apr-2025 09:01:30 Europe/Berlin] export_results.php called: 2025-04-21 09:01:30
+[21-Apr-2025 15:01:30 Asia/Manila] Database connection attempt with:
+[21-Apr-2025 15:01:30 Asia/Manila] Host: localhost
+[21-Apr-2025 15:01:30 Asia/Manila] Username: root
+[21-Apr-2025 15:01:30 Asia/Manila] Database: e-halal
+[21-Apr-2025 15:01:31 Asia/Manila] Candidate votes: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","partylist_name":"Sandigan","votes":4}
+[21-Apr-2025 15:01:31 Asia/Manila] Candidate votes: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidate_curry_steph.jpg","partylist_name":"Kanlungan","votes":2}
+[21-Apr-2025 15:01:31 Asia/Manila] Candidate votes: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+[21-Apr-2025 15:01:31 Asia/Manila] Candidate votes: {"firstname":"Ja","lastname":"Morant","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":3}
+[21-Apr-2025 15:01:31 Asia/Manila] Candidate votes: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":2}
+[21-Apr-2025 15:01:31 Asia/Manila] Candidate votes: {"firstname":"Jimmy","lastname":"Buttler","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":1}
+[21-Apr-2025 15:01:31 Asia/Manila] Candidate votes: {"firstname":"Klay","lastname":"Thompson","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":3}
+[21-Apr-2025 15:01:31 Asia/Manila] Candidate votes: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":1}
+[21-Apr-2025 15:01:31 Asia/Manila] Candidate votes: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":1}
+[21-Apr-2025 15:01:31 Asia/Manila] Candidate votes: {"firstname":"Yuki","lastname":"Kawamura","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":0}
+[21-Apr-2025 15:01:31 Asia/Manila] Candidate votes: {"firstname":"Chris","lastname":"Paul","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+[21-Apr-2025 15:01:31 Asia/Manila] Candidate votes: {"firstname":"Victor","lastname":"Wembanayama","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":0}
+[21-Apr-2025 09:02:44 Europe/Berlin] Archive process starting: 2025-04-21 09:02:44
+[21-Apr-2025 15:02:44 Asia/Manila] Database connection attempt with:
+[21-Apr-2025 15:02:44 Asia/Manila] Host: localhost
+[21-Apr-2025 15:02:44 Asia/Manila] Username: root
+[21-Apr-2025 15:02:44 Asia/Manila] Database: e-halal
+[21-Apr-2025 15:02:44 Asia/Manila] export_results.php called: 2025-04-21 15:02:44
+[21-Apr-2025 15:02:44 Asia/Manila] Candidate votes: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","partylist_name":"Sandigan","votes":4}
+[21-Apr-2025 15:02:44 Asia/Manila] Candidate votes: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidate_curry_steph.jpg","partylist_name":"Kanlungan","votes":2}
+[21-Apr-2025 15:02:44 Asia/Manila] Candidate votes: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+[21-Apr-2025 15:02:44 Asia/Manila] Candidate votes: {"firstname":"Ja","lastname":"Morant","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":3}
+[21-Apr-2025 15:02:44 Asia/Manila] Candidate votes: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":2}
+[21-Apr-2025 15:02:44 Asia/Manila] Candidate votes: {"firstname":"Jimmy","lastname":"Buttler","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":1}
+[21-Apr-2025 15:02:44 Asia/Manila] Candidate votes: {"firstname":"Klay","lastname":"Thompson","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":3}
+[21-Apr-2025 15:02:44 Asia/Manila] Candidate votes: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":1}
+[21-Apr-2025 15:02:44 Asia/Manila] Candidate votes: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":1}
+[21-Apr-2025 15:02:44 Asia/Manila] Candidate votes: {"firstname":"Yuki","lastname":"Kawamura","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":0}
+[21-Apr-2025 15:02:44 Asia/Manila] Candidate votes: {"firstname":"Chris","lastname":"Paul","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+[21-Apr-2025 15:02:44 Asia/Manila] Candidate votes: {"firstname":"Victor","lastname":"Wembanayama","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":0}
+[21-Apr-2025 15:02:44 Asia/Manila] export_summary.php called: 2025-04-21 15:02:44
+[21-Apr-2025 15:02:44 Asia/Manila] Candidate votes: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","partylist_name":"Sandigan","votes":4}
+[21-Apr-2025 15:02:44 Asia/Manila] Candidate votes: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidate_curry_steph.jpg","partylist_name":"Kanlungan","votes":2}
+[21-Apr-2025 15:02:44 Asia/Manila] Candidate votes: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+[21-Apr-2025 15:02:44 Asia/Manila] Candidate votes: {"firstname":"Ja","lastname":"Morant","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":3}
+[21-Apr-2025 15:02:44 Asia/Manila] Candidate votes: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":2}
+[21-Apr-2025 15:02:44 Asia/Manila] Candidate votes: {"firstname":"Jimmy","lastname":"Buttler","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":1}
+[21-Apr-2025 15:02:44 Asia/Manila] Candidate votes: {"firstname":"Klay","lastname":"Thompson","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":3}
+[21-Apr-2025 15:02:44 Asia/Manila] Candidate votes: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":1}
+[21-Apr-2025 15:02:44 Asia/Manila] Candidate votes: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":1}
+[21-Apr-2025 15:02:44 Asia/Manila] Candidate votes: {"firstname":"Yuki","lastname":"Kawamura","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":0}
+[21-Apr-2025 15:02:44 Asia/Manila] Candidate votes: {"firstname":"Chris","lastname":"Paul","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+[21-Apr-2025 15:02:44 Asia/Manila] Candidate votes: {"firstname":"Victor","lastname":"Wembanayama","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":0}
+[21-Apr-2025 15:02:44 Asia/Manila] Candidate votes: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","partylist_name":"Sandigan","votes":4}
+[21-Apr-2025 15:02:44 Asia/Manila] Candidate votes: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidate_curry_steph.jpg","partylist_name":"Kanlungan","votes":2}
+[21-Apr-2025 15:02:44 Asia/Manila] Candidate votes: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+[21-Apr-2025 15:02:44 Asia/Manila] Candidate votes: {"firstname":"Ja","lastname":"Morant","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":3}
+[21-Apr-2025 15:02:44 Asia/Manila] Candidate votes: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":2}
+[21-Apr-2025 15:02:44 Asia/Manila] Candidate votes: {"firstname":"Jimmy","lastname":"Buttler","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":1}
+[21-Apr-2025 15:02:44 Asia/Manila] Candidate votes: {"firstname":"Klay","lastname":"Thompson","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":3}
+[21-Apr-2025 15:02:44 Asia/Manila] Candidate votes: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":1}
+[21-Apr-2025 15:02:44 Asia/Manila] Candidate votes: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":1}
+[21-Apr-2025 15:02:44 Asia/Manila] Candidate votes: {"firstname":"Yuki","lastname":"Kawamura","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":0}
+[21-Apr-2025 15:02:44 Asia/Manila] Candidate votes: {"firstname":"Chris","lastname":"Paul","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+[21-Apr-2025 15:02:44 Asia/Manila] Candidate votes: {"firstname":"Victor","lastname":"Wembanayama","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":0}
+[21-Apr-2025 15:02:44 Asia/Manila] Final PDF paths - Summary: archives/E-2025-1094/summary.pdf, Results: archives/E-2025-1094/results.pdf
+[21-Apr-2025 11:56:29 Europe/Berlin] Archive process starting: 2025-04-21 11:56:29
+[21-Apr-2025 17:56:29 Asia/Manila] Database connection attempt with:
+[21-Apr-2025 17:56:29 Asia/Manila] Host: localhost
+[21-Apr-2025 17:56:29 Asia/Manila] Username: root
+[21-Apr-2025 17:56:29 Asia/Manila] Database: e-halal
+[21-Apr-2025 17:56:29 Asia/Manila] export_results.php called: 2025-04-21 17:56:29
+[21-Apr-2025 17:56:29 Asia/Manila] Candidate votes: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidate_curry_steph.jpg","partylist_name":"Kanlungan","votes":0}
+[21-Apr-2025 17:56:29 Asia/Manila] Candidate votes: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","partylist_name":"Sandigan","votes":0}
+[21-Apr-2025 17:56:29 Asia/Manila] Candidate votes: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+[21-Apr-2025 17:56:29 Asia/Manila] Candidate votes: {"firstname":"Jimmy","lastname":"Buttler","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":0}
+[21-Apr-2025 17:56:29 Asia/Manila] Candidate votes: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":0}
+[21-Apr-2025 17:56:29 Asia/Manila] Candidate votes: {"firstname":"Ja","lastname":"Morant","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+[21-Apr-2025 17:56:29 Asia/Manila] Candidate votes: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":0}
+[21-Apr-2025 17:56:29 Asia/Manila] Candidate votes: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":0}
+[21-Apr-2025 17:56:29 Asia/Manila] Candidate votes: {"firstname":"Klay","lastname":"Thompson","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+[21-Apr-2025 17:56:29 Asia/Manila] Candidate votes: {"firstname":"Yuki","lastname":"Kawamura","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":0}
+[21-Apr-2025 17:56:29 Asia/Manila] Candidate votes: {"firstname":"Chris","lastname":"Paul","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+[21-Apr-2025 17:56:29 Asia/Manila] Candidate votes: {"firstname":"Victor","lastname":"Wembanayama","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":0}
+[21-Apr-2025 17:56:29 Asia/Manila] export_summary.php called: 2025-04-21 17:56:29
+[21-Apr-2025 17:56:30 Asia/Manila] Candidate votes: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidate_curry_steph.jpg","partylist_name":"Kanlungan","votes":0}
+[21-Apr-2025 17:56:30 Asia/Manila] Candidate votes: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","partylist_name":"Sandigan","votes":0}
+[21-Apr-2025 17:56:30 Asia/Manila] Candidate votes: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+[21-Apr-2025 17:56:30 Asia/Manila] Candidate votes: {"firstname":"Jimmy","lastname":"Buttler","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":0}
+[21-Apr-2025 17:56:30 Asia/Manila] Candidate votes: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":0}
+[21-Apr-2025 17:56:30 Asia/Manila] Candidate votes: {"firstname":"Ja","lastname":"Morant","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+[21-Apr-2025 17:56:30 Asia/Manila] Candidate votes: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":0}
+[21-Apr-2025 17:56:30 Asia/Manila] Candidate votes: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":0}
+[21-Apr-2025 17:56:30 Asia/Manila] Candidate votes: {"firstname":"Klay","lastname":"Thompson","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+[21-Apr-2025 17:56:30 Asia/Manila] Candidate votes: {"firstname":"Yuki","lastname":"Kawamura","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":0}
+[21-Apr-2025 17:56:30 Asia/Manila] Candidate votes: {"firstname":"Chris","lastname":"Paul","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+[21-Apr-2025 17:56:30 Asia/Manila] Candidate votes: {"firstname":"Victor","lastname":"Wembanayama","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":0}
+[21-Apr-2025 17:56:30 Asia/Manila] Candidate votes: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidate_curry_steph.jpg","partylist_name":"Kanlungan","votes":0}
+[21-Apr-2025 17:56:30 Asia/Manila] Candidate votes: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","partylist_name":"Sandigan","votes":0}
+[21-Apr-2025 17:56:30 Asia/Manila] Candidate votes: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+[21-Apr-2025 17:56:30 Asia/Manila] Candidate votes: {"firstname":"Jimmy","lastname":"Buttler","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":0}
+[21-Apr-2025 17:56:30 Asia/Manila] Candidate votes: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":0}
+[21-Apr-2025 17:56:30 Asia/Manila] Candidate votes: {"firstname":"Ja","lastname":"Morant","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+[21-Apr-2025 17:56:30 Asia/Manila] Candidate votes: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":0}
+[21-Apr-2025 17:56:30 Asia/Manila] Candidate votes: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":0}
+[21-Apr-2025 17:56:30 Asia/Manila] Candidate votes: {"firstname":"Klay","lastname":"Thompson","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+[21-Apr-2025 17:56:30 Asia/Manila] Candidate votes: {"firstname":"Yuki","lastname":"Kawamura","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":0}
+[21-Apr-2025 17:56:30 Asia/Manila] Candidate votes: {"firstname":"Chris","lastname":"Paul","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+[21-Apr-2025 17:56:30 Asia/Manila] Candidate votes: {"firstname":"Victor","lastname":"Wembanayama","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":0}
+[21-Apr-2025 17:56:30 Asia/Manila] Final PDF paths - Summary: archives/E2504218634/summary.pdf, Results: archives/E2504218634/results.pdf
+[21-Apr-2025 17:56:30 Asia/Manila] Election archiving error: Column 'end_time' cannot be null
+[28-Apr-2025 08:55:37 Europe/Berlin] generate_report.php called: 2025-04-28 08:55:37
+[28-Apr-2025 14:55:37 Asia/Manila] Database connection attempt with:
+[28-Apr-2025 14:55:37 Asia/Manila] Host: localhost
+[28-Apr-2025 14:55:37 Asia/Manila] Username: root
+[28-Apr-2025 14:55:37 Asia/Manila] Database: e-halal

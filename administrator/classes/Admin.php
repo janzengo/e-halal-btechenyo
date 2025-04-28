@@ -15,8 +15,9 @@ class Admin {
     private $created_on;
     private $role;
     private $gender;
+    private $email;
 
-    const ROLE_SUPERADMIN = 'superadmin';
+    const ROLE_SUPERADMIN = 'head';
     const ROLE_OFFICER = 'officer';
 
     // Restricted pages for officers
@@ -62,37 +63,171 @@ class Admin {
                 $this->created_on = $admin['created_on'];
                 $this->role = $admin['role'];
                 $this->gender = $admin['gender'];
+                $this->email = $admin['email'];
             }
         }
     }
 
     public function login($username, $password) {
-        $sql = "SELECT * FROM admin WHERE username = ?";
-        $stmt = $this->db->getConnection()->prepare($sql);
-        $stmt->bind_param("s", $username);
-        $stmt->execute();
-        $result = $stmt->get_result();
-    
-        if ($result->num_rows < 1) {
-            return false;
-        }
-    
-        $admin = $result->fetch_assoc();
-    
-        if (password_verify($password, $admin['password'])) {
-            $this->id = $admin['id'];
-            $this->username = $admin['username'];
-            $this->firstname = $admin['firstname'];
-            $this->lastname = $admin['lastname'];
-            $this->photo = $admin['photo'];
-            $this->role = $admin['role'];
-            $this->gender = $admin['gender'];
+        require_once __DIR__ . '/LoginDebugger.php';
+        $debug = LoginDebugger::getInstance();
+        
+        // Ensure log directory exists and is writable
+        $logDir = __DIR__ . '/../../logs';
+        $debug->log("Setting up log directory", ['path' => $logDir]);
+        
+        try {
+            if (!file_exists($logDir)) {
+                if (!@mkdir($logDir, 0777, true)) {
+                    $debug->log("Failed to create log directory", [
+                        'path' => $logDir,
+                        'error' => error_get_last()
+                    ]);
+                }
+            }
             
-            $this->session->setSession('admin', $this->id);
-            return true;
+            if (!is_writable($logDir)) {
+                if (!@chmod($logDir, 0777)) {
+                    $debug->log("Failed to make log directory writable", [
+                        'path' => $logDir,
+                        'error' => error_get_last()
+                    ]);
+                }
+            }
+            
+            $logFile = $logDir . '/login_debug.log';
+            if (!file_exists($logFile)) {
+                if (!@touch($logFile)) {
+                    $debug->log("Failed to create log file", [
+                        'path' => $logFile,
+                        'error' => error_get_last()
+                    ]);
+                }
+            }
+            
+            if (file_exists($logFile) && !is_writable($logFile)) {
+                if (!@chmod($logFile, 0666)) {
+                    $debug->log("Failed to make log file writable", [
+                        'path' => $logFile,
+                        'error' => error_get_last()
+                    ]);
+                }
+            }
+        } catch (Exception $e) {
+            $debug->log("Error setting up log files", [
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
         }
         
-        return false;
+        $debug->log("Login attempt started", ['username' => $username]);
+        $debug->logSessionState("Before login attempt");
+
+        try {
+            // Get database connection
+            $conn = $this->db->getConnection();
+            $debug->log("Database connection obtained");
+
+            $stmt = $conn->prepare("SELECT * FROM admin WHERE username = ?");
+            if (!$stmt) {
+                $debug->log("Failed to prepare statement", ['error' => $conn->error]);
+                throw new Exception('System error occurred. Please try again.');
+            }
+            
+            $stmt->bind_param("s", $username);
+            $debug->log("Statement prepared with username", ['username' => $username]);
+            
+            if (!$stmt->execute()) {
+                $debug->log("Failed to execute statement", ['error' => $stmt->error]);
+                throw new Exception('System error occurred. Please try again.');
+            }
+            
+            $result = $stmt->get_result();
+            if ($result === false) {
+                $debug->log("Failed to get result", ['error' => $stmt->error]);
+                throw new Exception('System error occurred. Please try again.');
+            }
+
+            if ($result->num_rows === 0) {
+                $debug->log("No user found for username", ['username' => $username]);
+                throw new Exception('Incorrect username or password');
+            }
+    
+            $row = $result->fetch_assoc();
+            $debug->log("User found", ['role' => $row['role'], 'username' => $username]);
+            
+            if (!password_verify($password, $row['password'])) {
+                $debug->log("Password verification failed for user", ['username' => $username]);
+                throw new Exception('Incorrect username or password');
+            }
+            
+            $debug->log("Password verified successfully for user", ['username' => $username, 'role' => $row['role']]);
+
+            // Check if user is an officer and handle election status
+            if ($row['role'] === 'officer') {
+                $debug->log("User is an officer, checking election status");
+                require_once __DIR__ . '/Elections.php';
+                $elections = Elections::getInstance();
+                $currentStatus = $elections->getCurrentStatus();
+                $debug->log("Retrieved election status for officer login", [
+                    'username' => $username,
+                    'current_status' => $currentStatus,
+                    'raw_status_check' => [
+                        'is_pending' => ($currentStatus === Elections::STATUS_PENDING),
+                        'is_active' => ($currentStatus === Elections::STATUS_ACTIVE),
+                        'status_value' => $currentStatus,
+                        'pending_const' => Elections::STATUS_PENDING,
+                        'active_const' => Elections::STATUS_ACTIVE
+                    ]
+                ]);
+
+                // Officers can access during pending or active election
+                if ($currentStatus === Elections::STATUS_PENDING || $currentStatus === Elections::STATUS_ACTIVE) {
+                    $debug->log("Officer access granted - election status is valid", [
+                        'username' => $username,
+                        'current_status' => $currentStatus
+                    ]);
+                } else {
+                    $debug->log("Officer access denied - election is not pending or active", [
+                        'username' => $username,
+                        'current_status' => $currentStatus,
+                        'expected_statuses' => [Elections::STATUS_PENDING, Elections::STATUS_ACTIVE]
+                    ]);
+                    throw new Exception('Access denied. Officers can only login during pending or active elections.');
+                }
+            } else {
+                $debug->log("User is head admin, proceeding with login", ['username' => $username]);
+            }
+
+            $debug->log("Setting session variables", [
+                'admin_id' => $row['id'],
+                'role' => $row['role']
+            ]);
+            
+            $_SESSION['admin'] = $row['id'];
+            $_SESSION['role'] = $row['role'];
+            
+            // Log the successful login
+            require_once __DIR__ . '/Logger.php';
+            $logger = AdminLogger::getInstance();
+            $logger->logAdminAction($row['username'], $row['role'], 'Logged in successfully');
+            
+            $debug->log("Login successful", [
+                'username' => $username,
+                'role' => $row['role']
+            ]);
+            $debug->logSessionState("After successful login");
+            
+            return true;
+            
+        } catch (Exception $e) {
+            $debug->log("Login error occurred", [
+                'username' => $username,
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString()
+            ]);
+            throw $e;
+        }
     }
 
     public function logout() {
@@ -104,6 +239,7 @@ class Admin {
         $this->photo = null;
         $this->role = null;
         $this->gender = null;
+        $this->email = null;
         
         // Instead of redirecting, just return true
         return true;
@@ -137,7 +273,8 @@ class Admin {
             'photo' => $this->photo,
             'role' => $this->role,
             'gender' => $this->gender,
-            'created_on' => $this->created_on
+            'created_on' => $this->created_on,
+            'email' => $this->email
         ];
     }
 
@@ -159,9 +296,12 @@ class Admin {
     public function getUsername() { return $this->username; }
     public function getFirstname() { return $this->firstname; }
     public function getLastname() { return $this->lastname; }
+    // Public getter for db
+    public function getDbInstance() { return $this->db; }
     public function getPhoto() { return $this->photo; }
     public function getRole() { return $this->role; }
     public function getGender() { return $this->gender; }
+    public function getEmail() { return $this->email; }
 
     /**
      * Get full name of admin
@@ -187,12 +327,12 @@ class Admin {
     }
 
     /**
-     * Check if the logged-in user is an admin (superadmin)
+     * Check if the logged-in user is an admin (head)
      * 
      * @return bool True if user is admin, false otherwise
      */
     public function isAdmin() {
-        return $this->isLoggedIn() && $this->role === 'superadmin';
+        return $this->isLoggedIn() && $this->role === 'head';
     }
 
     /**
@@ -212,11 +352,52 @@ class Admin {
     }
 
     /**
-     * Check if current admin is superadmin
+     * Get admin data by username
+     * @param string $username Username to look up
+     * @return array|null Admin data array or null if not found
+     */
+    public function getAdminByUsername($username) {
+        try {
+            $stmt = $this->db->getConnection()->prepare("SELECT * FROM admin WHERE username = ?");
+            if (!$stmt) {
+                throw new Exception('Failed to prepare statement');
+            }
+            
+            $stmt->bind_param("s", $username);
+            if (!$stmt->execute()) {
+                throw new Exception('Failed to execute statement');
+            }
+            
+            $result = $stmt->get_result();
+            if ($result === false) {
+                throw new Exception('Failed to get result');
+            }
+            
+            if ($result->num_rows === 0) {
+                return null;
+            }
+            
+            return $result->fetch_assoc();
+        } catch (Exception $e) {
+            error_log("Error in getAdminByUsername: " . $e->getMessage());
+            return null;
+        }
+    }
+
+    /**
+     * Check if current admin is head
      * @return bool
      */
-    public function isSuperAdmin() {
+    public function isHead() {
         return $this->getRole() === self::ROLE_SUPERADMIN;
+    }
+
+    /**
+     * Alias for isHead() to maintain compatibility with previous code references.
+     * @return bool
+     */
+    public function isElectoralHead() {
+        return $this->isHead();
     }
 
     /**
@@ -237,10 +418,11 @@ class Admin {
      * @param string $username New username
      * @param string $firstname New firstname
      * @param string $lastname New lastname
-     * @param string $photo Photo path
+     * @param string|null $email New email
+     * @param string|null $photo Photo path
      * @return bool Success status
      */
-    public function updateProfile($username, $firstname, $lastname, $photo = null) {
+    public function updateProfile($username, $firstname, $lastname, $email = null, $photo = null) {
         if (!$this->isLoggedIn()) {
             return false;
         }
@@ -258,9 +440,9 @@ class Admin {
             }
             
             // Update admin profile
-            $sql = "UPDATE admin SET username = ?, firstname = ?, lastname = ?";
-            $params = [$username, $firstname, $lastname];
-            $types = "sss";
+            $sql = "UPDATE admin SET username = ?, firstname = ?, lastname = ?, email = ?";
+            $params = [$username, $firstname, $lastname, $email];
+            $types = "ssss";
             
             if ($photo) {
                 $sql .= ", photo = ?";
@@ -280,6 +462,7 @@ class Admin {
                 $this->username = $username;
                 $this->firstname = $firstname;
                 $this->lastname = $lastname;
+                $this->email = $email;
                 if ($photo) {
                     $this->photo = $photo;
                 }
@@ -369,15 +552,26 @@ class Admin {
         return $result->num_rows > 0;
     }
 
-    public function addOfficer($firstname, $lastname, $username, $password, $gender) {
+    /**
+     * Add a new officer
+     * @param string $firstname First name
+     * @param string $lastname Last name
+     * @param string $username Username
+     * @param string $password Password
+     * @param string $gender Gender
+     * @param string|null $email Email (optional)
+     * @return bool Success status
+     */
+    public function addOfficer($firstname, $lastname, $username, $password, $gender, $email = null) {
         // Hash password
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-        $query = "INSERT INTO admin (username, password, firstname, lastname, gender, role, created_on) 
-                 VALUES (?, ?, ?, ?, ?, 'officer', NOW())";
+        $query = "INSERT INTO admin (username, email, password, firstname, lastname, gender, role, created_on) 
+                 VALUES (?, ?, ?, ?, ?, ?, 'officer', NOW())";
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("sssss", 
+        $stmt->bind_param("ssssss", 
             $username,
+            $email,
             $hashedPassword,
             $firstname,
             $lastname,
@@ -387,15 +581,26 @@ class Admin {
         return $stmt->execute();
     }
 
-    public function updateOfficer($id, $firstname, $lastname, $username, $password, $gender) {
+    /**
+     * Update an officer's information
+     * @param int $id Officer ID
+     * @param string $firstname First name
+     * @param string $lastname Last name
+     * @param string $username Username
+     * @param string $password Password (optional)
+     * @param string $gender Gender
+     * @param string|null $email Email (optional)
+     * @return bool Success status
+     */
+    public function updateOfficer($id, $firstname, $lastname, $username, $password, $gender, $email = null) {
         // Prevent updating self
         if ($id == $this->getId()) {
             return false;
         }
 
-        $query = "UPDATE admin SET username = ?, firstname = ?, lastname = ?, gender = ?";
-        $params = [$username, $firstname, $lastname, $gender];
-        $types = "ssss";
+        $query = "UPDATE admin SET username = ?, firstname = ?, lastname = ?, gender = ?, email = ?";
+        $params = [$username, $firstname, $lastname, $gender, $email];
+        $types = "sssss";
 
         // Update password if provided
         if (!empty($password)) {
@@ -424,5 +629,112 @@ class Admin {
         $stmt = $this->db->prepare($query);
         $stmt->bind_param("i", $id);
         return $stmt->execute();
+    }
+
+    /**
+     * Validate email format
+     * @param string|null $email Email to validate
+     * @return bool True if valid or null, false otherwise
+     */
+    public function validateEmail($email) {
+        if ($email === null || $email === '') {
+            return true;
+        }
+        return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
+    }
+
+    /**
+     * Check if email exists (excluding specific ID)
+     * @param string $email Email to check
+     * @param int|null $excludeId ID to exclude from check
+     * @return bool True if email exists
+     */
+    public function checkEmail($email, $excludeId = null) {
+        if ($email === null || $email === '') {
+            return false;
+        }
+
+        $query = "SELECT id FROM admin WHERE email = ?";
+        $params = [$email];
+        $types = "s";
+
+        if ($excludeId !== null) {
+            $query .= " AND id != ?";
+            $params[] = $excludeId;
+            $types .= "i";
+        }
+
+        $stmt = $this->db->prepare($query);
+        $stmt->bind_param($types, ...$params);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->num_rows > 0;
+    }
+
+    /**
+     * Verify admin credentials without completing login
+     * 
+     * @param string $username Username to verify
+     * @param string $password Password to verify
+     * @return bool True if credentials are valid
+     */
+    public function verifyCredentials($username, $password) {
+        try {
+            $stmt = $this->db->prepare("SELECT * FROM admin WHERE username = ?");
+            $stmt->bind_param("s", $username);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            
+            if ($result->num_rows === 1) {
+                $admin = $result->fetch_assoc();
+                if (password_verify($password, $admin['password'])) {
+                    return true;
+                }
+            }
+            return false;
+        } catch (Exception $e) {
+            error_log("Error in verifyCredentials: " . $e->getMessage());
+            return false;
+        }
+    }
+
+    /**
+     * Complete the login process after OTP verification
+     * 
+     * @param string $username Username to login
+     * @return bool True if login successful
+     */
+    public function completeLogin($username) {
+        try {
+            $stmt = $this->db->prepare("SELECT * FROM admin WHERE username = ?");
+            $stmt->bind_param("s", $username);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            
+            if ($result->num_rows === 1) {
+                $admin = $result->fetch_assoc();
+                
+                // Set all required admin session variables
+                $this->session->setSession('admin', $admin['id']);
+                $this->session->setSession('admin_username', $admin['username']);
+                $this->session->setSession('admin_role', $admin['role']);
+                
+                // Set instance properties
+                $this->id = $admin['id'];
+                $this->username = $admin['username'];
+                $this->firstname = $admin['firstname'];
+                $this->lastname = $admin['lastname'];
+                $this->photo = $admin['photo'];
+                $this->role = $admin['role'];
+                $this->gender = $admin['gender'];
+                $this->email = $admin['email'];
+                
+                return true;
+            }
+            return false;
+        } catch (Exception $e) {
+            error_log("Error in completeLogin: " . $e->getMessage());
+            return false;
+        }
     }
 }

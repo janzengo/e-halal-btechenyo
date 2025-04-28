@@ -1,0 +1,318 @@
+2025-04-21 14:57:26 - Starting summary PDF generation
+2025-04-21 14:57:26 - TCPDF class loaded successfully
+2025-04-21 14:57:26 - Running in normal mode - including required files
+2025-04-21 14:57:26 - All includes loaded successfully (document root method)
+2025-04-21 14:57:26 - Starting summary PDF generation
+2025-04-21 14:57:26 - Creating new ElectionPDF instance
+2025-04-21 14:57:26 - Setting document properties
+2025-04-21 14:57:26 - Setting font and margin properties
+2025-04-21 14:57:26 - Adding first page
+2025-04-21 14:57:26 - Creating election information section
+2025-04-21 14:57:26 - Creating info table data
+2025-04-21 14:57:26 - Rendering info table
+2025-04-21 14:57:26 - Creating voter participation section
+2025-04-21 14:57:26 - Getting voting statistics
+2025-04-21 14:57:26 - Creating participation table
+2025-04-21 14:57:26 - Rendering participation table
+2025-04-21 14:57:26 - Creating elected officers section
+2025-04-21 14:57:26 - Creating winners table
+2025-04-21 14:57:26 - Getting positions data
+2025-04-21 14:57:26 - Creating winners table rows - positions count: 4
+2025-04-21 14:57:26 - Processing position ID: 20 - President
+2025-04-21 14:57:26 - Position has 3 candidates
+2025-04-21 14:57:26 - Added winner: Lebron James
+2025-04-21 14:57:26 - Processing position ID: 21 - Vice President
+2025-04-21 14:57:26 - Position has 3 candidates
+2025-04-21 14:57:26 - Added winner: Ja Morant
+2025-04-21 14:57:26 - Processing position ID: 22 - Secretary
+2025-04-21 14:57:26 - Position has 3 candidates
+2025-04-21 14:57:26 - Added winner: Klay Thompson
+2025-04-21 14:57:26 - Processing position ID: 23 - PIO
+2025-04-21 14:57:26 - Position has 3 candidates
+2025-04-21 14:57:26 - Creating detailed vote statistics section
+2025-04-21 14:57:26 - Processing detailed stats for position ID: 20 - President
+2025-04-21 14:57:26 - Retrieved 3 candidates for position 20
+2025-04-21 14:57:26 - Candidate data structure: ["firstname","lastname","photo","partylist_name","votes"]
+2025-04-21 14:57:26 - Processing candidate: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","partylist_name":"Sandigan","votes":4}
+2025-04-21 14:57:26 - Processing candidate: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidate_curry_steph.jpg","partylist_name":"Kanlungan","votes":2}
+2025-04-21 14:57:26 - Processing candidate: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+2025-04-21 14:57:26 - Processing detailed stats for position ID: 21 - Vice President
+2025-04-21 14:57:26 - Retrieved 3 candidates for position 21
+2025-04-21 14:57:26 - Candidate data structure: ["firstname","lastname","photo","partylist_name","votes"]
+2025-04-21 14:57:26 - Processing candidate: {"firstname":"Ja","lastname":"Morant","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":3}
+2025-04-21 14:57:26 - Processing candidate: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":2}
+2025-04-21 14:57:26 - Processing candidate: {"firstname":"Jimmy","lastname":"Buttler","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":1}
+2025-04-21 14:57:26 - Processing detailed stats for position ID: 22 - Secretary
+2025-04-21 14:57:26 - Retrieved 3 candidates for position 22
+2025-04-21 14:57:26 - Candidate data structure: ["firstname","lastname","photo","partylist_name","votes"]
+2025-04-21 14:57:26 - Processing candidate: {"firstname":"Klay","lastname":"Thompson","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":3}
+2025-04-21 14:57:26 - Processing candidate: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":1}
+2025-04-21 14:57:26 - Processing candidate: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":1}
+2025-04-21 14:57:26 - Processing detailed stats for position ID: 23 - PIO
+2025-04-21 14:57:26 - Retrieved 3 candidates for position 23
+2025-04-21 14:57:26 - Candidate data structure: ["firstname","lastname","photo","partylist_name","votes"]
+2025-04-21 14:57:26 - Processing candidate: {"firstname":"Yuki","lastname":"Kawamura","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":0}
+2025-04-21 14:57:26 - Processing candidate: {"firstname":"Chris","lastname":"Paul","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+2025-04-21 14:57:26 - Processing candidate: {"firstname":"Victor","lastname":"Wembanayama","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":0}
+2025-04-21 14:57:26 - Creating certification section
+2025-04-21 14:57:26 - Generating output PDF
+2025-04-21 14:57:26 - Saving PDF to physical path: C:/xampp/htdocs/e-halal/administrator/archives/E-2025-1094/summary.pdf
+2025-04-21 14:57:26 - PDF saved successfully. Normalized path for DB: e-halal/administrator/archives/E-2025-1094/summary.pdf
+2025-04-21 14:57:26 - PDF generation complete
+2025-04-21 15:00:47 - Starting summary PDF generation
+2025-04-21 15:00:47 - TCPDF class loaded successfully
+2025-04-21 15:00:47 - Running in normal mode - including required files
+2025-04-21 15:00:47 - All includes loaded successfully (document root method)
+2025-04-21 15:00:47 - Starting summary PDF generation
+2025-04-21 15:00:47 - Creating new ElectionPDF instance
+2025-04-21 15:00:47 - Setting document properties
+2025-04-21 15:00:47 - Setting font and margin properties
+2025-04-21 15:00:47 - Adding first page
+2025-04-21 15:00:47 - Creating election information section
+2025-04-21 15:00:47 - Creating info table data
+2025-04-21 15:00:47 - Rendering info table
+2025-04-21 15:00:47 - Creating voter participation section
+2025-04-21 15:00:47 - Getting voting statistics
+2025-04-21 15:00:47 - Creating participation table
+2025-04-21 15:00:47 - Rendering participation table
+2025-04-21 15:00:47 - Creating elected officers section
+2025-04-21 15:00:47 - Creating winners table
+2025-04-21 15:00:47 - Getting positions data
+2025-04-21 15:00:47 - Creating winners table rows - positions count: 4
+2025-04-21 15:00:47 - Processing position ID: 20 - President
+2025-04-21 15:00:47 - Position has 3 candidates
+2025-04-21 15:00:47 - Added winner: Lebron James
+2025-04-21 15:00:47 - Processing position ID: 21 - Vice President
+2025-04-21 15:00:47 - Position has 3 candidates
+2025-04-21 15:00:47 - Added winner: Ja Morant
+2025-04-21 15:00:47 - Processing position ID: 22 - Secretary
+2025-04-21 15:00:47 - Position has 3 candidates
+2025-04-21 15:00:47 - Added winner: Klay Thompson
+2025-04-21 15:00:47 - Processing position ID: 23 - PIO
+2025-04-21 15:00:47 - Position has 3 candidates
+2025-04-21 15:00:47 - Creating detailed vote statistics section
+2025-04-21 15:00:47 - Processing detailed stats for position ID: 20 - President
+2025-04-21 15:00:47 - Retrieved 3 candidates for position 20
+2025-04-21 15:00:47 - Candidate data structure: ["firstname","lastname","photo","partylist_name","votes"]
+2025-04-21 15:00:47 - Processing candidate: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","partylist_name":"Sandigan","votes":4}
+2025-04-21 15:00:47 - Processing candidate: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidate_curry_steph.jpg","partylist_name":"Kanlungan","votes":2}
+2025-04-21 15:00:47 - Processing candidate: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+2025-04-21 15:00:47 - Processing detailed stats for position ID: 21 - Vice President
+2025-04-21 15:00:47 - Retrieved 3 candidates for position 21
+2025-04-21 15:00:47 - Candidate data structure: ["firstname","lastname","photo","partylist_name","votes"]
+2025-04-21 15:00:47 - Processing candidate: {"firstname":"Ja","lastname":"Morant","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":3}
+2025-04-21 15:00:47 - Processing candidate: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":2}
+2025-04-21 15:00:47 - Processing candidate: {"firstname":"Jimmy","lastname":"Buttler","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":1}
+2025-04-21 15:00:47 - Processing detailed stats for position ID: 22 - Secretary
+2025-04-21 15:00:47 - Retrieved 3 candidates for position 22
+2025-04-21 15:00:47 - Candidate data structure: ["firstname","lastname","photo","partylist_name","votes"]
+2025-04-21 15:00:47 - Processing candidate: {"firstname":"Klay","lastname":"Thompson","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":3}
+2025-04-21 15:00:47 - Processing candidate: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":1}
+2025-04-21 15:00:47 - Processing candidate: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":1}
+2025-04-21 15:00:47 - Processing detailed stats for position ID: 23 - PIO
+2025-04-21 15:00:47 - Retrieved 3 candidates for position 23
+2025-04-21 15:00:47 - Candidate data structure: ["firstname","lastname","photo","partylist_name","votes"]
+2025-04-21 15:00:47 - Processing candidate: {"firstname":"Yuki","lastname":"Kawamura","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":0}
+2025-04-21 15:00:47 - Processing candidate: {"firstname":"Chris","lastname":"Paul","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+2025-04-21 15:00:47 - Processing candidate: {"firstname":"Victor","lastname":"Wembanayama","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":0}
+2025-04-21 15:00:47 - Creating certification section
+2025-04-21 15:00:47 - Generating output PDF
+2025-04-21 15:00:47 - Saving PDF to physical path: C:/xampp/htdocs/e-halal/administrator/archives/E-2025-1094/summary.pdf
+2025-04-21 15:00:47 - PDF saved successfully. Normalized path for DB: e-halal/administrator/archives/E-2025-1094/summary.pdf
+2025-04-21 15:00:47 - PDF generation complete
+2025-04-21 09:01:21 - Starting summary PDF generation
+2025-04-21 09:01:21 - TCPDF class loaded successfully
+2025-04-21 09:01:21 - Running in normal mode - including required files
+2025-04-21 15:01:21 - All includes loaded successfully (document root method)
+2025-04-21 15:01:21 - Starting summary PDF generation
+2025-04-21 15:01:21 - Creating new ElectionPDF instance
+2025-04-21 15:01:21 - Setting document properties
+2025-04-21 15:01:21 - Setting font and margin properties
+2025-04-21 15:01:21 - Adding first page
+2025-04-21 15:01:21 - Loading logos - Left: C:\xampp\htdocs\e-halal/administrator/assets/images/btech.png, Right: C:\xampp\htdocs\e-halal/administrator/assets/images/ehalal.jpg
+2025-04-21 15:01:21 - Left logo loaded successfully
+2025-04-21 15:01:21 - Right logo loaded successfully
+2025-04-21 15:01:21 - Logos loaded successfully
+2025-04-21 15:01:21 - Creating election information section
+2025-04-21 15:01:21 - Creating info table data
+2025-04-21 15:01:21 - Rendering info table
+2025-04-21 15:01:21 - Creating voter participation section
+2025-04-21 15:01:21 - Getting voting statistics
+2025-04-21 15:01:21 - Creating participation table
+2025-04-21 15:01:21 - Rendering participation table
+2025-04-21 15:01:21 - Creating elected officers section
+2025-04-21 15:01:21 - Creating winners table
+2025-04-21 15:01:21 - Getting positions data
+2025-04-21 15:01:21 - Creating winners table rows - positions count: 4
+2025-04-21 15:01:21 - Processing position ID: 20 - President
+2025-04-21 15:01:21 - Position has 3 candidates
+2025-04-21 15:01:21 - Added winner: Lebron James
+2025-04-21 15:01:21 - Processing position ID: 21 - Vice President
+2025-04-21 15:01:21 - Position has 3 candidates
+2025-04-21 15:01:21 - Added winner: Ja Morant
+2025-04-21 15:01:21 - Processing position ID: 22 - Secretary
+2025-04-21 15:01:21 - Position has 3 candidates
+2025-04-21 15:01:21 - Added winner: Klay Thompson
+2025-04-21 15:01:21 - Processing position ID: 23 - PIO
+2025-04-21 15:01:21 - Position has 3 candidates
+2025-04-21 15:01:21 - Creating detailed vote statistics section
+2025-04-21 15:01:21 - Loading logos - Left: C:\xampp\htdocs\e-halal/administrator/assets/images/btech.png, Right: C:\xampp\htdocs\e-halal/administrator/assets/images/ehalal.jpg
+2025-04-21 15:01:21 - Left logo loaded successfully
+2025-04-21 15:01:21 - Right logo loaded successfully
+2025-04-21 15:01:21 - Logos loaded successfully
+2025-04-21 15:01:21 - Processing detailed stats for position ID: 20 - President
+2025-04-21 15:01:21 - Retrieved 3 candidates for position 20
+2025-04-21 15:01:21 - Candidate data structure: ["firstname","lastname","photo","partylist_name","votes"]
+2025-04-21 15:01:21 - Processing candidate: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","partylist_name":"Sandigan","votes":4}
+2025-04-21 15:01:21 - Processing candidate: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidate_curry_steph.jpg","partylist_name":"Kanlungan","votes":2}
+2025-04-21 15:01:21 - Processing candidate: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+2025-04-21 15:01:21 - Processing detailed stats for position ID: 21 - Vice President
+2025-04-21 15:01:21 - Retrieved 3 candidates for position 21
+2025-04-21 15:01:21 - Candidate data structure: ["firstname","lastname","photo","partylist_name","votes"]
+2025-04-21 15:01:21 - Processing candidate: {"firstname":"Ja","lastname":"Morant","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":3}
+2025-04-21 15:01:21 - Processing candidate: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":2}
+2025-04-21 15:01:21 - Processing candidate: {"firstname":"Jimmy","lastname":"Buttler","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":1}
+2025-04-21 15:01:21 - Processing detailed stats for position ID: 22 - Secretary
+2025-04-21 15:01:21 - Retrieved 3 candidates for position 22
+2025-04-21 15:01:21 - Candidate data structure: ["firstname","lastname","photo","partylist_name","votes"]
+2025-04-21 15:01:21 - Processing candidate: {"firstname":"Klay","lastname":"Thompson","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":3}
+2025-04-21 15:01:21 - Processing candidate: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":1}
+2025-04-21 15:01:21 - Processing candidate: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":1}
+2025-04-21 15:01:21 - Processing detailed stats for position ID: 23 - PIO
+2025-04-21 15:01:21 - Retrieved 3 candidates for position 23
+2025-04-21 15:01:21 - Candidate data structure: ["firstname","lastname","photo","partylist_name","votes"]
+2025-04-21 15:01:21 - Processing candidate: {"firstname":"Yuki","lastname":"Kawamura","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":0}
+2025-04-21 15:01:21 - Processing candidate: {"firstname":"Chris","lastname":"Paul","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+2025-04-21 15:01:21 - Processing candidate: {"firstname":"Victor","lastname":"Wembanayama","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":0}
+2025-04-21 15:01:21 - Loading logos - Left: C:\xampp\htdocs\e-halal/administrator/assets/images/btech.png, Right: C:\xampp\htdocs\e-halal/administrator/assets/images/ehalal.jpg
+2025-04-21 15:01:21 - Left logo loaded successfully
+2025-04-21 15:01:21 - Right logo loaded successfully
+2025-04-21 15:01:21 - Logos loaded successfully
+2025-04-21 15:01:21 - Creating certification section
+2025-04-21 15:01:21 - Loading logos - Left: C:\xampp\htdocs\e-halal/administrator/assets/images/btech.png, Right: C:\xampp\htdocs\e-halal/administrator/assets/images/ehalal.jpg
+2025-04-21 15:01:21 - Left logo loaded successfully
+2025-04-21 15:01:21 - Right logo loaded successfully
+2025-04-21 15:01:21 - Logos loaded successfully
+2025-04-21 15:01:21 - Generating output PDF
+2025-04-21 15:01:21 - Sending PDF for download
+2025-04-21 15:01:21 - PDF download initiated
+2025-04-21 15:01:21 - PDF generation complete
+2025-04-21 15:02:44 - Starting summary PDF generation
+2025-04-21 15:02:44 - TCPDF class loaded successfully
+2025-04-21 15:02:44 - Running in normal mode - including required files
+2025-04-21 15:02:44 - All includes loaded successfully (document root method)
+2025-04-21 15:02:44 - Starting summary PDF generation
+2025-04-21 15:02:44 - Creating new ElectionPDF instance
+2025-04-21 15:02:44 - Setting document properties
+2025-04-21 15:02:44 - Setting font and margin properties
+2025-04-21 15:02:44 - Adding first page
+2025-04-21 15:02:44 - Creating election information section
+2025-04-21 15:02:44 - Creating info table data
+2025-04-21 15:02:44 - Rendering info table
+2025-04-21 15:02:44 - Creating voter participation section
+2025-04-21 15:02:44 - Getting voting statistics
+2025-04-21 15:02:44 - Creating participation table
+2025-04-21 15:02:44 - Rendering participation table
+2025-04-21 15:02:44 - Creating elected officers section
+2025-04-21 15:02:44 - Creating winners table
+2025-04-21 15:02:44 - Getting positions data
+2025-04-21 15:02:44 - Creating winners table rows - positions count: 4
+2025-04-21 15:02:44 - Processing position ID: 20 - President
+2025-04-21 15:02:44 - Position has 3 candidates
+2025-04-21 15:02:44 - Added winner: Lebron James
+2025-04-21 15:02:44 - Processing position ID: 21 - Vice President
+2025-04-21 15:02:44 - Position has 3 candidates
+2025-04-21 15:02:44 - Added winner: Ja Morant
+2025-04-21 15:02:44 - Processing position ID: 22 - Secretary
+2025-04-21 15:02:44 - Position has 3 candidates
+2025-04-21 15:02:44 - Added winner: Klay Thompson
+2025-04-21 15:02:44 - Processing position ID: 23 - PIO
+2025-04-21 15:02:44 - Position has 3 candidates
+2025-04-21 15:02:44 - Creating detailed vote statistics section
+2025-04-21 15:02:44 - Processing detailed stats for position ID: 20 - President
+2025-04-21 15:02:44 - Retrieved 3 candidates for position 20
+2025-04-21 15:02:44 - Candidate data structure: ["firstname","lastname","photo","partylist_name","votes"]
+2025-04-21 15:02:44 - Processing candidate: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","partylist_name":"Sandigan","votes":4}
+2025-04-21 15:02:44 - Processing candidate: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidate_curry_steph.jpg","partylist_name":"Kanlungan","votes":2}
+2025-04-21 15:02:44 - Processing candidate: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+2025-04-21 15:02:44 - Processing detailed stats for position ID: 21 - Vice President
+2025-04-21 15:02:44 - Retrieved 3 candidates for position 21
+2025-04-21 15:02:44 - Candidate data structure: ["firstname","lastname","photo","partylist_name","votes"]
+2025-04-21 15:02:44 - Processing candidate: {"firstname":"Ja","lastname":"Morant","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":3}
+2025-04-21 15:02:44 - Processing candidate: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":2}
+2025-04-21 15:02:44 - Processing candidate: {"firstname":"Jimmy","lastname":"Buttler","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":1}
+2025-04-21 15:02:44 - Processing detailed stats for position ID: 22 - Secretary
+2025-04-21 15:02:44 - Retrieved 3 candidates for position 22
+2025-04-21 15:02:44 - Candidate data structure: ["firstname","lastname","photo","partylist_name","votes"]
+2025-04-21 15:02:44 - Processing candidate: {"firstname":"Klay","lastname":"Thompson","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":3}
+2025-04-21 15:02:44 - Processing candidate: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":1}
+2025-04-21 15:02:44 - Processing candidate: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":1}
+2025-04-21 15:02:44 - Processing detailed stats for position ID: 23 - PIO
+2025-04-21 15:02:44 - Retrieved 3 candidates for position 23
+2025-04-21 15:02:44 - Candidate data structure: ["firstname","lastname","photo","partylist_name","votes"]
+2025-04-21 15:02:44 - Processing candidate: {"firstname":"Yuki","lastname":"Kawamura","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":0}
+2025-04-21 15:02:44 - Processing candidate: {"firstname":"Chris","lastname":"Paul","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+2025-04-21 15:02:44 - Processing candidate: {"firstname":"Victor","lastname":"Wembanayama","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":0}
+2025-04-21 15:02:44 - Creating certification section
+2025-04-21 15:02:44 - Generating output PDF
+2025-04-21 15:02:44 - Saving PDF to physical path: C:/xampp/htdocs/e-halal/administrator/archives/E-2025-1094/summary.pdf
+2025-04-21 15:02:44 - PDF saved successfully. Normalized path for DB: e-halal/administrator/archives/E-2025-1094/summary.pdf
+2025-04-21 15:02:44 - PDF generation complete
+2025-04-21 17:56:29 - Starting summary PDF generation
+2025-04-21 17:56:29 - TCPDF class loaded successfully
+2025-04-21 17:56:29 - Running in normal mode - including required files
+2025-04-21 17:56:29 - All includes loaded successfully (document root method)
+2025-04-21 17:56:29 - Starting summary PDF generation
+2025-04-21 17:56:29 - Creating new ElectionPDF instance
+2025-04-21 17:56:29 - Setting document properties
+2025-04-21 17:56:29 - Setting font and margin properties
+2025-04-21 17:56:29 - Adding first page
+2025-04-21 17:56:29 - Creating election information section
+2025-04-21 17:56:29 - Creating info table data
+2025-04-21 17:56:29 - Rendering info table
+2025-04-21 17:56:29 - Creating voter participation section
+2025-04-21 17:56:29 - Getting voting statistics
+2025-04-21 17:56:30 - Creating participation table
+2025-04-21 17:56:30 - Rendering participation table
+2025-04-21 17:56:30 - Creating elected officers section
+2025-04-21 17:56:30 - Creating winners table
+2025-04-21 17:56:30 - Getting positions data
+2025-04-21 17:56:30 - Creating winners table rows - positions count: 4
+2025-04-21 17:56:30 - Processing position ID: 20 - President
+2025-04-21 17:56:30 - Position has 3 candidates
+2025-04-21 17:56:30 - Processing position ID: 21 - Vice President
+2025-04-21 17:56:30 - Position has 3 candidates
+2025-04-21 17:56:30 - Processing position ID: 22 - Secretary
+2025-04-21 17:56:30 - Position has 3 candidates
+2025-04-21 17:56:30 - Processing position ID: 23 - PIO
+2025-04-21 17:56:30 - Position has 3 candidates
+2025-04-21 17:56:30 - Creating detailed vote statistics section
+2025-04-21 17:56:30 - Processing detailed stats for position ID: 20 - President
+2025-04-21 17:56:30 - Retrieved 3 candidates for position 20
+2025-04-21 17:56:30 - Candidate data structure: ["firstname","lastname","photo","partylist_name","votes"]
+2025-04-21 17:56:30 - Processing candidate: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidate_curry_steph.jpg","partylist_name":"Kanlungan","votes":0}
+2025-04-21 17:56:30 - Processing candidate: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","partylist_name":"Sandigan","votes":0}
+2025-04-21 17:56:30 - Processing candidate: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+2025-04-21 17:56:30 - Processing detailed stats for position ID: 21 - Vice President
+2025-04-21 17:56:30 - Retrieved 3 candidates for position 21
+2025-04-21 17:56:30 - Candidate data structure: ["firstname","lastname","photo","partylist_name","votes"]
+2025-04-21 17:56:30 - Processing candidate: {"firstname":"Jimmy","lastname":"Buttler","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":0}
+2025-04-21 17:56:30 - Processing candidate: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":0}
+2025-04-21 17:56:30 - Processing candidate: {"firstname":"Ja","lastname":"Morant","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+2025-04-21 17:56:30 - Processing detailed stats for position ID: 22 - Secretary
+2025-04-21 17:56:30 - Retrieved 3 candidates for position 22
+2025-04-21 17:56:30 - Candidate data structure: ["firstname","lastname","photo","partylist_name","votes"]
+2025-04-21 17:56:30 - Processing candidate: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":0}
+2025-04-21 17:56:30 - Processing candidate: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":0}
+2025-04-21 17:56:30 - Processing candidate: {"firstname":"Klay","lastname":"Thompson","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+2025-04-21 17:56:30 - Processing detailed stats for position ID: 23 - PIO
+2025-04-21 17:56:30 - Retrieved 3 candidates for position 23
+2025-04-21 17:56:30 - Candidate data structure: ["firstname","lastname","photo","partylist_name","votes"]
+2025-04-21 17:56:30 - Processing candidate: {"firstname":"Yuki","lastname":"Kawamura","photo":"assets\/images\/profile.jpg","partylist_name":"Kanlungan","votes":0}
+2025-04-21 17:56:30 - Processing candidate: {"firstname":"Chris","lastname":"Paul","photo":"assets\/images\/profile.jpg","partylist_name":null,"votes":0}
+2025-04-21 17:56:30 - Processing candidate: {"firstname":"Victor","lastname":"Wembanayama","photo":"assets\/images\/profile.jpg","partylist_name":"Sandigan","votes":0}
+2025-04-21 17:56:30 - Creating certification section
+2025-04-21 17:56:30 - Generating output PDF
+2025-04-21 17:56:30 - Saving PDF to physical path: C:/xampp/htdocs/e-halal/administrator/archives/E2504218634/summary.pdf
+2025-04-21 17:56:30 - PDF saved successfully. Normalized path for DB: e-halal/administrator/archives/E2504218634/summary.pdf
+2025-04-21 17:56:30 - PDF generation complete

@@ -1,5 +1,8 @@
 <?php
 require_once __DIR__ . '/../classes/View.php';
+require_once __DIR__ . '/../classes/Elections.php';
+Elections::enforceCompletedRedirect();
+Elections::enforceSetupRedirect();
 require_once __DIR__ . '/../classes/Position.php';
 require_once __DIR__ . '/../classes/Vote.php';
 require_once __DIR__ . '/../classes/Admin.php';
@@ -26,8 +29,9 @@ $voteStats = $vote->getVotingStatistics();
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>E-Halal Voting System | Voting Results</title>
+    <title>E-Halal BTECHenyo | Voting Results</title>
     <?php echo $view->renderHeader(); ?>
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>administrator/assets/css/admin.css">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -88,7 +92,7 @@ $voteStats = $vote->getVotingStatistics();
                         <div class="box-header with-border">
                             <h3 class="box-title">Position-wise Results</h3>
                             <div class="box-tools pull-right">
-                                <button type="button" class="btn btn-success btn-sm" id="generateReport">
+                                <button type="button" class="btn btn-primary btn-sm custom" id="generateReport">
                                     <i class="fa fa-file-pdf"></i> Generate Report
                                 </button>
                             </div>
@@ -232,76 +236,6 @@ $voteStats = $vote->getVotingStatistics();
 
 <!-- Custom scripts -->
 <script src="<?php echo BASE_URL; ?>administrator/pages/includes/scripts/votes.js"></script>
-
-<style>
-/* Modern UI Styles */
-.box {
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    border: none;
-    margin-bottom: 30px;
-}
-
-.box-header {
-    padding: 20px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.box-body {
-    padding: 20px;
-    background: #fff;
-    border-radius: 0 0 15px 15px;
-}
-
-.progress {
-    height: 20px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-
-.progress-bar {
-    border-radius: 10px;
-}
-
-.table-responsive {
-    border-radius: 10px;
-    overflow: hidden;
-    margin-bottom: 20px;
-}
-
-.table {
-    margin-bottom: 0;
-}
-
-.position-results {
-    margin-bottom: 30px;
-}
-
-.position-results:last-child {
-    margin-bottom: 0;
-}
-
-.btn {
-    border-radius: 20px;
-    padding: 6px 20px;
-}
-
-@media print {
-    .no-print {
-        display: none !important;
-    }
-    
-    .content-wrapper {
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-    
-    .box {
-        box-shadow: none !important;
-        border: 1px solid #ddd !important;
-    }
-}
-</style>
 
 </body>
 </html> 

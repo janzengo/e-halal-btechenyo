@@ -331,7 +331,7 @@ HTML;
 
             // Create PDF
             $pdf = new CustomReceipt('P', 'mm', 'A4', true, 'UTF-8', false);
-            $pdf->SetCreator('E-Halal Voting System');
+            $pdf->SetCreator('E-Halal BTECHenyo');
             $pdf->SetTitle('Vote Receipt - ' . $vote_ref);
             $pdf->setHeaderFont(Array('helvetica', '', 12));
             $pdf->setFooterFont(Array('helvetica', '', 8));

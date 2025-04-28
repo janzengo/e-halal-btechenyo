@@ -1,5 +1,7 @@
 <?php
 require_once __DIR__ . '/../classes/View.php';
+require_once __DIR__ . '/../classes/Elections.php';
+Elections::enforceCompletedRedirect();
 require_once __DIR__ . '/../classes/Admin.php';
 require_once __DIR__ . '/../classes/Course.php';
 
@@ -35,8 +37,9 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>E-Halal Voting System | Course Management</title>
+    <title>E-Halal BTECHenyo | Course Management</title>
     <?php echo $view->renderHeader(); ?>
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>administrator/assets/css/admin.css">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -87,7 +90,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                 <div class="col-xs-12">
                     <div class="box">
                         <div class="box-header with-border">
-                            <button type="button" class="btn btn-primary btn-sm btn-flat" data-toggle="modal" data-target="#addnew" <?php echo $view->getDisabledAttribute(); ?> <?php echo $view->getDisabledAttribute() ? 'data-toggle="tooltip" title="' . $view->getModificationMessage() . '"' : ''; ?>>
+                            <button type="button" class="btn btn-primary btn-sm btn-flat custom" data-toggle="modal" data-target="#addnew" <?php echo $view->getDisabledAttribute(); ?> <?php echo $view->getDisabledAttribute() ? 'data-toggle="tooltip" title="' . $view->getModificationMessage() . '"' : ''; ?>>
                                 <i class="fa fa-plus"></i> New Course
                             </button>
                         </div>
@@ -106,7 +109,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                                         <td><?php echo htmlspecialchars($c['description']); ?></td>
                                         <td><?php echo $c['voter_count']; ?></td>
                                         <td>
-                                            <button class="btn btn-primary btn-sm edit-course" data-id="<?php echo $c['id']; ?>" <?php echo $view->getDisabledAttribute(); ?> <?php echo $view->getDisabledAttribute() ? 'data-toggle="tooltip" title="' . $view->getModificationMessage() . '"' : ''; ?>>
+                                            <button class="btn btn-primary btn-sm edit-course custom" data-id="<?php echo $c['id']; ?>" <?php echo $view->getDisabledAttribute(); ?> <?php echo $view->getDisabledAttribute() ? 'data-toggle="tooltip" title="' . $view->getModificationMessage() . '"' : ''; ?>>
                                                 <i class="fa fa-edit"></i> Edit
                                             </button>
                                             <button class="btn btn-danger btn-sm delete-course" data-id="<?php echo $c['id']; ?>" <?php echo $view->getDisabledAttribute(); ?> <?php echo $view->getDisabledAttribute() ? 'data-toggle="tooltip" title="' . $view->getModificationMessage() . '"' : ''; ?>>

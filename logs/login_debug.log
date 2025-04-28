@@ -1,0 +1,4112 @@
+[2025-04-28 17:36:34] Fetching current election status...
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:34] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:34] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:34] getCurrentStatus retrieved election data
+Data: Array
+(
+    [election_data] => Array
+        (
+            [id] => 1
+            [status] => pending
+            [election_name] => NBA Elections 2025
+            [created_at] => 2025-02-12 22:30:30
+            [end_time] => 2025-04-30 18:43:00
+            [last_status_change] => 2025-04-28 16:11:32
+            [control_number] => E2504218634
+        )
+
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:34] Returning status from election data
+Data: Array
+(
+    [status] => pending
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:34] Setting up log directory
+Data: Array
+(
+    [path] => C:\xampp\htdocs\e-halal\administrator\classes/../../logs
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:34] Login attempt started
+Data: Array
+(
+    [username] => hamil
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:34] Before login attempt Session State
+Data: Array
+(
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:34] Database connection obtained
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:34] Statement prepared with username
+Data: Array
+(
+    [username] => hamil
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:34] User found
+Data: Array
+(
+    [role] => officer
+    [username] => hamil
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:34] Password verified successfully for user
+Data: Array
+(
+    [username] => hamil
+    [role] => officer
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:34] User is an officer, checking election status
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:34] Fetching current election status...
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:34] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:34] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:34] getCurrentStatus retrieved election data
+Data: Array
+(
+    [election_data] => Array
+        (
+            [id] => 1
+            [status] => pending
+            [election_name] => NBA Elections 2025
+            [created_at] => 2025-02-12 22:30:30
+            [end_time] => 2025-04-30 18:43:00
+            [last_status_change] => 2025-04-28 16:11:32
+            [control_number] => E2504218634
+        )
+
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:34] Returning status from election data
+Data: Array
+(
+    [status] => pending
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:34] Retrieved election status for officer login
+Data: Array
+(
+    [username] => hamil
+    [current_status] => pending
+    [raw_status_check] => Array
+        (
+            [is_pending] => 1
+            [is_active] => 
+            [status_value] => pending
+            [pending_const] => pending
+            [active_const] => active
+        )
+
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:34] Officer access granted - election status is valid
+Data: Array
+(
+    [username] => hamil
+    [current_status] => pending
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:34] Setting session variables
+Data: Array
+(
+    [admin_id] => 35
+    [role] => officer
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:34] Login successful
+Data: Array
+(
+    [username] => hamil
+    [role] => officer
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:34] After successful login Session State
+Data: Array
+(
+    [admin] => 35
+    [role] => officer
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:34] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:34] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:34] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:34] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] Fetching current election status...
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentStatus retrieved election data
+Data: Array
+(
+    [election_data] => Array
+        (
+            [id] => 1
+            [status] => pending
+            [election_name] => NBA Elections 2025
+            [created_at] => 2025-02-12 22:30:30
+            [end_time] => 2025-04-30 18:43:00
+            [last_status_change] => 2025-04-28 16:11:32
+            [control_number] => E2504218634
+        )
+
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] Returning status from election data
+Data: Array
+(
+    [status] => pending
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:38] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:39] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:39] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:39] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:39] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:39] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:39] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:39] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:39] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:39] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:39] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:39] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:39] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:39] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:39] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:39] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:39] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:39] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:39] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:39] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:39] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:39] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:39] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:39] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:39] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:39] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:39] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:39] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:39] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:39] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:39] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:39] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:39] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:39] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:39] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:40] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:41] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:41] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:41] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:41] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:42] getCurrentElection query executed
+Data: Array
+(
+    [query] => SELECT * FROM election_status WHERE id = 1
+    [has_result] => 1
+    [num_rows] => 1
+)
+
+--------------------------------------------------------------------------------
+[2025-04-28 17:36:42] getCurrentElection found data
+Data: Array
+(
+    [id] => 1
+    [status] => pending
+    [election_name] => NBA Elections 2025
+    [created_at] => 2025-02-12 22:30:30
+    [end_time] => 2025-04-30 18:43:00
+    [last_status_change] => 2025-04-28 16:11:32
+    [control_number] => E2504218634
+)
+
+--------------------------------------------------------------------------------

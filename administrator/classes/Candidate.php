@@ -1,6 +1,5 @@
 <?php
 require_once __DIR__ . '/../../classes/Database.php';
-require_once __DIR__ . '/ImageProcessor.php';
 
 class Candidate {
     private $db;

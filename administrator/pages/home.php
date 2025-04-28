@@ -1,5 +1,8 @@
 <?php
 require_once __DIR__ . '/../classes/View.php';
+require_once __DIR__ . '/../classes/Elections.php';
+Elections::enforceCompletedRedirect();
+Elections::enforceSetupRedirect();
 require_once __DIR__ . '/../classes/Position.php';
 require_once __DIR__ . '/../classes/Candidate.php';
 require_once __DIR__ . '/../classes/Voter.php';
@@ -34,8 +37,170 @@ $stats = [
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>E-Halal Voting System | Admin Dashboard</title>
+    <title>E-Halal BTECHenyo | Admin Dashboard</title>
     <?php echo $view->renderHeader(); ?>
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>administrator/assets/css/admin.css">
+    <!-- Dashboard Specific Styles -->
+    <style>
+        /* Modern UI Styles for Dashboard */
+        .small-box {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .small-box .icon {
+            font-size: 70px;
+            right: 20px;
+            top: 20px;
+            opacity: 0.3;
+            transition: all 0.3s ease;
+        }
+        
+        .small-box:hover .icon {
+            font-size: 75px;
+            opacity: 0.4;
+        }
+        
+        .small-box .inner {
+            padding: 20px;
+        }
+        
+        .small-box h3 {
+            font-size: 38px;
+            font-weight: 600;
+            margin: 0;
+            white-space: nowrap;
+            color: #fff;
+        }
+        
+        .small-box p {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0;
+        }
+        
+        .small-box .small-box-footer {
+            background: rgba(0, 0, 0, 0.1);
+            color: rgba(255, 255, 255, 0.9);
+            padding: 8px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .small-box:hover .small-box-footer {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        /* Chart Controls */
+        .chart-controls {
+            float: right;
+        }
+        
+        .chart-controls select {
+            border-radius: 20px;
+            padding: 5px 15px;
+            border: 1px solid #ddd;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .chart-controls select:hover {
+            border-color: #aaa;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        
+        .chart-controls select:focus {
+            outline: none;
+            border-color: #4CAF50;
+            box-shadow: 0 2px 10px rgba(76,175,80,0.2);
+        }
+
+        .chart-container canvas {
+            max-height: 400px;
+        }
+
+        /* Empty State Styles */
+        .empty-state-container {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .empty-state-container i.fa-4x {
+            display: block;
+            margin-bottom: 20px;
+            color: #999;
+        }
+
+        .empty-state-container h3 {
+            margin-bottom: 15px;
+            font-size: 24px;
+            color: #666;
+        }
+
+        .empty-state-container p {
+            color: #888;
+            margin-bottom: 25px;
+            font-size: 16px;
+        }
+
+        .empty-state-container ul {
+            display: inline-block;
+            text-align: left;
+            margin-bottom: 25px;
+        }
+
+        .empty-state-container ul li {
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .empty-state-container ul li i {
+            margin-right: 10px;
+        }
+
+        .empty-state-container .btn-group {
+            margin-top: 20px;
+        }
+
+        .empty-state-container .btn {
+            margin: 0 5px;
+            padding: 8px 20px;
+            font-size: 14px;
+        }
+
+        .empty-state-container .btn i {
+            margin-right: 8px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .empty-state-container {
+                padding: 30px 15px;
+            }
+            
+            .empty-state-container h3 {
+                font-size: 20px;
+            }
+            
+            .empty-state-container p {
+                font-size: 14px;
+            }
+
+            .empty-state-container .btn-group {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .empty-state-container .btn {
+                margin: 0;
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -186,9 +351,41 @@ $stats = [
                     const chartTypeSelector = document.getElementById('chartTypeSelector');
 
                     if (!chartData || chartData.length === 0) {
-                        chartsContainer.innerHTML = '<div class="alert alert-warning">No voting data available to display.</div>';
+                        // Hide the chart type selector when there's no data
+                        chartTypeSelector.style.display = 'none';
+                        
+                        chartsContainer.innerHTML = `
+                            <div class="col-xs-12">
+                                <div class="box box-default">
+                                    <div class="box-body text-center">
+                                        <div class="empty-state-container">
+                                            <i class="fa fa-chart-bar fa-4x text-muted mb-3"></i>
+                                            <h3 class="text-muted">No Voting Data Available</h3>
+                                            <p class="text-muted mb-4">
+                                                There are no votes recorded yet. Data will appear here once:
+                                            </p>
+                                            <ul class="list-unstyled text-muted" style="margin-bottom: 20px;">
+                                                <li><i class="fa fa-check-circle text-success"></i> Positions are added</li>
+                                                <li><i class="fa fa-check-circle text-success"></i> Candidates are assigned</li>
+                                                <li><i class="fa fa-check-circle text-success"></i> Voters cast their votes</li>
+                                            </ul>
+                                            <div class="empty-state-actions">
+                                                <a href="positions" class="btn btn-primary custom">
+                                                    <i class="fa fa-list-alt mr-2"></i> Manage Positions
+                                                </a>
+                                                <a href="candidates" class="btn btn-success custom">
+                                                    <i class="fa fa-user mr-2"></i> Manage Candidates
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>`;
                         return;
                     }
+
+                    // Show the chart type selector when there's data
+                    chartTypeSelector.style.display = 'inline-block';
 
                     function renderChart(type) {
                         chartsContainer.innerHTML = ''; // Clear previous charts
@@ -290,163 +487,6 @@ $stats = [
                     initCharts();
                 }
             </script>
-
-            <style>
-                /* Modern UI Styles */
-                .content-wrapper {
-                    background-color: #f4f6f9;
-                }
-                
-                .small-box {
-                    border-radius: 15px;
-                    overflow: hidden;
-                    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-                    transition: transform 0.3s ease;
-                    cursor: pointer;
-                }
-                
-                .small-box .icon {
-                    font-size: 70px;
-                    right: 20px;
-                    top: 20px;
-                    opacity: 0.3;
-                    transition: all 0.3s ease;
-                }
-                
-                .small-box:hover .icon {
-                    font-size: 75px;
-                    opacity: 0.4;
-                }
-                
-                .small-box .inner {
-                    padding: 20px;
-                }
-                
-                .small-box h3 {
-                    font-size: 38px;
-                    font-weight: 600;
-                    margin: 0;
-                    white-space: nowrap;
-                    color: #fff;
-                }
-                
-                .small-box p {
-                    font-size: 15px;
-                    color: rgba(255, 255, 255, 0.9);
-                    margin-bottom: 0;
-                }
-                
-                .small-box .small-box-footer {
-                    background: rgba(0, 0, 0, 0.1);
-                    color: rgba(255, 255, 255, 0.9);
-                    padding: 8px 0;
-                    transition: all 0.3s ease;
-                }
-                
-                .small-box:hover .small-box-footer {
-                    background: rgba(0, 0, 0, 0.2);
-                }
-                
-                .box {
-                    border-radius: 15px;
-                    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-                    border: none;
-                    margin-bottom: 30px;
-                }
-                
-                .box-header {
-                    padding: 20px;
-                    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-                }
-                
-                .box-header .box-title {
-                    font-size: 18px;
-                    font-weight: 600;
-                    color: #333;
-                }
-                
-                .box-body {
-                    padding: 20px;
-                    background: #fff;
-                    border-radius: 0 0 15px 15px;
-                }
-                
-                canvas {
-                    border-radius: 10px;
-                    padding: 10px;
-                }
-                
-                /* Responsive adjustments */
-                @media (max-width: 767px) {
-                    .small-box {
-                        margin-bottom: 20px;
-                    }
-                    
-                    .small-box h3 {
-                        font-size: 30px;
-                    }
-                    
-                    .box {
-                        margin-bottom: 20px;
-                    }
-                }
-                
-                .chart-controls {
-                    float: right;
-                }
-                
-                .chart-controls select {
-                    border-radius: 20px;
-                    padding: 5px 15px;
-                    border: 1px solid #ddd;
-                    background: #fff;
-                    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-                    transition: all 0.3s ease;
-                }
-                
-                .chart-controls select:hover {
-                    border-color: #aaa;
-                    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-                }
-                
-                .chart-controls select:focus {
-                    outline: none;
-                    border-color: #4CAF50;
-                    box-shadow: 0 2px 10px rgba(76,175,80,0.2);
-                }
-
-                .chart-container canvas {
-                    max-height: 400px;
-                }
-                
-                .chart-controls {
-                    float: right;
-                }
-                
-                .chart-controls select {
-                    border-radius: 10px;
-                    padding: 5px 15px;
-                    border: 1px solid #ddd;
-                    background: #fff;
-                    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-                    transition: all 0.3s ease;
-                }
-                
-                .chart-controls select:hover {
-                    border-color: #aaa;
-                    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-                }
-                
-                .chart-controls select:focus {
-                    outline: none;
-                    border-color: #4CAF50;
-                    box-shadow: 0 2px 10px rgba(76,175,80,0.2);
-                }
-
-                .box {
-                    margin-bottom: 20px;
-                }
-            </style>
         </section>
     </div>
     <!-- /.content-wrapper -->

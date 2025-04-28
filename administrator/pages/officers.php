@@ -1,5 +1,7 @@
 <?php
 require_once __DIR__ . '/../classes/View.php';
+require_once __DIR__ . '/../classes/Elections.php';
+Elections::enforceCompletedRedirect();
 require_once __DIR__ . '/../classes/Admin.php';
 require_once __DIR__ . '/../classes/Logger.php';
 
@@ -8,9 +10,9 @@ $view = View::getInstance();
 $admin = Admin::getInstance();
 $logger = AdminLogger::getInstance();
 
-// Check if admin is logged in and is superadmin
-if (!$admin->isLoggedIn() || !$admin->isSuperAdmin()) {
-    $_SESSION['error'] = 'Access Denied. This page is restricted to superadmins only.';
+// Check if admin is logged in and is Electoral Head
+if (!$admin->isLoggedIn() || !$admin->isHead()) {
+    $_SESSION['error'] = 'Access Denied. This page is restricted to Electoral Heads only.';
     header('Location: home');
     exit();
 }
@@ -20,8 +22,9 @@ if (!$admin->isLoggedIn() || !$admin->isSuperAdmin()) {
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>E-Halal Voting System | Manage Officers</title>
+    <title>E-Halal BTECHenyo | Manage Officers</title>
     <?php echo $view->renderHeader(); ?>
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>administrator/assets/css/admin.css">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -73,7 +76,7 @@ if (!$admin->isLoggedIn() || !$admin->isSuperAdmin()) {
                 <div class="col-xs-12">
                     <div class="box">
                         <div class="box-header with-border">
-                            <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat">
+                            <a href="#addnew" data-toggle="modal" class="btn btn-primary btn-sm btn-flat custom">
                                 <i class="fa fa-plus"></i> New Officer
                             </a>
                         </div>
@@ -96,7 +99,7 @@ if (!$admin->isLoggedIn() || !$admin->isSuperAdmin()) {
                                         $actions = "";
                                         if($row['id'] != $_SESSION['admin']){
                                             $actions = "
-                                                <button class='btn btn-success btn-sm edit btn-flat' data-id='".$row['id']."'>
+                                                <button class='btn btn-success btn-sm edit btn-flat custom' data-id='".$row['id']."'>
                                                     <i class='fa fa-edit'></i> Edit
                                                 </button>
                                                 <button class='btn btn-danger btn-sm delete btn-flat' data-id='".$row['id']."'>

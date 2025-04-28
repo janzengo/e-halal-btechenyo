@@ -97,7 +97,7 @@ echo $view->renderHeader();
                         <h2>ELECTION PERIOD ENDED</h2>
                         <p>The voting system is currently closed as the election period for <?php echo htmlspecialchars($electionName); ?> has ended. Stay tuned for future announcements, BTECHenyos!</p>
                     </div>
-                    <a href="#">Have some questions?</a>
+                    <a href="https://www.facebook.com/BTECHDPLB/" target="_blank">Have some questions?</a>
                 </section>
             <?php elseif ($electionStatus === Election::STATUS_PAUSED): ?>
                 <section class="election-message">
@@ -105,7 +105,7 @@ echo $view->renderHeader();
                         <h2>ELECTION PAUSED</h2>
                         <p>The voting system for <?php echo htmlspecialchars($electionName); ?> is currently paused. Stay tuned, BTECHenyos!</p>
                     </div>
-                    <a href="#">Have some questions?</a>
+                    <a href="https://www.facebook.com/BTECHDPLB/" target="_blank">Have some questions?</a>
                 </section>
             <?php elseif ($electionStatus === Election::STATUS_PENDING): ?>
                 <section class="election-message">
@@ -113,7 +113,7 @@ echo $view->renderHeader();
                         <h2>ELECTION PENDING</h2>
                         <p>The election for <?php echo htmlspecialchars($electionName); ?> is being set up. Stay tuned, BTECHenyos!</p>
                     </div>
-                    <a href="#">Have some questions?</a>
+                    <a href="https://www.facebook.com/BTECHDPLB/" target="_blank">Have some questions?</a>
                 </section>
             <?php elseif ($electionStatus === 'no_election' || $electionStatus === Election::STATUS_SETUP): ?>
                 <section class="election-message">
@@ -121,7 +121,7 @@ echo $view->renderHeader();
                         <h2>NO ACTIVE ELECTION</h2>
                         <p>There are no active elections at the moment. Stay tuned, BTECHenyos!</p>
                     </div>
-                    <a href="#">Have some questions?</a>
+                    <a href="https://www.facebook.com/BTECHDPLB/" target="_blank">Have some questions?</a>
                 </section>
             <?php elseif ($electionStatus === Election::STATUS_ACTIVE): ?>
                 <div class="login-box-body">

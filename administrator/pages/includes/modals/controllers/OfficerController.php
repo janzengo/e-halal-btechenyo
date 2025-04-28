@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         switch ($_POST['action']) {
             case 'add':
-                if (!isset($_POST['firstname'], $_POST['lastname'], $_POST['username'], $_POST['password'], $_POST['gender'])) {
+                if (!isset($_POST['firstname'], $_POST['lastname'], $_POST['username'], $_POST['gender'])) {
                     throw new Exception('Missing required fields');
                 }
 
@@ -51,12 +51,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     throw new Exception('Username already exists');
                 }
 
+                // Validate email if provided
+                $email = isset($_POST['email']) ? trim($_POST['email']) : null;
+                if ($email !== null && $email !== '') {
+                    if (!$admin->validateEmail($email)) {
+                        throw new Exception('Invalid email format');
+                    }
+                    if ($admin->checkEmail($email)) {
+                        throw new Exception('Email already exists');
+                    }
+                }
+
+                // Generate random password if not provided
+                $password = isset($_POST['password']) && $_POST['password'] !== '' ? $_POST['password'] : bin2hex(random_bytes(4));
+
                 $result = $admin->addOfficer(
                     $_POST['firstname'],
                     $_POST['lastname'],
                     $_POST['username'],
-                    $_POST['password'],
-                    $_POST['gender']
+                    $password,
+                    $_POST['gender'],
+                    $email
                 );
                 
                 if (!$result) {
@@ -66,10 +81,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $logger->logAdminAction(
                     $admin->getUsername(),
                     $admin->getRole(),
-                    "Added officer: {$_POST['firstname']} {$_POST['lastname']}"
+                    "Added officer: {$_POST['firstname']} {$_POST['lastname']}" . 
+                    ($email ? " with email: {$email}" : "")
                 );
-                
-                $response['message'] = 'Officer added successfully';
+
+                // Send password email if email is provided
+                if ($email) {
+                    require_once __DIR__ . '/../../../../classes/OfficerMailer.php';
+                    $officerMailer = new OfficerMailer();
+                    $sendResult = $officerMailer->sendPasswordEmail($email, $_POST['firstname'] . ' ' . $_POST['lastname'], $_POST['username'], $password);
+                    if ($sendResult['success']) {
+                        $response['message'] = 'Officer added successfully. Credentials sent to officer email.';
+                    } else {
+                        $response['message'] = 'Officer added, but failed to send credentials email: ' . $sendResult['message'];
+                    }
+                } else {
+                    $response['message'] = 'Officer added successfully.';
+                }
                 break;
 
             case 'edit':
@@ -89,13 +117,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     throw new Exception('Username already exists');
                 }
 
+                // Validate email if provided
+                $email = isset($_POST['email']) ? trim($_POST['email']) : null;
+                if ($email !== null && $email !== '') {
+                    if (!$admin->validateEmail($email)) {
+                        throw new Exception('Invalid email format');
+                    }
+                    if ($admin->checkEmail($email, $_POST['id'])) {
+                        throw new Exception('Email already exists');
+                    }
+                }
+
                 $result = $admin->updateOfficer(
                     $_POST['id'],
                     $_POST['firstname'],
                     $_POST['lastname'],
                     $_POST['username'],
                     $_POST['password'],
-                    $_POST['gender']
+                    $_POST['gender'],
+                    $email
                 );
                 
                 if (!$result) {
@@ -105,7 +145,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $logger->logAdminAction(
                     $admin->getUsername(),
                     $admin->getRole(),
-                    "Updated officer: {$oldOfficer['firstname']} {$oldOfficer['lastname']}"
+                    "Updated officer: {$oldOfficer['firstname']} {$oldOfficer['lastname']}" .
+                    ($email !== $oldOfficer['email'] ? " (email changed to: " . ($email ?: "none") . ")" : "")
                 );
                 $response['message'] = 'Officer updated successfully';
                 break;
@@ -127,7 +168,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $logger->logAdminAction(
                         $admin->getUsername(),
                         $admin->getRole(),
-                        "Deleted officer: {$officerData['firstname']} {$officerData['lastname']}"
+                        "Deleted officer: {$officerData['firstname']} {$officerData['lastname']}" .
+                        ($officerData['email'] ? " (email: {$officerData['email']})" : "")
                     );
                     $response['message'] = 'Officer deleted successfully';
                 } else {
@@ -164,20 +206,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Send response
-    if ($isAjax) {
-        header('Content-Type: application/json');
-        echo json_encode($response);
-        exit();
-    } else {
-        // For form submissions, redirect with message
-        if ($response['error']) {
-            $_SESSION['error'] = $response['message'];
-        } else {
-            $_SESSION['success'] = $response['message'];
-        }
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
-        exit();
-    }
+    header('Content-Type: application/json');
+    echo json_encode($response);
+    exit();
 } else {
     // Handle non-POST requests
     header('Content-Type: application/json');

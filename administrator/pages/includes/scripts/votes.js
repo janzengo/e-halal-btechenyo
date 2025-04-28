@@ -1,12 +1,16 @@
 $(function() {
-    // Initialize DataTables
-    $('.table').DataTable({
-        "paging": false,
-        "lengthChange": false,
-        "searching": false,
-        "ordering": false,
-        "info": false,
-        "autoWidth": false
+    // Only initialize DataTables on tables with .dataTable or .datatable class
+    $('table.dataTable, table.datatable').each(function() {
+        if (!$.fn.DataTable.isDataTable(this)) {
+            $(this).DataTable({
+                "paging": false,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": false,
+                "info": false,
+                "autoWidth": false
+            });
+        }
     });
 
     // Handle report generation

@@ -38,6 +38,19 @@ $(function(){
         });
     }
 
+    // Function to show success message using SweetAlert
+    function showSuccess(message) {
+        Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            text: message,
+            timer: 2000,
+            showConfirmButton: false
+        }).then(() => {
+            location.reload();
+        });
+    }
+
     // Function to show warning message using SweetAlert
     function showWarning(message) {
         Swal.fire({
@@ -107,9 +120,19 @@ $(function(){
                     $('#edit_platform').val(data.platform);
                     $('.fullname').html(data.firstname + ' ' + data.lastname);
                     
-                    // Update photo preview
-                    const photoUrl = data.photo ? `${BASE_URL}${data.photo}` : `${BASE_URL}assets/images/profile.jpg`;
-                    $('#current_photo').html(`<img src="${photoUrl}" class="img-thumbnail" width="100">`);
+                    // Update photo preview with proper path handling
+                    let photoUrl;
+                    if (data.photo && data.photo !== 'assets/images/profile.jpg') {
+                        photoUrl = `${BASE_URL}administrator/${data.photo}`;
+                    } else {
+                        photoUrl = `${BASE_URL}administrator/assets/images/profile.jpg`;
+                    }
+                    $('#current_photo').html(`
+                        <div class="mt-2">
+                            <label>Current Photo:</label><br>
+                            <img src="${photoUrl}" class="img-thumbnail" width="150">
+                        </div>
+                    `);
                 } else {
                     showError(response.message);
                 }
@@ -151,12 +174,12 @@ $(function(){
             return;
         }
 
-        const id = $(this).data('id');
-        getRow(id);
-
+        const candidateId = $(this).data('id');
+        const candidateName = $(this).closest('tr').find('td:nth-child(2)').text();
+        
         Swal.fire({
             title: 'Delete Candidate',
-            text: 'Are you sure you want to delete this candidate?',
+            text: `Are you sure you want to delete candidate "${candidateName}"?`,
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#d33',
@@ -169,19 +192,13 @@ $(function(){
                     type: 'POST',
                     url: `${BASE_URL}administrator/pages/includes/modals/controllers/CandidateController.php`,
                     data: {
-                        id: id,
+                        id: candidateId,
                         action: 'delete'
                     },
                     dataType: 'json',
                     success: function(response) {
                         if (!response.error) {
-                            Swal.fire(
-                                'Deleted!',
-                                'Candidate has been deleted.',
-                                'success'
-                            ).then(() => {
-                                location.reload();
-                            });
+                            showSuccess(`Candidate "${candidateName}" has been deleted successfully!`);
                         } else {
                             showError(response.message);
                         }
@@ -193,7 +210,7 @@ $(function(){
     });
 
     // Form submission handler function
-    function handleFormSubmission(form) {
+    function handleFormSubmission(form, action) {
         if (!isModificationAllowed()) {
             showWarning(getModificationMessage());
             return;
@@ -201,6 +218,10 @@ $(function(){
 
         // Create FormData object for file upload
         const formData = new FormData(form[0]);
+        const isEdit = action === 'edit';
+        const firstName = isEdit ? $('#edit_firstname').val() : $('#add_firstname').val();
+        const lastName = isEdit ? $('#edit_lastname').val() : $('#add_lastname').val();
+        const fullName = `${firstName} ${lastName}`;
 
         $.ajax({
             type: 'POST',
@@ -211,7 +232,8 @@ $(function(){
             dataType: 'json',
             success: function(response) {
                 if (!response.error) {
-                    location.reload();
+                    showSuccess(`Candidate "${fullName}" has been ${isEdit ? 'updated' : 'added'} successfully!`);
+                    form.closest('.modal').modal('hide');
                 } else {
                     showError(response.message);
                 }
@@ -232,12 +254,12 @@ $(function(){
     // Add form submission
     $('#addnew form').submit(function(e) {
         e.preventDefault();
-        handleFormSubmission($(this));
+        handleFormSubmission($(this), 'add');
     });
 
     // Edit form submission
     $('#edit form').submit(function(e) {
         e.preventDefault();
-        handleFormSubmission($(this));
+        handleFormSubmission($(this), 'edit');
     });
 }); 

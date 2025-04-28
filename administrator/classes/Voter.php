@@ -108,8 +108,43 @@ class Voter {
 
     public function deleteVoter($id) {
         $id = (int)$id;
-        $query = "DELETE FROM voters WHERE id = $id";
+        $query = "DELETE FROM voters WHERE id = $id AND has_voted = 0";
         return $this->db->query($query);
+    }
+
+    /**
+     * Bulk delete voters who haven't voted yet
+     * @param array $ids Array of voter IDs to delete
+     * @return int Number of voters deleted
+     */
+    public function bulkDeleteVoters($ids) {
+        try {
+            // Convert array of IDs to comma-separated string of integers
+            $ids = array_map('intval', $ids);
+            $idList = implode(',', $ids);
+            
+            // First check how many voters are eligible for deletion
+            $checkQuery = "SELECT COUNT(*) as count FROM voters WHERE id IN ($idList) AND has_voted = 0";
+            $checkResult = $this->db->query($checkQuery);
+            $row = $checkResult->fetch_assoc();
+            $eligibleCount = $row['count'];
+
+            if ($eligibleCount === 0) {
+                return 0;
+            }
+            
+            // Delete voters who haven't voted yet
+            $query = "DELETE FROM voters WHERE id IN ($idList) AND has_voted = 0";
+            $result = $this->db->query($query);
+            
+            if ($result) {
+                return $eligibleCount;
+            }
+            return 0;
+        } catch (Exception $e) {
+            error_log("Error in bulk delete voters: " . $e->getMessage());
+            throw new Exception("Database error occurred while deleting voters");
+        }
     }
 
     public function markVoterAsVoted($id) {
