@@ -14,13 +14,13 @@
                     <div class="form-group">
                         <label for="add_username" class="col-sm-3 control-label">Username</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="add_username" name="username" required>
+                            <input type="text" class="form-control" id="add_username" name="username" placeholder="Enter username" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="add_email" class="col-sm-3 control-label">Email</label>
                         <div class="col-sm-9">
-                            <input type="email" class="form-control" id="add_email" name="email" required>
+                            <input type="email" class="form-control" id="add_email" name="email" placeholder="Enter email" required>
                             <small class="help-block">Officer credentials will be sent to this email</small>
                         </div>
                     </div>
@@ -31,20 +31,20 @@
                         ?>
                         <label for="add_password" class="col-sm-3 control-label">Password</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="add_password" name="password" value="<?php echo $password; ?>" required readonly>
+                            <input type="password" class="form-control" id="add_password" name="password" value="<?php echo $password; ?>" required readonly>
                             <small class="help-block">System-generated password - will be sent to officer's email</small>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="add_firstname" class="col-sm-3 control-label">First Name</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="add_firstname" name="firstname" required>
+                            <input type="text" class="form-control" id="add_firstname" name="firstname" placeholder="Enter first name" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="add_lastname" class="col-sm-3 control-label">Last Name</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="add_lastname" name="lastname" required>
+                            <input type="text" class="form-control" id="add_lastname" name="lastname" placeholder="Enter last name" required>
                         </div>
                     </div>
                     <div class="form-group">

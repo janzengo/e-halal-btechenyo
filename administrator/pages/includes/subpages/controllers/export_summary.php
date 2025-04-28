@@ -549,15 +549,18 @@ try {
         
         if (!empty($candidates)) {
             summary_debug("Position has " . count($candidates) . " candidates");
+            // Sort by votes (descending)
             usort($candidates, function($a, $b) {
                 return $b['votes'] - $a['votes'];
             });
             
-            $highestVotes = $candidates[0]['votes'];
-            $winnerCount = 0;
+            // Get max winners for this position
+            $maxWinners = (int)$pos['max_vote'];
+            summary_debug("Position {$pos['description']} has max_vote of {$maxWinners}");
             
-            foreach ($candidates as $cand) {
-                if ($cand['votes'] == $highestVotes && $cand['votes'] > 0 && $winnerCount < $pos['max_vote']) {
+            // Take only top N candidates where N = max_vote
+            foreach ($candidates as $index => $cand) {
+                if ($index < $maxWinners && $cand['votes'] > 0) {
                     $pdf->SetFillColor($isAlternate ? 249 : 255, 249, 249);
                     
                     $pdf->SetFont('helvetica', 'B', 10);
@@ -567,8 +570,7 @@ try {
                     $pdf->Cell(45, 8, $cand['partylist_name'] ?? 'Independent', 1, 1, 'L', true);
                     
                     $isAlternate = !$isAlternate;
-                    $winnerCount++;
-                    summary_debug("Added winner: " . $cand['firstname'] . ' ' . $cand['lastname']);
+                    summary_debug("Added winner: " . $cand['firstname'] . ' ' . $cand['lastname'] . " (position " . ($index + 1) . " of " . $maxWinners . ")");
                 }
             }
         } else {
@@ -639,7 +641,7 @@ try {
                 $pdf->SetFont('helvetica', '', 10);
                 $isAlternate = false;
                 
-                foreach ($candidates as $cand) {
+                foreach ($candidates as $index => $cand) {
                     // Add debug logging to inspect candidate data
                     summary_debug("Processing candidate: " . json_encode($cand));
                     
@@ -652,16 +654,11 @@ try {
                     $votePercentage = ($totalVotesForPosition > 0) ? 
                         round(($votes / $totalVotesForPosition) * 100, 1) : 0;
                     
-                    // Highlight winners with green background
-                    $isWinner = false;
-                    if (count($candidates) > 0) {
-                        $highestVotes = isset($candidates[0]['votes']) ? $candidates[0]['votes'] : 0;
-                        $isWinner = ($votes == $highestVotes && $votes > 0);
-                    }
-                    
-                    if ($isWinner) {
+                    // Highlight top N candidates based on max_vote
+                    if ($index < $pos['max_vote'] && $votes > 0) {
                         $pdf->SetFont('helvetica', 'B', 10);
-                        $pdf->SetFillColor(230, 255, 230);
+                        $pdf->SetFillColor(230, 255, 230); // Light green for winners
+                        summary_debug("Highlighting candidate " . $firstName . " " . $lastName . " as top " . ($index + 1) . " of " . $pos['max_vote'] . " allowed winners");
                     } else {
                         $pdf->SetFont('helvetica', '', 10);
                         $pdf->SetFillColor($isAlternate ? 255 : 249, 249, 249);

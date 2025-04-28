@@ -135,8 +135,13 @@ class Ballot {
     }
 
     public function getElectionName() {
-        $parse = parse_ini_file("admin/config.ini", false, INI_SCANNER_RAW);
-        return isset($parse["election_name"]) ? $parse["election_name"] : "Election";
+        $sql = "SELECT election_name FROM election_status WHERE status != 'setup' ORDER BY id DESC LIMIT 1";
+        $result = $this->db->query($sql);
+        if ($result && $result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            return $row['election_name'];
+        }
+        return "E-HALAL BTECHenyo Election";
     }
 
     public function slugify($text) {

@@ -17,7 +17,7 @@ class Position {
     }
 
     public function getAllPositions() {
-        $query = "SELECT * FROM positions ORDER BY priority ASC";
+        $query = "SELECT id, description, max_vote, priority FROM positions ORDER BY priority ASC";
         $stmt = $this->db->prepare($query);
         if ($stmt->execute()) {
             $result = $stmt->get_result();

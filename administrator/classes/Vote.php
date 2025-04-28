@@ -26,20 +26,16 @@ class Vote {
         $query = "SELECT 
                     c.firstname, 
                     c.lastname,
-                    c.photo, 
-                    pl.name as partylist_name,
-                    (
-                        SELECT COUNT(*) 
-                        FROM votes v 
-                        WHERE JSON_EXTRACT(v.votes_data, CONCAT('$.\"', ?, '\"')) = CAST(c.id AS CHAR)
-                    ) as votes
+                    c.photo,
+                    c.votes, 
+                    pl.name as partylist_name
                 FROM candidates c
                 LEFT JOIN partylists pl ON c.partylist_id = pl.id
                 WHERE c.position_id = ?
-                ORDER BY votes DESC, c.lastname ASC, c.firstname ASC";
+                ORDER BY c.votes DESC, c.lastname ASC, c.firstname ASC";
         
         $stmt = $this->db->prepare($query);
-        $stmt->bind_param("ii", $position_id, $position_id);
+        $stmt->bind_param("i", $position_id);
         $stmt->execute();
         $result = $stmt->get_result();
         

@@ -124,10 +124,19 @@ $voteStats = $vote->getVotingStatistics();
                                                         <td colspan="4" class="text-center">No candidates for this position.</td>
                                                     </tr>
                                                 <?php else:
+                                                    // Calculate total votes for this position
                                                     $totalVotes = array_sum(array_column($candidates, 'votes'));
+                                                    
+                                                    // Get max votes allowed for this position
+                                                    $maxVotesPerVoter = $position['max_votes'] ?? 1;
+                                                    
+                                                    // Adjust total possible votes based on number of voters and max votes per voter
+                                                    $totalPossibleVotes = $voteStats['total_voters'] * $maxVotesPerVoter;
+                                                    
                                                     foreach ($candidates as $candidate):
-                                                        $votePercentage = ($totalVotes > 0) 
-                                                            ? ($candidate['votes'] / $totalVotes) * 100 
+                                                        // Calculate percentage based on total possible votes
+                                                        $votePercentage = ($totalPossibleVotes > 0) 
+                                                            ? ($candidate['votes'] / $totalPossibleVotes) * 100 
                                                             : 0;
                                                 ?>
                                                 <tr>

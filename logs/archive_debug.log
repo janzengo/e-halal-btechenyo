@@ -168,3 +168,91 @@
 2025-04-21 17:56:30 - archiveElection result: {"success":false,"message":"Column 'end_time' cannot be null"}
 2025-04-21 17:56:30 - Archiving failed: Column 'end_time' cannot be null
 2025-04-21 17:56:30 - Script completed
+2025-04-28 15:40:14 - Script started
+2025-04-28 15:40:14 - Error reporting configured
+2025-04-28 15:40:14 - Error logging configured
+2025-04-28 15:40:14 - Session started
+2025-04-28 15:40:14 - Loading basic includes
+2025-04-28 21:40:14 - init.php loaded
+2025-04-28 21:40:14 - Database.php loaded
+2025-04-28 21:40:14 - Loading admin classes
+2025-04-28 21:40:14 - Admin.php loaded
+2025-04-28 21:40:14 - Elections.php loaded
+2025-04-28 21:40:14 - Headers set
+2025-04-28 21:40:14 - Getting Admin instance
+2025-04-28 21:40:14 - Admin instance created
+2025-04-28 21:40:14 - Authentication passed
+2025-04-28 21:40:14 - Getting Elections instance
+2025-04-28 21:40:14 - Elections instance created
+2025-04-28 21:40:14 - Getting current election
+2025-04-28 21:40:14 - Current election data received: {"id":"1","status":"completed","election_name":"NBA Elections 2025","created_at":"2025-02-12 22:30:30","end_time":"2025-04-30 18:43:00","last_status_change":"2025-04-28 21:08:48","control_number":"E2504218634"}
+2025-04-28 21:40:14 - Election status valid
+2025-04-28 21:40:14 - Control number: E2504218634
+2025-04-28 21:40:14 - Parent directory path: C:/xampp/htdocs/e-halal/administrator/archives
+2025-04-28 21:40:14 - Archive directory path: C:/xampp/htdocs/e-halal/administrator/archives/E2504218634
+2025-04-28 21:40:14 - Parent directory is writable
+2025-04-28 21:40:14 - Creating archive directory
+2025-04-28 21:40:14 - Archive directory created
+2025-04-28 21:40:14 - Archive directory is writable
+2025-04-28 21:40:14 - Checking required image files for PDF generation
+2025-04-28 21:40:14 - Left logo path: C:/xampp/htdocs/e-halal/administrator/assets/images/btech.png
+2025-04-28 21:40:14 - Right logo path: C:/xampp/htdocs/e-halal/administrator/assets/images/ehalal.jpg
+2025-04-28 21:40:14 - Image checks complete
+2025-04-28 21:40:14 - Starting Results PDF generation
+2025-04-28 21:40:14 - Results path: C:/xampp/htdocs/e-halal/administrator/archives/E2504218634/results.pdf
+2025-04-28 21:40:14 - Including export_results.php
+2025-04-28 21:40:14 - export_results.php included successfully
+2025-04-28 21:40:14 - Results PDF created successfully
+2025-04-28 21:40:14 - Starting Summary PDF generation
+2025-04-28 21:40:14 - Summary path: C:/xampp/htdocs/e-halal/administrator/archives/E2504218634/summary.pdf
+2025-04-28 21:40:14 - Including export_summary.php
+2025-04-28 21:40:14 - export_summary.php included successfully
+2025-04-28 21:40:14 - Summary PDF created successfully
+2025-04-28 21:40:14 - Archiving election in database
+2025-04-28 21:40:14 - archiveElection result: {"success":true,"message":"Election archived successfully","control_number":"E2504218634"}
+2025-04-28 21:40:14 - Election archived successfully
+2025-04-28 21:40:14 - Script completed
+2025-04-28 16:30:16 - Script started
+2025-04-28 16:30:16 - Error reporting configured
+2025-04-28 16:30:16 - Error logging configured
+2025-04-28 16:30:16 - Session started
+2025-04-28 16:30:16 - Loading basic includes
+2025-04-28 22:30:16 - init.php loaded
+2025-04-28 22:30:16 - Database.php loaded
+2025-04-28 22:30:16 - Loading admin classes
+2025-04-28 22:30:16 - Admin.php loaded
+2025-04-28 22:30:16 - Elections.php loaded
+2025-04-28 22:30:16 - Headers set
+2025-04-28 22:30:16 - Getting Admin instance
+2025-04-28 22:30:16 - Admin instance created
+2025-04-28 22:30:16 - Authentication passed
+2025-04-28 22:30:16 - Getting Elections instance
+2025-04-28 22:30:16 - Elections instance created
+2025-04-28 22:30:16 - Getting current election
+2025-04-28 22:30:16 - Current election data received: {"id":"1","status":"completed","election_name":"Sangguniang Mag-aaral Elections 2026","created_at":"2025-02-12 22:30:30","end_time":"2025-04-30 22:30:00","last_status_change":"2025-04-28 22:29:44","control_number":"E2504282546"}
+2025-04-28 22:30:16 - Election status valid
+2025-04-28 22:30:16 - Control number: E2504282546
+2025-04-28 22:30:16 - Parent directory path: C:/xampp/htdocs/e-halal/administrator/archives
+2025-04-28 22:30:16 - Archive directory path: C:/xampp/htdocs/e-halal/administrator/archives/E2504282546
+2025-04-28 22:30:16 - Parent directory is writable
+2025-04-28 22:30:16 - Creating archive directory
+2025-04-28 22:30:16 - Archive directory created
+2025-04-28 22:30:16 - Archive directory is writable
+2025-04-28 22:30:16 - Checking required image files for PDF generation
+2025-04-28 22:30:16 - Left logo path: C:/xampp/htdocs/e-halal/administrator/assets/images/btech.png
+2025-04-28 22:30:16 - Right logo path: C:/xampp/htdocs/e-halal/administrator/assets/images/ehalal.jpg
+2025-04-28 22:30:16 - Image checks complete
+2025-04-28 22:30:16 - Starting Results PDF generation
+2025-04-28 22:30:16 - Results path: C:/xampp/htdocs/e-halal/administrator/archives/E2504282546/results.pdf
+2025-04-28 22:30:16 - Including export_results.php
+2025-04-28 22:30:16 - export_results.php included successfully
+2025-04-28 22:30:16 - Results PDF created successfully
+2025-04-28 22:30:16 - Starting Summary PDF generation
+2025-04-28 22:30:16 - Summary path: C:/xampp/htdocs/e-halal/administrator/archives/E2504282546/summary.pdf
+2025-04-28 22:30:16 - Including export_summary.php
+2025-04-28 22:30:16 - export_summary.php included successfully
+2025-04-28 22:30:16 - Summary PDF created successfully
+2025-04-28 22:30:16 - Archiving election in database
+2025-04-28 22:30:16 - archiveElection result: {"success":true,"message":"Election archived successfully","control_number":"E2504282546"}
+2025-04-28 22:30:16 - Election archived successfully
+2025-04-28 22:30:16 - Script completed

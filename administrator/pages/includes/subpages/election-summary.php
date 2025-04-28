@@ -32,7 +32,7 @@ foreach ($positions as $position) {
     </tr>
 </table>
 
-<!-- Elected Officers Section - Redesigned for Consistency -->
+<!-- Elected Officers Section -->
 <div class="box box-solid">
     <div class="box-header with-border">
         <h4 class="box-title">Elected Officers</h4>
@@ -40,8 +40,7 @@ foreach ($positions as $position) {
     <div class="box-body">
         <div class="row">
             <?php
-            // Loop through each position to get winners
-            $globalWinnerCount = 0; // Track if any winners are found across all positions
+            $globalWinnerCount = 0;
             foreach ($positions as $pos) {
                 $position_id = $pos['id'];
                 $position_name = $pos['description'];
@@ -59,56 +58,40 @@ foreach ($positions as $position) {
                     return $b['votes'] - $a['votes'];
                 });
                 
-                // Find highest vote count to determine winners
-                $highestVotes = 0;
-                if (!empty($candidates)) {
-                    $highestVotes = $candidates[0]['votes'];
-                }
+                // Take only top N candidates where N = max_vote
+                $winners = array_slice($candidates, 0, $max_vote);
                 
-                // Add winners for this position
-                $positionWinnerCount = 0;
-                foreach ($candidates as $cand) {
-                    if ($cand['votes'] == $highestVotes && $cand['votes'] > 0 && $positionWinnerCount < $max_vote) {
-                        $globalWinnerCount++; // Increment global count
-                        $positionWinnerCount++;
+                // Display winners
+                foreach ($winners as $cand) {
+                    if ($cand['votes'] > 0) { // Only show if they have votes
+                        $globalWinnerCount++;
                         
-                        // Debug full candidate data
-                        echo "<script>console.log('Full candidate data:', " . json_encode($cand) . ");</script>";
+                        // Get candidate photo
+                        $photoPath = !empty($cand['photo']) ? $cand['photo'] : 'assets/images/profile.jpg';
                         
-                        // Get candidate photo - Simplify the photo path handling to match candidates.php
-                        if (!empty($cand['photo'])) {
-                            $photoPath = $cand['photo']; // Use the photo path directly as stored in DB
-                        } else {
-                            $photoPath = 'assets/images/profile.jpg';
-                        }
-                        
-                        // Start winner box - using box-solid style
+                        // Winner card
                         echo '<div class="col-md-4 col-sm-6">';
                         echo '<div class="box box-solid" style="margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); border-top: 3px solid #3c8dbc;">';
                         
-                        // Box body for content
                         echo '<div class="box-body text-center">';
                         echo '<img class="img-circle" src="' . htmlspecialchars($photoPath) . '" alt="' . htmlspecialchars($cand['firstname'] . ' ' . $cand['lastname']) . '" style="width: 80px; height: 80px; object-fit: cover; border: 3px solid #fff; margin-bottom: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">';
                         echo '<h4 style="font-weight: 600; margin-bottom: 2px;">' . htmlspecialchars($cand['firstname'] . ' ' . $cand['lastname']) . '</h4>';
                         echo '<p style="color: #777; margin-bottom: 10px;">' . htmlspecialchars($cand['partylist_name'] ?? 'Independent') . '</p>';
-                        echo '</div>'; // End box-body
+                        echo '</div>';
                         
-                        // Box footer for details
                         echo '<div class="box-footer no-padding">';
-                        echo '<ul class="nav nav-stacked">'; // Use nav-stacked for vertical list
+                        echo '<ul class="nav nav-stacked">';
                         echo '<li style="border-bottom: 1px solid #f4f4f4;"><a href="#" style="pointer-events: none;"><strong>Position:</strong> <span class="pull-right">' . htmlspecialchars($position_name) . '</span></a></li>';
-                        echo '<li><a href="#" style="pointer-events: none;"><strong>Votes:</strong> <span class="pull-right badge bg-green">' . $cand['votes'] . '</span></a></li>'; // Changed badge color
+                        echo '<li><a href="#" style="pointer-events: none;"><strong>Votes:</strong> <span class="pull-right badge bg-green">' . $cand['votes'] . '</span></a></li>';
                         echo '</ul>';
-                        echo '</div>'; // End box-footer
+                        echo '</div>';
                         
-                        // End winner box
                         echo '</div>';
                         echo '</div>';
                     }
                 }
             }
             
-            // If no winners found across all positions
             if ($globalWinnerCount == 0) {
                 echo '<div class="col-md-12">';
                 echo '<div class="alert alert-info text-center" role="alert">';

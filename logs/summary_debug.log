@@ -316,3 +316,463 @@
 2025-04-21 17:56:30 - Saving PDF to physical path: C:/xampp/htdocs/e-halal/administrator/archives/E2504218634/summary.pdf
 2025-04-21 17:56:30 - PDF saved successfully. Normalized path for DB: e-halal/administrator/archives/E2504218634/summary.pdf
 2025-04-21 17:56:30 - PDF generation complete
+2025-04-28 15:24:07 - Starting summary PDF generation
+2025-04-28 15:24:07 - TCPDF class loaded successfully
+2025-04-28 15:24:07 - Running in normal mode - including required files
+2025-04-28 21:24:07 - All includes loaded successfully (document root method)
+2025-04-28 21:24:07 - Starting summary PDF generation
+2025-04-28 21:24:07 - Creating new ElectionPDF instance
+2025-04-28 21:24:07 - Setting document properties
+2025-04-28 21:24:07 - Setting font and margin properties
+2025-04-28 21:24:07 - Adding first page
+2025-04-28 21:24:07 - Loading logos - Left: C:\xampp\htdocs\e-halal/administrator/assets/images/btech.png, Right: C:\xampp\htdocs\e-halal/administrator/assets/images/ehalal.jpg
+2025-04-28 21:24:07 - Left logo loaded successfully
+2025-04-28 21:24:07 - Right logo loaded successfully
+2025-04-28 21:24:07 - Logos loaded successfully
+2025-04-28 21:24:07 - Creating election information section
+2025-04-28 21:24:07 - Creating info table data
+2025-04-28 21:24:07 - Rendering info table
+2025-04-28 21:24:07 - Creating voter participation section
+2025-04-28 21:24:07 - Getting voting statistics
+2025-04-28 21:24:07 - Creating participation table
+2025-04-28 21:24:07 - Rendering participation table
+2025-04-28 21:24:07 - Creating elected officers section
+2025-04-28 21:24:07 - Creating winners table
+2025-04-28 21:24:07 - Getting positions data
+2025-04-28 21:24:07 - Creating winners table rows - positions count: 5
+2025-04-28 21:24:07 - Processing position ID: 24 - President
+2025-04-28 21:24:07 - Position has 3 candidates
+2025-04-28 21:24:07 - Added winner: Stephen Curry
+2025-04-28 21:24:07 - Processing position ID: 33 - Vice President
+2025-04-28 21:24:07 - Position has 3 candidates
+2025-04-28 21:24:07 - Added winner: Russell Westbrook
+2025-04-28 21:24:07 - Processing position ID: 34 - Secretary
+2025-04-28 21:24:07 - Position has 3 candidates
+2025-04-28 21:24:07 - Added winner: Draymond Green
+2025-04-28 21:24:07 - Processing position ID: 35 - Treasurer
+2025-04-28 21:24:07 - Position has 3 candidates
+2025-04-28 21:24:07 - Added winner: Dalton Knecht
+2025-04-28 21:24:07 - Processing position ID: 36 - PIO
+2025-04-28 21:24:07 - Position has 6 candidates
+2025-04-28 21:24:07 - Added winner: Michael Porter Jr.
+2025-04-28 21:24:07 - Creating detailed vote statistics section
+2025-04-28 21:24:07 - Loading logos - Left: C:\xampp\htdocs\e-halal/administrator/assets/images/btech.png, Right: C:\xampp\htdocs\e-halal/administrator/assets/images/ehalal.jpg
+2025-04-28 21:24:07 - Left logo loaded successfully
+2025-04-28 21:24:07 - Right logo loaded successfully
+2025-04-28 21:24:07 - Logos loaded successfully
+2025-04-28 21:24:07 - Processing detailed stats for position ID: 24 - President
+2025-04-28 21:24:07 - Retrieved 3 candidates for position 24
+2025-04-28 21:24:07 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-04-28 21:24:07 - Processing candidate: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidates\/candidate_curry_stephen.jpg","votes":5,"partylist_name":"Golden State Warriors"}
+2025-04-28 21:24:07 - Processing candidate: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/candidates\/candidate_jokic_nikola.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+2025-04-28 21:24:07 - Processing candidate: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","votes":1,"partylist_name":"Los Angeles Lakers"}
+2025-04-28 21:24:07 - Processing detailed stats for position ID: 33 - Vice President
+2025-04-28 21:24:07 - Retrieved 3 candidates for position 33
+2025-04-28 21:24:07 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-04-28 21:24:07 - Processing candidate: {"firstname":"Russell","lastname":"Westbrook","photo":"assets\/images\/candidates\/candidate_westbrook_russell.jpg","votes":4,"partylist_name":"Denver Nuggets"}
+2025-04-28 21:24:07 - Processing candidate: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/candidates\/candidate_doncic_luka.jpg","votes":3,"partylist_name":"Los Angeles Lakers"}
+2025-04-28 21:24:07 - Processing candidate: {"firstname":"Jimmy","lastname":"Butler","photo":"assets\/images\/candidates\/candidate_butler_jimmy.jpg","votes":1,"partylist_name":"Golden State Warriors"}
+2025-04-28 21:24:07 - Processing detailed stats for position ID: 34 - Secretary
+2025-04-28 21:24:07 - Retrieved 3 candidates for position 34
+2025-04-28 21:24:07 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-04-28 21:24:07 - Processing candidate: {"firstname":"Draymond","lastname":"Green","photo":"assets\/images\/candidates\/candidate_green_draymond.jpg","votes":4,"partylist_name":"Golden State Warriors"}
+2025-04-28 21:24:07 - Processing candidate: {"firstname":"Jamal","lastname":"Murray","photo":"assets\/images\/candidates\/candidate_murray_jamal.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+2025-04-28 21:24:07 - Processing candidate: {"firstname":"Austin","lastname":"Reeves","photo":"assets\/images\/candidates\/candidate_reeves_austin.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+2025-04-28 21:24:07 - Processing detailed stats for position ID: 35 - Treasurer
+2025-04-28 21:24:07 - Retrieved 3 candidates for position 35
+2025-04-28 21:24:07 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-04-28 21:24:07 - Processing candidate: {"firstname":"Dalton","lastname":"Knecht","photo":"assets\/images\/candidates\/candidate_knecht_dalton.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+2025-04-28 21:24:07 - Processing candidate: {"firstname":"Aaron","lastname":"Gordon","photo":"assets\/images\/candidates\/candidate_gordon_aaron.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+2025-04-28 21:24:07 - Processing candidate: {"firstname":"Buddy","lastname":"Hield","photo":"assets\/images\/candidates\/candidate_hield_buddy.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+2025-04-28 21:24:07 - Loading logos - Left: C:\xampp\htdocs\e-halal/administrator/assets/images/btech.png, Right: C:\xampp\htdocs\e-halal/administrator/assets/images/ehalal.jpg
+2025-04-28 21:24:07 - Left logo loaded successfully
+2025-04-28 21:24:07 - Right logo loaded successfully
+2025-04-28 21:24:07 - Logos loaded successfully
+2025-04-28 21:24:07 - Processing detailed stats for position ID: 36 - PIO
+2025-04-28 21:24:07 - Retrieved 6 candidates for position 36
+2025-04-28 21:24:07 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-04-28 21:24:07 - Processing candidate: {"firstname":"Michael","lastname":"Porter Jr.","photo":"assets\/images\/candidates\/candidate_porter jr._michael.jpg","votes":5,"partylist_name":"Denver Nuggets"}
+2025-04-28 21:24:07 - Processing candidate: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_bronny.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+2025-04-28 21:24:07 - Processing candidate: {"firstname":"Gary","lastname":"Payton II","photo":"assets\/images\/candidates\/candidate_payton ii_gary.jpg","votes":3,"partylist_name":"Golden State Warriors"}
+2025-04-28 21:24:07 - Processing candidate: {"firstname":"Rui","lastname":"Hachimura","photo":"assets\/images\/candidates\/candidate_hachimura_rui.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+2025-04-28 21:24:07 - Processing candidate: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/candidates\/candidate_moody_moses.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+2025-04-28 21:24:07 - Processing candidate: {"firstname":"DeAndre","lastname":"Jordan","photo":"assets\/images\/candidates\/candidate_jordan_deandre.jpg","votes":0,"partylist_name":"Denver Nuggets"}
+2025-04-28 21:24:07 - Creating certification section
+2025-04-28 21:24:07 - Loading logos - Left: C:\xampp\htdocs\e-halal/administrator/assets/images/btech.png, Right: C:\xampp\htdocs\e-halal/administrator/assets/images/ehalal.jpg
+2025-04-28 21:24:07 - Left logo loaded successfully
+2025-04-28 21:24:07 - Right logo loaded successfully
+2025-04-28 21:24:07 - Logos loaded successfully
+2025-04-28 21:24:07 - Generating output PDF
+2025-04-28 21:24:07 - Sending PDF for download
+2025-04-28 21:24:07 - PDF download initiated
+2025-04-28 21:24:07 - PDF generation complete
+2025-04-28 15:26:47 - Starting summary PDF generation
+2025-04-28 15:26:47 - TCPDF class loaded successfully
+2025-04-28 15:26:47 - Running in normal mode - including required files
+2025-04-28 21:26:47 - All includes loaded successfully (document root method)
+2025-04-28 21:26:47 - Starting summary PDF generation
+2025-04-28 21:26:47 - Creating new ElectionPDF instance
+2025-04-28 21:26:47 - Setting document properties
+2025-04-28 21:26:47 - Setting font and margin properties
+2025-04-28 21:26:47 - Adding first page
+2025-04-28 21:26:47 - Loading logos - Left: C:\xampp\htdocs\e-halal/administrator/assets/images/btech.png, Right: C:\xampp\htdocs\e-halal/administrator/assets/images/ehalal.jpg
+2025-04-28 21:26:47 - Left logo loaded successfully
+2025-04-28 21:26:47 - Right logo loaded successfully
+2025-04-28 21:26:47 - Logos loaded successfully
+2025-04-28 21:26:47 - Creating election information section
+2025-04-28 21:26:47 - Creating info table data
+2025-04-28 21:26:47 - Rendering info table
+2025-04-28 21:26:47 - Creating voter participation section
+2025-04-28 21:26:47 - Getting voting statistics
+2025-04-28 21:26:47 - Creating participation table
+2025-04-28 21:26:47 - Rendering participation table
+2025-04-28 21:26:47 - Creating elected officers section
+2025-04-28 21:26:47 - Creating winners table
+2025-04-28 21:26:47 - Getting positions data
+2025-04-28 21:26:47 - Creating winners table rows - positions count: 5
+2025-04-28 21:26:47 - Processing position ID: 24 - President
+2025-04-28 21:26:47 - Position has 3 candidates
+2025-04-28 21:26:47 - Position President has max_vote of 1
+2025-04-28 21:26:47 - Added winner: Stephen Curry (position 1 of 1)
+2025-04-28 21:26:47 - Processing position ID: 33 - Vice President
+2025-04-28 21:26:47 - Position has 3 candidates
+2025-04-28 21:26:47 - Position Vice President has max_vote of 1
+2025-04-28 21:26:47 - Added winner: Russell Westbrook (position 1 of 1)
+2025-04-28 21:26:47 - Processing position ID: 34 - Secretary
+2025-04-28 21:26:47 - Position has 3 candidates
+2025-04-28 21:26:47 - Position Secretary has max_vote of 1
+2025-04-28 21:26:47 - Added winner: Draymond Green (position 1 of 1)
+2025-04-28 21:26:47 - Processing position ID: 35 - Treasurer
+2025-04-28 21:26:47 - Position has 3 candidates
+2025-04-28 21:26:47 - Position Treasurer has max_vote of 1
+2025-04-28 21:26:47 - Added winner: Dalton Knecht (position 1 of 1)
+2025-04-28 21:26:47 - Processing position ID: 36 - PIO
+2025-04-28 21:26:47 - Position has 6 candidates
+2025-04-28 21:26:47 - Position PIO has max_vote of 2
+2025-04-28 21:26:47 - Added winner: Michael Porter Jr. (position 1 of 2)
+2025-04-28 21:26:47 - Added winner: Bronny James (position 2 of 2)
+2025-04-28 21:26:47 - Creating detailed vote statistics section
+2025-04-28 21:26:47 - Loading logos - Left: C:\xampp\htdocs\e-halal/administrator/assets/images/btech.png, Right: C:\xampp\htdocs\e-halal/administrator/assets/images/ehalal.jpg
+2025-04-28 21:26:47 - Left logo loaded successfully
+2025-04-28 21:26:47 - Right logo loaded successfully
+2025-04-28 21:26:47 - Logos loaded successfully
+2025-04-28 21:26:47 - Processing detailed stats for position ID: 24 - President
+2025-04-28 21:26:47 - Retrieved 3 candidates for position 24
+2025-04-28 21:26:47 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-04-28 21:26:47 - Processing candidate: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidates\/candidate_curry_stephen.jpg","votes":5,"partylist_name":"Golden State Warriors"}
+2025-04-28 21:26:47 - Processing candidate: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/candidates\/candidate_jokic_nikola.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+2025-04-28 21:26:47 - Processing candidate: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","votes":1,"partylist_name":"Los Angeles Lakers"}
+2025-04-28 21:26:47 - Processing detailed stats for position ID: 33 - Vice President
+2025-04-28 21:26:47 - Retrieved 3 candidates for position 33
+2025-04-28 21:26:47 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-04-28 21:26:47 - Processing candidate: {"firstname":"Russell","lastname":"Westbrook","photo":"assets\/images\/candidates\/candidate_westbrook_russell.jpg","votes":4,"partylist_name":"Denver Nuggets"}
+2025-04-28 21:26:47 - Processing candidate: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/candidates\/candidate_doncic_luka.jpg","votes":3,"partylist_name":"Los Angeles Lakers"}
+2025-04-28 21:26:47 - Processing candidate: {"firstname":"Jimmy","lastname":"Butler","photo":"assets\/images\/candidates\/candidate_butler_jimmy.jpg","votes":1,"partylist_name":"Golden State Warriors"}
+2025-04-28 21:26:47 - Processing detailed stats for position ID: 34 - Secretary
+2025-04-28 21:26:47 - Retrieved 3 candidates for position 34
+2025-04-28 21:26:47 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-04-28 21:26:47 - Processing candidate: {"firstname":"Draymond","lastname":"Green","photo":"assets\/images\/candidates\/candidate_green_draymond.jpg","votes":4,"partylist_name":"Golden State Warriors"}
+2025-04-28 21:26:47 - Processing candidate: {"firstname":"Jamal","lastname":"Murray","photo":"assets\/images\/candidates\/candidate_murray_jamal.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+2025-04-28 21:26:47 - Processing candidate: {"firstname":"Austin","lastname":"Reeves","photo":"assets\/images\/candidates\/candidate_reeves_austin.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+2025-04-28 21:26:47 - Processing detailed stats for position ID: 35 - Treasurer
+2025-04-28 21:26:47 - Retrieved 3 candidates for position 35
+2025-04-28 21:26:47 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-04-28 21:26:47 - Processing candidate: {"firstname":"Dalton","lastname":"Knecht","photo":"assets\/images\/candidates\/candidate_knecht_dalton.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+2025-04-28 21:26:47 - Processing candidate: {"firstname":"Aaron","lastname":"Gordon","photo":"assets\/images\/candidates\/candidate_gordon_aaron.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+2025-04-28 21:26:47 - Processing candidate: {"firstname":"Buddy","lastname":"Hield","photo":"assets\/images\/candidates\/candidate_hield_buddy.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+2025-04-28 21:26:47 - Loading logos - Left: C:\xampp\htdocs\e-halal/administrator/assets/images/btech.png, Right: C:\xampp\htdocs\e-halal/administrator/assets/images/ehalal.jpg
+2025-04-28 21:26:47 - Left logo loaded successfully
+2025-04-28 21:26:47 - Right logo loaded successfully
+2025-04-28 21:26:47 - Logos loaded successfully
+2025-04-28 21:26:47 - Processing detailed stats for position ID: 36 - PIO
+2025-04-28 21:26:47 - Retrieved 6 candidates for position 36
+2025-04-28 21:26:47 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-04-28 21:26:47 - Processing candidate: {"firstname":"Michael","lastname":"Porter Jr.","photo":"assets\/images\/candidates\/candidate_porter jr._michael.jpg","votes":5,"partylist_name":"Denver Nuggets"}
+2025-04-28 21:26:47 - Processing candidate: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_bronny.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+2025-04-28 21:26:47 - Processing candidate: {"firstname":"Gary","lastname":"Payton II","photo":"assets\/images\/candidates\/candidate_payton ii_gary.jpg","votes":3,"partylist_name":"Golden State Warriors"}
+2025-04-28 21:26:47 - Processing candidate: {"firstname":"Rui","lastname":"Hachimura","photo":"assets\/images\/candidates\/candidate_hachimura_rui.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+2025-04-28 21:26:47 - Processing candidate: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/candidates\/candidate_moody_moses.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+2025-04-28 21:26:47 - Processing candidate: {"firstname":"DeAndre","lastname":"Jordan","photo":"assets\/images\/candidates\/candidate_jordan_deandre.jpg","votes":0,"partylist_name":"Denver Nuggets"}
+2025-04-28 21:26:47 - Creating certification section
+2025-04-28 21:26:47 - Loading logos - Left: C:\xampp\htdocs\e-halal/administrator/assets/images/btech.png, Right: C:\xampp\htdocs\e-halal/administrator/assets/images/ehalal.jpg
+2025-04-28 21:26:47 - Left logo loaded successfully
+2025-04-28 21:26:47 - Right logo loaded successfully
+2025-04-28 21:26:47 - Logos loaded successfully
+2025-04-28 21:26:47 - Generating output PDF
+2025-04-28 21:26:47 - Sending PDF for download
+2025-04-28 21:26:47 - PDF download initiated
+2025-04-28 21:26:47 - PDF generation complete
+2025-04-28 15:28:26 - Starting summary PDF generation
+2025-04-28 15:28:26 - TCPDF class loaded successfully
+2025-04-28 15:28:26 - Running in normal mode - including required files
+2025-04-28 21:28:26 - All includes loaded successfully (document root method)
+2025-04-28 21:28:26 - Starting summary PDF generation
+2025-04-28 21:28:26 - Creating new ElectionPDF instance
+2025-04-28 21:28:26 - Setting document properties
+2025-04-28 21:28:26 - Setting font and margin properties
+2025-04-28 21:28:26 - Adding first page
+2025-04-28 21:28:26 - Loading logos - Left: C:\xampp\htdocs\e-halal/administrator/assets/images/btech.png, Right: C:\xampp\htdocs\e-halal/administrator/assets/images/ehalal.jpg
+2025-04-28 21:28:26 - Left logo loaded successfully
+2025-04-28 21:28:26 - Right logo loaded successfully
+2025-04-28 21:28:26 - Logos loaded successfully
+2025-04-28 21:28:26 - Creating election information section
+2025-04-28 21:28:26 - Creating info table data
+2025-04-28 21:28:26 - Rendering info table
+2025-04-28 21:28:26 - Creating voter participation section
+2025-04-28 21:28:26 - Getting voting statistics
+2025-04-28 21:28:26 - Creating participation table
+2025-04-28 21:28:26 - Rendering participation table
+2025-04-28 21:28:26 - Creating elected officers section
+2025-04-28 21:28:26 - Creating winners table
+2025-04-28 21:28:26 - Getting positions data
+2025-04-28 21:28:26 - Creating winners table rows - positions count: 5
+2025-04-28 21:28:26 - Processing position ID: 24 - President
+2025-04-28 21:28:26 - Position has 3 candidates
+2025-04-28 21:28:26 - Position President has max_vote of 1
+2025-04-28 21:28:26 - Added winner: Stephen Curry (position 1 of 1)
+2025-04-28 21:28:26 - Processing position ID: 33 - Vice President
+2025-04-28 21:28:26 - Position has 3 candidates
+2025-04-28 21:28:26 - Position Vice President has max_vote of 1
+2025-04-28 21:28:26 - Added winner: Russell Westbrook (position 1 of 1)
+2025-04-28 21:28:26 - Processing position ID: 34 - Secretary
+2025-04-28 21:28:26 - Position has 3 candidates
+2025-04-28 21:28:26 - Position Secretary has max_vote of 1
+2025-04-28 21:28:26 - Added winner: Draymond Green (position 1 of 1)
+2025-04-28 21:28:26 - Processing position ID: 35 - Treasurer
+2025-04-28 21:28:26 - Position has 3 candidates
+2025-04-28 21:28:26 - Position Treasurer has max_vote of 1
+2025-04-28 21:28:26 - Added winner: Dalton Knecht (position 1 of 1)
+2025-04-28 21:28:26 - Processing position ID: 36 - PIO
+2025-04-28 21:28:26 - Position has 6 candidates
+2025-04-28 21:28:26 - Position PIO has max_vote of 2
+2025-04-28 21:28:26 - Added winner: Michael Porter Jr. (position 1 of 2)
+2025-04-28 21:28:26 - Added winner: Bronny James (position 2 of 2)
+2025-04-28 21:28:26 - Creating detailed vote statistics section
+2025-04-28 21:28:26 - Loading logos - Left: C:\xampp\htdocs\e-halal/administrator/assets/images/btech.png, Right: C:\xampp\htdocs\e-halal/administrator/assets/images/ehalal.jpg
+2025-04-28 21:28:26 - Left logo loaded successfully
+2025-04-28 21:28:26 - Right logo loaded successfully
+2025-04-28 21:28:26 - Logos loaded successfully
+2025-04-28 21:28:26 - Processing detailed stats for position ID: 24 - President
+2025-04-28 21:28:26 - Retrieved 3 candidates for position 24
+2025-04-28 21:28:26 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-04-28 21:28:26 - Processing candidate: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidates\/candidate_curry_stephen.jpg","votes":5,"partylist_name":"Golden State Warriors"}
+2025-04-28 21:28:26 - Highlighting candidate Stephen Curry as top 1 of 1 allowed winners
+2025-04-28 21:28:26 - Processing candidate: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/candidates\/candidate_jokic_nikola.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+2025-04-28 21:28:26 - Processing candidate: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","votes":1,"partylist_name":"Los Angeles Lakers"}
+2025-04-28 21:28:26 - Processing detailed stats for position ID: 33 - Vice President
+2025-04-28 21:28:26 - Retrieved 3 candidates for position 33
+2025-04-28 21:28:26 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-04-28 21:28:26 - Processing candidate: {"firstname":"Russell","lastname":"Westbrook","photo":"assets\/images\/candidates\/candidate_westbrook_russell.jpg","votes":4,"partylist_name":"Denver Nuggets"}
+2025-04-28 21:28:26 - Highlighting candidate Russell Westbrook as top 1 of 1 allowed winners
+2025-04-28 21:28:26 - Processing candidate: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/candidates\/candidate_doncic_luka.jpg","votes":3,"partylist_name":"Los Angeles Lakers"}
+2025-04-28 21:28:26 - Processing candidate: {"firstname":"Jimmy","lastname":"Butler","photo":"assets\/images\/candidates\/candidate_butler_jimmy.jpg","votes":1,"partylist_name":"Golden State Warriors"}
+2025-04-28 21:28:26 - Processing detailed stats for position ID: 34 - Secretary
+2025-04-28 21:28:26 - Retrieved 3 candidates for position 34
+2025-04-28 21:28:26 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-04-28 21:28:26 - Processing candidate: {"firstname":"Draymond","lastname":"Green","photo":"assets\/images\/candidates\/candidate_green_draymond.jpg","votes":4,"partylist_name":"Golden State Warriors"}
+2025-04-28 21:28:26 - Highlighting candidate Draymond Green as top 1 of 1 allowed winners
+2025-04-28 21:28:26 - Processing candidate: {"firstname":"Jamal","lastname":"Murray","photo":"assets\/images\/candidates\/candidate_murray_jamal.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+2025-04-28 21:28:26 - Processing candidate: {"firstname":"Austin","lastname":"Reeves","photo":"assets\/images\/candidates\/candidate_reeves_austin.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+2025-04-28 21:28:26 - Processing detailed stats for position ID: 35 - Treasurer
+2025-04-28 21:28:26 - Retrieved 3 candidates for position 35
+2025-04-28 21:28:26 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-04-28 21:28:26 - Processing candidate: {"firstname":"Dalton","lastname":"Knecht","photo":"assets\/images\/candidates\/candidate_knecht_dalton.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+2025-04-28 21:28:26 - Highlighting candidate Dalton Knecht as top 1 of 1 allowed winners
+2025-04-28 21:28:26 - Processing candidate: {"firstname":"Aaron","lastname":"Gordon","photo":"assets\/images\/candidates\/candidate_gordon_aaron.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+2025-04-28 21:28:26 - Processing candidate: {"firstname":"Buddy","lastname":"Hield","photo":"assets\/images\/candidates\/candidate_hield_buddy.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+2025-04-28 21:28:26 - Loading logos - Left: C:\xampp\htdocs\e-halal/administrator/assets/images/btech.png, Right: C:\xampp\htdocs\e-halal/administrator/assets/images/ehalal.jpg
+2025-04-28 21:28:26 - Left logo loaded successfully
+2025-04-28 21:28:26 - Right logo loaded successfully
+2025-04-28 21:28:26 - Logos loaded successfully
+2025-04-28 21:28:26 - Processing detailed stats for position ID: 36 - PIO
+2025-04-28 21:28:26 - Retrieved 6 candidates for position 36
+2025-04-28 21:28:26 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-04-28 21:28:26 - Processing candidate: {"firstname":"Michael","lastname":"Porter Jr.","photo":"assets\/images\/candidates\/candidate_porter jr._michael.jpg","votes":5,"partylist_name":"Denver Nuggets"}
+2025-04-28 21:28:26 - Highlighting candidate Michael Porter Jr. as top 1 of 2 allowed winners
+2025-04-28 21:28:26 - Processing candidate: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_bronny.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+2025-04-28 21:28:26 - Highlighting candidate Bronny James as top 2 of 2 allowed winners
+2025-04-28 21:28:26 - Processing candidate: {"firstname":"Gary","lastname":"Payton II","photo":"assets\/images\/candidates\/candidate_payton ii_gary.jpg","votes":3,"partylist_name":"Golden State Warriors"}
+2025-04-28 21:28:26 - Processing candidate: {"firstname":"Rui","lastname":"Hachimura","photo":"assets\/images\/candidates\/candidate_hachimura_rui.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+2025-04-28 21:28:26 - Processing candidate: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/candidates\/candidate_moody_moses.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+2025-04-28 21:28:26 - Processing candidate: {"firstname":"DeAndre","lastname":"Jordan","photo":"assets\/images\/candidates\/candidate_jordan_deandre.jpg","votes":0,"partylist_name":"Denver Nuggets"}
+2025-04-28 21:28:26 - Creating certification section
+2025-04-28 21:28:26 - Loading logos - Left: C:\xampp\htdocs\e-halal/administrator/assets/images/btech.png, Right: C:\xampp\htdocs\e-halal/administrator/assets/images/ehalal.jpg
+2025-04-28 21:28:26 - Left logo loaded successfully
+2025-04-28 21:28:26 - Right logo loaded successfully
+2025-04-28 21:28:26 - Logos loaded successfully
+2025-04-28 21:28:26 - Generating output PDF
+2025-04-28 21:28:26 - Sending PDF for download
+2025-04-28 21:28:26 - PDF download initiated
+2025-04-28 21:28:26 - PDF generation complete
+2025-04-28 21:40:14 - Starting summary PDF generation
+2025-04-28 21:40:14 - TCPDF class loaded successfully
+2025-04-28 21:40:14 - Running in normal mode - including required files
+2025-04-28 21:40:14 - All includes loaded successfully (document root method)
+2025-04-28 21:40:14 - Starting summary PDF generation
+2025-04-28 21:40:14 - Creating new ElectionPDF instance
+2025-04-28 21:40:14 - Setting document properties
+2025-04-28 21:40:14 - Setting font and margin properties
+2025-04-28 21:40:14 - Adding first page
+2025-04-28 21:40:14 - Creating election information section
+2025-04-28 21:40:14 - Creating info table data
+2025-04-28 21:40:14 - Rendering info table
+2025-04-28 21:40:14 - Creating voter participation section
+2025-04-28 21:40:14 - Getting voting statistics
+2025-04-28 21:40:14 - Creating participation table
+2025-04-28 21:40:14 - Rendering participation table
+2025-04-28 21:40:14 - Creating elected officers section
+2025-04-28 21:40:14 - Creating winners table
+2025-04-28 21:40:14 - Getting positions data
+2025-04-28 21:40:14 - Creating winners table rows - positions count: 5
+2025-04-28 21:40:14 - Processing position ID: 24 - President
+2025-04-28 21:40:14 - Position has 3 candidates
+2025-04-28 21:40:14 - Position President has max_vote of 1
+2025-04-28 21:40:14 - Added winner: Stephen Curry (position 1 of 1)
+2025-04-28 21:40:14 - Processing position ID: 33 - Vice President
+2025-04-28 21:40:14 - Position has 3 candidates
+2025-04-28 21:40:14 - Position Vice President has max_vote of 1
+2025-04-28 21:40:14 - Added winner: Russell Westbrook (position 1 of 1)
+2025-04-28 21:40:14 - Processing position ID: 34 - Secretary
+2025-04-28 21:40:14 - Position has 3 candidates
+2025-04-28 21:40:14 - Position Secretary has max_vote of 1
+2025-04-28 21:40:14 - Added winner: Draymond Green (position 1 of 1)
+2025-04-28 21:40:14 - Processing position ID: 35 - Treasurer
+2025-04-28 21:40:14 - Position has 3 candidates
+2025-04-28 21:40:14 - Position Treasurer has max_vote of 1
+2025-04-28 21:40:14 - Added winner: Dalton Knecht (position 1 of 1)
+2025-04-28 21:40:14 - Processing position ID: 36 - PIO
+2025-04-28 21:40:14 - Position has 6 candidates
+2025-04-28 21:40:14 - Position PIO has max_vote of 2
+2025-04-28 21:40:14 - Added winner: Michael Porter Jr. (position 1 of 2)
+2025-04-28 21:40:14 - Added winner: Bronny James (position 2 of 2)
+2025-04-28 21:40:14 - Creating detailed vote statistics section
+2025-04-28 21:40:14 - Processing detailed stats for position ID: 24 - President
+2025-04-28 21:40:14 - Retrieved 3 candidates for position 24
+2025-04-28 21:40:14 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-04-28 21:40:14 - Processing candidate: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidates\/candidate_curry_stephen.jpg","votes":5,"partylist_name":"Golden State Warriors"}
+2025-04-28 21:40:14 - Highlighting candidate Stephen Curry as top 1 of 1 allowed winners
+2025-04-28 21:40:14 - Processing candidate: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/candidates\/candidate_jokic_nikola.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+2025-04-28 21:40:14 - Processing candidate: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","votes":1,"partylist_name":"Los Angeles Lakers"}
+2025-04-28 21:40:14 - Processing detailed stats for position ID: 33 - Vice President
+2025-04-28 21:40:14 - Retrieved 3 candidates for position 33
+2025-04-28 21:40:14 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-04-28 21:40:14 - Processing candidate: {"firstname":"Russell","lastname":"Westbrook","photo":"assets\/images\/candidates\/candidate_westbrook_russell.jpg","votes":4,"partylist_name":"Denver Nuggets"}
+2025-04-28 21:40:14 - Highlighting candidate Russell Westbrook as top 1 of 1 allowed winners
+2025-04-28 21:40:14 - Processing candidate: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/candidates\/candidate_doncic_luka.jpg","votes":3,"partylist_name":"Los Angeles Lakers"}
+2025-04-28 21:40:14 - Processing candidate: {"firstname":"Jimmy","lastname":"Butler","photo":"assets\/images\/candidates\/candidate_butler_jimmy.jpg","votes":1,"partylist_name":"Golden State Warriors"}
+2025-04-28 21:40:14 - Processing detailed stats for position ID: 34 - Secretary
+2025-04-28 21:40:14 - Retrieved 3 candidates for position 34
+2025-04-28 21:40:14 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-04-28 21:40:14 - Processing candidate: {"firstname":"Draymond","lastname":"Green","photo":"assets\/images\/candidates\/candidate_green_draymond.jpg","votes":4,"partylist_name":"Golden State Warriors"}
+2025-04-28 21:40:14 - Highlighting candidate Draymond Green as top 1 of 1 allowed winners
+2025-04-28 21:40:14 - Processing candidate: {"firstname":"Jamal","lastname":"Murray","photo":"assets\/images\/candidates\/candidate_murray_jamal.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+2025-04-28 21:40:14 - Processing candidate: {"firstname":"Austin","lastname":"Reeves","photo":"assets\/images\/candidates\/candidate_reeves_austin.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+2025-04-28 21:40:14 - Processing detailed stats for position ID: 35 - Treasurer
+2025-04-28 21:40:14 - Retrieved 3 candidates for position 35
+2025-04-28 21:40:14 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-04-28 21:40:14 - Processing candidate: {"firstname":"Dalton","lastname":"Knecht","photo":"assets\/images\/candidates\/candidate_knecht_dalton.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+2025-04-28 21:40:14 - Highlighting candidate Dalton Knecht as top 1 of 1 allowed winners
+2025-04-28 21:40:14 - Processing candidate: {"firstname":"Aaron","lastname":"Gordon","photo":"assets\/images\/candidates\/candidate_gordon_aaron.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+2025-04-28 21:40:14 - Processing candidate: {"firstname":"Buddy","lastname":"Hield","photo":"assets\/images\/candidates\/candidate_hield_buddy.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+2025-04-28 21:40:14 - Processing detailed stats for position ID: 36 - PIO
+2025-04-28 21:40:14 - Retrieved 6 candidates for position 36
+2025-04-28 21:40:14 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-04-28 21:40:14 - Processing candidate: {"firstname":"Michael","lastname":"Porter Jr.","photo":"assets\/images\/candidates\/candidate_porter jr._michael.jpg","votes":5,"partylist_name":"Denver Nuggets"}
+2025-04-28 21:40:14 - Highlighting candidate Michael Porter Jr. as top 1 of 2 allowed winners
+2025-04-28 21:40:14 - Processing candidate: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_bronny.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+2025-04-28 21:40:14 - Highlighting candidate Bronny James as top 2 of 2 allowed winners
+2025-04-28 21:40:14 - Processing candidate: {"firstname":"Gary","lastname":"Payton II","photo":"assets\/images\/candidates\/candidate_payton ii_gary.jpg","votes":3,"partylist_name":"Golden State Warriors"}
+2025-04-28 21:40:14 - Processing candidate: {"firstname":"Rui","lastname":"Hachimura","photo":"assets\/images\/candidates\/candidate_hachimura_rui.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+2025-04-28 21:40:14 - Processing candidate: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/candidates\/candidate_moody_moses.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+2025-04-28 21:40:14 - Processing candidate: {"firstname":"DeAndre","lastname":"Jordan","photo":"assets\/images\/candidates\/candidate_jordan_deandre.jpg","votes":0,"partylist_name":"Denver Nuggets"}
+2025-04-28 21:40:14 - Creating certification section
+2025-04-28 21:40:14 - Generating output PDF
+2025-04-28 21:40:14 - Saving PDF to physical path: C:/xampp/htdocs/e-halal/administrator/archives/E2504218634/summary.pdf
+2025-04-28 21:40:14 - PDF saved successfully. Normalized path for DB: e-halal/administrator/archives/E2504218634/summary.pdf
+2025-04-28 21:40:14 - PDF generation complete
+2025-04-28 22:30:16 - Starting summary PDF generation
+2025-04-28 22:30:16 - TCPDF class loaded successfully
+2025-04-28 22:30:16 - Running in normal mode - including required files
+2025-04-28 22:30:16 - All includes loaded successfully (document root method)
+2025-04-28 22:30:16 - Starting summary PDF generation
+2025-04-28 22:30:16 - Creating new ElectionPDF instance
+2025-04-28 22:30:16 - Setting document properties
+2025-04-28 22:30:16 - Setting font and margin properties
+2025-04-28 22:30:16 - Adding first page
+2025-04-28 22:30:16 - Creating election information section
+2025-04-28 22:30:16 - Creating info table data
+2025-04-28 22:30:16 - Rendering info table
+2025-04-28 22:30:16 - Creating voter participation section
+2025-04-28 22:30:16 - Getting voting statistics
+2025-04-28 22:30:16 - Creating participation table
+2025-04-28 22:30:16 - Rendering participation table
+2025-04-28 22:30:16 - Creating elected officers section
+2025-04-28 22:30:16 - Creating winners table
+2025-04-28 22:30:16 - Getting positions data
+2025-04-28 22:30:16 - Creating winners table rows - positions count: 5
+2025-04-28 22:30:16 - Processing position ID: 24 - President
+2025-04-28 22:30:16 - Position has 3 candidates
+2025-04-28 22:30:16 - Position President has max_vote of 1
+2025-04-28 22:30:16 - Added winner: Stephen Curry (position 1 of 1)
+2025-04-28 22:30:16 - Processing position ID: 33 - Vice President
+2025-04-28 22:30:16 - Position has 3 candidates
+2025-04-28 22:30:16 - Position Vice President has max_vote of 1
+2025-04-28 22:30:16 - Added winner: Russell Westbrook (position 1 of 1)
+2025-04-28 22:30:16 - Processing position ID: 34 - Secretary
+2025-04-28 22:30:16 - Position has 3 candidates
+2025-04-28 22:30:16 - Position Secretary has max_vote of 1
+2025-04-28 22:30:16 - Added winner: Draymond Green (position 1 of 1)
+2025-04-28 22:30:16 - Processing position ID: 35 - Treasurer
+2025-04-28 22:30:16 - Position has 3 candidates
+2025-04-28 22:30:16 - Position Treasurer has max_vote of 1
+2025-04-28 22:30:16 - Added winner: Dalton Knecht (position 1 of 1)
+2025-04-28 22:30:16 - Processing position ID: 36 - PIO
+2025-04-28 22:30:16 - Position has 6 candidates
+2025-04-28 22:30:16 - Position PIO has max_vote of 2
+2025-04-28 22:30:16 - Added winner: Michael Porter Jr. (position 1 of 2)
+2025-04-28 22:30:16 - Added winner: Bronny James (position 2 of 2)
+2025-04-28 22:30:16 - Creating detailed vote statistics section
+2025-04-28 22:30:16 - Processing detailed stats for position ID: 24 - President
+2025-04-28 22:30:16 - Retrieved 3 candidates for position 24
+2025-04-28 22:30:16 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-04-28 22:30:16 - Processing candidate: {"firstname":"Stephen","lastname":"Curry","photo":"assets\/images\/candidates\/candidate_curry_stephen.jpg","votes":5,"partylist_name":"Golden State Warriors"}
+2025-04-28 22:30:16 - Highlighting candidate Stephen Curry as top 1 of 1 allowed winners
+2025-04-28 22:30:16 - Processing candidate: {"firstname":"Nikola","lastname":"Jokic","photo":"assets\/images\/candidates\/candidate_jokic_nikola.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+2025-04-28 22:30:16 - Processing candidate: {"firstname":"Lebron","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_lebron.jpg","votes":1,"partylist_name":"Los Angeles Lakers"}
+2025-04-28 22:30:16 - Processing detailed stats for position ID: 33 - Vice President
+2025-04-28 22:30:16 - Retrieved 3 candidates for position 33
+2025-04-28 22:30:16 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-04-28 22:30:16 - Processing candidate: {"firstname":"Russell","lastname":"Westbrook","photo":"assets\/images\/candidates\/candidate_westbrook_russell.jpg","votes":4,"partylist_name":"Denver Nuggets"}
+2025-04-28 22:30:16 - Highlighting candidate Russell Westbrook as top 1 of 1 allowed winners
+2025-04-28 22:30:16 - Processing candidate: {"firstname":"Luka","lastname":"Doncic","photo":"assets\/images\/candidates\/candidate_doncic_luka.jpg","votes":3,"partylist_name":"Los Angeles Lakers"}
+2025-04-28 22:30:16 - Processing candidate: {"firstname":"Jimmy","lastname":"Butler","photo":"assets\/images\/candidates\/candidate_butler_jimmy.jpg","votes":1,"partylist_name":"Golden State Warriors"}
+2025-04-28 22:30:16 - Processing detailed stats for position ID: 34 - Secretary
+2025-04-28 22:30:16 - Retrieved 3 candidates for position 34
+2025-04-28 22:30:16 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-04-28 22:30:16 - Processing candidate: {"firstname":"Draymond","lastname":"Green","photo":"assets\/images\/candidates\/candidate_green_draymond.jpg","votes":4,"partylist_name":"Golden State Warriors"}
+2025-04-28 22:30:16 - Highlighting candidate Draymond Green as top 1 of 1 allowed winners
+2025-04-28 22:30:16 - Processing candidate: {"firstname":"Jamal","lastname":"Murray","photo":"assets\/images\/candidates\/candidate_murray_jamal.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+2025-04-28 22:30:16 - Processing candidate: {"firstname":"Austin","lastname":"Reeves","photo":"assets\/images\/candidates\/candidate_reeves_austin.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+2025-04-28 22:30:16 - Processing detailed stats for position ID: 35 - Treasurer
+2025-04-28 22:30:16 - Retrieved 3 candidates for position 35
+2025-04-28 22:30:16 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-04-28 22:30:16 - Processing candidate: {"firstname":"Dalton","lastname":"Knecht","photo":"assets\/images\/candidates\/candidate_knecht_dalton.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+2025-04-28 22:30:16 - Highlighting candidate Dalton Knecht as top 1 of 1 allowed winners
+2025-04-28 22:30:16 - Processing candidate: {"firstname":"Aaron","lastname":"Gordon","photo":"assets\/images\/candidates\/candidate_gordon_aaron.jpg","votes":2,"partylist_name":"Denver Nuggets"}
+2025-04-28 22:30:16 - Processing candidate: {"firstname":"Buddy","lastname":"Hield","photo":"assets\/images\/candidates\/candidate_hield_buddy.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+2025-04-28 22:30:16 - Processing detailed stats for position ID: 36 - PIO
+2025-04-28 22:30:16 - Retrieved 6 candidates for position 36
+2025-04-28 22:30:16 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-04-28 22:30:16 - Processing candidate: {"firstname":"Michael","lastname":"Porter Jr.","photo":"assets\/images\/candidates\/candidate_porter jr._michael.jpg","votes":5,"partylist_name":"Denver Nuggets"}
+2025-04-28 22:30:16 - Highlighting candidate Michael Porter Jr. as top 1 of 2 allowed winners
+2025-04-28 22:30:16 - Processing candidate: {"firstname":"Bronny","lastname":"James","photo":"assets\/images\/candidates\/candidate_james_bronny.jpg","votes":4,"partylist_name":"Los Angeles Lakers"}
+2025-04-28 22:30:16 - Highlighting candidate Bronny James as top 2 of 2 allowed winners
+2025-04-28 22:30:16 - Processing candidate: {"firstname":"Gary","lastname":"Payton II","photo":"assets\/images\/candidates\/candidate_payton ii_gary.jpg","votes":3,"partylist_name":"Golden State Warriors"}
+2025-04-28 22:30:16 - Processing candidate: {"firstname":"Rui","lastname":"Hachimura","photo":"assets\/images\/candidates\/candidate_hachimura_rui.jpg","votes":2,"partylist_name":"Los Angeles Lakers"}
+2025-04-28 22:30:16 - Processing candidate: {"firstname":"Moses","lastname":"Moody","photo":"assets\/images\/candidates\/candidate_moody_moses.jpg","votes":2,"partylist_name":"Golden State Warriors"}
+2025-04-28 22:30:16 - Processing candidate: {"firstname":"DeAndre","lastname":"Jordan","photo":"assets\/images\/candidates\/candidate_jordan_deandre.jpg","votes":0,"partylist_name":"Denver Nuggets"}
+2025-04-28 22:30:16 - Creating certification section
+2025-04-28 22:30:16 - Generating output PDF
+2025-04-28 22:30:16 - Saving PDF to physical path: C:/xampp/htdocs/e-halal/administrator/archives/E2504282546/summary.pdf
+2025-04-28 22:30:16 - PDF saved successfully. Normalized path for DB: e-halal/administrator/archives/E2504282546/summary.pdf
+2025-04-28 22:30:16 - PDF generation complete

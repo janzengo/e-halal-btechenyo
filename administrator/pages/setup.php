@@ -239,7 +239,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                 if($row['id'] != $_SESSION['admin']){
                                                     $actions = "
                                                         <div class='btn-group'>
-                                                            <button class='btn btn-sm btn-primary edit' data-id='".$row['id']."'>
+                                                            <button class='btn btn-sm btn-primary edit custom ' data-id='".$row['id']."'>
                                                                 <i class='fa fa-edit'></i> Edit
                                                             </button>
                                                             <button class='btn btn-sm btn-danger delete' data-id='".$row['id']."'>
@@ -305,5 +305,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     const BASE_URL = '<?php echo BASE_URL; ?>';
 </script>
 <script src="<?php echo BASE_URL; ?>administrator/pages/includes/scripts/setup.js"></script>
+<script src="<?php echo BASE_URL; ?>administrator/pages/includes/scripts/officer.js"></script>
 </body>
 </html>
