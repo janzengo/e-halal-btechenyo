@@ -64,5 +64,347 @@
         "user_id": "janzengo",
         "role": "head",
         "action": "Reset election system - All tables cleared and system reset to setup state"
+    },
+    {
+        "timestamp": "2025-04-29 08:21:19",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Updated admin profile"
+    },
+    {
+        "timestamp": "2025-04-29 08:30:47",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Updated admin profile"
+    },
+    {
+        "timestamp": "2025-04-29 08:34:29",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Updated election settings: 2022 Presidential Election"
+    },
+    {
+        "timestamp": "2025-04-29 08:34:36",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Completed election setup: 2022 Presidential Election"
+    },
+    {
+        "timestamp": "2025-04-29 08:35:01",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added course: President"
+    },
+    {
+        "timestamp": "2025-04-29 08:35:04",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Deleted course: President"
+    },
+    {
+        "timestamp": "2025-04-29 08:35:13",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added new position: President with auto-assigned priority 1"
+    },
+    {
+        "timestamp": "2025-04-29 08:35:22",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added new position: Vice President with auto-assigned priority 2"
+    },
+    {
+        "timestamp": "2025-04-29 08:37:46",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added new position: Senator with auto-assigned priority 3"
+    },
+    {
+        "timestamp": "2025-04-29 08:42:22",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added partylist: Liberal Party"
+    },
+    {
+        "timestamp": "2025-04-29 08:42:30",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added partylist: Partido Federal ng Pilipinas (PFP)"
+    },
+    {
+        "timestamp": "2025-04-29 08:42:37",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added partylist: PROMDI (Progressive Movement for the Devolution of Initiatives)"
+    },
+    {
+        "timestamp": "2025-04-29 08:42:47",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added partylist: Aksyon Demokratiko"
+    },
+    {
+        "timestamp": "2025-04-29 08:42:54",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added partylist: Partido Lakas ng Masa (PLM)"
+    },
+    {
+        "timestamp": "2025-04-29 08:43:01",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added partylist: Partido Demokratiko Sosyalista ng Pilipinas (PDSP)"
+    },
+    {
+        "timestamp": "2025-04-29 08:43:18",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added partylist: Nationalist People's Coalition (NPC)"
+    },
+    {
+        "timestamp": "2025-04-29 08:47:54",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added candidate: Leni ROBREDO"
+    },
+    {
+        "timestamp": "2025-04-29 08:48:29",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Error in candidate management: Invalid file format. Only JPG, JPEG & PNG files are allowed."
+    },
+    {
+        "timestamp": "2025-04-29 08:49:37",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added candidate: Bongbong MARCOS"
+    },
+    {
+        "timestamp": "2025-04-29 08:50:11",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added candidate: Manny PACQUIAO"
+    },
+    {
+        "timestamp": "2025-04-29 08:50:34",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added candidate: Isko MORENO"
+    },
+    {
+        "timestamp": "2025-04-29 08:51:31",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added candidate: Ping LACSON"
+    },
+    {
+        "timestamp": "2025-04-29 08:51:55",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added candidate: Leody DE GUZMAN"
+    },
+    {
+        "timestamp": "2025-04-29 08:52:22",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added candidate: Norberto GONZALES"
+    },
+    {
+        "timestamp": "2025-04-29 08:54:16",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added candidate: Sara DUTERTE"
+    },
+    {
+        "timestamp": "2025-04-29 08:54:40",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added candidate: Kiko PANGILINAN"
+    },
+    {
+        "timestamp": "2025-04-29 08:55:03",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added candidate: Tito SOTTO"
+    },
+    {
+        "timestamp": "2025-04-29 08:55:35",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added candidate: Lito ATIENZA"
+    },
+    {
+        "timestamp": "2025-04-29 08:56:04",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added candidate: Walden BELLO"
+    },
+    {
+        "timestamp": "2025-04-29 08:56:25",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added candidate: Willie  ONG"
+    },
+    {
+        "timestamp": "2025-04-29 08:59:21",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added candidate: Robin PADILLA"
+    },
+    {
+        "timestamp": "2025-04-29 09:00:01",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added candidate: Antonio TRILLANES"
+    },
+    {
+        "timestamp": "2025-04-29 09:00:20",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added candidate: Harry ROQUE"
+    },
+    {
+        "timestamp": "2025-04-29 09:00:58",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added candidate: Raffy TULFO"
+    },
+    {
+        "timestamp": "2025-04-29 09:01:17",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added candidate: Joel VILLANUEVA"
+    },
+    {
+        "timestamp": "2025-04-29 09:01:56",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added candidate: Mark VILLAR"
+    },
+    {
+        "timestamp": "2025-04-29 09:02:10",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Error in candidate management: Invalid file format. Only JPG, JPEG & PNG files are allowed."
+    },
+    {
+        "timestamp": "2025-04-29 09:03:15",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added candidate: Alex LACSON"
+    },
+    {
+        "timestamp": "2025-04-29 09:03:36",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added candidate: Risa HONTIVEROS"
+    },
+    {
+        "timestamp": "2025-04-29 09:04:26",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added candidate: Win GATCHALIAN"
+    },
+    {
+        "timestamp": "2025-04-29 09:04:43",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added candidate: Jinggoy ESTRADA"
+    },
+    {
+        "timestamp": "2025-04-29 09:05:05",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added candidate: Chel DIOKNO"
+    },
+    {
+        "timestamp": "2025-04-29 09:05:25",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added new position: Governor with auto-assigned priority 4"
+    },
+    {
+        "timestamp": "2025-04-29 09:05:39",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added new position: Vice Governor with auto-assigned priority 5"
+    },
+    {
+        "timestamp": "2025-04-29 09:08:08",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added new position: Provincial Board Member with auto-assigned priority 6"
+    },
+    {
+        "timestamp": "2025-04-29 09:09:46",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added candidate: Daniel FERNANDO"
+    },
+    {
+        "timestamp": "2025-04-29 09:10:08",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added candidate: WIllhelmino SY-ALVARADO"
+    },
+    {
+        "timestamp": "2025-04-29 09:10:22",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added candidate: Alex CASTRO"
+    },
+    {
+        "timestamp": "2025-04-29 09:10:52",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Updated candidate: Alex CASTRO"
+    },
+    {
+        "timestamp": "2025-04-29 09:11:01",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Deleted candidate: Alex CASTRO"
+    },
+    {
+        "timestamp": "2025-04-29 09:11:17",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added candidate: Alex CASTRO"
+    },
+    {
+        "timestamp": "2025-04-29 09:12:07",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added candidate: Jonjon MENDOZA"
+    },
+    {
+        "timestamp": "2025-04-29 09:13:04",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added candidate: Lorna SILVERIO"
+    },
+    {
+        "timestamp": "2025-04-29 09:13:38",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added candidate: Linabelle VILLARICA"
+    },
+    {
+        "timestamp": "2025-04-29 09:13:58",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added candidate: Ador PLEYTO"
+    },
+    {
+        "timestamp": "2025-04-29 09:14:23",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added course: Bachelor of Science and Information Technology"
+    },
+    {
+        "timestamp": "2025-04-29 09:14:58",
+        "user_id": "kdc",
+        "role": "head",
+        "action": "Added course: Bachelor of Secondary Education"
     }
 ]
