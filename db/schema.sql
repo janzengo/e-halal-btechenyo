@@ -1,9 +1,15 @@
 -- phpMyAdmin SQL Dump
--- Fresh Schema for E-Halal System
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: May 08, 2025 at 01:40 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
-SET time_zone = "+00:00";
+SET time_zone = "+08:00";
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -13,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `e-halal`
 --
-CREATE DATABASE IF NOT EXISTS `e-halal` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `e-halal`;
 
 -- --------------------------------------------------------
 
@@ -36,11 +40,11 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Pre-insert head admin
+-- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`id`, `username`, `email`, `password`, `firstname`, `lastname`, `photo`, `created_on`, `role`, `gender`) VALUES
-(1, 'janzengo', 'janneiljanzen.go@gmail.com', '$2y$10$ucPqJTKE1TNakVubE3clfuMjfr9CAYF/MAh78ZjTsam2u2l.aNpqi', 'Janzen', 'Go', 'assets/images/administrators/head_go_janzen.png', '2024-06-06', 'head', 'Male');
+(1, 'head', 'ehalal.btechenyo@gmail.com', '$2y$10$jXYXPnAatj7SHgBn2JfNDOHl3.x6mCYncHbCnzzXoXpd8sq.bWBsy', 'Electoral', 'Head', '', '2024-06-06', 'head', 'Male');
 
 -- --------------------------------------------------------
 
@@ -56,6 +60,34 @@ CREATE TABLE `admin_otp_requests` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `expires_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Triggers `admin_otp_requests`
+--
+DELIMITER $$
+CREATE TRIGGER `before_admin_otp_insert` BEFORE INSERT ON `admin_otp_requests` FOR EACH ROW BEGIN
+    DECLARE attempt_count INT;
+    SELECT COUNT(*) INTO attempt_count 
+    FROM admin_otp_requests 
+    WHERE email = NEW.email 
+    AND created_at > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+    
+    IF attempt_count >= 5 THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Rate limit exceeded. Please try again later.';
+    END IF;
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `tr_delete_admin_max_attempts` AFTER UPDATE ON `admin_otp_requests` FOR EACH ROW BEGIN
+    IF NEW.attempts >= 5 THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'MAX_ATTEMPTS_REACHED';
+    END IF;
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -119,13 +151,6 @@ CREATE TABLE `election_status` (
   `control_number` varchar(20) NOT NULL DEFAULT concat('E-',year(current_timestamp()),'-',lpad(floor(rand() * 10000),4,'0'))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Pre-insert initial election status
---
-
-INSERT INTO `election_status` (`id`, `status`, `election_name`, `created_at`, `end_time`, `last_status_change`, `control_number`) VALUES
-(1, 'setup', '', CURRENT_TIMESTAMP(), NULL, CURRENT_TIMESTAMP(), CONCAT('E', DATE_FORMAT(NOW(), '%y%m%d'), LPAD(FLOOR(RAND() * 10000), 4, '0')));
-
 -- --------------------------------------------------------
 
 --
@@ -141,6 +166,34 @@ CREATE TABLE `otp_requests` (
   `expires_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Triggers `otp_requests`
+--
+DELIMITER $$
+CREATE TRIGGER `before_otp_insert` BEFORE INSERT ON `otp_requests` FOR EACH ROW BEGIN
+    DECLARE attempt_count INT;
+    SELECT COUNT(*) INTO attempt_count 
+    FROM otp_requests 
+    WHERE student_number = NEW.student_number 
+    AND created_at > DATE_SUB(NOW(), INTERVAL 1 HOUR);
+    
+    IF attempt_count >= 5 THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Rate limit exceeded. Please try again later.';
+    END IF;
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `tr_delete_max_attempts` AFTER UPDATE ON `otp_requests` FOR EACH ROW BEGIN
+    IF NEW.attempts >= 5 THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'MAX_ATTEMPTS_REACHED';
+    END IF;
+END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -151,6 +204,47 @@ CREATE TABLE `partylists` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `password_reset_requests`
+--
+
+CREATE TABLE `password_reset_requests` (
+  `id` int(11) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `reset_token` varchar(64) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `expires_at` datetime NOT NULL,
+  `used` tinyint(1) DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Triggers `password_reset_requests`
+--
+DELIMITER $$
+CREATE TRIGGER `before_password_reset_insert` BEFORE INSERT ON `password_reset_requests` FOR EACH ROW BEGIN
+    DECLARE request_count INT;
+    
+    -- Count requests in the last hour
+    SELECT COUNT(*) INTO request_count
+    FROM password_reset_requests
+    WHERE email = NEW.email 
+    AND created_at > DATE_SUB(NOW(), INTERVAL 1 HOUR)
+    AND used = 0;
+    
+    -- Allow only 3 requests per hour
+    IF request_count >= 3 THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Rate limit exceeded. Please try again later.';
+    END IF;
+    
+    -- Set expiration to 24 hours from now
+    SET NEW.expires_at = DATE_ADD(NOW(), INTERVAL 24 HOUR);
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -193,57 +287,10 @@ CREATE TABLE `votes` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
 --
--- Triggers
+-- Triggers `votes`
 --
-
 DELIMITER $$
-
--- Admin OTP Triggers
-CREATE TRIGGER `before_admin_otp_insert` BEFORE INSERT ON `admin_otp_requests` FOR EACH ROW BEGIN
-    DECLARE attempt_count INT;
-    SELECT COUNT(*) INTO attempt_count 
-    FROM admin_otp_requests 
-    WHERE email = NEW.email 
-    AND created_at > DATE_SUB(NOW(), INTERVAL 1 HOUR);
-    
-    IF attempt_count >= 5 THEN
-        SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'Rate limit exceeded. Please try again later.';
-    END IF;
-END$$
-
-CREATE TRIGGER `tr_delete_admin_max_attempts` AFTER UPDATE ON `admin_otp_requests` FOR EACH ROW BEGIN
-    IF NEW.attempts >= 5 THEN
-        SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'MAX_ATTEMPTS_REACHED';
-    END IF;
-END$$
-
--- Voter OTP Triggers
-CREATE TRIGGER `before_otp_insert` BEFORE INSERT ON `otp_requests` FOR EACH ROW BEGIN
-    DECLARE attempt_count INT;
-    SELECT COUNT(*) INTO attempt_count 
-    FROM otp_requests 
-    WHERE student_number = NEW.student_number 
-    AND created_at > DATE_SUB(NOW(), INTERVAL 1 HOUR);
-    
-    IF attempt_count >= 5 THEN
-        SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'Rate limit exceeded. Please try again later.';
-    END IF;
-END$$
-
-CREATE TRIGGER `tr_delete_max_attempts` AFTER UPDATE ON `otp_requests` FOR EACH ROW BEGIN
-    IF NEW.attempts >= 5 THEN
-        SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'MAX_ATTEMPTS_REACHED';
-    END IF;
-END$$
-
--- Votes Trigger
 CREATE TRIGGER `before_vote_insert` BEFORE INSERT ON `votes` FOR EACH ROW BEGIN
     IF NEW.vote_ref IS NULL OR NEW.vote_ref = '' THEN
         SET NEW.vote_ref = CONCAT(
@@ -253,34 +300,47 @@ CREATE TRIGGER `before_vote_insert` BEFORE INSERT ON `votes` FOR EACH ROW BEGIN
             LPAD(FLOOR(RAND() * 10000), 4, '0')
         );
     END IF;
-END$$
-
+END
+$$
 DELIMITER ;
 
--- --------------------------------------------------------
-
 --
--- Indexes
+-- Indexes for dumped tables
 --
 
+--
+-- Indexes for table `admin`
+--
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `idx_admin_email` (`email`);
 
+--
+-- Indexes for table `admin_otp_requests`
+--
 ALTER TABLE `admin_otp_requests`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idx_otp` (`otp`),
   ADD KEY `idx_expires_at` (`expires_at`),
   ADD KEY `fk_admin_otp_email` (`email`);
 
+--
+-- Indexes for table `candidates`
+--
 ALTER TABLE `candidates`
   ADD PRIMARY KEY (`id`),
   ADD KEY `position_id` (`position_id`),
   ADD KEY `fk_candidates_partylist` (`partylist_id`);
 
+--
+-- Indexes for table `courses`
+--
 ALTER TABLE `courses`
   ADD PRIMARY KEY (`id`);
 
+--
+-- Indexes for table `election_history`
+--
 ALTER TABLE `election_history`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `control_number` (`control_number`),
@@ -288,74 +348,176 @@ ALTER TABLE `election_history`
   ADD KEY `idx_status_history` (`status`,`end_time`),
   ADD KEY `idx_election_end_status` (`end_time`,`status`);
 
+--
+-- Indexes for table `election_status`
+--
 ALTER TABLE `election_status`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `control_number` (`control_number`),
   ADD KEY `idx_status` (`status`,`end_time`),
   ADD KEY `idx_election_status_control` (`control_number`);
 
+--
+-- Indexes for table `otp_requests`
+--
 ALTER TABLE `otp_requests`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idx_student_otp` (`student_number`,`otp`),
   ADD KEY `idx_expiry` (`expires_at`),
   ADD KEY `idx_expires_at` (`expires_at`);
 
+--
+-- Indexes for table `partylists`
+--
 ALTER TABLE `partylists`
   ADD PRIMARY KEY (`id`);
 
+--
+-- Indexes for table `password_reset_requests`
+--
+ALTER TABLE `password_reset_requests`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idx_reset_token` (`reset_token`),
+  ADD KEY `idx_email_expires` (`email`,`expires_at`);
+
+--
+-- Indexes for table `positions`
+--
 ALTER TABLE `positions`
   ADD PRIMARY KEY (`id`);
 
+--
+-- Indexes for table `voters`
+--
 ALTER TABLE `voters`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `student_number` (`student_number`),
   ADD KEY `fk_voters_course` (`course_id`);
 
+--
+-- Indexes for table `votes`
+--
 ALTER TABLE `votes`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `vote_ref` (`vote_ref`),
   ADD KEY `idx_election_time` (`election_id`,`created_at`);
 
--- --------------------------------------------------------
-
 --
--- AUTO_INCREMENT
+-- AUTO_INCREMENT for dumped tables
 --
 
-ALTER TABLE `admin` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-ALTER TABLE `admin_otp_requests` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-ALTER TABLE `candidates` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-ALTER TABLE `courses` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-ALTER TABLE `election_history` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-ALTER TABLE `election_status` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-ALTER TABLE `otp_requests` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-ALTER TABLE `partylists` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-ALTER TABLE `positions` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-ALTER TABLE `voters` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-ALTER TABLE `votes` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
--- --------------------------------------------------------
+--
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- Constraints
+-- AUTO_INCREMENT for table `admin_otp_requests`
+--
+ALTER TABLE `admin_otp_requests`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `candidates`
+--
+ALTER TABLE `candidates`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `courses`
+--
+ALTER TABLE `courses`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `election_history`
+--
+ALTER TABLE `election_history`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `election_status`
+--
+ALTER TABLE `election_status`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `otp_requests`
+--
+ALTER TABLE `otp_requests`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `partylists`
+--
+ALTER TABLE `partylists`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `password_reset_requests`
+--
+ALTER TABLE `password_reset_requests`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `positions`
+--
+ALTER TABLE `positions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `voters`
+--
+ALTER TABLE `voters`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `votes`
+--
+ALTER TABLE `votes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
 --
 
+--
+-- Constraints for table `admin_otp_requests`
+--
 ALTER TABLE `admin_otp_requests`
   ADD CONSTRAINT `fk_admin_otp_email` FOREIGN KEY (`email`) REFERENCES `admin` (`email`);
 
+--
+-- Constraints for table `candidates`
+--
 ALTER TABLE `candidates`
   ADD CONSTRAINT `fk_candidates_partylist` FOREIGN KEY (`partylist_id`) REFERENCES `partylists` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `fk_candidates_position` FOREIGN KEY (`position_id`) REFERENCES `positions` (`id`) ON DELETE CASCADE;
 
+--
+-- Constraints for table `otp_requests`
+--
 ALTER TABLE `otp_requests`
   ADD CONSTRAINT `fk_otp_voter` FOREIGN KEY (`student_number`) REFERENCES `voters` (`student_number`) ON DELETE CASCADE;
 
+--
+-- Constraints for table `password_reset_requests`
+--
+ALTER TABLE `password_reset_requests`
+  ADD CONSTRAINT `fk_reset_admin_email` FOREIGN KEY (`email`) REFERENCES `admin` (`email`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `voters`
+--
 ALTER TABLE `voters`
   ADD CONSTRAINT `fk_voters_course` FOREIGN KEY (`course_id`) REFERENCES `courses` (`id`) ON DELETE CASCADE;
 
+--
+-- Constraints for table `votes`
+--
 ALTER TABLE `votes`
   ADD CONSTRAINT `fk_vote_election` FOREIGN KEY (`election_id`) REFERENCES `election_status` (`id`);
-
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
