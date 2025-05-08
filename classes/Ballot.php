@@ -205,14 +205,6 @@ class Ballot {
                                         <?php else: ?>
                                             <p class="candidate-party">Independent</p>
                                         <?php endif; ?>
-                                        <?php /* if (!empty($candidate['platform'])): ?>
-                                            <button type="button" class="btn btn-primary btn-sm platform" 
-                                                    data-platform="<?php echo htmlspecialchars($candidate['platform']); ?>"
-                                                    data-fullname="<?php echo htmlspecialchars($candidate['firstname'] . ' ' . $candidate['lastname']); ?>"
-                                                    data-image="<?php echo $candidate['photo']; ?>">
-                                                <i class="fa fa-search"></i> Platform
-                                            </button>
-                                        <?php endif; */ ?>
                                     </div>
                                 </div>
                             </div>
