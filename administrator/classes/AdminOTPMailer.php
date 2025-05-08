@@ -178,7 +178,7 @@ class AdminOTPMailer {
         
         try {
             // Recipients
-            $this->mailer->setFrom($_ENV['MAIL_USERNAME'], 'E-Halal System Admin');
+            $this->mailer->setFrom($_ENV['MAIL_USERNAME'], 'E-Halal BTECHenyo System');
             $this->mailer->addAddress($email, $name);
             
             // Content
@@ -270,6 +270,7 @@ class AdminOTPMailer {
                     color: white;
                     padding: 20px;
                     text-align: center;
+                    border-radius: 5px 5px 0 0;
                 }
                 .content {
                     background-color: #f9f9f9;
