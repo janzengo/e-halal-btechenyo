@@ -167,6 +167,11 @@ if ($admin->isLoggedIn() && !empty($page)) {
                                 </button>
                             </div>
                         </div>
+                        <div class="row mt-3">
+                            <div class="col-xs-12 text-center">
+                                <a href="<?php echo BASE_URL ?>administrator/forgot-password.php" class="text-center text-smaller">Forgot Password?</a>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>

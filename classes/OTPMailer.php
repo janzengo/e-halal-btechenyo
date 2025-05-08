@@ -241,7 +241,7 @@ class OTPMailer {
             $mail->CharSet = 'UTF-8';
             
             // Recipients
-            $mail->setFrom($_ENV['MAIL_USERNAME'], 'E-Halal System');
+            $mail->setFrom($_ENV['MAIL_USERNAME'], 'E-Halal BTECHenyo System');
             $mail->addAddress($email, $name);
             
             // Content

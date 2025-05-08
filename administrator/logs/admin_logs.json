@@ -64,5 +64,71 @@
         "user_id": "janzengo",
         "role": "head",
         "action": "Reset election system - All tables cleared and system reset to setup state"
+    },
+    {
+        "timestamp": "2025-05-08 19:10:36",
+        "user_id": "janzengo",
+        "role": "head",
+        "action": "Updated admin profile"
+    },
+    {
+        "timestamp": "2025-05-08 19:12:03",
+        "user_id": "janzengo",
+        "role": "head",
+        "action": "Added officer: Juan Dela Cruz with email: janneiljanzen.go@fast.edu.ph"
+    },
+    {
+        "timestamp": "2025-05-08 19:17:38",
+        "user_id": "janzengo",
+        "role": "head",
+        "action": "Error in officer management: Officer not found"
+    },
+    {
+        "timestamp": "2025-05-08 19:17:45",
+        "user_id": "janzengo",
+        "role": "head",
+        "action": "Deleted officer: Code Delta (email: codedelta2025@gmail.com)"
+    },
+    {
+        "timestamp": "2025-05-08 19:18:09",
+        "user_id": "janzengo",
+        "role": "head",
+        "action": "Added officer: Zen Go with email: janneiljanzen.go@fast.edu.ph"
+    },
+    {
+        "timestamp": "2025-05-08 19:18:34",
+        "user_id": "janzen",
+        "role": "officer",
+        "action": "Logged in successfully"
+    },
+    {
+        "timestamp": "2025-05-08 19:29:40",
+        "user_id": "janzen",
+        "role": "officer",
+        "action": "Logged in successfully"
+    },
+    {
+        "timestamp": "2025-05-08 19:35:38",
+        "user_id": "janzengo",
+        "role": "head",
+        "action": "Added candidate: Lebron James"
+    },
+    {
+        "timestamp": "2025-05-08 19:36:00",
+        "user_id": "janzengo",
+        "role": "head",
+        "action": "Added candidate: Lolo James "
+    },
+    {
+        "timestamp": "2025-05-08 19:36:15",
+        "user_id": "janzengo",
+        "role": "head",
+        "action": "Added candidate: Papa James"
+    },
+    {
+        "timestamp": "2025-05-08 19:36:23",
+        "user_id": "janzengo",
+        "role": "head",
+        "action": "Updated election configuration: Name: 2025 Sangguaniang Mar-aaral, Status: active, End: 2025-05-31 14:06:00"
     }
 ]
