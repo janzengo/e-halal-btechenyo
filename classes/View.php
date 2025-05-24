@@ -30,40 +30,126 @@ class View {
         <header class="main-header">
             <nav class="navbar navbar-static-top">
                 <div class="container" name="navbar">
-                <div class="navbar-header">
-                    <a href="#" class="navbar-brand" style="padding: 0;">
-                    <img src="images/h-logo.jpg" alt="Voting System Logo" style="height: 50px;">
-                    </a>
-                </div>                
-                <!-- Navbar Right Menu -->
-                <div class="navbar-custom-menu">
-                    <ul class="nav navbar-nav">
-                    <li class="user user-menu">
-                        <a href="#">
-                        <span>Vote ID: </span>
-                        <span><?php echo isset($voter['student_number']) ? $voter['student_number'] : 'Voter'; ?></span>
+                    <div class="navbar-header">
+                        <a href="#" class="navbar-brand">
+                            <img src="images/h-logo.jpg" alt="Voting System Logo" class="navbar-logo">
                         </a>
-                    </li>
-                    <li><a href="logout.php"><i class="fa fa-sign-out"></i> Sign Out</a></li>  
-                    </ul>
+                    </div>                
+                    <!-- Navbar Right Menu -->
+                    <div class="navbar-custom-menu">
+                        <ul class="nav navbar-nav">
+                            <li class="user user-menu voter-id">
+                                <a href="#">
+                                    <span class="voter-label">Voter ID: </span>
+                                    <span class="voter-number"><?php echo isset($voter['student_number']) ? $voter['student_number'] : 'Voter'; ?></span>
+                                </a>
+                            </li>
+                            <li class="signout-btn">
+                                <a href="logout.php">
+                                    <i class="fa fa-sign-out"></i>
+                                    <span class="signout-text">Sign Out</span>
+                                </a>
+                            </li>  
+                        </ul>
+                    </div>
                 </div>
-                </div>
-
             </nav>
         </header>
         <style>
-            /* navbar responsive */
-        .navbar-static-top {
-            height: 50px;
-        }
-        .container[name="navbar"] {
-            display: flex;
-            justify-content: space-between;
-            flex-grow: 1;
-            width: 100%;
-            padding: 10 50px;
-        }
-    </style>
+            /* Navbar Base Styles */
+            .navbar-static-top {
+                height: 50px;
+                background-color: #fff;
+                border-bottom: 1px solid rgba(0,0,0,0.1);
+            }
+
+            .container[name="navbar"] {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                height: 100%;
+                padding: 0;
+            }
+
+            .navbar-custom-menu {
+                padding-right: 15px;
+            }
+
+            /* Logo Styles */
+            .navbar-brand {
+                padding: 0;
+                height: 50px;
+                display: flex;
+                align-items: center;
+            }
+
+            .navbar-logo {
+                height: 50px;
+                width: auto;
+            }
+
+            /* Right Menu Styles */
+            .navbar-custom-menu {
+                display: flex;
+                align-items: center;
+            }
+
+            .navbar-nav {
+                display: flex;
+                align-items: center;
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+
+            .navbar-nav > li > a {
+                display: flex;
+                align-items: center;
+                padding: 15px;
+                color: #333;
+                text-decoration: none;
+                transition: color 0.2s ease;
+            }
+
+            .navbar-nav > li > a:hover {
+                color: #249646;
+            }
+
+            /* Voter ID Styles */
+            .voter-id a {
+                font-size: 0.95rem;
+            }
+
+            .voter-label {
+                color: #666;
+                margin-right: 4px;
+            }
+
+            .voter-number {
+                color: #249646;
+                font-weight: 500;
+            }
+
+            /* Sign Out Button Styles */
+            .signout-btn a {
+                gap: 6px;
+            }
+
+            /* Responsive Styles */
+            @media (max-width: 768px) {
+                .container[name="navbar"] {
+                    padding: 0 15px;
+                }
+
+                .voter-id {
+                    display: none !important;
+                }
+
+                .signout-btn a {
+                    padding: 15px;
+                }
+            }
+        </style>
         <?php
         return ob_get_clean();
     }
@@ -124,8 +210,6 @@ class View {
         <script src="<?php echo BASE_URL; ?>node_modules/jquery/dist/jquery.min.js"></script>
         <!-- Bootstrap 3.3.7 -->
         <script src="<?php echo BASE_URL; ?>node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-        <!-- iCheck 1.0.1 -->
-        <script src="<?php echo BASE_URL; ?>node_modules/iCheck/icheck.min.js"></script>
         <!-- DataTables -->
         <script src="<?php echo BASE_URL; ?>node_modules/datatables.net/js/jquery.dataTables.js"></script>
         <script src="<?php echo BASE_URL; ?>node_modules/datatables.net-bs/js/dataTables.bootstrap.js"></script>
@@ -152,164 +236,6 @@ class View {
             padding-right: 0 !important;
         }
         </style>
-        
-        <script>
-        $(function(){
-            // Initialize iCheck
-            $('.content').iCheck({
-                checkboxClass: 'icheckbox_flat-green',
-                radioClass: 'iradio_flat-green'
-            });
-
-            // Reset button handler
-            $(document).on('click', '.reset', function(e){
-                e.preventDefault();
-                var positionId = $(this).data('position');
-                $('input[name^="votes[' + positionId + ']"]').iCheck('uncheck');
-            });
-
-            // Platform button handler
-            $(document).on('click', '.platform', function(e){
-                e.preventDefault();
-                $('#platform').modal('show');
-                var platform = $(this).data('platform');
-                var fullname = $(this).data('fullname');
-                var image = $(this).data('image');
-                
-                $('.candidate').html(fullname);
-                $('#plat_view').html(platform);
-                $('#platform_image').attr('src', !image ? 'administrator/assets/images/profile.jpg' : 'administrator/' + image);
-            });
-
-            // Preview button handler
-            $(document).on('click', '#preview', function(e) {
-                e.preventDefault();
-                
-                // Get all form data
-                var formData = $('#ballotForm').serialize();
-                
-                // Show loading state
-                Swal.fire({
-                    title: 'Loading Preview...',
-                    allowOutsideClick: false,
-                    showConfirmButton: false,
-                    willOpen: () => {
-                        Swal.showLoading();
-                    }
-                });
-
-                // Send AJAX request
-                $.ajax({
-                    url: 'preview.php',
-                    type: 'POST',
-                    data: formData,
-                    dataType: 'json',
-                    success: function(response) {
-                        Swal.close();
-                        
-                        if (response.error) {
-                            Swal.fire({
-                                icon: 'error',
-                                title: 'Error',
-                                html: response.message.join('<br>'),
-                                customClass: {
-                                    container: 'my-swal'
-                                }
-                            });
-                        } else {
-                            $('#preview_body').html(response.list);
-                            $('#preview_modal').modal('show');
-                        }
-                    },
-                    error: function(xhr, status, error) {
-                        Swal.close();
-                        console.error('Preview Error:', error);
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Error',
-                            text: 'An error occurred while generating the preview.',
-                            customClass: {
-                                container: 'my-swal'
-                            }
-                        });
-                    }
-                });
-            });
-
-            // Form submission handler
-            $('#ballotForm').on('submit', function(e) {
-                e.preventDefault();
-                
-                // Check if any votes are selected
-                var hasVotes = false;
-                $('input[name^="votes["]').each(function() {
-                    if ($(this).is(':checked')) {
-                        hasVotes = true;
-                        return false; // break the loop
-                    }
-                });
-                
-                if (!hasVotes) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'No Votes Cast',
-                        text: 'Please select at least one candidate before submitting.',
-                        customClass: {
-                            container: 'my-swal'
-                        }
-                    });
-                    return false;
-                }
-
-                var form = this;
-
-                // Confirm submission
-                Swal.fire({
-                    title: 'Submit Votes?',
-                    text: 'Are you sure you want to submit your votes? This action cannot be undone.',
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#239746',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Confirm',
-                    showLoaderOnConfirm: true,
-                    allowOutsideClick: () => !Swal.isLoading(),
-                    customClass: {
-                        container: 'my-swal'
-                    }
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        // Show loading state
-                        Swal.fire({
-                            title: 'Submitting your votes...',
-                            allowOutsideClick: false,
-                            showConfirmButton: false,
-                            willOpen: () => {
-                                Swal.showLoading();
-                                // Actually submit the form
-                                form.submit();
-                            }
-                        });
-                    }
-                });
-            });
-
-            // Check for success status in URL
-            var urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('status') === 'success') {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Success!',
-                    text: 'Your ballot has been successfully submitted.',
-                    customClass: {
-                        container: 'my-swal'
-                    }
-                });
-                // Clean up the URL
-                window.history.replaceState({}, document.title, window.location.pathname);
-            }
-        });
-        </script>
         <?php
         return ob_get_clean();
     }

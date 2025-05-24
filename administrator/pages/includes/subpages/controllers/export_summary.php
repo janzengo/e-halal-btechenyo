@@ -13,8 +13,11 @@ if (!file_exists($logs_dir)) {
     mkdir($logs_dir, 0777, true);
 }
 
-// Define base path for the project
-$base_path = dirname(dirname(dirname(dirname(dirname(__DIR__)))));
+// Define base path for the project - use document root for online environment
+$base_path = rtrim($_SERVER['DOCUMENT_ROOT'], '/');
+
+// Include shared PDF helper functions
+require_once __DIR__ . '/pdf_helpers.php';
 
 // Immediately after the "enable error logging" section
 // Add debug file for step-by-step tracking
@@ -24,24 +27,15 @@ function summary_debug($message) {
     file_put_contents($logfile, date('Y-m-d H:i:s') . " - " . $message . "\n", FILE_APPEND);
 }
 
-// Function to check if TCPDF class exists
-function check_tcpdf_exists() {
-    global $base_path;
-    $tcpdf_path = $base_path . '/vendor/tecnickcom/tcpdf/tcpdf.php';
-    
-    if (!file_exists($tcpdf_path)) {
-        summary_debug("ERROR: TCPDF not found at expected path: $tcpdf_path");
-        return false;
+// Only declare the function if it doesn't already exist
+if (!function_exists('check_tcpdf_exists')) {
+    function check_tcpdf_exists() {
+        $tcpdf_path = dirname(dirname(dirname(dirname(dirname(__DIR__))))) . '/tcpdf/tcpdf.php';
+        if (!file_exists($tcpdf_path)) {
+            throw new Exception("TCPDF library not found at: " . $tcpdf_path);
+        }
+        return $tcpdf_path;
     }
-    
-    require_once $tcpdf_path;
-    if (!class_exists('TCPDF')) {
-        summary_debug("ERROR: TCPDF class not found after including file");
-        return false;
-    }
-    
-    summary_debug("TCPDF class loaded successfully");
-    return true;
 }
 
 // Enable error logging to file
@@ -52,10 +46,8 @@ error_log("export_summary.php called: " . date('Y-m-d H:i:s'));
 summary_debug("Starting summary PDF generation");
 
 // Check for TCPDF
-if (!check_tcpdf_exists()) {
-    echo "Error: TCPDF library not found or not properly installed.\n";
-    exit(1);
-}
+$tcpdf_path = check_tcpdf_exists();
+require_once $tcpdf_path;
 
 // Custom PDF class with header and footer - only define it once
 if (!class_exists('ElectionPDF')) {
@@ -73,52 +65,52 @@ class ElectionPDF extends TCPDF {
 
     // Page header
     public function Header() {
-            global $base_path;
+        global $base_path;
             
-        // Logo
-            $leftLogo = $base_path . '/administrator/assets/images/btech.png';
-            $rightLogo = $base_path . '/administrator/assets/images/ehalal.jpg';
+        // Logo paths using base_path
+        $leftLogo = $base_path . '/administrator/assets/images/btech.png';
+        $rightLogo = $base_path . '/administrator/assets/images/ehalal.jpg';
             
-            summary_debug("Loading logos - Left: $leftLogo, Right: $rightLogo");
+        summary_debug("Loading logos - Left: $leftLogo, Right: $rightLogo");
             
-            // Check if logo files exist
+        // Check if logo files exist
+        if (!file_exists($leftLogo)) {
+            summary_debug("WARNING: Left logo file not found: $leftLogo");
+            // Try alternative path using __DIR__
+            $leftLogo = dirname(dirname(dirname(dirname(dirname(__DIR__))))) . '/administrator/assets/images/btech.png';
             if (!file_exists($leftLogo)) {
-                summary_debug("WARNING: Left logo file not found: $leftLogo");
-                // Try alternative path
-        $leftLogo = $_SERVER['DOCUMENT_ROOT'] . '/e-halal/administrator/assets/images/btech.png';
-                if (!file_exists($leftLogo)) {
-                    summary_debug("WARNING: Left logo also not found at alternative path");
-                } else {
-                    summary_debug("Left logo found at alternative path");
-                }
+                summary_debug("WARNING: Left logo also not found at alternative path");
+            } else {
+                summary_debug("Left logo found at alternative path");
             }
+        }
             
+        if (!file_exists($rightLogo)) {
+            summary_debug("WARNING: Right logo file not found: $rightLogo");
+            // Try alternative path using __DIR__
+            $rightLogo = dirname(dirname(dirname(dirname(dirname(__DIR__))))) . '/administrator/assets/images/ehalal.jpg';
             if (!file_exists($rightLogo)) {
-                summary_debug("WARNING: Right logo file not found: $rightLogo");
-                // Try alternative path
-        $rightLogo = $_SERVER['DOCUMENT_ROOT'] . '/e-halal/administrator/assets/images/ehalal.jpg';
-                if (!file_exists($rightLogo)) {
-                    summary_debug("WARNING: Right logo also not found at alternative path");
-                } else {
-                    summary_debug("Right logo found at alternative path");
-                }
+                summary_debug("WARNING: Right logo also not found at alternative path");
+            } else {
+                summary_debug("Right logo found at alternative path");
             }
+        }
         
         // Improved logo positioning and sizing
-            try {
-                if (file_exists($leftLogo)) {
-        $this->Image($leftLogo, 30, 8, 20);
-                    summary_debug("Left logo loaded successfully");
-                }
-                
-                if (file_exists($rightLogo)) {
-        $this->Image($rightLogo, 165, 8, 15);
-                    summary_debug("Right logo loaded successfully");
-                }
-                summary_debug("Logos loaded successfully");
-            } catch (Exception $e) {
-                summary_debug("ERROR loading images: " . $e->getMessage());
+        try {
+            if (file_exists($leftLogo)) {
+                $this->Image($leftLogo, 30, 8, 20);
+                summary_debug("Left logo loaded successfully");
             }
+                
+            if (file_exists($rightLogo)) {
+                $this->Image($rightLogo, 165, 8, 15);
+                summary_debug("Right logo loaded successfully");
+            }
+            summary_debug("Logos loaded successfully");
+        } catch (Exception $e) {
+            summary_debug("ERROR loading images: " . $e->getMessage());
+        }
         
         // Enhanced header text with better spacing
         $this->SetFont('helvetica', 'B', 12);
@@ -288,41 +280,21 @@ if ($is_standalone_test) {
     
     // Use try/catch for includes to identify which one fails
     try {
-        // Fix file paths to use relative paths instead of document root
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/e-halal/init.php';
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/e-halal/classes/Database.php';
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/e-halal/administrator/classes/Admin.php';
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/e-halal/administrator/classes/Vote.php';
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/e-halal/administrator/classes/Position.php';
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/e-halal/administrator/classes/Candidate.php';
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/e-halal/administrator/classes/Elections.php';
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/e-halal/administrator/classes/Voter.php';
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/e-halal/vendor/tecnickcom/tcpdf/tcpdf.php';
+        // Use base_path for includes
+        require_once $base_path . '/init.php';
+        require_once $base_path . '/classes/Database.php';
+        require_once $base_path . '/administrator/classes/Admin.php';
+        require_once $base_path . '/administrator/classes/Vote.php';
+        require_once $base_path . '/administrator/classes/Position.php';
+        require_once $base_path . '/administrator/classes/Candidate.php';
+        require_once $base_path . '/administrator/classes/Elections.php';
+        require_once $base_path . '/administrator/classes/Voter.php';
+        require_once $base_path . '/vendor/tecnickcom/tcpdf/tcpdf.php';
         
-        summary_debug("All includes loaded successfully (document root method)");
+        summary_debug("All includes loaded successfully");
     } catch (Error $e) {
-        summary_debug("Error loading includes (document root method): " . $e->getMessage());
-        
-        // Fall back to relative path if the document root path doesn't work
-        try {
-            // Try to fix the path issue by using __DIR__ for a more reliable path resolution
-            $base_path = dirname(dirname(dirname(dirname(dirname(__DIR__)))));
-            
-            require_once $base_path . '/init.php';
-            require_once $base_path . '/classes/Database.php';
-            require_once $base_path . '/administrator/classes/Admin.php';
-            require_once $base_path . '/administrator/classes/Vote.php';
-            require_once $base_path . '/administrator/classes/Position.php';
-            require_once $base_path . '/administrator/classes/Candidate.php';
-            require_once $base_path . '/administrator/classes/Elections.php';
-            require_once $base_path . '/administrator/classes/Voter.php';
-            require_once $base_path . '/vendor/tecnickcom/tcpdf/tcpdf.php';
-            
-            summary_debug("All includes loaded successfully (relative path method)");
-        } catch (Error $e2) {
-            summary_debug("ERROR: Failed to load includes: " . $e2->getMessage());
-            die("Failed to load required files: " . $e2->getMessage());
-        }
+        summary_debug("Error loading includes: " . $e->getMessage());
+        throw new Exception("Failed to load required files: " . $e->getMessage());
     }
     
     // Check if admin is logged in
@@ -748,73 +720,80 @@ try {
         // Clean the output buffer to prevent "some data has already been output" error
         if (!$is_standalone_test) {
             // Discard any buffered content
-            ob_clean();
-        }
-        
-        // Fix the path handling - keep original path for file saving but normalize for DB
-        $originalPath = $_GET['path']; // Keep the original path for actual file saving
-        $relativePath = $_GET['path']; // This will be normalized for database storage
-        
-        // Store a normalized version for the database
-        if (strpos($relativePath, $_SERVER['DOCUMENT_ROOT']) === 0) {
-            $relativePath = str_replace($_SERVER['DOCUMENT_ROOT'], '', $relativePath);
-        }
-        
-        // Remove any references to /e-halal/ in the path for database
-        $relativePath = str_replace('/e-halal/', '/', $relativePath);
-        
-        // Normalize slashes for database
-        $relativePath = preg_replace('#/+#', '/', $relativePath);
-        
-        // Ensure we're consistent with archives path for database
-        if (strpos($relativePath, 'administrator/archives/') === 0) {
-            $relativePath = str_replace('administrator/archives/', 'archives/', $relativePath);
-        }
-        
-        // Get the file name from the path
-        $fileName = basename($relativePath);
-        $dirPath = dirname($relativePath);
-        
-        // Make sure we have a valid file name (use summary.pdf if needed)
-        if ($fileName === 'details.pdf') {
-            $relativePath = $dirPath . '/summary.pdf';
-            summary_debug("Renamed details.pdf to summary.pdf for database storage");
-        }
-        
-        // Store the normalized path for later use in the database
-        $GLOBALS['normalized_summary_path'] = ltrim($relativePath, '/');
-        
-        // For the actual file save, ensure it's a valid full path
-        // If the original path doesn't exist, make sure to use a valid path
-        if (!file_exists(dirname($originalPath))) {
-            summary_debug("Warning: Directory doesn't exist: " . dirname($originalPath));
-            // Attempt to create directory if needed
-            if (!mkdir(dirname($originalPath), 0777, true)) {
-                summary_debug("Error: Failed to create directory: " . dirname($originalPath));
-                // Fallback to a known writable location
-                $originalPath = $_SERVER['DOCUMENT_ROOT'] . '/e-halal/administrator/archives/' . $current['control_number'] . '/summary.pdf';
-                summary_debug("Falling back to path: " . $originalPath);
-                // Try to create this directory if it doesn't exist
-                if (!file_exists(dirname($originalPath)) && !mkdir(dirname($originalPath), 0777, true)) {
-                    summary_debug("Error: Also failed to create fallback directory");
-                    throw new Exception("Failed to create directory for PDF output");
-                }
+            while (ob_get_level()) {
+                ob_end_clean();
             }
         }
         
-        // Rename the file if needed in the original path too
-        if (basename($originalPath) === 'details.pdf') {
-            $originalPath = dirname($originalPath) . '/summary.pdf';
+        // Get the original path and ensure it's absolute
+        $originalPath = $_GET['path'];
+        if (!str_starts_with($originalPath, '/')) {
+            // Convert relative path to absolute using document root
+            $originalPath = rtrim($_SERVER['DOCUMENT_ROOT'], '/') . '/' . ltrim($originalPath, '/');
+        }
+        
+        // Normalize directory separators for Windows
+        $originalPath = str_replace('\\', '/', $originalPath);
+        
+        // Ensure directory exists
+        $dirPath = dirname($originalPath);
+        if (!file_exists($dirPath)) {
+            summary_debug("Creating directory: " . $dirPath);
+            if (!mkdir($dirPath, 0777, true)) {
+                summary_debug("Error: Failed to create directory: " . $dirPath);
+                throw new Exception("Failed to create directory for PDF output: " . $dirPath);
+            }
+        }
+        
+        // Ensure directory is writable
+        if (!is_writable($dirPath)) {
+            summary_debug("Error: Directory is not writable: " . $dirPath);
+            throw new Exception("Directory is not writable: " . $dirPath);
         }
         
         summary_debug("Saving PDF to physical path: " . $originalPath);
         try {
-            $pdf->Output($originalPath, 'F'); // Save to file using original path
+            // First try to save to a temporary file to verify PDF generation
+            $tempFile = tempnam(sys_get_temp_dir(), 'pdf_');
+            if ($tempFile === false) {
+                throw new Exception("Failed to create temporary file");
+            }
+            
+            summary_debug("Saving to temporary file first: " . $tempFile);
+            $pdf->Output($tempFile, 'F');
+            
+            // Verify temp file was created and has content
+            if (!file_exists($tempFile) || filesize($tempFile) === 0) {
+                throw new Exception("Failed to create temporary PDF file or file is empty");
+            }
+            
+            summary_debug("Temporary file created successfully, size: " . filesize($tempFile) . " bytes");
+            
+            // Now move the temp file to the final destination
+            if (!rename($tempFile, $originalPath)) {
+                // If rename fails, try copy and delete
+                if (!copy($tempFile, $originalPath)) {
+                    unlink($tempFile);
+                    throw new Exception("Failed to move PDF to final destination");
+                }
+                unlink($tempFile);
+            }
+            
+            // Final verification
             if (!file_exists($originalPath)) {
-                summary_debug("Error: File was not created at: " . $originalPath);
                 throw new Exception("Failed to create file at: " . $originalPath);
             }
-            summary_debug("PDF saved successfully. Normalized path for DB: " . $GLOBALS['normalized_summary_path']);
+            
+            // Verify file size
+            $fileSize = filesize($originalPath);
+            if ($fileSize === 0) {
+                throw new Exception("File was created but is empty: " . $originalPath);
+            }
+            
+            summary_debug("PDF saved successfully. File size: " . $fileSize . " bytes");
+            
+            // Set proper file permissions
+            chmod($originalPath, 0644);
         } catch (Exception $saveException) {
             summary_debug("Error saving PDF: " . $saveException->getMessage());
             throw $saveException; // Re-throw to be caught by the outer try-catch
@@ -838,7 +817,9 @@ try {
         // Clean the output buffer to prevent "some data has already been output" error
         if (!$is_standalone_test) {
             // Discard any buffered content
-            ob_clean();
+            while (ob_get_level()) {
+                ob_end_clean();
+            }
         }
         
         summary_debug("Sending PDF for download");
@@ -860,13 +841,27 @@ try {
     summary_debug("ERROR: " . $e->getMessage());
     summary_debug("Stack trace: " . $e->getTraceAsString());
     error_log('PDF Generation Error: ' . $e->getMessage() . "\n" . $e->getTraceAsString());
+    
+    // Clean any remaining output buffers
+    while (ob_get_level()) {
+        ob_end_clean();
+    }
+    
+    // Set the error in the global variable for the parent script
     $GLOBALS['pdf_error'] = $e->getMessage();
     
-    // Instead of just returning silently, output an error message
+    // If this is a standalone test, output error details
     if ($is_standalone_test) {
         echo "ERROR: " . $e->getMessage() . "\n";
         echo "Check logs for more details.\n";
+    } else if (isset($_GET['progress']) && $_GET['progress'] == 'true') {
+        // For AJAX requests with progress tracking
+        echo "data: Error: " . $e->getMessage() . "\n\n";
+        flush();
     } else {
+        // For direct browser access
+        header('HTTP/1.1 500 Internal Server Error');
+        header('Content-Type: text/html; charset=UTF-8');
         echo "<h2>PDF Generation Error</h2>";
         echo "<p>An error occurred while generating the PDF: " . htmlspecialchars($e->getMessage()) . "</p>";
         echo "<p>Please check the error logs for more details.</p>";

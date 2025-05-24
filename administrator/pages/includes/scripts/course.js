@@ -27,6 +27,19 @@ $(function(){
         });
     }
 
+    // Function to show success message using SweetAlert
+    function showSuccess(message) {
+        Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            text: message,
+            timer: 2000,
+            showConfirmButton: false
+        }).then(() => {
+            location.reload();
+        });
+    }
+
     // Function to show warning message using SweetAlert
     function showWarning(message) {
         Swal.fire({
@@ -38,10 +51,16 @@ $(function(){
     }
 
     // Function to handle server errors
-    function handleServerError(xhr, status, error) {
-        console.error('Error:', error);
-        console.log('Response:', xhr.responseText);
-        showError('Server error occurred. Please try again.');
+    function handleServerError(xhr, form = null) {
+        console.error('Server Error:', xhr.responseText);
+        let errorMessage = 'A server error occurred. Please try again.';
+        try {
+            const response = JSON.parse(xhr.responseText);
+            errorMessage = response.message || errorMessage;
+        } catch (e) {
+            console.error('Error parsing response:', e);
+        }
+        showError(errorMessage, form);
     }
 
     // Function to get course data
@@ -53,6 +72,9 @@ $(function(){
             url: `${BASE_URL}administrator/pages/includes/modals/controllers/CourseController.php`,
             data: {id: id, action: 'get'},
             dataType: 'json',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            },
             success: function(response) {
                 if (!response.error) {
                     $('.course_id').val(response.data.id);
@@ -62,7 +84,9 @@ $(function(){
                     showError(response.message);
                 }
             },
-            error: handleServerError
+            error: function(xhr) {
+                handleServerError(xhr);
+            }
         });
     }
 
@@ -99,79 +123,85 @@ $(function(){
             return;
         }
 
-        const id = $(this).data('id');
-        getRow(id);
-
+        const courseId = $(this).data('id');
+        const courseName = $(this).closest('tr').find('td:first').text();
+        
         Swal.fire({
             title: 'Delete Course',
-            text: 'Are you sure you want to delete this course?',
+            text: `Are you sure you want to delete course "${courseName}"?`,
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#d33',
-            cancelButtonColor: '#3085d6',
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!',
-            cancelButtonText: 'Cancel'
+            cancelButtonText: 'No, cancel'
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
                     type: 'POST',
                     url: `${BASE_URL}administrator/pages/includes/modals/controllers/CourseController.php`,
-                    data: {
-                        id: id,
-                        action: 'delete'
-                    },
+                    data: { id: courseId, action: 'delete' },
                     dataType: 'json',
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
                     success: function(response) {
                         if (!response.error) {
-                            Swal.fire(
-                                'Deleted!',
-                                'Course has been deleted.',
-                                'success'
-                            ).then(() => {
-                                location.reload();
-                            });
+                            showSuccess('Course has been deleted successfully!');
                         } else {
                             showError(response.message);
                         }
                     },
-                    error: handleServerError
+                    error: function(xhr) {
+                        handleServerError(xhr);
+                    }
                 });
             }
         });
     });
 
     // Form submission handler function
-    function handleFormSubmission(form) {
+    function handleFormSubmission(form, action) {
         if (!isModificationAllowed()) {
             showWarning(getModificationMessage());
             return;
         }
 
+        const formData = form.serialize();
+        const isEdit = action === 'edit';
+        const courseDesc = isEdit ? $('#edit_description').val() : form.find('input[name="description"]').val();
+
         $.ajax({
             type: 'POST',
             url: form.attr('action'),
-            data: form.serialize(),
+            data: formData,
             dataType: 'json',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            },
             success: function(response) {
                 if (!response.error) {
-                    location.reload();
+                    showSuccess(`Course "${courseDesc}" has been ${isEdit ? 'updated' : 'added'} successfully!`);
+                    form.closest('.modal').modal('hide');
                 } else {
                     showError(response.message);
                 }
             },
-            error: handleServerError
+            error: function(xhr) {
+                handleServerError(xhr, form);
+            }
         });
     }
 
     // Add form submission
     $('#addnew form').submit(function(e) {
         e.preventDefault();
-        handleFormSubmission($(this));
+        handleFormSubmission($(this), 'add');
     });
 
     // Edit form submission
     $('#edit form').submit(function(e) {
         e.preventDefault();
-        handleFormSubmission($(this));
+        handleFormSubmission($(this), 'edit');
     });
 }); 

@@ -32,16 +32,20 @@ class AdminOTPMailer {
         // Server settings
         $this->mailer->SMTPDebug = SMTP::DEBUG_OFF;
         $this->mailer->isSMTP();
-        $this->mailer->Host = 'smtp.gmail.com';
+        $this->mailer->Host = $_ENV['MAIL_HOST'];
         $this->mailer->SMTPAuth = true;
         $this->mailer->Username = $_ENV['MAIL_USERNAME'];
         $this->mailer->Password = $_ENV['MAIL_PASSWORD'];
-        $this->mailer->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $this->mailer->Port = 587;
+        $this->mailer->SMTPSecure = $_ENV['MAIL_ENCRYPTION'];
+        $this->mailer->Port = $_ENV['MAIL_PORT'];
         
+        // Additional settings
         $this->mailer->Timeout = 60;
         $this->mailer->SMTPKeepAlive = true;
         $this->mailer->CharSet = 'UTF-8';
+        
+        // Set default from address
+        $this->mailer->setFrom($_ENV['MAIL_FROM_ADDRESS'], $_ENV['MAIL_FROM_NAME'] ?? 'E-Halal BTECHenyo System');
     }
 
     /**

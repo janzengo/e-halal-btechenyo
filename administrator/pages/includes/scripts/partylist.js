@@ -51,8 +51,16 @@ $(function(){
     }
 
     // Function to handle server errors
-    function handleServerError() {
-        showError('Server error occurred. Please try again.');
+    function handleServerError(xhr, form = null) {
+        console.error('Server Error:', xhr.responseText);
+        let errorMessage = 'A server error occurred. Please try again.';
+        try {
+            const response = JSON.parse(xhr.responseText);
+            errorMessage = response.message || errorMessage;
+        } catch (e) {
+            console.error('Error parsing response:', e);
+        }
+        showError(errorMessage, form);
     }
 
     // Function to get partylist data
@@ -64,6 +72,9 @@ $(function(){
             url: `${BASE_URL}administrator/pages/includes/modals/controllers/PartylistController.php`,
             data: {id: id, action: 'get'},
             dataType: 'json',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            },
             success: function(response) {
                 if (!response.error) {
                     $('.partylist_id').val(response.data.id);
@@ -73,7 +84,9 @@ $(function(){
                     showError(response.message);
                 }
             },
-            error: handleServerError
+            error: function(xhr) {
+                handleServerError(xhr);
+            }
         });
     }
 
@@ -129,6 +142,9 @@ $(function(){
                     url: `${BASE_URL}administrator/pages/includes/modals/controllers/PartylistController.php`,
                     data: { id: partylistId, action: 'delete' },
                     dataType: 'json',
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
                     success: function(response) {
                         if (!response.error) {
                             showSuccess('Partylist has been deleted successfully!');
@@ -136,7 +152,9 @@ $(function(){
                             showError(response.message);
                         }
                     },
-                    error: handleServerError
+                    error: function(xhr) {
+                        handleServerError(xhr);
+                    }
                 });
             }
         });
@@ -158,6 +176,9 @@ $(function(){
             url: form.attr('action'),
             data: formData,
             dataType: 'json',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            },
             success: function(response) {
                 if (!response.error) {
                     showSuccess(`Partylist "${partylistName}" has been ${isEdit ? 'updated' : 'added'} successfully!`);
@@ -166,7 +187,9 @@ $(function(){
                     showError(response.message);
                 }
             },
-            error: handleServerError
+            error: function(xhr) {
+                handleServerError(xhr, form);
+            }
         });
     }
 

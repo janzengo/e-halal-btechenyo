@@ -256,3 +256,783 @@
 2025-04-28 22:30:16 - archiveElection result: {"success":true,"message":"Election archived successfully","control_number":"E2504282546"}
 2025-04-28 22:30:16 - Election archived successfully
 2025-04-28 22:30:16 - Script completed
+2025-05-21 07:54:37 - Script started
+2025-05-21 07:54:37 - Error reporting configured
+2025-05-21 07:54:37 - Error logging configured
+2025-05-21 07:54:37 - Session started
+2025-05-21 07:54:37 - Loading basic includes
+2025-05-21 15:54:37 - init.php loaded
+2025-05-21 15:54:37 - Database.php loaded
+2025-05-21 15:54:37 - Loading admin classes
+2025-05-21 15:54:37 - Admin.php loaded
+2025-05-21 15:54:37 - Elections.php loaded
+2025-05-21 15:54:37 - Headers set
+2025-05-21 15:54:37 - Getting Admin instance
+2025-05-21 15:54:37 - Admin instance created
+2025-05-21 15:54:37 - Authentication passed
+2025-05-21 15:54:37 - Getting Elections instance
+2025-05-21 15:54:37 - Elections instance created
+2025-05-21 15:54:37 - Getting current election
+2025-05-21 15:54:37 - Current election data received: {"id":"1","status":"completed","election_name":"2016 Philippine Elections","created_at":"0000-00-00 00:00:00","end_time":"2025-05-21 14:49:00","last_status_change":"2025-05-21 06:16:32","control_number":"E2504294217"}
+2025-05-21 15:54:37 - Election status valid
+2025-05-21 15:54:37 - Control number: E2504294217
+2025-05-21 15:54:37 - Parent directory path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives
+2025-05-21 15:54:37 - Archive directory path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217
+2025-05-21 15:54:37 - Creating parent directory
+2025-05-21 15:54:37 - Parent directory created
+2025-05-21 15:54:37 - Parent directory is writable
+2025-05-21 15:54:37 - Creating archive directory
+2025-05-21 15:54:37 - Archive directory created
+2025-05-21 15:54:37 - Archive directory is writable
+2025-05-21 15:54:37 - Checking required image files for PDF generation
+2025-05-21 15:54:37 - Left logo path: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png
+2025-05-21 15:54:37 - Right logo path: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 15:54:37 - Image checks complete
+2025-05-21 15:54:37 - Starting Results PDF generation
+2025-05-21 15:54:37 - Results path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/results.pdf
+2025-05-21 15:54:37 - Including export_results.php
+2025-05-21 15:54:37 - export_results.php included successfully
+2025-05-21 15:54:37 - Results PDF created successfully - Size: 475280 bytes
+2025-05-21 15:54:37 - Starting Summary PDF generation
+2025-05-21 15:54:37 - Summary path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/summary.pdf
+2025-05-21 15:54:37 - Including export_summary.php
+2025-05-21 07:59:21 - Script started
+2025-05-21 07:59:21 - Error reporting configured
+2025-05-21 07:59:21 - Error logging configured
+2025-05-21 07:59:21 - Session started
+2025-05-21 07:59:21 - Loading basic includes
+2025-05-21 15:59:21 - init.php loaded
+2025-05-21 15:59:21 - Database.php loaded
+2025-05-21 15:59:21 - Loading admin classes
+2025-05-21 15:59:21 - Admin.php loaded
+2025-05-21 15:59:21 - Elections.php loaded
+2025-05-21 15:59:21 - Getting Admin instance
+2025-05-21 15:59:21 - Admin instance created
+2025-05-21 15:59:21 - Authentication passed
+2025-05-21 15:59:21 - Getting Elections instance
+2025-05-21 15:59:21 - Elections instance created
+2025-05-21 15:59:21 - Getting current election
+2025-05-21 15:59:21 - Current election data received: {"id":"1","status":"completed","election_name":"2016 Philippine Elections","created_at":"0000-00-00 00:00:00","end_time":"2025-05-21 14:49:00","last_status_change":"2025-05-21 06:16:32","control_number":"E2504294217"}
+2025-05-21 15:59:21 - Election status valid
+2025-05-21 15:59:21 - Control number: E2504294217
+2025-05-21 15:59:21 - Parent directory path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives
+2025-05-21 15:59:21 - Archive directory path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217
+2025-05-21 15:59:21 - Parent directory is writable
+2025-05-21 15:59:21 - Archive directory is writable
+2025-05-21 15:59:21 - Checking required image files for PDF generation
+2025-05-21 15:59:21 - Left logo path: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png
+2025-05-21 15:59:21 - Right logo path: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 15:59:21 - Image checks complete
+2025-05-21 15:59:21 - Starting Results PDF generation
+2025-05-21 15:59:21 - Results path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/results.pdf
+2025-05-21 15:59:21 - Including export_results.php
+2025-05-21 15:59:21 - export_results.php included successfully
+2025-05-21 15:59:21 - Results PDF created successfully - Size: 475280 bytes
+2025-05-21 15:59:21 - Starting Summary PDF generation
+2025-05-21 15:59:21 - Summary path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/summary.pdf
+2025-05-21 15:59:21 - Including export_summary.php
+2025-05-21 08:00:27 - Script started
+2025-05-21 08:00:27 - Error reporting configured
+2025-05-21 08:00:27 - Error logging configured
+2025-05-21 08:00:27 - Session started
+2025-05-21 08:00:27 - Loading basic includes
+2025-05-21 16:00:27 - init.php loaded
+2025-05-21 16:00:27 - Database.php loaded
+2025-05-21 16:00:27 - Loading admin classes
+2025-05-21 16:00:27 - Admin.php loaded
+2025-05-21 16:00:27 - Elections.php loaded
+2025-05-21 16:00:27 - Getting Admin instance
+2025-05-21 16:00:27 - Admin instance created
+2025-05-21 16:00:27 - Authentication passed
+2025-05-21 16:00:27 - Getting Elections instance
+2025-05-21 16:00:27 - Elections instance created
+2025-05-21 16:00:27 - Getting current election
+2025-05-21 16:00:27 - Current election data received: {"id":"1","status":"completed","election_name":"2016 Philippine Elections","created_at":"0000-00-00 00:00:00","end_time":"2025-05-21 14:49:00","last_status_change":"2025-05-21 06:16:32","control_number":"E2504294217"}
+2025-05-21 16:00:27 - Election status valid
+2025-05-21 16:00:27 - Control number: E2504294217
+2025-05-21 16:00:27 - Parent directory path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives
+2025-05-21 16:00:27 - Archive directory path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217
+2025-05-21 16:00:27 - Parent directory is writable
+2025-05-21 16:00:27 - Archive directory is writable
+2025-05-21 16:00:27 - Checking required image files for PDF generation
+2025-05-21 16:00:27 - Left logo path: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png
+2025-05-21 16:00:27 - Right logo path: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 16:00:27 - Image checks complete
+2025-05-21 16:00:27 - Starting Results PDF generation
+2025-05-21 16:00:27 - Results path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/results.pdf
+2025-05-21 16:00:27 - Including export_results.php
+2025-05-21 16:00:27 - export_results.php included successfully
+2025-05-21 16:00:27 - Results PDF created successfully - Size: 475280 bytes
+2025-05-21 16:00:27 - Starting Summary PDF generation
+2025-05-21 16:00:27 - Summary path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/summary.pdf
+2025-05-21 16:00:27 - Including export_summary.php
+2025-05-21 08:03:56 - Archive process starting
+2025-05-21 08:03:56 - Session started
+2025-05-21 16:03:56 - Loaded: /init.php
+2025-05-21 16:03:56 - Loaded: /classes/Database.php
+2025-05-21 16:03:56 - Loaded: /administrator/classes/Admin.php
+2025-05-21 16:03:56 - Loaded: /administrator/classes/Elections.php
+2025-05-21 16:03:56 - Getting Admin instance
+2025-05-21 16:03:56 - Admin instance created
+2025-05-21 16:03:56 - Authentication passed
+2025-05-21 16:03:56 - Getting Elections instance
+2025-05-21 16:03:56 - Elections instance created
+2025-05-21 16:03:56 - Getting current election
+2025-05-21 16:03:56 - Current election data received: {"id":"1","status":"completed","election_name":"2016 Philippine Elections","created_at":"0000-00-00 00:00:00","end_time":"2025-05-21 14:49:00","last_status_change":"2025-05-21 06:16:32","control_number":"E2504294217"}
+2025-05-21 16:03:56 - Election status valid
+2025-05-21 16:03:56 - Control number: E2504294217
+2025-05-21 16:03:56 - Parent directory path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives
+2025-05-21 16:03:56 - Archive directory path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217
+2025-05-21 16:03:56 - Parent directory is writable
+2025-05-21 16:03:56 - Archive directory is writable
+2025-05-21 16:03:56 - Checking required image files for PDF generation
+2025-05-21 16:03:56 - Left logo path: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png
+2025-05-21 16:03:56 - Right logo path: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 16:03:56 - Image checks complete
+2025-05-21 16:03:56 - Starting Results PDF generation
+2025-05-21 16:03:56 - Results path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/results.pdf
+2025-05-21 16:03:56 - Including export_results.php
+2025-05-21 16:03:56 - export_results.php included successfully
+2025-05-21 16:03:56 - Results PDF created successfully - Size: 475281 bytes
+2025-05-21 16:03:56 - Starting Summary PDF generation
+2025-05-21 16:03:56 - Summary path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/summary.pdf
+2025-05-21 16:03:56 - Including export_summary.php
+2025-05-21 08:11:59 - === Archive Process Starting ===
+2025-05-21 08:11:59 - Base path: /home/u838540439/domains/ehalal.tech/public_html
+2025-05-21 08:11:59 - Fatal error: Archive Process Error: Invalid request type. AJAX required. in /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/archive_process.php on line 121
+Stack trace: #0 {main}
+2025-05-21 08:11:59 - Sending JSON response: {"success":false,"message":"Archive process failed","timestamp":"2025-05-21 08:11:59","error_details":"Archive Process Error: Invalid request type. AJAX required. in \/home\/u838540439\/domains\/ehalal.tech\/public_html\/administrator\/pages\/includes\/subpages\/controllers\/archive_process.php on line 121\nStack trace: #0 {main}","error_type":"fatal_error"}
+2025-05-21 08:14:05 - === Archive Process Starting ===
+2025-05-21 08:14:05 - Base path: /home/u838540439/domains/ehalal.tech/public_html
+2025-05-21 08:14:05 - Fatal error: Archive Process Error: Invalid request type. AJAX required. in /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/archive_process.php on line 121
+Stack trace: #0 {main}
+2025-05-21 08:14:05 - Sending JSON response: {"success":false,"message":"Archive process failed","timestamp":"2025-05-21 08:14:05","error_details":"Archive Process Error: Invalid request type. AJAX required. in \/home\/u838540439\/domains\/ehalal.tech\/public_html\/administrator\/pages\/includes\/subpages\/controllers\/archive_process.php on line 121\nStack trace: #0 {main}","error_type":"fatal_error"}
+2025-05-21 08:14:50 - Archive process starting
+2025-05-21 08:14:50 - Session started
+2025-05-21 16:14:50 - Loaded: /init.php
+2025-05-21 16:14:50 - Loaded: /classes/Database.php
+2025-05-21 16:14:50 - Loaded: /administrator/classes/Admin.php
+2025-05-21 16:14:50 - Loaded: /administrator/classes/Elections.php
+2025-05-21 16:14:50 - Getting Admin instance
+2025-05-21 16:14:50 - Admin instance created
+2025-05-21 16:14:50 - Authentication passed
+2025-05-21 16:14:50 - Getting Elections instance
+2025-05-21 16:14:50 - Elections instance created
+2025-05-21 16:14:50 - Getting current election
+2025-05-21 16:14:50 - Current election data received: {"id":"1","status":"completed","election_name":"2016 Philippine Elections","created_at":"2025-05-15 16:13:18","end_time":"2025-05-21 14:49:00","last_status_change":"2025-05-21 08:13:22","control_number":"E2504294217"}
+2025-05-21 16:14:50 - Election status valid
+2025-05-21 16:14:50 - Control number: E2504294217
+2025-05-21 16:14:50 - Parent directory path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives
+2025-05-21 16:14:50 - Archive directory path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217
+2025-05-21 16:14:50 - Parent directory is writable
+2025-05-21 16:14:50 - Archive directory is writable
+2025-05-21 16:14:50 - Checking required image files for PDF generation
+2025-05-21 16:14:50 - Left logo path: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png
+2025-05-21 16:14:50 - Right logo path: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 16:14:50 - Image checks complete
+2025-05-21 16:14:50 - Starting Results PDF generation
+2025-05-21 16:14:50 - Results path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/results.pdf
+2025-05-21 16:14:50 - Including export_results.php
+2025-05-21 16:14:50 - export_results.php included successfully
+2025-05-21 16:14:50 - Results PDF created successfully - Size: 475280 bytes
+2025-05-21 16:14:50 - Starting Summary PDF generation
+2025-05-21 16:14:50 - Summary path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/summary.pdf
+2025-05-21 16:14:50 - Including export_summary.php
+2025-05-21 08:18:23 - Archive process starting
+2025-05-21 08:18:23 - Session started
+2025-05-21 16:18:23 - Loaded: /init.php
+2025-05-21 16:18:23 - Loaded: /classes/Database.php
+2025-05-21 16:18:23 - Loaded: /administrator/classes/Admin.php
+2025-05-21 16:18:23 - Loaded: /administrator/classes/Elections.php
+2025-05-21 16:18:23 - Getting Admin instance
+2025-05-21 16:18:23 - Admin instance created
+2025-05-21 16:18:23 - Authentication passed
+2025-05-21 16:18:23 - Getting Elections instance
+2025-05-21 16:18:23 - Elections instance created
+2025-05-21 16:18:23 - Getting current election
+2025-05-21 16:18:23 - Current election data received: {"id":"1","status":"completed","election_name":"2016 Philippine Elections","created_at":"2025-05-15 16:13:18","end_time":"2025-05-21 14:49:00","last_status_change":"2025-05-21 08:13:22","control_number":"E2504294217"}
+2025-05-21 16:18:23 - Election status valid
+2025-05-21 16:18:23 - Control number: E2504294217
+2025-05-21 16:18:23 - Parent directory path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives
+2025-05-21 16:18:23 - Archive directory path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217
+2025-05-21 16:18:23 - Parent directory is writable
+2025-05-21 16:18:23 - Archive directory is writable
+2025-05-21 16:18:23 - Checking required image files for PDF generation
+2025-05-21 16:18:23 - Left logo path: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png
+2025-05-21 16:18:23 - Right logo path: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 16:18:23 - Image checks complete
+2025-05-21 16:18:23 - Memory usage before PDF generation: 2097152
+2025-05-21 16:18:23 - Starting Results PDF generation
+2025-05-21 16:18:23 - Results path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/results.pdf
+2025-05-21 16:18:23 - Including export_results.php
+2025-05-21 16:18:23 - export_results.php included successfully
+2025-05-21 16:18:23 - Results PDF created successfully - Size: 475280 bytes
+2025-05-21 16:18:23 - Starting Summary PDF generation
+2025-05-21 16:18:23 - Summary path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/summary.pdf
+2025-05-21 16:18:23 - Including export_summary.php
+2025-05-21 16:18:23 - PDF generation output: ...
+2025-05-21 08:22:59 - Archive process starting
+2025-05-21 08:22:59 - Session started
+2025-05-21 16:22:59 - Loaded: /init.php
+2025-05-21 16:22:59 - Loaded: /classes/Database.php
+2025-05-21 16:22:59 - Loaded: /administrator/classes/Admin.php
+2025-05-21 16:22:59 - Loaded: /administrator/classes/Elections.php
+2025-05-21 16:22:59 - Getting Admin instance
+2025-05-21 16:22:59 - Admin instance created
+2025-05-21 16:22:59 - Authentication passed
+2025-05-21 16:22:59 - Getting Elections instance
+2025-05-21 16:22:59 - Elections instance created
+2025-05-21 16:22:59 - Getting current election
+2025-05-21 16:22:59 - Current election data received: {"id":"1","status":"completed","election_name":"2016 Philippine Elections","created_at":"2025-05-15 16:13:18","end_time":"2025-05-21 14:49:00","last_status_change":"2025-05-21 08:13:22","control_number":"E2504294217"}
+2025-05-21 16:22:59 - Election status valid
+2025-05-21 16:22:59 - Control number: E2504294217
+2025-05-21 16:22:59 - Parent directory path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives
+2025-05-21 16:22:59 - Archive directory path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217
+2025-05-21 16:22:59 - Parent directory is writable
+2025-05-21 16:22:59 - Archive directory is writable
+2025-05-21 16:22:59 - Checking required image files for PDF generation
+2025-05-21 16:22:59 - Left logo path: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png
+2025-05-21 16:22:59 - Right logo path: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 16:22:59 - Image checks complete
+2025-05-21 16:22:59 - Memory usage before PDF generation: 2097152
+2025-05-21 16:22:59 - Starting Results PDF generation
+2025-05-21 16:22:59 - Results path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/results.pdf
+2025-05-21 16:22:59 - Including export_results.php
+2025-05-21 16:22:59 - PDF generation output: ...
+2025-05-21 16:22:59 - export_results.php included successfully
+2025-05-21 16:22:59 - Results PDF created successfully - Size: 475280 bytes
+2025-05-21 16:22:59 - Starting Summary PDF generation
+2025-05-21 16:22:59 - Summary path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/summary.pdf
+2025-05-21 16:22:59 - Including export_summary.php
+2025-05-21 16:22:59 - PDF generation output: <br />
+<b>Fatal error</b>:  Cannot redeclare check_tcpdf_exists() (previously declared in /home/u838...
+2025-05-21 08:51:52 - Archive process starting
+2025-05-21 08:51:52 - Session started
+2025-05-21 16:51:52 - Loaded: /init.php
+2025-05-21 16:51:52 - Loaded: /classes/Database.php
+2025-05-21 16:51:52 - Loaded: /administrator/classes/Admin.php
+2025-05-21 16:51:52 - Loaded: /administrator/classes/Elections.php
+2025-05-21 16:51:52 - Getting Admin instance
+2025-05-21 16:51:52 - Admin instance created
+2025-05-21 16:51:52 - Authentication passed
+2025-05-21 16:51:52 - Getting Elections instance
+2025-05-21 16:51:52 - Elections instance created
+2025-05-21 16:51:52 - Getting current election
+2025-05-21 16:51:52 - Current election data received: {"id":"1","status":"completed","election_name":"2016 Philippine Elections","created_at":"2025-05-15 16:13:18","end_time":"2025-05-21 14:49:00","last_status_change":"2025-05-21 08:13:22","control_number":"E2504294217"}
+2025-05-21 16:51:52 - Election status valid
+2025-05-21 16:51:52 - Control number: E2504294217
+2025-05-21 16:51:52 - Parent directory path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives
+2025-05-21 16:51:52 - Archive directory path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217
+2025-05-21 16:51:52 - Parent directory is writable
+2025-05-21 16:51:52 - Archive directory is writable
+2025-05-21 16:51:52 - Checking required image files for PDF generation
+2025-05-21 16:51:52 - Left logo path: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png
+2025-05-21 16:51:52 - Right logo path: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 16:51:52 - Image checks complete
+2025-05-21 16:51:52 - Memory usage before PDF generation: 2097152
+2025-05-21 16:51:52 - Starting Results PDF generation
+2025-05-21 16:51:52 - Results path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/results.pdf
+2025-05-21 16:51:52 - Including export_results.php
+2025-05-21 16:51:52 - PDF generation output: ...
+2025-05-21 16:51:52 - export_results.php included successfully
+2025-05-21 16:51:52 - Results PDF created successfully - Size: 475280 bytes
+2025-05-21 16:51:52 - Starting Summary PDF generation
+2025-05-21 16:51:52 - Summary path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/summary.pdf
+2025-05-21 16:51:52 - Including export_summary.php
+2025-05-21 16:51:52 - PDF generation output: <br />
+<b>Fatal error</b>:  Cannot redeclare check_tcpdf_exists() (previously declared in /home/u838...
+2025-05-21 09:07:35 - Script started
+2025-05-21 09:07:35 - Error reporting configured
+2025-05-21 09:07:35 - Error logging configured
+2025-05-21 09:07:35 - Session started
+2025-05-21 09:07:35 - Loading basic includes
+2025-05-21 09:07:35 - PHP Error: Error [2]: require_once(/home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/../../../../init.php): Failed to open stream: No such file or directory in /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/archive_process.php on line 189
+2025-05-21 09:21:28 - Script started
+2025-05-21 09:21:28 - Error reporting configured
+2025-05-21 09:21:28 - Error logging configured
+2025-05-21 09:21:28 - Session started
+2025-05-21 09:21:28 - Base path set to: /home/u838540439/domains/ehalal.tech/public_html
+2025-05-21 09:21:28 - Loading basic includes
+2025-05-21 17:21:28 - init.php loaded
+2025-05-21 17:21:28 - Database.php loaded
+2025-05-21 17:21:28 - Loading admin classes
+2025-05-21 17:21:28 - Admin.php loaded
+2025-05-21 17:21:28 - Elections.php loaded
+2025-05-21 17:21:28 - Headers set
+2025-05-21 17:21:28 - Getting Admin instance
+2025-05-21 17:21:28 - Admin instance created
+2025-05-21 17:21:28 - Authentication passed
+2025-05-21 17:21:28 - Getting Elections instance
+2025-05-21 17:21:28 - Elections instance created
+2025-05-21 17:21:28 - Getting current election
+2025-05-21 17:21:28 - Current election data received: {"id":"1","status":"completed","election_name":"2016 Philippine Elections","created_at":"2025-05-15 16:13:18","end_time":"2025-05-21 14:49:00","last_status_change":"2025-05-21 08:13:22","control_number":"E2504294217"}
+2025-05-21 17:21:28 - Election status valid
+2025-05-21 17:21:28 - Control number: E2504294217
+2025-05-21 17:21:28 - Parent directory path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives
+2025-05-21 17:21:28 - Archive directory path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217
+2025-05-21 17:21:28 - Creating parent directory
+2025-05-21 17:21:28 - Parent directory created
+2025-05-21 17:21:28 - Parent directory is writable
+2025-05-21 17:21:28 - Creating archive directory
+2025-05-21 17:21:28 - Archive directory created
+2025-05-21 17:21:28 - Archive directory is writable
+2025-05-21 17:21:28 - Checking required image files for PDF generation
+2025-05-21 17:21:28 - Left logo path: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png
+2025-05-21 17:21:28 - Right logo path: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:21:28 - Image checks complete
+2025-05-21 17:21:28 - Starting Results PDF generation
+2025-05-21 17:21:28 - Results path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/results.pdf
+2025-05-21 17:21:28 - Including export_results.php
+2025-05-21 17:21:28 - PHP Error: Error [2]: include(/home/u838540439/domains/ehalal.tech/public_html/export_results.php): Failed to open stream: No such file or directory in /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/archive_process.php on line 311
+2025-05-21 17:21:28 - PDF generation output: ...
+2025-05-21 09:24:08 - Script started
+2025-05-21 09:24:08 - Error reporting configured
+2025-05-21 09:24:08 - Error logging configured
+2025-05-21 09:24:08 - Session started
+2025-05-21 09:24:08 - Base path set to: /home/u838540439/domains/ehalal.tech/public_html
+2025-05-21 09:24:08 - Loading basic includes
+2025-05-21 17:24:08 - init.php loaded
+2025-05-21 17:24:08 - Database.php loaded
+2025-05-21 17:24:08 - Loading admin classes
+2025-05-21 17:24:08 - Admin.php loaded
+2025-05-21 17:24:08 - Elections.php loaded
+2025-05-21 17:24:08 - Headers set
+2025-05-21 17:24:08 - Getting Admin instance
+2025-05-21 17:24:08 - Admin instance created
+2025-05-21 17:24:08 - Authentication passed
+2025-05-21 17:24:08 - Getting Elections instance
+2025-05-21 17:24:08 - Elections instance created
+2025-05-21 17:24:08 - Getting current election
+2025-05-21 17:24:08 - Current election data received: {"id":"1","status":"completed","election_name":"2016 Philippine Elections","created_at":"2025-05-15 16:13:18","end_time":"2025-05-21 14:49:00","last_status_change":"2025-05-21 08:13:22","control_number":"E2504294217"}
+2025-05-21 17:24:08 - Election status valid
+2025-05-21 17:24:08 - Control number: E2504294217
+2025-05-21 17:24:08 - Parent directory path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives
+2025-05-21 17:24:08 - Archive directory path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217
+2025-05-21 17:24:08 - Creating parent directory
+2025-05-21 17:24:08 - Parent directory created
+2025-05-21 17:24:08 - Parent directory is writable
+2025-05-21 17:24:08 - Creating archive directory
+2025-05-21 17:24:08 - Archive directory created
+2025-05-21 17:24:08 - Archive directory is writable
+2025-05-21 17:24:08 - Checking required image files for PDF generation
+2025-05-21 17:24:08 - Left logo path: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png
+2025-05-21 17:24:08 - Right logo path: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:24:08 - Image checks complete
+2025-05-21 17:24:08 - Starting Results PDF generation
+2025-05-21 17:24:08 - Results path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/results.pdf
+2025-05-21 17:24:08 - Including export_results.php
+2025-05-21 17:24:08 - Current directory: /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers
+2025-05-21 17:24:08 - Attempting to include: /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/export_results.php
+2025-05-21 17:24:08 - PDF generation output: ...
+2025-05-21 17:24:08 - Results PDF created successfully - Size: 475280 bytes
+2025-05-21 17:24:08 - Starting Summary PDF generation
+2025-05-21 17:24:08 - Summary path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/summary.pdf
+2025-05-21 17:24:08 - Including export_summary.php
+2025-05-21 17:24:08 - Current directory: /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers
+2025-05-21 17:24:08 - Attempting to include: /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/export_summary.php
+2025-05-21 17:24:08 - Fatal Error: Fatal Error: Cannot redeclare check_tcpdf_exists() (previously declared in /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/export_results.php:42) in /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/export_summary.php on line 28
+2025-05-21 17:24:08 - PDF generation output: <br />
+<b>Fatal error</b>:  Cannot redeclare check_tcpdf_exists() (previously declared in /home/u838...
+2025-05-21 09:32:36 - Script started
+2025-05-21 09:32:36 - Error reporting configured
+2025-05-21 09:32:36 - Error logging configured
+2025-05-21 09:32:36 - Session started
+2025-05-21 09:32:36 - Base path set to: /home/u838540439/domains/ehalal.tech/public_html
+2025-05-21 09:32:36 - Loading basic includes
+2025-05-21 17:32:36 - init.php loaded
+2025-05-21 17:32:36 - Database.php loaded
+2025-05-21 17:32:36 - Loading admin classes
+2025-05-21 17:32:36 - Admin.php loaded
+2025-05-21 17:32:36 - Elections.php loaded
+2025-05-21 17:32:36 - Headers set
+2025-05-21 17:32:36 - Getting Admin instance
+2025-05-21 17:32:36 - Admin instance created
+2025-05-21 17:32:36 - Authentication passed
+2025-05-21 17:32:36 - Getting Elections instance
+2025-05-21 17:32:36 - Elections instance created
+2025-05-21 17:32:36 - Getting current election
+2025-05-21 17:32:36 - Current election data received: {"id":"1","status":"completed","election_name":"2016 Philippine Elections","created_at":"2025-05-15 16:13:18","end_time":"2025-05-21 14:49:00","last_status_change":"2025-05-21 08:13:22","control_number":"E2504294217"}
+2025-05-21 17:32:36 - Election status valid
+2025-05-21 17:32:36 - Control number: E2504294217
+2025-05-21 17:32:36 - Parent directory path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives
+2025-05-21 17:32:36 - Archive directory path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217
+2025-05-21 17:32:36 - Creating parent directory
+2025-05-21 17:32:36 - Parent directory created
+2025-05-21 17:32:36 - Parent directory is writable
+2025-05-21 17:32:36 - Creating archive directory
+2025-05-21 17:32:36 - Archive directory created
+2025-05-21 17:32:36 - Archive directory is writable
+2025-05-21 17:32:36 - Checking required image files for PDF generation
+2025-05-21 17:32:36 - Left logo path: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png
+2025-05-21 17:32:36 - Right logo path: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:32:36 - Image checks complete
+2025-05-21 17:32:36 - Starting Results PDF generation
+2025-05-21 17:32:36 - Results path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/results.pdf
+2025-05-21 17:32:36 - Including export_results.php
+2025-05-21 17:32:36 - Export results path: /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/export_results.php
+2025-05-21 17:32:36 - Including file: /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/export_results.php
+2025-05-21 17:32:36 - Results PDF created successfully - Size: 475280 bytes
+2025-05-21 17:32:36 - Starting Summary PDF generation
+2025-05-21 17:32:36 - Summary path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/summary.pdf
+2025-05-21 17:32:36 - Including export_summary.php
+2025-05-21 17:32:36 - Export summary path: /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/export_summary.php
+2025-05-21 17:32:36 - Including file: /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/export_summary.php
+2025-05-21 17:32:36 - Fatal Error: Fatal Error: Cannot redeclare check_tcpdf_exists() (previously declared in /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/export_results.php:42) in /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/export_summary.php on line 28
+2025-05-21 17:32:36 - PDF generation output: <br />
+<b>Fatal error</b>:  Cannot redeclare check_tcpdf_exists() (previously declared in /home/u838...
+2025-05-21 09:40:21 - Script started
+2025-05-21 09:40:21 - Error reporting configured
+2025-05-21 09:40:21 - Error logging configured
+2025-05-21 09:40:21 - Session started
+2025-05-21 09:40:21 - Base path set to: /home/u838540439/domains/ehalal.tech/public_html
+2025-05-21 09:40:21 - Loading basic includes
+2025-05-21 17:40:21 - init.php loaded
+2025-05-21 17:40:21 - Database.php loaded
+2025-05-21 17:40:21 - Loading admin classes
+2025-05-21 17:40:21 - Admin.php loaded
+2025-05-21 17:40:21 - Elections.php loaded
+2025-05-21 17:40:21 - Headers set
+2025-05-21 17:40:21 - Getting Admin instance
+2025-05-21 17:40:21 - Admin instance created
+2025-05-21 17:40:21 - Authentication passed
+2025-05-21 17:40:21 - Getting Elections instance
+2025-05-21 17:40:21 - Elections instance created
+2025-05-21 17:40:21 - Getting current election
+2025-05-21 17:40:21 - Current election data received: {"id":"1","status":"completed","election_name":"2016 Philippine Elections","created_at":"2025-05-15 16:13:18","end_time":"2025-05-21 14:49:00","last_status_change":"2025-05-21 08:13:22","control_number":"E2504294217"}
+2025-05-21 17:40:21 - Election status valid
+2025-05-21 17:40:21 - Control number: E2504294217
+2025-05-21 17:40:21 - Parent directory path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives
+2025-05-21 17:40:21 - Archive directory path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217
+2025-05-21 17:40:21 - Creating parent directory
+2025-05-21 17:40:21 - Parent directory created
+2025-05-21 17:40:21 - Parent directory is writable
+2025-05-21 17:40:21 - Creating archive directory
+2025-05-21 17:40:21 - Archive directory created
+2025-05-21 17:40:21 - Archive directory is writable
+2025-05-21 17:40:21 - Checking required image files for PDF generation
+2025-05-21 17:40:21 - Left logo path: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png
+2025-05-21 17:40:21 - Right logo path: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:40:21 - Image checks complete
+2025-05-21 17:40:21 - Starting Results PDF generation
+2025-05-21 17:40:21 - Results path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/results.pdf
+2025-05-21 17:40:21 - Including export_results.php
+2025-05-21 17:40:21 - Export results path: /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/export_results.php
+2025-05-21 17:40:21 - Including file: /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/export_results.php
+2025-05-21 17:40:21 - Results PDF created successfully - Size: 475280 bytes
+2025-05-21 17:40:21 - Starting Summary PDF generation
+2025-05-21 17:40:21 - Summary path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/summary.pdf
+2025-05-21 17:40:21 - Including export_summary.php
+2025-05-21 17:40:21 - Export summary path: /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/export_summary.php
+2025-05-21 17:40:21 - Including file: /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/export_summary.php
+2025-05-21 17:40:21 - Fatal Error: Fatal Error: Cannot redeclare check_tcpdf_exists() (previously declared in /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/export_results.php:42) in /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/export_summary.php on line 28
+2025-05-21 17:40:21 - PDF generation output: <br />
+<b>Fatal error</b>:  Cannot redeclare check_tcpdf_exists() (previously declared in /home/u838...
+2025-05-21 09:42:45 - Script started
+2025-05-21 09:42:45 - Error reporting configured
+2025-05-21 09:42:45 - Error logging configured
+2025-05-21 09:42:45 - Session started
+2025-05-21 09:42:45 - Base path set to: /home/u838540439/domains/ehalal.tech/public_html
+2025-05-21 09:42:45 - Loading basic includes
+2025-05-21 17:42:45 - init.php loaded
+2025-05-21 17:42:45 - Database.php loaded
+2025-05-21 17:42:45 - Loading admin classes
+2025-05-21 17:42:45 - Admin.php loaded
+2025-05-21 17:42:45 - Elections.php loaded
+2025-05-21 17:42:45 - Headers set
+2025-05-21 17:42:45 - Getting Admin instance
+2025-05-21 17:42:46 - Admin instance created
+2025-05-21 17:42:46 - Authentication passed
+2025-05-21 17:42:46 - Getting Elections instance
+2025-05-21 17:42:46 - Elections instance created
+2025-05-21 17:42:46 - Getting current election
+2025-05-21 17:42:46 - Current election data received: {"id":"1","status":"completed","election_name":"2016 Philippine Elections","created_at":"2025-05-15 16:13:18","end_time":"2025-05-21 14:49:00","last_status_change":"2025-05-21 08:13:22","control_number":"E2504294217"}
+2025-05-21 17:42:46 - Election status valid
+2025-05-21 17:42:46 - Control number: E2504294217
+2025-05-21 17:42:46 - Parent directory path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives
+2025-05-21 17:42:46 - Archive directory path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217
+2025-05-21 17:42:46 - Creating parent directory
+2025-05-21 17:42:46 - Parent directory created
+2025-05-21 17:42:46 - Parent directory is writable
+2025-05-21 17:42:46 - Creating archive directory
+2025-05-21 17:42:46 - Archive directory created
+2025-05-21 17:42:46 - Archive directory is writable
+2025-05-21 17:42:46 - Checking required image files for PDF generation
+2025-05-21 17:42:46 - Left logo path: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png
+2025-05-21 17:42:46 - Right logo path: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:42:46 - Image checks complete
+2025-05-21 17:42:46 - Starting Results PDF generation
+2025-05-21 17:42:46 - Results path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/results.pdf
+2025-05-21 17:42:46 - Including export_results.php
+2025-05-21 17:42:46 - Export results path: /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/export_results.php
+2025-05-21 17:42:46 - Including file: /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/export_results.php
+2025-05-21 17:42:46 - Error in results PDF generation: TCPDF library not found at: /home/u838540439/domains/ehalal.tech/public_html/tcpdf/tcpdf.php
+2025-05-21 17:42:46 - Fatal error: Archive Process Error: Results PDF generation failed: TCPDF library not found at: /home/u838540439/domains/ehalal.tech/public_html/tcpdf/tcpdf.php in /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/archive_process.php on line 391
+2025-05-21 17:42:46 - Preparing JSON response - Success: false
+2025-05-21 17:42:46 - Response message: Archive process failed
+2025-05-21 17:42:46 - Cleaned output length: 0
+2025-05-21 17:42:46 - Headers set successfully
+2025-05-21 17:42:46 - JSON response prepared successfully
+2025-05-21 17:42:46 - Response length: 552
+2025-05-21 17:42:46 - JSON response sent
+2025-05-21 09:46:06 - Script started
+2025-05-21 09:46:06 - Error reporting configured
+2025-05-21 09:46:06 - Error logging configured
+2025-05-21 09:46:06 - Session started
+2025-05-21 09:46:06 - Base path set to: /home/u838540439/domains/ehalal.tech/public_html
+2025-05-21 09:46:06 - Loading basic includes
+2025-05-21 17:46:06 - init.php loaded
+2025-05-21 17:46:06 - Database.php loaded
+2025-05-21 17:46:06 - Loading admin classes
+2025-05-21 17:46:06 - Admin.php loaded
+2025-05-21 17:46:06 - Elections.php loaded
+2025-05-21 17:46:06 - Headers set
+2025-05-21 17:46:06 - Getting Admin instance
+2025-05-21 17:46:06 - Admin instance created
+2025-05-21 17:46:06 - Authentication passed
+2025-05-21 17:46:06 - Getting Elections instance
+2025-05-21 17:46:06 - Elections instance created
+2025-05-21 17:46:06 - Getting current election
+2025-05-21 17:46:06 - Current election data received: {"id":"1","status":"completed","election_name":"2016 Philippine Elections","created_at":"2025-05-15 16:13:18","end_time":"2025-05-21 14:49:00","last_status_change":"2025-05-21 08:13:22","control_number":"E2504294217"}
+2025-05-21 17:46:06 - Election status valid
+2025-05-21 17:46:06 - Control number: E2504294217
+2025-05-21 17:46:06 - Parent directory path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives
+2025-05-21 17:46:06 - Archive directory path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217
+2025-05-21 17:46:06 - Creating parent directory
+2025-05-21 17:46:06 - Parent directory created
+2025-05-21 17:46:06 - Parent directory is writable
+2025-05-21 17:46:06 - Creating archive directory
+2025-05-21 17:46:06 - Archive directory created
+2025-05-21 17:46:06 - Archive directory is writable
+2025-05-21 17:46:06 - Checking required image files for PDF generation
+2025-05-21 17:46:06 - Left logo path: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png
+2025-05-21 17:46:06 - Right logo path: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:46:06 - Image checks complete
+2025-05-21 17:46:06 - Starting Results PDF generation
+2025-05-21 17:46:06 - Results path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/results.pdf
+2025-05-21 17:46:06 - Including export_results.php
+2025-05-21 17:46:06 - Export results path: /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/export_results.php
+2025-05-21 17:46:06 - Including file: /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/export_results.php
+2025-05-21 17:46:06 - Results PDF created successfully - Size: 475282 bytes
+2025-05-21 17:46:06 - Starting Summary PDF generation
+2025-05-21 17:46:06 - Summary path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/summary.pdf
+2025-05-21 17:46:06 - Including export_summary.php
+2025-05-21 17:46:06 - Export summary path: /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/export_summary.php
+2025-05-21 17:46:06 - Including file: /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/export_summary.php
+2025-05-21 17:46:06 - Summary PDF created successfully - Size: 479672 bytes
+2025-05-21 17:46:06 - Preparing JSON response - Success: true
+2025-05-21 17:46:06 - Response message: Archive process completed successfully
+2025-05-21 17:46:06 - Cleaned output length: 0
+2025-05-21 17:46:06 - Headers set successfully
+2025-05-21 17:46:06 - JSON response prepared successfully
+2025-05-21 17:46:06 - Response length: 603
+2025-05-21 17:46:06 - JSON response sent
+2025-05-21 09:46:42 - Script started
+2025-05-21 09:46:42 - Error reporting configured
+2025-05-21 09:46:42 - Error logging configured
+2025-05-21 09:46:42 - Session started
+2025-05-21 09:46:42 - Base path set to: /home/u838540439/domains/ehalal.tech/public_html
+2025-05-21 09:46:42 - Loading basic includes
+2025-05-21 17:46:42 - init.php loaded
+2025-05-21 17:46:42 - Database.php loaded
+2025-05-21 17:46:42 - Loading admin classes
+2025-05-21 17:46:42 - Admin.php loaded
+2025-05-21 17:46:42 - Elections.php loaded
+2025-05-21 17:46:42 - Headers set
+2025-05-21 17:46:42 - Getting Admin instance
+2025-05-21 17:46:42 - Admin instance created
+2025-05-21 17:46:42 - Authentication passed
+2025-05-21 17:46:42 - Getting Elections instance
+2025-05-21 17:46:42 - Elections instance created
+2025-05-21 17:46:42 - Getting current election
+2025-05-21 17:46:42 - Current election data received: {"id":"1","status":"completed","election_name":"2016 Philippine Elections","created_at":"2025-05-15 16:13:18","end_time":"2025-05-21 14:49:00","last_status_change":"2025-05-21 08:13:22","control_number":"E2504294217"}
+2025-05-21 17:46:42 - Election status valid
+2025-05-21 17:46:42 - Control number: E2504294217
+2025-05-21 17:46:42 - Parent directory path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives
+2025-05-21 17:46:42 - Archive directory path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217
+2025-05-21 17:46:42 - Creating parent directory
+2025-05-21 17:46:42 - Parent directory created
+2025-05-21 17:46:42 - Parent directory is writable
+2025-05-21 17:46:42 - Creating archive directory
+2025-05-21 17:46:42 - Archive directory created
+2025-05-21 17:46:42 - Archive directory is writable
+2025-05-21 17:46:42 - Checking required image files for PDF generation
+2025-05-21 17:46:42 - Left logo path: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png
+2025-05-21 17:46:42 - Right logo path: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:46:42 - Image checks complete
+2025-05-21 17:46:42 - Starting Results PDF generation
+2025-05-21 17:46:42 - Results path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/results.pdf
+2025-05-21 17:46:42 - Including export_results.php
+2025-05-21 17:46:42 - Export results path: /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/export_results.php
+2025-05-21 17:46:42 - Including file: /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/export_results.php
+2025-05-21 17:46:42 - Results PDF created successfully - Size: 475282 bytes
+2025-05-21 17:46:42 - Starting Summary PDF generation
+2025-05-21 17:46:42 - Summary path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/summary.pdf
+2025-05-21 17:46:42 - Including export_summary.php
+2025-05-21 17:46:42 - Export summary path: /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/export_summary.php
+2025-05-21 17:46:42 - Including file: /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/export_summary.php
+2025-05-21 17:46:43 - Summary PDF created successfully - Size: 479672 bytes
+2025-05-21 17:46:43 - Preparing JSON response - Success: true
+2025-05-21 17:46:43 - Response message: Archive process completed successfully
+2025-05-21 17:46:43 - Cleaned output length: 0
+2025-05-21 17:46:43 - Headers set successfully
+2025-05-21 17:46:43 - JSON response prepared successfully
+2025-05-21 17:46:43 - Response length: 603
+2025-05-21 17:46:43 - JSON response sent
+2025-05-21 09:56:22 - Script started
+2025-05-21 09:56:22 - Error reporting configured
+2025-05-21 09:56:22 - Error logging configured
+2025-05-21 09:56:22 - Session started
+2025-05-21 09:56:22 - Base path set to: /home/u838540439/domains/ehalal.tech/public_html
+2025-05-21 09:56:22 - Loading basic includes
+2025-05-21 17:56:22 - init.php loaded
+2025-05-21 17:56:22 - Database.php loaded
+2025-05-21 17:56:22 - Loading admin classes
+2025-05-21 17:56:22 - Admin.php loaded
+2025-05-21 17:56:22 - Elections.php loaded
+2025-05-21 17:56:22 - Headers set
+2025-05-21 17:56:22 - Getting Admin instance
+2025-05-21 17:56:22 - Admin instance created
+2025-05-21 17:56:22 - Authentication passed
+2025-05-21 17:56:22 - Getting Elections instance
+2025-05-21 17:56:22 - Elections instance created
+2025-05-21 17:56:22 - Getting current election
+2025-05-21 17:56:22 - Current election data received: {"id":"1","status":"completed","election_name":"2016 Philippine Elections","created_at":"2025-05-15 16:13:18","end_time":"2025-05-21 14:49:00","last_status_change":"2025-05-21 08:13:22","control_number":"E2504294217"}
+2025-05-21 17:56:22 - Election status valid
+2025-05-21 17:56:22 - Control number: E2504294217
+2025-05-21 17:56:22 - Parent directory path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives
+2025-05-21 17:56:22 - Archive directory path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217
+2025-05-21 17:56:22 - Creating parent directory
+2025-05-21 17:56:22 - Parent directory created
+2025-05-21 17:56:22 - Parent directory is writable
+2025-05-21 17:56:22 - Creating archive directory
+2025-05-21 17:56:22 - Archive directory created
+2025-05-21 17:56:22 - Archive directory is writable
+2025-05-21 17:56:22 - Checking required image files for PDF generation
+2025-05-21 17:56:22 - Left logo path: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png
+2025-05-21 17:56:22 - Right logo path: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:56:22 - Image checks complete
+2025-05-21 17:56:22 - Starting Results PDF generation
+2025-05-21 17:56:22 - Results path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/results.pdf
+2025-05-21 17:56:22 - Including export_results.php
+2025-05-21 17:56:22 - Export results path: /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/export_results.php
+2025-05-21 17:56:22 - Including file: /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/export_results.php
+2025-05-21 17:56:22 - Results PDF created successfully - Size: 475281 bytes
+2025-05-21 17:56:22 - Starting Summary PDF generation
+2025-05-21 17:56:22 - Summary path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/summary.pdf
+2025-05-21 17:56:22 - Including export_summary.php
+2025-05-21 17:56:22 - Export summary path: /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/export_summary.php
+2025-05-21 17:56:22 - Including file: /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/export_summary.php
+2025-05-21 17:56:23 - Summary PDF created successfully - Size: 479671 bytes
+2025-05-21 17:56:23 - Preparing JSON response - Success: true
+2025-05-21 17:56:23 - Response message: Archive process completed successfully
+2025-05-21 17:56:23 - Cleaned output length: 0
+2025-05-21 17:56:23 - Headers set successfully
+2025-05-21 17:56:23 - JSON response prepared successfully
+2025-05-21 17:56:23 - Response length: 603
+2025-05-21 17:56:23 - JSON response sent
+2025-05-21 10:00:38 - Script started
+2025-05-21 10:00:38 - Error reporting configured
+2025-05-21 10:00:38 - Error logging configured
+2025-05-21 10:00:38 - Session started
+2025-05-21 10:00:38 - Base path set to: /home/u838540439/domains/ehalal.tech/public_html
+2025-05-21 10:00:38 - Loading basic includes
+2025-05-21 18:00:38 - init.php loaded
+2025-05-21 18:00:38 - Database.php loaded
+2025-05-21 18:00:38 - Loading admin classes
+2025-05-21 18:00:38 - Admin.php loaded
+2025-05-21 18:00:38 - Elections.php loaded
+2025-05-21 18:00:38 - Headers set
+2025-05-21 18:00:38 - Getting Admin instance
+2025-05-21 18:00:38 - Admin instance created
+2025-05-21 18:00:38 - Authentication passed
+2025-05-21 18:00:38 - Getting Elections instance
+2025-05-21 18:00:38 - Elections instance created
+2025-05-21 18:00:38 - Getting current election
+2025-05-21 18:00:38 - Current election data received: {"id":"1","status":"completed","election_name":"2016 Philippine Elections","created_at":"2025-05-15 16:13:18","end_time":"2025-05-21 14:49:00","last_status_change":"2025-05-21 08:13:22","control_number":"E2504294217"}
+2025-05-21 18:00:38 - Election status valid
+2025-05-21 18:00:38 - Control number: E2504294217
+2025-05-21 18:00:38 - Parent directory path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives
+2025-05-21 18:00:38 - Archive directory path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217
+2025-05-21 18:00:38 - Creating parent directory
+2025-05-21 18:00:38 - Parent directory created
+2025-05-21 18:00:38 - Parent directory is writable
+2025-05-21 18:00:38 - Creating archive directory
+2025-05-21 18:00:38 - Archive directory created
+2025-05-21 18:00:38 - Archive directory is writable
+2025-05-21 18:00:38 - Checking required image files for PDF generation
+2025-05-21 18:00:38 - Left logo path: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png
+2025-05-21 18:00:38 - Right logo path: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 18:00:38 - Image checks complete
+2025-05-21 18:00:38 - Starting Results PDF generation
+2025-05-21 18:00:38 - Results path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/results.pdf
+2025-05-21 18:00:38 - Including export_results.php
+2025-05-21 18:00:38 - Export results path: /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/export_results.php
+2025-05-21 18:00:38 - Including file: /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/export_results.php
+2025-05-21 18:00:38 - Results PDF created successfully - Size: 475280 bytes
+2025-05-21 18:00:38 - Starting Summary PDF generation
+2025-05-21 18:00:38 - Summary path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/summary.pdf
+2025-05-21 18:00:38 - Including export_summary.php
+2025-05-21 18:00:38 - Export summary path: /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/export_summary.php
+2025-05-21 18:00:38 - Including file: /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/export_summary.php
+2025-05-21 18:00:38 - Summary PDF created successfully - Size: 479670 bytes
+2025-05-21 18:00:38 - Preparing JSON response - Success: true
+2025-05-21 18:00:38 - Response message: Archive process completed successfully
+2025-05-21 18:00:38 - Cleaned output length: 0
+2025-05-21 18:00:38 - Headers set successfully
+2025-05-21 18:00:38 - JSON response prepared successfully
+2025-05-21 18:00:38 - Response length: 603
+2025-05-21 18:00:38 - JSON response sent
+2025-05-21 10:02:32 - Script started
+2025-05-21 10:02:32 - Error reporting configured
+2025-05-21 10:02:32 - Error logging configured
+2025-05-21 10:02:32 - Session started
+2025-05-21 10:02:32 - Base path set to: /home/u838540439/domains/ehalal.tech/public_html
+2025-05-21 10:02:32 - Loading basic includes
+2025-05-21 18:02:32 - init.php loaded
+2025-05-21 18:02:32 - Database.php loaded
+2025-05-21 18:02:32 - Loading admin classes
+2025-05-21 18:02:32 - Admin.php loaded
+2025-05-21 18:02:32 - Elections.php loaded
+2025-05-21 18:02:32 - Headers set
+2025-05-21 18:02:32 - Getting Admin instance
+2025-05-21 18:02:32 - Admin instance created
+2025-05-21 18:02:32 - Authentication passed
+2025-05-21 18:02:32 - Getting Elections instance
+2025-05-21 18:02:32 - Elections instance created
+2025-05-21 18:02:32 - Getting current election
+2025-05-21 18:02:32 - Current election data received: {"id":"1","status":"completed","election_name":"2016 Philippine Elections","created_at":"2025-05-15 16:13:18","end_time":"2025-05-21 14:49:00","last_status_change":"2025-05-21 08:13:22","control_number":"E2504294217"}
+2025-05-21 18:02:32 - Election status valid
+2025-05-21 18:02:32 - Control number: E2504294217
+2025-05-21 18:02:32 - Parent directory path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives
+2025-05-21 18:02:32 - Archive directory path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217
+2025-05-21 18:02:32 - Creating parent directory
+2025-05-21 18:02:32 - Parent directory created
+2025-05-21 18:02:32 - Parent directory is writable
+2025-05-21 18:02:32 - Creating archive directory
+2025-05-21 18:02:32 - Archive directory created
+2025-05-21 18:02:32 - Archive directory is writable
+2025-05-21 18:02:32 - Checking required image files for PDF generation
+2025-05-21 18:02:32 - Left logo path: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png
+2025-05-21 18:02:32 - Right logo path: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 18:02:32 - Image checks complete
+2025-05-21 18:02:32 - Starting Results PDF generation
+2025-05-21 18:02:32 - Results path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/results.pdf
+2025-05-21 18:02:32 - Including export_results.php
+2025-05-21 18:02:32 - Export results path: /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/export_results.php
+2025-05-21 18:02:32 - Including file: /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/export_results.php
+2025-05-21 18:02:32 - Results PDF created successfully - Size: 475280 bytes
+2025-05-21 18:02:32 - Starting Summary PDF generation
+2025-05-21 18:02:32 - Summary path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/summary.pdf
+2025-05-21 18:02:32 - Including export_summary.php
+2025-05-21 18:02:32 - Export summary path: /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/export_summary.php
+2025-05-21 18:02:32 - Including file: /home/u838540439/domains/ehalal.tech/public_html/administrator/pages/includes/subpages/controllers/export_summary.php
+2025-05-21 18:02:32 - Summary PDF created successfully - Size: 479670 bytes
+2025-05-21 18:02:32 - Starting database archival process
+2025-05-21 18:02:32 - Database archival completed successfully
+2025-05-21 18:02:32 - Preparing JSON response - Success: true
+2025-05-21 18:02:32 - Response message: Archive process completed successfully
+2025-05-21 18:02:32 - Cleaned output length: 0
+2025-05-21 18:02:32 - Headers set successfully
+2025-05-21 18:02:32 - JSON response prepared successfully
+2025-05-21 18:02:32 - Response length: 634
+2025-05-21 18:02:32 - JSON response sent

@@ -2,30 +2,14 @@
 require_once __DIR__ . '/../init.php';
 require_once __DIR__ . '/Database.php';
 require_once __DIR__ . '/CustomSessionHandler.php';
-require_once __DIR__ . '/Votes.php';
-require_once __DIR__ . '/Receipt.php';
-
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
-
-if (file_exists(__DIR__ . '/../vendor/autoload.php')) {
-    require_once __DIR__ . '/../vendor/autoload.php';
-} else {
-    require_once __DIR__ . '/../vendor/phpmailer/phpmailer/src/PHPMailer.php';
-    require_once __DIR__ . '/../vendor/phpmailer/phpmailer/src/SMTP.php';
-    require_once __DIR__ . '/../vendor/phpmailer/phpmailer/src/Exception.php';
-}
 
 class Ballot {
     private $db;
     private $session;
-    private $votes;
 
     public function __construct() {
         $this->db = Database::getInstance();
         $this->session = CustomSessionHandler::getInstance();
-        $this->votes = new Votes();
     }
 
     public function getPositions() {
@@ -37,27 +21,20 @@ class Ballot {
         $sql = "SELECT candidates.*, partylists.name AS partylist_name 
                 FROM candidates 
                 LEFT JOIN partylists ON candidates.partylist_id = partylists.id 
-                WHERE position_id = ?";
-        $stmt = $this->db->prepare($sql);
-        $stmt->bind_param("i", $position_id);
-        $stmt->execute();
-        return $stmt->get_result();
+                WHERE position_id = '" . $this->db->escape($position_id) . "'";
+        return $this->db->query($sql);
     }
 
     public function getCandidate($candidate_id) {
-        $sql = "SELECT * FROM candidates WHERE id = ?";
-        $stmt = $this->db->prepare($sql);
-        $stmt->bind_param("i", $candidate_id);
-        $stmt->execute();
-        return $stmt->get_result()->fetch_assoc();
+        $sql = "SELECT * FROM candidates WHERE id = '" . $this->db->escape($candidate_id) . "'";
+        $query = $this->db->query($sql);
+        return $query ? $query->fetch_assoc() : null;
     }
 
     public function getPosition($position_id) {
-        $sql = "SELECT * FROM positions WHERE id = ?";
-        $stmt = $this->db->prepare($sql);
-        $stmt->bind_param("i", $position_id);
-        $stmt->execute();
-        return $stmt->get_result()->fetch_assoc();
+        $sql = "SELECT * FROM positions WHERE id = '" . $this->db->escape($position_id) . "'";
+        $query = $this->db->query($sql);
+        return $query->fetch_assoc();
     }
 
     public function validateVotes($votes) {
@@ -88,7 +65,8 @@ class Ballot {
 
     public function submitVote($voter_id, $votes) {
         try {
-            $this->db->beginTransaction();
+            // Start transaction
+            $this->db->query("START TRANSACTION");
             
             // Validate votes
             $errors = $this->validateVotes($votes);
@@ -97,51 +75,58 @@ class Ballot {
             }
             
             // Check if voter has already voted
-            $sql = "SELECT has_voted FROM voters WHERE id = ?";
-            $stmt = $this->db->prepare($sql);
-            $stmt->bind_param("i", $voter_id);
-            $stmt->execute();
-            $voter = $stmt->get_result()->fetch_assoc();
+            $sql = "SELECT COUNT(*) as count FROM votes WHERE voters_id = '" . $this->db->escape($voter_id) . "'";
+            $result = $this->db->query($sql);
+            $row = $result->fetch_assoc();
             
-            if (!$voter) {
-                throw new Exception("Voter not found.");
-            }
-
-            if ($voter['has_voted'] == 1) {
+            if ($row['count'] > 0) {
                 throw new Exception("You have already submitted your votes.");
             }
             
-            // Submit votes using Votes class
-            $voteResult = $this->votes->submitVotes($voter_id, $votes);
-            
-            if (!$voteResult['success']) {
-                throw new Exception("Failed to submit votes. Please try again.");
+            // Insert votes
+            foreach ($votes as $position_id => $candidates) {
+                $candidates = is_array($candidates) ? $candidates : [$candidates];
+                foreach ($candidates as $candidate_id) {
+                    $sql = "INSERT INTO votes (voters_id, position_id, candidate_id) 
+                            VALUES ('" . $this->db->escape($voter_id) . "', 
+                                    '" . $this->db->escape($position_id) . "', 
+                                    '" . $this->db->escape($candidate_id) . "')";
+                    if (!$this->db->query($sql)) {
+                        throw new Exception($this->db->getError());
+                    }
+                }
             }
             
-            $this->db->commit();
-            return $voteResult;
+            // Commit transaction
+            $this->db->query("COMMIT");
+            return true;
             
         } catch (Exception $e) {
-            $this->db->rollback();
-            return [
-                'success' => false,
-                'message' => $e->getMessage()
-            ];
+            // Rollback on error
+            $this->db->query("ROLLBACK");
+            $this->session->setError($e->getMessage());
+            return false;
         }
     }
 
     public function getVoterVotes($voter_id) {
-        return $this->votes->getVoterVotes($voter_id);
+        $sql = "SELECT v.*, p.description, c.firstname, c.lastname, pl.name as partylist_name
+                FROM votes v 
+                LEFT JOIN positions p ON p.id = v.position_id 
+                LEFT JOIN candidates c ON c.id = v.candidate_id 
+                LEFT JOIN partylists pl ON pl.id = c.partylist_id
+                WHERE v.voters_id = '" . $this->db->escape($voter_id) . "'";
+        return $this->db->query($sql);
     }
 
     public function getElectionName() {
-        $sql = "SELECT election_name FROM election_status WHERE status != 'setup' ORDER BY id DESC LIMIT 1";
+        $sql = "SELECT election_name FROM election_status WHERE id = 1";
         $result = $this->db->query($sql);
         if ($result && $result->num_rows > 0) {
             $row = $result->fetch_assoc();
             return $row['election_name'];
         }
-        return "E-HALAL BTECHenyo Election";
+        return "Election";
     }
 
     public function slugify($text) {
@@ -193,207 +178,269 @@ class Ballot {
                                        value="<?php echo $candidate['id']; ?>"
                                        style="display: none !important;visibility: hidden !important;">
                                 <div class="card-content">
-                                    <div class="candidate-photo-container">
-                                        <img src="<?php echo !empty($candidate['photo']) ? 'administrator/' . $candidate['photo'] : 'administrator/assets/images/profile.jpg'; ?>" 
-                                             alt="Candidate Photo" 
-                                             class="candidate-photo">
-                                    </div>
-                                    <div class="candidate-info">
-                                        <strong class="candidate-name"><?php echo $candidate['firstname'] . ' ' . $candidate['lastname']; ?></strong>
-                                        <?php if (!empty($candidate['partylist_name'])): ?>
-                                            <p class="candidate-party"><?php echo $candidate['partylist_name']; ?></p>
-                                        <?php else: ?>
-                                            <p class="candidate-party">Independent</p>
-                                        <?php endif; ?>
+                                    <div class="mobile-flex">
+                                        <div class="candidate-photo-container">
+                                            <img src="<?php echo !empty($candidate['photo']) ? 'administrator/' . $candidate['photo'] : 'administrator/assets/images/profile.jpg'; ?>" 
+                                                 alt="Candidate Photo" 
+                                                 class="candidate-photo">
+                                        </div>
+                                        <div class="candidate-info">
+                                            <strong class="candidate-name" title="<?php echo $candidate['firstname'] . ' ' . $candidate['lastname']; ?>">
+                                                <?php echo $candidate['firstname'] . ' ' . $candidate['lastname']; ?>
+                                            </strong>
+                                            <p class="candidate-party">
+                                                <?php echo !empty($candidate['partylist_name']) ? $candidate['partylist_name'] : 'Independent'; ?>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
+                                <?php if ($row['max_vote'] > 1): ?>
+                                <div class="disabled-overlay"></div>
+                                <?php endif; ?>
                             </div>
                         <?php } ?>
                     </div>
                 </div>
             <?php } ?>
             <div class="text-center ballot-actions">
-                <button type="button" class="btn btn-success btn-flat" id="preview" name="preview"><i class="fa fa-file-text"></i> Preview</button>
-                <button type="submit" class="btn btn-primary btn-flat" name="vote"><i class="fa fa-check"></i> Submit</button>
+                <div class="ballot-buttons">
+                    <button type="button" class="btn btn-success btn-flat" id="preview" name="preview">
+                        <i class="fa fa-file-text"></i> Preview
+                    </button>
+                    <button type="submit" class="btn btn-primary btn-flat" name="vote">
+                        <i class="fa fa-check"></i> Submit
+                    </button>
+                </div>
             </div>
         </form>
 
         <style>
-        .position-section {
-            margin-bottom: 30px;
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
+            .candidates-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 20px;
+                padding: 10px;
+            }
 
-        .position-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
+            .candidate-card {
+                position: relative;
+                background: #fff;
+                border: 1px solid #e0e0e0;
+                border-radius: 8px;
+                padding: 15px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
 
-        .candidates-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-            margin-bottom: 20px;
-        }
+            .candidate-card.selected {
+                border-color: #249646;
+                background-color: #f0fff4;
+            }
 
-        .candidate-card {
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            border-radius: 8px;
-            overflow: hidden;
-        }
+            .candidate-card.disabled {
+                opacity: 0.6;
+                cursor: not-allowed;
+                pointer-events: none;
+                border-color: #ddd;
+                background-color: #f8f9fa;
+                transform: scale(0.98);
+            }
 
-        .candidate-card.selected {
-            border-color: #249646;
-            background-color: #f8fff9;
-        }
+            .disabled-overlay {
+                display: none;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.05);
+                border-radius: 8px;
+                transition: all 0.3s ease;
+            }
 
-        .candidate-card.disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
+            .candidate-card.disabled .disabled-overlay {
+                display: block;
+            }
 
-        .card-content {
-            padding: 15px;
-        }
+            .candidate-photo-container {
+                width: 120px;
+                height: 120px;
+                margin: 0 auto 12px;
+                border-radius: 50%;
+                overflow: hidden;
+                border: 1px solid #e0e0e0;
+                background-color: #f8f9fa;
+            }
 
-        .candidate-photo-container {
-            width: 150px;
-            height: 150px;
-            margin: 0 auto 15px;
-            border-radius: 50%;
-            overflow: hidden;
-        }
+            .candidate-photo {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
 
-        .candidate-photo {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+            .candidate-info {
+                text-align: center;
+            }
 
-        .candidate-info {
-            text-align: center;
-            margin-bottom: 15px;
-        }
+            .candidate-name {
+                font-size: 1.1rem;
+                font-weight: 500;
+                margin: 0 0 4px;
+                color: #333;
+                line-height: 1.3;
+            }
 
-        .candidate-name {
-            display: block;
-            font-size: 1.1em;
-            margin-bottom: 5px;
-            color: #333;
-        }
+            .candidate-party {
+                font-size: 0.9rem;
+                margin: 0;
+                color: #666;
+                line-height: 1.2;
+            }
 
-        .candidate-party {
-            color: #666;
-            margin: 0;
-        }
-
-        .platform {
-            width: 100%;
-            margin-top: 10px;
-        }
-
-        .ballot-actions {
-            margin-top: 30px;
-        }
-
-        .ballot-actions button {
-            margin: 0 10px;
-        }
-
-        /* preview and submit button */
-        button[name="vote"], button[name="preview"] {
-            background-color: #259646 !important;
-            border: none !important;
-        }
-        
-        button[name="vote"]:hover, button[name="preview"]:hover, button[name="vote"]:active, button[name="preview"]:active {
-            background-color: #1e7e34 !important;
-        }
-        </style>
-
-        <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Handle candidate card selection
-            document.querySelectorAll('.candidate-card').forEach(card => {
-                card.addEventListener('click', function(e) {
-                    // Don't trigger if clicking platform button
-                    if (e.target.closest('.platform')) return;
-                    
-                    const input = this.querySelector('.candidate-input');
-                    const positionSection = this.closest('.position-section');
-                    const maxVote = parseInt(positionSection.dataset.maxVote);
-                    const isRadio = input.type === 'radio';
-                    
-                    if (this.classList.contains('disabled') && !input.checked) return;
-                    
-                    if (isRadio) {
-                        // Handle radio buttons (single selection)
-                        positionSection.querySelectorAll('.candidate-card').forEach(c => {
-                            c.classList.remove('selected');
-                        });
-                        this.classList.add('selected');
-                        input.checked = true;
-                    } else {
-                        // Handle checkboxes (multiple selection)
-                        const selectedCount = positionSection.querySelectorAll('.candidate-input:checked').length;
-                        
-                        if (!input.checked && selectedCount >= maxVote) {
-                            return; // Max selections reached
-                        }
-                        
-                        input.checked = !input.checked;
-                        this.classList.toggle('selected');
-                        
-                        // Update disabled state for other cards
-                        const remainingSlots = maxVote - (input.checked ? selectedCount + 1 : selectedCount - 1);
-                        positionSection.querySelectorAll('.candidate-card').forEach(card => {
-                            const cardInput = card.querySelector('.candidate-input');
-                            if (!cardInput.checked) {
-                                card.classList.toggle('disabled', remainingSlots === 0);
-                            }
-                        });
-                    }
-                });
-            });
-
-            // Handle reset buttons
-            document.querySelectorAll('.reset').forEach(button => {
-                button.addEventListener('click', function() {
-                    const positionSection = this.closest('.position-section');
-                    positionSection.querySelectorAll('.candidate-card').forEach(card => {
-                        card.classList.remove('selected', 'disabled');
-                        card.querySelector('.candidate-input').checked = false;
-                    });
-                });
-            });
-
-            // Prevent form submission if no candidates selected
-            document.getElementById('ballotForm').addEventListener('submit', function(e) {
-                const sections = this.querySelectorAll('.position-section');
-                let valid = true;
-                
-                sections.forEach(section => {
-                    const selectedCount = section.querySelectorAll('.candidate-input:checked').length;
-                    const maxVote = parseInt(section.dataset.maxVote);
-                    if (selectedCount > maxVote) {
-                        valid = false;
-                        alert(`You can only select up to ${maxVote} candidate(s) for ${section.querySelector('.position-title').textContent}`);
-                    }
-                });
-                
-                if (!valid) {
-                    e.preventDefault();
+            @media (max-width: 768px) {
+                .candidates-grid {
+                    grid-template-columns: 1fr;
+                    gap: 12px;
+                    padding: 8px;
                 }
-            });
-        });
-        </script>
+
+                .candidate-card {
+                    background: #fff;
+                    border: 1px solid #e0e0e0;
+                    border-radius: 8px;
+                    padding: 10px 12px;
+                    margin-bottom: 8px;
+                }
+
+                .mobile-flex {
+                    display: flex;
+                    align-items: center;
+                    gap: 14px;
+                }
+
+                .candidate-photo-container {
+                    width: 44px;
+                    height: 44px;
+                    margin: 0;
+                    flex-shrink: 0;
+                    border-radius: 50%;
+                    overflow: hidden;
+                }
+
+                .candidate-photo {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+
+                .candidate-info {
+                    text-align: left;
+                    flex: 1;
+                    min-width: 0;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    gap: 2px;
+                }
+
+                .candidate-name {
+                    font-size: 1.1rem;
+                    margin: 0;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: block;
+                    font-weight: 500;
+                    color: #333;
+                    line-height: 1.3;
+                }
+
+                .candidate-party {
+                    font-size: 0.9rem;
+                    margin: 0;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    color: #666;
+                    line-height: 1.2;
+                }
+
+                .candidate-card.selected {
+                    border-color: #249646;
+                    background-color: #f0fff4;
+                }
+            }
+
+            .ballot-actions {
+                position: sticky;
+                bottom: 20px;
+                z-index: 100;
+                padding: 15px;
+                background: rgba(255, 255, 255, 0.9);
+                backdrop-filter: blur(10px);
+                border-radius: 12px;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+
+            .ballot-buttons {
+                display: flex;
+                gap: 15px;
+                justify-content: center;
+            }
+
+            @media (max-width: 576px) {
+                .ballot-actions {
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    border-radius: 12px 12px 0 0;
+                    margin: 0;
+                    padding: 12px;
+                }
+
+                .ballot-buttons {
+                    flex-direction: column;
+                    width: 100%;
+                }
+
+                .ballot-buttons button {
+                    width: 100%;
+                    padding: 10px;
+                    font-size: 0.95em;
+                }
+            }
+
+            #preview, button[name="vote"] {
+                min-width: 200px;
+                padding: 12px 30px;
+                border-radius: 6px;
+                font-weight: 500;
+                transition: all 0.3s ease;
+            }
+
+            @media (max-width: 576px) {
+                #preview, button[name="vote"] {
+                    min-width: unset;
+                }
+            }
+
+            #preview {
+                background-color: #249646 !important;
+                border: none;
+                color: white;
+            }
+
+            button[name="vote"] {
+                background-color: #1e7e34 !important;
+                border: none;
+                color: white;
+            }
+
+            #preview:hover, button[name="vote"]:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            }
+        </style>
         <?php
     }
 }

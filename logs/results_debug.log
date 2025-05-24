@@ -137,3 +137,1211 @@
 2025-04-28 22:30:16 - Logos loaded successfully
 2025-04-28 22:30:16 - Loading logos - Left: C:/xampp/htdocs//e-halal/administrator/assets/images/btech.png, Right: C:/xampp/htdocs//e-halal/administrator/assets/images/ehalal.jpg
 2025-04-28 22:30:16 - Logos loaded successfully
+2025-05-21 07:41:34 - Starting results PDF generation
+2025-05-21 07:41:34 - TCPDF class loaded successfully
+2025-05-21 15:41:34 - PDF instance created successfully
+2025-05-21 15:41:34 - PDF properties set successfully
+2025-05-21 15:41:34 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 15:41:34 - Logos loaded successfully
+2025-05-21 15:41:34 - Using helvetica font
+2025-05-21 15:41:34 - Header text rendered successfully
+2025-05-21 15:41:34 - Position President has max_vote of 1
+2025-05-21 15:41:34 - Highlighting candidate Rody Duterte as top 1 of 1 allowed winners
+2025-05-21 15:41:34 - Position Vice President has max_vote of 1
+2025-05-21 15:41:34 - Highlighting candidate Leni Robredo as top 1 of 1 allowed winners
+2025-05-21 15:41:34 - Position Senators has max_vote of 12
+2025-05-21 15:41:34 - Highlighting candidate Frank Drillon as top 1 of 12 allowed winners
+2025-05-21 15:41:34 - Highlighting candidate Win Gatchalian as top 2 of 12 allowed winners
+2025-05-21 15:41:34 - Highlighting candidate Dick Gordon as top 3 of 12 allowed winners
+2025-05-21 15:41:34 - Highlighting candidate Risa Hontiveros as top 4 of 12 allowed winners
+2025-05-21 15:41:34 - Highlighting candidate Panfilo Ping Lacson as top 5 of 12 allowed winners
+2025-05-21 15:41:34 - Highlighting candidate Manny Pacquiao as top 6 of 12 allowed winners
+2025-05-21 15:41:34 - Highlighting candidate Kiko Pangilinan as top 7 of 12 allowed winners
+2025-05-21 15:41:34 - Highlighting candidate Ralph Recto as top 8 of 12 allowed winners
+2025-05-21 15:41:34 - Highlighting candidate Vicente Sotto as top 9 of 12 allowed winners
+2025-05-21 15:41:34 - Using helvetica font for footer
+2025-05-21 15:41:34 - Footer rendered successfully
+2025-05-21 15:41:34 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 15:41:34 - Logos loaded successfully
+2025-05-21 15:41:34 - Using helvetica font
+2025-05-21 15:41:34 - Header text rendered successfully
+2025-05-21 15:41:34 - Highlighting candidate Francis Tolentino as top 10 of 12 allowed winners
+2025-05-21 15:41:34 - Highlighting candidate Joel Villanueva as top 11 of 12 allowed winners
+2025-05-21 15:41:34 - Highlighting candidate Migs Zubiri as top 12 of 12 allowed winners
+2025-05-21 15:41:34 - Using helvetica font for footer
+2025-05-21 15:41:34 - Footer rendered successfully
+2025-05-21 15:41:34 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 15:41:34 - Logos loaded successfully
+2025-05-21 15:41:34 - Using helvetica font
+2025-05-21 15:41:34 - Header text rendered successfully
+2025-05-21 07:41:38 - Starting results PDF generation
+2025-05-21 07:41:38 - TCPDF class loaded successfully
+2025-05-21 15:41:38 - PDF instance created successfully
+2025-05-21 15:41:38 - PDF properties set successfully
+2025-05-21 15:41:38 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 15:41:38 - Logos loaded successfully
+2025-05-21 15:41:38 - Using helvetica font
+2025-05-21 15:41:38 - Header text rendered successfully
+2025-05-21 15:41:38 - Position President has max_vote of 1
+2025-05-21 15:41:38 - Highlighting candidate Rody Duterte as top 1 of 1 allowed winners
+2025-05-21 15:41:38 - Position Vice President has max_vote of 1
+2025-05-21 15:41:38 - Highlighting candidate Leni Robredo as top 1 of 1 allowed winners
+2025-05-21 15:41:38 - Position Senators has max_vote of 12
+2025-05-21 15:41:38 - Highlighting candidate Frank Drillon as top 1 of 12 allowed winners
+2025-05-21 15:41:38 - Highlighting candidate Win Gatchalian as top 2 of 12 allowed winners
+2025-05-21 15:41:38 - Highlighting candidate Dick Gordon as top 3 of 12 allowed winners
+2025-05-21 15:41:38 - Highlighting candidate Risa Hontiveros as top 4 of 12 allowed winners
+2025-05-21 15:41:38 - Highlighting candidate Panfilo Ping Lacson as top 5 of 12 allowed winners
+2025-05-21 15:41:38 - Highlighting candidate Manny Pacquiao as top 6 of 12 allowed winners
+2025-05-21 15:41:38 - Highlighting candidate Kiko Pangilinan as top 7 of 12 allowed winners
+2025-05-21 15:41:38 - Highlighting candidate Ralph Recto as top 8 of 12 allowed winners
+2025-05-21 15:41:38 - Highlighting candidate Vicente Sotto as top 9 of 12 allowed winners
+2025-05-21 15:41:38 - Using helvetica font for footer
+2025-05-21 15:41:38 - Footer rendered successfully
+2025-05-21 15:41:38 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 15:41:38 - Logos loaded successfully
+2025-05-21 15:41:38 - Using helvetica font
+2025-05-21 15:41:38 - Header text rendered successfully
+2025-05-21 15:41:38 - Highlighting candidate Francis Tolentino as top 10 of 12 allowed winners
+2025-05-21 15:41:38 - Highlighting candidate Joel Villanueva as top 11 of 12 allowed winners
+2025-05-21 15:41:38 - Highlighting candidate Migs Zubiri as top 12 of 12 allowed winners
+2025-05-21 15:41:38 - Using helvetica font for footer
+2025-05-21 15:41:38 - Footer rendered successfully
+2025-05-21 15:41:38 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 15:41:38 - Logos loaded successfully
+2025-05-21 15:41:38 - Using helvetica font
+2025-05-21 15:41:38 - Header text rendered successfully
+2025-05-21 07:46:14 - Starting results PDF generation
+2025-05-21 07:46:14 - TCPDF class loaded successfully
+2025-05-21 15:46:14 - PDF instance created successfully
+2025-05-21 15:46:14 - PDF properties set successfully
+2025-05-21 15:46:14 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 15:46:14 - Logos loaded successfully
+2025-05-21 15:46:14 - Using helvetica font
+2025-05-21 15:46:14 - Header text rendered successfully
+2025-05-21 15:46:14 - Position President has max_vote of 1
+2025-05-21 15:46:14 - Highlighting candidate Rody Duterte as top 1 of 1 allowed winners
+2025-05-21 15:46:14 - Position Vice President has max_vote of 1
+2025-05-21 15:46:14 - Highlighting candidate Leni Robredo as top 1 of 1 allowed winners
+2025-05-21 15:46:14 - Position Senators has max_vote of 12
+2025-05-21 15:46:14 - Highlighting candidate Frank Drillon as top 1 of 12 allowed winners
+2025-05-21 15:46:14 - Highlighting candidate Win Gatchalian as top 2 of 12 allowed winners
+2025-05-21 15:46:14 - Highlighting candidate Dick Gordon as top 3 of 12 allowed winners
+2025-05-21 15:46:14 - Highlighting candidate Risa Hontiveros as top 4 of 12 allowed winners
+2025-05-21 15:46:14 - Highlighting candidate Panfilo Ping Lacson as top 5 of 12 allowed winners
+2025-05-21 15:46:14 - Highlighting candidate Manny Pacquiao as top 6 of 12 allowed winners
+2025-05-21 15:46:14 - Highlighting candidate Kiko Pangilinan as top 7 of 12 allowed winners
+2025-05-21 15:46:14 - Highlighting candidate Ralph Recto as top 8 of 12 allowed winners
+2025-05-21 15:46:14 - Highlighting candidate Vicente Sotto as top 9 of 12 allowed winners
+2025-05-21 15:46:14 - Using helvetica font for footer
+2025-05-21 15:46:14 - Footer rendered successfully
+2025-05-21 15:46:14 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 15:46:14 - Logos loaded successfully
+2025-05-21 15:46:14 - Using helvetica font
+2025-05-21 15:46:14 - Header text rendered successfully
+2025-05-21 15:46:14 - Highlighting candidate Francis Tolentino as top 10 of 12 allowed winners
+2025-05-21 15:46:14 - Highlighting candidate Joel Villanueva as top 11 of 12 allowed winners
+2025-05-21 15:46:14 - Highlighting candidate Migs Zubiri as top 12 of 12 allowed winners
+2025-05-21 15:46:14 - Using helvetica font for footer
+2025-05-21 15:46:14 - Footer rendered successfully
+2025-05-21 15:46:14 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 15:46:14 - Logos loaded successfully
+2025-05-21 15:46:14 - Using helvetica font
+2025-05-21 15:46:14 - Header text rendered successfully
+2025-05-21 07:47:05 - Starting results PDF generation
+2025-05-21 07:47:05 - TCPDF class loaded successfully
+2025-05-21 15:47:05 - PDF instance created successfully
+2025-05-21 15:47:05 - PDF properties set successfully
+2025-05-21 15:47:05 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 15:47:05 - Logos loaded successfully
+2025-05-21 15:47:05 - Using helvetica font
+2025-05-21 15:47:05 - Header text rendered successfully
+2025-05-21 15:47:05 - Position President has max_vote of 1
+2025-05-21 15:47:05 - Highlighting candidate Rody Duterte as top 1 of 1 allowed winners
+2025-05-21 15:47:05 - Position Vice President has max_vote of 1
+2025-05-21 15:47:05 - Highlighting candidate Leni Robredo as top 1 of 1 allowed winners
+2025-05-21 15:47:05 - Position Senators has max_vote of 12
+2025-05-21 15:47:05 - Highlighting candidate Frank Drillon as top 1 of 12 allowed winners
+2025-05-21 15:47:05 - Highlighting candidate Win Gatchalian as top 2 of 12 allowed winners
+2025-05-21 15:47:05 - Highlighting candidate Dick Gordon as top 3 of 12 allowed winners
+2025-05-21 15:47:05 - Highlighting candidate Risa Hontiveros as top 4 of 12 allowed winners
+2025-05-21 15:47:05 - Highlighting candidate Panfilo Ping Lacson as top 5 of 12 allowed winners
+2025-05-21 15:47:05 - Highlighting candidate Manny Pacquiao as top 6 of 12 allowed winners
+2025-05-21 15:47:05 - Highlighting candidate Kiko Pangilinan as top 7 of 12 allowed winners
+2025-05-21 15:47:05 - Highlighting candidate Ralph Recto as top 8 of 12 allowed winners
+2025-05-21 15:47:05 - Highlighting candidate Vicente Sotto as top 9 of 12 allowed winners
+2025-05-21 15:47:05 - Using helvetica font for footer
+2025-05-21 15:47:05 - Footer rendered successfully
+2025-05-21 15:47:05 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 15:47:05 - Logos loaded successfully
+2025-05-21 15:47:05 - Using helvetica font
+2025-05-21 15:47:05 - Header text rendered successfully
+2025-05-21 15:47:05 - Highlighting candidate Francis Tolentino as top 10 of 12 allowed winners
+2025-05-21 15:47:05 - Highlighting candidate Joel Villanueva as top 11 of 12 allowed winners
+2025-05-21 15:47:05 - Highlighting candidate Migs Zubiri as top 12 of 12 allowed winners
+2025-05-21 15:47:05 - Using helvetica font for footer
+2025-05-21 15:47:05 - Footer rendered successfully
+2025-05-21 15:47:05 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 15:47:05 - Logos loaded successfully
+2025-05-21 15:47:05 - Using helvetica font
+2025-05-21 15:47:05 - Header text rendered successfully
+2025-05-21 15:47:05 - Certification section rendered successfully
+2025-05-21 15:47:05 - Using helvetica font for footer
+2025-05-21 15:47:05 - Footer rendered successfully
+2025-05-21 07:51:19 - Starting results PDF generation
+2025-05-21 07:51:19 - TCPDF class loaded successfully
+2025-05-21 15:51:19 - PDF instance created successfully
+2025-05-21 15:51:19 - PDF properties set successfully
+2025-05-21 15:51:19 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 15:51:19 - Logos loaded successfully
+2025-05-21 15:51:19 - Using helvetica font
+2025-05-21 15:51:19 - Header text rendered successfully
+2025-05-21 15:51:19 - Position President has max_vote of 1
+2025-05-21 15:51:19 - Highlighting candidate Rody Duterte as top 1 of 1 allowed winners
+2025-05-21 15:51:19 - Position Vice President has max_vote of 1
+2025-05-21 15:51:19 - Highlighting candidate Leni Robredo as top 1 of 1 allowed winners
+2025-05-21 15:51:19 - Position Senators has max_vote of 12
+2025-05-21 15:51:19 - Highlighting candidate Frank Drillon as top 1 of 12 allowed winners
+2025-05-21 15:51:19 - Highlighting candidate Win Gatchalian as top 2 of 12 allowed winners
+2025-05-21 15:51:19 - Highlighting candidate Dick Gordon as top 3 of 12 allowed winners
+2025-05-21 15:51:19 - Highlighting candidate Risa Hontiveros as top 4 of 12 allowed winners
+2025-05-21 15:51:19 - Highlighting candidate Panfilo Ping Lacson as top 5 of 12 allowed winners
+2025-05-21 15:51:19 - Highlighting candidate Manny Pacquiao as top 6 of 12 allowed winners
+2025-05-21 15:51:19 - Highlighting candidate Kiko Pangilinan as top 7 of 12 allowed winners
+2025-05-21 15:51:19 - Highlighting candidate Ralph Recto as top 8 of 12 allowed winners
+2025-05-21 15:51:19 - Highlighting candidate Vicente Sotto as top 9 of 12 allowed winners
+2025-05-21 15:51:19 - Using helvetica font for footer
+2025-05-21 15:51:19 - Footer rendered successfully
+2025-05-21 15:51:19 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 15:51:19 - Logos loaded successfully
+2025-05-21 15:51:19 - Using helvetica font
+2025-05-21 15:51:19 - Header text rendered successfully
+2025-05-21 15:51:19 - Highlighting candidate Francis Tolentino as top 10 of 12 allowed winners
+2025-05-21 15:51:19 - Highlighting candidate Joel Villanueva as top 11 of 12 allowed winners
+2025-05-21 15:51:19 - Highlighting candidate Migs Zubiri as top 12 of 12 allowed winners
+2025-05-21 15:51:19 - Using helvetica font for footer
+2025-05-21 15:51:19 - Footer rendered successfully
+2025-05-21 15:51:19 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 15:51:19 - Logos loaded successfully
+2025-05-21 15:51:19 - Using helvetica font
+2025-05-21 15:51:19 - Header text rendered successfully
+2025-05-21 15:51:19 - Certification section rendered successfully
+2025-05-21 15:51:19 - Using helvetica font for footer
+2025-05-21 15:51:19 - Footer rendered successfully
+2025-05-21 15:54:37 - Starting results PDF generation
+2025-05-21 15:54:37 - TCPDF class loaded successfully
+2025-05-21 15:54:37 - PDF instance created successfully
+2025-05-21 15:54:37 - PDF properties set successfully
+2025-05-21 15:54:37 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 15:54:37 - Logos loaded successfully
+2025-05-21 15:54:37 - Using helvetica font
+2025-05-21 15:54:37 - Header text rendered successfully
+2025-05-21 15:54:37 - Position President has max_vote of 1
+2025-05-21 15:54:37 - Highlighting candidate Rody Duterte as top 1 of 1 allowed winners
+2025-05-21 15:54:37 - Position Vice President has max_vote of 1
+2025-05-21 15:54:37 - Highlighting candidate Leni Robredo as top 1 of 1 allowed winners
+2025-05-21 15:54:37 - Position Senators has max_vote of 12
+2025-05-21 15:54:37 - Highlighting candidate Frank Drillon as top 1 of 12 allowed winners
+2025-05-21 15:54:37 - Highlighting candidate Win Gatchalian as top 2 of 12 allowed winners
+2025-05-21 15:54:37 - Highlighting candidate Dick Gordon as top 3 of 12 allowed winners
+2025-05-21 15:54:37 - Highlighting candidate Risa Hontiveros as top 4 of 12 allowed winners
+2025-05-21 15:54:37 - Highlighting candidate Panfilo Ping Lacson as top 5 of 12 allowed winners
+2025-05-21 15:54:37 - Highlighting candidate Manny Pacquiao as top 6 of 12 allowed winners
+2025-05-21 15:54:37 - Highlighting candidate Kiko Pangilinan as top 7 of 12 allowed winners
+2025-05-21 15:54:37 - Highlighting candidate Ralph Recto as top 8 of 12 allowed winners
+2025-05-21 15:54:37 - Highlighting candidate Vicente Sotto as top 9 of 12 allowed winners
+2025-05-21 15:54:37 - Using helvetica font for footer
+2025-05-21 15:54:37 - Footer rendered successfully
+2025-05-21 15:54:37 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 15:54:37 - Logos loaded successfully
+2025-05-21 15:54:37 - Using helvetica font
+2025-05-21 15:54:37 - Header text rendered successfully
+2025-05-21 15:54:37 - Highlighting candidate Francis Tolentino as top 10 of 12 allowed winners
+2025-05-21 15:54:37 - Highlighting candidate Joel Villanueva as top 11 of 12 allowed winners
+2025-05-21 15:54:37 - Highlighting candidate Migs Zubiri as top 12 of 12 allowed winners
+2025-05-21 15:54:37 - Using helvetica font for footer
+2025-05-21 15:54:37 - Footer rendered successfully
+2025-05-21 15:54:37 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 15:54:37 - Logos loaded successfully
+2025-05-21 15:54:37 - Using helvetica font
+2025-05-21 15:54:37 - Header text rendered successfully
+2025-05-21 15:54:37 - Certification section rendered successfully
+2025-05-21 15:54:37 - Saving PDF to physical path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/results.pdf
+2025-05-21 15:54:37 - Using helvetica font for footer
+2025-05-21 15:54:37 - Footer rendered successfully
+2025-05-21 15:54:37 - PDF saved successfully. Normalized path for DB: archives/E2504294217/results.pdf
+2025-05-21 15:59:21 - Starting results PDF generation
+2025-05-21 15:59:21 - TCPDF class loaded successfully
+2025-05-21 15:59:21 - PDF instance created successfully
+2025-05-21 15:59:21 - PDF properties set successfully
+2025-05-21 15:59:21 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 15:59:21 - Logos loaded successfully
+2025-05-21 15:59:21 - Using helvetica font
+2025-05-21 15:59:21 - Header text rendered successfully
+2025-05-21 15:59:21 - Position President has max_vote of 1
+2025-05-21 15:59:21 - Highlighting candidate Rody Duterte as top 1 of 1 allowed winners
+2025-05-21 15:59:21 - Position Vice President has max_vote of 1
+2025-05-21 15:59:21 - Highlighting candidate Leni Robredo as top 1 of 1 allowed winners
+2025-05-21 15:59:21 - Position Senators has max_vote of 12
+2025-05-21 15:59:21 - Highlighting candidate Frank Drillon as top 1 of 12 allowed winners
+2025-05-21 15:59:21 - Highlighting candidate Win Gatchalian as top 2 of 12 allowed winners
+2025-05-21 15:59:21 - Highlighting candidate Dick Gordon as top 3 of 12 allowed winners
+2025-05-21 15:59:21 - Highlighting candidate Risa Hontiveros as top 4 of 12 allowed winners
+2025-05-21 15:59:21 - Highlighting candidate Panfilo Ping Lacson as top 5 of 12 allowed winners
+2025-05-21 15:59:21 - Highlighting candidate Manny Pacquiao as top 6 of 12 allowed winners
+2025-05-21 15:59:21 - Highlighting candidate Kiko Pangilinan as top 7 of 12 allowed winners
+2025-05-21 15:59:21 - Highlighting candidate Ralph Recto as top 8 of 12 allowed winners
+2025-05-21 15:59:21 - Highlighting candidate Vicente Sotto as top 9 of 12 allowed winners
+2025-05-21 15:59:21 - Using helvetica font for footer
+2025-05-21 15:59:21 - Footer rendered successfully
+2025-05-21 15:59:21 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 15:59:21 - Logos loaded successfully
+2025-05-21 15:59:21 - Using helvetica font
+2025-05-21 15:59:21 - Header text rendered successfully
+2025-05-21 15:59:21 - Highlighting candidate Francis Tolentino as top 10 of 12 allowed winners
+2025-05-21 15:59:21 - Highlighting candidate Joel Villanueva as top 11 of 12 allowed winners
+2025-05-21 15:59:21 - Highlighting candidate Migs Zubiri as top 12 of 12 allowed winners
+2025-05-21 15:59:21 - Using helvetica font for footer
+2025-05-21 15:59:21 - Footer rendered successfully
+2025-05-21 15:59:21 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 15:59:21 - Logos loaded successfully
+2025-05-21 15:59:21 - Using helvetica font
+2025-05-21 15:59:21 - Header text rendered successfully
+2025-05-21 15:59:21 - Certification section rendered successfully
+2025-05-21 15:59:21 - Saving PDF to physical path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/results.pdf
+2025-05-21 15:59:21 - Using helvetica font for footer
+2025-05-21 15:59:21 - Footer rendered successfully
+2025-05-21 15:59:21 - PDF saved successfully. Normalized path for DB: archives/E2504294217/results.pdf
+2025-05-21 16:00:27 - Starting results PDF generation
+2025-05-21 16:00:27 - TCPDF class loaded successfully
+2025-05-21 16:00:27 - PDF instance created successfully
+2025-05-21 16:00:27 - PDF properties set successfully
+2025-05-21 16:00:27 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 16:00:27 - Logos loaded successfully
+2025-05-21 16:00:27 - Using helvetica font
+2025-05-21 16:00:27 - Header text rendered successfully
+2025-05-21 16:00:27 - Position President has max_vote of 1
+2025-05-21 16:00:27 - Highlighting candidate Rody Duterte as top 1 of 1 allowed winners
+2025-05-21 16:00:27 - Position Vice President has max_vote of 1
+2025-05-21 16:00:27 - Highlighting candidate Leni Robredo as top 1 of 1 allowed winners
+2025-05-21 16:00:27 - Position Senators has max_vote of 12
+2025-05-21 16:00:27 - Highlighting candidate Frank Drillon as top 1 of 12 allowed winners
+2025-05-21 16:00:27 - Highlighting candidate Win Gatchalian as top 2 of 12 allowed winners
+2025-05-21 16:00:27 - Highlighting candidate Dick Gordon as top 3 of 12 allowed winners
+2025-05-21 16:00:27 - Highlighting candidate Risa Hontiveros as top 4 of 12 allowed winners
+2025-05-21 16:00:27 - Highlighting candidate Panfilo Ping Lacson as top 5 of 12 allowed winners
+2025-05-21 16:00:27 - Highlighting candidate Manny Pacquiao as top 6 of 12 allowed winners
+2025-05-21 16:00:27 - Highlighting candidate Kiko Pangilinan as top 7 of 12 allowed winners
+2025-05-21 16:00:27 - Highlighting candidate Ralph Recto as top 8 of 12 allowed winners
+2025-05-21 16:00:27 - Highlighting candidate Vicente Sotto as top 9 of 12 allowed winners
+2025-05-21 16:00:27 - Using helvetica font for footer
+2025-05-21 16:00:27 - Footer rendered successfully
+2025-05-21 16:00:27 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 16:00:27 - Logos loaded successfully
+2025-05-21 16:00:27 - Using helvetica font
+2025-05-21 16:00:27 - Header text rendered successfully
+2025-05-21 16:00:27 - Highlighting candidate Francis Tolentino as top 10 of 12 allowed winners
+2025-05-21 16:00:27 - Highlighting candidate Joel Villanueva as top 11 of 12 allowed winners
+2025-05-21 16:00:27 - Highlighting candidate Migs Zubiri as top 12 of 12 allowed winners
+2025-05-21 16:00:27 - Using helvetica font for footer
+2025-05-21 16:00:27 - Footer rendered successfully
+2025-05-21 16:00:27 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 16:00:27 - Logos loaded successfully
+2025-05-21 16:00:27 - Using helvetica font
+2025-05-21 16:00:27 - Header text rendered successfully
+2025-05-21 16:00:27 - Certification section rendered successfully
+2025-05-21 16:00:27 - Saving PDF to physical path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/results.pdf
+2025-05-21 16:00:27 - Using helvetica font for footer
+2025-05-21 16:00:27 - Footer rendered successfully
+2025-05-21 16:00:27 - PDF saved successfully. Normalized path for DB: archives/E2504294217/results.pdf
+2025-05-21 16:03:56 - Starting results PDF generation
+2025-05-21 16:03:56 - TCPDF class loaded successfully
+2025-05-21 16:03:56 - PDF instance created successfully
+2025-05-21 16:03:56 - PDF properties set successfully
+2025-05-21 16:03:56 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 16:03:56 - Logos loaded successfully
+2025-05-21 16:03:56 - Using helvetica font
+2025-05-21 16:03:56 - Header text rendered successfully
+2025-05-21 16:03:56 - Position President has max_vote of 1
+2025-05-21 16:03:56 - Highlighting candidate Rody Duterte as top 1 of 1 allowed winners
+2025-05-21 16:03:56 - Position Vice President has max_vote of 1
+2025-05-21 16:03:56 - Highlighting candidate Leni Robredo as top 1 of 1 allowed winners
+2025-05-21 16:03:56 - Position Senators has max_vote of 12
+2025-05-21 16:03:56 - Highlighting candidate Frank Drillon as top 1 of 12 allowed winners
+2025-05-21 16:03:56 - Highlighting candidate Win Gatchalian as top 2 of 12 allowed winners
+2025-05-21 16:03:56 - Highlighting candidate Dick Gordon as top 3 of 12 allowed winners
+2025-05-21 16:03:56 - Highlighting candidate Risa Hontiveros as top 4 of 12 allowed winners
+2025-05-21 16:03:56 - Highlighting candidate Panfilo Ping Lacson as top 5 of 12 allowed winners
+2025-05-21 16:03:56 - Highlighting candidate Manny Pacquiao as top 6 of 12 allowed winners
+2025-05-21 16:03:56 - Highlighting candidate Kiko Pangilinan as top 7 of 12 allowed winners
+2025-05-21 16:03:56 - Highlighting candidate Ralph Recto as top 8 of 12 allowed winners
+2025-05-21 16:03:56 - Highlighting candidate Vicente Sotto as top 9 of 12 allowed winners
+2025-05-21 16:03:56 - Using helvetica font for footer
+2025-05-21 16:03:56 - Footer rendered successfully
+2025-05-21 16:03:56 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 16:03:56 - Logos loaded successfully
+2025-05-21 16:03:56 - Using helvetica font
+2025-05-21 16:03:56 - Header text rendered successfully
+2025-05-21 16:03:56 - Highlighting candidate Francis Tolentino as top 10 of 12 allowed winners
+2025-05-21 16:03:56 - Highlighting candidate Joel Villanueva as top 11 of 12 allowed winners
+2025-05-21 16:03:56 - Highlighting candidate Migs Zubiri as top 12 of 12 allowed winners
+2025-05-21 16:03:56 - Using helvetica font for footer
+2025-05-21 16:03:56 - Footer rendered successfully
+2025-05-21 16:03:56 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 16:03:56 - Logos loaded successfully
+2025-05-21 16:03:56 - Using helvetica font
+2025-05-21 16:03:56 - Header text rendered successfully
+2025-05-21 16:03:56 - Certification section rendered successfully
+2025-05-21 16:03:56 - Saving PDF to physical path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/results.pdf
+2025-05-21 16:03:56 - Using helvetica font for footer
+2025-05-21 16:03:56 - Footer rendered successfully
+2025-05-21 16:03:56 - PDF saved successfully. Normalized path for DB: archives/E2504294217/results.pdf
+2025-05-21 16:14:50 - Starting results PDF generation
+2025-05-21 16:14:50 - TCPDF class loaded successfully
+2025-05-21 16:14:50 - PDF instance created successfully
+2025-05-21 16:14:50 - PDF properties set successfully
+2025-05-21 16:14:50 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 16:14:50 - Logos loaded successfully
+2025-05-21 16:14:50 - Using helvetica font
+2025-05-21 16:14:50 - Header text rendered successfully
+2025-05-21 16:14:50 - Position President has max_vote of 1
+2025-05-21 16:14:50 - Highlighting candidate Rody Duterte as top 1 of 1 allowed winners
+2025-05-21 16:14:50 - Position Vice President has max_vote of 1
+2025-05-21 16:14:50 - Highlighting candidate Leni Robredo as top 1 of 1 allowed winners
+2025-05-21 16:14:50 - Position Senators has max_vote of 12
+2025-05-21 16:14:50 - Highlighting candidate Frank Drillon as top 1 of 12 allowed winners
+2025-05-21 16:14:50 - Highlighting candidate Win Gatchalian as top 2 of 12 allowed winners
+2025-05-21 16:14:50 - Highlighting candidate Dick Gordon as top 3 of 12 allowed winners
+2025-05-21 16:14:50 - Highlighting candidate Risa Hontiveros as top 4 of 12 allowed winners
+2025-05-21 16:14:50 - Highlighting candidate Panfilo Ping Lacson as top 5 of 12 allowed winners
+2025-05-21 16:14:50 - Highlighting candidate Manny Pacquiao as top 6 of 12 allowed winners
+2025-05-21 16:14:50 - Highlighting candidate Kiko Pangilinan as top 7 of 12 allowed winners
+2025-05-21 16:14:50 - Highlighting candidate Ralph Recto as top 8 of 12 allowed winners
+2025-05-21 16:14:50 - Highlighting candidate Vicente Sotto as top 9 of 12 allowed winners
+2025-05-21 16:14:50 - Using helvetica font for footer
+2025-05-21 16:14:50 - Footer rendered successfully
+2025-05-21 16:14:50 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 16:14:50 - Logos loaded successfully
+2025-05-21 16:14:50 - Using helvetica font
+2025-05-21 16:14:50 - Header text rendered successfully
+2025-05-21 16:14:50 - Highlighting candidate Francis Tolentino as top 10 of 12 allowed winners
+2025-05-21 16:14:50 - Highlighting candidate Joel Villanueva as top 11 of 12 allowed winners
+2025-05-21 16:14:50 - Highlighting candidate Migs Zubiri as top 12 of 12 allowed winners
+2025-05-21 16:14:50 - Using helvetica font for footer
+2025-05-21 16:14:50 - Footer rendered successfully
+2025-05-21 16:14:50 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 16:14:50 - Logos loaded successfully
+2025-05-21 16:14:50 - Using helvetica font
+2025-05-21 16:14:50 - Header text rendered successfully
+2025-05-21 16:14:50 - Certification section rendered successfully
+2025-05-21 16:14:50 - Saving PDF to physical path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/results.pdf
+2025-05-21 16:14:50 - Using helvetica font for footer
+2025-05-21 16:14:50 - Footer rendered successfully
+2025-05-21 16:14:50 - PDF saved successfully. Normalized path for DB: archives/E2504294217/results.pdf
+2025-05-21 16:18:23 - Starting results PDF generation
+2025-05-21 16:18:23 - TCPDF class loaded successfully
+2025-05-21 16:18:23 - PDF instance created successfully
+2025-05-21 16:18:23 - PDF properties set successfully
+2025-05-21 16:18:23 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 16:18:23 - Logos loaded successfully
+2025-05-21 16:18:23 - Using helvetica font
+2025-05-21 16:18:23 - Header text rendered successfully
+2025-05-21 16:18:23 - Position President has max_vote of 1
+2025-05-21 16:18:23 - Highlighting candidate Rody Duterte as top 1 of 1 allowed winners
+2025-05-21 16:18:23 - Position Vice President has max_vote of 1
+2025-05-21 16:18:23 - Highlighting candidate Leni Robredo as top 1 of 1 allowed winners
+2025-05-21 16:18:23 - Position Senators has max_vote of 12
+2025-05-21 16:18:23 - Highlighting candidate Frank Drillon as top 1 of 12 allowed winners
+2025-05-21 16:18:23 - Highlighting candidate Win Gatchalian as top 2 of 12 allowed winners
+2025-05-21 16:18:23 - Highlighting candidate Dick Gordon as top 3 of 12 allowed winners
+2025-05-21 16:18:23 - Highlighting candidate Risa Hontiveros as top 4 of 12 allowed winners
+2025-05-21 16:18:23 - Highlighting candidate Panfilo Ping Lacson as top 5 of 12 allowed winners
+2025-05-21 16:18:23 - Highlighting candidate Manny Pacquiao as top 6 of 12 allowed winners
+2025-05-21 16:18:23 - Highlighting candidate Kiko Pangilinan as top 7 of 12 allowed winners
+2025-05-21 16:18:23 - Highlighting candidate Ralph Recto as top 8 of 12 allowed winners
+2025-05-21 16:18:23 - Highlighting candidate Vicente Sotto as top 9 of 12 allowed winners
+2025-05-21 16:18:23 - Using helvetica font for footer
+2025-05-21 16:18:23 - Footer rendered successfully
+2025-05-21 16:18:23 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 16:18:23 - Logos loaded successfully
+2025-05-21 16:18:23 - Using helvetica font
+2025-05-21 16:18:23 - Header text rendered successfully
+2025-05-21 16:18:23 - Highlighting candidate Francis Tolentino as top 10 of 12 allowed winners
+2025-05-21 16:18:23 - Highlighting candidate Joel Villanueva as top 11 of 12 allowed winners
+2025-05-21 16:18:23 - Highlighting candidate Migs Zubiri as top 12 of 12 allowed winners
+2025-05-21 16:18:23 - Using helvetica font for footer
+2025-05-21 16:18:23 - Footer rendered successfully
+2025-05-21 16:18:23 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 16:18:23 - Logos loaded successfully
+2025-05-21 16:18:23 - Using helvetica font
+2025-05-21 16:18:23 - Header text rendered successfully
+2025-05-21 16:18:23 - Certification section rendered successfully
+2025-05-21 16:18:23 - Saving PDF to physical path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/results.pdf
+2025-05-21 16:18:23 - Using helvetica font for footer
+2025-05-21 16:18:23 - Footer rendered successfully
+2025-05-21 16:18:23 - PDF saved successfully. Normalized path for DB: archives/E2504294217/results.pdf
+2025-05-21 16:22:59 - Starting results PDF generation
+2025-05-21 16:22:59 - TCPDF class loaded successfully
+2025-05-21 16:22:59 - PDF instance created successfully
+2025-05-21 16:22:59 - PDF properties set successfully
+2025-05-21 16:22:59 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 16:22:59 - Logos loaded successfully
+2025-05-21 16:22:59 - Using helvetica font
+2025-05-21 16:22:59 - Header text rendered successfully
+2025-05-21 16:22:59 - Position President has max_vote of 1
+2025-05-21 16:22:59 - Highlighting candidate Rody Duterte as top 1 of 1 allowed winners
+2025-05-21 16:22:59 - Position Vice President has max_vote of 1
+2025-05-21 16:22:59 - Highlighting candidate Leni Robredo as top 1 of 1 allowed winners
+2025-05-21 16:22:59 - Position Senators has max_vote of 12
+2025-05-21 16:22:59 - Highlighting candidate Frank Drillon as top 1 of 12 allowed winners
+2025-05-21 16:22:59 - Highlighting candidate Win Gatchalian as top 2 of 12 allowed winners
+2025-05-21 16:22:59 - Highlighting candidate Dick Gordon as top 3 of 12 allowed winners
+2025-05-21 16:22:59 - Highlighting candidate Risa Hontiveros as top 4 of 12 allowed winners
+2025-05-21 16:22:59 - Highlighting candidate Panfilo Ping Lacson as top 5 of 12 allowed winners
+2025-05-21 16:22:59 - Highlighting candidate Manny Pacquiao as top 6 of 12 allowed winners
+2025-05-21 16:22:59 - Highlighting candidate Kiko Pangilinan as top 7 of 12 allowed winners
+2025-05-21 16:22:59 - Highlighting candidate Ralph Recto as top 8 of 12 allowed winners
+2025-05-21 16:22:59 - Highlighting candidate Vicente Sotto as top 9 of 12 allowed winners
+2025-05-21 16:22:59 - Using helvetica font for footer
+2025-05-21 16:22:59 - Footer rendered successfully
+2025-05-21 16:22:59 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 16:22:59 - Logos loaded successfully
+2025-05-21 16:22:59 - Using helvetica font
+2025-05-21 16:22:59 - Header text rendered successfully
+2025-05-21 16:22:59 - Highlighting candidate Francis Tolentino as top 10 of 12 allowed winners
+2025-05-21 16:22:59 - Highlighting candidate Joel Villanueva as top 11 of 12 allowed winners
+2025-05-21 16:22:59 - Highlighting candidate Migs Zubiri as top 12 of 12 allowed winners
+2025-05-21 16:22:59 - Using helvetica font for footer
+2025-05-21 16:22:59 - Footer rendered successfully
+2025-05-21 16:22:59 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 16:22:59 - Logos loaded successfully
+2025-05-21 16:22:59 - Using helvetica font
+2025-05-21 16:22:59 - Header text rendered successfully
+2025-05-21 16:22:59 - Certification section rendered successfully
+2025-05-21 16:22:59 - Saving PDF to physical path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/results.pdf
+2025-05-21 16:22:59 - Using helvetica font for footer
+2025-05-21 16:22:59 - Footer rendered successfully
+2025-05-21 16:22:59 - PDF saved successfully. Normalized path for DB: archives/E2504294217/results.pdf
+2025-05-21 08:51:37 - Starting results PDF generation
+2025-05-21 08:51:37 - TCPDF class loaded successfully
+2025-05-21 16:51:37 - PDF instance created successfully
+2025-05-21 16:51:37 - PDF properties set successfully
+2025-05-21 16:51:37 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 16:51:37 - Logos loaded successfully
+2025-05-21 16:51:37 - Using helvetica font
+2025-05-21 16:51:37 - Header text rendered successfully
+2025-05-21 16:51:37 - Position President has max_vote of 1
+2025-05-21 16:51:37 - Highlighting candidate Rody Duterte as top 1 of 1 allowed winners
+2025-05-21 16:51:37 - Position Vice President has max_vote of 1
+2025-05-21 16:51:37 - Highlighting candidate Leni Robredo as top 1 of 1 allowed winners
+2025-05-21 16:51:37 - Position Senators has max_vote of 12
+2025-05-21 16:51:37 - Highlighting candidate Frank Drillon as top 1 of 12 allowed winners
+2025-05-21 16:51:37 - Highlighting candidate Win Gatchalian as top 2 of 12 allowed winners
+2025-05-21 16:51:37 - Highlighting candidate Dick Gordon as top 3 of 12 allowed winners
+2025-05-21 16:51:37 - Highlighting candidate Risa Hontiveros as top 4 of 12 allowed winners
+2025-05-21 16:51:37 - Highlighting candidate Panfilo Ping Lacson as top 5 of 12 allowed winners
+2025-05-21 16:51:37 - Highlighting candidate Manny Pacquiao as top 6 of 12 allowed winners
+2025-05-21 16:51:37 - Highlighting candidate Kiko Pangilinan as top 7 of 12 allowed winners
+2025-05-21 16:51:37 - Highlighting candidate Ralph Recto as top 8 of 12 allowed winners
+2025-05-21 16:51:37 - Highlighting candidate Vicente Sotto as top 9 of 12 allowed winners
+2025-05-21 16:51:37 - Using helvetica font for footer
+2025-05-21 16:51:37 - Footer rendered successfully
+2025-05-21 16:51:37 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 16:51:37 - Logos loaded successfully
+2025-05-21 16:51:37 - Using helvetica font
+2025-05-21 16:51:37 - Header text rendered successfully
+2025-05-21 16:51:37 - Highlighting candidate Francis Tolentino as top 10 of 12 allowed winners
+2025-05-21 16:51:37 - Highlighting candidate Joel Villanueva as top 11 of 12 allowed winners
+2025-05-21 16:51:37 - Highlighting candidate Migs Zubiri as top 12 of 12 allowed winners
+2025-05-21 16:51:37 - Using helvetica font for footer
+2025-05-21 16:51:37 - Footer rendered successfully
+2025-05-21 16:51:37 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 16:51:37 - Logos loaded successfully
+2025-05-21 16:51:37 - Using helvetica font
+2025-05-21 16:51:37 - Header text rendered successfully
+2025-05-21 16:51:37 - Certification section rendered successfully
+2025-05-21 16:51:37 - Using helvetica font for footer
+2025-05-21 16:51:37 - Footer rendered successfully
+2025-05-21 16:51:52 - Starting results PDF generation
+2025-05-21 16:51:52 - TCPDF class loaded successfully
+2025-05-21 16:51:52 - PDF instance created successfully
+2025-05-21 16:51:52 - PDF properties set successfully
+2025-05-21 16:51:52 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 16:51:52 - Logos loaded successfully
+2025-05-21 16:51:52 - Using helvetica font
+2025-05-21 16:51:52 - Header text rendered successfully
+2025-05-21 16:51:52 - Position President has max_vote of 1
+2025-05-21 16:51:52 - Highlighting candidate Rody Duterte as top 1 of 1 allowed winners
+2025-05-21 16:51:52 - Position Vice President has max_vote of 1
+2025-05-21 16:51:52 - Highlighting candidate Leni Robredo as top 1 of 1 allowed winners
+2025-05-21 16:51:52 - Position Senators has max_vote of 12
+2025-05-21 16:51:52 - Highlighting candidate Frank Drillon as top 1 of 12 allowed winners
+2025-05-21 16:51:52 - Highlighting candidate Win Gatchalian as top 2 of 12 allowed winners
+2025-05-21 16:51:52 - Highlighting candidate Dick Gordon as top 3 of 12 allowed winners
+2025-05-21 16:51:52 - Highlighting candidate Risa Hontiveros as top 4 of 12 allowed winners
+2025-05-21 16:51:52 - Highlighting candidate Panfilo Ping Lacson as top 5 of 12 allowed winners
+2025-05-21 16:51:52 - Highlighting candidate Manny Pacquiao as top 6 of 12 allowed winners
+2025-05-21 16:51:52 - Highlighting candidate Kiko Pangilinan as top 7 of 12 allowed winners
+2025-05-21 16:51:52 - Highlighting candidate Ralph Recto as top 8 of 12 allowed winners
+2025-05-21 16:51:52 - Highlighting candidate Vicente Sotto as top 9 of 12 allowed winners
+2025-05-21 16:51:52 - Using helvetica font for footer
+2025-05-21 16:51:52 - Footer rendered successfully
+2025-05-21 16:51:52 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 16:51:52 - Logos loaded successfully
+2025-05-21 16:51:52 - Using helvetica font
+2025-05-21 16:51:52 - Header text rendered successfully
+2025-05-21 16:51:52 - Highlighting candidate Francis Tolentino as top 10 of 12 allowed winners
+2025-05-21 16:51:52 - Highlighting candidate Joel Villanueva as top 11 of 12 allowed winners
+2025-05-21 16:51:52 - Highlighting candidate Migs Zubiri as top 12 of 12 allowed winners
+2025-05-21 16:51:52 - Using helvetica font for footer
+2025-05-21 16:51:52 - Footer rendered successfully
+2025-05-21 16:51:52 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 16:51:52 - Logos loaded successfully
+2025-05-21 16:51:52 - Using helvetica font
+2025-05-21 16:51:52 - Header text rendered successfully
+2025-05-21 16:51:52 - Certification section rendered successfully
+2025-05-21 16:51:52 - Saving PDF to physical path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/results.pdf
+2025-05-21 16:51:52 - Using helvetica font for footer
+2025-05-21 16:51:52 - Footer rendered successfully
+2025-05-21 16:51:52 - PDF saved successfully. Normalized path for DB: archives/E2504294217/results.pdf
+2025-05-21 09:00:31 - Starting results PDF generation
+2025-05-21 09:00:31 - TCPDF class loaded successfully
+2025-05-21 17:00:31 - PDF instance created successfully
+2025-05-21 17:00:31 - PDF properties set successfully
+2025-05-21 17:00:31 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:00:31 - Logos loaded successfully
+2025-05-21 17:00:31 - Using helvetica font
+2025-05-21 17:00:31 - Header text rendered successfully
+2025-05-21 17:00:31 - Position President has max_vote of 1
+2025-05-21 17:00:31 - Highlighting candidate Rody Duterte as top 1 of 1 allowed winners
+2025-05-21 17:00:31 - Position Vice President has max_vote of 1
+2025-05-21 17:00:31 - Highlighting candidate Leni Robredo as top 1 of 1 allowed winners
+2025-05-21 17:00:31 - Position Senators has max_vote of 12
+2025-05-21 17:00:31 - Highlighting candidate Frank Drillon as top 1 of 12 allowed winners
+2025-05-21 17:00:31 - Highlighting candidate Win Gatchalian as top 2 of 12 allowed winners
+2025-05-21 17:00:31 - Highlighting candidate Dick Gordon as top 3 of 12 allowed winners
+2025-05-21 17:00:31 - Highlighting candidate Risa Hontiveros as top 4 of 12 allowed winners
+2025-05-21 17:00:31 - Highlighting candidate Panfilo Ping Lacson as top 5 of 12 allowed winners
+2025-05-21 17:00:31 - Highlighting candidate Manny Pacquiao as top 6 of 12 allowed winners
+2025-05-21 17:00:31 - Highlighting candidate Kiko Pangilinan as top 7 of 12 allowed winners
+2025-05-21 17:00:31 - Highlighting candidate Ralph Recto as top 8 of 12 allowed winners
+2025-05-21 17:00:31 - Highlighting candidate Vicente Sotto as top 9 of 12 allowed winners
+2025-05-21 17:00:31 - Using helvetica font for footer
+2025-05-21 17:00:31 - Footer rendered successfully
+2025-05-21 17:00:31 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:00:31 - Logos loaded successfully
+2025-05-21 17:00:31 - Using helvetica font
+2025-05-21 17:00:31 - Header text rendered successfully
+2025-05-21 17:00:31 - Highlighting candidate Francis Tolentino as top 10 of 12 allowed winners
+2025-05-21 17:00:31 - Highlighting candidate Joel Villanueva as top 11 of 12 allowed winners
+2025-05-21 17:00:31 - Highlighting candidate Migs Zubiri as top 12 of 12 allowed winners
+2025-05-21 17:00:31 - Using helvetica font for footer
+2025-05-21 17:00:31 - Footer rendered successfully
+2025-05-21 17:00:31 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:00:31 - Logos loaded successfully
+2025-05-21 17:00:31 - Using helvetica font
+2025-05-21 17:00:31 - Header text rendered successfully
+2025-05-21 17:00:31 - Certification section rendered successfully
+2025-05-21 17:00:31 - Using helvetica font for footer
+2025-05-21 17:00:31 - Footer rendered successfully
+2025-05-21 09:21:15 - Starting results PDF generation
+2025-05-21 09:21:15 - TCPDF class loaded successfully
+2025-05-21 17:21:15 - PDF instance created successfully
+2025-05-21 17:21:15 - PDF properties set successfully
+2025-05-21 17:21:15 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:21:15 - Logos loaded successfully
+2025-05-21 17:21:15 - Using helvetica font
+2025-05-21 17:21:15 - Header text rendered successfully
+2025-05-21 17:21:15 - Position President has max_vote of 1
+2025-05-21 17:21:15 - Highlighting candidate Rody Duterte as top 1 of 1 allowed winners
+2025-05-21 17:21:15 - Position Vice President has max_vote of 1
+2025-05-21 17:21:15 - Highlighting candidate Leni Robredo as top 1 of 1 allowed winners
+2025-05-21 17:21:15 - Position Senators has max_vote of 12
+2025-05-21 17:21:15 - Highlighting candidate Frank Drillon as top 1 of 12 allowed winners
+2025-05-21 17:21:15 - Highlighting candidate Win Gatchalian as top 2 of 12 allowed winners
+2025-05-21 17:21:15 - Highlighting candidate Dick Gordon as top 3 of 12 allowed winners
+2025-05-21 17:21:15 - Highlighting candidate Risa Hontiveros as top 4 of 12 allowed winners
+2025-05-21 17:21:15 - Highlighting candidate Panfilo Ping Lacson as top 5 of 12 allowed winners
+2025-05-21 17:21:15 - Highlighting candidate Manny Pacquiao as top 6 of 12 allowed winners
+2025-05-21 17:21:15 - Highlighting candidate Kiko Pangilinan as top 7 of 12 allowed winners
+2025-05-21 17:21:15 - Highlighting candidate Ralph Recto as top 8 of 12 allowed winners
+2025-05-21 17:21:15 - Highlighting candidate Vicente Sotto as top 9 of 12 allowed winners
+2025-05-21 17:21:15 - Using helvetica font for footer
+2025-05-21 17:21:15 - Footer rendered successfully
+2025-05-21 17:21:15 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:21:15 - Logos loaded successfully
+2025-05-21 17:21:15 - Using helvetica font
+2025-05-21 17:21:15 - Header text rendered successfully
+2025-05-21 17:21:15 - Highlighting candidate Francis Tolentino as top 10 of 12 allowed winners
+2025-05-21 17:21:15 - Highlighting candidate Joel Villanueva as top 11 of 12 allowed winners
+2025-05-21 17:21:15 - Highlighting candidate Migs Zubiri as top 12 of 12 allowed winners
+2025-05-21 17:21:15 - Using helvetica font for footer
+2025-05-21 17:21:15 - Footer rendered successfully
+2025-05-21 17:21:15 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:21:15 - Logos loaded successfully
+2025-05-21 17:21:15 - Using helvetica font
+2025-05-21 17:21:15 - Header text rendered successfully
+2025-05-21 17:21:15 - Certification section rendered successfully
+2025-05-21 17:21:15 - Using helvetica font for footer
+2025-05-21 17:21:15 - Footer rendered successfully
+2025-05-21 17:24:08 - Starting results PDF generation
+2025-05-21 17:24:08 - TCPDF class loaded successfully
+2025-05-21 17:24:08 - PDF instance created successfully
+2025-05-21 17:24:08 - PDF properties set successfully
+2025-05-21 17:24:08 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:24:08 - Logos loaded successfully
+2025-05-21 17:24:08 - Using helvetica font
+2025-05-21 17:24:08 - Header text rendered successfully
+2025-05-21 17:24:08 - Position President has max_vote of 1
+2025-05-21 17:24:08 - Highlighting candidate Rody Duterte as top 1 of 1 allowed winners
+2025-05-21 17:24:08 - Position Vice President has max_vote of 1
+2025-05-21 17:24:08 - Highlighting candidate Leni Robredo as top 1 of 1 allowed winners
+2025-05-21 17:24:08 - Position Senators has max_vote of 12
+2025-05-21 17:24:08 - Highlighting candidate Frank Drillon as top 1 of 12 allowed winners
+2025-05-21 17:24:08 - Highlighting candidate Win Gatchalian as top 2 of 12 allowed winners
+2025-05-21 17:24:08 - Highlighting candidate Dick Gordon as top 3 of 12 allowed winners
+2025-05-21 17:24:08 - Highlighting candidate Risa Hontiveros as top 4 of 12 allowed winners
+2025-05-21 17:24:08 - Highlighting candidate Panfilo Ping Lacson as top 5 of 12 allowed winners
+2025-05-21 17:24:08 - Highlighting candidate Manny Pacquiao as top 6 of 12 allowed winners
+2025-05-21 17:24:08 - Highlighting candidate Kiko Pangilinan as top 7 of 12 allowed winners
+2025-05-21 17:24:08 - Highlighting candidate Ralph Recto as top 8 of 12 allowed winners
+2025-05-21 17:24:08 - Highlighting candidate Vicente Sotto as top 9 of 12 allowed winners
+2025-05-21 17:24:08 - Using helvetica font for footer
+2025-05-21 17:24:08 - Footer rendered successfully
+2025-05-21 17:24:08 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:24:08 - Logos loaded successfully
+2025-05-21 17:24:08 - Using helvetica font
+2025-05-21 17:24:08 - Header text rendered successfully
+2025-05-21 17:24:08 - Highlighting candidate Francis Tolentino as top 10 of 12 allowed winners
+2025-05-21 17:24:08 - Highlighting candidate Joel Villanueva as top 11 of 12 allowed winners
+2025-05-21 17:24:08 - Highlighting candidate Migs Zubiri as top 12 of 12 allowed winners
+2025-05-21 17:24:08 - Using helvetica font for footer
+2025-05-21 17:24:08 - Footer rendered successfully
+2025-05-21 17:24:08 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:24:08 - Logos loaded successfully
+2025-05-21 17:24:08 - Using helvetica font
+2025-05-21 17:24:08 - Header text rendered successfully
+2025-05-21 17:24:08 - Certification section rendered successfully
+2025-05-21 17:24:08 - Saving PDF to physical path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/results.pdf
+2025-05-21 17:24:08 - Using helvetica font for footer
+2025-05-21 17:24:08 - Footer rendered successfully
+2025-05-21 17:24:08 - PDF saved successfully. Normalized path for DB: archives/E2504294217/results.pdf
+2025-05-21 17:32:36 - Starting results PDF generation
+2025-05-21 17:32:36 - TCPDF class loaded successfully
+2025-05-21 17:32:36 - PDF instance created successfully
+2025-05-21 17:32:36 - PDF properties set successfully
+2025-05-21 17:32:36 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:32:36 - Logos loaded successfully
+2025-05-21 17:32:36 - Using helvetica font
+2025-05-21 17:32:36 - Header text rendered successfully
+2025-05-21 17:32:36 - Position President has max_vote of 1
+2025-05-21 17:32:36 - Highlighting candidate Rody Duterte as top 1 of 1 allowed winners
+2025-05-21 17:32:36 - Position Vice President has max_vote of 1
+2025-05-21 17:32:36 - Highlighting candidate Leni Robredo as top 1 of 1 allowed winners
+2025-05-21 17:32:36 - Position Senators has max_vote of 12
+2025-05-21 17:32:36 - Highlighting candidate Frank Drillon as top 1 of 12 allowed winners
+2025-05-21 17:32:36 - Highlighting candidate Win Gatchalian as top 2 of 12 allowed winners
+2025-05-21 17:32:36 - Highlighting candidate Dick Gordon as top 3 of 12 allowed winners
+2025-05-21 17:32:36 - Highlighting candidate Risa Hontiveros as top 4 of 12 allowed winners
+2025-05-21 17:32:36 - Highlighting candidate Panfilo Ping Lacson as top 5 of 12 allowed winners
+2025-05-21 17:32:36 - Highlighting candidate Manny Pacquiao as top 6 of 12 allowed winners
+2025-05-21 17:32:36 - Highlighting candidate Kiko Pangilinan as top 7 of 12 allowed winners
+2025-05-21 17:32:36 - Highlighting candidate Ralph Recto as top 8 of 12 allowed winners
+2025-05-21 17:32:36 - Highlighting candidate Vicente Sotto as top 9 of 12 allowed winners
+2025-05-21 17:32:36 - Using helvetica font for footer
+2025-05-21 17:32:36 - Footer rendered successfully
+2025-05-21 17:32:36 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:32:36 - Logos loaded successfully
+2025-05-21 17:32:36 - Using helvetica font
+2025-05-21 17:32:36 - Header text rendered successfully
+2025-05-21 17:32:36 - Highlighting candidate Francis Tolentino as top 10 of 12 allowed winners
+2025-05-21 17:32:36 - Highlighting candidate Joel Villanueva as top 11 of 12 allowed winners
+2025-05-21 17:32:36 - Highlighting candidate Migs Zubiri as top 12 of 12 allowed winners
+2025-05-21 17:32:36 - Using helvetica font for footer
+2025-05-21 17:32:36 - Footer rendered successfully
+2025-05-21 17:32:36 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:32:36 - Logos loaded successfully
+2025-05-21 17:32:36 - Using helvetica font
+2025-05-21 17:32:36 - Header text rendered successfully
+2025-05-21 17:32:36 - Certification section rendered successfully
+2025-05-21 17:32:36 - Saving PDF to physical path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/results.pdf
+2025-05-21 17:32:36 - Using helvetica font for footer
+2025-05-21 17:32:36 - Footer rendered successfully
+2025-05-21 17:32:36 - PDF saved successfully. Normalized path for DB: archives/E2504294217/results.pdf
+2025-05-21 17:40:21 - Starting results PDF generation
+2025-05-21 17:40:21 - TCPDF class loaded successfully
+2025-05-21 17:40:21 - PDF instance created successfully
+2025-05-21 17:40:21 - PDF properties set successfully
+2025-05-21 17:40:21 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:40:21 - Logos loaded successfully
+2025-05-21 17:40:21 - Using helvetica font
+2025-05-21 17:40:21 - Header text rendered successfully
+2025-05-21 17:40:21 - Position President has max_vote of 1
+2025-05-21 17:40:21 - Highlighting candidate Rody Duterte as top 1 of 1 allowed winners
+2025-05-21 17:40:21 - Position Vice President has max_vote of 1
+2025-05-21 17:40:21 - Highlighting candidate Leni Robredo as top 1 of 1 allowed winners
+2025-05-21 17:40:21 - Position Senators has max_vote of 12
+2025-05-21 17:40:21 - Highlighting candidate Frank Drillon as top 1 of 12 allowed winners
+2025-05-21 17:40:21 - Highlighting candidate Win Gatchalian as top 2 of 12 allowed winners
+2025-05-21 17:40:21 - Highlighting candidate Dick Gordon as top 3 of 12 allowed winners
+2025-05-21 17:40:21 - Highlighting candidate Risa Hontiveros as top 4 of 12 allowed winners
+2025-05-21 17:40:21 - Highlighting candidate Panfilo Ping Lacson as top 5 of 12 allowed winners
+2025-05-21 17:40:21 - Highlighting candidate Manny Pacquiao as top 6 of 12 allowed winners
+2025-05-21 17:40:21 - Highlighting candidate Kiko Pangilinan as top 7 of 12 allowed winners
+2025-05-21 17:40:21 - Highlighting candidate Ralph Recto as top 8 of 12 allowed winners
+2025-05-21 17:40:21 - Highlighting candidate Vicente Sotto as top 9 of 12 allowed winners
+2025-05-21 17:40:21 - Using helvetica font for footer
+2025-05-21 17:40:21 - Footer rendered successfully
+2025-05-21 17:40:21 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:40:21 - Logos loaded successfully
+2025-05-21 17:40:21 - Using helvetica font
+2025-05-21 17:40:21 - Header text rendered successfully
+2025-05-21 17:40:21 - Highlighting candidate Francis Tolentino as top 10 of 12 allowed winners
+2025-05-21 17:40:21 - Highlighting candidate Joel Villanueva as top 11 of 12 allowed winners
+2025-05-21 17:40:21 - Highlighting candidate Migs Zubiri as top 12 of 12 allowed winners
+2025-05-21 17:40:21 - Using helvetica font for footer
+2025-05-21 17:40:21 - Footer rendered successfully
+2025-05-21 17:40:21 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:40:21 - Logos loaded successfully
+2025-05-21 17:40:21 - Using helvetica font
+2025-05-21 17:40:21 - Header text rendered successfully
+2025-05-21 17:40:21 - Certification section rendered successfully
+2025-05-21 17:40:21 - Saving PDF to physical path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/results.pdf
+2025-05-21 17:40:21 - Using helvetica font for footer
+2025-05-21 17:40:21 - Footer rendered successfully
+2025-05-21 17:40:21 - PDF saved successfully. Normalized path for DB: archives/E2504294217/results.pdf
+2025-05-21 17:42:46 - Starting results PDF generation
+2025-05-21 09:43:27 - Starting results PDF generation
+2025-05-21 09:45:48 - Starting results PDF generation
+2025-05-21 17:45:48 - PDF instance created successfully
+2025-05-21 17:45:48 - PDF properties set successfully
+2025-05-21 17:45:48 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:45:48 - Logos loaded successfully
+2025-05-21 17:45:48 - Using helvetica font
+2025-05-21 17:45:48 - Header text rendered successfully
+2025-05-21 17:45:48 - Position President has max_vote of 1
+2025-05-21 17:45:48 - Highlighting candidate Rody Duterte as top 1 of 1 allowed winners
+2025-05-21 17:45:48 - Position Vice President has max_vote of 1
+2025-05-21 17:45:48 - Highlighting candidate Leni Robredo as top 1 of 1 allowed winners
+2025-05-21 17:45:48 - Position Senators has max_vote of 12
+2025-05-21 17:45:48 - Highlighting candidate Frank Drillon as top 1 of 12 allowed winners
+2025-05-21 17:45:48 - Highlighting candidate Win Gatchalian as top 2 of 12 allowed winners
+2025-05-21 17:45:48 - Highlighting candidate Dick Gordon as top 3 of 12 allowed winners
+2025-05-21 17:45:48 - Highlighting candidate Risa Hontiveros as top 4 of 12 allowed winners
+2025-05-21 17:45:48 - Highlighting candidate Panfilo Ping Lacson as top 5 of 12 allowed winners
+2025-05-21 17:45:48 - Highlighting candidate Manny Pacquiao as top 6 of 12 allowed winners
+2025-05-21 17:45:48 - Highlighting candidate Kiko Pangilinan as top 7 of 12 allowed winners
+2025-05-21 17:45:48 - Highlighting candidate Ralph Recto as top 8 of 12 allowed winners
+2025-05-21 17:45:48 - Highlighting candidate Vicente Sotto as top 9 of 12 allowed winners
+2025-05-21 17:45:48 - Using helvetica font for footer
+2025-05-21 17:45:48 - Footer rendered successfully
+2025-05-21 17:45:48 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:45:48 - Logos loaded successfully
+2025-05-21 17:45:48 - Using helvetica font
+2025-05-21 17:45:48 - Header text rendered successfully
+2025-05-21 17:45:48 - Highlighting candidate Francis Tolentino as top 10 of 12 allowed winners
+2025-05-21 17:45:48 - Highlighting candidate Joel Villanueva as top 11 of 12 allowed winners
+2025-05-21 17:45:48 - Highlighting candidate Migs Zubiri as top 12 of 12 allowed winners
+2025-05-21 17:45:48 - Using helvetica font for footer
+2025-05-21 17:45:48 - Footer rendered successfully
+2025-05-21 17:45:48 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:45:48 - Logos loaded successfully
+2025-05-21 17:45:48 - Using helvetica font
+2025-05-21 17:45:48 - Header text rendered successfully
+2025-05-21 17:45:48 - Certification section rendered successfully
+2025-05-21 17:45:48 - Using helvetica font for footer
+2025-05-21 17:45:48 - Footer rendered successfully
+2025-05-21 17:46:06 - Starting results PDF generation
+2025-05-21 17:46:06 - PDF instance created successfully
+2025-05-21 17:46:06 - PDF properties set successfully
+2025-05-21 17:46:06 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:46:06 - Logos loaded successfully
+2025-05-21 17:46:06 - Using helvetica font
+2025-05-21 17:46:06 - Header text rendered successfully
+2025-05-21 17:46:06 - Position President has max_vote of 1
+2025-05-21 17:46:06 - Highlighting candidate Rody Duterte as top 1 of 1 allowed winners
+2025-05-21 17:46:06 - Position Vice President has max_vote of 1
+2025-05-21 17:46:06 - Highlighting candidate Leni Robredo as top 1 of 1 allowed winners
+2025-05-21 17:46:06 - Position Senators has max_vote of 12
+2025-05-21 17:46:06 - Highlighting candidate Frank Drillon as top 1 of 12 allowed winners
+2025-05-21 17:46:06 - Highlighting candidate Win Gatchalian as top 2 of 12 allowed winners
+2025-05-21 17:46:06 - Highlighting candidate Dick Gordon as top 3 of 12 allowed winners
+2025-05-21 17:46:06 - Highlighting candidate Risa Hontiveros as top 4 of 12 allowed winners
+2025-05-21 17:46:06 - Highlighting candidate Panfilo Ping Lacson as top 5 of 12 allowed winners
+2025-05-21 17:46:06 - Highlighting candidate Manny Pacquiao as top 6 of 12 allowed winners
+2025-05-21 17:46:06 - Highlighting candidate Kiko Pangilinan as top 7 of 12 allowed winners
+2025-05-21 17:46:06 - Highlighting candidate Ralph Recto as top 8 of 12 allowed winners
+2025-05-21 17:46:06 - Highlighting candidate Vicente Sotto as top 9 of 12 allowed winners
+2025-05-21 17:46:06 - Using helvetica font for footer
+2025-05-21 17:46:06 - Footer rendered successfully
+2025-05-21 17:46:06 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:46:06 - Logos loaded successfully
+2025-05-21 17:46:06 - Using helvetica font
+2025-05-21 17:46:06 - Header text rendered successfully
+2025-05-21 17:46:06 - Highlighting candidate Francis Tolentino as top 10 of 12 allowed winners
+2025-05-21 17:46:06 - Highlighting candidate Joel Villanueva as top 11 of 12 allowed winners
+2025-05-21 17:46:06 - Highlighting candidate Migs Zubiri as top 12 of 12 allowed winners
+2025-05-21 17:46:06 - Using helvetica font for footer
+2025-05-21 17:46:06 - Footer rendered successfully
+2025-05-21 17:46:06 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:46:06 - Logos loaded successfully
+2025-05-21 17:46:06 - Using helvetica font
+2025-05-21 17:46:06 - Header text rendered successfully
+2025-05-21 17:46:06 - Certification section rendered successfully
+2025-05-21 17:46:06 - Saving PDF to physical path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/results.pdf
+2025-05-21 17:46:06 - Using helvetica font for footer
+2025-05-21 17:46:06 - Footer rendered successfully
+2025-05-21 17:46:06 - PDF saved successfully. Normalized path for DB: archives/E2504294217/results.pdf
+2025-05-21 17:46:06 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:46:06 - Logos loaded successfully
+2025-05-21 17:46:06 - Using helvetica font
+2025-05-21 17:46:06 - Header text rendered successfully
+2025-05-21 17:46:06 - Using helvetica font for footer
+2025-05-21 17:46:06 - Footer rendered successfully
+2025-05-21 17:46:06 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:46:06 - Logos loaded successfully
+2025-05-21 17:46:06 - Using helvetica font
+2025-05-21 17:46:06 - Header text rendered successfully
+2025-05-21 17:46:06 - Using helvetica font for footer
+2025-05-21 17:46:06 - Footer rendered successfully
+2025-05-21 17:46:06 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:46:06 - Logos loaded successfully
+2025-05-21 17:46:06 - Using helvetica font
+2025-05-21 17:46:06 - Header text rendered successfully
+2025-05-21 17:46:06 - Using helvetica font for footer
+2025-05-21 17:46:06 - Footer rendered successfully
+2025-05-21 17:46:06 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:46:06 - Logos loaded successfully
+2025-05-21 17:46:06 - Using helvetica font
+2025-05-21 17:46:06 - Header text rendered successfully
+2025-05-21 17:46:06 - Using helvetica font for footer
+2025-05-21 17:46:06 - Footer rendered successfully
+2025-05-21 17:46:06 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:46:06 - Logos loaded successfully
+2025-05-21 17:46:06 - Using helvetica font
+2025-05-21 17:46:06 - Header text rendered successfully
+2025-05-21 17:46:06 - Using helvetica font for footer
+2025-05-21 17:46:06 - Footer rendered successfully
+2025-05-21 17:46:42 - Starting results PDF generation
+2025-05-21 17:46:42 - PDF instance created successfully
+2025-05-21 17:46:42 - PDF properties set successfully
+2025-05-21 17:46:42 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:46:42 - Logos loaded successfully
+2025-05-21 17:46:42 - Using helvetica font
+2025-05-21 17:46:42 - Header text rendered successfully
+2025-05-21 17:46:42 - Position President has max_vote of 1
+2025-05-21 17:46:42 - Highlighting candidate Rody Duterte as top 1 of 1 allowed winners
+2025-05-21 17:46:42 - Position Vice President has max_vote of 1
+2025-05-21 17:46:42 - Highlighting candidate Leni Robredo as top 1 of 1 allowed winners
+2025-05-21 17:46:42 - Position Senators has max_vote of 12
+2025-05-21 17:46:42 - Highlighting candidate Frank Drillon as top 1 of 12 allowed winners
+2025-05-21 17:46:42 - Highlighting candidate Win Gatchalian as top 2 of 12 allowed winners
+2025-05-21 17:46:42 - Highlighting candidate Dick Gordon as top 3 of 12 allowed winners
+2025-05-21 17:46:42 - Highlighting candidate Risa Hontiveros as top 4 of 12 allowed winners
+2025-05-21 17:46:42 - Highlighting candidate Panfilo Ping Lacson as top 5 of 12 allowed winners
+2025-05-21 17:46:42 - Highlighting candidate Manny Pacquiao as top 6 of 12 allowed winners
+2025-05-21 17:46:42 - Highlighting candidate Kiko Pangilinan as top 7 of 12 allowed winners
+2025-05-21 17:46:42 - Highlighting candidate Ralph Recto as top 8 of 12 allowed winners
+2025-05-21 17:46:42 - Highlighting candidate Vicente Sotto as top 9 of 12 allowed winners
+2025-05-21 17:46:42 - Using helvetica font for footer
+2025-05-21 17:46:42 - Footer rendered successfully
+2025-05-21 17:46:42 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:46:42 - Logos loaded successfully
+2025-05-21 17:46:42 - Using helvetica font
+2025-05-21 17:46:42 - Header text rendered successfully
+2025-05-21 17:46:42 - Highlighting candidate Francis Tolentino as top 10 of 12 allowed winners
+2025-05-21 17:46:42 - Highlighting candidate Joel Villanueva as top 11 of 12 allowed winners
+2025-05-21 17:46:42 - Highlighting candidate Migs Zubiri as top 12 of 12 allowed winners
+2025-05-21 17:46:42 - Using helvetica font for footer
+2025-05-21 17:46:42 - Footer rendered successfully
+2025-05-21 17:46:42 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:46:42 - Logos loaded successfully
+2025-05-21 17:46:42 - Using helvetica font
+2025-05-21 17:46:42 - Header text rendered successfully
+2025-05-21 17:46:42 - Certification section rendered successfully
+2025-05-21 17:46:42 - Saving PDF to physical path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/results.pdf
+2025-05-21 17:46:42 - Using helvetica font for footer
+2025-05-21 17:46:42 - Footer rendered successfully
+2025-05-21 17:46:42 - PDF saved successfully. Normalized path for DB: archives/E2504294217/results.pdf
+2025-05-21 17:46:42 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:46:42 - Logos loaded successfully
+2025-05-21 17:46:42 - Using helvetica font
+2025-05-21 17:46:42 - Header text rendered successfully
+2025-05-21 17:46:42 - Using helvetica font for footer
+2025-05-21 17:46:42 - Footer rendered successfully
+2025-05-21 17:46:42 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:46:42 - Logos loaded successfully
+2025-05-21 17:46:42 - Using helvetica font
+2025-05-21 17:46:42 - Header text rendered successfully
+2025-05-21 17:46:42 - Using helvetica font for footer
+2025-05-21 17:46:42 - Footer rendered successfully
+2025-05-21 17:46:42 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:46:42 - Logos loaded successfully
+2025-05-21 17:46:42 - Using helvetica font
+2025-05-21 17:46:42 - Header text rendered successfully
+2025-05-21 17:46:42 - Using helvetica font for footer
+2025-05-21 17:46:42 - Footer rendered successfully
+2025-05-21 17:46:43 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:46:43 - Logos loaded successfully
+2025-05-21 17:46:43 - Using helvetica font
+2025-05-21 17:46:43 - Header text rendered successfully
+2025-05-21 17:46:43 - Using helvetica font for footer
+2025-05-21 17:46:43 - Footer rendered successfully
+2025-05-21 17:46:43 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:46:43 - Logos loaded successfully
+2025-05-21 17:46:43 - Using helvetica font
+2025-05-21 17:46:43 - Header text rendered successfully
+2025-05-21 17:46:43 - Using helvetica font for footer
+2025-05-21 17:46:43 - Footer rendered successfully
+2025-05-21 09:56:09 - Starting results PDF generation
+2025-05-21 17:56:09 - PDF instance created successfully
+2025-05-21 17:56:09 - PDF properties set successfully
+2025-05-21 17:56:09 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:56:09 - Logos loaded successfully
+2025-05-21 17:56:09 - Using helvetica font
+2025-05-21 17:56:09 - Header text rendered successfully
+2025-05-21 17:56:09 - Position President has max_vote of 1
+2025-05-21 17:56:09 - Highlighting candidate Rody Duterte as top 1 of 1 allowed winners
+2025-05-21 17:56:09 - Position Vice President has max_vote of 1
+2025-05-21 17:56:09 - Highlighting candidate Leni Robredo as top 1 of 1 allowed winners
+2025-05-21 17:56:09 - Position Senators has max_vote of 12
+2025-05-21 17:56:09 - Highlighting candidate Frank Drillon as top 1 of 12 allowed winners
+2025-05-21 17:56:09 - Highlighting candidate Win Gatchalian as top 2 of 12 allowed winners
+2025-05-21 17:56:09 - Highlighting candidate Dick Gordon as top 3 of 12 allowed winners
+2025-05-21 17:56:09 - Highlighting candidate Risa Hontiveros as top 4 of 12 allowed winners
+2025-05-21 17:56:09 - Highlighting candidate Panfilo Ping Lacson as top 5 of 12 allowed winners
+2025-05-21 17:56:09 - Highlighting candidate Manny Pacquiao as top 6 of 12 allowed winners
+2025-05-21 17:56:09 - Highlighting candidate Kiko Pangilinan as top 7 of 12 allowed winners
+2025-05-21 17:56:09 - Highlighting candidate Ralph Recto as top 8 of 12 allowed winners
+2025-05-21 17:56:09 - Highlighting candidate Vicente Sotto as top 9 of 12 allowed winners
+2025-05-21 17:56:09 - Using helvetica font for footer
+2025-05-21 17:56:09 - Footer rendered successfully
+2025-05-21 17:56:09 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:56:09 - Logos loaded successfully
+2025-05-21 17:56:09 - Using helvetica font
+2025-05-21 17:56:09 - Header text rendered successfully
+2025-05-21 17:56:09 - Highlighting candidate Francis Tolentino as top 10 of 12 allowed winners
+2025-05-21 17:56:09 - Highlighting candidate Joel Villanueva as top 11 of 12 allowed winners
+2025-05-21 17:56:09 - Highlighting candidate Migs Zubiri as top 12 of 12 allowed winners
+2025-05-21 17:56:09 - Using helvetica font for footer
+2025-05-21 17:56:09 - Footer rendered successfully
+2025-05-21 17:56:09 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:56:09 - Logos loaded successfully
+2025-05-21 17:56:09 - Using helvetica font
+2025-05-21 17:56:09 - Header text rendered successfully
+2025-05-21 17:56:09 - Certification section rendered successfully
+2025-05-21 17:56:09 - Using helvetica font for footer
+2025-05-21 17:56:09 - Footer rendered successfully
+2025-05-21 17:56:22 - Starting results PDF generation
+2025-05-21 17:56:22 - PDF instance created successfully
+2025-05-21 17:56:22 - PDF properties set successfully
+2025-05-21 17:56:22 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:56:22 - Logos loaded successfully
+2025-05-21 17:56:22 - Using helvetica font
+2025-05-21 17:56:22 - Header text rendered successfully
+2025-05-21 17:56:22 - Position President has max_vote of 1
+2025-05-21 17:56:22 - Highlighting candidate Rody Duterte as top 1 of 1 allowed winners
+2025-05-21 17:56:22 - Position Vice President has max_vote of 1
+2025-05-21 17:56:22 - Highlighting candidate Leni Robredo as top 1 of 1 allowed winners
+2025-05-21 17:56:22 - Position Senators has max_vote of 12
+2025-05-21 17:56:22 - Highlighting candidate Frank Drillon as top 1 of 12 allowed winners
+2025-05-21 17:56:22 - Highlighting candidate Win Gatchalian as top 2 of 12 allowed winners
+2025-05-21 17:56:22 - Highlighting candidate Dick Gordon as top 3 of 12 allowed winners
+2025-05-21 17:56:22 - Highlighting candidate Risa Hontiveros as top 4 of 12 allowed winners
+2025-05-21 17:56:22 - Highlighting candidate Panfilo Ping Lacson as top 5 of 12 allowed winners
+2025-05-21 17:56:22 - Highlighting candidate Manny Pacquiao as top 6 of 12 allowed winners
+2025-05-21 17:56:22 - Highlighting candidate Kiko Pangilinan as top 7 of 12 allowed winners
+2025-05-21 17:56:22 - Highlighting candidate Ralph Recto as top 8 of 12 allowed winners
+2025-05-21 17:56:22 - Highlighting candidate Vicente Sotto as top 9 of 12 allowed winners
+2025-05-21 17:56:22 - Using helvetica font for footer
+2025-05-21 17:56:22 - Footer rendered successfully
+2025-05-21 17:56:22 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:56:22 - Logos loaded successfully
+2025-05-21 17:56:22 - Using helvetica font
+2025-05-21 17:56:22 - Header text rendered successfully
+2025-05-21 17:56:22 - Highlighting candidate Francis Tolentino as top 10 of 12 allowed winners
+2025-05-21 17:56:22 - Highlighting candidate Joel Villanueva as top 11 of 12 allowed winners
+2025-05-21 17:56:22 - Highlighting candidate Migs Zubiri as top 12 of 12 allowed winners
+2025-05-21 17:56:22 - Using helvetica font for footer
+2025-05-21 17:56:22 - Footer rendered successfully
+2025-05-21 17:56:22 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:56:22 - Logos loaded successfully
+2025-05-21 17:56:22 - Using helvetica font
+2025-05-21 17:56:22 - Header text rendered successfully
+2025-05-21 17:56:22 - Certification section rendered successfully
+2025-05-21 17:56:22 - Saving PDF to physical path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/results.pdf
+2025-05-21 17:56:22 - Using helvetica font for footer
+2025-05-21 17:56:22 - Footer rendered successfully
+2025-05-21 17:56:22 - PDF saved successfully. Normalized path for DB: archives/E2504294217/results.pdf
+2025-05-21 17:56:22 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:56:22 - Logos loaded successfully
+2025-05-21 17:56:22 - Using helvetica font
+2025-05-21 17:56:22 - Header text rendered successfully
+2025-05-21 17:56:22 - Using helvetica font for footer
+2025-05-21 17:56:22 - Footer rendered successfully
+2025-05-21 17:56:22 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:56:22 - Logos loaded successfully
+2025-05-21 17:56:22 - Using helvetica font
+2025-05-21 17:56:22 - Header text rendered successfully
+2025-05-21 17:56:22 - Using helvetica font for footer
+2025-05-21 17:56:22 - Footer rendered successfully
+2025-05-21 17:56:22 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:56:22 - Logos loaded successfully
+2025-05-21 17:56:22 - Using helvetica font
+2025-05-21 17:56:22 - Header text rendered successfully
+2025-05-21 17:56:22 - Using helvetica font for footer
+2025-05-21 17:56:22 - Footer rendered successfully
+2025-05-21 17:56:22 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:56:22 - Logos loaded successfully
+2025-05-21 17:56:22 - Using helvetica font
+2025-05-21 17:56:22 - Header text rendered successfully
+2025-05-21 17:56:22 - Using helvetica font for footer
+2025-05-21 17:56:22 - Footer rendered successfully
+2025-05-21 17:56:22 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:56:22 - Logos loaded successfully
+2025-05-21 17:56:22 - Using helvetica font
+2025-05-21 17:56:22 - Header text rendered successfully
+2025-05-21 17:56:22 - Using helvetica font for footer
+2025-05-21 17:56:22 - Footer rendered successfully
+2025-05-21 18:00:38 - Starting results PDF generation
+2025-05-21 18:00:38 - PDF instance created successfully
+2025-05-21 18:00:38 - PDF properties set successfully
+2025-05-21 18:00:38 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 18:00:38 - Logos loaded successfully
+2025-05-21 18:00:38 - Using helvetica font
+2025-05-21 18:00:38 - Header text rendered successfully
+2025-05-21 18:00:38 - Position President has max_vote of 1
+2025-05-21 18:00:38 - Highlighting candidate Rody Duterte as top 1 of 1 allowed winners
+2025-05-21 18:00:38 - Position Vice President has max_vote of 1
+2025-05-21 18:00:38 - Highlighting candidate Leni Robredo as top 1 of 1 allowed winners
+2025-05-21 18:00:38 - Position Senators has max_vote of 12
+2025-05-21 18:00:38 - Highlighting candidate Frank Drillon as top 1 of 12 allowed winners
+2025-05-21 18:00:38 - Highlighting candidate Win Gatchalian as top 2 of 12 allowed winners
+2025-05-21 18:00:38 - Highlighting candidate Dick Gordon as top 3 of 12 allowed winners
+2025-05-21 18:00:38 - Highlighting candidate Risa Hontiveros as top 4 of 12 allowed winners
+2025-05-21 18:00:38 - Highlighting candidate Panfilo Ping Lacson as top 5 of 12 allowed winners
+2025-05-21 18:00:38 - Highlighting candidate Manny Pacquiao as top 6 of 12 allowed winners
+2025-05-21 18:00:38 - Highlighting candidate Kiko Pangilinan as top 7 of 12 allowed winners
+2025-05-21 18:00:38 - Highlighting candidate Ralph Recto as top 8 of 12 allowed winners
+2025-05-21 18:00:38 - Highlighting candidate Vicente Sotto as top 9 of 12 allowed winners
+2025-05-21 18:00:38 - Using helvetica font for footer
+2025-05-21 18:00:38 - Footer rendered successfully
+2025-05-21 18:00:38 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 18:00:38 - Logos loaded successfully
+2025-05-21 18:00:38 - Using helvetica font
+2025-05-21 18:00:38 - Header text rendered successfully
+2025-05-21 18:00:38 - Highlighting candidate Francis Tolentino as top 10 of 12 allowed winners
+2025-05-21 18:00:38 - Highlighting candidate Joel Villanueva as top 11 of 12 allowed winners
+2025-05-21 18:00:38 - Highlighting candidate Migs Zubiri as top 12 of 12 allowed winners
+2025-05-21 18:00:38 - Using helvetica font for footer
+2025-05-21 18:00:38 - Footer rendered successfully
+2025-05-21 18:00:38 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 18:00:38 - Logos loaded successfully
+2025-05-21 18:00:38 - Using helvetica font
+2025-05-21 18:00:38 - Header text rendered successfully
+2025-05-21 18:00:38 - Certification section rendered successfully
+2025-05-21 18:00:38 - Saving PDF to physical path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/results.pdf
+2025-05-21 18:00:38 - Using helvetica font for footer
+2025-05-21 18:00:38 - Footer rendered successfully
+2025-05-21 18:00:38 - PDF saved successfully. Normalized path for DB: archives/E2504294217/results.pdf
+2025-05-21 18:00:38 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 18:00:38 - Logos loaded successfully
+2025-05-21 18:00:38 - Using helvetica font
+2025-05-21 18:00:38 - Header text rendered successfully
+2025-05-21 18:00:38 - Using helvetica font for footer
+2025-05-21 18:00:38 - Footer rendered successfully
+2025-05-21 18:00:38 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 18:00:38 - Logos loaded successfully
+2025-05-21 18:00:38 - Using helvetica font
+2025-05-21 18:00:38 - Header text rendered successfully
+2025-05-21 18:00:38 - Using helvetica font for footer
+2025-05-21 18:00:38 - Footer rendered successfully
+2025-05-21 18:00:38 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 18:00:38 - Logos loaded successfully
+2025-05-21 18:00:38 - Using helvetica font
+2025-05-21 18:00:38 - Header text rendered successfully
+2025-05-21 18:00:38 - Using helvetica font for footer
+2025-05-21 18:00:38 - Footer rendered successfully
+2025-05-21 18:00:38 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 18:00:38 - Logos loaded successfully
+2025-05-21 18:00:38 - Using helvetica font
+2025-05-21 18:00:38 - Header text rendered successfully
+2025-05-21 18:00:38 - Using helvetica font for footer
+2025-05-21 18:00:38 - Footer rendered successfully
+2025-05-21 18:00:38 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 18:00:38 - Logos loaded successfully
+2025-05-21 18:00:38 - Using helvetica font
+2025-05-21 18:00:38 - Header text rendered successfully
+2025-05-21 18:00:38 - Using helvetica font for footer
+2025-05-21 18:00:38 - Footer rendered successfully
+2025-05-21 18:02:32 - Starting results PDF generation
+2025-05-21 18:02:32 - PDF instance created successfully
+2025-05-21 18:02:32 - PDF properties set successfully
+2025-05-21 18:02:32 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 18:02:32 - Logos loaded successfully
+2025-05-21 18:02:32 - Using helvetica font
+2025-05-21 18:02:32 - Header text rendered successfully
+2025-05-21 18:02:32 - Position President has max_vote of 1
+2025-05-21 18:02:32 - Highlighting candidate Rody Duterte as top 1 of 1 allowed winners
+2025-05-21 18:02:32 - Position Vice President has max_vote of 1
+2025-05-21 18:02:32 - Highlighting candidate Leni Robredo as top 1 of 1 allowed winners
+2025-05-21 18:02:32 - Position Senators has max_vote of 12
+2025-05-21 18:02:32 - Highlighting candidate Frank Drillon as top 1 of 12 allowed winners
+2025-05-21 18:02:32 - Highlighting candidate Win Gatchalian as top 2 of 12 allowed winners
+2025-05-21 18:02:32 - Highlighting candidate Dick Gordon as top 3 of 12 allowed winners
+2025-05-21 18:02:32 - Highlighting candidate Risa Hontiveros as top 4 of 12 allowed winners
+2025-05-21 18:02:32 - Highlighting candidate Panfilo Ping Lacson as top 5 of 12 allowed winners
+2025-05-21 18:02:32 - Highlighting candidate Manny Pacquiao as top 6 of 12 allowed winners
+2025-05-21 18:02:32 - Highlighting candidate Kiko Pangilinan as top 7 of 12 allowed winners
+2025-05-21 18:02:32 - Highlighting candidate Ralph Recto as top 8 of 12 allowed winners
+2025-05-21 18:02:32 - Highlighting candidate Vicente Sotto as top 9 of 12 allowed winners
+2025-05-21 18:02:32 - Using helvetica font for footer
+2025-05-21 18:02:32 - Footer rendered successfully
+2025-05-21 18:02:32 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 18:02:32 - Logos loaded successfully
+2025-05-21 18:02:32 - Using helvetica font
+2025-05-21 18:02:32 - Header text rendered successfully
+2025-05-21 18:02:32 - Highlighting candidate Francis Tolentino as top 10 of 12 allowed winners
+2025-05-21 18:02:32 - Highlighting candidate Joel Villanueva as top 11 of 12 allowed winners
+2025-05-21 18:02:32 - Highlighting candidate Migs Zubiri as top 12 of 12 allowed winners
+2025-05-21 18:02:32 - Using helvetica font for footer
+2025-05-21 18:02:32 - Footer rendered successfully
+2025-05-21 18:02:32 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 18:02:32 - Logos loaded successfully
+2025-05-21 18:02:32 - Using helvetica font
+2025-05-21 18:02:32 - Header text rendered successfully
+2025-05-21 18:02:32 - Certification section rendered successfully
+2025-05-21 18:02:32 - Saving PDF to physical path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/results.pdf
+2025-05-21 18:02:32 - Using helvetica font for footer
+2025-05-21 18:02:32 - Footer rendered successfully
+2025-05-21 18:02:32 - PDF saved successfully. Normalized path for DB: archives/E2504294217/results.pdf
+2025-05-21 18:02:32 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 18:02:32 - Logos loaded successfully
+2025-05-21 18:02:32 - Using helvetica font
+2025-05-21 18:02:32 - Header text rendered successfully
+2025-05-21 18:02:32 - Using helvetica font for footer
+2025-05-21 18:02:32 - Footer rendered successfully
+2025-05-21 18:02:32 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 18:02:32 - Logos loaded successfully
+2025-05-21 18:02:32 - Using helvetica font
+2025-05-21 18:02:32 - Header text rendered successfully
+2025-05-21 18:02:32 - Using helvetica font for footer
+2025-05-21 18:02:32 - Footer rendered successfully
+2025-05-21 18:02:32 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 18:02:32 - Logos loaded successfully
+2025-05-21 18:02:32 - Using helvetica font
+2025-05-21 18:02:32 - Header text rendered successfully
+2025-05-21 18:02:32 - Using helvetica font for footer
+2025-05-21 18:02:32 - Footer rendered successfully
+2025-05-21 18:02:32 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 18:02:32 - Logos loaded successfully
+2025-05-21 18:02:32 - Using helvetica font
+2025-05-21 18:02:32 - Header text rendered successfully
+2025-05-21 18:02:32 - Using helvetica font for footer
+2025-05-21 18:02:32 - Footer rendered successfully
+2025-05-21 18:02:32 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 18:02:32 - Logos loaded successfully
+2025-05-21 18:02:32 - Using helvetica font
+2025-05-21 18:02:32 - Header text rendered successfully
+2025-05-21 18:02:32 - Using helvetica font for footer
+2025-05-21 18:02:32 - Footer rendered successfully

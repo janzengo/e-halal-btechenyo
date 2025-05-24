@@ -1,6 +1,6 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteBase /e-halal/administrator/
+    RewriteBase /administrator/
     
     # If the requested file or directory doesn't exist
     RewriteCond %{REQUEST_FILENAME} !-f

@@ -63,11 +63,11 @@ class CustomSessionHandler {
             // Regenerate session ID
             session_regenerate_id(true);
             
-            $this->logger->generateLog(
-                'voters',
-                date('Y-m-d H:i:s'),
+            // Use logLoginAttempt instead of generateLog directly
+            $this->logger->logLoginAttempt(
                 $_SESSION['student_number'] ?? 'unknown',
-                ['action' => 'New session created']
+                true,
+                'Session created'
             );
         }
     }
@@ -87,12 +87,8 @@ class CustomSessionHandler {
 
     public function destroySession() {
         if (isset($_SESSION['student_number'])) {
-            $this->logger->generateLog(
-                'voters',
-                date('Y-m-d H:i:s'),
-                $_SESSION['student_number'],
-                ['action' => 'Session destroyed']
-            );
+            // Use logLogout instead of generateLog directly
+            $this->logger->logLogout($_SESSION['student_number']);
         }
         
         session_unset();

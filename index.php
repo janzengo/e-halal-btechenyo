@@ -28,7 +28,7 @@ if ($student_number) {
 
     if ($row['count'] > 0) {
         // Active OTP exists, redirect back to OTP verification
-        header('Location: otp_verify.php');
+        header('Location: auth/otp_verify.php');
         exit();
     } else {
         // No active OTP, clear the session
@@ -151,53 +151,71 @@ echo $view->renderHeader();
                 </div>
             <?php 
             // Handle form submission
-            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['send_otp'])) {
-                require_once 'classes/OTPMailer.php';
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                // Ensure no output has been sent before
+                if (ob_get_level()) ob_end_clean();
                 
-                $student_number = trim($_POST['student_number']);
-                $response = array();
+                // Check if it's an AJAX request
+                $isAjax = isset($_SERVER['HTTP_X_REQUESTED_WITH']) && 
+                          strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest';
                 
-                // Validate student number exists in database and check voting status
-                $db = Database::getInstance();
-                $stmt = $db->prepare("SELECT has_voted FROM voters WHERE student_number = ?");
-                $stmt->bind_param("s", $student_number);
-                $stmt->execute();
-                $result = $stmt->get_result();
-                
-                if ($result->num_rows === 0) {
-                    $session->setError('Student number not found in the database.');
-                    $response['success'] = false;
-                    $response['message'] = $session->getError();
-                    echo json_encode($response);
-                    exit();
-                }
-
-                // Check if student has already voted
-                $voter = $result->fetch_assoc();
-                if ($voter['has_voted'] == 1) {
-                    $session->setError('You have already cast your vote in this election. Each student can only vote once.');
-                    $response['success'] = false;
-                    $response['message'] = $session->getError();
-                    echo json_encode($response);
-                    exit();
-                }
-                
-                // If not voted, proceed with OTP generation and sending
-                $otpMailer = new OTPMailer($db->getConnection());
-                $sendResult = $otpMailer->generateAndSendOTP($student_number);
-                
-                if ($sendResult['success']) {
+                try {
+                    require_once 'classes/OTPMailer.php';
+                    $otpMailer = new OTPMailer();
+                    
+                    if (!isset($_POST['student_number'])) {
+                        throw new Exception('Student number is required');
+                    }
+                    
+                    $student_number = trim($_POST['student_number']);
+                    
+                    if (empty($student_number)) {
+                        throw new Exception('Please enter your student number');
+                    }
+                    
+                    // Validate student number exists in database and check voting status
+                    $stmt = $db->prepare("SELECT has_voted FROM voters WHERE student_number = ?");
+                    $stmt->bind_param("s", $student_number);
+                    $stmt->execute();
+                    $result = $stmt->get_result();
+                    
+                    if ($result->num_rows === 0) {
+                        throw new Exception('Student number not found in the database.');
+                    }
+                    
+                    // Check if student has already voted
+                    $voter = $result->fetch_assoc();
+                    if ($voter['has_voted'] == 1) {
+                        throw new Exception('You have already cast your vote in this election. Each student can only vote once.');
+                    }
+                    
                     // Store student number in session for OTP verification
                     $session->setSession('otp_student_number', $student_number);
                     
-                    $session->setSuccess('OTP sent successfully.');
-                    $response['success'] = true;
-                } else {
-                    $session->setError('Failed to send OTP. Please try again.');
-                    $response['success'] = false;
-                    $response['message'] = $session->getError();
+                    // Generate and send OTP
+                    $sendResult = $otpMailer->generateAndSendOTP($student_number);
+                    
+                    if (!$sendResult['success']) {
+                        throw new Exception($sendResult['message']);
+                    }
+                    
+                    // Success response
+                    $response = [
+                        'success' => true,
+                        'message' => 'OTP sent successfully',
+                        'redirect' => 'auth/otp_verify.php'
+                    ];
+                    
+                } catch (Exception $e) {
+                    error_log("Login error: " . $e->getMessage());
+                    $response = [
+                        'success' => false,
+                        'message' => $e->getMessage()
+                    ];
                 }
                 
+                // Always return JSON for POST requests
+                header('Content-Type: application/json');
                 echo json_encode($response);
                 exit();
             }
@@ -287,6 +305,8 @@ echo $view->renderHeader();
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap 3.3.7 -->
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
     <script>
     $(document).ready(function() {
@@ -298,6 +318,9 @@ echo $view->renderHeader();
         // Handle form submission
         $('#otpForm').on('submit', function(e) {
             e.preventDefault();
+            
+            // Remove any existing error messages
+            $('[name="errorMessage"]').remove();
             
             var form = $(this);
             var btn = form.find('button[type="submit"]');
@@ -314,7 +337,6 @@ echo $view->renderHeader();
             // Create form data
             var formData = new FormData();
             formData.append('student_number', studentNumber);
-            formData.append('send_otp', '1');
             
             // Send AJAX request
             $.ajax({
@@ -323,43 +345,80 @@ echo $view->renderHeader();
                 data: formData,
                 processData: false,
                 contentType: false,
-                success: function(response) {
+                dataType: 'json',
+                beforeSend: function(xhr) {
+                    xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+                }
+            })
+            .done(function(response) {
+                console.log('Server response:', response);
+                
+                if (response.success) {
                     try {
-                        var result = JSON.parse(response);
-                        if (result.success) {
-                            // Simply redirect to OTP verification page
-                            window.location.href = 'otp_verify.php';
+                        // Show success message and redirect
+                        if (typeof Swal !== 'undefined') {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success!',
+                                text: response.message || 'OTP sent successfully. Redirecting...',
+                                timer: 1500,
+                                showConfirmButton: false,
+                                allowOutsideClick: false
+                            }).then(function() {
+                                window.location.href = response.redirect;
+                            });
                         } else {
-                            // Show error message
-                            var errorHtml = '<div class="alert alert-danger alert-dismissible" name="errorMessage">' +
-                                '<button type="button" class="close" data-dismiss="alert" aria-hidden="true" name="closeError">&times;</button>' +
-                                '<ul><li><i class="fa fa-exclamation-triangle"></i>&nbsp;' + result.message + '</li></ul></div>';
-                            $('.login-box-body').before(errorHtml);
-                            
-                            // Reset button state
-                            btn.prop('disabled', false);
-                            icon.removeClass('d-none');
-                            spinner.addClass('d-none');
-                            btn.contents().first().replaceWith('REQUEST OTP ');
+                            // Fallback if SweetAlert is not available
+                            alert(response.message || 'OTP sent successfully');
+                            window.location.href = response.redirect;
                         }
                     } catch (e) {
-                        location.reload();
+                        console.error('Error showing success message:', e);
+                        // Fallback redirect
+                        window.location.href = response.redirect;
                     }
-                },
-                error: function() {
+                } else {
                     // Show error message
                     var errorHtml = '<div class="alert alert-danger alert-dismissible" name="errorMessage">' +
                         '<button type="button" class="close" data-dismiss="alert" aria-hidden="true" name="closeError">&times;</button>' +
-                        '<ul><li><i class="fa fa-exclamation-triangle"></i>&nbsp;An error occurred. Please try again.</li></ul></div>';
+                        '<ul><li><i class="fa fa-exclamation-triangle"></i>&nbsp;' + (response.message || 'An error occurred. Please try again.') + '</li></ul></div>';
                     $('.login-box-body').before(errorHtml);
                     
-                    // Reset button state
-                    btn.prop('disabled', false);
-                    icon.removeClass('d-none');
-                    spinner.addClass('d-none');
-                    btn.contents().first().replaceWith('REQUEST OTP ');
+                    // Reset form state
+                    resetFormState();
                 }
+            })
+            .fail(function(xhr, status, error) {
+                console.error('Ajax error:', {xhr: xhr, status: status, error: error});
+                
+                var errorMessage = 'An error occurred. Please try again.';
+                
+                // Try to get more specific error message
+                if (xhr.responseJSON && xhr.responseJSON.message) {
+                    errorMessage = xhr.responseJSON.message;
+                } else if (xhr.status === 500) {
+                    errorMessage = 'Internal server error. Please try again later.';
+                } else if (xhr.status === 404) {
+                    errorMessage = 'Service not found. Please try again later.';
+                }
+                
+                // Show error message
+                var errorHtml = '<div class="alert alert-danger alert-dismissible" name="errorMessage">' +
+                    '<button type="button" class="close" data-dismiss="alert" aria-hidden="true" name="closeError">&times;</button>' +
+                    '<ul><li><i class="fa fa-exclamation-triangle"></i>&nbsp;' + errorMessage + '</li></ul></div>';
+                $('.login-box-body').before(errorHtml);
+                
+                // Reset form state
+                resetFormState();
             });
+            
+            // Helper function to reset form state
+            function resetFormState() {
+                btn.prop('disabled', false);
+                icon.removeClass('d-none');
+                spinner.addClass('d-none');
+                btn.contents().first().replaceWith('REQUEST OTP ');
+            }
         });
     });
     </script>

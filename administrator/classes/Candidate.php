@@ -6,15 +6,37 @@ class Candidate {
     private static $instance = null;
     private const UPLOAD_PATH = 'assets/images/candidates/';
     private const DEFAULT_PHOTO = 'assets/images/profile.jpg';
+    private const ABSOLUTE_UPLOAD_PATH = __DIR__ . '/../../administrator/assets/images/candidates/';
 
     private function __construct() {
         $this->db = Database::getInstance();
-        
-        // Create candidates directory if it doesn't exist
-        $fullPath = __DIR__ . '/../../' . self::UPLOAD_PATH;
-        if (!file_exists($fullPath)) {
-            mkdir($fullPath, 0755, true);
+        $this->ensureUploadDirectory();
+    }
+
+    private function ensureUploadDirectory() {
+        if (!file_exists(self::ABSOLUTE_UPLOAD_PATH)) {
+            if (!mkdir(self::ABSOLUTE_UPLOAD_PATH, 0755, true)) {
+                error_log("Failed to create directory: " . self::ABSOLUTE_UPLOAD_PATH);
+                throw new Exception('Failed to create upload directory. Please check server permissions.');
+            }
         }
+
+        if (!is_writable(self::ABSOLUTE_UPLOAD_PATH)) {
+            error_log("Directory not writable: " . self::ABSOLUTE_UPLOAD_PATH);
+            throw new Exception('Upload directory is not writable. Please check server permissions.');
+        }
+    }
+
+    public static function getAbsoluteUploadPath() {
+        return self::ABSOLUTE_UPLOAD_PATH;
+    }
+
+    public static function getRelativeUploadPath() {
+        return self::UPLOAD_PATH;
+    }
+
+    public static function getDefaultPhotoPath() {
+        return self::DEFAULT_PHOTO;
     }
 
     public static function getInstance() {

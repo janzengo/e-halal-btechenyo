@@ -77,8 +77,15 @@ function startArchiveProcess() {
             xhrFields: {
                 withCredentials: true
             },
+            beforeSend: function(xhr) {
+                console.log('Starting archive request...');
+            },
             error: function(xhr, status, error) {
-                console.error('Archive error:', xhr.responseText);
+                console.log('Full XHR object:', xhr);
+                console.log('Status:', status);
+                console.log('Error:', error);
+                console.log('Response Text:', xhr.responseText);
+                console.log('Response Headers:', xhr.getAllResponseHeaders());
                 
                 let errorMessage = 'Server Error';
                 let errorDetails = '';
@@ -88,6 +95,7 @@ function startArchiveProcess() {
                     errorMessage = 'The request timed out. The operation may be taking too long.';
                 } else if (status === 'parsererror') {
                     errorMessage = 'Invalid response from server (parsing error).';
+                    errorDetails = 'Response Text: ' + xhr.responseText;
                 } else if (status === 'abort') {
                     errorMessage = 'Request was aborted.';
                 } else {
@@ -109,29 +117,35 @@ function startArchiveProcess() {
                 
                 // Try to parse the response if possible
                 try {
-                    const response = JSON.parse(xhr.responseText);
-                    if (response && response.message) {
-                        errorMessage = response.message;
-                        if (response.error_details) {
-                            errorDetails = response.error_details;
+                    if (xhr.responseText) {
+                        const response = JSON.parse(xhr.responseText);
+                        if (response && response.message) {
+                            errorMessage = response.message;
+                            if (response.error_details) {
+                                errorDetails = response.error_details;
+                            }
                         }
                     }
                 } catch (e) {
+                    console.log('JSON Parse Error:', e);
                     // If response isn't JSON, try to extract error message from HTML
-                    const errorMatch = /<b>.*?<\/b>:\s*(.*?)<br/i.exec(xhr.responseText);
-                    if (errorMatch && errorMatch[1]) {
-                        errorMessage = 'PHP Error: ' + errorMatch[1];
-                    } else if (xhr.responseText) {
-                        errorDetails = 'Raw response: ' + xhr.responseText.substring(0, 200) + 
-                                      (xhr.responseText.length > 200 ? '...' : '');
+                    if (xhr.responseText) {
+                        const errorMatch = /<b>.*?<\/b>:\s*(.*?)<br/i.exec(xhr.responseText);
+                        if (errorMatch && errorMatch[1]) {
+                            errorMessage = 'PHP Error: ' + errorMatch[1];
+                        } else {
+                            errorDetails = 'Raw response: ' + xhr.responseText.substring(0, 200) + 
+                                         (xhr.responseText.length > 200 ? '...' : '');
+                        }
                     }
                 }
                 
                 // Log full details to console for debugging
-                console.error('Error Details:', {
+                console.log('Error Details:', {
                     status: xhr.status,
                     statusText: xhr.statusText,
-                    responseText: xhr.responseText
+                    responseText: xhr.responseText,
+                    headers: xhr.getAllResponseHeaders()
                 });
                 
                 // Show detailed error in SweetAlert2
@@ -139,17 +153,19 @@ function startArchiveProcess() {
                     icon: 'error',
                     title: 'Archiving Failed',
                     html: `<p>${errorMessage}</p>
-                           ${errorDetails ? `<p class="text-muted small">${errorDetails}</p>` : ''}
-                           <p class="text-muted small">Check server logs for more details.</p>`,
+                           ${errorDetails ? `<pre class="text-left text-small bg-light p-2">${errorDetails}</pre>` : ''}
+                           <p class="text-muted small">Check browser console and server logs for more details.</p>`,
                     confirmButtonText: 'OK'
                 });
             },
             success: function(response) {
-                if (response.success) {
+                console.log('Archive response:', response);
+                
+                if (response && response.success) {
                     Swal.fire({
                         icon: 'success',
                         title: 'Archiving Complete!',
-                        text: 'The election has been successfully archived.',
+                        text: response.message || 'The election has been successfully archived.',
                         timer: 2000,
                         showConfirmButton: false
                     }).then(() => {
@@ -162,7 +178,9 @@ function startArchiveProcess() {
                     Swal.fire({
                         icon: 'error',
                         title: 'Archiving Failed',
-                        text: response.message,
+                        html: `<p>${response ? response.message : 'Unknown error occurred'}</p>
+                               ${response && response.error_details ? 
+                               `<pre class="text-left text-small bg-light p-2">${response.error_details}</pre>` : ''}`,
                         confirmButtonText: 'OK'
                     });
                 }

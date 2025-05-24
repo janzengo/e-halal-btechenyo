@@ -776,3 +776,1617 @@
 2025-04-28 22:30:16 - Saving PDF to physical path: C:/xampp/htdocs/e-halal/administrator/archives/E2504282546/summary.pdf
 2025-04-28 22:30:16 - PDF saved successfully. Normalized path for DB: e-halal/administrator/archives/E2504282546/summary.pdf
 2025-04-28 22:30:16 - PDF generation complete
+2025-05-21 06:17:47 - Starting summary PDF generation
+2025-05-21 06:17:47 - TCPDF class loaded successfully
+2025-05-21 06:17:47 - Running in normal mode - including required files
+2025-05-21 06:17:47 - Error loading includes (document root method): Failed opening required '/home/u838540439/domains/ehalal.tech/public_html//e-halal/init.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php')
+2025-05-21 14:17:47 - All includes loaded successfully (relative path method)
+2025-05-21 14:17:47 - Starting summary PDF generation
+2025-05-21 14:17:47 - Creating new ElectionPDF instance
+2025-05-21 14:17:47 - Setting document properties
+2025-05-21 14:17:47 - Setting font and margin properties
+2025-05-21 14:17:47 - Adding first page
+2025-05-21 14:17:47 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 14:17:47 - Left logo loaded successfully
+2025-05-21 14:17:47 - Right logo loaded successfully
+2025-05-21 14:17:47 - Logos loaded successfully
+2025-05-21 14:17:47 - Creating election information section
+2025-05-21 14:17:47 - Creating info table data
+2025-05-21 14:17:47 - Rendering info table
+2025-05-21 14:17:47 - Creating voter participation section
+2025-05-21 14:17:47 - Getting voting statistics
+2025-05-21 14:17:47 - Creating participation table
+2025-05-21 14:17:47 - Rendering participation table
+2025-05-21 14:17:47 - Creating elected officers section
+2025-05-21 14:17:47 - Creating winners table
+2025-05-21 14:17:47 - Getting positions data
+2025-05-21 14:17:47 - Creating winners table rows - positions count: 3
+2025-05-21 14:17:47 - Processing position ID: 2 - President
+2025-05-21 14:17:47 - Position has 5 candidates
+2025-05-21 14:17:47 - Position President has max_vote of 1
+2025-05-21 14:17:47 - Added winner: Rody Duterte (position 1 of 1)
+2025-05-21 14:17:47 - Processing position ID: 3 - Vice President
+2025-05-21 14:17:47 - Position has 5 candidates
+2025-05-21 14:17:47 - Position Vice President has max_vote of 1
+2025-05-21 14:17:47 - Added winner: Leni Robredo (position 1 of 1)
+2025-05-21 14:17:47 - Processing position ID: 4 - Senators
+2025-05-21 14:17:47 - Position has 20 candidates
+2025-05-21 14:17:47 - Position Senators has max_vote of 12
+2025-05-21 14:17:47 - Added winner: Frank Drillon (position 1 of 12)
+2025-05-21 14:17:47 - Added winner: Win Gatchalian (position 2 of 12)
+2025-05-21 14:17:47 - Added winner: Dick Gordon (position 3 of 12)
+2025-05-21 14:17:47 - Added winner: Risa Hontiveros (position 4 of 12)
+2025-05-21 14:17:47 - Added winner: Panfilo Ping Lacson (position 5 of 12)
+2025-05-21 14:17:47 - Added winner: Manny Pacquiao (position 6 of 12)
+2025-05-21 14:17:47 - Added winner: Kiko Pangilinan (position 7 of 12)
+2025-05-21 14:17:47 - Added winner: Ralph Recto (position 8 of 12)
+2025-05-21 14:17:47 - Added winner: Vicente Sotto (position 9 of 12)
+2025-05-21 14:17:47 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 14:17:47 - Left logo loaded successfully
+2025-05-21 14:17:47 - Right logo loaded successfully
+2025-05-21 14:17:47 - Logos loaded successfully
+2025-05-21 14:17:47 - Added winner: Francis Tolentino (position 10 of 12)
+2025-05-21 14:17:47 - Added winner: Joel Villanueva (position 11 of 12)
+2025-05-21 14:17:47 - Added winner: Migs Zubiri (position 12 of 12)
+2025-05-21 14:17:47 - Creating detailed vote statistics section
+2025-05-21 14:17:47 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 14:17:47 - Left logo loaded successfully
+2025-05-21 14:17:47 - Right logo loaded successfully
+2025-05-21 14:17:47 - Logos loaded successfully
+2025-05-21 14:17:47 - Processing detailed stats for position ID: 2 - President
+2025-05-21 14:17:47 - Retrieved 5 candidates for position 2
+2025-05-21 14:17:47 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-05-21 14:17:47 - Processing candidate: {"firstname":"Rody","lastname":"Duterte","photo":"assets\/images\/candidates\/candidate_duterte_rody.png","votes":1,"partylist_name":"PDPLBN"}
+2025-05-21 14:17:47 - Highlighting candidate Rody Duterte as top 1 of 1 allowed winners
+2025-05-21 14:17:47 - Processing candidate: {"firstname":"Jojo","lastname":"Binay","photo":"assets\/images\/candidates\/candidate_binay_jojo.jpg","votes":0,"partylist_name":"United Nationalist Alliance"}
+2025-05-21 14:17:47 - Processing candidate: {"firstname":"Miriam","lastname":"Defensor Santiago","photo":"assets\/images\/candidates\/candidate_defensor santiago _miriam.jpg","votes":0,"partylist_name":"People's Reform Party"}
+2025-05-21 14:17:47 - Processing candidate: {"firstname":"Grace","lastname":"Poe","photo":"assets\/images\/candidates\/candidate_poe_grace.png","votes":0,"partylist_name":null}
+2025-05-21 14:17:47 - Processing candidate: {"firstname":"Mar","lastname":"Roxas","photo":"assets\/images\/candidates\/candidate_roxas_mar.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 14:17:47 - Processing detailed stats for position ID: 3 - Vice President
+2025-05-21 14:17:47 - Retrieved 5 candidates for position 3
+2025-05-21 14:17:47 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-05-21 14:17:47 - Processing candidate: {"firstname":"Leni","lastname":"Robredo","photo":"assets\/images\/candidates\/candidate_robredo_leni .png","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 14:17:47 - Highlighting candidate Leni Robredo as top 1 of 1 allowed winners
+2025-05-21 14:17:47 - Processing candidate: {"firstname":"Alan Peter","lastname":"Cayetano","photo":"assets\/images\/candidates\/candidate_cayetano_alan peter.jpg","votes":0,"partylist_name":null}
+2025-05-21 14:17:47 - Processing candidate: {"firstname":"Chiz","lastname":"Escudero","photo":"assets\/images\/candidates\/candidate_escudero_chiz.jpg","votes":0,"partylist_name":null}
+2025-05-21 14:17:47 - Processing candidate: {"firstname":"Bongbong","lastname":"Marcos","photo":"assets\/images\/candidates\/candidate_marcus_bongbong.jpg","votes":0,"partylist_name":null}
+2025-05-21 14:17:47 - Processing candidate: {"firstname":"Antonio","lastname":"Trillanes IV","photo":"assets\/images\/candidates\/candidate_trillanes iv _antonio.jpg","votes":0,"partylist_name":null}
+2025-05-21 14:17:47 - Processing detailed stats for position ID: 4 - Senators
+2025-05-21 14:17:47 - Retrieved 20 candidates for position 4
+2025-05-21 14:17:47 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-05-21 14:17:47 - Processing candidate: {"firstname":"Frank","lastname":"Drillon","photo":"assets\/images\/candidates\/candidate_drillon_frank.png","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 14:17:47 - Highlighting candidate Frank Drillon as top 1 of 12 allowed winners
+2025-05-21 14:17:47 - Processing candidate: {"firstname":"Win","lastname":"Gatchalian","photo":"assets\/images\/candidates\/candidate_gatchalian_win.jpg","votes":1,"partylist_name":null}
+2025-05-21 14:17:47 - Highlighting candidate Win Gatchalian as top 2 of 12 allowed winners
+2025-05-21 14:17:47 - Processing candidate: {"firstname":"Dick","lastname":"Gordon","photo":"assets\/images\/candidates\/candidate_gordon_dick.jpg","votes":1,"partylist_name":null}
+2025-05-21 14:17:47 - Highlighting candidate Dick Gordon as top 3 of 12 allowed winners
+2025-05-21 14:17:47 - Processing candidate: {"firstname":"Risa","lastname":"Hontiveros","photo":"assets\/images\/candidates\/candidate_hontiveros_risa.jpg","votes":1,"partylist_name":null}
+2025-05-21 14:17:47 - Highlighting candidate Risa Hontiveros as top 4 of 12 allowed winners
+2025-05-21 14:17:47 - Processing candidate: {"firstname":"Panfilo Ping","lastname":"Lacson","photo":"assets\/images\/candidates\/candidate_lacson_panfilo ping.jpg","votes":1,"partylist_name":null}
+2025-05-21 14:17:47 - Highlighting candidate Panfilo Ping Lacson as top 5 of 12 allowed winners
+2025-05-21 14:17:47 - Processing candidate: {"firstname":"Manny","lastname":"Pacquiao","photo":"assets\/images\/candidates\/candidate_pacquiao_manny.jpeg","votes":1,"partylist_name":null}
+2025-05-21 14:17:47 - Highlighting candidate Manny Pacquiao as top 6 of 12 allowed winners
+2025-05-21 14:17:47 - Processing candidate: {"firstname":"Kiko","lastname":"Pangilinan","photo":"assets\/images\/candidates\/candidate_pangilinan_kiko.jpg","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 14:17:47 - Highlighting candidate Kiko Pangilinan as top 7 of 12 allowed winners
+2025-05-21 14:17:47 - Processing candidate: {"firstname":"Ralph","lastname":"Recto","photo":"assets\/images\/candidates\/candidate_recto_ralph.jpg","votes":1,"partylist_name":null}
+2025-05-21 14:17:47 - Highlighting candidate Ralph Recto as top 8 of 12 allowed winners
+2025-05-21 14:17:47 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 14:17:47 - Left logo loaded successfully
+2025-05-21 14:17:47 - Right logo loaded successfully
+2025-05-21 14:17:47 - Logos loaded successfully
+2025-05-21 14:17:47 - Processing candidate: {"firstname":"Vicente","lastname":"Sotto","photo":"assets\/images\/candidates\/candidate_sotto_vicente.jpg","votes":1,"partylist_name":null}
+2025-05-21 14:17:47 - Highlighting candidate Vicente Sotto as top 9 of 12 allowed winners
+2025-05-21 14:17:47 - Processing candidate: {"firstname":"Francis","lastname":"Tolentino","photo":"assets\/images\/candidates\/candidate_tolentino_francis.jpg","votes":1,"partylist_name":null}
+2025-05-21 14:17:47 - Highlighting candidate Francis Tolentino as top 10 of 12 allowed winners
+2025-05-21 14:17:47 - Processing candidate: {"firstname":"Joel","lastname":"Villanueva","photo":"assets\/images\/candidates\/candidate_villanueva_joel.png","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 14:17:47 - Highlighting candidate Joel Villanueva as top 11 of 12 allowed winners
+2025-05-21 14:17:47 - Processing candidate: {"firstname":"Migs","lastname":"Zubiri","photo":"assets\/images\/candidates\/candidate_zubiri_migs.jpg","votes":1,"partylist_name":null}
+2025-05-21 14:17:47 - Highlighting candidate Migs Zubiri as top 12 of 12 allowed winners
+2025-05-21 14:17:47 - Processing candidate: {"firstname":"Neri","lastname":"Colmenares","photo":"assets\/images\/candidates\/candidate_colmenares_neri.jpg","votes":0,"partylist_name":null}
+2025-05-21 14:17:47 - Processing candidate: {"firstname":"Leila","lastname":"De Lima","photo":"assets\/images\/candidates\/candidate_de lima_leila.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 14:17:47 - Processing candidate: {"firstname":"Isko Moreno","lastname":"Domagoso","photo":"assets\/images\/candidates\/candidate_domagoso_isko moreno.jpeg","votes":0,"partylist_name":null}
+2025-05-21 14:17:47 - Processing candidate: {"firstname":"TG","lastname":"Guingona","photo":"assets\/images\/candidates\/candidate_guingona_tg.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 14:17:47 - Processing candidate: {"firstname":"Mark","lastname":"Lapid","photo":"assets\/images\/candidates\/candidate_lapid_mark.jpg","votes":0,"partylist_name":null}
+2025-05-21 14:17:47 - Processing candidate: {"firstname":"Sergio","lastname":"Osme\u00f1a III","photo":"assets\/images\/candidates\/candidate_osme\u00f1a iii_sergio.jpg","votes":0,"partylist_name":null}
+2025-05-21 14:17:47 - Processing candidate: {"firstname":"Carlos Jericho","lastname":"Petilla","photo":"assets\/images\/candidates\/candidate_petilla_carlos jericho.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 14:17:47 - Processing candidate: {"firstname":"Martin","lastname":"Romualdez","photo":"assets\/images\/candidates\/candidate_romualdez_martin.jpg","votes":0,"partylist_name":null}
+2025-05-21 14:17:47 - Creating certification section
+2025-05-21 14:17:47 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 14:17:47 - Left logo loaded successfully
+2025-05-21 14:17:47 - Right logo loaded successfully
+2025-05-21 14:17:47 - Logos loaded successfully
+2025-05-21 14:17:47 - Generating output PDF
+2025-05-21 14:17:47 - Sending PDF for download
+2025-05-21 14:17:47 - PDF download initiated
+2025-05-21 14:17:47 - PDF generation complete
+2025-05-21 06:18:08 - Starting summary PDF generation
+2025-05-21 06:18:08 - TCPDF class loaded successfully
+2025-05-21 06:18:08 - Running in normal mode - including required files
+2025-05-21 06:18:08 - Error loading includes (document root method): Failed opening required '/home/u838540439/domains/ehalal.tech/public_html//e-halal/init.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php')
+2025-05-21 14:18:08 - All includes loaded successfully (relative path method)
+2025-05-21 14:18:08 - Starting summary PDF generation
+2025-05-21 14:18:08 - Creating new ElectionPDF instance
+2025-05-21 14:18:08 - Setting document properties
+2025-05-21 14:18:08 - Setting font and margin properties
+2025-05-21 14:18:08 - Adding first page
+2025-05-21 14:18:08 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 14:18:08 - Left logo loaded successfully
+2025-05-21 14:18:08 - Right logo loaded successfully
+2025-05-21 14:18:08 - Logos loaded successfully
+2025-05-21 14:18:08 - Creating election information section
+2025-05-21 14:18:08 - Creating info table data
+2025-05-21 14:18:08 - Rendering info table
+2025-05-21 14:18:08 - Creating voter participation section
+2025-05-21 14:18:08 - Getting voting statistics
+2025-05-21 14:18:08 - Creating participation table
+2025-05-21 14:18:08 - Rendering participation table
+2025-05-21 14:18:08 - Creating elected officers section
+2025-05-21 14:18:08 - Creating winners table
+2025-05-21 14:18:08 - Getting positions data
+2025-05-21 14:18:08 - Creating winners table rows - positions count: 3
+2025-05-21 14:18:08 - Processing position ID: 2 - President
+2025-05-21 14:18:08 - Position has 5 candidates
+2025-05-21 14:18:08 - Position President has max_vote of 1
+2025-05-21 14:18:08 - Added winner: Rody Duterte (position 1 of 1)
+2025-05-21 14:18:08 - Processing position ID: 3 - Vice President
+2025-05-21 14:18:08 - Position has 5 candidates
+2025-05-21 14:18:08 - Position Vice President has max_vote of 1
+2025-05-21 14:18:08 - Added winner: Leni Robredo (position 1 of 1)
+2025-05-21 14:18:08 - Processing position ID: 4 - Senators
+2025-05-21 14:18:08 - Position has 20 candidates
+2025-05-21 14:18:08 - Position Senators has max_vote of 12
+2025-05-21 14:18:08 - Added winner: Frank Drillon (position 1 of 12)
+2025-05-21 14:18:08 - Added winner: Win Gatchalian (position 2 of 12)
+2025-05-21 14:18:08 - Added winner: Dick Gordon (position 3 of 12)
+2025-05-21 14:18:08 - Added winner: Risa Hontiveros (position 4 of 12)
+2025-05-21 14:18:08 - Added winner: Panfilo Ping Lacson (position 5 of 12)
+2025-05-21 14:18:08 - Added winner: Manny Pacquiao (position 6 of 12)
+2025-05-21 14:18:08 - Added winner: Kiko Pangilinan (position 7 of 12)
+2025-05-21 14:18:08 - Added winner: Ralph Recto (position 8 of 12)
+2025-05-21 14:18:08 - Added winner: Vicente Sotto (position 9 of 12)
+2025-05-21 14:18:08 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 14:18:08 - Left logo loaded successfully
+2025-05-21 14:18:08 - Right logo loaded successfully
+2025-05-21 14:18:08 - Logos loaded successfully
+2025-05-21 14:18:08 - Added winner: Francis Tolentino (position 10 of 12)
+2025-05-21 14:18:08 - Added winner: Joel Villanueva (position 11 of 12)
+2025-05-21 14:18:08 - Added winner: Migs Zubiri (position 12 of 12)
+2025-05-21 14:18:08 - Creating detailed vote statistics section
+2025-05-21 14:18:08 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 14:18:08 - Left logo loaded successfully
+2025-05-21 14:18:08 - Right logo loaded successfully
+2025-05-21 14:18:08 - Logos loaded successfully
+2025-05-21 14:18:08 - Processing detailed stats for position ID: 2 - President
+2025-05-21 14:18:08 - Retrieved 5 candidates for position 2
+2025-05-21 14:18:08 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-05-21 14:18:08 - Processing candidate: {"firstname":"Rody","lastname":"Duterte","photo":"assets\/images\/candidates\/candidate_duterte_rody.png","votes":1,"partylist_name":"PDPLBN"}
+2025-05-21 14:18:08 - Highlighting candidate Rody Duterte as top 1 of 1 allowed winners
+2025-05-21 14:18:08 - Processing candidate: {"firstname":"Jojo","lastname":"Binay","photo":"assets\/images\/candidates\/candidate_binay_jojo.jpg","votes":0,"partylist_name":"United Nationalist Alliance"}
+2025-05-21 14:18:08 - Processing candidate: {"firstname":"Miriam","lastname":"Defensor Santiago","photo":"assets\/images\/candidates\/candidate_defensor santiago _miriam.jpg","votes":0,"partylist_name":"People's Reform Party"}
+2025-05-21 14:18:08 - Processing candidate: {"firstname":"Grace","lastname":"Poe","photo":"assets\/images\/candidates\/candidate_poe_grace.png","votes":0,"partylist_name":null}
+2025-05-21 14:18:08 - Processing candidate: {"firstname":"Mar","lastname":"Roxas","photo":"assets\/images\/candidates\/candidate_roxas_mar.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 14:18:08 - Processing detailed stats for position ID: 3 - Vice President
+2025-05-21 14:18:08 - Retrieved 5 candidates for position 3
+2025-05-21 14:18:08 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-05-21 14:18:08 - Processing candidate: {"firstname":"Leni","lastname":"Robredo","photo":"assets\/images\/candidates\/candidate_robredo_leni .png","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 14:18:08 - Highlighting candidate Leni Robredo as top 1 of 1 allowed winners
+2025-05-21 14:18:08 - Processing candidate: {"firstname":"Alan Peter","lastname":"Cayetano","photo":"assets\/images\/candidates\/candidate_cayetano_alan peter.jpg","votes":0,"partylist_name":null}
+2025-05-21 14:18:08 - Processing candidate: {"firstname":"Chiz","lastname":"Escudero","photo":"assets\/images\/candidates\/candidate_escudero_chiz.jpg","votes":0,"partylist_name":null}
+2025-05-21 14:18:08 - Processing candidate: {"firstname":"Bongbong","lastname":"Marcos","photo":"assets\/images\/candidates\/candidate_marcus_bongbong.jpg","votes":0,"partylist_name":null}
+2025-05-21 14:18:08 - Processing candidate: {"firstname":"Antonio","lastname":"Trillanes IV","photo":"assets\/images\/candidates\/candidate_trillanes iv _antonio.jpg","votes":0,"partylist_name":null}
+2025-05-21 14:18:08 - Processing detailed stats for position ID: 4 - Senators
+2025-05-21 14:18:08 - Retrieved 20 candidates for position 4
+2025-05-21 14:18:08 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-05-21 14:18:08 - Processing candidate: {"firstname":"Frank","lastname":"Drillon","photo":"assets\/images\/candidates\/candidate_drillon_frank.png","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 14:18:08 - Highlighting candidate Frank Drillon as top 1 of 12 allowed winners
+2025-05-21 14:18:08 - Processing candidate: {"firstname":"Win","lastname":"Gatchalian","photo":"assets\/images\/candidates\/candidate_gatchalian_win.jpg","votes":1,"partylist_name":null}
+2025-05-21 14:18:08 - Highlighting candidate Win Gatchalian as top 2 of 12 allowed winners
+2025-05-21 14:18:08 - Processing candidate: {"firstname":"Dick","lastname":"Gordon","photo":"assets\/images\/candidates\/candidate_gordon_dick.jpg","votes":1,"partylist_name":null}
+2025-05-21 14:18:08 - Highlighting candidate Dick Gordon as top 3 of 12 allowed winners
+2025-05-21 14:18:08 - Processing candidate: {"firstname":"Risa","lastname":"Hontiveros","photo":"assets\/images\/candidates\/candidate_hontiveros_risa.jpg","votes":1,"partylist_name":null}
+2025-05-21 14:18:08 - Highlighting candidate Risa Hontiveros as top 4 of 12 allowed winners
+2025-05-21 14:18:08 - Processing candidate: {"firstname":"Panfilo Ping","lastname":"Lacson","photo":"assets\/images\/candidates\/candidate_lacson_panfilo ping.jpg","votes":1,"partylist_name":null}
+2025-05-21 14:18:08 - Highlighting candidate Panfilo Ping Lacson as top 5 of 12 allowed winners
+2025-05-21 14:18:08 - Processing candidate: {"firstname":"Manny","lastname":"Pacquiao","photo":"assets\/images\/candidates\/candidate_pacquiao_manny.jpeg","votes":1,"partylist_name":null}
+2025-05-21 14:18:08 - Highlighting candidate Manny Pacquiao as top 6 of 12 allowed winners
+2025-05-21 14:18:08 - Processing candidate: {"firstname":"Kiko","lastname":"Pangilinan","photo":"assets\/images\/candidates\/candidate_pangilinan_kiko.jpg","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 14:18:08 - Highlighting candidate Kiko Pangilinan as top 7 of 12 allowed winners
+2025-05-21 14:18:08 - Processing candidate: {"firstname":"Ralph","lastname":"Recto","photo":"assets\/images\/candidates\/candidate_recto_ralph.jpg","votes":1,"partylist_name":null}
+2025-05-21 14:18:08 - Highlighting candidate Ralph Recto as top 8 of 12 allowed winners
+2025-05-21 14:18:08 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 14:18:08 - Left logo loaded successfully
+2025-05-21 14:18:08 - Right logo loaded successfully
+2025-05-21 14:18:08 - Logos loaded successfully
+2025-05-21 14:18:08 - Processing candidate: {"firstname":"Vicente","lastname":"Sotto","photo":"assets\/images\/candidates\/candidate_sotto_vicente.jpg","votes":1,"partylist_name":null}
+2025-05-21 14:18:08 - Highlighting candidate Vicente Sotto as top 9 of 12 allowed winners
+2025-05-21 14:18:08 - Processing candidate: {"firstname":"Francis","lastname":"Tolentino","photo":"assets\/images\/candidates\/candidate_tolentino_francis.jpg","votes":1,"partylist_name":null}
+2025-05-21 14:18:08 - Highlighting candidate Francis Tolentino as top 10 of 12 allowed winners
+2025-05-21 14:18:08 - Processing candidate: {"firstname":"Joel","lastname":"Villanueva","photo":"assets\/images\/candidates\/candidate_villanueva_joel.png","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 14:18:08 - Highlighting candidate Joel Villanueva as top 11 of 12 allowed winners
+2025-05-21 14:18:08 - Processing candidate: {"firstname":"Migs","lastname":"Zubiri","photo":"assets\/images\/candidates\/candidate_zubiri_migs.jpg","votes":1,"partylist_name":null}
+2025-05-21 14:18:08 - Highlighting candidate Migs Zubiri as top 12 of 12 allowed winners
+2025-05-21 14:18:08 - Processing candidate: {"firstname":"Neri","lastname":"Colmenares","photo":"assets\/images\/candidates\/candidate_colmenares_neri.jpg","votes":0,"partylist_name":null}
+2025-05-21 14:18:08 - Processing candidate: {"firstname":"Leila","lastname":"De Lima","photo":"assets\/images\/candidates\/candidate_de lima_leila.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 14:18:08 - Processing candidate: {"firstname":"Isko Moreno","lastname":"Domagoso","photo":"assets\/images\/candidates\/candidate_domagoso_isko moreno.jpeg","votes":0,"partylist_name":null}
+2025-05-21 14:18:08 - Processing candidate: {"firstname":"TG","lastname":"Guingona","photo":"assets\/images\/candidates\/candidate_guingona_tg.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 14:18:08 - Processing candidate: {"firstname":"Mark","lastname":"Lapid","photo":"assets\/images\/candidates\/candidate_lapid_mark.jpg","votes":0,"partylist_name":null}
+2025-05-21 14:18:08 - Processing candidate: {"firstname":"Sergio","lastname":"Osme\u00f1a III","photo":"assets\/images\/candidates\/candidate_osme\u00f1a iii_sergio.jpg","votes":0,"partylist_name":null}
+2025-05-21 14:18:08 - Processing candidate: {"firstname":"Carlos Jericho","lastname":"Petilla","photo":"assets\/images\/candidates\/candidate_petilla_carlos jericho.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 14:18:08 - Processing candidate: {"firstname":"Martin","lastname":"Romualdez","photo":"assets\/images\/candidates\/candidate_romualdez_martin.jpg","votes":0,"partylist_name":null}
+2025-05-21 14:18:08 - Creating certification section
+2025-05-21 14:18:08 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 14:18:08 - Left logo loaded successfully
+2025-05-21 14:18:08 - Right logo loaded successfully
+2025-05-21 14:18:08 - Logos loaded successfully
+2025-05-21 14:18:08 - Generating output PDF
+2025-05-21 14:18:08 - Sending PDF for download
+2025-05-21 14:18:08 - PDF download initiated
+2025-05-21 14:18:08 - PDF generation complete
+2025-05-21 07:47:14 - Starting summary PDF generation
+2025-05-21 07:47:14 - TCPDF class loaded successfully
+2025-05-21 07:47:14 - Running in normal mode - including required files
+2025-05-21 07:47:14 - Error loading includes (document root method): Failed opening required '/home/u838540439/domains/ehalal.tech/public_html//e-halal/init.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php')
+2025-05-21 15:47:14 - All includes loaded successfully (relative path method)
+2025-05-21 15:47:14 - Starting summary PDF generation
+2025-05-21 15:47:14 - Creating new ElectionPDF instance
+2025-05-21 15:47:14 - Setting document properties
+2025-05-21 15:47:14 - Setting font and margin properties
+2025-05-21 15:47:14 - Adding first page
+2025-05-21 15:47:14 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 15:47:14 - Left logo loaded successfully
+2025-05-21 15:47:14 - Right logo loaded successfully
+2025-05-21 15:47:14 - Logos loaded successfully
+2025-05-21 15:47:14 - Creating election information section
+2025-05-21 15:47:14 - Creating info table data
+2025-05-21 15:47:14 - Rendering info table
+2025-05-21 15:47:14 - Creating voter participation section
+2025-05-21 15:47:14 - Getting voting statistics
+2025-05-21 15:47:14 - Creating participation table
+2025-05-21 15:47:14 - Rendering participation table
+2025-05-21 15:47:14 - Creating elected officers section
+2025-05-21 15:47:14 - Creating winners table
+2025-05-21 15:47:14 - Getting positions data
+2025-05-21 15:47:14 - Creating winners table rows - positions count: 3
+2025-05-21 15:47:14 - Processing position ID: 2 - President
+2025-05-21 15:47:14 - Position has 5 candidates
+2025-05-21 15:47:14 - Position President has max_vote of 1
+2025-05-21 15:47:14 - Added winner: Rody Duterte (position 1 of 1)
+2025-05-21 15:47:14 - Processing position ID: 3 - Vice President
+2025-05-21 15:47:14 - Position has 5 candidates
+2025-05-21 15:47:14 - Position Vice President has max_vote of 1
+2025-05-21 15:47:14 - Added winner: Leni Robredo (position 1 of 1)
+2025-05-21 15:47:14 - Processing position ID: 4 - Senators
+2025-05-21 15:47:14 - Position has 20 candidates
+2025-05-21 15:47:14 - Position Senators has max_vote of 12
+2025-05-21 15:47:14 - Added winner: Frank Drillon (position 1 of 12)
+2025-05-21 15:47:14 - Added winner: Win Gatchalian (position 2 of 12)
+2025-05-21 15:47:14 - Added winner: Dick Gordon (position 3 of 12)
+2025-05-21 15:47:14 - Added winner: Risa Hontiveros (position 4 of 12)
+2025-05-21 15:47:14 - Added winner: Panfilo Ping Lacson (position 5 of 12)
+2025-05-21 15:47:14 - Added winner: Manny Pacquiao (position 6 of 12)
+2025-05-21 15:47:14 - Added winner: Kiko Pangilinan (position 7 of 12)
+2025-05-21 15:47:14 - Added winner: Ralph Recto (position 8 of 12)
+2025-05-21 15:47:14 - Added winner: Vicente Sotto (position 9 of 12)
+2025-05-21 15:47:14 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 15:47:14 - Left logo loaded successfully
+2025-05-21 15:47:14 - Right logo loaded successfully
+2025-05-21 15:47:14 - Logos loaded successfully
+2025-05-21 15:47:14 - Added winner: Francis Tolentino (position 10 of 12)
+2025-05-21 15:47:14 - Added winner: Joel Villanueva (position 11 of 12)
+2025-05-21 15:47:14 - Added winner: Migs Zubiri (position 12 of 12)
+2025-05-21 15:47:14 - Creating detailed vote statistics section
+2025-05-21 15:47:14 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 15:47:14 - Left logo loaded successfully
+2025-05-21 15:47:14 - Right logo loaded successfully
+2025-05-21 15:47:14 - Logos loaded successfully
+2025-05-21 15:47:14 - Processing detailed stats for position ID: 2 - President
+2025-05-21 15:47:14 - Retrieved 5 candidates for position 2
+2025-05-21 15:47:14 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-05-21 15:47:14 - Processing candidate: {"firstname":"Rody","lastname":"Duterte","photo":"assets\/images\/candidates\/candidate_duterte_rody.png","votes":1,"partylist_name":"PDPLBN"}
+2025-05-21 15:47:14 - Highlighting candidate Rody Duterte as top 1 of 1 allowed winners
+2025-05-21 15:47:14 - Processing candidate: {"firstname":"Jojo","lastname":"Binay","photo":"assets\/images\/candidates\/candidate_binay_jojo.jpg","votes":0,"partylist_name":"United Nationalist Alliance"}
+2025-05-21 15:47:14 - Processing candidate: {"firstname":"Miriam","lastname":"Defensor Santiago","photo":"assets\/images\/candidates\/candidate_defensor santiago _miriam.jpg","votes":0,"partylist_name":"People's Reform Party"}
+2025-05-21 15:47:14 - Processing candidate: {"firstname":"Grace","lastname":"Poe","photo":"assets\/images\/candidates\/candidate_poe_grace.png","votes":0,"partylist_name":null}
+2025-05-21 15:47:14 - Processing candidate: {"firstname":"Mar","lastname":"Roxas","photo":"assets\/images\/candidates\/candidate_roxas_mar.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 15:47:14 - Processing detailed stats for position ID: 3 - Vice President
+2025-05-21 15:47:14 - Retrieved 5 candidates for position 3
+2025-05-21 15:47:14 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-05-21 15:47:14 - Processing candidate: {"firstname":"Leni","lastname":"Robredo","photo":"assets\/images\/candidates\/candidate_robredo_leni .png","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 15:47:14 - Highlighting candidate Leni Robredo as top 1 of 1 allowed winners
+2025-05-21 15:47:14 - Processing candidate: {"firstname":"Alan Peter","lastname":"Cayetano","photo":"assets\/images\/candidates\/candidate_cayetano_alan peter.jpg","votes":0,"partylist_name":null}
+2025-05-21 15:47:14 - Processing candidate: {"firstname":"Chiz","lastname":"Escudero","photo":"assets\/images\/candidates\/candidate_escudero_chiz.jpg","votes":0,"partylist_name":null}
+2025-05-21 15:47:14 - Processing candidate: {"firstname":"Bongbong","lastname":"Marcos","photo":"assets\/images\/candidates\/candidate_marcus_bongbong.jpg","votes":0,"partylist_name":null}
+2025-05-21 15:47:14 - Processing candidate: {"firstname":"Antonio","lastname":"Trillanes IV","photo":"assets\/images\/candidates\/candidate_trillanes iv _antonio.jpg","votes":0,"partylist_name":null}
+2025-05-21 15:47:14 - Processing detailed stats for position ID: 4 - Senators
+2025-05-21 15:47:14 - Retrieved 20 candidates for position 4
+2025-05-21 15:47:14 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-05-21 15:47:14 - Processing candidate: {"firstname":"Frank","lastname":"Drillon","photo":"assets\/images\/candidates\/candidate_drillon_frank.png","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 15:47:14 - Highlighting candidate Frank Drillon as top 1 of 12 allowed winners
+2025-05-21 15:47:14 - Processing candidate: {"firstname":"Win","lastname":"Gatchalian","photo":"assets\/images\/candidates\/candidate_gatchalian_win.jpg","votes":1,"partylist_name":null}
+2025-05-21 15:47:14 - Highlighting candidate Win Gatchalian as top 2 of 12 allowed winners
+2025-05-21 15:47:14 - Processing candidate: {"firstname":"Dick","lastname":"Gordon","photo":"assets\/images\/candidates\/candidate_gordon_dick.jpg","votes":1,"partylist_name":null}
+2025-05-21 15:47:14 - Highlighting candidate Dick Gordon as top 3 of 12 allowed winners
+2025-05-21 15:47:14 - Processing candidate: {"firstname":"Risa","lastname":"Hontiveros","photo":"assets\/images\/candidates\/candidate_hontiveros_risa.jpg","votes":1,"partylist_name":null}
+2025-05-21 15:47:14 - Highlighting candidate Risa Hontiveros as top 4 of 12 allowed winners
+2025-05-21 15:47:14 - Processing candidate: {"firstname":"Panfilo Ping","lastname":"Lacson","photo":"assets\/images\/candidates\/candidate_lacson_panfilo ping.jpg","votes":1,"partylist_name":null}
+2025-05-21 15:47:14 - Highlighting candidate Panfilo Ping Lacson as top 5 of 12 allowed winners
+2025-05-21 15:47:14 - Processing candidate: {"firstname":"Manny","lastname":"Pacquiao","photo":"assets\/images\/candidates\/candidate_pacquiao_manny.jpeg","votes":1,"partylist_name":null}
+2025-05-21 15:47:14 - Highlighting candidate Manny Pacquiao as top 6 of 12 allowed winners
+2025-05-21 15:47:14 - Processing candidate: {"firstname":"Kiko","lastname":"Pangilinan","photo":"assets\/images\/candidates\/candidate_pangilinan_kiko.jpg","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 15:47:14 - Highlighting candidate Kiko Pangilinan as top 7 of 12 allowed winners
+2025-05-21 15:47:14 - Processing candidate: {"firstname":"Ralph","lastname":"Recto","photo":"assets\/images\/candidates\/candidate_recto_ralph.jpg","votes":1,"partylist_name":null}
+2025-05-21 15:47:14 - Highlighting candidate Ralph Recto as top 8 of 12 allowed winners
+2025-05-21 15:47:14 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 15:47:14 - Left logo loaded successfully
+2025-05-21 15:47:14 - Right logo loaded successfully
+2025-05-21 15:47:14 - Logos loaded successfully
+2025-05-21 15:47:14 - Processing candidate: {"firstname":"Vicente","lastname":"Sotto","photo":"assets\/images\/candidates\/candidate_sotto_vicente.jpg","votes":1,"partylist_name":null}
+2025-05-21 15:47:14 - Highlighting candidate Vicente Sotto as top 9 of 12 allowed winners
+2025-05-21 15:47:14 - Processing candidate: {"firstname":"Francis","lastname":"Tolentino","photo":"assets\/images\/candidates\/candidate_tolentino_francis.jpg","votes":1,"partylist_name":null}
+2025-05-21 15:47:14 - Highlighting candidate Francis Tolentino as top 10 of 12 allowed winners
+2025-05-21 15:47:14 - Processing candidate: {"firstname":"Joel","lastname":"Villanueva","photo":"assets\/images\/candidates\/candidate_villanueva_joel.png","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 15:47:14 - Highlighting candidate Joel Villanueva as top 11 of 12 allowed winners
+2025-05-21 15:47:14 - Processing candidate: {"firstname":"Migs","lastname":"Zubiri","photo":"assets\/images\/candidates\/candidate_zubiri_migs.jpg","votes":1,"partylist_name":null}
+2025-05-21 15:47:14 - Highlighting candidate Migs Zubiri as top 12 of 12 allowed winners
+2025-05-21 15:47:14 - Processing candidate: {"firstname":"Neri","lastname":"Colmenares","photo":"assets\/images\/candidates\/candidate_colmenares_neri.jpg","votes":0,"partylist_name":null}
+2025-05-21 15:47:14 - Processing candidate: {"firstname":"Leila","lastname":"De Lima","photo":"assets\/images\/candidates\/candidate_de lima_leila.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 15:47:14 - Processing candidate: {"firstname":"Isko Moreno","lastname":"Domagoso","photo":"assets\/images\/candidates\/candidate_domagoso_isko moreno.jpeg","votes":0,"partylist_name":null}
+2025-05-21 15:47:14 - Processing candidate: {"firstname":"TG","lastname":"Guingona","photo":"assets\/images\/candidates\/candidate_guingona_tg.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 15:47:14 - Processing candidate: {"firstname":"Mark","lastname":"Lapid","photo":"assets\/images\/candidates\/candidate_lapid_mark.jpg","votes":0,"partylist_name":null}
+2025-05-21 15:47:14 - Processing candidate: {"firstname":"Sergio","lastname":"Osme\u00f1a III","photo":"assets\/images\/candidates\/candidate_osme\u00f1a iii_sergio.jpg","votes":0,"partylist_name":null}
+2025-05-21 15:47:14 - Processing candidate: {"firstname":"Carlos Jericho","lastname":"Petilla","photo":"assets\/images\/candidates\/candidate_petilla_carlos jericho.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 15:47:14 - Processing candidate: {"firstname":"Martin","lastname":"Romualdez","photo":"assets\/images\/candidates\/candidate_romualdez_martin.jpg","votes":0,"partylist_name":null}
+2025-05-21 15:47:14 - Creating certification section
+2025-05-21 15:47:14 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 15:47:14 - Left logo loaded successfully
+2025-05-21 15:47:14 - Right logo loaded successfully
+2025-05-21 15:47:14 - Logos loaded successfully
+2025-05-21 15:47:14 - Generating output PDF
+2025-05-21 15:47:14 - Sending PDF for download
+2025-05-21 15:47:14 - PDF download initiated
+2025-05-21 15:47:14 - PDF generation complete
+2025-05-21 08:51:32 - Starting summary PDF generation
+2025-05-21 08:51:32 - TCPDF class loaded successfully
+2025-05-21 08:51:32 - Running in normal mode - including required files
+2025-05-21 16:51:32 - All includes loaded successfully
+2025-05-21 16:51:32 - Starting summary PDF generation
+2025-05-21 16:51:32 - Creating new ElectionPDF instance
+2025-05-21 16:51:32 - Setting document properties
+2025-05-21 16:51:32 - Setting font and margin properties
+2025-05-21 16:51:32 - Adding first page
+2025-05-21 16:51:32 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 16:51:32 - Left logo loaded successfully
+2025-05-21 16:51:32 - Right logo loaded successfully
+2025-05-21 16:51:32 - Logos loaded successfully
+2025-05-21 16:51:32 - Creating election information section
+2025-05-21 16:51:32 - Creating info table data
+2025-05-21 16:51:32 - Rendering info table
+2025-05-21 16:51:32 - Creating voter participation section
+2025-05-21 16:51:32 - Getting voting statistics
+2025-05-21 16:51:32 - Creating participation table
+2025-05-21 16:51:32 - Rendering participation table
+2025-05-21 16:51:32 - Creating elected officers section
+2025-05-21 16:51:32 - Creating winners table
+2025-05-21 16:51:32 - Getting positions data
+2025-05-21 16:51:32 - Creating winners table rows - positions count: 3
+2025-05-21 16:51:32 - Processing position ID: 2 - President
+2025-05-21 16:51:32 - Position has 5 candidates
+2025-05-21 16:51:32 - Position President has max_vote of 1
+2025-05-21 16:51:32 - Added winner: Rody Duterte (position 1 of 1)
+2025-05-21 16:51:32 - Processing position ID: 3 - Vice President
+2025-05-21 16:51:32 - Position has 5 candidates
+2025-05-21 16:51:32 - Position Vice President has max_vote of 1
+2025-05-21 16:51:32 - Added winner: Leni Robredo (position 1 of 1)
+2025-05-21 16:51:32 - Processing position ID: 4 - Senators
+2025-05-21 16:51:32 - Position has 20 candidates
+2025-05-21 16:51:32 - Position Senators has max_vote of 12
+2025-05-21 16:51:32 - Added winner: Frank Drillon (position 1 of 12)
+2025-05-21 16:51:32 - Added winner: Win Gatchalian (position 2 of 12)
+2025-05-21 16:51:32 - Added winner: Dick Gordon (position 3 of 12)
+2025-05-21 16:51:32 - Added winner: Risa Hontiveros (position 4 of 12)
+2025-05-21 16:51:32 - Added winner: Panfilo Ping Lacson (position 5 of 12)
+2025-05-21 16:51:32 - Added winner: Manny Pacquiao (position 6 of 12)
+2025-05-21 16:51:32 - Added winner: Kiko Pangilinan (position 7 of 12)
+2025-05-21 16:51:32 - Added winner: Ralph Recto (position 8 of 12)
+2025-05-21 16:51:32 - Added winner: Vicente Sotto (position 9 of 12)
+2025-05-21 16:51:32 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 16:51:32 - Left logo loaded successfully
+2025-05-21 16:51:32 - Right logo loaded successfully
+2025-05-21 16:51:32 - Logos loaded successfully
+2025-05-21 16:51:32 - Added winner: Francis Tolentino (position 10 of 12)
+2025-05-21 16:51:32 - Added winner: Joel Villanueva (position 11 of 12)
+2025-05-21 16:51:32 - Added winner: Migs Zubiri (position 12 of 12)
+2025-05-21 16:51:32 - Creating detailed vote statistics section
+2025-05-21 16:51:32 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 16:51:32 - Left logo loaded successfully
+2025-05-21 16:51:32 - Right logo loaded successfully
+2025-05-21 16:51:32 - Logos loaded successfully
+2025-05-21 16:51:32 - Processing detailed stats for position ID: 2 - President
+2025-05-21 16:51:32 - Retrieved 5 candidates for position 2
+2025-05-21 16:51:32 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-05-21 16:51:32 - Processing candidate: {"firstname":"Rody","lastname":"Duterte","photo":"assets\/images\/candidates\/candidate_duterte_rody.png","votes":1,"partylist_name":"PDPLBN"}
+2025-05-21 16:51:32 - Highlighting candidate Rody Duterte as top 1 of 1 allowed winners
+2025-05-21 16:51:32 - Processing candidate: {"firstname":"Jojo","lastname":"Binay","photo":"assets\/images\/candidates\/candidate_binay_jojo.jpg","votes":0,"partylist_name":"United Nationalist Alliance"}
+2025-05-21 16:51:32 - Processing candidate: {"firstname":"Miriam","lastname":"Defensor Santiago","photo":"assets\/images\/candidates\/candidate_defensor santiago _miriam.jpg","votes":0,"partylist_name":"People's Reform Party"}
+2025-05-21 16:51:32 - Processing candidate: {"firstname":"Grace","lastname":"Poe","photo":"assets\/images\/candidates\/candidate_poe_grace.png","votes":0,"partylist_name":null}
+2025-05-21 16:51:32 - Processing candidate: {"firstname":"Mar","lastname":"Roxas","photo":"assets\/images\/candidates\/candidate_roxas_mar.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 16:51:32 - Processing detailed stats for position ID: 3 - Vice President
+2025-05-21 16:51:32 - Retrieved 5 candidates for position 3
+2025-05-21 16:51:32 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-05-21 16:51:32 - Processing candidate: {"firstname":"Leni","lastname":"Robredo","photo":"assets\/images\/candidates\/candidate_robredo_leni .png","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 16:51:32 - Highlighting candidate Leni Robredo as top 1 of 1 allowed winners
+2025-05-21 16:51:32 - Processing candidate: {"firstname":"Alan Peter","lastname":"Cayetano","photo":"assets\/images\/candidates\/candidate_cayetano_alan peter.jpg","votes":0,"partylist_name":null}
+2025-05-21 16:51:32 - Processing candidate: {"firstname":"Chiz","lastname":"Escudero","photo":"assets\/images\/candidates\/candidate_escudero_chiz.jpg","votes":0,"partylist_name":null}
+2025-05-21 16:51:32 - Processing candidate: {"firstname":"Bongbong","lastname":"Marcos","photo":"assets\/images\/candidates\/candidate_marcus_bongbong.jpg","votes":0,"partylist_name":null}
+2025-05-21 16:51:32 - Processing candidate: {"firstname":"Antonio","lastname":"Trillanes IV","photo":"assets\/images\/candidates\/candidate_trillanes iv _antonio.jpg","votes":0,"partylist_name":null}
+2025-05-21 16:51:32 - Processing detailed stats for position ID: 4 - Senators
+2025-05-21 16:51:32 - Retrieved 20 candidates for position 4
+2025-05-21 16:51:32 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-05-21 16:51:32 - Processing candidate: {"firstname":"Frank","lastname":"Drillon","photo":"assets\/images\/candidates\/candidate_drillon_frank.png","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 16:51:32 - Highlighting candidate Frank Drillon as top 1 of 12 allowed winners
+2025-05-21 16:51:32 - Processing candidate: {"firstname":"Win","lastname":"Gatchalian","photo":"assets\/images\/candidates\/candidate_gatchalian_win.jpg","votes":1,"partylist_name":null}
+2025-05-21 16:51:32 - Highlighting candidate Win Gatchalian as top 2 of 12 allowed winners
+2025-05-21 16:51:32 - Processing candidate: {"firstname":"Dick","lastname":"Gordon","photo":"assets\/images\/candidates\/candidate_gordon_dick.jpg","votes":1,"partylist_name":null}
+2025-05-21 16:51:32 - Highlighting candidate Dick Gordon as top 3 of 12 allowed winners
+2025-05-21 16:51:32 - Processing candidate: {"firstname":"Risa","lastname":"Hontiveros","photo":"assets\/images\/candidates\/candidate_hontiveros_risa.jpg","votes":1,"partylist_name":null}
+2025-05-21 16:51:32 - Highlighting candidate Risa Hontiveros as top 4 of 12 allowed winners
+2025-05-21 16:51:32 - Processing candidate: {"firstname":"Panfilo Ping","lastname":"Lacson","photo":"assets\/images\/candidates\/candidate_lacson_panfilo ping.jpg","votes":1,"partylist_name":null}
+2025-05-21 16:51:32 - Highlighting candidate Panfilo Ping Lacson as top 5 of 12 allowed winners
+2025-05-21 16:51:32 - Processing candidate: {"firstname":"Manny","lastname":"Pacquiao","photo":"assets\/images\/candidates\/candidate_pacquiao_manny.jpeg","votes":1,"partylist_name":null}
+2025-05-21 16:51:32 - Highlighting candidate Manny Pacquiao as top 6 of 12 allowed winners
+2025-05-21 16:51:32 - Processing candidate: {"firstname":"Kiko","lastname":"Pangilinan","photo":"assets\/images\/candidates\/candidate_pangilinan_kiko.jpg","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 16:51:32 - Highlighting candidate Kiko Pangilinan as top 7 of 12 allowed winners
+2025-05-21 16:51:32 - Processing candidate: {"firstname":"Ralph","lastname":"Recto","photo":"assets\/images\/candidates\/candidate_recto_ralph.jpg","votes":1,"partylist_name":null}
+2025-05-21 16:51:32 - Highlighting candidate Ralph Recto as top 8 of 12 allowed winners
+2025-05-21 16:51:32 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 16:51:32 - Left logo loaded successfully
+2025-05-21 16:51:32 - Right logo loaded successfully
+2025-05-21 16:51:32 - Logos loaded successfully
+2025-05-21 16:51:32 - Processing candidate: {"firstname":"Vicente","lastname":"Sotto","photo":"assets\/images\/candidates\/candidate_sotto_vicente.jpg","votes":1,"partylist_name":null}
+2025-05-21 16:51:32 - Highlighting candidate Vicente Sotto as top 9 of 12 allowed winners
+2025-05-21 16:51:32 - Processing candidate: {"firstname":"Francis","lastname":"Tolentino","photo":"assets\/images\/candidates\/candidate_tolentino_francis.jpg","votes":1,"partylist_name":null}
+2025-05-21 16:51:32 - Highlighting candidate Francis Tolentino as top 10 of 12 allowed winners
+2025-05-21 16:51:32 - Processing candidate: {"firstname":"Joel","lastname":"Villanueva","photo":"assets\/images\/candidates\/candidate_villanueva_joel.png","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 16:51:32 - Highlighting candidate Joel Villanueva as top 11 of 12 allowed winners
+2025-05-21 16:51:32 - Processing candidate: {"firstname":"Migs","lastname":"Zubiri","photo":"assets\/images\/candidates\/candidate_zubiri_migs.jpg","votes":1,"partylist_name":null}
+2025-05-21 16:51:32 - Highlighting candidate Migs Zubiri as top 12 of 12 allowed winners
+2025-05-21 16:51:32 - Processing candidate: {"firstname":"Neri","lastname":"Colmenares","photo":"assets\/images\/candidates\/candidate_colmenares_neri.jpg","votes":0,"partylist_name":null}
+2025-05-21 16:51:32 - Processing candidate: {"firstname":"Leila","lastname":"De Lima","photo":"assets\/images\/candidates\/candidate_de lima_leila.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 16:51:32 - Processing candidate: {"firstname":"Isko Moreno","lastname":"Domagoso","photo":"assets\/images\/candidates\/candidate_domagoso_isko moreno.jpeg","votes":0,"partylist_name":null}
+2025-05-21 16:51:32 - Processing candidate: {"firstname":"TG","lastname":"Guingona","photo":"assets\/images\/candidates\/candidate_guingona_tg.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 16:51:32 - Processing candidate: {"firstname":"Mark","lastname":"Lapid","photo":"assets\/images\/candidates\/candidate_lapid_mark.jpg","votes":0,"partylist_name":null}
+2025-05-21 16:51:32 - Processing candidate: {"firstname":"Sergio","lastname":"Osme\u00f1a III","photo":"assets\/images\/candidates\/candidate_osme\u00f1a iii_sergio.jpg","votes":0,"partylist_name":null}
+2025-05-21 16:51:32 - Processing candidate: {"firstname":"Carlos Jericho","lastname":"Petilla","photo":"assets\/images\/candidates\/candidate_petilla_carlos jericho.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 16:51:32 - Processing candidate: {"firstname":"Martin","lastname":"Romualdez","photo":"assets\/images\/candidates\/candidate_romualdez_martin.jpg","votes":0,"partylist_name":null}
+2025-05-21 16:51:32 - Creating certification section
+2025-05-21 16:51:32 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 16:51:32 - Left logo loaded successfully
+2025-05-21 16:51:32 - Right logo loaded successfully
+2025-05-21 16:51:32 - Logos loaded successfully
+2025-05-21 16:51:32 - Generating output PDF
+2025-05-21 16:51:32 - Sending PDF for download
+2025-05-21 16:51:32 - PDF download initiated
+2025-05-21 16:51:32 - PDF generation complete
+2025-05-21 09:00:25 - Starting summary PDF generation
+2025-05-21 09:00:25 - TCPDF class loaded successfully
+2025-05-21 09:00:25 - Running in normal mode - including required files
+2025-05-21 17:00:25 - All includes loaded successfully
+2025-05-21 17:00:25 - Starting summary PDF generation
+2025-05-21 17:00:25 - Creating new ElectionPDF instance
+2025-05-21 17:00:25 - Setting document properties
+2025-05-21 17:00:25 - Setting font and margin properties
+2025-05-21 17:00:25 - Adding first page
+2025-05-21 17:00:25 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:00:25 - Left logo loaded successfully
+2025-05-21 17:00:25 - Right logo loaded successfully
+2025-05-21 17:00:25 - Logos loaded successfully
+2025-05-21 17:00:25 - Creating election information section
+2025-05-21 17:00:25 - Creating info table data
+2025-05-21 17:00:25 - Rendering info table
+2025-05-21 17:00:25 - Creating voter participation section
+2025-05-21 17:00:25 - Getting voting statistics
+2025-05-21 17:00:25 - Creating participation table
+2025-05-21 17:00:25 - Rendering participation table
+2025-05-21 17:00:25 - Creating elected officers section
+2025-05-21 17:00:25 - Creating winners table
+2025-05-21 17:00:25 - Getting positions data
+2025-05-21 17:00:25 - Creating winners table rows - positions count: 3
+2025-05-21 17:00:25 - Processing position ID: 2 - President
+2025-05-21 17:00:25 - Position has 5 candidates
+2025-05-21 17:00:25 - Position President has max_vote of 1
+2025-05-21 17:00:25 - Added winner: Rody Duterte (position 1 of 1)
+2025-05-21 17:00:25 - Processing position ID: 3 - Vice President
+2025-05-21 17:00:25 - Position has 5 candidates
+2025-05-21 17:00:25 - Position Vice President has max_vote of 1
+2025-05-21 17:00:25 - Added winner: Leni Robredo (position 1 of 1)
+2025-05-21 17:00:25 - Processing position ID: 4 - Senators
+2025-05-21 17:00:25 - Position has 20 candidates
+2025-05-21 17:00:25 - Position Senators has max_vote of 12
+2025-05-21 17:00:25 - Added winner: Frank Drillon (position 1 of 12)
+2025-05-21 17:00:25 - Added winner: Win Gatchalian (position 2 of 12)
+2025-05-21 17:00:25 - Added winner: Dick Gordon (position 3 of 12)
+2025-05-21 17:00:25 - Added winner: Risa Hontiveros (position 4 of 12)
+2025-05-21 17:00:25 - Added winner: Panfilo Ping Lacson (position 5 of 12)
+2025-05-21 17:00:25 - Added winner: Manny Pacquiao (position 6 of 12)
+2025-05-21 17:00:25 - Added winner: Kiko Pangilinan (position 7 of 12)
+2025-05-21 17:00:25 - Added winner: Ralph Recto (position 8 of 12)
+2025-05-21 17:00:25 - Added winner: Vicente Sotto (position 9 of 12)
+2025-05-21 17:00:25 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:00:25 - Left logo loaded successfully
+2025-05-21 17:00:25 - Right logo loaded successfully
+2025-05-21 17:00:25 - Logos loaded successfully
+2025-05-21 17:00:25 - Added winner: Francis Tolentino (position 10 of 12)
+2025-05-21 17:00:25 - Added winner: Joel Villanueva (position 11 of 12)
+2025-05-21 17:00:25 - Added winner: Migs Zubiri (position 12 of 12)
+2025-05-21 17:00:25 - Creating detailed vote statistics section
+2025-05-21 17:00:25 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:00:25 - Left logo loaded successfully
+2025-05-21 17:00:25 - Right logo loaded successfully
+2025-05-21 17:00:25 - Logos loaded successfully
+2025-05-21 17:00:25 - Processing detailed stats for position ID: 2 - President
+2025-05-21 17:00:25 - Retrieved 5 candidates for position 2
+2025-05-21 17:00:25 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-05-21 17:00:25 - Processing candidate: {"firstname":"Rody","lastname":"Duterte","photo":"assets\/images\/candidates\/candidate_duterte_rody.png","votes":1,"partylist_name":"PDPLBN"}
+2025-05-21 17:00:25 - Highlighting candidate Rody Duterte as top 1 of 1 allowed winners
+2025-05-21 17:00:25 - Processing candidate: {"firstname":"Jojo","lastname":"Binay","photo":"assets\/images\/candidates\/candidate_binay_jojo.jpg","votes":0,"partylist_name":"United Nationalist Alliance"}
+2025-05-21 17:00:25 - Processing candidate: {"firstname":"Miriam","lastname":"Defensor Santiago","photo":"assets\/images\/candidates\/candidate_defensor santiago _miriam.jpg","votes":0,"partylist_name":"People's Reform Party"}
+2025-05-21 17:00:25 - Processing candidate: {"firstname":"Grace","lastname":"Poe","photo":"assets\/images\/candidates\/candidate_poe_grace.png","votes":0,"partylist_name":null}
+2025-05-21 17:00:25 - Processing candidate: {"firstname":"Mar","lastname":"Roxas","photo":"assets\/images\/candidates\/candidate_roxas_mar.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 17:00:25 - Processing detailed stats for position ID: 3 - Vice President
+2025-05-21 17:00:25 - Retrieved 5 candidates for position 3
+2025-05-21 17:00:25 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-05-21 17:00:25 - Processing candidate: {"firstname":"Leni","lastname":"Robredo","photo":"assets\/images\/candidates\/candidate_robredo_leni .png","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 17:00:25 - Highlighting candidate Leni Robredo as top 1 of 1 allowed winners
+2025-05-21 17:00:25 - Processing candidate: {"firstname":"Alan Peter","lastname":"Cayetano","photo":"assets\/images\/candidates\/candidate_cayetano_alan peter.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:00:25 - Processing candidate: {"firstname":"Chiz","lastname":"Escudero","photo":"assets\/images\/candidates\/candidate_escudero_chiz.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:00:25 - Processing candidate: {"firstname":"Bongbong","lastname":"Marcos","photo":"assets\/images\/candidates\/candidate_marcus_bongbong.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:00:25 - Processing candidate: {"firstname":"Antonio","lastname":"Trillanes IV","photo":"assets\/images\/candidates\/candidate_trillanes iv _antonio.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:00:25 - Processing detailed stats for position ID: 4 - Senators
+2025-05-21 17:00:25 - Retrieved 20 candidates for position 4
+2025-05-21 17:00:25 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-05-21 17:00:25 - Processing candidate: {"firstname":"Frank","lastname":"Drillon","photo":"assets\/images\/candidates\/candidate_drillon_frank.png","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 17:00:25 - Highlighting candidate Frank Drillon as top 1 of 12 allowed winners
+2025-05-21 17:00:25 - Processing candidate: {"firstname":"Win","lastname":"Gatchalian","photo":"assets\/images\/candidates\/candidate_gatchalian_win.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:00:25 - Highlighting candidate Win Gatchalian as top 2 of 12 allowed winners
+2025-05-21 17:00:25 - Processing candidate: {"firstname":"Dick","lastname":"Gordon","photo":"assets\/images\/candidates\/candidate_gordon_dick.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:00:25 - Highlighting candidate Dick Gordon as top 3 of 12 allowed winners
+2025-05-21 17:00:25 - Processing candidate: {"firstname":"Risa","lastname":"Hontiveros","photo":"assets\/images\/candidates\/candidate_hontiveros_risa.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:00:25 - Highlighting candidate Risa Hontiveros as top 4 of 12 allowed winners
+2025-05-21 17:00:25 - Processing candidate: {"firstname":"Panfilo Ping","lastname":"Lacson","photo":"assets\/images\/candidates\/candidate_lacson_panfilo ping.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:00:25 - Highlighting candidate Panfilo Ping Lacson as top 5 of 12 allowed winners
+2025-05-21 17:00:25 - Processing candidate: {"firstname":"Manny","lastname":"Pacquiao","photo":"assets\/images\/candidates\/candidate_pacquiao_manny.jpeg","votes":1,"partylist_name":null}
+2025-05-21 17:00:25 - Highlighting candidate Manny Pacquiao as top 6 of 12 allowed winners
+2025-05-21 17:00:25 - Processing candidate: {"firstname":"Kiko","lastname":"Pangilinan","photo":"assets\/images\/candidates\/candidate_pangilinan_kiko.jpg","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 17:00:25 - Highlighting candidate Kiko Pangilinan as top 7 of 12 allowed winners
+2025-05-21 17:00:25 - Processing candidate: {"firstname":"Ralph","lastname":"Recto","photo":"assets\/images\/candidates\/candidate_recto_ralph.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:00:25 - Highlighting candidate Ralph Recto as top 8 of 12 allowed winners
+2025-05-21 17:00:25 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:00:25 - Left logo loaded successfully
+2025-05-21 17:00:25 - Right logo loaded successfully
+2025-05-21 17:00:25 - Logos loaded successfully
+2025-05-21 17:00:25 - Processing candidate: {"firstname":"Vicente","lastname":"Sotto","photo":"assets\/images\/candidates\/candidate_sotto_vicente.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:00:25 - Highlighting candidate Vicente Sotto as top 9 of 12 allowed winners
+2025-05-21 17:00:25 - Processing candidate: {"firstname":"Francis","lastname":"Tolentino","photo":"assets\/images\/candidates\/candidate_tolentino_francis.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:00:25 - Highlighting candidate Francis Tolentino as top 10 of 12 allowed winners
+2025-05-21 17:00:25 - Processing candidate: {"firstname":"Joel","lastname":"Villanueva","photo":"assets\/images\/candidates\/candidate_villanueva_joel.png","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 17:00:25 - Highlighting candidate Joel Villanueva as top 11 of 12 allowed winners
+2025-05-21 17:00:25 - Processing candidate: {"firstname":"Migs","lastname":"Zubiri","photo":"assets\/images\/candidates\/candidate_zubiri_migs.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:00:25 - Highlighting candidate Migs Zubiri as top 12 of 12 allowed winners
+2025-05-21 17:00:25 - Processing candidate: {"firstname":"Neri","lastname":"Colmenares","photo":"assets\/images\/candidates\/candidate_colmenares_neri.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:00:25 - Processing candidate: {"firstname":"Leila","lastname":"De Lima","photo":"assets\/images\/candidates\/candidate_de lima_leila.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 17:00:25 - Processing candidate: {"firstname":"Isko Moreno","lastname":"Domagoso","photo":"assets\/images\/candidates\/candidate_domagoso_isko moreno.jpeg","votes":0,"partylist_name":null}
+2025-05-21 17:00:25 - Processing candidate: {"firstname":"TG","lastname":"Guingona","photo":"assets\/images\/candidates\/candidate_guingona_tg.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 17:00:25 - Processing candidate: {"firstname":"Mark","lastname":"Lapid","photo":"assets\/images\/candidates\/candidate_lapid_mark.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:00:25 - Processing candidate: {"firstname":"Sergio","lastname":"Osme\u00f1a III","photo":"assets\/images\/candidates\/candidate_osme\u00f1a iii_sergio.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:00:25 - Processing candidate: {"firstname":"Carlos Jericho","lastname":"Petilla","photo":"assets\/images\/candidates\/candidate_petilla_carlos jericho.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 17:00:25 - Processing candidate: {"firstname":"Martin","lastname":"Romualdez","photo":"assets\/images\/candidates\/candidate_romualdez_martin.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:00:25 - Creating certification section
+2025-05-21 17:00:25 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:00:25 - Left logo loaded successfully
+2025-05-21 17:00:25 - Right logo loaded successfully
+2025-05-21 17:00:25 - Logos loaded successfully
+2025-05-21 17:00:25 - Generating output PDF
+2025-05-21 17:00:25 - Sending PDF for download
+2025-05-21 17:00:25 - PDF download initiated
+2025-05-21 17:00:25 - PDF generation complete
+2025-05-21 09:21:13 - Starting summary PDF generation
+2025-05-21 09:21:13 - TCPDF class loaded successfully
+2025-05-21 09:21:13 - Running in normal mode - including required files
+2025-05-21 17:21:13 - All includes loaded successfully
+2025-05-21 17:21:13 - Starting summary PDF generation
+2025-05-21 17:21:13 - Creating new ElectionPDF instance
+2025-05-21 17:21:13 - Setting document properties
+2025-05-21 17:21:13 - Setting font and margin properties
+2025-05-21 17:21:13 - Adding first page
+2025-05-21 17:21:13 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:21:13 - Left logo loaded successfully
+2025-05-21 17:21:13 - Right logo loaded successfully
+2025-05-21 17:21:13 - Logos loaded successfully
+2025-05-21 17:21:13 - Creating election information section
+2025-05-21 17:21:13 - Creating info table data
+2025-05-21 17:21:13 - Rendering info table
+2025-05-21 17:21:13 - Creating voter participation section
+2025-05-21 17:21:13 - Getting voting statistics
+2025-05-21 17:21:13 - Creating participation table
+2025-05-21 17:21:13 - Rendering participation table
+2025-05-21 17:21:13 - Creating elected officers section
+2025-05-21 17:21:13 - Creating winners table
+2025-05-21 17:21:13 - Getting positions data
+2025-05-21 17:21:13 - Creating winners table rows - positions count: 3
+2025-05-21 17:21:13 - Processing position ID: 2 - President
+2025-05-21 17:21:13 - Position has 5 candidates
+2025-05-21 17:21:13 - Position President has max_vote of 1
+2025-05-21 17:21:13 - Added winner: Rody Duterte (position 1 of 1)
+2025-05-21 17:21:13 - Processing position ID: 3 - Vice President
+2025-05-21 17:21:13 - Position has 5 candidates
+2025-05-21 17:21:13 - Position Vice President has max_vote of 1
+2025-05-21 17:21:13 - Added winner: Leni Robredo (position 1 of 1)
+2025-05-21 17:21:13 - Processing position ID: 4 - Senators
+2025-05-21 17:21:13 - Position has 20 candidates
+2025-05-21 17:21:13 - Position Senators has max_vote of 12
+2025-05-21 17:21:13 - Added winner: Frank Drillon (position 1 of 12)
+2025-05-21 17:21:13 - Added winner: Win Gatchalian (position 2 of 12)
+2025-05-21 17:21:13 - Added winner: Dick Gordon (position 3 of 12)
+2025-05-21 17:21:13 - Added winner: Risa Hontiveros (position 4 of 12)
+2025-05-21 17:21:13 - Added winner: Panfilo Ping Lacson (position 5 of 12)
+2025-05-21 17:21:13 - Added winner: Manny Pacquiao (position 6 of 12)
+2025-05-21 17:21:13 - Added winner: Kiko Pangilinan (position 7 of 12)
+2025-05-21 17:21:13 - Added winner: Ralph Recto (position 8 of 12)
+2025-05-21 17:21:13 - Added winner: Vicente Sotto (position 9 of 12)
+2025-05-21 17:21:13 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:21:13 - Left logo loaded successfully
+2025-05-21 17:21:13 - Right logo loaded successfully
+2025-05-21 17:21:13 - Logos loaded successfully
+2025-05-21 17:21:13 - Added winner: Francis Tolentino (position 10 of 12)
+2025-05-21 17:21:13 - Added winner: Joel Villanueva (position 11 of 12)
+2025-05-21 17:21:13 - Added winner: Migs Zubiri (position 12 of 12)
+2025-05-21 17:21:13 - Creating detailed vote statistics section
+2025-05-21 17:21:13 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:21:13 - Left logo loaded successfully
+2025-05-21 17:21:13 - Right logo loaded successfully
+2025-05-21 17:21:13 - Logos loaded successfully
+2025-05-21 17:21:13 - Processing detailed stats for position ID: 2 - President
+2025-05-21 17:21:13 - Retrieved 5 candidates for position 2
+2025-05-21 17:21:13 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-05-21 17:21:13 - Processing candidate: {"firstname":"Rody","lastname":"Duterte","photo":"assets\/images\/candidates\/candidate_duterte_rody.png","votes":1,"partylist_name":"PDPLBN"}
+2025-05-21 17:21:13 - Highlighting candidate Rody Duterte as top 1 of 1 allowed winners
+2025-05-21 17:21:13 - Processing candidate: {"firstname":"Jojo","lastname":"Binay","photo":"assets\/images\/candidates\/candidate_binay_jojo.jpg","votes":0,"partylist_name":"United Nationalist Alliance"}
+2025-05-21 17:21:13 - Processing candidate: {"firstname":"Miriam","lastname":"Defensor Santiago","photo":"assets\/images\/candidates\/candidate_defensor santiago _miriam.jpg","votes":0,"partylist_name":"People's Reform Party"}
+2025-05-21 17:21:13 - Processing candidate: {"firstname":"Grace","lastname":"Poe","photo":"assets\/images\/candidates\/candidate_poe_grace.png","votes":0,"partylist_name":null}
+2025-05-21 17:21:13 - Processing candidate: {"firstname":"Mar","lastname":"Roxas","photo":"assets\/images\/candidates\/candidate_roxas_mar.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 17:21:13 - Processing detailed stats for position ID: 3 - Vice President
+2025-05-21 17:21:13 - Retrieved 5 candidates for position 3
+2025-05-21 17:21:13 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-05-21 17:21:13 - Processing candidate: {"firstname":"Leni","lastname":"Robredo","photo":"assets\/images\/candidates\/candidate_robredo_leni .png","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 17:21:13 - Highlighting candidate Leni Robredo as top 1 of 1 allowed winners
+2025-05-21 17:21:13 - Processing candidate: {"firstname":"Alan Peter","lastname":"Cayetano","photo":"assets\/images\/candidates\/candidate_cayetano_alan peter.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:21:13 - Processing candidate: {"firstname":"Chiz","lastname":"Escudero","photo":"assets\/images\/candidates\/candidate_escudero_chiz.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:21:13 - Processing candidate: {"firstname":"Bongbong","lastname":"Marcos","photo":"assets\/images\/candidates\/candidate_marcus_bongbong.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:21:13 - Processing candidate: {"firstname":"Antonio","lastname":"Trillanes IV","photo":"assets\/images\/candidates\/candidate_trillanes iv _antonio.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:21:13 - Processing detailed stats for position ID: 4 - Senators
+2025-05-21 17:21:13 - Retrieved 20 candidates for position 4
+2025-05-21 17:21:13 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-05-21 17:21:13 - Processing candidate: {"firstname":"Frank","lastname":"Drillon","photo":"assets\/images\/candidates\/candidate_drillon_frank.png","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 17:21:13 - Highlighting candidate Frank Drillon as top 1 of 12 allowed winners
+2025-05-21 17:21:13 - Processing candidate: {"firstname":"Win","lastname":"Gatchalian","photo":"assets\/images\/candidates\/candidate_gatchalian_win.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:21:13 - Highlighting candidate Win Gatchalian as top 2 of 12 allowed winners
+2025-05-21 17:21:13 - Processing candidate: {"firstname":"Dick","lastname":"Gordon","photo":"assets\/images\/candidates\/candidate_gordon_dick.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:21:13 - Highlighting candidate Dick Gordon as top 3 of 12 allowed winners
+2025-05-21 17:21:13 - Processing candidate: {"firstname":"Risa","lastname":"Hontiveros","photo":"assets\/images\/candidates\/candidate_hontiveros_risa.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:21:13 - Highlighting candidate Risa Hontiveros as top 4 of 12 allowed winners
+2025-05-21 17:21:13 - Processing candidate: {"firstname":"Panfilo Ping","lastname":"Lacson","photo":"assets\/images\/candidates\/candidate_lacson_panfilo ping.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:21:13 - Highlighting candidate Panfilo Ping Lacson as top 5 of 12 allowed winners
+2025-05-21 17:21:13 - Processing candidate: {"firstname":"Manny","lastname":"Pacquiao","photo":"assets\/images\/candidates\/candidate_pacquiao_manny.jpeg","votes":1,"partylist_name":null}
+2025-05-21 17:21:13 - Highlighting candidate Manny Pacquiao as top 6 of 12 allowed winners
+2025-05-21 17:21:13 - Processing candidate: {"firstname":"Kiko","lastname":"Pangilinan","photo":"assets\/images\/candidates\/candidate_pangilinan_kiko.jpg","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 17:21:13 - Highlighting candidate Kiko Pangilinan as top 7 of 12 allowed winners
+2025-05-21 17:21:13 - Processing candidate: {"firstname":"Ralph","lastname":"Recto","photo":"assets\/images\/candidates\/candidate_recto_ralph.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:21:13 - Highlighting candidate Ralph Recto as top 8 of 12 allowed winners
+2025-05-21 17:21:13 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:21:13 - Left logo loaded successfully
+2025-05-21 17:21:13 - Right logo loaded successfully
+2025-05-21 17:21:13 - Logos loaded successfully
+2025-05-21 17:21:13 - Processing candidate: {"firstname":"Vicente","lastname":"Sotto","photo":"assets\/images\/candidates\/candidate_sotto_vicente.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:21:13 - Highlighting candidate Vicente Sotto as top 9 of 12 allowed winners
+2025-05-21 17:21:13 - Processing candidate: {"firstname":"Francis","lastname":"Tolentino","photo":"assets\/images\/candidates\/candidate_tolentino_francis.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:21:13 - Highlighting candidate Francis Tolentino as top 10 of 12 allowed winners
+2025-05-21 17:21:13 - Processing candidate: {"firstname":"Joel","lastname":"Villanueva","photo":"assets\/images\/candidates\/candidate_villanueva_joel.png","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 17:21:13 - Highlighting candidate Joel Villanueva as top 11 of 12 allowed winners
+2025-05-21 17:21:13 - Processing candidate: {"firstname":"Migs","lastname":"Zubiri","photo":"assets\/images\/candidates\/candidate_zubiri_migs.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:21:13 - Highlighting candidate Migs Zubiri as top 12 of 12 allowed winners
+2025-05-21 17:21:13 - Processing candidate: {"firstname":"Neri","lastname":"Colmenares","photo":"assets\/images\/candidates\/candidate_colmenares_neri.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:21:13 - Processing candidate: {"firstname":"Leila","lastname":"De Lima","photo":"assets\/images\/candidates\/candidate_de lima_leila.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 17:21:13 - Processing candidate: {"firstname":"Isko Moreno","lastname":"Domagoso","photo":"assets\/images\/candidates\/candidate_domagoso_isko moreno.jpeg","votes":0,"partylist_name":null}
+2025-05-21 17:21:13 - Processing candidate: {"firstname":"TG","lastname":"Guingona","photo":"assets\/images\/candidates\/candidate_guingona_tg.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 17:21:13 - Processing candidate: {"firstname":"Mark","lastname":"Lapid","photo":"assets\/images\/candidates\/candidate_lapid_mark.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:21:13 - Processing candidate: {"firstname":"Sergio","lastname":"Osme\u00f1a III","photo":"assets\/images\/candidates\/candidate_osme\u00f1a iii_sergio.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:21:13 - Processing candidate: {"firstname":"Carlos Jericho","lastname":"Petilla","photo":"assets\/images\/candidates\/candidate_petilla_carlos jericho.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 17:21:13 - Processing candidate: {"firstname":"Martin","lastname":"Romualdez","photo":"assets\/images\/candidates\/candidate_romualdez_martin.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:21:13 - Creating certification section
+2025-05-21 17:21:13 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:21:13 - Left logo loaded successfully
+2025-05-21 17:21:13 - Right logo loaded successfully
+2025-05-21 17:21:13 - Logos loaded successfully
+2025-05-21 17:21:13 - Generating output PDF
+2025-05-21 17:21:13 - Sending PDF for download
+2025-05-21 17:21:13 - PDF download initiated
+2025-05-21 17:21:13 - PDF generation complete
+2025-05-21 09:43:25 - Starting summary PDF generation
+2025-05-21 09:45:46 - Starting summary PDF generation
+2025-05-21 09:45:46 - Running in normal mode - including required files
+2025-05-21 17:45:46 - All includes loaded successfully
+2025-05-21 17:45:46 - Starting summary PDF generation
+2025-05-21 17:45:46 - Creating new ElectionPDF instance
+2025-05-21 17:45:46 - Setting document properties
+2025-05-21 17:45:46 - Setting font and margin properties
+2025-05-21 17:45:46 - Adding first page
+2025-05-21 17:45:46 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:45:46 - Left logo loaded successfully
+2025-05-21 17:45:46 - Right logo loaded successfully
+2025-05-21 17:45:46 - Logos loaded successfully
+2025-05-21 17:45:46 - Creating election information section
+2025-05-21 17:45:46 - Creating info table data
+2025-05-21 17:45:46 - Rendering info table
+2025-05-21 17:45:46 - Creating voter participation section
+2025-05-21 17:45:46 - Getting voting statistics
+2025-05-21 17:45:46 - Creating participation table
+2025-05-21 17:45:46 - Rendering participation table
+2025-05-21 17:45:46 - Creating elected officers section
+2025-05-21 17:45:46 - Creating winners table
+2025-05-21 17:45:46 - Getting positions data
+2025-05-21 17:45:46 - Creating winners table rows - positions count: 3
+2025-05-21 17:45:46 - Processing position ID: 2 - President
+2025-05-21 17:45:46 - Position has 5 candidates
+2025-05-21 17:45:46 - Position President has max_vote of 1
+2025-05-21 17:45:46 - Added winner: Rody Duterte (position 1 of 1)
+2025-05-21 17:45:46 - Processing position ID: 3 - Vice President
+2025-05-21 17:45:46 - Position has 5 candidates
+2025-05-21 17:45:46 - Position Vice President has max_vote of 1
+2025-05-21 17:45:46 - Added winner: Leni Robredo (position 1 of 1)
+2025-05-21 17:45:46 - Processing position ID: 4 - Senators
+2025-05-21 17:45:46 - Position has 20 candidates
+2025-05-21 17:45:46 - Position Senators has max_vote of 12
+2025-05-21 17:45:46 - Added winner: Frank Drillon (position 1 of 12)
+2025-05-21 17:45:46 - Added winner: Win Gatchalian (position 2 of 12)
+2025-05-21 17:45:46 - Added winner: Dick Gordon (position 3 of 12)
+2025-05-21 17:45:46 - Added winner: Risa Hontiveros (position 4 of 12)
+2025-05-21 17:45:46 - Added winner: Panfilo Ping Lacson (position 5 of 12)
+2025-05-21 17:45:46 - Added winner: Manny Pacquiao (position 6 of 12)
+2025-05-21 17:45:46 - Added winner: Kiko Pangilinan (position 7 of 12)
+2025-05-21 17:45:46 - Added winner: Ralph Recto (position 8 of 12)
+2025-05-21 17:45:46 - Added winner: Vicente Sotto (position 9 of 12)
+2025-05-21 17:45:46 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:45:46 - Left logo loaded successfully
+2025-05-21 17:45:46 - Right logo loaded successfully
+2025-05-21 17:45:46 - Logos loaded successfully
+2025-05-21 17:45:46 - Added winner: Francis Tolentino (position 10 of 12)
+2025-05-21 17:45:46 - Added winner: Joel Villanueva (position 11 of 12)
+2025-05-21 17:45:46 - Added winner: Migs Zubiri (position 12 of 12)
+2025-05-21 17:45:46 - Creating detailed vote statistics section
+2025-05-21 17:45:46 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:45:46 - Left logo loaded successfully
+2025-05-21 17:45:46 - Right logo loaded successfully
+2025-05-21 17:45:46 - Logos loaded successfully
+2025-05-21 17:45:46 - Processing detailed stats for position ID: 2 - President
+2025-05-21 17:45:46 - Retrieved 5 candidates for position 2
+2025-05-21 17:45:46 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-05-21 17:45:46 - Processing candidate: {"firstname":"Rody","lastname":"Duterte","photo":"assets\/images\/candidates\/candidate_duterte_rody.png","votes":1,"partylist_name":"PDPLBN"}
+2025-05-21 17:45:46 - Highlighting candidate Rody Duterte as top 1 of 1 allowed winners
+2025-05-21 17:45:46 - Processing candidate: {"firstname":"Jojo","lastname":"Binay","photo":"assets\/images\/candidates\/candidate_binay_jojo.jpg","votes":0,"partylist_name":"United Nationalist Alliance"}
+2025-05-21 17:45:46 - Processing candidate: {"firstname":"Miriam","lastname":"Defensor Santiago","photo":"assets\/images\/candidates\/candidate_defensor santiago _miriam.jpg","votes":0,"partylist_name":"People's Reform Party"}
+2025-05-21 17:45:46 - Processing candidate: {"firstname":"Grace","lastname":"Poe","photo":"assets\/images\/candidates\/candidate_poe_grace.png","votes":0,"partylist_name":null}
+2025-05-21 17:45:46 - Processing candidate: {"firstname":"Mar","lastname":"Roxas","photo":"assets\/images\/candidates\/candidate_roxas_mar.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 17:45:46 - Processing detailed stats for position ID: 3 - Vice President
+2025-05-21 17:45:46 - Retrieved 5 candidates for position 3
+2025-05-21 17:45:46 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-05-21 17:45:46 - Processing candidate: {"firstname":"Leni","lastname":"Robredo","photo":"assets\/images\/candidates\/candidate_robredo_leni .png","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 17:45:46 - Highlighting candidate Leni Robredo as top 1 of 1 allowed winners
+2025-05-21 17:45:46 - Processing candidate: {"firstname":"Alan Peter","lastname":"Cayetano","photo":"assets\/images\/candidates\/candidate_cayetano_alan peter.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:45:46 - Processing candidate: {"firstname":"Chiz","lastname":"Escudero","photo":"assets\/images\/candidates\/candidate_escudero_chiz.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:45:46 - Processing candidate: {"firstname":"Bongbong","lastname":"Marcos","photo":"assets\/images\/candidates\/candidate_marcus_bongbong.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:45:46 - Processing candidate: {"firstname":"Antonio","lastname":"Trillanes IV","photo":"assets\/images\/candidates\/candidate_trillanes iv _antonio.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:45:46 - Processing detailed stats for position ID: 4 - Senators
+2025-05-21 17:45:46 - Retrieved 20 candidates for position 4
+2025-05-21 17:45:46 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-05-21 17:45:46 - Processing candidate: {"firstname":"Frank","lastname":"Drillon","photo":"assets\/images\/candidates\/candidate_drillon_frank.png","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 17:45:46 - Highlighting candidate Frank Drillon as top 1 of 12 allowed winners
+2025-05-21 17:45:46 - Processing candidate: {"firstname":"Win","lastname":"Gatchalian","photo":"assets\/images\/candidates\/candidate_gatchalian_win.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:45:46 - Highlighting candidate Win Gatchalian as top 2 of 12 allowed winners
+2025-05-21 17:45:46 - Processing candidate: {"firstname":"Dick","lastname":"Gordon","photo":"assets\/images\/candidates\/candidate_gordon_dick.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:45:46 - Highlighting candidate Dick Gordon as top 3 of 12 allowed winners
+2025-05-21 17:45:46 - Processing candidate: {"firstname":"Risa","lastname":"Hontiveros","photo":"assets\/images\/candidates\/candidate_hontiveros_risa.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:45:46 - Highlighting candidate Risa Hontiveros as top 4 of 12 allowed winners
+2025-05-21 17:45:46 - Processing candidate: {"firstname":"Panfilo Ping","lastname":"Lacson","photo":"assets\/images\/candidates\/candidate_lacson_panfilo ping.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:45:46 - Highlighting candidate Panfilo Ping Lacson as top 5 of 12 allowed winners
+2025-05-21 17:45:46 - Processing candidate: {"firstname":"Manny","lastname":"Pacquiao","photo":"assets\/images\/candidates\/candidate_pacquiao_manny.jpeg","votes":1,"partylist_name":null}
+2025-05-21 17:45:46 - Highlighting candidate Manny Pacquiao as top 6 of 12 allowed winners
+2025-05-21 17:45:46 - Processing candidate: {"firstname":"Kiko","lastname":"Pangilinan","photo":"assets\/images\/candidates\/candidate_pangilinan_kiko.jpg","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 17:45:46 - Highlighting candidate Kiko Pangilinan as top 7 of 12 allowed winners
+2025-05-21 17:45:46 - Processing candidate: {"firstname":"Ralph","lastname":"Recto","photo":"assets\/images\/candidates\/candidate_recto_ralph.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:45:46 - Highlighting candidate Ralph Recto as top 8 of 12 allowed winners
+2025-05-21 17:45:46 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:45:46 - Left logo loaded successfully
+2025-05-21 17:45:46 - Right logo loaded successfully
+2025-05-21 17:45:46 - Logos loaded successfully
+2025-05-21 17:45:46 - Processing candidate: {"firstname":"Vicente","lastname":"Sotto","photo":"assets\/images\/candidates\/candidate_sotto_vicente.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:45:46 - Highlighting candidate Vicente Sotto as top 9 of 12 allowed winners
+2025-05-21 17:45:46 - Processing candidate: {"firstname":"Francis","lastname":"Tolentino","photo":"assets\/images\/candidates\/candidate_tolentino_francis.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:45:46 - Highlighting candidate Francis Tolentino as top 10 of 12 allowed winners
+2025-05-21 17:45:46 - Processing candidate: {"firstname":"Joel","lastname":"Villanueva","photo":"assets\/images\/candidates\/candidate_villanueva_joel.png","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 17:45:46 - Highlighting candidate Joel Villanueva as top 11 of 12 allowed winners
+2025-05-21 17:45:46 - Processing candidate: {"firstname":"Migs","lastname":"Zubiri","photo":"assets\/images\/candidates\/candidate_zubiri_migs.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:45:46 - Highlighting candidate Migs Zubiri as top 12 of 12 allowed winners
+2025-05-21 17:45:46 - Processing candidate: {"firstname":"Neri","lastname":"Colmenares","photo":"assets\/images\/candidates\/candidate_colmenares_neri.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:45:46 - Processing candidate: {"firstname":"Leila","lastname":"De Lima","photo":"assets\/images\/candidates\/candidate_de lima_leila.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 17:45:46 - Processing candidate: {"firstname":"Isko Moreno","lastname":"Domagoso","photo":"assets\/images\/candidates\/candidate_domagoso_isko moreno.jpeg","votes":0,"partylist_name":null}
+2025-05-21 17:45:46 - Processing candidate: {"firstname":"TG","lastname":"Guingona","photo":"assets\/images\/candidates\/candidate_guingona_tg.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 17:45:46 - Processing candidate: {"firstname":"Mark","lastname":"Lapid","photo":"assets\/images\/candidates\/candidate_lapid_mark.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:45:46 - Processing candidate: {"firstname":"Sergio","lastname":"Osme\u00f1a III","photo":"assets\/images\/candidates\/candidate_osme\u00f1a iii_sergio.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:45:46 - Processing candidate: {"firstname":"Carlos Jericho","lastname":"Petilla","photo":"assets\/images\/candidates\/candidate_petilla_carlos jericho.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 17:45:46 - Processing candidate: {"firstname":"Martin","lastname":"Romualdez","photo":"assets\/images\/candidates\/candidate_romualdez_martin.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:45:46 - Creating certification section
+2025-05-21 17:45:46 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:45:46 - Left logo loaded successfully
+2025-05-21 17:45:46 - Right logo loaded successfully
+2025-05-21 17:45:46 - Logos loaded successfully
+2025-05-21 17:45:46 - Generating output PDF
+2025-05-21 17:45:46 - Sending PDF for download
+2025-05-21 17:45:46 - PDF download initiated
+2025-05-21 17:45:46 - PDF generation complete
+2025-05-21 17:46:06 - Starting summary PDF generation
+2025-05-21 17:46:06 - Running in normal mode - including required files
+2025-05-21 17:46:06 - All includes loaded successfully
+2025-05-21 17:46:06 - Starting summary PDF generation
+2025-05-21 17:46:06 - Creating new ElectionPDF instance
+2025-05-21 17:46:06 - Setting document properties
+2025-05-21 17:46:06 - Setting font and margin properties
+2025-05-21 17:46:06 - Adding first page
+2025-05-21 17:46:06 - Creating election information section
+2025-05-21 17:46:06 - Creating info table data
+2025-05-21 17:46:06 - Rendering info table
+2025-05-21 17:46:06 - Creating voter participation section
+2025-05-21 17:46:06 - Getting voting statistics
+2025-05-21 17:46:06 - Creating participation table
+2025-05-21 17:46:06 - Rendering participation table
+2025-05-21 17:46:06 - Creating elected officers section
+2025-05-21 17:46:06 - Creating winners table
+2025-05-21 17:46:06 - Getting positions data
+2025-05-21 17:46:06 - Creating winners table rows - positions count: 3
+2025-05-21 17:46:06 - Processing position ID: 2 - President
+2025-05-21 17:46:06 - Position has 5 candidates
+2025-05-21 17:46:06 - Position President has max_vote of 1
+2025-05-21 17:46:06 - Added winner: Rody Duterte (position 1 of 1)
+2025-05-21 17:46:06 - Processing position ID: 3 - Vice President
+2025-05-21 17:46:06 - Position has 5 candidates
+2025-05-21 17:46:06 - Position Vice President has max_vote of 1
+2025-05-21 17:46:06 - Added winner: Leni Robredo (position 1 of 1)
+2025-05-21 17:46:06 - Processing position ID: 4 - Senators
+2025-05-21 17:46:06 - Position has 20 candidates
+2025-05-21 17:46:06 - Position Senators has max_vote of 12
+2025-05-21 17:46:06 - Added winner: Frank Drillon (position 1 of 12)
+2025-05-21 17:46:06 - Added winner: Win Gatchalian (position 2 of 12)
+2025-05-21 17:46:06 - Added winner: Dick Gordon (position 3 of 12)
+2025-05-21 17:46:06 - Added winner: Risa Hontiveros (position 4 of 12)
+2025-05-21 17:46:06 - Added winner: Panfilo Ping Lacson (position 5 of 12)
+2025-05-21 17:46:06 - Added winner: Manny Pacquiao (position 6 of 12)
+2025-05-21 17:46:06 - Added winner: Kiko Pangilinan (position 7 of 12)
+2025-05-21 17:46:06 - Added winner: Ralph Recto (position 8 of 12)
+2025-05-21 17:46:06 - Added winner: Vicente Sotto (position 9 of 12)
+2025-05-21 17:46:06 - Added winner: Francis Tolentino (position 10 of 12)
+2025-05-21 17:46:06 - Added winner: Joel Villanueva (position 11 of 12)
+2025-05-21 17:46:06 - Added winner: Migs Zubiri (position 12 of 12)
+2025-05-21 17:46:06 - Creating detailed vote statistics section
+2025-05-21 17:46:06 - Processing detailed stats for position ID: 2 - President
+2025-05-21 17:46:06 - Retrieved 5 candidates for position 2
+2025-05-21 17:46:06 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-05-21 17:46:06 - Processing candidate: {"firstname":"Rody","lastname":"Duterte","photo":"assets\/images\/candidates\/candidate_duterte_rody.png","votes":1,"partylist_name":"PDPLBN"}
+2025-05-21 17:46:06 - Highlighting candidate Rody Duterte as top 1 of 1 allowed winners
+2025-05-21 17:46:06 - Processing candidate: {"firstname":"Jojo","lastname":"Binay","photo":"assets\/images\/candidates\/candidate_binay_jojo.jpg","votes":0,"partylist_name":"United Nationalist Alliance"}
+2025-05-21 17:46:06 - Processing candidate: {"firstname":"Miriam","lastname":"Defensor Santiago","photo":"assets\/images\/candidates\/candidate_defensor santiago _miriam.jpg","votes":0,"partylist_name":"People's Reform Party"}
+2025-05-21 17:46:06 - Processing candidate: {"firstname":"Grace","lastname":"Poe","photo":"assets\/images\/candidates\/candidate_poe_grace.png","votes":0,"partylist_name":null}
+2025-05-21 17:46:06 - Processing candidate: {"firstname":"Mar","lastname":"Roxas","photo":"assets\/images\/candidates\/candidate_roxas_mar.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 17:46:06 - Processing detailed stats for position ID: 3 - Vice President
+2025-05-21 17:46:06 - Retrieved 5 candidates for position 3
+2025-05-21 17:46:06 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-05-21 17:46:06 - Processing candidate: {"firstname":"Leni","lastname":"Robredo","photo":"assets\/images\/candidates\/candidate_robredo_leni .png","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 17:46:06 - Highlighting candidate Leni Robredo as top 1 of 1 allowed winners
+2025-05-21 17:46:06 - Processing candidate: {"firstname":"Alan Peter","lastname":"Cayetano","photo":"assets\/images\/candidates\/candidate_cayetano_alan peter.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:46:06 - Processing candidate: {"firstname":"Chiz","lastname":"Escudero","photo":"assets\/images\/candidates\/candidate_escudero_chiz.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:46:06 - Processing candidate: {"firstname":"Bongbong","lastname":"Marcos","photo":"assets\/images\/candidates\/candidate_marcus_bongbong.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:46:06 - Processing candidate: {"firstname":"Antonio","lastname":"Trillanes IV","photo":"assets\/images\/candidates\/candidate_trillanes iv _antonio.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:46:06 - Processing detailed stats for position ID: 4 - Senators
+2025-05-21 17:46:06 - Retrieved 20 candidates for position 4
+2025-05-21 17:46:06 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-05-21 17:46:06 - Processing candidate: {"firstname":"Frank","lastname":"Drillon","photo":"assets\/images\/candidates\/candidate_drillon_frank.png","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 17:46:06 - Highlighting candidate Frank Drillon as top 1 of 12 allowed winners
+2025-05-21 17:46:06 - Processing candidate: {"firstname":"Win","lastname":"Gatchalian","photo":"assets\/images\/candidates\/candidate_gatchalian_win.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:46:06 - Highlighting candidate Win Gatchalian as top 2 of 12 allowed winners
+2025-05-21 17:46:06 - Processing candidate: {"firstname":"Dick","lastname":"Gordon","photo":"assets\/images\/candidates\/candidate_gordon_dick.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:46:06 - Highlighting candidate Dick Gordon as top 3 of 12 allowed winners
+2025-05-21 17:46:06 - Processing candidate: {"firstname":"Risa","lastname":"Hontiveros","photo":"assets\/images\/candidates\/candidate_hontiveros_risa.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:46:06 - Highlighting candidate Risa Hontiveros as top 4 of 12 allowed winners
+2025-05-21 17:46:06 - Processing candidate: {"firstname":"Panfilo Ping","lastname":"Lacson","photo":"assets\/images\/candidates\/candidate_lacson_panfilo ping.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:46:06 - Highlighting candidate Panfilo Ping Lacson as top 5 of 12 allowed winners
+2025-05-21 17:46:06 - Processing candidate: {"firstname":"Manny","lastname":"Pacquiao","photo":"assets\/images\/candidates\/candidate_pacquiao_manny.jpeg","votes":1,"partylist_name":null}
+2025-05-21 17:46:06 - Highlighting candidate Manny Pacquiao as top 6 of 12 allowed winners
+2025-05-21 17:46:06 - Processing candidate: {"firstname":"Kiko","lastname":"Pangilinan","photo":"assets\/images\/candidates\/candidate_pangilinan_kiko.jpg","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 17:46:06 - Highlighting candidate Kiko Pangilinan as top 7 of 12 allowed winners
+2025-05-21 17:46:06 - Processing candidate: {"firstname":"Ralph","lastname":"Recto","photo":"assets\/images\/candidates\/candidate_recto_ralph.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:46:06 - Highlighting candidate Ralph Recto as top 8 of 12 allowed winners
+2025-05-21 17:46:06 - Processing candidate: {"firstname":"Vicente","lastname":"Sotto","photo":"assets\/images\/candidates\/candidate_sotto_vicente.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:46:06 - Highlighting candidate Vicente Sotto as top 9 of 12 allowed winners
+2025-05-21 17:46:06 - Processing candidate: {"firstname":"Francis","lastname":"Tolentino","photo":"assets\/images\/candidates\/candidate_tolentino_francis.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:46:06 - Highlighting candidate Francis Tolentino as top 10 of 12 allowed winners
+2025-05-21 17:46:06 - Processing candidate: {"firstname":"Joel","lastname":"Villanueva","photo":"assets\/images\/candidates\/candidate_villanueva_joel.png","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 17:46:06 - Highlighting candidate Joel Villanueva as top 11 of 12 allowed winners
+2025-05-21 17:46:06 - Processing candidate: {"firstname":"Migs","lastname":"Zubiri","photo":"assets\/images\/candidates\/candidate_zubiri_migs.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:46:06 - Highlighting candidate Migs Zubiri as top 12 of 12 allowed winners
+2025-05-21 17:46:06 - Processing candidate: {"firstname":"Neri","lastname":"Colmenares","photo":"assets\/images\/candidates\/candidate_colmenares_neri.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:46:06 - Processing candidate: {"firstname":"Leila","lastname":"De Lima","photo":"assets\/images\/candidates\/candidate_de lima_leila.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 17:46:06 - Processing candidate: {"firstname":"Isko Moreno","lastname":"Domagoso","photo":"assets\/images\/candidates\/candidate_domagoso_isko moreno.jpeg","votes":0,"partylist_name":null}
+2025-05-21 17:46:06 - Processing candidate: {"firstname":"TG","lastname":"Guingona","photo":"assets\/images\/candidates\/candidate_guingona_tg.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 17:46:06 - Processing candidate: {"firstname":"Mark","lastname":"Lapid","photo":"assets\/images\/candidates\/candidate_lapid_mark.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:46:06 - Processing candidate: {"firstname":"Sergio","lastname":"Osme\u00f1a III","photo":"assets\/images\/candidates\/candidate_osme\u00f1a iii_sergio.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:46:06 - Processing candidate: {"firstname":"Carlos Jericho","lastname":"Petilla","photo":"assets\/images\/candidates\/candidate_petilla_carlos jericho.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 17:46:06 - Processing candidate: {"firstname":"Martin","lastname":"Romualdez","photo":"assets\/images\/candidates\/candidate_romualdez_martin.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:46:06 - Creating certification section
+2025-05-21 17:46:06 - Generating output PDF
+2025-05-21 17:46:06 - Saving PDF to physical path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/summary.pdf
+2025-05-21 17:46:06 - Saving to temporary file first: /tmp/pdf_OvNb7E
+2025-05-21 17:46:06 - Temporary file created successfully, size: 479672 bytes
+2025-05-21 17:46:06 - PDF saved successfully. File size: 479672 bytes
+2025-05-21 17:46:06 - PDF generation complete
+2025-05-21 17:46:42 - Starting summary PDF generation
+2025-05-21 17:46:42 - Running in normal mode - including required files
+2025-05-21 17:46:42 - All includes loaded successfully
+2025-05-21 17:46:42 - Starting summary PDF generation
+2025-05-21 17:46:42 - Creating new ElectionPDF instance
+2025-05-21 17:46:42 - Setting document properties
+2025-05-21 17:46:42 - Setting font and margin properties
+2025-05-21 17:46:42 - Adding first page
+2025-05-21 17:46:42 - Creating election information section
+2025-05-21 17:46:42 - Creating info table data
+2025-05-21 17:46:42 - Rendering info table
+2025-05-21 17:46:42 - Creating voter participation section
+2025-05-21 17:46:42 - Getting voting statistics
+2025-05-21 17:46:42 - Creating participation table
+2025-05-21 17:46:42 - Rendering participation table
+2025-05-21 17:46:42 - Creating elected officers section
+2025-05-21 17:46:42 - Creating winners table
+2025-05-21 17:46:42 - Getting positions data
+2025-05-21 17:46:42 - Creating winners table rows - positions count: 3
+2025-05-21 17:46:42 - Processing position ID: 2 - President
+2025-05-21 17:46:42 - Position has 5 candidates
+2025-05-21 17:46:42 - Position President has max_vote of 1
+2025-05-21 17:46:42 - Added winner: Rody Duterte (position 1 of 1)
+2025-05-21 17:46:42 - Processing position ID: 3 - Vice President
+2025-05-21 17:46:42 - Position has 5 candidates
+2025-05-21 17:46:42 - Position Vice President has max_vote of 1
+2025-05-21 17:46:42 - Added winner: Leni Robredo (position 1 of 1)
+2025-05-21 17:46:42 - Processing position ID: 4 - Senators
+2025-05-21 17:46:42 - Position has 20 candidates
+2025-05-21 17:46:42 - Position Senators has max_vote of 12
+2025-05-21 17:46:42 - Added winner: Frank Drillon (position 1 of 12)
+2025-05-21 17:46:42 - Added winner: Win Gatchalian (position 2 of 12)
+2025-05-21 17:46:42 - Added winner: Dick Gordon (position 3 of 12)
+2025-05-21 17:46:42 - Added winner: Risa Hontiveros (position 4 of 12)
+2025-05-21 17:46:42 - Added winner: Panfilo Ping Lacson (position 5 of 12)
+2025-05-21 17:46:42 - Added winner: Manny Pacquiao (position 6 of 12)
+2025-05-21 17:46:42 - Added winner: Kiko Pangilinan (position 7 of 12)
+2025-05-21 17:46:42 - Added winner: Ralph Recto (position 8 of 12)
+2025-05-21 17:46:42 - Added winner: Vicente Sotto (position 9 of 12)
+2025-05-21 17:46:42 - Added winner: Francis Tolentino (position 10 of 12)
+2025-05-21 17:46:42 - Added winner: Joel Villanueva (position 11 of 12)
+2025-05-21 17:46:42 - Added winner: Migs Zubiri (position 12 of 12)
+2025-05-21 17:46:42 - Creating detailed vote statistics section
+2025-05-21 17:46:42 - Processing detailed stats for position ID: 2 - President
+2025-05-21 17:46:42 - Retrieved 5 candidates for position 2
+2025-05-21 17:46:42 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-05-21 17:46:42 - Processing candidate: {"firstname":"Rody","lastname":"Duterte","photo":"assets\/images\/candidates\/candidate_duterte_rody.png","votes":1,"partylist_name":"PDPLBN"}
+2025-05-21 17:46:42 - Highlighting candidate Rody Duterte as top 1 of 1 allowed winners
+2025-05-21 17:46:42 - Processing candidate: {"firstname":"Jojo","lastname":"Binay","photo":"assets\/images\/candidates\/candidate_binay_jojo.jpg","votes":0,"partylist_name":"United Nationalist Alliance"}
+2025-05-21 17:46:42 - Processing candidate: {"firstname":"Miriam","lastname":"Defensor Santiago","photo":"assets\/images\/candidates\/candidate_defensor santiago _miriam.jpg","votes":0,"partylist_name":"People's Reform Party"}
+2025-05-21 17:46:42 - Processing candidate: {"firstname":"Grace","lastname":"Poe","photo":"assets\/images\/candidates\/candidate_poe_grace.png","votes":0,"partylist_name":null}
+2025-05-21 17:46:42 - Processing candidate: {"firstname":"Mar","lastname":"Roxas","photo":"assets\/images\/candidates\/candidate_roxas_mar.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 17:46:42 - Processing detailed stats for position ID: 3 - Vice President
+2025-05-21 17:46:42 - Retrieved 5 candidates for position 3
+2025-05-21 17:46:42 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-05-21 17:46:42 - Processing candidate: {"firstname":"Leni","lastname":"Robredo","photo":"assets\/images\/candidates\/candidate_robredo_leni .png","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 17:46:42 - Highlighting candidate Leni Robredo as top 1 of 1 allowed winners
+2025-05-21 17:46:42 - Processing candidate: {"firstname":"Alan Peter","lastname":"Cayetano","photo":"assets\/images\/candidates\/candidate_cayetano_alan peter.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:46:42 - Processing candidate: {"firstname":"Chiz","lastname":"Escudero","photo":"assets\/images\/candidates\/candidate_escudero_chiz.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:46:42 - Processing candidate: {"firstname":"Bongbong","lastname":"Marcos","photo":"assets\/images\/candidates\/candidate_marcus_bongbong.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:46:42 - Processing candidate: {"firstname":"Antonio","lastname":"Trillanes IV","photo":"assets\/images\/candidates\/candidate_trillanes iv _antonio.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:46:42 - Processing detailed stats for position ID: 4 - Senators
+2025-05-21 17:46:42 - Retrieved 20 candidates for position 4
+2025-05-21 17:46:42 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-05-21 17:46:42 - Processing candidate: {"firstname":"Frank","lastname":"Drillon","photo":"assets\/images\/candidates\/candidate_drillon_frank.png","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 17:46:42 - Highlighting candidate Frank Drillon as top 1 of 12 allowed winners
+2025-05-21 17:46:42 - Processing candidate: {"firstname":"Win","lastname":"Gatchalian","photo":"assets\/images\/candidates\/candidate_gatchalian_win.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:46:42 - Highlighting candidate Win Gatchalian as top 2 of 12 allowed winners
+2025-05-21 17:46:42 - Processing candidate: {"firstname":"Dick","lastname":"Gordon","photo":"assets\/images\/candidates\/candidate_gordon_dick.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:46:42 - Highlighting candidate Dick Gordon as top 3 of 12 allowed winners
+2025-05-21 17:46:42 - Processing candidate: {"firstname":"Risa","lastname":"Hontiveros","photo":"assets\/images\/candidates\/candidate_hontiveros_risa.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:46:42 - Highlighting candidate Risa Hontiveros as top 4 of 12 allowed winners
+2025-05-21 17:46:42 - Processing candidate: {"firstname":"Panfilo Ping","lastname":"Lacson","photo":"assets\/images\/candidates\/candidate_lacson_panfilo ping.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:46:42 - Highlighting candidate Panfilo Ping Lacson as top 5 of 12 allowed winners
+2025-05-21 17:46:42 - Processing candidate: {"firstname":"Manny","lastname":"Pacquiao","photo":"assets\/images\/candidates\/candidate_pacquiao_manny.jpeg","votes":1,"partylist_name":null}
+2025-05-21 17:46:42 - Highlighting candidate Manny Pacquiao as top 6 of 12 allowed winners
+2025-05-21 17:46:42 - Processing candidate: {"firstname":"Kiko","lastname":"Pangilinan","photo":"assets\/images\/candidates\/candidate_pangilinan_kiko.jpg","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 17:46:42 - Highlighting candidate Kiko Pangilinan as top 7 of 12 allowed winners
+2025-05-21 17:46:42 - Processing candidate: {"firstname":"Ralph","lastname":"Recto","photo":"assets\/images\/candidates\/candidate_recto_ralph.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:46:42 - Highlighting candidate Ralph Recto as top 8 of 12 allowed winners
+2025-05-21 17:46:43 - Processing candidate: {"firstname":"Vicente","lastname":"Sotto","photo":"assets\/images\/candidates\/candidate_sotto_vicente.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:46:43 - Highlighting candidate Vicente Sotto as top 9 of 12 allowed winners
+2025-05-21 17:46:43 - Processing candidate: {"firstname":"Francis","lastname":"Tolentino","photo":"assets\/images\/candidates\/candidate_tolentino_francis.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:46:43 - Highlighting candidate Francis Tolentino as top 10 of 12 allowed winners
+2025-05-21 17:46:43 - Processing candidate: {"firstname":"Joel","lastname":"Villanueva","photo":"assets\/images\/candidates\/candidate_villanueva_joel.png","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 17:46:43 - Highlighting candidate Joel Villanueva as top 11 of 12 allowed winners
+2025-05-21 17:46:43 - Processing candidate: {"firstname":"Migs","lastname":"Zubiri","photo":"assets\/images\/candidates\/candidate_zubiri_migs.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:46:43 - Highlighting candidate Migs Zubiri as top 12 of 12 allowed winners
+2025-05-21 17:46:43 - Processing candidate: {"firstname":"Neri","lastname":"Colmenares","photo":"assets\/images\/candidates\/candidate_colmenares_neri.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:46:43 - Processing candidate: {"firstname":"Leila","lastname":"De Lima","photo":"assets\/images\/candidates\/candidate_de lima_leila.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 17:46:43 - Processing candidate: {"firstname":"Isko Moreno","lastname":"Domagoso","photo":"assets\/images\/candidates\/candidate_domagoso_isko moreno.jpeg","votes":0,"partylist_name":null}
+2025-05-21 17:46:43 - Processing candidate: {"firstname":"TG","lastname":"Guingona","photo":"assets\/images\/candidates\/candidate_guingona_tg.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 17:46:43 - Processing candidate: {"firstname":"Mark","lastname":"Lapid","photo":"assets\/images\/candidates\/candidate_lapid_mark.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:46:43 - Processing candidate: {"firstname":"Sergio","lastname":"Osme\u00f1a III","photo":"assets\/images\/candidates\/candidate_osme\u00f1a iii_sergio.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:46:43 - Processing candidate: {"firstname":"Carlos Jericho","lastname":"Petilla","photo":"assets\/images\/candidates\/candidate_petilla_carlos jericho.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 17:46:43 - Processing candidate: {"firstname":"Martin","lastname":"Romualdez","photo":"assets\/images\/candidates\/candidate_romualdez_martin.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:46:43 - Creating certification section
+2025-05-21 17:46:43 - Generating output PDF
+2025-05-21 17:46:43 - Saving PDF to physical path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/summary.pdf
+2025-05-21 17:46:43 - Saving to temporary file first: /tmp/pdf_MfE4ji
+2025-05-21 17:46:43 - Temporary file created successfully, size: 479672 bytes
+2025-05-21 17:46:43 - PDF saved successfully. File size: 479672 bytes
+2025-05-21 17:46:43 - PDF generation complete
+2025-05-21 09:56:07 - Starting summary PDF generation
+2025-05-21 09:56:07 - Running in normal mode - including required files
+2025-05-21 17:56:07 - All includes loaded successfully
+2025-05-21 17:56:07 - Starting summary PDF generation
+2025-05-21 17:56:07 - Creating new ElectionPDF instance
+2025-05-21 17:56:07 - Setting document properties
+2025-05-21 17:56:07 - Setting font and margin properties
+2025-05-21 17:56:07 - Adding first page
+2025-05-21 17:56:07 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:56:07 - Left logo loaded successfully
+2025-05-21 17:56:07 - Right logo loaded successfully
+2025-05-21 17:56:07 - Logos loaded successfully
+2025-05-21 17:56:07 - Creating election information section
+2025-05-21 17:56:07 - Creating info table data
+2025-05-21 17:56:07 - Rendering info table
+2025-05-21 17:56:07 - Creating voter participation section
+2025-05-21 17:56:07 - Getting voting statistics
+2025-05-21 17:56:07 - Creating participation table
+2025-05-21 17:56:07 - Rendering participation table
+2025-05-21 17:56:07 - Creating elected officers section
+2025-05-21 17:56:07 - Creating winners table
+2025-05-21 17:56:07 - Getting positions data
+2025-05-21 17:56:07 - Creating winners table rows - positions count: 3
+2025-05-21 17:56:07 - Processing position ID: 2 - President
+2025-05-21 17:56:07 - Position has 5 candidates
+2025-05-21 17:56:07 - Position President has max_vote of 1
+2025-05-21 17:56:07 - Added winner: Rody Duterte (position 1 of 1)
+2025-05-21 17:56:07 - Processing position ID: 3 - Vice President
+2025-05-21 17:56:07 - Position has 5 candidates
+2025-05-21 17:56:07 - Position Vice President has max_vote of 1
+2025-05-21 17:56:07 - Added winner: Leni Robredo (position 1 of 1)
+2025-05-21 17:56:07 - Processing position ID: 4 - Senators
+2025-05-21 17:56:07 - Position has 20 candidates
+2025-05-21 17:56:07 - Position Senators has max_vote of 12
+2025-05-21 17:56:07 - Added winner: Frank Drillon (position 1 of 12)
+2025-05-21 17:56:07 - Added winner: Win Gatchalian (position 2 of 12)
+2025-05-21 17:56:07 - Added winner: Dick Gordon (position 3 of 12)
+2025-05-21 17:56:07 - Added winner: Risa Hontiveros (position 4 of 12)
+2025-05-21 17:56:07 - Added winner: Panfilo Ping Lacson (position 5 of 12)
+2025-05-21 17:56:07 - Added winner: Manny Pacquiao (position 6 of 12)
+2025-05-21 17:56:07 - Added winner: Kiko Pangilinan (position 7 of 12)
+2025-05-21 17:56:07 - Added winner: Ralph Recto (position 8 of 12)
+2025-05-21 17:56:07 - Added winner: Vicente Sotto (position 9 of 12)
+2025-05-21 17:56:07 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:56:07 - Left logo loaded successfully
+2025-05-21 17:56:07 - Right logo loaded successfully
+2025-05-21 17:56:07 - Logos loaded successfully
+2025-05-21 17:56:07 - Added winner: Francis Tolentino (position 10 of 12)
+2025-05-21 17:56:07 - Added winner: Joel Villanueva (position 11 of 12)
+2025-05-21 17:56:07 - Added winner: Migs Zubiri (position 12 of 12)
+2025-05-21 17:56:07 - Creating detailed vote statistics section
+2025-05-21 17:56:07 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:56:07 - Left logo loaded successfully
+2025-05-21 17:56:07 - Right logo loaded successfully
+2025-05-21 17:56:07 - Logos loaded successfully
+2025-05-21 17:56:07 - Processing detailed stats for position ID: 2 - President
+2025-05-21 17:56:07 - Retrieved 5 candidates for position 2
+2025-05-21 17:56:07 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-05-21 17:56:07 - Processing candidate: {"firstname":"Rody","lastname":"Duterte","photo":"assets\/images\/candidates\/candidate_duterte_rody.png","votes":1,"partylist_name":"PDPLBN"}
+2025-05-21 17:56:07 - Highlighting candidate Rody Duterte as top 1 of 1 allowed winners
+2025-05-21 17:56:07 - Processing candidate: {"firstname":"Jojo","lastname":"Binay","photo":"assets\/images\/candidates\/candidate_binay_jojo.jpg","votes":0,"partylist_name":"United Nationalist Alliance"}
+2025-05-21 17:56:07 - Processing candidate: {"firstname":"Miriam","lastname":"Defensor Santiago","photo":"assets\/images\/candidates\/candidate_defensor santiago _miriam.jpg","votes":0,"partylist_name":"People's Reform Party"}
+2025-05-21 17:56:07 - Processing candidate: {"firstname":"Grace","lastname":"Poe","photo":"assets\/images\/candidates\/candidate_poe_grace.png","votes":0,"partylist_name":null}
+2025-05-21 17:56:07 - Processing candidate: {"firstname":"Mar","lastname":"Roxas","photo":"assets\/images\/candidates\/candidate_roxas_mar.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 17:56:07 - Processing detailed stats for position ID: 3 - Vice President
+2025-05-21 17:56:07 - Retrieved 5 candidates for position 3
+2025-05-21 17:56:07 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-05-21 17:56:07 - Processing candidate: {"firstname":"Leni","lastname":"Robredo","photo":"assets\/images\/candidates\/candidate_robredo_leni .png","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 17:56:07 - Highlighting candidate Leni Robredo as top 1 of 1 allowed winners
+2025-05-21 17:56:07 - Processing candidate: {"firstname":"Alan Peter","lastname":"Cayetano","photo":"assets\/images\/candidates\/candidate_cayetano_alan peter.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:56:07 - Processing candidate: {"firstname":"Chiz","lastname":"Escudero","photo":"assets\/images\/candidates\/candidate_escudero_chiz.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:56:07 - Processing candidate: {"firstname":"Bongbong","lastname":"Marcos","photo":"assets\/images\/candidates\/candidate_marcus_bongbong.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:56:07 - Processing candidate: {"firstname":"Antonio","lastname":"Trillanes IV","photo":"assets\/images\/candidates\/candidate_trillanes iv _antonio.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:56:07 - Processing detailed stats for position ID: 4 - Senators
+2025-05-21 17:56:07 - Retrieved 20 candidates for position 4
+2025-05-21 17:56:07 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-05-21 17:56:07 - Processing candidate: {"firstname":"Frank","lastname":"Drillon","photo":"assets\/images\/candidates\/candidate_drillon_frank.png","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 17:56:07 - Highlighting candidate Frank Drillon as top 1 of 12 allowed winners
+2025-05-21 17:56:07 - Processing candidate: {"firstname":"Win","lastname":"Gatchalian","photo":"assets\/images\/candidates\/candidate_gatchalian_win.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:56:07 - Highlighting candidate Win Gatchalian as top 2 of 12 allowed winners
+2025-05-21 17:56:07 - Processing candidate: {"firstname":"Dick","lastname":"Gordon","photo":"assets\/images\/candidates\/candidate_gordon_dick.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:56:07 - Highlighting candidate Dick Gordon as top 3 of 12 allowed winners
+2025-05-21 17:56:07 - Processing candidate: {"firstname":"Risa","lastname":"Hontiveros","photo":"assets\/images\/candidates\/candidate_hontiveros_risa.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:56:07 - Highlighting candidate Risa Hontiveros as top 4 of 12 allowed winners
+2025-05-21 17:56:07 - Processing candidate: {"firstname":"Panfilo Ping","lastname":"Lacson","photo":"assets\/images\/candidates\/candidate_lacson_panfilo ping.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:56:07 - Highlighting candidate Panfilo Ping Lacson as top 5 of 12 allowed winners
+2025-05-21 17:56:07 - Processing candidate: {"firstname":"Manny","lastname":"Pacquiao","photo":"assets\/images\/candidates\/candidate_pacquiao_manny.jpeg","votes":1,"partylist_name":null}
+2025-05-21 17:56:07 - Highlighting candidate Manny Pacquiao as top 6 of 12 allowed winners
+2025-05-21 17:56:07 - Processing candidate: {"firstname":"Kiko","lastname":"Pangilinan","photo":"assets\/images\/candidates\/candidate_pangilinan_kiko.jpg","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 17:56:07 - Highlighting candidate Kiko Pangilinan as top 7 of 12 allowed winners
+2025-05-21 17:56:07 - Processing candidate: {"firstname":"Ralph","lastname":"Recto","photo":"assets\/images\/candidates\/candidate_recto_ralph.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:56:07 - Highlighting candidate Ralph Recto as top 8 of 12 allowed winners
+2025-05-21 17:56:07 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:56:07 - Left logo loaded successfully
+2025-05-21 17:56:07 - Right logo loaded successfully
+2025-05-21 17:56:07 - Logos loaded successfully
+2025-05-21 17:56:07 - Processing candidate: {"firstname":"Vicente","lastname":"Sotto","photo":"assets\/images\/candidates\/candidate_sotto_vicente.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:56:07 - Highlighting candidate Vicente Sotto as top 9 of 12 allowed winners
+2025-05-21 17:56:07 - Processing candidate: {"firstname":"Francis","lastname":"Tolentino","photo":"assets\/images\/candidates\/candidate_tolentino_francis.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:56:07 - Highlighting candidate Francis Tolentino as top 10 of 12 allowed winners
+2025-05-21 17:56:07 - Processing candidate: {"firstname":"Joel","lastname":"Villanueva","photo":"assets\/images\/candidates\/candidate_villanueva_joel.png","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 17:56:07 - Highlighting candidate Joel Villanueva as top 11 of 12 allowed winners
+2025-05-21 17:56:07 - Processing candidate: {"firstname":"Migs","lastname":"Zubiri","photo":"assets\/images\/candidates\/candidate_zubiri_migs.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:56:07 - Highlighting candidate Migs Zubiri as top 12 of 12 allowed winners
+2025-05-21 17:56:07 - Processing candidate: {"firstname":"Neri","lastname":"Colmenares","photo":"assets\/images\/candidates\/candidate_colmenares_neri.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:56:07 - Processing candidate: {"firstname":"Leila","lastname":"De Lima","photo":"assets\/images\/candidates\/candidate_de lima_leila.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 17:56:07 - Processing candidate: {"firstname":"Isko Moreno","lastname":"Domagoso","photo":"assets\/images\/candidates\/candidate_domagoso_isko moreno.jpeg","votes":0,"partylist_name":null}
+2025-05-21 17:56:07 - Processing candidate: {"firstname":"TG","lastname":"Guingona","photo":"assets\/images\/candidates\/candidate_guingona_tg.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 17:56:07 - Processing candidate: {"firstname":"Mark","lastname":"Lapid","photo":"assets\/images\/candidates\/candidate_lapid_mark.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:56:07 - Processing candidate: {"firstname":"Sergio","lastname":"Osme\u00f1a III","photo":"assets\/images\/candidates\/candidate_osme\u00f1a iii_sergio.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:56:07 - Processing candidate: {"firstname":"Carlos Jericho","lastname":"Petilla","photo":"assets\/images\/candidates\/candidate_petilla_carlos jericho.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 17:56:07 - Processing candidate: {"firstname":"Martin","lastname":"Romualdez","photo":"assets\/images\/candidates\/candidate_romualdez_martin.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:56:07 - Creating certification section
+2025-05-21 17:56:07 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 17:56:07 - Left logo loaded successfully
+2025-05-21 17:56:07 - Right logo loaded successfully
+2025-05-21 17:56:07 - Logos loaded successfully
+2025-05-21 17:56:07 - Generating output PDF
+2025-05-21 17:56:07 - Sending PDF for download
+2025-05-21 17:56:07 - PDF download initiated
+2025-05-21 17:56:07 - PDF generation complete
+2025-05-21 17:56:22 - Starting summary PDF generation
+2025-05-21 17:56:22 - Running in normal mode - including required files
+2025-05-21 17:56:22 - All includes loaded successfully
+2025-05-21 17:56:22 - Starting summary PDF generation
+2025-05-21 17:56:22 - Creating new ElectionPDF instance
+2025-05-21 17:56:22 - Setting document properties
+2025-05-21 17:56:22 - Setting font and margin properties
+2025-05-21 17:56:22 - Adding first page
+2025-05-21 17:56:22 - Creating election information section
+2025-05-21 17:56:22 - Creating info table data
+2025-05-21 17:56:22 - Rendering info table
+2025-05-21 17:56:22 - Creating voter participation section
+2025-05-21 17:56:22 - Getting voting statistics
+2025-05-21 17:56:22 - Creating participation table
+2025-05-21 17:56:22 - Rendering participation table
+2025-05-21 17:56:22 - Creating elected officers section
+2025-05-21 17:56:22 - Creating winners table
+2025-05-21 17:56:22 - Getting positions data
+2025-05-21 17:56:22 - Creating winners table rows - positions count: 3
+2025-05-21 17:56:22 - Processing position ID: 2 - President
+2025-05-21 17:56:22 - Position has 5 candidates
+2025-05-21 17:56:22 - Position President has max_vote of 1
+2025-05-21 17:56:22 - Added winner: Rody Duterte (position 1 of 1)
+2025-05-21 17:56:22 - Processing position ID: 3 - Vice President
+2025-05-21 17:56:22 - Position has 5 candidates
+2025-05-21 17:56:22 - Position Vice President has max_vote of 1
+2025-05-21 17:56:22 - Added winner: Leni Robredo (position 1 of 1)
+2025-05-21 17:56:22 - Processing position ID: 4 - Senators
+2025-05-21 17:56:22 - Position has 20 candidates
+2025-05-21 17:56:22 - Position Senators has max_vote of 12
+2025-05-21 17:56:22 - Added winner: Frank Drillon (position 1 of 12)
+2025-05-21 17:56:22 - Added winner: Win Gatchalian (position 2 of 12)
+2025-05-21 17:56:22 - Added winner: Dick Gordon (position 3 of 12)
+2025-05-21 17:56:22 - Added winner: Risa Hontiveros (position 4 of 12)
+2025-05-21 17:56:22 - Added winner: Panfilo Ping Lacson (position 5 of 12)
+2025-05-21 17:56:22 - Added winner: Manny Pacquiao (position 6 of 12)
+2025-05-21 17:56:22 - Added winner: Kiko Pangilinan (position 7 of 12)
+2025-05-21 17:56:22 - Added winner: Ralph Recto (position 8 of 12)
+2025-05-21 17:56:22 - Added winner: Vicente Sotto (position 9 of 12)
+2025-05-21 17:56:22 - Added winner: Francis Tolentino (position 10 of 12)
+2025-05-21 17:56:22 - Added winner: Joel Villanueva (position 11 of 12)
+2025-05-21 17:56:22 - Added winner: Migs Zubiri (position 12 of 12)
+2025-05-21 17:56:22 - Creating detailed vote statistics section
+2025-05-21 17:56:22 - Processing detailed stats for position ID: 2 - President
+2025-05-21 17:56:22 - Retrieved 5 candidates for position 2
+2025-05-21 17:56:22 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-05-21 17:56:22 - Processing candidate: {"firstname":"Rody","lastname":"Duterte","photo":"assets\/images\/candidates\/candidate_duterte_rody.png","votes":1,"partylist_name":"PDPLBN"}
+2025-05-21 17:56:22 - Highlighting candidate Rody Duterte as top 1 of 1 allowed winners
+2025-05-21 17:56:22 - Processing candidate: {"firstname":"Jojo","lastname":"Binay","photo":"assets\/images\/candidates\/candidate_binay_jojo.jpg","votes":0,"partylist_name":"United Nationalist Alliance"}
+2025-05-21 17:56:22 - Processing candidate: {"firstname":"Miriam","lastname":"Defensor Santiago","photo":"assets\/images\/candidates\/candidate_defensor santiago _miriam.jpg","votes":0,"partylist_name":"People's Reform Party"}
+2025-05-21 17:56:22 - Processing candidate: {"firstname":"Grace","lastname":"Poe","photo":"assets\/images\/candidates\/candidate_poe_grace.png","votes":0,"partylist_name":null}
+2025-05-21 17:56:22 - Processing candidate: {"firstname":"Mar","lastname":"Roxas","photo":"assets\/images\/candidates\/candidate_roxas_mar.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 17:56:22 - Processing detailed stats for position ID: 3 - Vice President
+2025-05-21 17:56:22 - Retrieved 5 candidates for position 3
+2025-05-21 17:56:22 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-05-21 17:56:22 - Processing candidate: {"firstname":"Leni","lastname":"Robredo","photo":"assets\/images\/candidates\/candidate_robredo_leni .png","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 17:56:22 - Highlighting candidate Leni Robredo as top 1 of 1 allowed winners
+2025-05-21 17:56:22 - Processing candidate: {"firstname":"Alan Peter","lastname":"Cayetano","photo":"assets\/images\/candidates\/candidate_cayetano_alan peter.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:56:22 - Processing candidate: {"firstname":"Chiz","lastname":"Escudero","photo":"assets\/images\/candidates\/candidate_escudero_chiz.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:56:22 - Processing candidate: {"firstname":"Bongbong","lastname":"Marcos","photo":"assets\/images\/candidates\/candidate_marcus_bongbong.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:56:22 - Processing candidate: {"firstname":"Antonio","lastname":"Trillanes IV","photo":"assets\/images\/candidates\/candidate_trillanes iv _antonio.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:56:22 - Processing detailed stats for position ID: 4 - Senators
+2025-05-21 17:56:22 - Retrieved 20 candidates for position 4
+2025-05-21 17:56:22 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-05-21 17:56:22 - Processing candidate: {"firstname":"Frank","lastname":"Drillon","photo":"assets\/images\/candidates\/candidate_drillon_frank.png","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 17:56:22 - Highlighting candidate Frank Drillon as top 1 of 12 allowed winners
+2025-05-21 17:56:22 - Processing candidate: {"firstname":"Win","lastname":"Gatchalian","photo":"assets\/images\/candidates\/candidate_gatchalian_win.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:56:22 - Highlighting candidate Win Gatchalian as top 2 of 12 allowed winners
+2025-05-21 17:56:22 - Processing candidate: {"firstname":"Dick","lastname":"Gordon","photo":"assets\/images\/candidates\/candidate_gordon_dick.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:56:22 - Highlighting candidate Dick Gordon as top 3 of 12 allowed winners
+2025-05-21 17:56:22 - Processing candidate: {"firstname":"Risa","lastname":"Hontiveros","photo":"assets\/images\/candidates\/candidate_hontiveros_risa.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:56:22 - Highlighting candidate Risa Hontiveros as top 4 of 12 allowed winners
+2025-05-21 17:56:22 - Processing candidate: {"firstname":"Panfilo Ping","lastname":"Lacson","photo":"assets\/images\/candidates\/candidate_lacson_panfilo ping.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:56:22 - Highlighting candidate Panfilo Ping Lacson as top 5 of 12 allowed winners
+2025-05-21 17:56:22 - Processing candidate: {"firstname":"Manny","lastname":"Pacquiao","photo":"assets\/images\/candidates\/candidate_pacquiao_manny.jpeg","votes":1,"partylist_name":null}
+2025-05-21 17:56:22 - Highlighting candidate Manny Pacquiao as top 6 of 12 allowed winners
+2025-05-21 17:56:22 - Processing candidate: {"firstname":"Kiko","lastname":"Pangilinan","photo":"assets\/images\/candidates\/candidate_pangilinan_kiko.jpg","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 17:56:22 - Highlighting candidate Kiko Pangilinan as top 7 of 12 allowed winners
+2025-05-21 17:56:22 - Processing candidate: {"firstname":"Ralph","lastname":"Recto","photo":"assets\/images\/candidates\/candidate_recto_ralph.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:56:22 - Highlighting candidate Ralph Recto as top 8 of 12 allowed winners
+2025-05-21 17:56:22 - Processing candidate: {"firstname":"Vicente","lastname":"Sotto","photo":"assets\/images\/candidates\/candidate_sotto_vicente.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:56:22 - Highlighting candidate Vicente Sotto as top 9 of 12 allowed winners
+2025-05-21 17:56:22 - Processing candidate: {"firstname":"Francis","lastname":"Tolentino","photo":"assets\/images\/candidates\/candidate_tolentino_francis.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:56:22 - Highlighting candidate Francis Tolentino as top 10 of 12 allowed winners
+2025-05-21 17:56:22 - Processing candidate: {"firstname":"Joel","lastname":"Villanueva","photo":"assets\/images\/candidates\/candidate_villanueva_joel.png","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 17:56:22 - Highlighting candidate Joel Villanueva as top 11 of 12 allowed winners
+2025-05-21 17:56:22 - Processing candidate: {"firstname":"Migs","lastname":"Zubiri","photo":"assets\/images\/candidates\/candidate_zubiri_migs.jpg","votes":1,"partylist_name":null}
+2025-05-21 17:56:22 - Highlighting candidate Migs Zubiri as top 12 of 12 allowed winners
+2025-05-21 17:56:22 - Processing candidate: {"firstname":"Neri","lastname":"Colmenares","photo":"assets\/images\/candidates\/candidate_colmenares_neri.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:56:22 - Processing candidate: {"firstname":"Leila","lastname":"De Lima","photo":"assets\/images\/candidates\/candidate_de lima_leila.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 17:56:22 - Processing candidate: {"firstname":"Isko Moreno","lastname":"Domagoso","photo":"assets\/images\/candidates\/candidate_domagoso_isko moreno.jpeg","votes":0,"partylist_name":null}
+2025-05-21 17:56:22 - Processing candidate: {"firstname":"TG","lastname":"Guingona","photo":"assets\/images\/candidates\/candidate_guingona_tg.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 17:56:22 - Processing candidate: {"firstname":"Mark","lastname":"Lapid","photo":"assets\/images\/candidates\/candidate_lapid_mark.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:56:22 - Processing candidate: {"firstname":"Sergio","lastname":"Osme\u00f1a III","photo":"assets\/images\/candidates\/candidate_osme\u00f1a iii_sergio.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:56:22 - Processing candidate: {"firstname":"Carlos Jericho","lastname":"Petilla","photo":"assets\/images\/candidates\/candidate_petilla_carlos jericho.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 17:56:22 - Processing candidate: {"firstname":"Martin","lastname":"Romualdez","photo":"assets\/images\/candidates\/candidate_romualdez_martin.jpg","votes":0,"partylist_name":null}
+2025-05-21 17:56:22 - Creating certification section
+2025-05-21 17:56:22 - Generating output PDF
+2025-05-21 17:56:22 - Saving PDF to physical path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/summary.pdf
+2025-05-21 17:56:22 - Saving to temporary file first: /tmp/pdf_AfnOB7
+2025-05-21 17:56:22 - Temporary file created successfully, size: 479671 bytes
+2025-05-21 17:56:22 - PDF saved successfully. File size: 479671 bytes
+2025-05-21 17:56:22 - PDF generation complete
+2025-05-21 18:00:38 - Starting summary PDF generation
+2025-05-21 18:00:38 - Running in normal mode - including required files
+2025-05-21 18:00:38 - All includes loaded successfully
+2025-05-21 18:00:38 - Starting summary PDF generation
+2025-05-21 18:00:38 - Creating new ElectionPDF instance
+2025-05-21 18:00:38 - Setting document properties
+2025-05-21 18:00:38 - Setting font and margin properties
+2025-05-21 18:00:38 - Adding first page
+2025-05-21 18:00:38 - Creating election information section
+2025-05-21 18:00:38 - Creating info table data
+2025-05-21 18:00:38 - Rendering info table
+2025-05-21 18:00:38 - Creating voter participation section
+2025-05-21 18:00:38 - Getting voting statistics
+2025-05-21 18:00:38 - Creating participation table
+2025-05-21 18:00:38 - Rendering participation table
+2025-05-21 18:00:38 - Creating elected officers section
+2025-05-21 18:00:38 - Creating winners table
+2025-05-21 18:00:38 - Getting positions data
+2025-05-21 18:00:38 - Creating winners table rows - positions count: 3
+2025-05-21 18:00:38 - Processing position ID: 2 - President
+2025-05-21 18:00:38 - Position has 5 candidates
+2025-05-21 18:00:38 - Position President has max_vote of 1
+2025-05-21 18:00:38 - Added winner: Rody Duterte (position 1 of 1)
+2025-05-21 18:00:38 - Processing position ID: 3 - Vice President
+2025-05-21 18:00:38 - Position has 5 candidates
+2025-05-21 18:00:38 - Position Vice President has max_vote of 1
+2025-05-21 18:00:38 - Added winner: Leni Robredo (position 1 of 1)
+2025-05-21 18:00:38 - Processing position ID: 4 - Senators
+2025-05-21 18:00:38 - Position has 20 candidates
+2025-05-21 18:00:38 - Position Senators has max_vote of 12
+2025-05-21 18:00:38 - Added winner: Frank Drillon (position 1 of 12)
+2025-05-21 18:00:38 - Added winner: Win Gatchalian (position 2 of 12)
+2025-05-21 18:00:38 - Added winner: Dick Gordon (position 3 of 12)
+2025-05-21 18:00:38 - Added winner: Risa Hontiveros (position 4 of 12)
+2025-05-21 18:00:38 - Added winner: Panfilo Ping Lacson (position 5 of 12)
+2025-05-21 18:00:38 - Added winner: Manny Pacquiao (position 6 of 12)
+2025-05-21 18:00:38 - Added winner: Kiko Pangilinan (position 7 of 12)
+2025-05-21 18:00:38 - Added winner: Ralph Recto (position 8 of 12)
+2025-05-21 18:00:38 - Added winner: Vicente Sotto (position 9 of 12)
+2025-05-21 18:00:38 - Added winner: Francis Tolentino (position 10 of 12)
+2025-05-21 18:00:38 - Added winner: Joel Villanueva (position 11 of 12)
+2025-05-21 18:00:38 - Added winner: Migs Zubiri (position 12 of 12)
+2025-05-21 18:00:38 - Creating detailed vote statistics section
+2025-05-21 18:00:38 - Processing detailed stats for position ID: 2 - President
+2025-05-21 18:00:38 - Retrieved 5 candidates for position 2
+2025-05-21 18:00:38 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-05-21 18:00:38 - Processing candidate: {"firstname":"Rody","lastname":"Duterte","photo":"assets\/images\/candidates\/candidate_duterte_rody.png","votes":1,"partylist_name":"PDPLBN"}
+2025-05-21 18:00:38 - Highlighting candidate Rody Duterte as top 1 of 1 allowed winners
+2025-05-21 18:00:38 - Processing candidate: {"firstname":"Jojo","lastname":"Binay","photo":"assets\/images\/candidates\/candidate_binay_jojo.jpg","votes":0,"partylist_name":"United Nationalist Alliance"}
+2025-05-21 18:00:38 - Processing candidate: {"firstname":"Miriam","lastname":"Defensor Santiago","photo":"assets\/images\/candidates\/candidate_defensor santiago _miriam.jpg","votes":0,"partylist_name":"People's Reform Party"}
+2025-05-21 18:00:38 - Processing candidate: {"firstname":"Grace","lastname":"Poe","photo":"assets\/images\/candidates\/candidate_poe_grace.png","votes":0,"partylist_name":null}
+2025-05-21 18:00:38 - Processing candidate: {"firstname":"Mar","lastname":"Roxas","photo":"assets\/images\/candidates\/candidate_roxas_mar.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 18:00:38 - Processing detailed stats for position ID: 3 - Vice President
+2025-05-21 18:00:38 - Retrieved 5 candidates for position 3
+2025-05-21 18:00:38 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-05-21 18:00:38 - Processing candidate: {"firstname":"Leni","lastname":"Robredo","photo":"assets\/images\/candidates\/candidate_robredo_leni .png","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 18:00:38 - Highlighting candidate Leni Robredo as top 1 of 1 allowed winners
+2025-05-21 18:00:38 - Processing candidate: {"firstname":"Alan Peter","lastname":"Cayetano","photo":"assets\/images\/candidates\/candidate_cayetano_alan peter.jpg","votes":0,"partylist_name":null}
+2025-05-21 18:00:38 - Processing candidate: {"firstname":"Chiz","lastname":"Escudero","photo":"assets\/images\/candidates\/candidate_escudero_chiz.jpg","votes":0,"partylist_name":null}
+2025-05-21 18:00:38 - Processing candidate: {"firstname":"Bongbong","lastname":"Marcos","photo":"assets\/images\/candidates\/candidate_marcus_bongbong.jpg","votes":0,"partylist_name":null}
+2025-05-21 18:00:38 - Processing candidate: {"firstname":"Antonio","lastname":"Trillanes IV","photo":"assets\/images\/candidates\/candidate_trillanes iv _antonio.jpg","votes":0,"partylist_name":null}
+2025-05-21 18:00:38 - Processing detailed stats for position ID: 4 - Senators
+2025-05-21 18:00:38 - Retrieved 20 candidates for position 4
+2025-05-21 18:00:38 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-05-21 18:00:38 - Processing candidate: {"firstname":"Frank","lastname":"Drillon","photo":"assets\/images\/candidates\/candidate_drillon_frank.png","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 18:00:38 - Highlighting candidate Frank Drillon as top 1 of 12 allowed winners
+2025-05-21 18:00:38 - Processing candidate: {"firstname":"Win","lastname":"Gatchalian","photo":"assets\/images\/candidates\/candidate_gatchalian_win.jpg","votes":1,"partylist_name":null}
+2025-05-21 18:00:38 - Highlighting candidate Win Gatchalian as top 2 of 12 allowed winners
+2025-05-21 18:00:38 - Processing candidate: {"firstname":"Dick","lastname":"Gordon","photo":"assets\/images\/candidates\/candidate_gordon_dick.jpg","votes":1,"partylist_name":null}
+2025-05-21 18:00:38 - Highlighting candidate Dick Gordon as top 3 of 12 allowed winners
+2025-05-21 18:00:38 - Processing candidate: {"firstname":"Risa","lastname":"Hontiveros","photo":"assets\/images\/candidates\/candidate_hontiveros_risa.jpg","votes":1,"partylist_name":null}
+2025-05-21 18:00:38 - Highlighting candidate Risa Hontiveros as top 4 of 12 allowed winners
+2025-05-21 18:00:38 - Processing candidate: {"firstname":"Panfilo Ping","lastname":"Lacson","photo":"assets\/images\/candidates\/candidate_lacson_panfilo ping.jpg","votes":1,"partylist_name":null}
+2025-05-21 18:00:38 - Highlighting candidate Panfilo Ping Lacson as top 5 of 12 allowed winners
+2025-05-21 18:00:38 - Processing candidate: {"firstname":"Manny","lastname":"Pacquiao","photo":"assets\/images\/candidates\/candidate_pacquiao_manny.jpeg","votes":1,"partylist_name":null}
+2025-05-21 18:00:38 - Highlighting candidate Manny Pacquiao as top 6 of 12 allowed winners
+2025-05-21 18:00:38 - Processing candidate: {"firstname":"Kiko","lastname":"Pangilinan","photo":"assets\/images\/candidates\/candidate_pangilinan_kiko.jpg","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 18:00:38 - Highlighting candidate Kiko Pangilinan as top 7 of 12 allowed winners
+2025-05-21 18:00:38 - Processing candidate: {"firstname":"Ralph","lastname":"Recto","photo":"assets\/images\/candidates\/candidate_recto_ralph.jpg","votes":1,"partylist_name":null}
+2025-05-21 18:00:38 - Highlighting candidate Ralph Recto as top 8 of 12 allowed winners
+2025-05-21 18:00:38 - Processing candidate: {"firstname":"Vicente","lastname":"Sotto","photo":"assets\/images\/candidates\/candidate_sotto_vicente.jpg","votes":1,"partylist_name":null}
+2025-05-21 18:00:38 - Highlighting candidate Vicente Sotto as top 9 of 12 allowed winners
+2025-05-21 18:00:38 - Processing candidate: {"firstname":"Francis","lastname":"Tolentino","photo":"assets\/images\/candidates\/candidate_tolentino_francis.jpg","votes":1,"partylist_name":null}
+2025-05-21 18:00:38 - Highlighting candidate Francis Tolentino as top 10 of 12 allowed winners
+2025-05-21 18:00:38 - Processing candidate: {"firstname":"Joel","lastname":"Villanueva","photo":"assets\/images\/candidates\/candidate_villanueva_joel.png","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 18:00:38 - Highlighting candidate Joel Villanueva as top 11 of 12 allowed winners
+2025-05-21 18:00:38 - Processing candidate: {"firstname":"Migs","lastname":"Zubiri","photo":"assets\/images\/candidates\/candidate_zubiri_migs.jpg","votes":1,"partylist_name":null}
+2025-05-21 18:00:38 - Highlighting candidate Migs Zubiri as top 12 of 12 allowed winners
+2025-05-21 18:00:38 - Processing candidate: {"firstname":"Neri","lastname":"Colmenares","photo":"assets\/images\/candidates\/candidate_colmenares_neri.jpg","votes":0,"partylist_name":null}
+2025-05-21 18:00:38 - Processing candidate: {"firstname":"Leila","lastname":"De Lima","photo":"assets\/images\/candidates\/candidate_de lima_leila.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 18:00:38 - Processing candidate: {"firstname":"Isko Moreno","lastname":"Domagoso","photo":"assets\/images\/candidates\/candidate_domagoso_isko moreno.jpeg","votes":0,"partylist_name":null}
+2025-05-21 18:00:38 - Processing candidate: {"firstname":"TG","lastname":"Guingona","photo":"assets\/images\/candidates\/candidate_guingona_tg.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 18:00:38 - Processing candidate: {"firstname":"Mark","lastname":"Lapid","photo":"assets\/images\/candidates\/candidate_lapid_mark.jpg","votes":0,"partylist_name":null}
+2025-05-21 18:00:38 - Processing candidate: {"firstname":"Sergio","lastname":"Osme\u00f1a III","photo":"assets\/images\/candidates\/candidate_osme\u00f1a iii_sergio.jpg","votes":0,"partylist_name":null}
+2025-05-21 18:00:38 - Processing candidate: {"firstname":"Carlos Jericho","lastname":"Petilla","photo":"assets\/images\/candidates\/candidate_petilla_carlos jericho.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 18:00:38 - Processing candidate: {"firstname":"Martin","lastname":"Romualdez","photo":"assets\/images\/candidates\/candidate_romualdez_martin.jpg","votes":0,"partylist_name":null}
+2025-05-21 18:00:38 - Creating certification section
+2025-05-21 18:00:38 - Generating output PDF
+2025-05-21 18:00:38 - Saving PDF to physical path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/summary.pdf
+2025-05-21 18:00:38 - Saving to temporary file first: /tmp/pdf_byoMea
+2025-05-21 18:00:38 - Temporary file created successfully, size: 479670 bytes
+2025-05-21 18:00:38 - PDF saved successfully. File size: 479670 bytes
+2025-05-21 18:00:38 - PDF generation complete
+2025-05-21 18:02:32 - Starting summary PDF generation
+2025-05-21 18:02:32 - Running in normal mode - including required files
+2025-05-21 18:02:32 - All includes loaded successfully
+2025-05-21 18:02:32 - Starting summary PDF generation
+2025-05-21 18:02:32 - Creating new ElectionPDF instance
+2025-05-21 18:02:32 - Setting document properties
+2025-05-21 18:02:32 - Setting font and margin properties
+2025-05-21 18:02:32 - Adding first page
+2025-05-21 18:02:32 - Creating election information section
+2025-05-21 18:02:32 - Creating info table data
+2025-05-21 18:02:32 - Rendering info table
+2025-05-21 18:02:32 - Creating voter participation section
+2025-05-21 18:02:32 - Getting voting statistics
+2025-05-21 18:02:32 - Creating participation table
+2025-05-21 18:02:32 - Rendering participation table
+2025-05-21 18:02:32 - Creating elected officers section
+2025-05-21 18:02:32 - Creating winners table
+2025-05-21 18:02:32 - Getting positions data
+2025-05-21 18:02:32 - Creating winners table rows - positions count: 3
+2025-05-21 18:02:32 - Processing position ID: 2 - President
+2025-05-21 18:02:32 - Position has 5 candidates
+2025-05-21 18:02:32 - Position President has max_vote of 1
+2025-05-21 18:02:32 - Added winner: Rody Duterte (position 1 of 1)
+2025-05-21 18:02:32 - Processing position ID: 3 - Vice President
+2025-05-21 18:02:32 - Position has 5 candidates
+2025-05-21 18:02:32 - Position Vice President has max_vote of 1
+2025-05-21 18:02:32 - Added winner: Leni Robredo (position 1 of 1)
+2025-05-21 18:02:32 - Processing position ID: 4 - Senators
+2025-05-21 18:02:32 - Position has 20 candidates
+2025-05-21 18:02:32 - Position Senators has max_vote of 12
+2025-05-21 18:02:32 - Added winner: Frank Drillon (position 1 of 12)
+2025-05-21 18:02:32 - Added winner: Win Gatchalian (position 2 of 12)
+2025-05-21 18:02:32 - Added winner: Dick Gordon (position 3 of 12)
+2025-05-21 18:02:32 - Added winner: Risa Hontiveros (position 4 of 12)
+2025-05-21 18:02:32 - Added winner: Panfilo Ping Lacson (position 5 of 12)
+2025-05-21 18:02:32 - Added winner: Manny Pacquiao (position 6 of 12)
+2025-05-21 18:02:32 - Added winner: Kiko Pangilinan (position 7 of 12)
+2025-05-21 18:02:32 - Added winner: Ralph Recto (position 8 of 12)
+2025-05-21 18:02:32 - Added winner: Vicente Sotto (position 9 of 12)
+2025-05-21 18:02:32 - Added winner: Francis Tolentino (position 10 of 12)
+2025-05-21 18:02:32 - Added winner: Joel Villanueva (position 11 of 12)
+2025-05-21 18:02:32 - Added winner: Migs Zubiri (position 12 of 12)
+2025-05-21 18:02:32 - Creating detailed vote statistics section
+2025-05-21 18:02:32 - Processing detailed stats for position ID: 2 - President
+2025-05-21 18:02:32 - Retrieved 5 candidates for position 2
+2025-05-21 18:02:32 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-05-21 18:02:32 - Processing candidate: {"firstname":"Rody","lastname":"Duterte","photo":"assets\/images\/candidates\/candidate_duterte_rody.png","votes":1,"partylist_name":"PDPLBN"}
+2025-05-21 18:02:32 - Highlighting candidate Rody Duterte as top 1 of 1 allowed winners
+2025-05-21 18:02:32 - Processing candidate: {"firstname":"Jojo","lastname":"Binay","photo":"assets\/images\/candidates\/candidate_binay_jojo.jpg","votes":0,"partylist_name":"United Nationalist Alliance"}
+2025-05-21 18:02:32 - Processing candidate: {"firstname":"Miriam","lastname":"Defensor Santiago","photo":"assets\/images\/candidates\/candidate_defensor santiago _miriam.jpg","votes":0,"partylist_name":"People's Reform Party"}
+2025-05-21 18:02:32 - Processing candidate: {"firstname":"Grace","lastname":"Poe","photo":"assets\/images\/candidates\/candidate_poe_grace.png","votes":0,"partylist_name":null}
+2025-05-21 18:02:32 - Processing candidate: {"firstname":"Mar","lastname":"Roxas","photo":"assets\/images\/candidates\/candidate_roxas_mar.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 18:02:32 - Processing detailed stats for position ID: 3 - Vice President
+2025-05-21 18:02:32 - Retrieved 5 candidates for position 3
+2025-05-21 18:02:32 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-05-21 18:02:32 - Processing candidate: {"firstname":"Leni","lastname":"Robredo","photo":"assets\/images\/candidates\/candidate_robredo_leni .png","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 18:02:32 - Highlighting candidate Leni Robredo as top 1 of 1 allowed winners
+2025-05-21 18:02:32 - Processing candidate: {"firstname":"Alan Peter","lastname":"Cayetano","photo":"assets\/images\/candidates\/candidate_cayetano_alan peter.jpg","votes":0,"partylist_name":null}
+2025-05-21 18:02:32 - Processing candidate: {"firstname":"Chiz","lastname":"Escudero","photo":"assets\/images\/candidates\/candidate_escudero_chiz.jpg","votes":0,"partylist_name":null}
+2025-05-21 18:02:32 - Processing candidate: {"firstname":"Bongbong","lastname":"Marcos","photo":"assets\/images\/candidates\/candidate_marcus_bongbong.jpg","votes":0,"partylist_name":null}
+2025-05-21 18:02:32 - Processing candidate: {"firstname":"Antonio","lastname":"Trillanes IV","photo":"assets\/images\/candidates\/candidate_trillanes iv _antonio.jpg","votes":0,"partylist_name":null}
+2025-05-21 18:02:32 - Processing detailed stats for position ID: 4 - Senators
+2025-05-21 18:02:32 - Retrieved 20 candidates for position 4
+2025-05-21 18:02:32 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-05-21 18:02:32 - Processing candidate: {"firstname":"Frank","lastname":"Drillon","photo":"assets\/images\/candidates\/candidate_drillon_frank.png","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 18:02:32 - Highlighting candidate Frank Drillon as top 1 of 12 allowed winners
+2025-05-21 18:02:32 - Processing candidate: {"firstname":"Win","lastname":"Gatchalian","photo":"assets\/images\/candidates\/candidate_gatchalian_win.jpg","votes":1,"partylist_name":null}
+2025-05-21 18:02:32 - Highlighting candidate Win Gatchalian as top 2 of 12 allowed winners
+2025-05-21 18:02:32 - Processing candidate: {"firstname":"Dick","lastname":"Gordon","photo":"assets\/images\/candidates\/candidate_gordon_dick.jpg","votes":1,"partylist_name":null}
+2025-05-21 18:02:32 - Highlighting candidate Dick Gordon as top 3 of 12 allowed winners
+2025-05-21 18:02:32 - Processing candidate: {"firstname":"Risa","lastname":"Hontiveros","photo":"assets\/images\/candidates\/candidate_hontiveros_risa.jpg","votes":1,"partylist_name":null}
+2025-05-21 18:02:32 - Highlighting candidate Risa Hontiveros as top 4 of 12 allowed winners
+2025-05-21 18:02:32 - Processing candidate: {"firstname":"Panfilo Ping","lastname":"Lacson","photo":"assets\/images\/candidates\/candidate_lacson_panfilo ping.jpg","votes":1,"partylist_name":null}
+2025-05-21 18:02:32 - Highlighting candidate Panfilo Ping Lacson as top 5 of 12 allowed winners
+2025-05-21 18:02:32 - Processing candidate: {"firstname":"Manny","lastname":"Pacquiao","photo":"assets\/images\/candidates\/candidate_pacquiao_manny.jpeg","votes":1,"partylist_name":null}
+2025-05-21 18:02:32 - Highlighting candidate Manny Pacquiao as top 6 of 12 allowed winners
+2025-05-21 18:02:32 - Processing candidate: {"firstname":"Kiko","lastname":"Pangilinan","photo":"assets\/images\/candidates\/candidate_pangilinan_kiko.jpg","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 18:02:32 - Highlighting candidate Kiko Pangilinan as top 7 of 12 allowed winners
+2025-05-21 18:02:32 - Processing candidate: {"firstname":"Ralph","lastname":"Recto","photo":"assets\/images\/candidates\/candidate_recto_ralph.jpg","votes":1,"partylist_name":null}
+2025-05-21 18:02:32 - Highlighting candidate Ralph Recto as top 8 of 12 allowed winners
+2025-05-21 18:02:32 - Processing candidate: {"firstname":"Vicente","lastname":"Sotto","photo":"assets\/images\/candidates\/candidate_sotto_vicente.jpg","votes":1,"partylist_name":null}
+2025-05-21 18:02:32 - Highlighting candidate Vicente Sotto as top 9 of 12 allowed winners
+2025-05-21 18:02:32 - Processing candidate: {"firstname":"Francis","lastname":"Tolentino","photo":"assets\/images\/candidates\/candidate_tolentino_francis.jpg","votes":1,"partylist_name":null}
+2025-05-21 18:02:32 - Highlighting candidate Francis Tolentino as top 10 of 12 allowed winners
+2025-05-21 18:02:32 - Processing candidate: {"firstname":"Joel","lastname":"Villanueva","photo":"assets\/images\/candidates\/candidate_villanueva_joel.png","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 18:02:32 - Highlighting candidate Joel Villanueva as top 11 of 12 allowed winners
+2025-05-21 18:02:32 - Processing candidate: {"firstname":"Migs","lastname":"Zubiri","photo":"assets\/images\/candidates\/candidate_zubiri_migs.jpg","votes":1,"partylist_name":null}
+2025-05-21 18:02:32 - Highlighting candidate Migs Zubiri as top 12 of 12 allowed winners
+2025-05-21 18:02:32 - Processing candidate: {"firstname":"Neri","lastname":"Colmenares","photo":"assets\/images\/candidates\/candidate_colmenares_neri.jpg","votes":0,"partylist_name":null}
+2025-05-21 18:02:32 - Processing candidate: {"firstname":"Leila","lastname":"De Lima","photo":"assets\/images\/candidates\/candidate_de lima_leila.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 18:02:32 - Processing candidate: {"firstname":"Isko Moreno","lastname":"Domagoso","photo":"assets\/images\/candidates\/candidate_domagoso_isko moreno.jpeg","votes":0,"partylist_name":null}
+2025-05-21 18:02:32 - Processing candidate: {"firstname":"TG","lastname":"Guingona","photo":"assets\/images\/candidates\/candidate_guingona_tg.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 18:02:32 - Processing candidate: {"firstname":"Mark","lastname":"Lapid","photo":"assets\/images\/candidates\/candidate_lapid_mark.jpg","votes":0,"partylist_name":null}
+2025-05-21 18:02:32 - Processing candidate: {"firstname":"Sergio","lastname":"Osme\u00f1a III","photo":"assets\/images\/candidates\/candidate_osme\u00f1a iii_sergio.jpg","votes":0,"partylist_name":null}
+2025-05-21 18:02:32 - Processing candidate: {"firstname":"Carlos Jericho","lastname":"Petilla","photo":"assets\/images\/candidates\/candidate_petilla_carlos jericho.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 18:02:32 - Processing candidate: {"firstname":"Martin","lastname":"Romualdez","photo":"assets\/images\/candidates\/candidate_romualdez_martin.jpg","votes":0,"partylist_name":null}
+2025-05-21 18:02:32 - Creating certification section
+2025-05-21 18:02:32 - Generating output PDF
+2025-05-21 18:02:32 - Saving PDF to physical path: /home/u838540439/domains/ehalal.tech/public_html/administrator/archives/E2504294217/summary.pdf
+2025-05-21 18:02:32 - Saving to temporary file first: /tmp/pdf_XcvB0W
+2025-05-21 18:02:32 - Temporary file created successfully, size: 479670 bytes
+2025-05-21 18:02:32 - PDF saved successfully. File size: 479670 bytes
+2025-05-21 18:02:32 - PDF generation complete
+2025-05-21 10:04:32 - Starting summary PDF generation
+2025-05-21 10:04:32 - Running in normal mode - including required files
+2025-05-21 18:04:32 - All includes loaded successfully
+2025-05-21 18:04:32 - Starting summary PDF generation
+2025-05-21 18:04:32 - Creating new ElectionPDF instance
+2025-05-21 18:04:32 - Setting document properties
+2025-05-21 18:04:32 - Setting font and margin properties
+2025-05-21 18:04:32 - Adding first page
+2025-05-21 18:04:32 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 18:04:32 - Left logo loaded successfully
+2025-05-21 18:04:32 - Right logo loaded successfully
+2025-05-21 18:04:32 - Logos loaded successfully
+2025-05-21 18:04:32 - Creating election information section
+2025-05-21 18:04:32 - Creating info table data
+2025-05-21 18:04:32 - Rendering info table
+2025-05-21 18:04:32 - Creating voter participation section
+2025-05-21 18:04:32 - Getting voting statistics
+2025-05-21 18:04:32 - Creating participation table
+2025-05-21 18:04:32 - Rendering participation table
+2025-05-21 18:04:32 - Creating elected officers section
+2025-05-21 18:04:32 - Creating winners table
+2025-05-21 18:04:32 - Getting positions data
+2025-05-21 18:04:32 - Creating winners table rows - positions count: 3
+2025-05-21 18:04:32 - Processing position ID: 2 - President
+2025-05-21 18:04:32 - Position has 5 candidates
+2025-05-21 18:04:32 - Position President has max_vote of 1
+2025-05-21 18:04:32 - Added winner: Rody Duterte (position 1 of 1)
+2025-05-21 18:04:32 - Processing position ID: 3 - Vice President
+2025-05-21 18:04:32 - Position has 5 candidates
+2025-05-21 18:04:32 - Position Vice President has max_vote of 1
+2025-05-21 18:04:32 - Added winner: Leni Robredo (position 1 of 1)
+2025-05-21 18:04:32 - Processing position ID: 4 - Senators
+2025-05-21 18:04:32 - Position has 20 candidates
+2025-05-21 18:04:32 - Position Senators has max_vote of 12
+2025-05-21 18:04:32 - Added winner: Frank Drillon (position 1 of 12)
+2025-05-21 18:04:32 - Added winner: Win Gatchalian (position 2 of 12)
+2025-05-21 18:04:32 - Added winner: Dick Gordon (position 3 of 12)
+2025-05-21 18:04:32 - Added winner: Risa Hontiveros (position 4 of 12)
+2025-05-21 18:04:32 - Added winner: Panfilo Ping Lacson (position 5 of 12)
+2025-05-21 18:04:32 - Added winner: Manny Pacquiao (position 6 of 12)
+2025-05-21 18:04:32 - Added winner: Kiko Pangilinan (position 7 of 12)
+2025-05-21 18:04:32 - Added winner: Ralph Recto (position 8 of 12)
+2025-05-21 18:04:32 - Added winner: Vicente Sotto (position 9 of 12)
+2025-05-21 18:04:32 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 18:04:32 - Left logo loaded successfully
+2025-05-21 18:04:32 - Right logo loaded successfully
+2025-05-21 18:04:32 - Logos loaded successfully
+2025-05-21 18:04:32 - Added winner: Francis Tolentino (position 10 of 12)
+2025-05-21 18:04:32 - Added winner: Joel Villanueva (position 11 of 12)
+2025-05-21 18:04:32 - Added winner: Migs Zubiri (position 12 of 12)
+2025-05-21 18:04:32 - Creating detailed vote statistics section
+2025-05-21 18:04:32 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 18:04:32 - Left logo loaded successfully
+2025-05-21 18:04:32 - Right logo loaded successfully
+2025-05-21 18:04:32 - Logos loaded successfully
+2025-05-21 18:04:32 - Processing detailed stats for position ID: 2 - President
+2025-05-21 18:04:32 - Retrieved 5 candidates for position 2
+2025-05-21 18:04:32 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-05-21 18:04:32 - Processing candidate: {"firstname":"Rody","lastname":"Duterte","photo":"assets\/images\/candidates\/candidate_duterte_rody.png","votes":1,"partylist_name":"PDPLBN"}
+2025-05-21 18:04:32 - Highlighting candidate Rody Duterte as top 1 of 1 allowed winners
+2025-05-21 18:04:32 - Processing candidate: {"firstname":"Jojo","lastname":"Binay","photo":"assets\/images\/candidates\/candidate_binay_jojo.jpg","votes":0,"partylist_name":"United Nationalist Alliance"}
+2025-05-21 18:04:32 - Processing candidate: {"firstname":"Miriam","lastname":"Defensor Santiago","photo":"assets\/images\/candidates\/candidate_defensor santiago _miriam.jpg","votes":0,"partylist_name":"People's Reform Party"}
+2025-05-21 18:04:32 - Processing candidate: {"firstname":"Grace","lastname":"Poe","photo":"assets\/images\/candidates\/candidate_poe_grace.png","votes":0,"partylist_name":null}
+2025-05-21 18:04:32 - Processing candidate: {"firstname":"Mar","lastname":"Roxas","photo":"assets\/images\/candidates\/candidate_roxas_mar.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 18:04:32 - Processing detailed stats for position ID: 3 - Vice President
+2025-05-21 18:04:32 - Retrieved 5 candidates for position 3
+2025-05-21 18:04:32 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-05-21 18:04:32 - Processing candidate: {"firstname":"Leni","lastname":"Robredo","photo":"assets\/images\/candidates\/candidate_robredo_leni .png","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 18:04:32 - Highlighting candidate Leni Robredo as top 1 of 1 allowed winners
+2025-05-21 18:04:32 - Processing candidate: {"firstname":"Alan Peter","lastname":"Cayetano","photo":"assets\/images\/candidates\/candidate_cayetano_alan peter.jpg","votes":0,"partylist_name":null}
+2025-05-21 18:04:32 - Processing candidate: {"firstname":"Chiz","lastname":"Escudero","photo":"assets\/images\/candidates\/candidate_escudero_chiz.jpg","votes":0,"partylist_name":null}
+2025-05-21 18:04:32 - Processing candidate: {"firstname":"Bongbong","lastname":"Marcos","photo":"assets\/images\/candidates\/candidate_marcus_bongbong.jpg","votes":0,"partylist_name":null}
+2025-05-21 18:04:32 - Processing candidate: {"firstname":"Antonio","lastname":"Trillanes IV","photo":"assets\/images\/candidates\/candidate_trillanes iv _antonio.jpg","votes":0,"partylist_name":null}
+2025-05-21 18:04:32 - Processing detailed stats for position ID: 4 - Senators
+2025-05-21 18:04:32 - Retrieved 20 candidates for position 4
+2025-05-21 18:04:32 - Candidate data structure: ["firstname","lastname","photo","votes","partylist_name"]
+2025-05-21 18:04:32 - Processing candidate: {"firstname":"Frank","lastname":"Drillon","photo":"assets\/images\/candidates\/candidate_drillon_frank.png","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 18:04:32 - Highlighting candidate Frank Drillon as top 1 of 12 allowed winners
+2025-05-21 18:04:32 - Processing candidate: {"firstname":"Win","lastname":"Gatchalian","photo":"assets\/images\/candidates\/candidate_gatchalian_win.jpg","votes":1,"partylist_name":null}
+2025-05-21 18:04:32 - Highlighting candidate Win Gatchalian as top 2 of 12 allowed winners
+2025-05-21 18:04:32 - Processing candidate: {"firstname":"Dick","lastname":"Gordon","photo":"assets\/images\/candidates\/candidate_gordon_dick.jpg","votes":1,"partylist_name":null}
+2025-05-21 18:04:32 - Highlighting candidate Dick Gordon as top 3 of 12 allowed winners
+2025-05-21 18:04:32 - Processing candidate: {"firstname":"Risa","lastname":"Hontiveros","photo":"assets\/images\/candidates\/candidate_hontiveros_risa.jpg","votes":1,"partylist_name":null}
+2025-05-21 18:04:32 - Highlighting candidate Risa Hontiveros as top 4 of 12 allowed winners
+2025-05-21 18:04:32 - Processing candidate: {"firstname":"Panfilo Ping","lastname":"Lacson","photo":"assets\/images\/candidates\/candidate_lacson_panfilo ping.jpg","votes":1,"partylist_name":null}
+2025-05-21 18:04:32 - Highlighting candidate Panfilo Ping Lacson as top 5 of 12 allowed winners
+2025-05-21 18:04:32 - Processing candidate: {"firstname":"Manny","lastname":"Pacquiao","photo":"assets\/images\/candidates\/candidate_pacquiao_manny.jpeg","votes":1,"partylist_name":null}
+2025-05-21 18:04:32 - Highlighting candidate Manny Pacquiao as top 6 of 12 allowed winners
+2025-05-21 18:04:32 - Processing candidate: {"firstname":"Kiko","lastname":"Pangilinan","photo":"assets\/images\/candidates\/candidate_pangilinan_kiko.jpg","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 18:04:32 - Highlighting candidate Kiko Pangilinan as top 7 of 12 allowed winners
+2025-05-21 18:04:32 - Processing candidate: {"firstname":"Ralph","lastname":"Recto","photo":"assets\/images\/candidates\/candidate_recto_ralph.jpg","votes":1,"partylist_name":null}
+2025-05-21 18:04:32 - Highlighting candidate Ralph Recto as top 8 of 12 allowed winners
+2025-05-21 18:04:32 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 18:04:32 - Left logo loaded successfully
+2025-05-21 18:04:32 - Right logo loaded successfully
+2025-05-21 18:04:32 - Logos loaded successfully
+2025-05-21 18:04:32 - Processing candidate: {"firstname":"Vicente","lastname":"Sotto","photo":"assets\/images\/candidates\/candidate_sotto_vicente.jpg","votes":1,"partylist_name":null}
+2025-05-21 18:04:32 - Highlighting candidate Vicente Sotto as top 9 of 12 allowed winners
+2025-05-21 18:04:32 - Processing candidate: {"firstname":"Francis","lastname":"Tolentino","photo":"assets\/images\/candidates\/candidate_tolentino_francis.jpg","votes":1,"partylist_name":null}
+2025-05-21 18:04:32 - Highlighting candidate Francis Tolentino as top 10 of 12 allowed winners
+2025-05-21 18:04:32 - Processing candidate: {"firstname":"Joel","lastname":"Villanueva","photo":"assets\/images\/candidates\/candidate_villanueva_joel.png","votes":1,"partylist_name":"Liberal Party"}
+2025-05-21 18:04:32 - Highlighting candidate Joel Villanueva as top 11 of 12 allowed winners
+2025-05-21 18:04:32 - Processing candidate: {"firstname":"Migs","lastname":"Zubiri","photo":"assets\/images\/candidates\/candidate_zubiri_migs.jpg","votes":1,"partylist_name":null}
+2025-05-21 18:04:32 - Highlighting candidate Migs Zubiri as top 12 of 12 allowed winners
+2025-05-21 18:04:32 - Processing candidate: {"firstname":"Neri","lastname":"Colmenares","photo":"assets\/images\/candidates\/candidate_colmenares_neri.jpg","votes":0,"partylist_name":null}
+2025-05-21 18:04:32 - Processing candidate: {"firstname":"Leila","lastname":"De Lima","photo":"assets\/images\/candidates\/candidate_de lima_leila.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 18:04:32 - Processing candidate: {"firstname":"Isko Moreno","lastname":"Domagoso","photo":"assets\/images\/candidates\/candidate_domagoso_isko moreno.jpeg","votes":0,"partylist_name":null}
+2025-05-21 18:04:32 - Processing candidate: {"firstname":"TG","lastname":"Guingona","photo":"assets\/images\/candidates\/candidate_guingona_tg.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 18:04:32 - Processing candidate: {"firstname":"Mark","lastname":"Lapid","photo":"assets\/images\/candidates\/candidate_lapid_mark.jpg","votes":0,"partylist_name":null}
+2025-05-21 18:04:32 - Processing candidate: {"firstname":"Sergio","lastname":"Osme\u00f1a III","photo":"assets\/images\/candidates\/candidate_osme\u00f1a iii_sergio.jpg","votes":0,"partylist_name":null}
+2025-05-21 18:04:32 - Processing candidate: {"firstname":"Carlos Jericho","lastname":"Petilla","photo":"assets\/images\/candidates\/candidate_petilla_carlos jericho.jpg","votes":0,"partylist_name":"Liberal Party"}
+2025-05-21 18:04:32 - Processing candidate: {"firstname":"Martin","lastname":"Romualdez","photo":"assets\/images\/candidates\/candidate_romualdez_martin.jpg","votes":0,"partylist_name":null}
+2025-05-21 18:04:32 - Creating certification section
+2025-05-21 18:04:32 - Loading logos - Left: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/btech.png, Right: /home/u838540439/domains/ehalal.tech/public_html/administrator/assets/images/ehalal.jpg
+2025-05-21 18:04:32 - Left logo loaded successfully
+2025-05-21 18:04:32 - Right logo loaded successfully
+2025-05-21 18:04:32 - Logos loaded successfully
+2025-05-21 18:04:32 - Generating output PDF
+2025-05-21 18:04:32 - Sending PDF for download
+2025-05-21 18:04:32 - PDF download initiated
+2025-05-21 18:04:32 - PDF generation complete

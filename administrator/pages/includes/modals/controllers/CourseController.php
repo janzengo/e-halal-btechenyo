@@ -8,10 +8,12 @@ require_once __DIR__ . '/../../../../classes/Logger.php';
 require_once __DIR__ . '/../../../../classes/Admin.php';
 require_once __DIR__ . '/../../../../classes/Elections.php';
 
+// Set JSON header early to ensure proper content type
+header('Content-Type: application/json');
+
 // Check if admin is logged in
 $admin = Admin::getInstance();
 if (!$admin->isLoggedIn()) {
-    header('Content-Type: application/json');
     echo json_encode(['error' => true, 'message' => 'Unauthorized access']);
     exit();
 }
@@ -23,7 +25,6 @@ $election = Elections::getInstance();
 
 // Check if election is active
 if ($election->isModificationLocked()) {
-    header('Content-Type: application/json');
     echo json_encode(['error' => true, 'message' => 'Modifications are not allowed while election is active']);
     exit();
 }
@@ -33,24 +34,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $response = ['error' => false, 'message' => ''];
     
     try {
-        // Determine if this is an AJAX request
-        $isAjax = isset($_SERVER['HTTP_X_REQUESTED_WITH']) && 
-                  strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest';
-
         if (!isset($_POST['action'])) {
             throw new Exception('Action not specified');
         }
 
         switch ($_POST['action']) {
             case 'add':
-                if (!isset($_POST['description'])) {
+                if (!isset($_POST['description']) || empty(trim($_POST['description']))) {
                     throw new Exception('Course description is required');
                 }
 
-                $result = $course->addCourse($_POST['description']);
+                $result = $course->addCourse(trim($_POST['description']));
                 
                 if (!$result) {
-                    throw new Exception('Failed to add course');
+                    throw new Exception('Failed to add course. The description might already be taken.');
                 }
                 
                 $logger->logAdminAction(
@@ -63,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 break;
 
             case 'edit':
-                if (!isset($_POST['id'], $_POST['description'])) {
+                if (!isset($_POST['id'], $_POST['description']) || empty(trim($_POST['description']))) {
                     throw new Exception('Missing required fields');
                 }
 
@@ -73,10 +70,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     throw new Exception('Course not found');
                 }
 
-                $result = $course->updateCourse($_POST['id'], $_POST['description']);
+                $result = $course->updateCourse($_POST['id'], trim($_POST['description']));
                 
                 if (!$result) {
-                    throw new Exception('Failed to update course');
+                    throw new Exception('Failed to update course. The description might already be taken.');
                 }
                 
                 $logger->logAdminAction(
@@ -108,6 +105,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         "Deleted course: {$courseData['description']}"
                     );
                     $response['message'] = 'Course deleted successfully';
+                } else {
+                    throw new Exception('Cannot delete course with existing voters');
                 }
                 break;
 
@@ -139,24 +138,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         );
     }
 
-    // Send response
-    if ($isAjax) {
-        header('Content-Type: application/json');
-        echo json_encode($response);
-        exit();
-    } else {
-        // For form submissions, redirect with message
-        if ($response['error']) {
-            $_SESSION['error'] = $response['message'];
-        } else {
-            $_SESSION['success'] = $response['message'];
-        }
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
-        exit();
-    }
+    // Send JSON response
+    echo json_encode($response);
+    exit();
 } else {
     // Handle non-POST requests
-    header('Content-Type: application/json');
     echo json_encode([
         'error' => true,
         'message' => 'Invalid request method'

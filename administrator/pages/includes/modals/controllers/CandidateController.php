@@ -8,10 +8,12 @@ require_once __DIR__ . '/../../../../classes/Logger.php';
 require_once __DIR__ . '/../../../../classes/Admin.php';
 require_once __DIR__ . '/../../../../classes/Elections.php';
 
+// Set JSON header early to ensure proper content type
+header('Content-Type: application/json');
+
 // Check if admin is logged in
 $admin = Admin::getInstance();
 if (!$admin->isLoggedIn()) {
-    header('Content-Type: application/json');
     echo json_encode(['error' => true, 'message' => 'Unauthorized access']);
     exit();
 }
@@ -23,13 +25,13 @@ $election = Elections::getInstance();
 
 // Check if election is active
 if ($election->isModificationLocked()) {
-    header('Content-Type: application/json');
     echo json_encode(['error' => true, 'message' => 'Modifications are not allowed while election is active']);
     exit();
 }
 
-// Define upload path
-define('UPLOAD_PATH', $_SERVER['DOCUMENT_ROOT'] . '/e-halal/administrator/assets/images/candidates/');
+// Define upload paths
+$baseDir = dirname(dirname(dirname(dirname(__DIR__))));
+define('UPLOAD_PATH', $baseDir . '/assets/images/candidates/');
 define('DB_PATH', 'assets/images/candidates/');
 define('DEFAULT_PHOTO', 'assets/images/profile.jpg');
 
@@ -48,14 +50,17 @@ function processImage($file, $lastname, $firstname, $oldPhoto = null) {
     }
 
     // Create upload directory if it doesn't exist
-    if (!is_dir(UPLOAD_PATH)) {
+    if (!file_exists(UPLOAD_PATH)) {
         if (!mkdir(UPLOAD_PATH, 0755, true)) {
-            throw new Exception('Failed to create upload directory');
+            throw new Exception('Failed to create upload directory: ' . UPLOAD_PATH);
         }
     }
 
     if (!is_writable(UPLOAD_PATH)) {
-        throw new Exception('Upload directory is not writable');
+        // Try to make the directory writable
+        if (!chmod(UPLOAD_PATH, 0755)) {
+            throw new Exception('Upload directory is not writable: ' . UPLOAD_PATH);
+        }
     }
 
     // Generate filename using lastname_firstname format
@@ -65,8 +70,17 @@ function processImage($file, $lastname, $firstname, $oldPhoto = null) {
 
     // Move uploaded file
     if (!move_uploaded_file($file['tmp_name'], $targetPath)) {
-        throw new Exception('Failed to move uploaded file');
+        $uploadError = error_get_last();
+        throw new Exception('Failed to move uploaded file. Error: ' . ($uploadError['message'] ?? 'Unknown error'));
     }
+
+    // Ensure the file was actually created
+    if (!file_exists($targetPath)) {
+        throw new Exception('File was not created at target location: ' . $targetPath);
+    }
+
+    // Set proper permissions for the uploaded file
+    chmod($targetPath, 0644);
 
     // Delete old photo if it exists and is not the default
     if ($oldPhoto && $oldPhoto !== DEFAULT_PHOTO) {
@@ -84,10 +98,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $response = ['error' => false, 'message' => ''];
     
     try {
-        // Determine if this is an AJAX request
-        $isAjax = isset($_SERVER['HTTP_X_REQUESTED_WITH']) && 
-                  strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest';
-
         if (!isset($_POST['action'])) {
             throw new Exception('Action not specified');
         }
@@ -101,23 +111,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // Process photo upload
                 $photo = DEFAULT_PHOTO;
                 if (isset($_FILES['photo']) && $_FILES['photo']['error'] == 0) {
-                    $photo = processImage($_FILES['photo'], $_POST['lastname'], $_POST['firstname']);
+                    try {
+                        $photo = processImage($_FILES['photo'], $_POST['lastname'], $_POST['firstname']);
+                    } catch (Exception $e) {
+                        throw new Exception('Photo upload failed: ' . $e->getMessage());
+                    }
                 }
 
                 // Get partylist_id if set, otherwise null
                 $partylist_id = isset($_POST['partylist_id']) && !empty($_POST['partylist_id']) ? $_POST['partylist_id'] : null;
 
                 $result = $candidate->addCandidate(
-                    $_POST['firstname'],
-                    $_POST['lastname'],
+                    trim($_POST['firstname']),
+                    trim($_POST['lastname']),
                     $_POST['position_id'],
-                    $_POST['platform'],
+                    trim($_POST['platform']),
                     $photo,
                     $partylist_id
                 );
                 
                 if (!$result) {
-                    throw new Exception('Failed to add candidate');
+                    throw new Exception('Failed to add candidate. The candidate might already exist.');
                 }
                 
                 $logger->logAdminAction(
@@ -143,7 +157,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // Process photo upload
                 $photo = $oldCandidate['photo'] ?: DEFAULT_PHOTO;
                 if (isset($_FILES['photo']) && $_FILES['photo']['error'] == 0) {
-                    $photo = processImage($_FILES['photo'], $_POST['lastname'], $_POST['firstname'], $oldCandidate['photo']);
+                    try {
+                        $photo = processImage($_FILES['photo'], $_POST['lastname'], $_POST['firstname'], $oldCandidate['photo']);
+                    } catch (Exception $e) {
+                        throw new Exception('Photo upload failed: ' . $e->getMessage());
+                    }
                 }
 
                 // Get partylist_id if set, otherwise null
@@ -151,16 +169,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 $result = $candidate->updateCandidate(
                     $_POST['id'],
-                    $_POST['firstname'],
-                    $_POST['lastname'],
+                    trim($_POST['firstname']),
+                    trim($_POST['lastname']),
                     $_POST['position_id'],
-                    $_POST['platform'],
+                    trim($_POST['platform']),
                     $photo,
                     $partylist_id
                 );
                 
                 if (!$result) {
-                    throw new Exception('Failed to update candidate');
+                    throw new Exception('Failed to update candidate. The candidate might already exist.');
                 }
                 
                 $logger->logAdminAction(
@@ -200,7 +218,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     );
                     $response['message'] = 'Candidate deleted successfully';
                 } else {
-                    throw new Exception('Failed to delete candidate');
+                    throw new Exception('Failed to delete candidate. The candidate might have associated votes.');
                 }
                 break;
 
@@ -232,24 +250,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         );
     }
 
-    // Send response
-    if ($isAjax) {
-        header('Content-Type: application/json');
-        echo json_encode($response);
-        exit();
-    } else {
-        // For form submissions, redirect with message
-        if ($response['error']) {
-            $_SESSION['error'] = $response['message'];
-        } else {
-            $_SESSION['success'] = $response['message'];
-        }
-        header('Location: ' . $_SERVER['HTTP_REFERER']);
-        exit();
-    }
+    // Send JSON response
+    echo json_encode($response);
+    exit();
 } else {
     // Handle non-POST requests
-    header('Content-Type: application/json');
     echo json_encode([
         'error' => true,
         'message' => 'Invalid request method'
