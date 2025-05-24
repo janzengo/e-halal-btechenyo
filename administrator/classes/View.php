@@ -56,6 +56,35 @@ class View {
         ob_start();
         $admin = Admin::getInstance();
         $admin_data = $admin->getAdminData();
+
+        // Helper function to get profile image path
+        $getProfileImage = function($photo) {
+            // If no photo is set, return default
+            if (empty($photo)) {
+                return BASE_URL . 'administrator/assets/images/profile.jpg';
+            }
+
+            // Check if photo exists
+            $photoPath = dirname(dirname(__DIR__)) . '/administrator/' . $photo;
+            
+            // Remove any duplicate administrator/ prefix for path checking
+            $photoPath = preg_replace('#/administrator/administrator/#', '/administrator/', $photoPath);
+            
+            error_log("Checking photo path: " . $photoPath);
+            
+            if (!file_exists($photoPath) || !is_readable($photoPath)) {
+                error_log("Photo not found or not readable at: " . $photoPath);
+                return BASE_URL . 'administrator/assets/images/profile.jpg';
+            }
+
+            // Clean up the URL path
+            $photo = preg_replace('#^administrator/#', '', $photo);
+            $photoUrl = BASE_URL . 'administrator/' . $photo;
+            
+            error_log("Returning photo URL: " . $photoUrl);
+            return $photoUrl;
+        };
+
         ?>
         <header class="main-header">
             <!-- Logo -->
@@ -71,7 +100,7 @@ class View {
                         <!-- User Account: style can be found in dropdown.less -->
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <img src="<?php echo (!empty($admin->getPhoto())) ? BASE_URL.'administrator/'.$admin->getPhoto() : BASE_URL.'administrator/assets/images/profile.jpg'; ?>" class="user-image" alt="User Image">
+                                <img src="<?php echo $getProfileImage($admin->getPhoto()); ?>" class="user-image" alt="User Image">
                                 <span class="hidden-xs">
                                     <?php 
                                     echo $admin->getFullName(); 
@@ -82,7 +111,7 @@ class View {
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header">
-                                    <img src="<?php echo (!empty($admin->getPhoto())) ? BASE_URL.'administrator/'.$admin->getPhoto() : BASE_URL.'administrator/assets/images/profile.jpg'; ?>" class="img-circle" alt="User Image">
+                                    <img src="<?php echo $getProfileImage($admin->getPhoto()); ?>" class="img-circle" alt="User Image">
                                     <p>
                                         <?php echo $admin->getFullName(); ?>
                                         <small>Member since <?php echo date('M. Y', strtotime($admin->getAdminData()['created_on'])); ?></small>
@@ -192,7 +221,6 @@ class View {
             
             <!-- Third Party CSS -->
             <link rel="stylesheet" href="<?php echo BASE_URL; ?>node_modules/datatables.net-bs/css/dataTables.bootstrap.css">
-            <link rel="stylesheet" href="<?php echo BASE_URL; ?>node_modules/iCheck/skins/all.css">
             <link rel="stylesheet" href="<?php echo BASE_URL; ?>node_modules/bootstrap-daterangepicker/daterangepicker.css">
             <link rel="stylesheet" href="<?php echo BASE_URL; ?>node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
             <link rel="stylesheet" href="<?php echo BASE_URL; ?>node_modules/bootstrap-timepicker/css/bootstrap-timepicker.min.css">

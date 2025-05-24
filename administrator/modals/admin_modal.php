@@ -17,12 +17,12 @@ $adminData = $admin->getAdminData();
                 <h4 class="modal-title"><b>Electoral Head Profile</b></h4>
             </div>
             <div class="modal-body">
-                <form class="form-horizontal" method="POST" action="<?php echo BASE_URL; ?>administrator/modals/controllers/AdminController.php" enctype="multipart/form-data">
+                <form class="form-horizontal" method="POST" action="<?php echo BASE_URL; ?>administrator/modals/controllers/AdminController.php" enctype="multipart/form-data" id="adminProfileForm">
                     <input type="hidden" name="action" value="update">
                     <div class="form-group">
                         <label for="username" class="col-sm-3 control-label">Username</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="username" name="username" value="<?php echo $adminData['username']; ?>">
+                            <input type="text" class="form-control" id="username" name="username" value="<?php echo htmlspecialchars($adminData['username']); ?>" required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -35,19 +35,19 @@ $adminData = $admin->getAdminData();
                     <div class="form-group">
                         <label for="firstname" class="col-sm-3 control-label">Firstname</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="firstname" name="firstname" value="<?php echo $adminData['firstname']; ?>">
+                            <input type="text" class="form-control" id="firstname" name="firstname" value="<?php echo htmlspecialchars($adminData['firstname']); ?>" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="lastname" class="col-sm-3 control-label">Lastname</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="lastname" name="lastname" value="<?php echo $adminData['lastname']; ?>">
+                            <input type="text" class="form-control" id="lastname" name="lastname" value="<?php echo htmlspecialchars($adminData['lastname']); ?>" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="email" class="col-sm-3 control-label">Email</label>
                         <div class="col-sm-9">
-                            <input type="email" class="form-control" id="email" name="email" value="<?php echo $adminData['email']; ?>" <?php echo ($adminData['role'] === 'head') ? 'required' : ''; ?>>
+                            <input type="email" class="form-control" id="email" name="email" value="<?php echo htmlspecialchars($adminData['email']); ?>" <?php echo ($adminData['role'] === 'head') ? 'required' : ''; ?>>
                             <?php if ($adminData['role'] !== 'head'): ?>
                             <small class="text-muted">Optional for election officers</small>
                             <?php else: ?>
@@ -58,13 +58,16 @@ $adminData = $admin->getAdminData();
                     <div class="form-group">
                         <label for="photo" class="col-sm-3 control-label">Photo:</label>
                         <div class="col-sm-9">
-                            <input type="file" class="form-control" id="photo" name="photo" accept="image/*">
+                            <input type="file" class="form-control" id="photo" name="photo" accept="image/jpeg,image/png">
                             <small class="help-block">Max file size: 2MB. Allowed formats: JPG, PNG</small>
                             <?php if(!empty($adminData['photo']) && $adminData['photo'] != 'assets/images/profile.jpg'): ?>
                             <div class="mt-2">
-                                <img src="<?php echo BASE_URL; ?>administrator/<?php echo $adminData['photo']; ?>" class="img-thumbnail" width="100">
+                                <img src="<?php echo BASE_URL; ?>administrator/<?php echo htmlspecialchars($adminData['photo']); ?>" class="img-thumbnail" width="100" id="currentPhoto">
                             </div>
                             <?php endif; ?>
+                            <div id="photoPreview" class="mt-2" style="display: none;">
+                                <img src="" class="img-thumbnail" width="100" id="previewImage">
+                            </div>
                         </div>
                     </div>
                     <hr>
@@ -90,6 +93,130 @@ $(function() {
     $(document).on('click', '#admin_profile', function(e) {
         e.preventDefault();
         $('#admin_profile_modal').modal('show');
+    });
+
+    // Handle file input change for preview
+    $('#photo').on('change', function(e) {
+        var file = this.files[0];
+        console.log('File selected:', file);
+        
+        if (file) {
+            // Validate file type
+            if (!file.type.match('image/jpeg') && !file.type.match('image/png')) {
+                console.error('Invalid file type:', file.type);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Invalid File Type',
+                    text: 'Please select a valid image file (JPG or PNG)'
+                });
+                this.value = '';
+                return;
+            }
+            
+            // Validate file size (2MB)
+            if (file.size > 2 * 1024 * 1024) {
+                console.error('File too large:', file.size);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'File Too Large',
+                    text: 'File size must be less than 2MB'
+                });
+                this.value = '';
+                return;
+            }
+
+            console.log('File validation passed');
+
+            // Show preview
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#previewImage').attr('src', e.target.result);
+                $('#photoPreview').show();
+                $('#currentPhoto').hide();
+            };
+            reader.readAsDataURL(file);
+        } else {
+            $('#photoPreview').hide();
+            $('#currentPhoto').show();
+        }
+    });
+
+    // Form submission handling
+    $('#adminProfileForm').on('submit', function(e) {
+        e.preventDefault();
+        console.log('Form submitted');
+        
+        var formData = new FormData(this);
+        
+        // Log form data for debugging (excluding file contents)
+        for (var pair of formData.entries()) {
+            if (!(pair[1] instanceof File)) {
+                console.log(pair[0] + ': ' + pair[1]);
+            } else {
+                console.log(pair[0] + ': [File] ' + pair[1].name);
+            }
+        }
+
+        // Show loading state
+        Swal.fire({
+            title: 'Updating Profile',
+            text: 'Please wait...',
+            allowOutsideClick: false,
+            didOpen: () => {
+                Swal.showLoading();
+            }
+        });
+
+        $.ajax({
+            url: $(this).attr('action'),
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(response) {
+                console.log('Server response:', response);
+                
+                // Check if response is a string (redirect) or JSON
+                if (typeof response === 'string' && response.includes('Location:')) {
+                    // Handle redirect
+                    window.location.reload();
+                    return;
+                }
+                
+                if (response.error) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: response.message || 'An error occurred while updating profile'
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success',
+                        text: 'Profile updated successfully'
+                    }).then(function() {
+                        window.location.reload();
+                    });
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error('Ajax error:', {xhr: xhr, status: status, error: error});
+                
+                let errorMessage = 'An error occurred while updating profile';
+                try {
+                    const response = JSON.parse(xhr.responseText);
+                    errorMessage = response.message || errorMessage;
+                } catch (e) {
+                    console.error('Failed to parse error response:', e);
+                }
+                
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: errorMessage
+                });
+            }
+        });
     });
 });
 </script> 

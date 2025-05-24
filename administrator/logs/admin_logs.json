@@ -1,134 +1,128 @@
 [
     {
-        "timestamp": "2025-04-28 22:09:03",
-        "user_id": "janzengo",
-        "role": "head",
-        "action": "Added officer: Red Go with email: redgomez.hakc@gmail.com"
-    },
-    {
-        "timestamp": "2025-04-28 22:27:10",
-        "user_id": "janzengo",
-        "role": "head",
-        "action": "Added officer: Red Gomez with email: redgomez.hakc@gmail.com"
-    },
-    {
-        "timestamp": "2025-04-28 22:28:22",
-        "user_id": "janzengo",
-        "role": "head",
-        "action": "Deleted officer: Red Gomez (email: redgomez.hakc@gmail.com)"
-    },
-    {
-        "timestamp": "2025-04-28 22:28:40",
-        "user_id": "janzengo",
-        "role": "head",
-        "action": "Added officer: Red Gomez with email: redgomez.hakc@gmail.com"
-    },
-    {
-        "timestamp": "2025-04-28 22:29:10",
-        "user_id": "janzengo",
-        "role": "head",
-        "action": "Updated election settings: Sangguniang Mag-aaral Elections 2026"
-    },
-    {
-        "timestamp": "2025-04-28 22:29:18",
-        "user_id": "janzengo",
-        "role": "head",
-        "action": "Completed election setup: Sangguniang Mag-aaral Elections 2026"
-    },
-    {
-        "timestamp": "2025-04-28 22:29:33",
-        "user_id": "janzengo",
-        "role": "head",
-        "action": "Updated election configuration: Name: Sangguniang Mag-aaral Elections 2026, Status: pending, End: 2025-04-30 22:30:00"
-    },
-    {
-        "timestamp": "2025-04-28 22:29:36",
-        "user_id": "janzengo",
-        "role": "head",
-        "action": "Updated election configuration: Name: Sangguniang Mag-aaral Elections 2026, Status: active, End: 2025-04-30 22:30:00"
-    },
-    {
-        "timestamp": "2025-04-28 22:29:44",
-        "user_id": "janzengo",
-        "role": "head",
-        "action": "Updated election configuration: Name: Sangguniang Mag-aaral Elections 2026, Status: completed, End: 2025-04-30 22:30:00"
-    },
-    {
-        "timestamp": "2025-04-28 22:30:16",
-        "user_id": "janzengo",
-        "role": "head",
-        "action": "Archived election: Sangguniang Mag-aaral Elections 2026 (Control #: E2504282546)"
-    },
-    {
-        "timestamp": "2025-04-28 22:37:47",
-        "user_id": "janzengo",
+        "timestamp": "2025-05-21 18:04:57",
+        "user_id": "head",
         "role": "head",
         "action": "Reset election system - All tables cleared and system reset to setup state"
     },
     {
-        "timestamp": "2025-05-08 19:10:36",
-        "user_id": "janzengo",
+        "timestamp": "2025-05-21 18:07:22",
+        "user_id": "head",
         "role": "head",
-        "action": "Updated admin profile"
+        "action": "Updated election settings: Philippine Elections 2016"
     },
     {
-        "timestamp": "2025-05-08 19:12:03",
-        "user_id": "janzengo",
+        "timestamp": "2025-05-21 18:07:35",
+        "user_id": "head",
         "role": "head",
-        "action": "Added officer: Juan Dela Cruz with email: janneiljanzen.go@fast.edu.ph"
+        "action": "Completed election setup: Philippine Elections 2016"
     },
     {
-        "timestamp": "2025-05-08 19:17:38",
-        "user_id": "janzengo",
+        "timestamp": "2025-05-21 18:15:23",
+        "user_id": "head",
+        "role": "head",
+        "action": "Added course: Information Technology"
+    },
+    {
+        "timestamp": "2025-05-21 18:15:33",
+        "user_id": "head",
+        "role": "head",
+        "action": "Added voter: 202320023"
+    },
+    {
+        "timestamp": "2025-05-21 18:15:42",
+        "user_id": "head",
+        "role": "head",
+        "action": "Added partylist: Sa Puso ni Neth"
+    },
+    {
+        "timestamp": "2025-05-21 18:15:57",
+        "user_id": "head",
+        "role": "head",
+        "action": "Added new position: President with auto-assigned priority 1"
+    },
+    {
+        "timestamp": "2025-05-21 18:16:08",
+        "user_id": "head",
+        "role": "head",
+        "action": "Added new position: Vice President with auto-assigned priority 2"
+    },
+    {
+        "timestamp": "2025-05-21 18:16:25",
+        "user_id": "head",
+        "role": "head",
+        "action": "Added candidate: Janzen Go"
+    },
+    {
+        "timestamp": "2025-05-21 18:17:36",
+        "user_id": "head",
+        "role": "head",
+        "action": "Added candidate: Neth Palabasan"
+    },
+    {
+        "timestamp": "2025-05-21 18:18:33",
+        "user_id": "head",
+        "role": "head",
+        "action": "Updated candidate: Neth Palabasan"
+    },
+    {
+        "timestamp": "2025-05-21 18:18:44",
+        "user_id": "head",
+        "role": "head",
+        "action": "Updated candidate: Neth Palabasan"
+    },
+    {
+        "timestamp": "2025-05-21 18:19:02",
+        "user_id": "head",
+        "role": "head",
+        "action": "Updated election configuration: Name: Philippine Elections 2016, Status: active, End: 2025-05-30 18:07:00"
+    },
+    {
+        "timestamp": "2025-05-21 18:26:18",
+        "user_id": "head",
+        "role": "head",
+        "action": "Updated election configuration: Name: Philippine Elections 2016, Status: paused, End: 2025-05-30 18:07:00"
+    },
+    {
+        "timestamp": "2025-05-21 18:26:27",
+        "user_id": "head",
+        "role": "head",
+        "action": "Updated position: President to President (priority unchanged)"
+    },
+    {
+        "timestamp": "2025-05-21 18:27:08",
+        "user_id": "head",
+        "role": "head",
+        "action": "Added candidate: Axel Reyes"
+    },
+    {
+        "timestamp": "2025-05-21 18:29:17",
+        "user_id": "head",
+        "role": "head",
+        "action": "Added candidate: CJ Cornel"
+    },
+    {
+        "timestamp": "2025-05-21 19:29:55",
+        "user_id": "head",
+        "role": "head",
+        "action": "Updated election configuration: Name: Philippine Elections 2016, Status: active, End: 2025-05-30 18:07:00"
+    },
+    {
+        "timestamp": "2025-05-23 18:58:41",
+        "user_id": "head",
+        "role": "head",
+        "action": "Updated election configuration: Name: Philippine Elections 2016, Status: paused, End: 2025-05-30 18:07:00"
+    },
+    {
+        "timestamp": "2025-05-23 18:58:59",
+        "user_id": "head",
+        "role": "head",
+        "action": "Added officer: Katrina Dela Cruz with email: katdc03@gmail.com"
+    },
+    {
+        "timestamp": "2025-05-23 19:00:04",
+        "user_id": "head",
         "role": "head",
         "action": "Error in officer management: Officer not found"
-    },
-    {
-        "timestamp": "2025-05-08 19:17:45",
-        "user_id": "janzengo",
-        "role": "head",
-        "action": "Deleted officer: Code Delta (email: codedelta2025@gmail.com)"
-    },
-    {
-        "timestamp": "2025-05-08 19:18:09",
-        "user_id": "janzengo",
-        "role": "head",
-        "action": "Added officer: Zen Go with email: janneiljanzen.go@fast.edu.ph"
-    },
-    {
-        "timestamp": "2025-05-08 19:18:34",
-        "user_id": "janzen",
-        "role": "officer",
-        "action": "Logged in successfully"
-    },
-    {
-        "timestamp": "2025-05-08 19:29:40",
-        "user_id": "janzen",
-        "role": "officer",
-        "action": "Logged in successfully"
-    },
-    {
-        "timestamp": "2025-05-08 19:35:38",
-        "user_id": "janzengo",
-        "role": "head",
-        "action": "Added candidate: Lebron James"
-    },
-    {
-        "timestamp": "2025-05-08 19:36:00",
-        "user_id": "janzengo",
-        "role": "head",
-        "action": "Added candidate: Lolo James "
-    },
-    {
-        "timestamp": "2025-05-08 19:36:15",
-        "user_id": "janzengo",
-        "role": "head",
-        "action": "Added candidate: Papa James"
-    },
-    {
-        "timestamp": "2025-05-08 19:36:23",
-        "user_id": "janzengo",
-        "role": "head",
-        "action": "Updated election configuration: Name: 2025 Sangguaniang Mar-aaral, Status: active, End: 2025-05-31 14:06:00"
     }
 ]

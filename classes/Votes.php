@@ -225,4 +225,33 @@ class Votes {
             return 0;
         }
     }
+
+    public function getVoteRef($voterId) {
+        try {
+            $sql = "SELECT v.vote_ref FROM votes v 
+                    JOIN voters vt ON v.created_at = (
+                        SELECT MAX(created_at) FROM votes 
+                        WHERE created_at <= (
+                            SELECT created_at FROM voters 
+                            WHERE id = ? AND has_voted = 1
+                        )
+                    )
+                    WHERE vt.id = ? AND vt.has_voted = 1
+                    LIMIT 1";
+            
+            $stmt = $this->db->prepare($sql);
+            $stmt->bind_param('ii', $voterId, $voterId);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            
+            if ($row = $result->fetch_assoc()) {
+                return $row['vote_ref'];
+            }
+            
+            return null;
+        } catch (Exception $e) {
+            error_log("Error getting vote reference: " . $e->getMessage());
+            return null;
+        }
+    }
 }

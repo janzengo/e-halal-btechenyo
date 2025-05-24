@@ -99,7 +99,7 @@ $history = $election->getElectionHistory($limit, $offset);
                         </div>
                         <div class="box-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered table-striped">
+                                <table class="table table-bordered table-striped" id="historyTable">
                                     <thead>
                                         <tr>
                                             <th>Election Name</th>
@@ -124,12 +124,12 @@ $history = $election->getElectionHistory($limit, $offset);
                                                     "'>" . ucfirst(htmlspecialchars($row['status'])) . "</span></td>";
                                                 echo "<td>";
                                                 if ($row['details_pdf']) {
-                                                    echo "<a href='" . BASE_URL . "administrator/" . htmlspecialchars($row['details_pdf']) . "' class='btn btn-info btn-sm' target='_blank'>
-                                                            <i class='fa fa-file-pdf'></i> Details
+                                                    echo "<a href='" . BASE_URL . ltrim(htmlspecialchars($row['details_pdf']), '/') . "' class='btn btn-info btn-sm' target='_blank'>
+                                                            <i class='fa fa-file-pdf'></i> Summary
                                                           </a> ";
                                                 }
                                                 if ($row['results_pdf']) {
-                                                    echo "<a href='" . BASE_URL . "administrator/" . htmlspecialchars($row['results_pdf']) . "' class='btn btn-success btn-sm' target='_blank'>
+                                                    echo "<a href='" . BASE_URL . ltrim(htmlspecialchars($row['results_pdf']), '/') . "' class='btn btn-success btn-sm' target='_blank'>
                                                             <i class='fa fa-file-pdf'></i> Results
                                                           </a>";
                                                 }
@@ -181,21 +181,32 @@ $history = $election->getElectionHistory($limit, $offset);
 
 <script>
 $(function() {
-    $('.table').DataTable({
-        'pageLength': <?php echo $limit; ?>,
-        'ordering': true,
-        'order': [[1, 'desc']], // Sort by created_at by default
-        'searching': true,
-        'info': true,
-        'autoWidth': false,
-        'columns': [
-            { 'data': 'election_name' },
-            { 'data': 'created_at' },
-            { 'data': 'end_time' },
-            { 'data': 'status' },
-            { 'data': 'documents', 'orderable': false }
-        ]
-    });
+    // Only initialize DataTable if there are rows and they're not the empty message row
+    if ($('#historyTable tbody tr').length > 0 && $('#historyTable tbody tr td[colspan]').length === 0) {
+        $('#historyTable').DataTable({
+            responsive: true,
+            paging: false,  // Disable DataTables pagination since we're using server-side
+            ordering: true,
+            order: [[1, 'desc']], // Sort by created_at by default
+            searching: true,
+            info: false,    // Disable info since we're using server-side pagination
+            autoWidth: false,
+            language: {
+                emptyTable: "No election history found",
+                search: "Filter records:"
+            },
+            columnDefs: [
+                { orderable: true, targets: [0, 1, 2, 3] },
+                { orderable: false, targets: 4 }
+            ]
+        });
+    } else {
+        // If no data, just ensure the table has the right styling
+        $('#historyTable').addClass('display').css('width', '100%');
+    }
+
+    // Hide DataTables length changing since we're using server-side pagination
+    $('.dataTables_length').hide();
 });
 </script>
 </body>

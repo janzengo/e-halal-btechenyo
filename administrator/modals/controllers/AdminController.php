@@ -3,6 +3,11 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+// Enable error logging
+ini_set('display_errors', 1);
+ini_set('log_errors', 1);
+error_log("AdminController.php started execution");
+
 require_once __DIR__ . '/../../classes/Admin.php';
 require_once __DIR__ . '/../../classes/Logger.php';
 require_once __DIR__ . '/../../../classes/Database.php';
@@ -19,49 +24,61 @@ if (!$admin->isLoggedIn()) {
 $db = Database::getInstance();
 $logger = AdminLogger::getInstance();
 
-// Define upload path
-define('UPLOAD_PATH', $_SERVER['DOCUMENT_ROOT'] . '/e-halal/administrator/assets/images/administrators/');
-define('DB_PATH', 'assets/images/administrators/');
+// Define paths
+$base_path = dirname(dirname(dirname(__DIR__))); // Get to root e-halal directory
+define('UPLOAD_DIR', 'assets/images/administrators'); // Remove administrator prefix
+define('UPLOAD_PATH', $base_path . '/administrator/' . UPLOAD_DIR);
 define('DEFAULT_PHOTO', 'assets/images/profile.jpg');
+
+error_log("Document Root: " . $base_path);
+error_log("Relative Path: " . UPLOAD_DIR);
+error_log("Upload Path: " . UPLOAD_PATH);
+
+// Create upload directory if it doesn't exist
+if (!is_dir(UPLOAD_PATH)) {
+    mkdir(UPLOAD_PATH, 0777, true);
+}
 
 // Function to process and save image
 function processImage($file, $role, $lastname, $firstname, $oldPhoto = null) {
+    global $base_path;
+    
     if (!isset($file['tmp_name']) || empty($file['tmp_name'])) {
         return $oldPhoto ?: DEFAULT_PHOTO;
     }
 
+    // Validate file upload
+    if ($file['error'] !== UPLOAD_ERR_OK) {
+        throw new Exception('File upload failed');
+    }
+
+    // Validate file type
     $allowed = ['jpg', 'jpeg', 'png'];
-    $filename = $file['name'];
-    $ext = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
-    
+    $ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
     if (!in_array($ext, $allowed)) {
         throw new Exception('Invalid file format. Only JPG, JPEG & PNG files are allowed.');
     }
 
-    // Create upload directory if it doesn't exist
-    if (!is_dir(UPLOAD_PATH)) {
-        if (!mkdir(UPLOAD_PATH, 0755, true)) {
-            throw new Exception('Failed to create upload directory');
-        }
-    }
-
-    if (!is_writable(UPLOAD_PATH)) {
-        throw new Exception('Upload directory is not writable');
-    }
-
-    // Generate filename using role_lastname_firstname format
+    // Generate new filename
     $newFilename = strtolower($role) . '_' . strtolower($lastname) . '_' . strtolower($firstname) . '.' . $ext;
-    $targetPath = UPLOAD_PATH . $newFilename;
-    $dbPath = DB_PATH . $newFilename;
+    
+    // Set paths
+    $targetPath = UPLOAD_PATH . '/' . $newFilename;
+    $dbPath = UPLOAD_DIR . '/' . $newFilename; // This will be stored in DB without administrator prefix
 
-    // Move uploaded file
-    if (!move_uploaded_file($file['tmp_name'], $targetPath)) {
-        throw new Exception('Failed to move uploaded file');
+    // Copy file directly
+    if (!copy($file['tmp_name'], $targetPath)) {
+        throw new Exception('Failed to save file');
     }
 
-    // Delete old photo if it exists and is not the default
+    // Set permissions
+    chmod($targetPath, 0644);
+
+    // Delete old photo if exists
     if ($oldPhoto && $oldPhoto !== DEFAULT_PHOTO) {
-        $oldPath = $_SERVER['DOCUMENT_ROOT'] . '/e-halal/administrator/' . $oldPhoto;
+        // Remove any duplicate administrator prefix from old photo path
+        $oldPhoto = preg_replace('#^administrator/#', '', $oldPhoto);
+        $oldPath = $base_path . '/administrator/' . $oldPhoto;
         if (file_exists($oldPath)) {
             @unlink($oldPath);
         }
@@ -70,7 +87,7 @@ function processImage($file, $role, $lastname, $firstname, $oldPhoto = null) {
     return $dbPath;
 }
 
-// Check if request is POST
+// Handle POST request
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $response = ['error' => false, 'message' => ''];
     
@@ -82,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $adminData = $admin->getAdminData();
         
-        // Get the current password from the database directly
+        // Get the current password from the database
         $sql = "SELECT password FROM admin WHERE id = ?";
         $stmt = $db->getConnection()->prepare($sql);
         $stmt->bind_param("i", $adminData['id']);
@@ -104,13 +121,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             throw new Exception('Missing required fields');
         }
 
-        // Validate email for head admin
+        // Validate email
         $email = isset($_POST['email']) ? trim($_POST['email']) : null;
         if ($adminData['role'] === 'head' && empty($email)) {
             throw new Exception('Email is required for electoral head');
         }
-
-        // Validate email format if provided
         if (!empty($email) && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
             throw new Exception('Invalid email format');
         }
@@ -119,34 +134,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $photo = $adminData['photo'] ?: DEFAULT_PHOTO;
         if (isset($_FILES['photo']) && $_FILES['photo']['error'] == 0) {
             $photo = processImage(
-                $_FILES['photo'], 
+                $_FILES['photo'],
                 $adminData['role'],
-                $_POST['lastname'], 
-                $_POST['firstname'], 
+                $_POST['lastname'],
+                $_POST['firstname'],
                 $adminData['photo']
             );
         }
 
-        // Handle password change if requested
+        // Handle password change
         $newPassword = isset($_POST['new_password']) ? trim($_POST['new_password']) : '';
         if (!empty($newPassword)) {
-            // Update password
-            $passwordResult = $admin->updatePassword($_POST['curr_password'], $newPassword);
-            if (!$passwordResult) {
+            if (!$admin->updatePassword($_POST['curr_password'], $newPassword)) {
                 throw new Exception('Failed to update password');
             }
         }
 
         // Update admin data
-        $result = $admin->updateProfile(
+        if (!$admin->updateProfile(
             $_POST['username'],
             $_POST['firstname'],
             $_POST['lastname'],
             $email,
             $photo
-        );
-        
-        if (!$result) {
+        )) {
             throw new Exception('Failed to update profile');
         }
         
@@ -160,8 +171,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     } catch (Exception $e) {
         $_SESSION['error'] = $e->getMessage();
-        
-        // Log the error
         $logger->logAdminAction(
             $admin->getUsername(),
             $admin->getRole(),
@@ -169,29 +178,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         );
     }
 
-    // Redirect back to the referring page
+    // Handle redirect
     if (isset($_GET['return']) && !empty($_GET['return'])) {
-        // Use the return parameter from the URL
         $returnPage = $_GET['return'];
-        // Ensure we're redirecting to a page within the admin section
         if (strpos($returnPage, '../') === false && strpos($returnPage, 'http') === false) {
             header('Location: ../../pages/' . $returnPage);
             exit();
         }
     }
     
-    // Fallback: Use HTTP_REFERER if available
     if (isset($_SERVER['HTTP_REFERER'])) {
         header('Location: ' . $_SERVER['HTTP_REFERER']);
         exit();
     }
     
-    // Final fallback: Redirect to home
     header('Location: ../../pages/home.php');
     exit();
-    
 } else {
-    // Handle non-POST requests
     header('Content-Type: application/json');
     echo json_encode([
         'error' => true,

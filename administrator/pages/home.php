@@ -45,6 +45,51 @@ $positions = $position->getAllPositions();
     <link rel="stylesheet" href="<?php echo BASE_URL; ?>administrator/assets/css/admin.css">
     <!-- Dashboard Specific Styles -->
     <style>
+        /* Alert Styles */
+        .alert {
+            margin: 20px 0;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .alert-dismissible {
+            padding-right: 35px;
+        }
+
+        .alert h4 {
+            margin-bottom: 10px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .alert .icon {
+            margin-right: 10px;
+        }
+
+        .alert .close {
+            font-size: 21px;
+            opacity: 0.5;
+            transition: opacity 0.3s ease;
+        }
+
+        .alert .close:hover {
+            opacity: 1;
+        }
+
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            border-left: 4px solid #28a745;
+        }
+
+        .alert-danger {
+            background-color: #f8d7da;
+            color: #721c24;
+            border-left: 4px solid #dc3545;
+        }
+
         /* Modern UI Styles for Dashboard */
         .small-box {
             border-radius: 15px;

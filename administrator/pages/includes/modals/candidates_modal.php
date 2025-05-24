@@ -133,7 +133,7 @@
                     <div class="form-group">
                         <label for="edit_platform" class="col-sm-3 control-label">Platform</label>
                         <div class="col-sm-9">
-                            <textarea class="form-control" id="edit_platform" name="platform" rows="7" required></textarea>
+                            <textarea class="form-control" id="edit_platform" name="platform" rows="7"></textarea>
                         </div>
                     </div>
                     <div class="form-group">

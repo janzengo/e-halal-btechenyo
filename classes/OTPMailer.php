@@ -94,14 +94,15 @@ class OTPMailer {
      */
     public function validateOTP($student_number, $otp) {
         try {
-            // First check if OTP exists and is valid
-            $stmt = $this->db->prepare("SELECT id, attempts FROM otp_requests 
+            // Get current OTP data in a single query
+            $stmt = $this->db->prepare("SELECT id, otp, attempts FROM otp_requests 
                 WHERE student_number = ? AND expires_at > NOW()");
             $stmt->bind_param("s", $student_number);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        
-            if ($result->num_rows === 0) {
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $otpData = $result->fetch_assoc();
+
+            if (!$otpData) {
                 return [
                     'success' => false,
                     'message' => 'Invalid or expired OTP. Please request a new one.',
@@ -109,14 +110,11 @@ class OTPMailer {
                 ];
             }
 
-            $row = $result->fetch_assoc();
-            $current_attempts = $row['attempts'];
-
             // Check if already at max attempts
-            if ($current_attempts >= 5) {
+            if ($otpData['attempts'] >= 5) {
                 // Delete the record
                 $delete_stmt = $this->db->prepare("DELETE FROM otp_requests WHERE id = ?");
-                $delete_stmt->bind_param("i", $row['id']);
+                $delete_stmt->bind_param("i", $otpData['id']);
                 $delete_stmt->execute();
                 
                 return [
@@ -127,15 +125,10 @@ class OTPMailer {
             }
 
             // Verify OTP
-            $verify_stmt = $this->db->prepare("SELECT id FROM otp_requests 
-                WHERE student_number = ? AND otp = ? AND expires_at > NOW()");
-            $verify_stmt->bind_param("ss", $student_number, $otp);
-            $verify_stmt->execute();
-            
-            if ($verify_stmt->get_result()->num_rows > 0) {
+            if ($otpData['otp'] === $otp) {
                 // OTP is correct - delete it
-                $delete_stmt = $this->db->prepare("DELETE FROM otp_requests WHERE student_number = ?");
-                $delete_stmt->bind_param("s", $student_number);
+                $delete_stmt = $this->db->prepare("DELETE FROM otp_requests WHERE id = ?");
+                $delete_stmt->bind_param("i", $otpData['id']);
                 $delete_stmt->execute();
                 
                 return [
@@ -145,13 +138,13 @@ class OTPMailer {
                 ];
             } else {
                 // Increment attempts
-                $new_attempts = $current_attempts + 1;
+                $new_attempts = $otpData['attempts'] + 1;
                 $remaining_attempts = 5 - $new_attempts;
                 
                 if ($new_attempts >= 5) {
                     // Delete if max attempts reached
-                    $delete_stmt = $this->db->prepare("DELETE FROM otp_requests WHERE student_number = ?");
-                    $delete_stmt->bind_param("s", $student_number);
+                    $delete_stmt = $this->db->prepare("DELETE FROM otp_requests WHERE id = ?");
+                    $delete_stmt->bind_param("i", $otpData['id']);
                     $delete_stmt->execute();
                     
                     return [
@@ -162,8 +155,8 @@ class OTPMailer {
                 }
                 
                 // Update attempts count
-                $update_stmt = $this->db->prepare("UPDATE otp_requests SET attempts = ? WHERE student_number = ?");
-                $update_stmt->bind_param("is", $new_attempts, $student_number);
+                $update_stmt = $this->db->prepare("UPDATE otp_requests SET attempts = ? WHERE id = ?");
+                $update_stmt->bind_param("ii", $new_attempts, $otpData['id']);
                 $update_stmt->execute();
                 
                 return [
@@ -226,12 +219,12 @@ class OTPMailer {
             // Server settings
             $mail->SMTPDebug = SMTP::DEBUG_OFF; // Disable debug output in production
             $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com';
+            $mail->Host = $_ENV['MAIL_HOST'];
             $mail->SMTPAuth = true;
             $mail->Username = $_ENV['MAIL_USERNAME'];
             $mail->Password = $_ENV['MAIL_PASSWORD'];
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-            $mail->Port = 587;
+            $mail->SMTPSecure = $_ENV['MAIL_ENCRYPTION'];
+            $mail->Port = $_ENV['MAIL_PORT'];
             
             // Set timeout and keep alive
             $mail->Timeout = 60;
@@ -422,42 +415,103 @@ class OTPMailer {
      * @return array Status and user data
      */
     public function verifyOTPAndLogin($student_number, $otp) {
-        // First verify the OTP
-        $verification_result = $this->validateOTP($student_number, $otp);
-        
-        if ($verification_result['success']) {
-            // OTP is valid, now login the user
-            require_once __DIR__ . '/User.php';
-            require_once __DIR__ . '/CustomSessionHandler.php';
-            
-            $user = new User();
-            
-            // Use the authenticateWithOTP method from the refactored User class
-            if ($user->authenticateWithOTP($student_number)) {
-                // Set the user session
-                $user->setSession();
-                
-                // Get the voter data for the response
-                $stmt = $this->db->prepare("SELECT * FROM voters WHERE student_number = ?");
-                $stmt->bind_param("s", $student_number);
-                $stmt->execute();
-                $result = $stmt->get_result();
-                $voter = $result->fetch_assoc();
-                
-                return [
-                    'success' => true,
-                    'message' => 'Login successful',
-                    'voter' => $voter
-                ];
-            } else {
+        try {
+            // Get current OTP data in a single query
+            $stmt = $this->db->prepare("SELECT id, otp, attempts FROM otp_requests 
+                WHERE student_number = ? AND expires_at > NOW()");
+            $stmt->bind_param("s", $student_number);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $otpData = $result->fetch_assoc();
+
+            if (!$otpData) {
                 return [
                     'success' => false,
-                    'message' => 'Student not found in the database'
+                    'message' => 'Invalid or expired OTP. Please request a new one.'
                 ];
             }
+
+            // Check if already at max attempts
+            if ($otpData['attempts'] >= 5) {
+                // Delete the record
+                $delete_stmt = $this->db->prepare("DELETE FROM otp_requests WHERE id = ?");
+                $delete_stmt->bind_param("i", $otpData['id']);
+                $delete_stmt->execute();
+                
+                return [
+                    'success' => false,
+                    'message' => 'Maximum attempts reached. Please request a new OTP.'
+                ];
+            }
+
+            // Verify OTP
+            if ($otpData['otp'] === $otp) {
+                // OTP is correct - delete it
+                $delete_stmt = $this->db->prepare("DELETE FROM otp_requests WHERE id = ?");
+                $delete_stmt->bind_param("i", $otpData['id']);
+                $delete_stmt->execute();
+
+                // Now authenticate the user
+                require_once __DIR__ . '/User.php';
+                require_once __DIR__ . '/CustomSessionHandler.php';
+                
+                $user = new User();
+                
+                if ($user->authenticateWithOTP($student_number)) {
+                    // Set the user session
+                    $user->setSession();
+                    
+                    // Get the voter data for the response
+                    $stmt = $this->db->prepare("SELECT * FROM voters WHERE student_number = ?");
+                    $stmt->bind_param("s", $student_number);
+                    $stmt->execute();
+                    $result = $stmt->get_result();
+                    $voter = $result->fetch_assoc();
+                    
+                    return [
+                        'success' => true,
+                        'message' => 'Login successful',
+                        'voter' => $voter
+                    ];
+                } else {
+                    return [
+                        'success' => false,
+                        'message' => 'Student not found in the database'
+                    ];
+                }
+            } else {
+                // Increment attempts
+                $new_attempts = $otpData['attempts'] + 1;
+                $remaining_attempts = 5 - $new_attempts;
+                
+                if ($new_attempts >= 5) {
+                    // Delete if max attempts reached
+                    $delete_stmt = $this->db->prepare("DELETE FROM otp_requests WHERE id = ?");
+                    $delete_stmt->bind_param("i", $otpData['id']);
+                    $delete_stmt->execute();
+                    
+                    return [
+                        'success' => false,
+                        'message' => 'Maximum attempts reached. Please request a new OTP.'
+                    ];
+                }
+                
+                // Update attempts count
+                $update_stmt = $this->db->prepare("UPDATE otp_requests SET attempts = ? WHERE id = ?");
+                $update_stmt->bind_param("ii", $new_attempts, $otpData['id']);
+                $update_stmt->execute();
+                
+                return [
+                    'success' => false,
+                    'message' => "Invalid OTP. {$remaining_attempts} attempts remaining."
+                ];
+            }
+        } catch (Exception $e) {
+            error_log("Error in verifyOTPAndLogin: " . $e->getMessage());
+            return [
+                'success' => false,
+                'message' => 'An error occurred during authentication'
+            ];
         }
-        
-        // If OTP verification failed, return the error
-        return $verification_result;
     }
 }

@@ -92,9 +92,11 @@ $voteStats = $vote->getVotingStatistics();
                         <div class="box-header with-border">
                             <h3 class="box-title">Position-wise Results</h3>
                             <div class="box-tools pull-right">
-                                <button type="button" class="btn btn-primary btn-sm custom" id="generateReport">
-                                    <i class="fa fa-file-pdf"></i> Generate Report
-                                </button>
+                                <form id="reportForm" action="<?php echo BASE_URL; ?>administrator/pages/includes/controllers/generate_report.php" method="GET" style="display: inline;">
+                                    <button type="submit" class="btn btn-primary btn-sm custom" id="generateReport">
+                                        <i class="fa fa-file-pdf"></i> Generate Report
+                                    </button>
+                                </form>
                             </div>
                         </div>
                         <div class="box-body">
@@ -205,8 +207,20 @@ $voteStats = $vote->getVotingStatistics();
 <script src="<?php echo BASE_URL; ?>node_modules/chart.js/dist/chart.umd.js"></script>
 
 <script>
+$(function() {
     // Global variables for votes.js
     window.BASE_URL = '<?php echo BASE_URL; ?>';
+    
+    // Handle generate report form submission
+    $('#reportForm').on('submit', function(e) {
+        var btn = $('#generateReport');
+        btn.prop('disabled', true).html('<i class="fa fa-spinner fa-spin"></i> Generating...');
+        
+        // Re-enable button after a short delay
+        setTimeout(function() {
+            btn.prop('disabled', false).html('<i class="fa fa-file-pdf"></i> Generate Report');
+        }, 2000);
+    });
     
     // Prepare data for partylist chart
     window.partylistData = <?php 
@@ -241,6 +255,7 @@ $voteStats = $vote->getVotingStatistics();
     // Debug data
     console.log('Position Data:', window.positionData);
     console.log('Partylist Data:', window.partylistData);
+});
 </script>
 
 <!-- Custom scripts -->

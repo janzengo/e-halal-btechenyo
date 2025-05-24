@@ -1,9 +1,170 @@
 [
     {
-        "timestamp": "2025-05-08 19:37:06",
+        "timestamp": "2025-05-21 18:19:27",
         "user_id": "202320023",
         "action": {
             "action": "Login successful"
+        }
+    },
+    {
+        "timestamp": "2025-05-21 18:19:27",
+        "user_id": "unknown",
+        "action": {
+            "action": "Login successful"
+        }
+    },
+    {
+        "timestamp": "2025-05-21 18:19:27",
+        "user_id": "202320023",
+        "action": {
+            "action": "Session created"
+        }
+    },
+    {
+        "timestamp": "2025-05-21 19:29:39",
+        "user_id": "202320023",
+        "action": {
+            "action": "User logged out"
+        }
+    },
+    {
+        "timestamp": "2025-05-21 19:30:47",
+        "user_id": "202320023",
+        "action": {
+            "action": "Login successful"
+        }
+    },
+    {
+        "timestamp": "2025-05-21 19:30:47",
+        "user_id": "unknown",
+        "action": {
+            "action": "Login successful"
+        }
+    },
+    {
+        "timestamp": "2025-05-21 19:30:47",
+        "user_id": "202320023",
+        "action": {
+            "action": "Session created"
+        }
+    },
+    {
+        "timestamp": "2025-05-21 20:30:51",
+        "user_id": "202320023",
+        "action": {
+            "action": "User logged out"
+        }
+    },
+    {
+        "timestamp": "2025-05-22 12:57:39",
+        "user_id": "202320023",
+        "action": {
+            "action": "Login successful"
+        }
+    },
+    {
+        "timestamp": "2025-05-22 12:57:39",
+        "user_id": "unknown",
+        "action": {
+            "action": "Login successful"
+        }
+    },
+    {
+        "timestamp": "2025-05-22 12:57:39",
+        "user_id": "202320023",
+        "action": {
+            "action": "Session created"
+        }
+    },
+    {
+        "timestamp": "2025-05-22 13:57:46",
+        "user_id": "202320023",
+        "action": {
+            "action": "User logged out"
+        }
+    },
+    {
+        "timestamp": "2025-05-22 13:58:10",
+        "user_id": "202320023",
+        "action": {
+            "action": "Login successful"
+        }
+    },
+    {
+        "timestamp": "2025-05-22 13:58:10",
+        "user_id": "unknown",
+        "action": {
+            "action": "Login successful"
+        }
+    },
+    {
+        "timestamp": "2025-05-22 13:58:10",
+        "user_id": "202320023",
+        "action": {
+            "action": "Session created"
+        }
+    },
+    {
+        "timestamp": "2025-05-22 15:12:25",
+        "user_id": "202320023",
+        "action": {
+            "action": "User logged out"
+        }
+    },
+    {
+        "timestamp": "2025-05-22 15:17:31",
+        "user_id": "202320023",
+        "action": {
+            "action": "Login successful"
+        }
+    },
+    {
+        "timestamp": "2025-05-22 15:17:31",
+        "user_id": "unknown",
+        "action": {
+            "action": "Login successful"
+        }
+    },
+    {
+        "timestamp": "2025-05-22 15:17:31",
+        "user_id": "202320023",
+        "action": {
+            "action": "Session created"
+        }
+    },
+    {
+        "timestamp": "2025-05-22 15:35:58",
+        "user_id": "202320023",
+        "action": {
+            "action": "Login successful"
+        }
+    },
+    {
+        "timestamp": "2025-05-22 15:35:58",
+        "user_id": "unknown",
+        "action": {
+            "action": "Login successful"
+        }
+    },
+    {
+        "timestamp": "2025-05-22 15:35:58",
+        "user_id": "202320023",
+        "action": {
+            "action": "Session created"
+        }
+    },
+    {
+        "timestamp": "2025-05-22 15:36:28",
+        "user_id": "202320023",
+        "action": {
+            "action": "Vote submitted successfully. Reference: VOTE-250522-7389"
+        }
+    },
+    {
+        "timestamp": "2025-05-23 07:27:27",
+        "user_id": "202320023",
+        "action": {
+            "action": "User logged out"
         }
     }
 ]

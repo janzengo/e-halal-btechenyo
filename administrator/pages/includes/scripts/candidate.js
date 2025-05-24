@@ -29,7 +29,7 @@ $(function(){
     }
 
     // Function to show error message using SweetAlert
-    function showError(message) {
+    function showError(message, form = null) {
         Swal.fire({
             icon: 'error',
             title: 'Error!',
@@ -62,10 +62,16 @@ $(function(){
     }
 
     // Function to handle server errors
-    function handleServerError(xhr, status, error) {
-        console.error('Error:', error);
-        console.log('Response:', xhr.responseText);
-        showError('Server error occurred. Please try again.');
+    function handleServerError(xhr, form = null) {
+        console.error('Server Error:', xhr.responseText);
+        let errorMessage = 'A server error occurred. Please try again.';
+        try {
+            const response = JSON.parse(xhr.responseText);
+            errorMessage = response.message || errorMessage;
+        } catch (e) {
+            console.error('Error parsing response:', e);
+        }
+        showError(errorMessage, form);
     }
 
     // Function to handle file input change
@@ -109,6 +115,9 @@ $(function(){
             url: `${BASE_URL}administrator/pages/includes/modals/controllers/CandidateController.php`,
             data: {id: id, action: 'get'},
             dataType: 'json',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            },
             success: function(response) {
                 if (!response.error) {
                     const data = response.data;
@@ -121,12 +130,10 @@ $(function(){
                     $('.fullname').html(data.firstname + ' ' + data.lastname);
                     
                     // Update photo preview with proper path handling
-                    let photoUrl;
-                    if (data.photo && data.photo !== 'assets/images/profile.jpg') {
-                        photoUrl = `${BASE_URL}administrator/${data.photo}`;
-                    } else {
-                        photoUrl = `${BASE_URL}administrator/assets/images/profile.jpg`;
-                    }
+                    const photoUrl = data.photo && data.photo !== 'assets/images/profile.jpg'
+                        ? `${BASE_URL}administrator/${data.photo}`
+                        : `${BASE_URL}administrator/assets/images/profile.jpg`;
+                    
                     $('#current_photo').html(`
                         <div class="mt-2">
                             <label>Current Photo:</label><br>
@@ -137,7 +144,9 @@ $(function(){
                     showError(response.message);
                 }
             },
-            error: handleServerError
+            error: function(xhr) {
+                handleServerError(xhr);
+            }
         });
     }
 
@@ -182,20 +191,20 @@ $(function(){
             text: `Are you sure you want to delete candidate "${candidateName}"?`,
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#d33',
-            cancelButtonColor: '#3085d6',
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!',
-            cancelButtonText: 'Cancel'
+            cancelButtonText: 'No, cancel'
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
                     type: 'POST',
                     url: `${BASE_URL}administrator/pages/includes/modals/controllers/CandidateController.php`,
-                    data: {
-                        id: candidateId,
-                        action: 'delete'
-                    },
+                    data: { id: candidateId, action: 'delete' },
                     dataType: 'json',
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
                     success: function(response) {
                         if (!response.error) {
                             showSuccess(`Candidate "${candidateName}" has been deleted successfully!`);
@@ -203,7 +212,9 @@ $(function(){
                             showError(response.message);
                         }
                     },
-                    error: handleServerError
+                    error: function(xhr) {
+                        handleServerError(xhr);
+                    }
                 });
             }
         });
@@ -230,15 +241,22 @@ $(function(){
             processData: false,
             contentType: false,
             dataType: 'json',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            },
             success: function(response) {
                 if (!response.error) {
                     showSuccess(`Candidate "${fullName}" has been ${isEdit ? 'updated' : 'added'} successfully!`);
                     form.closest('.modal').modal('hide');
+                    // Reload the page to show updated data
+                    location.reload();
                 } else {
                     showError(response.message);
                 }
             },
-            error: handleServerError
+            error: function(xhr) {
+                handleServerError(xhr, form);
+            }
         });
     }
 

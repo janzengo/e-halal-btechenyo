@@ -345,40 +345,17 @@ class Elections {
             $results_pdf = str_replace('/archives/', '/archives/', $results_pdf);
             
             // Strip absolute paths from the file paths if they exist
-            if (strpos($details_pdf, $_SERVER['DOCUMENT_ROOT']) === 0) {
-                $details_pdf = substr($details_pdf, strlen($_SERVER['DOCUMENT_ROOT']));
-            }
-            if (strpos($results_pdf, $_SERVER['DOCUMENT_ROOT']) === 0) {
-                $results_pdf = substr($results_pdf, strlen($_SERVER['DOCUMENT_ROOT']));
-            }
+            $details_pdf = str_replace($_SERVER['DOCUMENT_ROOT'], '', $details_pdf);
+            $results_pdf = str_replace($_SERVER['DOCUMENT_ROOT'], '', $results_pdf);
             
-            // Remove any references to /e-halal/ in the paths
-            $details_pdf = str_replace('/e-halal/', '/', $details_pdf);
-            $results_pdf = str_replace('/e-halal/', '/', $results_pdf);
+            // Normalize slashes
+            $details_pdf = str_replace('\\', '/', $details_pdf);
+            $results_pdf = str_replace('\\', '/', $results_pdf);
             
-            // Normalize paths to ensure consistent format
-            $details_pdf = preg_replace('#/+#', '/', $details_pdf); // Replace multiple slashes with single
-            $results_pdf = preg_replace('#/+#', '/', $results_pdf);
+            // Ensure paths start with /
+            $details_pdf = '/' . ltrim($details_pdf, '/');
+            $results_pdf = '/' . ltrim($results_pdf, '/');
             
-            // Remove leading slash from administrator if present
-            $details_pdf = preg_replace('#^/administrator/#', 'administrator/', $details_pdf);
-            $results_pdf = preg_replace('#^/administrator/#', 'administrator/', $results_pdf);
-            
-            // Ensure the paths start correctly
-            if (strpos($details_pdf, 'archives/') !== 0 && strpos($details_pdf, '/archives/') !== 0) {
-                $details_pdf = '/archives/' . $current['control_number'] . '/summary.pdf';
-            }
-            if (strpos($results_pdf, 'archives/') !== 0 && strpos($results_pdf, '/archives/') !== 0) {
-                $results_pdf = '/archives/' . $current['control_number'] . '/results.pdf';
-            }
-            
-            // Final format check - remove leading slash for database storage
-            $details_pdf = ltrim($details_pdf, '/');
-            $results_pdf = ltrim($results_pdf, '/');
-            
-            // Debug log for troubleshooting
-            error_log("Final PDF paths - Summary: $details_pdf, Results: $results_pdf");
-                
             $stmt->bind_param("sssssss", 
                 $current['election_name'],
                 $current['status'],
@@ -402,6 +379,9 @@ class Elections {
                 $admin->getRole(),
                 "Archived election: {$current['election_name']} (Control #: {$current['control_number']})"
             );
+            
+            // Archive logs
+            $this->archiveLogs($current['control_number']);
             
             $this->db->commit();
             return [

@@ -89,13 +89,12 @@ class Receipt {
             // Configure mail
             if ($this->mail_config['use_smtp']) {
                 $mail->isSMTP();
-                $mail->Host = $this->mail_config['smtp']['host'];
+                $mail->Host = $_ENV['MAIL_HOST'];
                 $mail->SMTPAuth = true;
-                $mail->Username = $this->mail_config['smtp']['username'];
-                $mail->Password = $this->mail_config['smtp']['password'];
-                $mail->SMTPSecure = $this->mail_config['smtp']['encryption'] === 'tls' ? 
-                    PHPMailer::ENCRYPTION_STARTTLS : PHPMailer::ENCRYPTION_SMTPS;
-                $mail->Port = $this->mail_config['smtp']['port'];
+                $mail->Username = $_ENV['MAIL_USERNAME'];
+                $mail->Password = $_ENV['MAIL_PASSWORD'];
+                $mail->SMTPSecure = $_ENV['MAIL_ENCRYPTION'];
+                $mail->Port = $_ENV['MAIL_PORT'];
             } else {
                 $mail->isMail();
             }

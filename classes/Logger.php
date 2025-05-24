@@ -39,7 +39,7 @@ class Logger {
         }
     }
 
-    protected function generateLog($type, $timestamp, $user_id, $action) {
+    public function generateLog($type, $timestamp, $user_id, $action) {
         $logFile = $this->logPath . $type . '_logs.json';
         
         // Create log entry
