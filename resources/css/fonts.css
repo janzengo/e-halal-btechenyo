@@ -1,0 +1,4 @@
+/* Apply Inter as the default font family (very similar to SF Pro) */
+.font-sf-pro {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
