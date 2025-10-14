@@ -1,0 +1,61 @@
+/* E-Halal BTECHenyo Brand Colors */
+:root {
+    /* Primary Brand Colors */
+    --brand-primary: #259646;
+    --brand-primary-dark: #1d6833;
+    --brand-primary-light: #1d7c39;
+    
+    /* Secondary Colors */
+    --brand-secondary: #213061;
+    --brand-secondary-dark: #0f162d;
+    
+    /* Neutral Colors */
+    --brand-gray-light: #f8f9fa;
+    --brand-gray-medium: #6c757d;
+    --brand-gray-dark: #343a40;
+    
+    /* Status Colors */
+    --brand-success: #259646;
+    --brand-warning: #ffc107;
+    --brand-danger: #dc3545;
+    --brand-info: #17a2b8;
+}
+
+/* Brand Color Utility Classes */
+.bg-brand-primary { background-color: var(--brand-primary); }
+.bg-brand-primary-dark { background-color: var(--brand-primary-dark); }
+.bg-brand-primary-light { background-color: var(--brand-primary-light); }
+.bg-brand-secondary { background-color: var(--brand-secondary); }
+.bg-brand-secondary-dark { background-color: var(--brand-secondary-dark); }
+
+.text-brand-primary { color: var(--brand-primary); }
+.text-brand-primary-dark { color: var(--brand-primary-dark); }
+.text-brand-secondary { color: var(--brand-secondary); }
+.text-brand-secondary-dark { color: var(--brand-secondary-dark); }
+
+.border-brand-primary { border-color: var(--brand-primary); }
+.border-brand-primary-dark { border-color: var(--brand-primary-dark); }
+.border-brand-secondary { border-color: var(--brand-secondary); }
+
+/* Button Variants */
+.btn-brand-primary {
+    background-color: var(--brand-primary);
+    border-color: var(--brand-primary);
+    color: white;
+}
+
+.btn-brand-primary:hover {
+    background-color: var(--brand-primary-dark);
+    border-color: var(--brand-primary-dark);
+}
+
+.btn-brand-secondary {
+    background-color: var(--brand-secondary);
+    border-color: var(--brand-secondary);
+    color: white;
+}
+
+.btn-brand-secondary:hover {
+    background-color: var(--brand-secondary-dark);
+    border-color: var(--brand-secondary-dark);
+}
