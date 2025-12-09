@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
-import { Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle } from '@/components/ui/empty';
-import { AlertCircle, X, Users, Search, User, Calendar, MapPin } from 'lucide-react';
-import { SkeletonDialogList } from '@/components/@admin/@loading/skeleton-cards';
+import { Empty, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle } from '@/components/ui/empty';
+import { X, Users, Search, Calendar } from 'lucide-react';
+import { Spinner } from '@/components/ui/spinner';
 
 interface Candidate {
     id: number;
@@ -83,27 +83,36 @@ export function PartylistViewDialog({
                 </DialogHeader>
 
                 <div className="flex-1 overflow-hidden flex flex-col">
-                    {/* Search */}
-                    <div className="relative mb-4">
-                        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
-                        <Input
-                            type="text"
-                            placeholder="Search candidates..."
-                            value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)}
-                            className="pl-10"
-                        />
-                    </div>
+                    {/* Search - Only show when not loading */}
+                    {!loading && (
+                        <div className="relative mb-4">
+                            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+                            <Input
+                                type="text"
+                                placeholder="Search candidates..."
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                                className="pl-10"
+                            />
+                        </div>
+                    )}
 
-                    {/* Results count */}
-                    <div className="text-sm text-gray-600 mb-4">
-                        Showing {filteredCandidates.length} of {candidates.length} candidates
-                    </div>
+                    {/* Results count - Only show when not loading */}
+                    {!loading && (
+                        <div className="text-sm text-gray-600 mb-4">
+                            Showing {filteredCandidates.length} of {candidates.length} candidates
+                        </div>
+                    )}
 
                     {/* Candidates List */}
                     <div className="flex-1 overflow-y-auto">
                         {loading ? (
-                            <SkeletonDialogList />
+                            <div className="flex items-center justify-center py-12">
+                                <div className="flex flex-col items-center gap-3">
+                                    <Spinner className="h-8 w-8" />
+                                    <p className="text-sm text-gray-500">Loading candidates...</p>
+                                </div>
+                            </div>
                         ) : filteredCandidates.length === 0 ? (
                             <Empty className="border my-8">
                                 <EmptyHeader>

@@ -38,12 +38,12 @@ export default function HeadCandidates() {
     const [searchTerm, setSearchTerm] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
     const { isPageLoading } = useLoading();
-    
+
     // Form state
     const [formOpen, setFormOpen] = useState(false);
     const [editingCandidate, setEditingCandidate] = useState<Candidate | null>(null);
     const [loading, setLoading] = useState(false);
-    
+
     // View dialog state
     const [viewDialogOpen, setViewDialogOpen] = useState(false);
     const [selectedCandidate, setSelectedCandidate] = useState<Candidate | null>(null);
@@ -179,7 +179,7 @@ export default function HeadCandidates() {
                             setCurrentPage(1);
                         }}
                     />
-                    
+
                     <div>
                         <CandidatesCards
                             candidates={candidates.map(c => ({

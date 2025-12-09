@@ -7,6 +7,7 @@ namespace App\Http\Controllers\Head;
 use App\Http\Controllers\Controller;
 use App\Models\Course;
 use App\Models\Voter;
+use App\Services\LoggingService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
@@ -92,35 +93,77 @@ class VoterController extends Controller
     }
 
     /**
-     * Download template CSV for voter import
+     * Bulk delete voters
+     */
+    public function bulkDelete(Request $request): RedirectResponse
+    {
+        $validated = $this->validateRequest([
+            'voter_ids' => 'required|array|min:1',
+            'voter_ids.*' => 'required|integer|exists:voters,id',
+        ], [
+            'voter_ids.required' => 'No voters selected for deletion',
+            'voter_ids.array' => 'Invalid voter selection format',
+            'voter_ids.min' => 'At least one voter must be selected',
+            'voter_ids.*.exists' => 'One or more selected voters do not exist',
+        ]);
+
+        $voterIds = $validated['voter_ids'];
+        
+        // Get voters to be deleted
+        $voters = Voter::whereIn('id', $voterIds)->get();
+        
+        // Check if any voters have already voted
+        $votedVoters = $voters->where('has_voted', true);
+        if ($votedVoters->isNotEmpty()) {
+            $votedStudentNumbers = $votedVoters->pluck('student_number')->join(', ');
+            return $this->redirectWithError('head.voters.index', 
+                "Cannot delete voters who have already voted: {$votedStudentNumbers}");
+        }
+
+        // Collect voter data for logging before deletion
+        $deletedVoters = [];
+        foreach ($voters as $voter) {
+            $deletedVoters[] = [
+                'id' => $voter->id,
+                'student_number' => $voter->student_number,
+                'course_id' => $voter->course_id,
+                'course_name' => $voter->course?->description ?? 'Unknown',
+            ];
+        }
+
+        // Perform bulk deletion using direct database query to avoid individual logging
+        $deletedCount = Voter::whereIn('id', $voterIds)->delete();
+
+        // Log the bulk deletion action
+        LoggingService::logAdminAction(
+            actionType: 'bulk_delete',
+            description: "Bulk deleted {$deletedCount} voter(s)",
+            modelType: 'App\Models\Voter',
+            metadata: [
+                'deleted_count' => $deletedCount,
+                'deleted_voters' => $deletedVoters,
+                'voter_ids' => $voterIds,
+            ]
+        );
+
+        return $this->redirectWithSuccess('head.voters.index', 
+            "Successfully deleted {$deletedCount} voter(s)!");
+    }
+
+    /**
+     * Download Excel template for voter import with course dropdown validation
      */
     public function downloadTemplate()
     {
-        $courses = Course::orderBy('code')->get();
+        try {
+            $export = new \App\Exports\VotersTemplateExport();
+            $filename = 'voters_import_template_' . date('Y-m-d_H-i-s') . '.xlsx';
+            
+            return \Maatwebsite\Excel\Facades\Excel::download($export, $filename);
 
-        $csv = "Student Number,Course\n";
-        $csv .= "# Instructions:\n";
-        $csv .= "# - Student Number must be exactly 9 digits (e.g., 202320023)\n";
-        $csv .= "# - This will become the student's email: [student_number]@btech.ph.education\n";
-        $csv .= "# - Course must match exactly one of the courses listed below\n";
-        $csv .= "# \n";
-        $csv .= "# Available Courses:\n";
-
-        foreach ($courses as $course) {
-            $csv .= "# - {$course->code} ({$course->description})\n";
+        } catch (\Exception $e) {
+            return $this->redirectWithError('head.voters.index', 'Error generating template: ' . $e->getMessage());
         }
-
-        $csv .= "# \n";
-        $csv .= "# Example rows (delete these before importing):\n";
-        $csv .= "202320023,{$courses->first()->code}\n";
-        $csv .= "202320024,{$courses->first()->code}\n";
-
-        $filename = 'voters_import_template_'.date('Y-m-d').'.csv';
-
-        return Response::make($csv, 200, [
-            'Content-Type' => 'text/csv',
-            'Content-Disposition' => "attachment; filename=\"{$filename}\"",
-        ]);
     }
 
     /**
@@ -128,6 +171,11 @@ class VoterController extends Controller
      */
     public function importCsv(Request $request): RedirectResponse
     {
+        \Log::info('Import CSV called', [
+            'has_file' => $request->hasFile('csv_file'),
+            'files' => $request->allFiles(),
+        ]);
+
         $validated = $this->validateRequest([
             'csv_file' => 'required|file|mimes:csv,txt|max:10240',
         ], [
@@ -135,6 +183,8 @@ class VoterController extends Controller
             'csv_file.mimes' => 'File must be in CSV format',
             'csv_file.max' => 'File size must not exceed 10MB',
         ]);
+
+        \Log::info('Validation passed', ['validated' => $validated]);
 
         try {
             $file = $request->file('csv_file');

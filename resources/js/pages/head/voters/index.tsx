@@ -10,17 +10,18 @@ import { Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTi
 import { VoterDialog, VoterFormData } from '@/components/@admin/@components/@dialogs/voter';
 import { VoterImportDialog } from '@/components/@admin/@components/@dialogs/voter-import';
 import { UserPlus, UserCheck, Upload, Download } from 'lucide-react';
+import { Spinner } from '@/components/ui/spinner';
 import { useLoading } from '@/contexts/loading-context';
 import { SkeletonTable, SkeletonHeader } from '@/components/@admin/@loading/skeleton-cards';
 
 interface Voter {
     id: number;
     student_number: string;
-    course?: string;
     course_id: number;
+    course?: string; // From relationship
     has_voted: boolean;
-    created_at?: string;
-    updated_at?: string;
+    created_at: string;
+    updated_at: string;
 }
 
 interface HeadVotersProps extends Record<string, any> {
@@ -45,6 +46,8 @@ export default function HeadVoters() {
     const [importOpen, setImportOpen] = useState(false);
     const [editingVoter, setEditingVoter] = useState<Voter | null>(null);
     const [loading, setLoading] = useState(false);
+    const [bulkDeleteLoading, setBulkDeleteLoading] = useState(false);
+    const [downloadingTemplate, setDownloadingTemplate] = useState(false);
 
     // Handle flash messages
     useEffect(() => {
@@ -56,10 +59,7 @@ export default function HeadVoters() {
         }
     }, [flash]);
 
-    const handleView = (voter: any) => {
-        console.log('View voter:', voter);
-        // Implement view logic
-    };
+
 
     const handleEdit = (voter: Voter) => {
         setEditingVoter(voter);
@@ -77,12 +77,30 @@ export default function HeadVoters() {
             return;
         }
 
-        if (!confirm(`Are you sure you want to delete voter ${voter.student_number}?`)) {
+        router.delete(`/head/voters/${voter.id}`, {
+            preserveScroll: true,
+        });
+    };
+
+    const handleBulkDelete = (voterIds: number[]) => {
+        if (voterIds.length === 0) {
+            toast.error('No voters selected for deletion');
             return;
         }
 
-        router.delete(`/head/voters/${voter.id}`, {
+        setBulkDeleteLoading(true);
+        router.post('/head/voters/bulk-delete', {
+            voter_ids: voterIds
+        }, {
             preserveScroll: true,
+            // Note: Success toast is handled by flash message in useEffect
+            onError: (errors) => {
+                toast.error('Failed to delete selected voters');
+                console.error('Bulk delete errors:', errors);
+            },
+            onFinish: () => {
+                setBulkDeleteLoading(false);
+            }
         });
     };
 
@@ -139,8 +157,26 @@ export default function HeadVoters() {
         setImportOpen(true);
     };
 
-    const handleDownloadTemplate = () => {
-        window.location.href = '/head/voters/template/download';
+    const handleDownloadTemplate = async () => {
+        setDownloadingTemplate(true);
+        
+        try {
+            // Create a temporary link to trigger download
+            const link = document.createElement('a');
+            link.href = '/head/voters/template/download';
+            link.download = 'voters_template.xlsx';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            // Add a small delay to show the spinner
+            setTimeout(() => {
+                setDownloadingTemplate(false);
+            }, 1500);
+        } catch (error) {
+            console.error('Download error:', error);
+            setDownloadingTemplate(false);
+        }
     };
 
     return (
@@ -164,9 +200,23 @@ export default function HeadVoters() {
                         <p className="text-gray-600">Manage registered voters and their voting status</p>
                     </div>
                     <div className="flex items-center gap-3">
-                        <Button onClick={handleDownloadTemplate} variant="outline" className="border-blue-200 text-blue-700 hover:bg-blue-50">
-                            <Download className="h-4 w-4" />
-                            Download Template
+                        <Button 
+                            onClick={handleDownloadTemplate} 
+                            variant="outline" 
+                            disabled={downloadingTemplate}
+                            className="border-blue-200 text-blue-700 hover:bg-blue-50 disabled:opacity-50"
+                        >
+                            {downloadingTemplate ? (
+                                <>
+                                    <Spinner className="h-4 w-4 mr-2" />
+                                    Downloading...
+                                </>
+                            ) : (
+                                <>
+                                    <Download className="h-4 w-4 mr-2" />
+                                    Download Template
+                                </>
+                            )}
                         </Button>
                         <Button onClick={handleImportClick} variant="outline" className="border-green-200 text-green-700 hover:bg-green-50">
                             <Upload className="h-4 w-4" />
@@ -197,12 +247,10 @@ export default function HeadVoters() {
                     </EmptyHeader>
                     <EmptyContent>
                         <div className="flex gap-3">
-                            <Link href="/head/voters/import">
-                                <Button variant="outlinePrimary">
-                                    <UserPlus className="h-4 w-4" />
-                                    Import Voters
-                                </Button>
-                            </Link>
+                            <Button onClick={handleImportClick} variant="outlinePrimary">
+                                <Upload className="h-4 w-4" />
+                                Import Voters
+                            </Button>
                             <Button onClick={handleAddNew} variant="outline">
                                 <UserPlus className="h-4 w-4" />
                                 Add Single Voter
@@ -213,17 +261,7 @@ export default function HeadVoters() {
             ) : (
                 <>
                     {/* Statistics Cards */}
-                    <VotersStatisticsCard voters={voters.map(v => ({
-                        ...v,
-                        student_id: v.student_number,
-                        firstname: '',
-                        lastname: '',
-                        email: '',
-                        photo: '',
-                        year_level: 0,
-                        status: 'active' as const,
-                        voted_at: v.has_voted ? new Date().toISOString() : undefined
-                    }))} />
+                    <VotersStatisticsCard voters={voters} />
 
                     {/* Search */}
                     <VotersSearch
@@ -233,23 +271,13 @@ export default function HeadVoters() {
                     
                     <div>
                         <VotersTable
-                            voters={voters.map(v => ({
-                                ...v,
-                                student_id: v.student_number,
-                                firstname: '',
-                                lastname: '',
-                                email: '',
-                                photo: '',
-                                year_level: 0,
-                                status: 'active' as const,
-                                voted_at: v.has_voted ? new Date().toISOString() : undefined
-                            }))}
+                            voters={voters}
                             userRole="head"
-                            onView={handleView}
                             onEdit={handleEdit}
                             onDelete={handleDelete}
-                            onAddNew={handleAddNew}
+                            onBulkDelete={handleBulkDelete}
                             searchTerm={searchTerm}
+                            bulkDeleteLoading={bulkDeleteLoading}
                         />
                     </div>
                 </>

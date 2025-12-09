@@ -104,7 +104,8 @@ class PartylistController extends Controller
     public function candidates(Partylist $partylist)
     {
         $candidates = $partylist->candidates()
-            ->with('position')
+            ->with('position:id,description')
+            ->select(['id', 'firstname', 'lastname', 'position_id', 'photo', 'platform', 'created_at'])
             ->orderBy('created_at', 'desc')
             ->get()
             ->map(function ($candidate) {

@@ -80,7 +80,7 @@ export function OfficersCards({
                         setSearchTerm(e.target.value);
                         setCurrentPage(1);
                     }}
-                    className="pl-10 border-green-200 focus:border-green-500 focus:ring-green-500 h-11"
+                    className="pl-10 focus:border-green-500 focus:ring-green-500 h-11"
                 />
             </div>
 

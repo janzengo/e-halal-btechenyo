@@ -43,14 +43,40 @@ interface AdminLogsTableProps {
     userRole: AdminRole;
 }
 
-export function AdminLogsTable({ 
-    logs, 
+export function AdminLogsTable({
+    logs,
     pagination,
     userRole
 }: AdminLogsTableProps) {
     const [searchTerm, setSearchTerm] = useState('');
     const [roleFilter, setRoleFilter] = useState<string>('all');
     const [actionFilter, setActionFilter] = useState<string>('all');
+
+    // Initialize filters from URL parameters
+    React.useEffect(() => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const search = urlParams.get('search') || '';
+        const role = urlParams.get('role') || 'all';
+        const action = urlParams.get('action') || 'all';
+
+        setSearchTerm(search);
+        setRoleFilter(role);
+        setActionFilter(action);
+    }, []);
+
+    // Check if any filters are active
+    const hasActiveFilters = searchTerm !== '' || roleFilter !== 'all' || actionFilter !== 'all';
+
+    // Clear all filters function
+    const clearAllFilters = () => {
+        setSearchTerm('');
+        setRoleFilter('all');
+        setActionFilter('all');
+        router.get('/head/logs', {}, {
+            preserveState: true,
+            preserveScroll: true,
+        });
+    };
 
     // Handle pagination navigation
     const handlePageChange = (page: number) => {
@@ -119,7 +145,7 @@ export function AdminLogsTable({
                         placeholder="Search logs..."
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
-                        className="pl-10"
+                        className="pl-10 focus:border-green-500 focus:ring-green-500 h-11"
                     />
                 </div>
                 <Select value={roleFilter} onValueChange={setRoleFilter}>
@@ -162,7 +188,7 @@ export function AdminLogsTable({
                             <TableHead>Role</TableHead>
                             <TableHead>Action Type</TableHead>
                             <TableHead>Description</TableHead>
-                            <TableHead>Model</TableHead>
+                            <TableHead>Resource</TableHead>
                             <TableHead>IP Address</TableHead>
                             <TableHead>Timestamp</TableHead>
                         </TableRow>
@@ -181,7 +207,7 @@ export function AdminLogsTable({
                                     </Badge>
                                 </TableCell>
                                 <TableCell>
-                                    <Badge 
+                                    <Badge
                                         variant="outline"
                                         className={getActionTypeStyles(log.action_type)}
                                     >
@@ -205,7 +231,16 @@ export function AdminLogsTable({
                                 </TableCell>
                                 <TableCell>
                                     <div className="text-sm text-muted-foreground">
-                                        {new Date(log.timestamp).toLocaleString()}
+                                        {new Date(log.timestamp).toLocaleString('en-PH', {
+                                            timeZone: 'Asia/Manila',
+                                            year: 'numeric',
+                                            month: '2-digit',
+                                            day: '2-digit',
+                                            hour: '2-digit',
+                                            minute: '2-digit',
+                                            second: '2-digit',
+                                            hour12: true
+                                        })}
                                     </div>
                                 </TableCell>
                             </TableRow>
@@ -215,8 +250,35 @@ export function AdminLogsTable({
             </div>
 
             {logs.length === 0 && (
-                <div className="text-center py-8 text-muted-foreground">
-                    No logs found matching your criteria.
+                <div className="text-center py-12">
+                    <div className="flex flex-col items-center gap-4">
+                        <div className="h-12 w-12 rounded-full bg-gray-100 flex items-center justify-center">
+                            <Search className="h-6 w-6 text-gray-400" />
+                        </div>
+                        <div className="text-center">
+                            <h3 className="text-lg font-medium text-gray-900 mb-2">
+                                {hasActiveFilters ? 'No logs found' : 'No logs available'}
+                            </h3>
+                            <p className="text-sm text-gray-500 mb-4">
+                                {hasActiveFilters
+                                    ? 'No admin logs match your current search criteria. Try adjusting your filters or search terms.'
+                                    : 'No admin logs are available at this time.'
+                                }
+                            </p>
+                            {hasActiveFilters && (
+                                <div className="flex justify-center">
+                                    <Button
+                                        variant="outline"
+                                        size="sm"
+                                        onClick={clearAllFilters}
+                                        className="flex items-center gap-2"
+                                    >
+                                        Clear all filters
+                                    </Button>
+                                </div>
+                            )}
+                        </div>
+                    </div>
                 </div>
             )}
 
@@ -226,7 +288,7 @@ export function AdminLogsTable({
                     <div className="text-sm text-gray-600">
                         Page {pagination.current_page} of {pagination.last_page}
                     </div>
-                    
+
                     <div className="flex items-center space-x-2">
                         <Button
                             variant="outline"
@@ -237,7 +299,7 @@ export function AdminLogsTable({
                             <ChevronLeft className="h-4 w-4" />
                             Previous
                         </Button>
-                        
+
                         <div className="flex items-center space-x-1">
                             {Array.from({ length: Math.min(5, pagination.last_page) }, (_, i) => {
                                 const page = i + 1;
@@ -254,7 +316,7 @@ export function AdminLogsTable({
                                 );
                             })}
                         </div>
-                        
+
                         <Button
                             variant="outline"
                             size="sm"

@@ -5,6 +5,7 @@ use App\Http\Middleware\Auth\AuthenticateVoter;
 use App\Http\Middleware\Auth\EnsureHeadRole;
 use App\Http\Middleware\Auth\EnsureOfficerRole;
 use App\Http\Middleware\Auth\RoleMiddleware;
+use App\Http\Middleware\EnsureElectionExists;
 use App\Http\Middleware\HandleAppearance;
 use App\Http\Middleware\HandleInertiaRequests;
 use Illuminate\Foundation\Application;
@@ -34,6 +35,7 @@ return Application::configure(basePath: dirname(__DIR__))
             'role.head' => EnsureHeadRole::class,
             'role.officer' => EnsureOfficerRole::class,
             'role' => RoleMiddleware::class,
+            'election.exists' => EnsureElectionExists::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

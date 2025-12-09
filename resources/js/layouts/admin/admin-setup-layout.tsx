@@ -1,4 +1,4 @@
-import { AppContent } from '@/components/app-content';
+import { SetupContent } from '@/components/setup-content';
 import { AppShell } from '@/components/app-shell';
 import AdminNavbar from '@/components/@admin/admin-navbar';
 import { AdminRole } from '@/types/ehalal';
@@ -18,9 +18,9 @@ export default function AdminSetupLayout({
     return (
         <AppShell variant="header">
             <AdminNavbar handleLogout={handleLogout} />
-            <AppContent variant="header">
+            <SetupContent>
                 {children}
-            </AppContent>
+            </SetupContent>
         </AppShell>
     );
 }

@@ -123,9 +123,9 @@ abstract class Controller
     /**
      * Get current election status
      */
-    protected function getCurrentElection(): ?\App\Models\ElectionStatus
+    protected function getCurrentElection(): ?\App\Models\Election
     {
-        return \App\Models\ElectionStatus::first();
+        return \App\Models\Election::first();
     }
 
     /**

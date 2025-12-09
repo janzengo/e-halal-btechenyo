@@ -1,4 +1,5 @@
 import { BallotPosition } from './ballot-position';
+import { motion, AnimatePresence, Reorder } from 'framer-motion';
 
 interface Candidate {
     id: number;
@@ -73,22 +74,50 @@ export function BallotTemplate({
 
     return (
         <div className="space-y-4">
-            {positions.map((position, index) => (
-                <BallotPosition
-                    key={position.id}
-                    position={position}
-                    candidates={getCandidatesForPosition(position.id)}
-                    showAdminControls={showAdminControls}
-                    onMoveUp={() => handleMoveUp(position.id)}
-                    onMoveDown={() => handleMoveDown(position.id)}
-                    canMoveUp={index > 0}
-                    canMoveDown={index < positions.length - 1}
-                    positionNumber={index + 1}
-                    totalPositions={positions.length}
-                    isMoving={isMoving}
-                    onReset={() => handleReset(position.id)}
-                />
-            ))}
+            <AnimatePresence mode="popLayout">
+                {positions.map((position, index) => (
+                    <motion.div
+                        key={position.id}
+                        layout
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ 
+                            opacity: 1, 
+                            y: 0,
+                            scale: 1,
+                            transition: {
+                                type: "spring",
+                                stiffness: 500,
+                                damping: 30,
+                                mass: 1
+                            }
+                        }}
+                        exit={{ opacity: 0, scale: 0.95 }}
+                        transition={{
+                            layout: {
+                                type: "spring",
+                                stiffness: 400,
+                                damping: 50
+                            }
+                        }}
+                        whileHover={{ scale: 1.01 }}
+                        className="relative"
+                    >
+                        <BallotPosition
+                            position={position}
+                            candidates={getCandidatesForPosition(position.id)}
+                            showAdminControls={showAdminControls}
+                            onMoveUp={() => handleMoveUp(position.id)}
+                            onMoveDown={() => handleMoveDown(position.id)}
+                            canMoveUp={index > 0}
+                            canMoveDown={index < positions.length - 1}
+                            positionNumber={index + 1}
+                            totalPositions={positions.length}
+                            isMoving={isMoving}
+                            onReset={() => handleReset(position.id)}
+                        />
+                    </motion.div>
+                ))}
+            </AnimatePresence>
         </div>
     );
 }

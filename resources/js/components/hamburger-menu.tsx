@@ -7,9 +7,10 @@ import { Button } from '@/components/ui/button';
 interface HamburgerMenuProps {
     activeSection: string;
     onNavigate: (sectionId: string) => void;
+    auth: any;
 }
 
-export default function HamburgerMenu({ activeSection, onNavigate }: HamburgerMenuProps) {
+export default function HamburgerMenu({ activeSection, onNavigate, auth }: HamburgerMenuProps) {
     const [isOpen, setIsOpen] = useState(false);
 
     const navItems = [
@@ -85,18 +86,53 @@ export default function HamburgerMenu({ activeSection, onNavigate }: HamburgerMe
                             ))}
                         </nav>
 
-                        {/* Login Button - Centered */}
+                        {/* Auth Button - Centered */}
                         <div className="border-t border-gray-200 pt-4 mb-8">
                             <div className="flex justify-center">
-                                <Link 
-                                    href="/auth/login" 
-                                    className="block w-full max-w-xs"
-                                >
-                                    <Button variant="default" className="w-full">
-                                        Voter Login
-                                        <ArrowRight className="ml-2 w-4 h-4" />
-                                    </Button>
-                                </Link>
+                                {auth.user ? (
+                                    // Dynamic button based on user role
+                                    (() => {
+                                        // Check if user is admin (has role property) vs voter (has student_number)
+                                        if (auth.user.role) {
+                                            // Admin user (officer or head)
+                                            const dashboardUrl = auth.user.role === 'head' ? '/head/dashboard' : '/officers/dashboard';
+                                            return (
+                                                <Link 
+                                                    href={dashboardUrl} 
+                                                    className="block w-full max-w-xs"
+                                                >
+                                                    <Button variant="default" className="w-full">
+                                                        Dashboard
+                                                        <ArrowRight className="ml-2 w-4 h-4" />
+                                                    </Button>
+                                                </Link>
+                                            );
+                                        } else {
+                                            // Voter user
+                                            return (
+                                                <Link 
+                                                    href="/voters/vote" 
+                                                    className="block w-full max-w-xs"
+                                                >
+                                                    <Button variant="default" className="w-full">
+                                                        Vote Now
+                                                        <ArrowRight className="ml-2 w-4 h-4" />
+                                                    </Button>
+                                                </Link>
+                                            );
+                                        }
+                                    })()
+                                ) : (
+                                    <Link 
+                                        href="/auth/login" 
+                                        className="block w-full max-w-xs"
+                                    >
+                                        <Button variant="default" className="w-full">
+                                            Voter Login
+                                            <ArrowRight className="ml-2 w-4 h-4" />
+                                        </Button>
+                                    </Link>
+                                )}
                             </div>
                         </div>
                     </div>

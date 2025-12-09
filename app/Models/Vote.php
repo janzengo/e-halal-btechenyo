@@ -26,7 +26,7 @@ class Vote extends Model
 
     public function election(): BelongsTo
     {
-        return $this->belongsTo(ElectionStatus::class, 'election_id');
+        return $this->belongsTo(Election::class, 'election_id');
     }
 
     public function getVoteDataAttribute(): array

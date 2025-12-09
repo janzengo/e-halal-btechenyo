@@ -1,19 +1,14 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Users, UserCheck, UserX, GraduationCap } from 'lucide-react';
+import { Users, UserCheck, UserX, Percent, PercentCircle } from 'lucide-react';
 
 interface Voter {
     id: number;
-    student_id: string;
-    firstname: string;
-    lastname: string;
-    email: string;
-    photo: string;
-    course: string;
-    year_level: number;
+    student_number: string;
+    course_id: number;
+    course?: string; // From relationship
     has_voted: boolean;
-    voted_at?: string;
-    status: 'active' | 'inactive';
     created_at: string;
+    updated_at: string;
 }
 
 interface VotersStatisticsCardProps {
@@ -22,9 +17,8 @@ interface VotersStatisticsCardProps {
 
 export function VotersStatisticsCard({ voters }: VotersStatisticsCardProps) {
     const totalVoters = voters.length;
-    const activeVoters = voters.filter(voter => voter.status === 'active').length;
-    const inactiveVoters = voters.filter(voter => voter.status === 'inactive').length;
     const votedVoters = voters.filter(voter => voter.has_voted).length;
+    const notVotedVoters = totalVoters - votedVoters;
     const votingRate = totalVoters > 0 ? Math.round((votedVoters / totalVoters) * 100) : 0;
 
     const stats = [
@@ -36,25 +30,25 @@ export function VotersStatisticsCard({ voters }: VotersStatisticsCardProps) {
             color: 'text-blue-600'
         },
         {
-            title: 'Active Voters',
-            value: activeVoters,
+            title: 'Voted',
+            value: votedVoters,
             icon: UserCheck,
-            description: 'Eligible to vote',
+            description: `${votingRate}% voting rate`,
             color: 'text-green-600'
         },
         {
-            title: 'Voted',
-            value: votedVoters,
-            icon: GraduationCap,
-            description: `${votingRate}% voting rate`,
-            color: 'text-purple-600'
+            title: 'Not Voted',
+            value: notVotedVoters,
+            icon: UserX,
+            description: 'Pending votes',
+            color: 'text-orange-600'
         },
         {
-            title: 'Inactive',
-            value: inactiveVoters,
-            icon: UserX,
-            description: 'Not eligible',
-            color: 'text-red-600'
+            title: 'Participation',
+            value: `${votingRate}%`,
+            icon: Percent,
+            description: 'Voting progress',
+            color: 'text-purple-600'
         }
     ];
 

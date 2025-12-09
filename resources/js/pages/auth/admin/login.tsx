@@ -9,19 +9,25 @@ import { toast } from 'sonner';
 import React, { useState, useEffect } from 'react';
 
 interface AdminLoginProps {
-    status?: string;
+    flash?: {
+        success?: string;
+        error?: string;
+    };
 }
 
-export default function AdminLogin({ status }: AdminLoginProps) {
+export default function AdminLogin({ flash }: AdminLoginProps) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    // Show status toast if provided
+    // Show flash messages if provided
     useEffect(() => {
-        if (status) {
-            toast.success(status);
+        if (flash?.success) {
+            toast.success(flash.success);
         }
-    }, [status]);
+        if (flash?.error) {
+            toast.error(flash.error);
+        }
+    }, [flash]);
 
     const config = {
         icon: Shield,
@@ -84,7 +90,6 @@ export default function AdminLogin({ status }: AdminLoginProps) {
                                     />
                                     <Fingerprint className="absolute right-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground group-focus-within:text-green-500 transition-colors" />
                                 </div>
-                                <InputError message={errors.username} />
 
                                 <div className="relative group">
                                     <Input
@@ -99,7 +104,11 @@ export default function AdminLogin({ status }: AdminLoginProps) {
                                     />
                                     <KeyRound className="absolute right-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground group-focus-within:text-green-500 transition-colors" />
                                 </div>
-                                <InputError message={errors.password} />
+
+                                {/* General error message moved below all input fields */}
+                                {(errors.username || errors.password) && (
+                                    <InputError message={errors.username || errors.password} />
+                                )}
 
                                 <Button
                                     type="submit"

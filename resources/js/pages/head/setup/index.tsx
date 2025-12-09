@@ -1,21 +1,24 @@
-import { Head } from '@inertiajs/react';
-import { useState, useEffect } from 'react';
+import { Head, router, usePage } from '@inertiajs/react';
+import { useState, useEffect, useCallback } from 'react';
 import { defineStepper } from '@/components/ui/stepper';
 import { ElectionPreConfigStep } from '@/components/@admin/@setup/election-pre-config-step';
 import { OfficersStep } from '@/components/@admin/@setup/officers-step';
 import { ReviewStep } from '@/components/@admin/@setup/review-step';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Badge } from '@/components/ui/badge';
 import AdminSetupLayout from '@/layouts/admin/admin-setup-layout';
+import { toast } from 'sonner';
 
 import {
   SettingsIcon,
   InfoIcon,
-  ArrowRightIcon
+  ArrowRightIcon,
+  CheckCircle2
 } from 'lucide-react';
-import { router } from '@inertiajs/react';
+
+const STORAGE_KEY = 'ehalal_setup_data';
 
 // Define the stepper steps using the correct Stepperize pattern
 const { Stepper, utils } = defineStepper(
@@ -40,14 +43,93 @@ interface Officer {
   created_on: string;
 }
 
+interface SetupPageProps extends Record<string, unknown> {
+  existingOfficers?: Officer[];
+  flash?: {
+    success?: string;
+    error?: string;
+  };
+}
+
 export default function SetupPage() {
+  const props = usePage<SetupPageProps & { auth: { user?: any } }>().props;
+  const { existingOfficers = [], auth, flash } = props;
+  
+  // Debug: Log ALL props received from backend
+  console.log('=== SETUP PAGE DEBUG ===');
+  console.log('All props:', props);
+  console.log('existingOfficers:', existingOfficers);
+  console.log('existingOfficers type:', typeof existingOfficers);
+  console.log('existingOfficers isArray:', Array.isArray(existingOfficers));
+  console.log('existingOfficers length:', existingOfficers?.length);
+  console.log('======================');
+  
   const [electionData, setElectionData] = useState<ElectionData>({
     electionName: '',
     endTime: '',
     isValid: false
   });
-  const [officers, setOfficers] = useState<Officer[]>([]);
+  const [officers, setOfficers] = useState<Officer[]>(existingOfficers);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  // Handle flash messages
+  useEffect(() => {
+    if (flash?.success) {
+      toast.success(flash.success);
+    }
+    if (flash?.error) {
+      toast.error(flash.error);
+    }
+  }, [flash]);
+
+  // Check authentication and load data from browser storage on mount
+  useEffect(() => {
+    // Check if user is authenticated
+    if (!auth.user) {
+      window.location.href = '/auth/admin-btech';
+      return;
+    }
+
+    const savedData = localStorage.getItem(STORAGE_KEY);
+    if (savedData) {
+      try {
+        const parsed = JSON.parse(savedData);
+        if (parsed.electionData) {
+          setElectionData(parsed.electionData);
+        }
+        // Only restore officers from localStorage if we don't have backend data
+        if (parsed.officers && existingOfficers.length === 0) {
+          setOfficers(parsed.officers);
+        }
+        toast.info('Restored your previous setup progress');
+      } catch (e) {
+        console.error('Failed to parse saved setup data:', e);
+      }
+    }
+    
+    // Initialize with backend officers if available
+    if (existingOfficers.length > 0) {
+      setOfficers(existingOfficers);
+    }
+    setIsLoaded(true);
+  }, [auth.user]);
+
+  // Save data to browser storage whenever it changes
+  const saveToStorage = useCallback(() => {
+    const dataToSave = {
+      electionData,
+      officers,
+      savedAt: new Date().toISOString()
+    };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(dataToSave));
+  }, [electionData, officers]);
+
+  useEffect(() => {
+    if (isLoaded) {
+      saveToStorage();
+    }
+  }, [electionData, officers, isLoaded]);
 
   const handleElectionDataChange = (data: ElectionData) => {
     setElectionData(data);
@@ -57,33 +139,59 @@ export default function SetupPage() {
     setOfficers(newOfficers);
   };
 
+  const clearStoredData = () => {
+    localStorage.removeItem(STORAGE_KEY);
+  };
+
   const handleCompleteSetup = async () => {
     if (!electionData.isValid) {
-      alert('Please complete the election configuration first');
+      toast.error('Please complete the election configuration first');
       return;
     }
 
     setIsSubmitting(true);
-    try {
-      // Here you would typically make an API call to save the setup
-      console.log('Election Data:', electionData);
-      console.log('Officers:', officers);
-      
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      alert('Election setup completed successfully!');
-    } catch (error) {
-      console.error('Error completing setup:', error);
-      alert('Error completing setup. Please try again.');
-    } finally {
-      setIsSubmitting(false);
-    }
+    
+    router.post('/head/setup/complete', {
+      election_name: electionData.electionName,
+      end_time: electionData.endTime || null,
+    }, {
+      onSuccess: () => {
+        // Clear stored data on successful setup
+        clearStoredData();
+        toast.success('Election created successfully!');
+      },
+      onError: (errors) => {
+        toast.error('Failed to create election. Please try again.');
+        console.error('Setup errors:', errors);
+      },
+      onFinish: () => {
+        setIsSubmitting(false);
+      }
+    });
   };
 
   const handleLogout = () => {
-    router.post('/logout');
+    router.post('/auth/admin-btech/logout', {}, {
+      onError: (errors) => {
+        console.error('Logout error:', errors);
+      }
+    });
   };
+
+  // Show loading while checking authentication
+  if (!isLoaded) {
+    return (
+      <AdminSetupLayout
+        userRole="head"
+        handleLogout={handleLogout}
+      >
+        <Head title="Election Setup" />
+        <div className="flex items-center justify-center min-h-96">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600"></div>
+        </div>
+      </AdminSetupLayout>
+    );
+  }
 
   return (
     <AdminSetupLayout
@@ -203,6 +311,10 @@ export default function SetupPage() {
                       <CardContent className="pt-6">
                         <ElectionPreConfigStep
                           onDataChange={handleElectionDataChange}
+                          initialData={{
+                            electionName: electionData.electionName,
+                            endTime: electionData.endTime
+                          }}
                         />
                       </CardContent>
                     </Card>
@@ -225,7 +337,7 @@ export default function SetupPage() {
                       <CardContent className="pt-6">
                         <OfficersStep
                           onOfficersChange={handleOfficersChange}
-                          initialOfficers={officers}
+                          initialOfficers={existingOfficers}
                         />
                       </CardContent>
                     </Card>
@@ -264,7 +376,7 @@ export default function SetupPage() {
                     <Stepper.Controls>
                       <Button
                         type="button"
-                        variant="outlinePrimary"
+                        variant="outline"
                         onClick={methods.prev}
                         disabled={methods.isFirst}
                         className="w-full sm:w-auto"
@@ -278,6 +390,7 @@ export default function SetupPage() {
                         variant="outlinePrimary"
                       >
                         {isSubmitting ? 'Completing Setup...' : 'Complete Setup'}
+                        <ArrowRightIcon className="w-4 h-4" />
                       </Button>
                     </Stepper.Controls>
                   </Stepper.Panel>

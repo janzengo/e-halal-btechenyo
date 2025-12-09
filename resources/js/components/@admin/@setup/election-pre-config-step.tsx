@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -20,6 +20,21 @@ export function ElectionPreConfigStep({ onDataChange, initialData }: ElectionPre
   const [endTime, setEndTime] = useState<Date | undefined>(
     initialData?.endTime ? new Date(initialData.endTime) : undefined
   );
+  
+  // Ref to track previous data to prevent unnecessary updates
+  const previousDataRef = useRef<{
+    electionName: string;
+    endTime: string;
+    isValid: boolean;
+  } | null>(null);
+
+  // Update local state when initialData changes (when navigating back to this step)
+  useEffect(() => {
+    if (initialData) {
+      setElectionName(initialData.electionName || '');
+      setEndTime(initialData.endTime ? new Date(initialData.endTime) : undefined);
+    }
+  }, [initialData]);
 
   // Simple validation for enabling/disabling Next button
   const isFormValid = () => {
@@ -27,15 +42,26 @@ export function ElectionPreConfigStep({ onDataChange, initialData }: ElectionPre
     return electionName.trim().length >= 5 && endTime && endTime > now;
   };
 
-  // Update parent component when data changes
+  // Update parent component when data changes, but only if data actually changed
   useEffect(() => {
     const isValid = isFormValid();
-    onDataChange({
-      electionName: electionName.trim(),
+    const currentData = {
+      electionName: electionName,
       endTime: endTime ? endTime.toISOString() : '',
       isValid: !!isValid
-    });
-  }, [electionName, endTime]);
+    };
+
+    // Only call onDataChange if data actually changed
+    const previousData = previousDataRef.current;
+    if (!previousData || 
+        previousData.electionName !== currentData.electionName ||
+        previousData.endTime !== currentData.endTime ||
+        previousData.isValid !== currentData.isValid) {
+      
+      previousDataRef.current = currentData;
+      onDataChange(currentData);
+    }
+  }, [electionName, endTime, onDataChange]);
 
   const handleElectionNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setElectionName(e.target.value);

@@ -54,9 +54,13 @@ export function LoadingProvider({ children }: { children: React.ReactNode }) {
         router.on('error', handleFinish); // Also handle errors
 
         return () => {
-            router.off('progress', handleProgress);
-            router.off('finish', handleFinish);
-            router.off('error', handleFinish);
+            // Check if router.off exists before calling it (some versions may not have it)
+            const routerWithOff = router as any;
+            if (typeof routerWithOff.off === 'function') {
+                routerWithOff.off('progress', handleProgress);
+                routerWithOff.off('finish', handleFinish);
+                routerWithOff.off('error', handleFinish);
+            }
             
             // Clean up timeout on unmount
             if (loadingTimeoutRef.current) {

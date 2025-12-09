@@ -30,23 +30,25 @@ export function DateTimePicker({
     if (date) {
       // If we have an existing time, preserve it
       if (value) {
-        const newDate = new Date(date);
+        const newDate = new Date(date.getTime());
         newDate.setHours(value.getHours());
         newDate.setMinutes(value.getMinutes());
         onChange(newDate);
       } else {
-        onChange(date);
+        onChange(new Date(date.getTime()));
       }
     }
   }
 
   function handleTimeChange(type: "hour" | "minute" | "ampm", timeValue: string) {
     const currentDate = value || new Date();
-    let newDate = new Date(currentDate);
+    // Create a completely new date object to avoid reference issues
+    let newDate = new Date(currentDate.getTime());
 
     if (type === "hour") {
       const hour = parseInt(timeValue, 10);
-      newDate.setHours(newDate.getHours() >= 12 ? hour + 12 : hour);
+      const currentHours = newDate.getHours();
+      newDate.setHours(currentHours >= 12 ? hour + 12 : hour);
     } else if (type === "minute") {
       newDate.setMinutes(parseInt(timeValue, 10));
     } else if (type === "ampm") {
@@ -58,7 +60,10 @@ export function DateTimePicker({
       }
     }
 
-    onChange(newDate);
+    // Only call onChange if the date actually changed
+    if (newDate.getTime() !== currentDate.getTime()) {
+      onChange(newDate);
+    }
   }
 
   return (

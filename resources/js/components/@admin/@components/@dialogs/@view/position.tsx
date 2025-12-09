@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
 import { Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle } from '@/components/ui/empty';
 import { AlertCircle, X, Users, Search, User, Calendar, MapPin, Award } from 'lucide-react';
-import { SkeletonDialogList } from '@/components/@admin/@loading/skeleton-cards';
+import { Spinner } from '@/components/ui/spinner';
 
 interface Candidate {
     id: number;
@@ -90,7 +90,12 @@ export function PositionViewDialog({
                     {/* Candidates List */}
                     <div className="flex-1 overflow-y-auto">
                         {loading ? (
-                            <SkeletonDialogList />
+                            <div className="flex items-center justify-center py-12">
+                                <div className="flex flex-col items-center gap-3">
+                                    <Spinner className="h-8 w-8" />
+                                    <p className="text-sm text-gray-500">Loading candidates...</p>
+                                </div>
+                            </div>
                         ) : filteredCandidates.length === 0 ? (
                             <Empty className="border my-8">
                                 <EmptyHeader>

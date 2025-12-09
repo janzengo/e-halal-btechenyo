@@ -1,4 +1,5 @@
 import { Head, usePage } from '@inertiajs/react';
+import { useState, useEffect } from 'react';
 import AdminLayout from '@/layouts/admin/admin-layout';
 import { AdminLogsTable } from '@/components/@admin/@logs/admin-logs-table';
 import { Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle } from '@/components/ui/empty';
@@ -37,6 +38,19 @@ interface LogsProps extends Record<string, any> {
 export default function HeadLogs() {
     const { logs, pagination } = usePage<LogsProps>().props;
     const { isPageLoading } = useLoading();
+    
+    // Check if there are any active filters by looking at URL parameters
+    const [hasActiveFilters, setHasActiveFilters] = useState(false);
+    
+    useEffect(() => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const hasSearch = urlParams.has('search') && urlParams.get('search') !== '';
+        const hasRole = urlParams.has('role') && urlParams.get('role') !== 'all';
+        const hasAction = urlParams.has('action') && urlParams.get('action') !== 'all';
+        
+        setHasActiveFilters(hasSearch || hasRole || hasAction);
+    }, [window.location.search]);
+    
     const handleView = (log: any) => {
         console.log('View log:', log);
         // Implement view logic
@@ -46,6 +60,9 @@ export default function HeadLogs() {
         console.log('Export admin logs');
         // Implement export logic
     };
+    
+    // Determine if we should show the general empty state or the table with filters
+    const shouldShowGeneralEmptyState = logs.length === 0 && !hasActiveFilters && pagination.total === 0;
 
     return (
         <AdminLayout
@@ -75,7 +92,7 @@ export default function HeadLogs() {
             
             {isPageLoading ? (
                 <SkeletonTable rows={10} />
-            ) : logs.length === 0 ? (
+            ) : shouldShowGeneralEmptyState ? (
                 <Empty className="border my-8">
                     <EmptyHeader>
                         <EmptyMedia variant="icon">
@@ -88,15 +105,13 @@ export default function HeadLogs() {
                     </EmptyHeader>
                 </Empty>
             ) : (
-                    <div>
-                        <AdminLogsTable
-                            logs={logs}
-                            pagination={pagination}
-                            userRole="head"
-                            onView={handleView}
-                            onExport={handleExport}
-                        />
-                    </div>
+                <div>
+                    <AdminLogsTable
+                        logs={logs}
+                        pagination={pagination}
+                        userRole="head"
+                    />
+                </div>
             )}
         </AdminLayout>
     );

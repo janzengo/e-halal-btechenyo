@@ -24,10 +24,14 @@ createInertiaApp({
                 <SkeletonProvider>
                     <App {...props} />
                     <Toaster 
-                        position="top-right" 
+                        position="bottom-right" 
                         richColors 
-                        dismissible 
-                        closeButton 
+                        closeButton={true}
+                        toastOptions={{
+                            style: {
+                                zIndex: 9999,
+                            },
+                        }}
                     />
                 </SkeletonProvider>
             </LoadingProvider>

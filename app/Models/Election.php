@@ -8,11 +8,11 @@ use App\Traits\Loggable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class ElectionStatus extends Model
+class Election extends Model
 {
     use Loggable;
 
-    protected $table = 'election_status';
+    protected $table = 'elections';
 
     protected $fillable = [
         'status',

@@ -73,13 +73,13 @@ class AdminAuthenticatedSessionController extends Controller
 
         // Redirect based on admin role
         if ($admin->isHead()) {
-            return redirect()->intended(route('head.dashboard'));
+            return redirect()->intended(route('head.dashboard'))->with('success', 'Login successful! Welcome back.');
         } elseif ($admin->isOfficer()) {
-            return redirect()->intended(route('officers.dashboard'));
+            return redirect()->intended(route('officers.dashboard'))->with('success', 'Login successful! Welcome back.');
         }
 
         // Fallback redirect to head dashboard
-        return redirect()->intended(route('head.dashboard'));
+        return redirect()->intended(route('head.dashboard'))->with('success', 'Login successful! Welcome back.');
     }
 
     /**
@@ -139,12 +139,12 @@ class AdminAuthenticatedSessionController extends Controller
 
                 // Redirect based on admin role
                 if ($admin->isHead()) {
-                    return redirect()->intended(route('head.dashboard'));
+                    return redirect()->intended(route('head.dashboard'))->with('success', 'Login successful! Welcome back.');
                 } elseif ($admin->isOfficer()) {
-                    return redirect()->intended(route('officers.dashboard'));
+                    return redirect()->intended(route('officers.dashboard'))->with('success', 'Login successful! Welcome back.');
                 }
 
-                return redirect()->intended(route('head.dashboard'));
+                return redirect()->intended(route('head.dashboard'))->with('success', 'Login successful! Welcome back.');
             }
         }
 
@@ -161,6 +161,6 @@ class AdminAuthenticatedSessionController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect()->route('admin.login');
+        return redirect()->route('admin.login')->with('success', 'You have been successfully logged out.');
     }
 }

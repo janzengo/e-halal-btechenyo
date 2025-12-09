@@ -17,14 +17,15 @@ export default function AdminLayout({
     children, 
     breadcrumbs = [], 
     userRole = 'officer',
-    currentPath = ''
 }: AdminLayoutProps) {
     return (
         <AppShell variant="sidebar">
-            <AdminSidebar userRole={userRole} currentPath={currentPath} />
+            <AdminSidebar userRole={userRole} />
             <AppContent variant="sidebar">
                 <AdminAppHeader breadcrumbs={breadcrumbs} userRole={userRole} />
-                {children}
+                <div className="flex flex-col gap-6 p-6 md:p-8 lg:p-10 flex-1">
+                    {children}
+                </div>
             </AppContent>
         </AppShell>
     );

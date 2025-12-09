@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from '@inertiajs/react';
 import { cn } from '@/lib/utils';
 import AppLogo from '@/components/app-logo';
@@ -42,17 +41,38 @@ export default function LandingNav({ activeSection, onNavigate, auth }: LandingN
                             {item.name}
                         </button>
                     ))}
-                    
+
                     {/* Auth buttons - hidden on mobile */}
                     <div className="ml-4 border-l border-gray-200 pl-4 flex items-center gap-4 hidden lg:flex">
                         {auth.user ? (
-                            <Link
-                                href="/dashboard"
-                                className="inline-flex items-center gap-2 rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white hover:bg-green-700 transition-colors"
-                            >
-                                Dashboard
-                                <ArrowRight className="h-4 w-4" />
-                            </Link>
+                            // Dynamic button based on user role
+                            (() => {
+                                // Check if user is admin (has role property) vs voter (has student_number)
+                                if (auth.user.role) {
+                                    // Admin user (officer or head)
+                                    const dashboardUrl = auth.user.role === 'head' ? '/head/dashboard' : '/officers/dashboard';
+                                    return (
+                                        <Link
+                                            href={dashboardUrl}
+                                            className="inline-flex items-center gap-2 rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white hover:bg-green-700 transition-colors"
+                                        >
+                                            Dashboard
+                                            <ArrowRight className="h-4 w-4" />
+                                        </Link>
+                                    );
+                                } else {
+                                    // Voter user
+                                    return (
+                                        <Link
+                                            href="/voters/vote"
+                                            className="inline-flex items-center gap-2 rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white hover:bg-green-700 transition-colors"
+                                        >
+                                            Vote Now
+                                            <ArrowRight className="h-4 w-4" />
+                                        </Link>
+                                    );
+                                }
+                            })()
                         ) : (
                             <Link
                                 href="/auth/login"
@@ -64,7 +84,7 @@ export default function LandingNav({ activeSection, onNavigate, auth }: LandingN
                         )}
                     </div>
 
-                    <HamburgerMenu activeSection={activeSection} onNavigate={onNavigate} />
+                    <HamburgerMenu activeSection={activeSection} onNavigate={onNavigate} auth={auth} />
                 </nav>
             </div>
         </header>

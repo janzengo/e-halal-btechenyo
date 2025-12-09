@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
-import { Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle } from '@/components/ui/empty';
+import { Empty, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle } from '@/components/ui/empty';
 import { X, Users, Search, Calendar, GraduationCap } from 'lucide-react';
-import { SkeletonDialogList } from '@/components/@admin/@loading/skeleton-cards';
+import { Spinner } from '@/components/ui/spinner';
 
 interface Voter {
     id: number;
-    student_id: string;
-    firstname: string;
-    lastname: string;
-    year_level: number;
+    student_number: string;
+    course_id: number;
+    course?: string; // From relationship
     has_voted: boolean;
     created_at: string;
+    updated_at: string;
 }
 
 interface CoursesViewDialogProps {
@@ -49,7 +49,7 @@ export function CoursesViewDialog({
 
     // Filter voters based on search term
     const filteredVoters = voters.filter(voter => {
-        const searchableFields = `${voter.firstname} ${voter.lastname} ${voter.student_id}`.toLowerCase();
+        const searchableFields = `${voter.student_number}`.toLowerCase();
         return searchableFields.includes(searchTerm.toLowerCase());
     });
 
@@ -58,13 +58,18 @@ export function CoursesViewDialog({
             <DialogContent className="sm:max-w-4xl max-h-[80vh] overflow-hidden flex flex-col">
                 <DialogHeader>
                     <DialogTitle className="flex items-center gap-3">
-                        <div className="h-8 w-8 rounded-lg flex items-center justify-center border-2 bg-green-100 border-green-200">
-                            <GraduationCap className="h-4 w-4 text-green-700" />
+                        <div className="h-8 w-8 rounded-lg flex items-center justify-center border-2 bg-blue-100 border-blue-200">
+                            <GraduationCap className="h-4 w-4 text-blue-700" />
                         </div>
                         <div>
                             <span className="text-xl font-bold">{course?.code || 'Course'}</span>
+                            {course?.name && (
+                                <p className="text-sm text-gray-600 font-normal">
+                                    {course.name}
+                                </p>
+                            )}
                             <p className="text-sm text-gray-500 font-normal">
-                                {course?.students_count || 0} voter(s)
+                                {voters.length} voter(s) enrolled
                             </p>
                         </div>
                     </DialogTitle>
@@ -74,27 +79,36 @@ export function CoursesViewDialog({
                 </DialogHeader>
 
                 <div className="flex-1 overflow-hidden flex flex-col">
-                    {/* Search */}
-                    <div className="relative mb-4">
-                        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
-                        <Input
-                            type="text"
-                            placeholder="Search voters..."
-                            value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)}
-                            className="pl-10"
-                        />
-                    </div>
+                    {/* Search - Only show when not loading */}
+                    {!loading && (
+                        <div className="relative mb-4">
+                            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+                            <Input
+                                type="text"
+                                placeholder="Search voters..."
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                                className="pl-10"
+                            />
+                        </div>
+                    )}
 
-                    {/* Results count */}
-                    <div className="text-sm text-gray-600 mb-4">
-                        Showing {filteredVoters.length} of {voters.length} voters
-                    </div>
+                    {/* Results count - Only show when not loading */}
+                    {!loading && (
+                        <div className="text-sm text-gray-600 mb-4">
+                            Showing {filteredVoters.length} of {voters.length} voters
+                        </div>
+                    )}
 
                     {/* Voters List */}
                     <div className="flex-1 overflow-y-auto">
                         {loading ? (
-                            <SkeletonDialogList />
+                            <div className="flex items-center justify-center py-12">
+                                <div className="flex flex-col items-center gap-3">
+                                    <Spinner className="h-8 w-8" />
+                                    <p className="text-sm text-gray-500">Loading voters...</p>
+                                </div>
+                            </div>
                         ) : filteredVoters.length === 0 ? (
                             <Empty className="border my-8">
                                 <EmptyHeader>
@@ -102,12 +116,14 @@ export function CoursesViewDialog({
                                         <Users />
                                     </EmptyMedia>
                                     <EmptyTitle>
-                                        {searchTerm ? 'No voters found' : 'No voters yet'}
+                                        {searchTerm ? 'No voters found' : 'No voters enrolled'}
                                     </EmptyTitle>
                                     <EmptyDescription>
                                         {searchTerm 
                                             ? 'Try adjusting your search criteria to find voters.' 
-                                            : 'Voters will appear here once they are enrolled in this course.'
+                                            : voters.length === 0 
+                                                ? 'No voters have been enrolled in this course yet. Voters will appear here once they are registered and assigned to this course.'
+                                                : 'No voters match your search criteria.'
                                         }
                                     </EmptyDescription>
                                 </EmptyHeader>
@@ -121,23 +137,20 @@ export function CoursesViewDialog({
                                                 {/* Voter Avatar */}
                                                 <div className="h-12 w-12 rounded-full bg-gray-100 flex items-center justify-center">
                                                     <div className="h-full w-full bg-green-100 text-green-700 flex items-center justify-center text-sm font-medium">
-                                                        {voter.firstname[0]}{voter.lastname[0]}
+                                                        {voter.student_number.slice(-2)}
                                                     </div>
                                                 </div>
 
                                                 {/* Voter Info */}
                                                 <div className="flex-1 min-w-0">
                                                     <h3 className="font-semibold text-gray-900 truncate">
-                                                        {voter.firstname} {voter.lastname}
+                                                        {voter.student_number}
                                                     </h3>
                                                     <p className="text-sm text-gray-600 mt-1">
-                                                        ID: {voter.student_id}
+                                                        {voter.student_number}@btech.ph.education
                                                     </p>
                                                     
                                                     <div className="flex items-center gap-2 mt-2">
-                                                        <Badge variant="outline" className="text-xs">
-                                                            Year {voter.year_level}
-                                                        </Badge>
                                                         <Badge 
                                                             variant={voter.has_voted ? "default" : "secondary"}
                                                             className="text-xs"

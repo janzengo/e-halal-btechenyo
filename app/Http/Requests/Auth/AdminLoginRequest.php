@@ -85,10 +85,6 @@ class AdminLoginRequest extends FormRequest
      */
     public function throttleKey(): string
     {
-        return $this->string('username')
-            ->lower()
-            ->append('|'.$this->ip())
-            ->transliterate()
-            ->value();
+        return strtolower($this->input('username')).'|'.$this->ip();
     }
 }

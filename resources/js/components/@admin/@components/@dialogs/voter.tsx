@@ -100,7 +100,7 @@ export function VoterDialog({
 
     return (
         <Dialog open={open} onOpenChange={onOpenChange}>
-            <DialogContent className="sm:max-w-md">
+            <DialogContent className="sm:max-w-2xl">
                 <DialogHeader>
                     <DialogTitle className="flex items-center gap-2">
                         <UserCheck className="h-5 w-5" />
@@ -128,7 +128,7 @@ export function VoterDialog({
                                 const value = e.target.value.replace(/\D/g, '');
                                 handleInputChange('student_number', value);
                             }}
-                            placeholder="202320023"
+                            placeholder="202020020"
                             maxLength={9}
                             className={errors.student_number ? 'border-red-500' : ''}
                             required
@@ -150,11 +150,11 @@ export function VoterDialog({
                             Course <span className="text-red-600">*</span>
                         </Label>
                         <Select
-                            value={formData.course_id.toString()}
+                            value={formData.course_id ? formData.course_id.toString() : ""}
                             onValueChange={(value) => handleInputChange('course_id', parseInt(value))}
                         >
                             <SelectTrigger>
-                                <SelectValue placeholder="Select a course..." />
+                                <SelectValue placeholder="Select a Course" />
                             </SelectTrigger>
                             <SelectContent>
                                 {courses.map((course) => (

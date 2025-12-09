@@ -7,11 +7,14 @@ import { Head, usePage, router } from '@inertiajs/react';
 import { useState } from 'react';
 import { toast } from 'sonner';
 import { ClipboardList, ListPlus } from 'lucide-react';
+import axios from 'axios';
 
 interface Position {
     id: number;
     title: string;
+    description: string;
     max_winners: number;
+    max_vote: number;
     priority: number;
     candidates_count: number;
     created_at?: string;
@@ -26,7 +29,7 @@ interface Candidate {
     position_id: number;
     partylist?: string;
     partylist_id: number;
-    photo?: string;
+    photo: string;
     platform?: string;
     votes: number;
     created_at?: string;
@@ -84,24 +87,17 @@ export default function BallotSettings() {
         }));
         
         try {
-            // Send to backend
-            const response = await fetch('/head/positions/reorder', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '',
-                },
-                body: JSON.stringify({ positions: updatedPositions }),
+            // Send to backend using axios (handles CSRF automatically)
+            const response = await axios.post('/head/positions/reorder', {
+                positions: updatedPositions
             });
 
-            const data = await response.json();
-
-            if (data.success) {
+            if (response.data.success) {
                 toast.success('Position order updated successfully!', {
                     description: `${newPositions.find(p => p.id === positionId)?.title || 'Position'} moved ${direction}`
                 });
             } else {
-                throw new Error(data.message || 'Failed to update position order');
+                throw new Error(response.data.message || 'Failed to update position order');
             }
         } catch (error) {
             console.error('Error reordering positions:', error);

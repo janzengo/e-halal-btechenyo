@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle } from '@/components/ui/empty';
 import { Button } from '@/components/ui/button';
 import { VoteDistributionDashboard } from '@/components/@admin/@analytics/vote-distribution-dashboard';
-import { Users, Vote, TrendingUp, Target } from 'lucide-react';
+import { Users, Vote, TrendingUp, Target, BarChart3, UserPlus, ListChecks } from 'lucide-react';
 
 interface VotesProps extends Record<string, any> {
     voteDistribution: Array<{
@@ -29,6 +29,14 @@ interface VotesProps extends Record<string, any> {
 
 export default function HeadVotes() {
     const { voteDistribution, candidateVoteData, electionStats } = usePage<VotesProps>().props;
+    
+    // Determine what's missing for a better empty state
+    const hasNoVotes = electionStats.totalVoted === 0;
+    const hasNoPositions = electionStats.totalPositions === 0;
+    const hasNoCandidates = electionStats.totalCandidates === 0;
+    const hasNoVoters = electionStats.totalVoters === 0;
+    const isCompletelyEmpty = hasNoPositions && hasNoCandidates && hasNoVoters;
+    
     return (
         <AdminLayout
             userRole="head"
@@ -48,24 +56,94 @@ export default function HeadVotes() {
                 </div>
             </div>
 
-            {voteDistribution.length === 0 && electionStats.totalCandidates === 0 ? (
+            {isCompletelyEmpty ? (
+                /* Completely Empty State - No election data at all */
                 <Empty className="border my-8">
                     <EmptyHeader>
                         <EmptyMedia variant="icon">
-                            <Vote />
+                            <BarChart3 />
                         </EmptyMedia>
-                        <EmptyTitle>No Voting Data Available</EmptyTitle>
+                        <EmptyTitle>No Election Data Yet</EmptyTitle>
                         <EmptyDescription>
-                            Voting analytics will appear here once positions and candidates are set up and voting begins.
+                            Start by setting up your election. Add positions, candidates, and voters to see voting analytics here.
                         </EmptyDescription>
                     </EmptyHeader>
                     <EmptyContent>
-                        <Button variant="outlinePrimary" onClick={() => window.location.href = '/head/positions'}>
-                            <Target className="h-4 w-4" />
-                            Set Up Positions
-                        </Button>
+                        <div className="flex flex-col sm:flex-row gap-3">
+                            <Button variant="outlinePrimary" onClick={() => window.location.href = '/head/positions'}>
+                                <ListChecks className="h-4 w-4" />
+                                Add Positions
+                            </Button>
+                            <Button variant="outline" onClick={() => window.location.href = '/head/voters'}>
+                                <UserPlus className="h-4 w-4" />
+                                Add Voters
+                            </Button>
+                        </div>
                     </EmptyContent>
                 </Empty>
+            ) : hasNoVotes ? (
+                /* Has setup but no votes yet */
+                <div className="space-y-6">
+                    {/* Statistics Cards - Show current setup */}
+                    <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+                        <Card>
+                            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                                <CardTitle className="text-sm font-medium">Total Voters</CardTitle>
+                                <Users className="h-4 w-4 text-muted-foreground" />
+                            </CardHeader>
+                            <CardContent>
+                                <div className="text-2xl font-bold">{electionStats.totalVoters.toLocaleString()}</div>
+                                <p className="text-xs text-muted-foreground">Registered voters</p>
+                            </CardContent>
+                        </Card>
+                        
+                        <Card>
+                            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                                <CardTitle className="text-sm font-medium">Votes Cast</CardTitle>
+                                <Vote className="h-4 w-4 text-muted-foreground" />
+                            </CardHeader>
+                            <CardContent>
+                                <div className="text-2xl font-bold text-gray-400">0</div>
+                                <p className="text-xs text-muted-foreground">Waiting for votes</p>
+                            </CardContent>
+                        </Card>
+
+                        <Card>
+                            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                                <CardTitle className="text-sm font-medium">Positions</CardTitle>
+                                <Target className="h-4 w-4 text-muted-foreground" />
+                            </CardHeader>
+                            <CardContent>
+                                <div className="text-2xl font-bold">{electionStats.totalPositions}</div>
+                                <p className="text-xs text-muted-foreground">Available positions</p>
+                            </CardContent>
+                        </Card>
+
+                        <Card>
+                            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                                <CardTitle className="text-sm font-medium">Candidates</CardTitle>
+                                <TrendingUp className="h-4 w-4 text-muted-foreground" />
+                            </CardHeader>
+                            <CardContent>
+                                <div className="text-2xl font-bold">{electionStats.totalCandidates}</div>
+                                <p className="text-xs text-muted-foreground">From {electionStats.totalPartylists} partylists</p>
+                            </CardContent>
+                        </Card>
+                    </div>
+
+                    {/* No Votes Empty State */}
+                    <Empty className="border">
+                        <EmptyHeader>
+                            <EmptyMedia variant="icon">
+                                <Vote />
+                            </EmptyMedia>
+                            <EmptyTitle>No Votes Cast Yet</EmptyTitle>
+                            <EmptyDescription>
+                                Your election is set up and ready. Vote analytics will appear here once voters start casting their votes.
+                            </EmptyDescription>
+                        </EmptyHeader>
+                    </Empty>
+                </div>
             ) : (
                 <>
                     {/* Statistics Cards */}

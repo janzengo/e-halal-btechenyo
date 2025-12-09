@@ -1,9 +1,8 @@
 import { Head, usePage } from '@inertiajs/react';
 import AdminLayout from '@/layouts/admin/admin-layout';
 import { HistoryCards } from '@/components/@admin/@history/history-cards';
-import { Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle } from '@/components/ui/empty';
-import { Button } from '@/components/ui/button';
-import { FolderClock, Calendar } from 'lucide-react';
+import { Empty, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle } from '@/components/ui/empty';
+import { FolderClock } from 'lucide-react';
 
 interface BackendElection {
     id: number;
@@ -77,12 +76,6 @@ export default function HeadElections() {
                             Past elections will be archived here. Once an election is completed, it will appear in this history.
                         </EmptyDescription>
                     </EmptyHeader>
-                    <EmptyContent>
-                        <Button variant="outlinePrimary" onClick={() => window.location.href = '/head/dashboard'}>
-                            <Calendar className="h-4 w-4" />
-                            Start New Election
-                        </Button>
-                    </EmptyContent>
                 </Empty>
             ) : (
                 <div>

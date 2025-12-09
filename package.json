@@ -58,7 +58,7 @@
         "color": "^5.0.2",
         "concurrently": "^9.0.1",
         "date-fns": "^4.1.0",
-        "framer-motion": "^12.23.22",
+        "framer-motion": "^12.23.25",
         "globals": "^15.14.0",
         "input-otp": "^1.4.2",
         "laravel-vite-plugin": "^2.0",

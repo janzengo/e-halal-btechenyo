@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
+import { OfficerSelectionModal } from './officer-selection-modal';
 import { 
   UsersIcon, 
   PlusIcon, 
@@ -39,9 +40,11 @@ export function OfficersStep({ onOfficersChange, initialOfficers = [] }: Officer
   }, [officers]);
 
   const handleAddOfficer = () => {
-    // This would typically open a modal or navigate to an add officer page
-    // For now, we'll just show an alert
-    alert('Add Officer functionality would be implemented here');
+    // The modal will handle adding officers
+  };
+
+  const handleOfficersAdded = (newOfficers: Officer[]) => {
+    setOfficers(prev => [...prev, ...newOfficers]);
   };
 
   const handleEditOfficer = (officer: Officer) => {
@@ -100,10 +103,10 @@ export function OfficersStep({ onOfficersChange, initialOfficers = [] }: Officer
               Officers can help manage the election setup and administration
             </p>
           </div>
-          <Button onClick={handleAddOfficer} className="flex items-center gap-2">
-            <PlusIcon className="h-4 w-4" />
-            Add Officer
-          </Button>
+          <OfficerSelectionModal 
+            onOfficersAdded={handleOfficersAdded}
+            currentOfficers={officers}
+          />
         </div>
 
         {officers.length === 0 ? (
@@ -113,10 +116,10 @@ export function OfficersStep({ onOfficersChange, initialOfficers = [] }: Officer
             <p className="text-sm text-muted-foreground mb-4">
               You can proceed without officers, but adding them will help with election management.
             </p>
-            <Button onClick={handleAddOfficer} variant="outline">
-              <PlusIcon className="h-4 w-4 mr-2" />
-              Add Your First Officer
-            </Button>
+            <OfficerSelectionModal 
+              onOfficersAdded={handleOfficersAdded}
+              currentOfficers={officers}
+            />
           </div>
         ) : (
           <div className="border rounded-lg">

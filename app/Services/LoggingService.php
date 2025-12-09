@@ -25,7 +25,7 @@ class LoggingService
     ): AdminLog {
         $request = $request ?? request();
         $user = Auth::guard('admin')->user();
-        $election = \App\Models\ElectionStatus::first();
+        $election = \App\Models\Election::first();
 
         return AdminLog::create([
             'user_id' => $user?->id,
@@ -55,7 +55,7 @@ class LoggingService
     ): VoterLog {
         $request = $request ?? request();
         $voter = Auth::guard('voter')->user();
-        $election = \App\Models\ElectionStatus::first();
+        $election = \App\Models\Election::first();
 
         return VoterLog::create([
             'voter_id' => $voterId ?? $voter?->student_number,

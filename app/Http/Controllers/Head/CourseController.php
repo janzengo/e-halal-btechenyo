@@ -101,15 +101,13 @@ class CourseController extends Controller
     public function voters(Course $course)
     {
         $voters = $course->voters()
-            ->orderBy('lastname')
+            ->select(['id', 'student_number', 'has_voted', 'created_at'])
+            ->orderBy('student_number')
             ->get()
             ->map(function ($voter) {
                 return [
                     'id' => $voter->id,
-                    'student_id' => $voter->student_id,
-                    'firstname' => $voter->firstname,
-                    'lastname' => $voter->lastname,
-                    'year_level' => $voter->year_level,
+                    'student_number' => $voter->student_number,
                     'has_voted' => $voter->has_voted,
                     'created_at' => $voter->created_at->toISOString(),
                 ];

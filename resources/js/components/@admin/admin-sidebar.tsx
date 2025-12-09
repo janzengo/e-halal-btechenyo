@@ -29,8 +29,8 @@ import {
     Settings,
     BookOpen,
     Bug,
-    Plus, 
-
+    Plus,
+    Sparkles,
 } from 'lucide-react';
 
 interface AdminSidebarProps {

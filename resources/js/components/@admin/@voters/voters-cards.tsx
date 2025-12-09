@@ -3,15 +3,14 @@ import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import {
     MoreVertical,
-    Eye,
     Edit,
+    Trash2,
     Search,
     UserPlus,
     CheckCircle,
-    XCircle,
     GraduationCap
 } from 'lucide-react';
 import {
@@ -24,32 +23,27 @@ import { AdminRole } from '@/types/ehalal';
 
 interface Voter {
     id: number;
-    student_id: string;
-    firstname: string;
-    lastname: string;
-    email: string;
-    photo: string;
-    course: string;
-    year_level: number;
+    student_number: string;
+    course_id: number;
+    course?: string; // From relationship
     has_voted: boolean;
-    voted_at?: string;
-    status: 'active' | 'inactive';
     created_at: string;
+    updated_at: string;
 }
 
 interface VotersCardsProps {
     voters: Voter[];
     userRole: AdminRole;
-    onView?: (voter: Voter) => void;
     onEdit?: (voter: Voter) => void;
+    onDelete?: (voter: Voter) => void;
     onAddNew?: () => void;
 }
 
 export function VotersCards({ 
     voters, 
     userRole, 
-    onView, 
     onEdit, 
+    onDelete,
     onAddNew 
 }: VotersCardsProps) {
     const [searchTerm, setSearchTerm] = useState('');
@@ -64,7 +58,7 @@ export function VotersCards({
 
     // Filter voters based on search term
     const filteredVoters = voters.filter(voter => {
-        const searchableFields = `${voter.firstname} ${voter.lastname} ${voter.email} ${voter.student_id} ${voter.course}`.toLowerCase();
+        const searchableFields = `${voter.student_number} ${voter.course || ''}`.toLowerCase();
         return searchableFields.includes(searchTerm.toLowerCase());
     });
 
@@ -119,14 +113,13 @@ export function VotersCards({
                                 <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-3">
                                         <Avatar className="h-12 w-12">
-                                            <AvatarImage src={voter.photo} alt={`${voter.firstname} ${voter.lastname}`} />
                                             <AvatarFallback className="bg-green-100 text-green-700">
-                                                {voter.firstname[0]}{voter.lastname[0]}
+                                                {voter.student_number.slice(-2)}
                                             </AvatarFallback>
                                         </Avatar>
                                         <div>
-                                            <h3 className="font-semibold text-gray-900">{voter.firstname} {voter.lastname}</h3>
-                                            <p className="text-sm text-gray-500">{voter.student_id}</p>
+                                            <h3 className="font-semibold text-gray-900">{voter.student_number}</h3>
+                                            <p className="text-sm text-gray-500">{voter.student_number}@btech.ph.education</p>
                                         </div>
                                     </div>
                                     {isHead && (
@@ -137,13 +130,20 @@ export function VotersCards({
                                                 </Button>
                                             </DropdownMenuTrigger>
                                             <DropdownMenuContent align="end">
-                                                <DropdownMenuItem onClick={() => onView?.(voter)}>
-                                                    <Eye className="h-4 w-4 mr-2" />
-                                                    View Details
-                                                </DropdownMenuItem>
-                                                <DropdownMenuItem onClick={() => onEdit?.(voter)}>
+                                                <DropdownMenuItem 
+                                                    onClick={() => onEdit?.(voter)}
+                                                    disabled={voter.has_voted}
+                                                >
                                                     <Edit className="h-4 w-4 mr-2" />
-                                                    Edit
+                                                    Edit Voter
+                                                </DropdownMenuItem>
+                                                <DropdownMenuItem 
+                                                    onClick={() => onDelete?.(voter)}
+                                                    disabled={voter.has_voted}
+                                                    className="text-red-600 focus:text-red-600"
+                                                >
+                                                    <Trash2 className="h-4 w-4 mr-2" />
+                                                    Delete Voter
                                                 </DropdownMenuItem>
                                             </DropdownMenuContent>
                                         </DropdownMenu>
@@ -155,30 +155,23 @@ export function VotersCards({
                                     <Badge variant={voter.has_voted ? 'default' : 'secondary'}>
                                         {voter.has_voted ? 'Voted' : 'Not Voted'}
                                     </Badge>
-                                    <Badge variant={voter.status === 'active' ? 'default' : 'secondary'}>
-                                        {voter.status}
-                                    </Badge>
                                 </div>
                                 
                                 <div className="space-y-2 text-sm">
                                     <div className="flex items-center gap-2">
                                         <GraduationCap className="h-4 w-4 text-gray-400" />
                                         <span className="text-gray-500">Course:</span>
-                                        <span className="font-medium">{voter.course}</span>
+                                        <span className="font-medium">{voter.course || 'Unknown Course'}</span>
                                     </div>
                                     <div className="flex justify-between">
-                                        <span className="text-gray-500">Year Level:</span>
-                                        <span className="font-medium">{voter.year_level}</span>
+                                        <span className="text-gray-500">Registered:</span>
+                                        <span className="font-medium text-xs">{new Date(voter.created_at).toLocaleDateString()}</span>
                                     </div>
-                                    <div className="flex justify-between">
-                                        <span className="text-gray-500">Email:</span>
-                                        <span className="font-medium text-xs truncate max-w-32">{voter.email}</span>
-                                    </div>
-                                    {voter.voted_at && (
+                                    {voter.has_voted && (
                                         <div className="flex items-center gap-2 pt-2 border-t border-gray-100">
                                             <CheckCircle className="h-4 w-4 text-green-500" />
                                             <span className="text-xs text-gray-500">
-                                                Voted: {new Date(voter.voted_at).toLocaleDateString()}
+                                                Has voted in election
                                             </span>
                                         </div>
                                     )}

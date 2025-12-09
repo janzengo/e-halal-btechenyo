@@ -13,7 +13,7 @@ export function AppContent({
     if (variant === 'sidebar') {
         return (
             <SidebarInset {...props}>
-                <div className="flex flex-col gap-6 p-6 md:p-8 lg:p-10">
+                <div className="flex flex-col gap-6 p-2">
                     {children}
                 </div>
             </SidebarInset>

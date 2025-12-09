@@ -44,7 +44,7 @@ class AdminLog extends Model
      */
     public function election(): BelongsTo
     {
-        return $this->belongsTo(ElectionStatus::class, 'election_id', 'id');
+        return $this->belongsTo(Election::class, 'election_id', 'id');
     }
 
     /**

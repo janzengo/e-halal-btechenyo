@@ -35,7 +35,7 @@ export default function HeadPartylists() {
     const [searchTerm, setSearchTerm] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
     const { isPageLoading } = useLoading();
-    
+
     // Form state
     const [formOpen, setFormOpen] = useState(false);
     const [editingPartylist, setEditingPartylist] = useState<Partylist | null>(null);
@@ -49,7 +49,7 @@ export default function HeadPartylists() {
             toast.error(flash.error);
         }
     }, [flash]);
-    
+
     // View candidates state
     const [viewDialogOpen, setViewDialogOpen] = useState(false);
     const [selectedPartylist, setSelectedPartylist] = useState<Partylist | null>(null);
@@ -111,7 +111,7 @@ export default function HeadPartylists() {
         setSelectedPartylist(partylist);
         setViewDialogOpen(true);
         setCandidatesLoading(true);
-        
+
         try {
             // Fetch candidates for this partylist
             const response = await fetch(`/head/partylists/${partylist.id}/candidates`);
@@ -190,7 +190,7 @@ export default function HeadPartylists() {
                             setCurrentPage(1);
                         }}
                     />
-                    
+
                     <div>
                         <PartylistsCards
                             partylists={partylists.map(p => ({
