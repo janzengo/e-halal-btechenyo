@@ -27,7 +27,7 @@ class EnsureElectionExists
 
         if (!$election) {
             // No election exists, redirect to setup
-            return redirect()->route('head.setup.index');
+            return redirect()->route('head.setup');
         }
 
         return $next($request);
