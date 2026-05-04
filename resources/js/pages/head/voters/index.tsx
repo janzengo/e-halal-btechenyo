@@ -49,15 +49,7 @@ export default function HeadVoters() {
     const [bulkDeleteLoading, setBulkDeleteLoading] = useState(false);
     const [downloadingTemplate, setDownloadingTemplate] = useState(false);
 
-    // Handle flash messages
-    useEffect(() => {
-        if (flash?.success) {
-            toast.success(flash.success);
-        }
-        if (flash?.error) {
-            toast.error(flash.error);
-        }
-    }, [flash]);
+    // Flash messages are handled globally in FlashToaster
 
 
 

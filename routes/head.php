@@ -139,6 +139,8 @@ Route::prefix('head')->name('head.')->middleware(['auth.admin', 'role.head', 'el
             'electionStatus' => $electionStatus,
             'voteDistribution' => $voteDistribution,
             'electionName' => $currentElection?->election_name ?? 'No Active Election',
+            'lastStatusChange' => $currentElection?->last_status_change?->toISOString(),
+            'endTime' => $currentElection?->end_time?->toISOString(),
         ]);
     })->name('dashboard');
 
@@ -480,6 +482,12 @@ Route::prefix('head')->name('head.')->middleware(['auth.admin', 'role.head', 'el
     Route::get('/settings/profile', function () {
         return Inertia::render('head/settings/profile');
     })->name('settings.profile');
+
+    Route::post('/settings/profile', [\App\Http\Controllers\Head\Settings\ProfileController::class, 'update'])
+        ->name('settings.profile.update');
+
+    Route::post('/settings/profile/avatar', [\App\Http\Controllers\Head\Settings\ProfileController::class, 'updateAvatar'])
+        ->name('settings.profile.avatar.update');
 
     Route::get('/settings/password', function () {
         return Inertia::render('head/settings/password');

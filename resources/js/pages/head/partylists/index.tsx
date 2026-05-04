@@ -40,15 +40,7 @@ export default function HeadPartylists() {
     const [formOpen, setFormOpen] = useState(false);
     const [editingPartylist, setEditingPartylist] = useState<Partylist | null>(null);
 
-    // Handle flash messages
-    useEffect(() => {
-        if (flash?.success) {
-            toast.success(flash.success);
-        }
-        if (flash?.error) {
-            toast.error(flash.error);
-        }
-    }, [flash]);
+    // Flash messages are handled globally in FlashToaster
 
     // View candidates state
     const [viewDialogOpen, setViewDialogOpen] = useState(false);
@@ -193,12 +185,7 @@ export default function HeadPartylists() {
 
                     <div>
                         <PartylistsCards
-                            partylists={partylists.map(p => ({
-                                ...p,
-                                status: 'active' as const,
-                                created_at: p.created_at || new Date().toISOString(),
-                                updated_at: p.updated_at || new Date().toISOString()
-                            }))}
+                            partylists={partylists}
                             userRole="head"
                             onEdit={handleEdit}
                             onDelete={handleDelete}

@@ -80,20 +80,7 @@ export default function HeadElections() {
             ) : (
                 <div>
                     <HistoryCards
-                        elections={elections.map((e): Election => ({
-                            id: e.id,
-                            title: e.title,
-                            description: `Control Number: ${e.control_number}`,
-                            start_date: e.created_at || new Date().toISOString(),
-                            end_date: e.end_time || new Date().toISOString(),
-                            status: e.status as 'completed' | 'active' | 'pending' | 'setup',
-                            total_voters: 0,
-                            votes_cast: 0,
-                            positions_count: 0,
-                            candidates_count: 0,
-                            created_at: e.created_at || new Date().toISOString(),
-                            completed_at: e.end_time
-                        }))}
+                        elections={elections}
                         userRole="head"
                         onView={handleView}
                         onExport={handleExport}

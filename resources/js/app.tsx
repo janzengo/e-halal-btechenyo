@@ -4,6 +4,7 @@ import { createInertiaApp } from '@inertiajs/react';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { createRoot } from 'react-dom/client';
 import { Toaster } from '@/components/ui/sonner';
+import { FlashToaster } from '@/components/flash-toaster';
 import { LoadingProvider } from '@/contexts/loading-context';
 import { SkeletonProvider } from '@/components/@admin/@loading/skeleton-provider';
 

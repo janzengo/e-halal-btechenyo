@@ -25,15 +25,15 @@ import { AdminRole } from '@/types/ehalal';
 interface Election {
     id: number;
     title: string;
-    description: string;
-    start_date: string;
-    end_date: string;
-    status: 'completed' | 'active' | 'pending' | 'setup';
-    total_voters: number;
-    votes_cast: number;
-    positions_count: number;
-    candidates_count: number;
-    created_at: string;
+    description?: string;
+    start_date?: string;
+    end_date?: string;
+    status?: 'completed' | 'active' | 'pending' | 'setup' | string;
+    total_voters?: number;
+    votes_cast?: number;
+    positions_count?: number;
+    candidates_count?: number;
+    created_at?: string;
     completed_at?: string;
 }
 
@@ -72,7 +72,7 @@ export function HistoryCards({
     const startIndex = (safePage - 1) * itemsPerPage;
     const paginatedElections = filteredElections.slice(startIndex, startIndex + itemsPerPage);
 
-    const getStatusStyles = (status: string) => {
+    const getStatusStyles = (status?: string) => {
         switch (status) {
             case 'completed':
                 return 'text-white bg-green-600 border-green-600';
@@ -87,8 +87,8 @@ export function HistoryCards({
         }
     };
 
-    const getVotingRate = (votesCast: number, totalVoters: number) => {
-        if (totalVoters === 0) return 0;
+    const getVotingRate = (votesCast?: number, totalVoters?: number) => {
+        if (!totalVoters || totalVoters === 0 || !votesCast) return 0;
         return Math.round((votesCast / totalVoters) * 100);
     };
 
@@ -135,9 +135,11 @@ export function HistoryCards({
                                         </div>
                                         <div>
                                             <h3 className="font-semibold text-gray-900">{election.title}</h3>
-                                            <p className="text-sm text-gray-500">
-                                                {new Date(election.start_date).getFullYear()}
-                                            </p>
+                                            {election.start_date && (
+                                                <p className="text-sm text-gray-500">
+                                                    {new Date(election.start_date).getFullYear()}
+                                                </p>
+                                            )}
                                         </div>
                                     </div>
                                     <DropdownMenu>
@@ -163,12 +165,14 @@ export function HistoryCards({
                             </CardHeader>
                             <CardContent className="space-y-3">
                                 <div className="flex items-center justify-between">
-                                    <Badge 
-                                        variant="outline"
-                                        className={getStatusStyles(election.status)}
-                                    >
-                                        {election.status}
-                                    </Badge>
+                                    {election.status && (
+                                        <Badge 
+                                            variant="outline"
+                                            className={getStatusStyles(election.status)}
+                                        >
+                                            {election.status}
+                                        </Badge>
+                                    )}
                                     <div className="text-sm text-muted-foreground">
                                         {getVotingRate(election.votes_cast, election.total_voters)}% voted
                                     </div>
@@ -182,7 +186,9 @@ export function HistoryCards({
                                     <div className="flex items-center justify-between">
                                         <span className="text-gray-500">Period:</span>
                                         <span className="font-medium">
-                                            {new Date(election.start_date).toLocaleDateString()} - {new Date(election.end_date).toLocaleDateString()}
+                                            {election.start_date ? new Date(election.start_date).toLocaleDateString() : '—'}
+                                            {' '} - {' '}
+                                            {election.end_date ? new Date(election.end_date).toLocaleDateString() : '—'}
                                         </span>
                                     </div>
                                     <div className="flex items-center justify-between">
@@ -199,13 +205,13 @@ export function HistoryCards({
                                     <div className="flex items-center gap-2">
                                         <Award className="h-4 w-4 text-gray-400" />
                                         <span className="text-sm font-medium text-gray-600">
-                                            {election.positions_count} positions
+                                            {election.positions_count ?? 0} positions
                                         </span>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <Users className="h-4 w-4 text-gray-400" />
                                         <span className="text-sm font-medium text-gray-600">
-                                            {election.candidates_count} candidates
+                                            {election.candidates_count ?? 0} candidates
                                         </span>
                                     </div>
                                 </div>

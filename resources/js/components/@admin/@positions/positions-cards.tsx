@@ -34,12 +34,12 @@ import { AdminRole } from '@/types/ehalal';
 interface Position {
     id: number;
     title: string;
-    description: string;
+    description?: string;
     max_winners: number;
     candidates_count: number;
-    status: 'active' | 'inactive';
-    created_at: string;
-    updated_at: string;
+    status?: 'active' | 'inactive';
+    created_at?: string;
+    updated_at?: string;
 }
 
 interface PositionsCardsProps {
@@ -100,7 +100,7 @@ export function PositionsCards({
 
     // Filter positions based on search term
     const filteredPositions = positions.filter(position => {
-        const searchableFields = `${position.title} ${position.description}`.toLowerCase();
+        const searchableFields = `${position.title} ${position.description ?? ''}`.toLowerCase();
         return searchableFields.includes(searchTerm.toLowerCase());
     });
 
@@ -149,9 +149,11 @@ export function PositionsCards({
                                         </div>
                                         <div>
                                             <h3 className="font-semibold text-gray-900">{position.title}</h3>
-                                            <p className="text-sm text-gray-500">
-                                                Created {new Date(position.created_at).toLocaleDateString()}
-                                            </p>
+                                            {position.created_at && (
+                                                <p className="text-sm text-gray-500">
+                                                    Created {new Date(position.created_at).toLocaleDateString()}
+                                                </p>
+                                            )}
                                         </div>
                                     </div>
                                     {isHead && (

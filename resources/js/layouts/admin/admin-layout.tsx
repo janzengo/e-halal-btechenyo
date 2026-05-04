@@ -5,6 +5,7 @@ import { AdminAppHeader } from '@/components/@admin/admin-app-header';
 import { AdminRole } from '@/types/ehalal';
 import { type BreadcrumbItem } from '@/types';
 import { type ReactNode } from 'react';
+import { FlashToaster } from '@/components/flash-toaster';
 
 interface AdminLayoutProps {
     children: ReactNode;
@@ -25,6 +26,8 @@ export default function AdminLayout({
                 <AdminAppHeader breadcrumbs={breadcrumbs} userRole={userRole} />
                 <div className="flex flex-col gap-6 p-6 md:p-8 lg:p-10 flex-1">
                     {children}
+                    {/* Flash messages from server are handled here to ensure usePage context is available */}
+                    <FlashToaster />
                 </div>
             </AppContent>
         </AppShell>

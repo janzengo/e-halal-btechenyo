@@ -19,15 +19,7 @@ export default function AdminLogin({ flash }: AdminLoginProps) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
-    // Show flash messages if provided
-    useEffect(() => {
-        if (flash?.success) {
-            toast.success(flash.success);
-        }
-        if (flash?.error) {
-            toast.error(flash.error);
-        }
-    }, [flash]);
+    // Flash messages are handled globally in FlashToaster
 
     const config = {
         icon: Shield,

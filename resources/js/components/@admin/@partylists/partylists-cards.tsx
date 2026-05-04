@@ -36,9 +36,10 @@ interface Partylist {
     color: string;
     platform?: string;
     candidates_count: number;
-    status: 'active' | 'inactive';
-    created_at: string;
-    updated_at: string;
+    // Optional fields if backend does not provide
+    status?: 'active' | 'inactive';
+    created_at?: string;
+    updated_at?: string;
 }
 
 interface PartylistsCardsProps {
@@ -148,7 +149,7 @@ export function PartylistsCards({
                                         </div>
                                         <div>
                                             <h3 className="font-semibold text-gray-900">{partylist.name}</h3>
-                                            <p className="text-sm text-gray-500 font-mono">{partylist.acronym}</p>
+                                            <p className="text-sm text-gray-500 font-mono">{partylist.name.split(/\s+/).map(w => w[0]).join('').toUpperCase()}</p>
                                         </div>
                                     </div>
                                     {isHead && (

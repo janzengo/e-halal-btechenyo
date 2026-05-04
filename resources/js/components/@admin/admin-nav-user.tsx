@@ -15,7 +15,6 @@ import { useIsMobile } from '@/hooks/use-mobile';
 import { AdminRole } from '@/types/ehalal';
 import { ChevronsUpDown, LogOut, Settings, Clock } from 'lucide-react';
 import { router, useForm, usePage } from '@inertiajs/react';
-import { toast } from 'sonner';
 
 interface AdminNavUserProps {
     userRole: AdminRole;
@@ -41,7 +40,11 @@ export function AdminNavUser({ userRole }: AdminNavUserProps) {
     const user = auth.user ? {
         name: `${auth.user.firstname} ${auth.user.lastname}`,
         email: auth.user.email,
-        avatar: auth.user.photo ? `/storage/${auth.user.photo}` : undefined,
+        avatar: auth.user.photo 
+            ? (auth.user.photo.startsWith('/storage/') 
+                ? auth.user.photo 
+                : `/storage/${auth.user.photo}`)
+            : undefined,
         role: auth.user.role
     } : {
         name: userRole === 'head' ? 'Electoral Head' : 'Election Officer',
@@ -62,10 +65,10 @@ export function AdminNavUser({ userRole }: AdminNavUserProps) {
                 // Clear session storage to reset login toast flags
                 sessionStorage.removeItem('head-login-toast-shown');
                 sessionStorage.removeItem('officer-login-toast-shown');
-                toast.success('Logged out successfully!');
+                // Server will redirect with a flash message which is handled globally
             },
             onError: () => {
-                toast.error('Logout failed. Please try again.');
+                // Errors will be handled by server or can be surfaced via form errors
             }
         });
     };

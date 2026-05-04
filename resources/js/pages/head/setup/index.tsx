@@ -8,6 +8,18 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Badge } from '@/components/ui/badge';
+import { Spinner } from '@/components/ui/spinner';
+import {
+  AlertDialog,
+  AlertDialogTrigger,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogCancel,
+  AlertDialogAction,
+} from '@/components/ui/alert-dialog';
 import AdminSetupLayout from '@/layouts/admin/admin-setup-layout';
 import { toast } from 'sonner';
 
@@ -74,14 +86,7 @@ export default function SetupPage() {
   const [isLoaded, setIsLoaded] = useState(false);
 
   // Handle flash messages
-  useEffect(() => {
-    if (flash?.success) {
-      toast.success(flash.success);
-    }
-    if (flash?.error) {
-      toast.error(flash.error);
-    }
-  }, [flash]);
+  // Flash messages are handled globally in FlashToaster
 
   // Check authentication and load data from browser storage on mount
   useEffect(() => {
@@ -383,15 +388,55 @@ export default function SetupPage() {
                       >
                         Previous
                       </Button>
-                      <Button
-                        type="button"
-                        onClick={handleCompleteSetup}
-                        disabled={!electionData.isValid || isSubmitting}
-                        variant="outlinePrimary"
-                      >
-                        {isSubmitting ? 'Completing Setup...' : 'Complete Setup'}
-                        <ArrowRightIcon className="w-4 h-4" />
-                      </Button>
+                      <AlertDialog>
+                        <AlertDialogTrigger asChild>
+                          <Button
+                            type="button"
+                            disabled={!electionData.isValid || isSubmitting}
+                            variant="outlinePrimary"
+                          >
+                            {isSubmitting ? (
+                              <>
+                                <Spinner className="w-4 h-4" />
+                                Completing Setup...
+                              </>
+                            ) : (
+                              <>
+                                Complete Setup
+                                <ArrowRightIcon className="w-4 h-4" />
+                              </>
+                            )}
+                          </Button>
+                        </AlertDialogTrigger>
+                        <AlertDialogContent>
+                          <AlertDialogHeader>
+                            <AlertDialogTitle>Confirm to complete setup</AlertDialogTitle>
+                            <AlertDialogDescription>
+                              This will create the election with status "pending" using the provided configuration. 
+                              You won’t be able to create another election until this one is completed or archived.
+                            </AlertDialogDescription>
+                          </AlertDialogHeader>
+                          <AlertDialogFooter>
+                            <AlertDialogCancel disabled={isSubmitting}>Cancel</AlertDialogCancel>
+                            <AlertDialogAction
+                              onClick={(e) => {
+                                e.preventDefault();
+                                handleCompleteSetup();
+                              }}
+                              disabled={isSubmitting}
+                            >
+                              {isSubmitting ? (
+                                <>
+                                  <Spinner className="w-4 h-4" />
+                                  Creating...
+                                </>
+                              ) : (
+                                'Yes, complete setup'
+                              )}
+                            </AlertDialogAction>
+                          </AlertDialogFooter>
+                        </AlertDialogContent>
+                      </AlertDialog>
                     </Stepper.Controls>
                   </Stepper.Panel>
                 ),

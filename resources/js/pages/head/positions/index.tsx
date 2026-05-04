@@ -40,15 +40,7 @@ export default function HeadPositions() {
     const [formOpen, setFormOpen] = useState(false);
     const [editingPosition, setEditingPosition] = useState<Position | null>(null);
 
-    // Handle flash messages
-    useEffect(() => {
-        if (flash?.success) {
-            toast.success(flash.success);
-        }
-        if (flash?.error) {
-            toast.error(flash.error);
-        }
-    }, [flash]);
+    // Flash messages are handled globally in FlashToaster
 
     // View candidates state
     const [viewDialogOpen, setViewDialogOpen] = useState(false);
@@ -183,13 +175,7 @@ export default function HeadPositions() {
                     
                     <div>
                         <PositionsCards
-                            positions={positions.map(p => ({
-                                ...p,
-                                description: p.title,
-                                status: 'active' as const,
-                                created_at: p.created_at || new Date().toISOString(),
-                                updated_at: p.updated_at || new Date().toISOString()
-                            }))}
+                            positions={positions}
                             userRole="head"
                             onViewCandidates={handleViewCandidates}
                             onEdit={handleEdit}

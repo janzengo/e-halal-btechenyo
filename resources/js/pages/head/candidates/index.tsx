@@ -184,7 +184,7 @@ export default function HeadCandidates() {
                         <CandidatesCards
                             candidates={candidates.map(c => ({
                                 ...c,
-                                status: 'active' as const
+                                status: c.status as any
                             }))}
                             userRole="head"
                             onView={handleView}

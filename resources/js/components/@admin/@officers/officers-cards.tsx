@@ -25,11 +25,11 @@ interface Officer {
     email: string;
     firstname: string;
     lastname: string;
-    photo: string;
-    role: 'officer';
-    status: 'active' | 'inactive';
-    last_login: string;
-    created_at: string;
+    photo?: string;
+    role?: string;
+    status?: 'active' | 'inactive';
+    last_login?: string;
+    created_at?: string;
 }
 
 interface OfficersCardsProps {
@@ -99,7 +99,7 @@ export function OfficersCards({
                                     <div className="flex items-center gap-3">
                                         <Avatar className="h-12 w-12">
                                             <AvatarImage 
-                                                src={officer.photo.startsWith('/storage/') ? officer.photo : `/storage/${officer.photo}`} 
+                                                src={officer.photo ? (officer.photo.startsWith('/storage/') ? officer.photo : `/storage/${officer.photo}`) : undefined} 
                                                 alt={`${officer.firstname} ${officer.lastname}`} 
                                             />
                                             <AvatarFallback className="bg-green-100 text-green-700">
@@ -143,11 +143,13 @@ export function OfficersCards({
                             <CardContent className="space-y-3">
                                 <div className="flex items-center justify-between">
                                     <Badge variant={officer.status === 'active' ? 'default' : 'secondary'}>
-                                        {officer.status}
+                                        {officer.status ?? 'unknown'}
                                     </Badge>
-                                    <Badge variant="outline" className="border-green-200 text-green-700">
-                                        {officer.role}
-                                    </Badge>
+                                    {officer.role && (
+                                        <Badge variant="outline" className="border-green-200 text-green-700">
+                                            {officer.role}
+                                        </Badge>
+                                    )}
                                 </div>
                                 
                                 <div className="space-y-2 text-sm">
@@ -155,18 +157,22 @@ export function OfficersCards({
                                         <span className="text-gray-500">Email:</span>
                                         <span className="font-medium text-xs truncate max-w-32">{officer.email}</span>
                                     </div>
-                                    <div className="flex justify-between">
-                                        <span className="text-gray-500">Created:</span>
-                                        <span className="font-medium">{new Date(officer.created_at).toLocaleDateString()}</span>
-                                    </div>
+                                    {officer.created_at && (
+                                        <div className="flex justify-between">
+                                            <span className="text-gray-500">Created:</span>
+                                            <span className="font-medium">{new Date(officer.created_at).toLocaleDateString()}</span>
+                                        </div>
+                                    )}
                                 </div>
                                 
-                                <div className="flex items-center gap-2 pt-2 border-t border-gray-100">
-                                    <Clock className="h-4 w-4 text-gray-400" />
-                                    <span className="text-xs text-gray-500">
-                                        Last login: {new Date(officer.last_login).toLocaleString()}
-                                    </span>
-                                </div>
+                                {officer.last_login && (
+                                    <div className="flex items-center gap-2 pt-2 border-t border-gray-100">
+                                        <Clock className="h-4 w-4 text-gray-400" />
+                                        <span className="text-xs text-gray-500">
+                                            Last login: {new Date(officer.last_login).toLocaleString()}
+                                        </span>
+                                    </div>
+                                )}
                             </CardContent>
                         </Card>
                     ))}

@@ -41,15 +41,7 @@ export default function HeadOfficers() {
     const [formOpen, setFormOpen] = useState(false);
     const [loading, setLoading] = useState(false);
 
-    // Handle flash messages
-    useEffect(() => {
-        if (flash?.success) {
-            toast.success(flash.success);
-        }
-        if (flash?.error) {
-            toast.error(flash.error);
-        }
-    }, [flash]);
+    // Flash messages are handled globally in FlashToaster
 
     const handleAddNew = () => {
         setFormOpen(true);
@@ -143,18 +135,7 @@ export default function HeadOfficers() {
                 <div>
                     {/* Officers Cards */}
                     <OfficersCards
-                        officers={officers.map(o => ({
-                            id: o.id,
-                            username: o.username,
-                            email: o.email,
-                            firstname: o.firstname,
-                            lastname: o.lastname,
-                            photo: o.photo || '/images/profile.jpg',
-                            role: 'officer' as const,
-                            status: 'active' as const,
-                            last_login: o.created_at || new Date().toISOString(),
-                            created_at: o.created_at || new Date().toISOString()
-                        }))}
+                        officers={officers}
                         userRole="head"
                         onAddNew={handleAddNew}
                         onToggleStatus={handleToggleStatus}
